@@ -6,7 +6,6 @@ import { useState, useEffect, useRef, useCallback, type ReactNode } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowUpRight, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
-import { RevealWaveImage } from "@/components/ui/reveal-wave-image"
 import { articles, getReadingTime } from "@/lib/articles"
 
 /* ─── Data ─────────────────────────────────────────── */
@@ -354,16 +353,12 @@ function WorkSection() {
                     />
                     <div className="relative overflow-hidden rounded-2xl bg-primary transition-shadow duration-500 group-hover:shadow-2xl">
                       {project.featureImage ? (
-                        <RevealWaveImage
+                        <Image
                           src={project.featureImage}
-                          className="aspect-[16/10] w-full"
-                          waveSpeed={0.2}
-                          waveFrequency={0.7}
-                          waveAmplitude={0.5}
-                          revealRadius={0.5}
-                          revealSoftness={1}
-                          pixelSize={2}
-                          mouseRadius={0.4}
+                          alt={project.featureImageAlt || project.title}
+                          width={900}
+                          height={562}
+                          className="cs-card-img aspect-[16/10] w-full object-cover"
                         />
                       ) : (
                         <div className="cs-card-img flex aspect-[16/10] items-center justify-center">
@@ -395,16 +390,12 @@ function WorkSection() {
               <Link href={`/highlights/${project.slug}`} className="group block">
                 <div className="relative overflow-hidden rounded-xl bg-primary transition-shadow duration-500 group-hover:shadow-xl">
                   {project.featureImage ? (
-                    <RevealWaveImage
+                    <Image
                       src={project.featureImage}
-                      className="aspect-[16/10] w-full"
-                      waveSpeed={0.2}
-                      waveFrequency={0.7}
-                      waveAmplitude={0.5}
-                      revealRadius={0.5}
-                      revealSoftness={1}
-                      pixelSize={2}
-                      mouseRadius={0.4}
+                      alt={project.featureImageAlt || project.title}
+                      width={600}
+                      height={375}
+                      className="hl-card-img aspect-[16/10] w-full object-cover"
                     />
                   ) : (
                     <div className="hl-card-img flex aspect-[16/10] items-center justify-center">
