@@ -72,7 +72,7 @@ export const clientNames = [
   "Dipa Art School",
   "Split Fitness",
   "Alfy Marble",
-  "Alinour Skincare",
+  "Alienor Skincare",
   "Agfin",
   "Taptools",
   "Freelancer.com",

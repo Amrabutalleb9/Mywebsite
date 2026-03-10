@@ -34,45 +34,46 @@ export default function MainNav() {
   }, [mobileOpen])
 
   return (
-    <header
-      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
-        scrolled ? "border-b border-border bg-background/90 backdrop-blur-md" : "bg-transparent"
-      }`}
-    >
-      <nav className="flex items-center justify-between px-8 py-5 lg:px-16">
-        <Link href="/" className="text-lg font-bold tracking-tight text-foreground lg:text-xl">
-          Amr Abu-Talleb
-        </Link>
-        <div className="hidden items-center gap-10 md:flex">
-          {navItems.map((item) => (
+    <>
+      <header
+        className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
+          scrolled ? "border-b border-border bg-background/90 backdrop-blur-md" : "bg-transparent"
+        }`}
+      >
+        <nav className="flex items-center justify-between px-8 py-5 lg:px-16">
+          <Link href="/" className="text-lg font-bold tracking-tight text-foreground lg:text-xl">
+            Amr Abu-Talleb
+          </Link>
+          <div className="hidden items-center gap-10 md:flex">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {item.label}
+              </Link>
+            ))}
             <Link
-              key={item.href}
-              href={item.href}
+              href="/#contact"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
-              {item.label}
+              {"Let\u2019s Talk"}
             </Link>
-          ))}
-          <Link
-            href="#contact"
-            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+          </div>
+          <button
+            type="button"
+            className="text-foreground md:hidden"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
           >
-            {"Let\u2019s Talk"}
-          </Link>
-        </div>
-        <button
-          type="button"
-          className="text-foreground md:hidden"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </nav>
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </nav>
+      </header>
 
-      {/* Mobile overlay - fixed fullscreen, no scroll */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 bg-background md:hidden">
+        <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-8 bg-background md:hidden">
           <button
             type="button"
             className="absolute top-5 right-6 text-foreground"
@@ -92,7 +93,7 @@ export default function MainNav() {
             </Link>
           ))}
           <Link
-            href="#contact"
+            href="/#contact"
             onClick={() => setMobileOpen(false)}
             className="font-serif text-3xl text-foreground"
           >
@@ -100,6 +101,6 @@ export default function MainNav() {
           </Link>
         </div>
       )}
-    </header>
+    </>
   )
 }

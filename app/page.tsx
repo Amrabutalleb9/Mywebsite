@@ -54,7 +54,7 @@ const capabilities = [
 
 const clientNames = [
   "The Line Real Estate", "Overpowered Agency", "Steven Hodel", "Dipa Art School", "Split Fitness",
-  "Alfy Marble", "Alinour Skincare", "Agfin", "Taptools", "ADRAW",
+  "Alfy Marble", "Alienor Skincare", "Agfin", "Taptools", "ADRAW",
   "Freelancer.com", "Like a Nerd", "Edge Holdings", "Gwelly Law Firm", "Ezz Law Firm",
 ]
 
@@ -74,7 +74,7 @@ const caseStudyCards = [
 const highlightCards = [
   { slug: "alfy", num: "05", title: "Alfy", subtitle: "Repositioning a luxury marble brand for B2B impact", result: "70% engagement increase", year: "2025", category: "Campaign Strategy", role: "Creative Director at Overpowered", featureImage: "/images/alfy-feature.png", featureImageAlt: "El Alfy Saraya luxury marble brand website hero" },
   { slug: "steve-hodel", num: "06", title: "As Within, So Without, Steven Hodel", subtitle: "Designing a 212-page illustrated volume for a NYT bestselling author", result: "212 pages \u00B7 130+ images \u00B7 Print-ready", year: "2025", category: "Editorial Design", role: "Book Designer (sole designer)", featureImage: "/images/steve-hodel-feature.png", featureImageAlt: "As Within, So Without by Steve Hodel, hardcover book on desk" },
-  { slug: "alinour", num: "07", title: "Alinour", subtitle: "Premium skincare brand identity & packaging", result: "Full brand identity system", year: "2022", category: "Brand & Packaging", role: "Creative Director & Brand Designer", featureImage: "/images/alinour-feature.png", featureImageAlt: "Alinour skincare brand identity with elegant serif logotype" },
+  { slug: "alienor", num: "07", title: "Alienor", subtitle: "Premium skincare brand identity & packaging", result: "Full brand identity system", year: "2022", category: "Brand & Packaging", role: "Creative Director & Brand Designer", featureImage: "/images/alienor-feature.png", featureImageAlt: "Alienor skincare brand identity with elegant serif logotype" },
 ]
 
 /* ─── Sub-header component ───────────────────────── */
@@ -628,31 +628,6 @@ function About() {
             </Link>
           </div>
         </Section>
-      </div>
-    </section>
-  )
-}
-
-/* ─── What I Do ──────────────────────────────────── */
-
-function WhatIDo() {
-  return (
-    <section className="px-8 py-24 lg:px-16 lg:py-32">
-      <Section>
-        <SubHeader label="My Skills" />
-        <h2 className="mb-12 font-serif text-[clamp(2rem,4vw,3.5rem)] font-normal tracking-tight text-foreground">
-          What I Do
-        </h2>
-      </Section>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {capabilities.map((cap, i) => (
-          <Section key={cap.title} delay={i * 0.06}>
-            <div className="rounded-sm bg-surface p-6 lg:p-8">
-              <h3 className="mb-3 font-medium text-foreground">{cap.title}</h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">{cap.desc}</p>
-            </div>
-          </Section>
-        ))}
       </div>
     </section>
   )

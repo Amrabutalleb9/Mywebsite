@@ -3,6 +3,8 @@
 import React, { useState } from "react"
 import { Linkedin } from "lucide-react"
 
+const WEB3FORMS_KEY = "b13517be-486e-4aa3-b064-eeb0e5f25951"
+
 const socialLinks = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/abutalleb/", icon: Linkedin },
 ]
@@ -19,39 +21,31 @@ export default function ContactPage() {
     setError("")
 
     try {
-      const res = await fetch("https://formsubmit.co/ajax/hello@amrabutalleb.com", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
           name: form.name,
           email: form.email,
           budget: form.budget || "Not specified",
           message: form.message,
-          _subject: `Portfolio inquiry from ${form.name}`,
-          _cc: "senchikudo@gmail.com",
+          subject: `Portfolio inquiry from ${form.name}`,
         }),
       })
 
-      if (res.ok) {
+      const data = await res.json()
+
+      if (data.success) {
         setSubmitted(true)
       } else {
-        openMailto()
-        setSubmitted(true)
+        setError("Something went wrong. Please try emailing me directly.")
       }
     } catch {
-      openMailto()
-      setSubmitted(true)
+      setError("Network error. Please try emailing me directly.")
     } finally {
       setSending(false)
     }
-  }
-
-  function openMailto() {
-    const subject = encodeURIComponent(`Portfolio inquiry from ${form.name}`)
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\nBudget: ${form.budget || "Not specified"}\n\n${form.message}`
-    )
-    window.location.href = `mailto:hello@amrabutalleb.com,senchikudo@gmail.com?subject=${subject}&body=${body}`
   }
 
   return (

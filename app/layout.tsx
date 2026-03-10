@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Amr Abu-Talleb | Creative Director \u00B7 Dubai",
     description:
-      "Creative Director with 13+ years in brand strategy, UI/UX, and art direction across the UAE, UK, USA, Australia, Singapore, and Canada.",
+      "Creative Director with 13+ years in brand strategy, UI/UX, and art direction across the UAE, UK, USA, and Europe. Open to senior roles in Dubai.",
     images: ["/images/amr-portrait.png"],
   },
   robots: {
@@ -104,7 +104,6 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
       <head>
         <link rel="manifest" href="/manifest.json" />
-        <link rel="alternate" type="application/rss+xml" title="Amr Abu-Talleb | Articles" href="/feed.xml" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
