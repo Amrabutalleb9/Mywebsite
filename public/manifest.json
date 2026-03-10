@@ -1,0 +1,21 @@
+{
+  "name": "Amr Abu-Talleb | Creative Director",
+  "short_name": "Amr Abu-Talleb",
+  "description": "Creative Director and Brand Strategist based in Dubai. Portfolio featuring branding, digital product design, and campaign work across MENA and global markets.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0d0d1a",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
