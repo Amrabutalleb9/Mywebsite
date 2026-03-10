@@ -74,13 +74,13 @@ export function InfiniteGrid({ children, className = "" }: InfiniteGridProps) {
       className={`relative overflow-hidden ${className}`}
     >
       {/* Subtle background grid */}
-      <div className="absolute inset-0 z-0 opacity-[0.04]">
+      <div className="absolute inset-0 z-0 opacity-[0.14]">
         <GridPattern offsetX={gridOffsetX} offsetY={gridOffsetY} />
       </div>
 
       {/* Mouse-revealed grid */}
       <motion.div
-        className="absolute inset-0 z-0 opacity-30"
+        className="absolute inset-0 z-0 opacity-50"
         style={{ maskImage, WebkitMaskImage: maskImage }}
       >
         <GridPattern offsetX={gridOffsetX} offsetY={gridOffsetY} />
