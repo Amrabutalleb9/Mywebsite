@@ -6,6 +6,7 @@ import { useState, useEffect, useRef, useCallback, type ReactNode } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowUpRight, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
+import { InfiniteGrid } from "@/components/ui/infinite-grid"
 import { articles, getReadingTime } from "@/lib/articles"
 
 /* ─── Data ─────────────────────────────────────────── */
@@ -167,18 +168,7 @@ function AnimatedCounter({ end, suffix, duration = 1800 }: { end: number; suffix
 
 function Hero() {
   return (
-    <section className="relative flex h-[calc(100vh-7rem)] flex-col overflow-hidden bg-background px-8 pt-[77px] lg:px-16 lg:pt-[102px]">
-      <div
-        className="pointer-events-none absolute bottom-[20%] left-[5%] h-32 w-32 rounded-full opacity-25 lg:h-48 lg:w-48"
-        style={{ background: "radial-gradient(circle, #f5cac3 0%, transparent 70%)" }}
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute top-[25%] right-[15%] h-28 w-28 opacity-10 lg:h-40 lg:w-40"
-        style={{ background: "#e8ddd3", transform: "rotate(45deg)" }}
-        aria-hidden="true"
-      />
-
+    <InfiniteGrid className="flex h-[calc(100vh-7rem)] flex-col bg-background px-8 pt-[77px] lg:px-16 lg:pt-[102px]">
       <div className="flex flex-1 items-center justify-center">
         <div className="animate-hero-1 w-full text-center">
           <h1 className="mx-auto font-serif text-[clamp(2.8rem,7.2vw,8.8rem)] leading-[0.92] font-normal tracking-[-0.03em] text-foreground">
@@ -210,8 +200,7 @@ function Hero() {
           <ArrowUpRight size={14} className="cta-arrow" />
         </a>
       </div>
-
-    </section>
+    </InfiniteGrid>
   )
 }
 
