@@ -21,12 +21,12 @@ export const metadata: Metadata = {
 }
 
 const capabilities = [
-  { title: "Creative Direction", desc: "I set the vision. I lead the team. I make sure every piece of work that ships is something I\u2019d put my name on." },
-  { title: "Brand Identity & Strategy", desc: "Logos, type systems, color, guidelines, positioning. The whole foundation. Built to scale, built to last." },
-  { title: "UI/UX Design", desc: "Interfaces for web and mobile. From wireframes to production. Screens that perform, not just screens that look nice." },
-  { title: "Art Direction", desc: "Defining the visual tone across campaigns, editorial, packaging, and digital. This is where the storytelling lives." },
-  { title: "Typography Systems", desc: "Type is my primary design tool. I build typographic hierarchies that do the heavy lifting in any layout, any language." },
-  { title: "Campaign Design", desc: "Multi-channel creative for digital, social, and print. Strategy first. Execution second. Results always." },
+  { title: "Creative Direction", desc: "I set the vision. I lead the team. I make sure every piece of work that ships is something I\u2019d put my name\u00A0on." },
+  { title: "Brand Identity & Strategy", desc: "Logos, type systems, color, guidelines, positioning. The whole foundation. Built to scale, built to\u00A0last." },
+  { title: "UI/UX Design", desc: "Interfaces for web and mobile. From wireframes to production. Screens that perform, not just screens that look\u00A0nice." },
+  { title: "Art Direction", desc: "Defining the visual tone across campaigns, editorial, packaging, and digital. This is where the storytelling\u00A0lives." },
+  { title: "Typography Systems", desc: "Type is my primary design tool. I build typographic hierarchies that do the heavy lifting in any layout, any\u00A0language." },
+  { title: "Campaign Design", desc: "Multi-channel creative for digital, social, and print. Strategy first. Execution second. Results\u00A0always." },
 ]
 
 const recognitionItems: { text: string; href?: string }[] = [
@@ -53,53 +53,53 @@ export default function AboutPage() {
           </h1>
 
           {/* Opening statement - "what's the business goal?" on its own line */}
-          <p className="mb-3 max-w-[65ch] text-xl font-medium leading-relaxed text-foreground">
+          <p className="mb-3 max-w-[60ch] text-xl font-medium leading-relaxed text-foreground">
             Creative Director. Brand strategist.
           </p>
-          <p className="mb-8 max-w-[65ch] text-xl font-medium leading-relaxed text-foreground">
+          <p className="mb-8 max-w-[60ch] text-xl font-medium leading-relaxed text-foreground">
             {"The kind of designer who asks \u201cwhat\u2019s the business goal?\u201d"}
           </p>
 
           {/* Full Bio */}
-          <div className="flex max-w-[65ch] flex-col gap-6 leading-relaxed text-muted-foreground">
+          <div className="flex max-w-[60ch] flex-col gap-6 leading-relaxed text-muted-foreground">
             <p>
-              {"I\u2019ve spent 13 years directing brands, leading teams, and designing digital products across the Middle East, UK, Europe, USA, Australia, Singapore, and Canada."}
+              {"I\u2019ve spent 13\u00A0years directing brands, leading teams, and designing digital products across the Middle East, UK, Europe, USA, Australia, Singapore, and\u00A0Canada."}
             </p>
             <p>
-              {"My work has driven a 57% lift in client engagement, a 70% increase in social reach, and grew a creative agency\u2019s Instagram from zero to 20,000 followers across three markets."}
+              {"My work has driven a\u00A057% lift in client engagement, a\u00A070% increase in social reach, and grew a\u00A0creative agency\u2019s Instagram from zero to 20,000 followers across three\u00A0markets."}
             </p>
             <p>
-              {"My work sits at the intersection of strategic thinking and visual craft."}
+              {"My work sits at the intersection of strategic thinking and visual\u00A0craft."}
             </p>
             <p>
-              {"I use typography the way a filmmaker uses a camera: it sets the mood, controls the pace, and tells the story before a single word gets read."}
+              {"I use typography the way a\u00A0filmmaker uses a\u00A0camera: it sets the mood, controls the pace, and tells the story before a\u00A0single word gets\u00A0read."}
             </p>
             <p>
-              {"I started at ADRAW in 2013. Spent four years leading design and marketing for a software product targeting the US and UK. That\u2019s where I learned to stop thinking like a designer and start thinking like a business owner. Every pixel had to earn revenue. Every campaign had to move a number."}
+              {"I started at ADRAW in\u00A02013. Spent four years leading design and marketing for a\u00A0software product targeting the US and UK. That\u2019s where I learned to stop thinking like a\u00A0designer and start thinking like a\u00A0business owner. Every pixel had to earn revenue. Every campaign had to move a\u00A0number."}
             </p>
             <p>
-              {"After ADRAW, I took on art direction at Like a Nerd. I owned the visual identity."}
+              {"After ADRAW, I took on art direction at Like a\u00A0Nerd. I owned the visual\u00A0identity."}
             </p>
             <p>
-              {"I ran the ad campaigns. One of those campaigns generated 125k+ USD in direct sales."}
+              {"I ran the ad campaigns. One of those campaigns generated 125k+ USD in direct\u00A0sales."}
             </p>
             <p>
-              {"Then came Overpowered Agency. I joined as Creative Director across three markets: Egypt, UK and the UAE. I built the brand from scratch. Directed the visual identity, the social strategy, and the client deliverables. Grew the agency\u2019s Instagram from zero to 20,000 followers. Along the way I restructured a mis-priced client proposal into a two-round engagement, increasing its value and landing both phases before a single wireframe was drawn."}
+              {"Then came Overpowered Agency. I joined as Creative Director across three markets: Egypt, UK and the UAE. I built the brand from scratch. Directed the visual identity, the social strategy, and the client deliverables. Grew the agency\u2019s Instagram from zero to\u00A020,000 followers. Along the way I restructured a\u00A0mis-priced client proposal into a\u00A0two-round engagement, increasing its value and landing both phases before a\u00A0single wireframe was\u00A0drawn."}
             </p>
             <p>
-              {"In parallel, I worked as a Senior Product Designer at Taptools in the US, leading UX research and redesigning the platform\u2019s core user flows, reducing user-reported issues by 23% within 60 days of launch. I also contributed to the design system of Freelancer.com as a contractor, delivering production-ready UI components across one of the world\u2019s largest freelance platforms."}
+              {"In parallel, I worked as a\u00A0Senior Product Designer at Taptools in the US, leading UX research and redesigning the platform\u2019s core user flows, reducing user-reported issues by\u00A023% within 60\u00A0days of launch. I also contributed to the design system of Freelancer.com as a\u00A0contractor, delivering production-ready UI components across one of the world\u2019s largest freelance\u00A0platforms."}
             </p>
             <p>
-              {"I\u2019ve also designed a book for Steve Hodel, a New York Times bestselling author."}
+              {"I\u2019ve also designed a\u00A0book for Steve Hodel, a\u00A0New York Times bestselling\u00A0author."}
             </p>
             <p>
-              {"Built brand systems for luxury skincare, law firms, tech startups, and international corporations. Rescued a Singapore art school\u2019s website after four freelancers failed over three years. Built a sales funnel for an Australian financial consultant that drove a 12% increase in revenue within the first month, with zero ad spend."}
+              {"Built brand systems for luxury skincare, law firms, tech startups, and international corporations. Rescued a\u00A0Singapore art school\u2019s website after four freelancers failed over three years. Built a\u00A0sales funnel for an Australian financial consultant that drove a\u00A012% increase in revenue within the first month, with zero ad\u00A0spend."}
             </p>
             <p>
-              {"My engineering background from the German University in Cairo taught me to think in systems. My CalArts training taught me to think in stories. I bring both to every project."}
+              {"My engineering background from the German University in Cairo taught me to think in systems. My CalArts training taught me to think in stories. I bring both to every\u00A0project."}
             </p>
             <p>
-              {"Currently Creative Director at The Line Real Estate in Cairo, leading a team of 11 and directing the full rebrand of a high-value property brand. Actively looking for Senior Creative Director opportunities with international agencies or in-house teams in the UAE and beyond."}
+              {"Currently Creative Director at The Line Real Estate in Cairo, leading a\u00A0team of\u00A011 and directing the full rebrand of a\u00A0high-value property brand. Actively looking for Senior Creative Director opportunities with international agencies or in-house teams in the UAE and\u00A0beyond."}
             </p>
           </div>
 

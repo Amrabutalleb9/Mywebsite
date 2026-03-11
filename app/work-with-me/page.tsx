@@ -73,7 +73,7 @@ export default function WorkWithMePage() {
         </FadeIn>
         <FadeIn delay={0.1}>
           <p className="mb-4 max-w-[60ch] leading-relaxed text-muted-foreground">
-            I take on select creative direction engagements alongside my leadership work, typically with startups launching products, companies entering new markets, or agencies that need senior creative firepower without a full-time hire.
+            I take on select creative direction engagements alongside my leadership work, typically with startups launching products, companies entering new markets, or agencies that need senior creative firepower without a&#160;full-time&#160;hire.
           </p>
           <p className="mb-10 max-w-[60ch] leading-relaxed text-muted-foreground">
             {"If you\u2019re looking for someone who leads strategy and teams, not just pushes pixels .. let\u2019s\u00A0talk."}
@@ -94,10 +94,10 @@ export default function WorkWithMePage() {
         <FadeIn delay={0.1}>
           <div className="flex max-w-[60ch] flex-col gap-6 leading-relaxed text-muted-foreground">
             <p>
-              <strong className="font-semibold text-foreground">13+</strong> years of creative direction across <strong className="font-semibold text-foreground">6</strong> countries. Currently leading a team of&nbsp;<strong className="font-semibold text-foreground">25</strong>. An engineering degree that means I speak business and product as fluently as I speak&nbsp;design.
+              <strong className="font-semibold text-foreground">13+</strong> years of creative direction across <strong className="font-semibold text-foreground">6</strong> countries. Currently leading a&nbsp;team of&nbsp;<strong className="font-semibold text-foreground">25</strong>. An engineering degree that means I speak business and product as fluently as I speak&nbsp;design.
             </p>
             <p>
-              Recent work has delivered a <strong className="font-semibold text-foreground">12%</strong> sales increase with zero ad spend, a <strong className="font-semibold text-foreground">70%</strong> lift in social engagement, and a unified brand system across <strong className="font-semibold text-foreground">3</strong> international markets, built in <strong className="font-semibold text-foreground">2</strong>&nbsp;months.
+              Recent work has delivered a&nbsp;<strong className="font-semibold text-foreground">12%</strong> sales increase with zero ad spend, a&nbsp;<strong className="font-semibold text-foreground">70%</strong> lift in social engagement, and a&nbsp;unified brand system across <strong className="font-semibold text-foreground">3</strong> international markets, built in <strong className="font-semibold text-foreground">2</strong>&nbsp;months.
             </p>
             <p>
               {"I\u2019ve worked across branding, UI/UX, campaign strategy, product design, editorial, and packaging. The common thread is always the same: strategy first, then craft, then results you can\u00A0measure."}
