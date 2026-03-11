@@ -5,7 +5,8 @@ import React from "react"
 import { useState, useEffect, useRef, useCallback, type ReactNode } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowUpRight, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
+import { ArrowUpRight, ArrowRight } from "lucide-react"
+import { CleanTestimonial } from "@/components/ui/clean-testimonial"
 import { InfiniteGrid } from "@/components/ui/infinite-grid"
 import { articles, getReadingTime } from "@/lib/articles"
 
@@ -435,100 +436,19 @@ function WorkSection() {
 /* ─── Testimonials + Stats ───────────────────────── */
 
 function Testimonials() {
-  const [current, setCurrent] = useState(0)
-  const [display, setDisplay] = useState(0)
-  const [fading, setFading] = useState(false)
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
-
-  const transition = useCallback((next: number) => {
-    if (next === current || fading) return
-    setFading(true)
-    setTimeout(() => {
-      setDisplay(next)
-      setCurrent(next)
-      setFading(false)
-    }, 350)
-  }, [current, fading])
-
-  // Auto-advance
-  useEffect(() => {
-    timerRef.current = setTimeout(() => {
-      const next = (current + 1) % testimonials.length
-      setFading(true)
-      setTimeout(() => {
-        setDisplay(next)
-        setCurrent(next)
-        setFading(false)
-      }, 350)
-    }, 6000)
-    return () => { if (timerRef.current) clearTimeout(timerRef.current) }
-  }, [current])
-
-  const goTo = (i: number) => transition(i)
-  const goNext = () => transition((current + 1) % testimonials.length)
-  const goPrev = () => transition((current - 1 + testimonials.length) % testimonials.length)
-  const t = testimonials[display]
-
   return (
     <section className="px-8 py-24 lg:px-16 lg:py-32">
       <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
         {/* Left - Testimonial */}
         <Section className="lg:w-[55%]">
           <SubHeader label="Testimonials" />
-          <div className="mb-10 flex items-start gap-4">
+          <div className="mb-4 flex items-start gap-4">
             <div className="mt-1 h-12 w-1 rounded-full bg-accent" />
             <h2 className="font-serif text-[clamp(1.5rem,3vw,2.5rem)] font-normal tracking-tight text-foreground">
               What Clients Say
             </h2>
           </div>
-
-          <div className={`testimonial-content min-h-[220px] ${fading ? "is-fading" : ""}`}>
-            <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground lg:text-xl">
-              {"\u201C"}{t.text}{"\u201D"}
-            </p>
-            <div className="mt-8 flex flex-col gap-0.5">
-              <p className="font-medium text-foreground">{t.author}</p>
-              <p className="text-sm text-muted-foreground">{t.role} · {t.location}</p>
-            </div>
-          </div>
-
-          {/* Dots */}
-          <div className="mt-8 flex items-center gap-2">
-            {testimonials.map((_, i) => (
-              <button
-                type="button"
-                key={`dot-${i}`}
-                onClick={() => goTo(i)}
-                className={`h-2 cursor-pointer rounded-full transition-all duration-500 ${
-                  i === current ? "w-6 bg-accent" : "w-2 bg-border hover:bg-muted-foreground"
-                }`}
-                aria-label={`Testimonial ${i + 1}`}
-              />
-            ))}
-          </div>
-
-          {/* Arrow navigation */}
-          <div className="mt-6 flex items-center gap-4">
-            <button
-              type="button"
-              onClick={goPrev}
-              className="flex h-10 w-10 cursor-pointer items-center justify-center border border-border text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
-              aria-label="Previous testimonial"
-            >
-              <ChevronLeft size={16} />
-            </button>
-            <button
-              type="button"
-              onClick={goNext}
-              className="flex h-10 w-10 cursor-pointer items-center justify-center border border-border text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
-              aria-label="Next testimonial"
-            >
-              <ChevronRight size={16} />
-            </button>
-            <span className="ml-2 text-xs tabular-nums text-muted-foreground">
-              {String(current + 1).padStart(2, "0")} / {String(testimonials.length).padStart(2, "0")}
-            </span>
-          </div>
+          <CleanTestimonial testimonials={testimonials} />
         </Section>
 
         {/* Right - Stats bento */}

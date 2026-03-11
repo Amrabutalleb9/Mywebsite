@@ -1,0 +1,61 @@
+---
+description: Typesetting rules for all user-facing text — widow prevention, line-end hygiene, non-breaking spaces
+globs: "{app,components,lib}/**/*.{tsx,ts}"
+alwaysApply: false
+---
+
+# Typesetting Rules
+
+Every paragraph, description, and body-text string must follow these rules.
+
+## No short words at line endings
+
+Never allow a word of 3 letters or fewer to sit at the end of a line. This includes:
+
+- **1-letter:** a, I
+- **2-letter:** of, at, in, on, to, or, by, an, as, is, it, if, so, up, we, no, do, be
+- **3-letter:** the, and, for, but, nor, yet, are, was, has, its, can, our, his, her, who, how, not, you, all, new, now, one, out, use, may, did, get, let, say, she, too
+
+Bind these to the **following** word with a non-breaking space so they can never dangle.
+
+## Widow prevention
+
+The last line of every paragraph must contain at least two words. Bind the final two words with a non-breaking space.
+
+## Non-breaking space syntax
+
+| Context | Syntax | Example |
+|---------|--------|---------|
+| Inside JS string `{"..."}` | `\u00A0` | `{"drove a\u00A0number."}` |
+| Plain JSX text | `&nbsp;` or `&#160;` | `without a&nbsp;full-time&nbsp;hire.` |
+| Data objects (`.ts` arrays) | `\u00A0` | `desc: "Built to\u00A0last."` |
+
+## Number binding
+
+Always bind a number to its unit or following noun: `13\u00A0years`, `60\u00A0days`, `12%\u00A0increase`, `a\u00A057%`.
+
+## Text measure
+
+Use `max-w-[60ch]` on paragraph containers. This produces ~55-75 actual characters per line, the target range.
+
+## CSS safety net (already in globals.css)
+
+`text-wrap: pretty` on `p, li, blockquote` and `text-wrap: balance` on headings are applied globally. These help but do **not** replace manual `\u00A0` placement.
+
+## Examples
+
+```tsx
+// BAD — "a" can dangle, widow on "number."
+{"Every campaign had to move a number."}
+
+// GOOD
+{"Every campaign had to move a\u00A0number."}
+```
+
+```tsx
+// BAD — "or" can dangle at line end
+companies entering new markets, or agencies
+
+// GOOD
+companies entering new markets, or&#160;agencies
+```

@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { ArrowUpRight } from "lucide-react"
 import FadeIn from "@/components/fade-in"
 import CalendlyButton from "@/components/calendly-button"
-import TestimonialCarousel from "@/components/testimonial-carousel"
+import { CleanTestimonial } from "@/components/ui/clean-testimonial"
 
 export const metadata: Metadata = {
   title: "Work With Me",
@@ -39,6 +39,15 @@ const offers = [
   },
 ]
 
+const testimonials = [
+  { text: "Amr delivered beyond expectations. The brand identity he created captured our vision perfectly and translated seamlessly across every touchpoint. His strategic thinking elevated the entire project.", author: "Overpowered Agency", location: "UK", role: "Brand Identity" },
+  { text: "Fantastic work and great communication. Very happy with the outcome of report from a layout and a branding perspective.", author: "Paul", location: "Melbourne, Australia", role: "Branding" },
+  { text: "Amr provided lots of new UX ideas and put them to me in a detailed explanation. He went above and beyond the project scope to deliver a renewed website and sales funnel.", author: "Robert", location: "Melbourne, Australia", role: "Funnel Copywriting & Design" },
+  { text: "Outstanding collaboration! Amr was extremely professional, fast, and precise. He quickly understood the project requirements and delivered flawless work on time. Communication was smooth, he was always available, and paid great attention to detail. Highly recommended!", author: "Stefano", location: "Valencia, Spain", role: "Website Design" },
+  { text: "He is Extraordinary! Way beyond anything I expected. Amr is very talented, knowledgeable, professional, and competent. Communication in english is excellent. Prompt to resolve any issues. Goes beyond the expected for customer satisfaction.", author: "Augustina", location: "Herning, Denmark", role: "Website Design" },
+  { text: "Is there a god or do angels exist? We have been thru hell with 4 previous freelancers for 2 years. All 4 were unable to complete the work. Enter Amr. He is highly intelligent, genuine and lovely. He has integrity, is extremely skilled, has good aesthetic sense and importantly, a great sense of humour!", author: "Dipa", location: "Singapore", role: "Website Design" },
+]
+
 const processSteps = [
   {
     num: "01",
@@ -73,7 +82,7 @@ export default function WorkWithMePage() {
         </FadeIn>
         <FadeIn delay={0.1}>
           <p className="mb-4 max-w-[60ch] leading-relaxed text-muted-foreground">
-            I take on select creative direction engagements alongside my leadership work, typically with startups launching products, companies entering new markets, or agencies that need senior creative firepower without a&#160;full-time&#160;hire.
+            I take on select creative direction engagements alongside my leadership work, typically with startups launching products, companies entering new markets, or&#160;agencies that need senior creative firepower without a&#160;full-time&#160;hire.
           </p>
           <p className="mb-10 max-w-[60ch] leading-relaxed text-muted-foreground">
             {"If you\u2019re looking for someone who leads strategy and teams, not just pushes pixels .. let\u2019s\u00A0talk."}
@@ -87,7 +96,7 @@ export default function WorkWithMePage() {
       {/* ── What I Bring ── */}
       <section className="mx-auto mt-32 max-w-3xl">
         <FadeIn>
-          <h2 className="mb-10 text-xs font-medium tracking-[0.15em] text-muted-foreground uppercase">
+          <h2 className="mb-10 text-xs font-medium tracking-[0.15em] text-accent uppercase">
             What I Bring to the Table
           </h2>
         </FadeIn>
@@ -109,7 +118,7 @@ export default function WorkWithMePage() {
       {/* ── How We Can Work Together ── */}
       <section className="mx-auto mt-32 max-w-3xl">
         <FadeIn>
-          <h2 className="mb-14 text-xs font-medium tracking-[0.15em] text-muted-foreground uppercase">
+          <h2 className="mb-14 text-xs font-medium tracking-[0.15em] text-accent uppercase">
             How We Can Work Together
           </h2>
         </FadeIn>
@@ -189,19 +198,19 @@ export default function WorkWithMePage() {
       {/* ── What Clients Say ── */}
       <section className="mx-auto mt-32 max-w-3xl">
         <FadeIn>
-          <h2 className="mb-14 text-xs font-medium tracking-[0.15em] text-muted-foreground uppercase">
+          <h2 className="mb-14 text-xs font-medium tracking-[0.15em] text-accent uppercase">
             What Clients Say
           </h2>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <TestimonialCarousel />
+          <CleanTestimonial testimonials={testimonials} />
         </FadeIn>
       </section>
 
       {/* ── How It Works ── */}
       <section className="mx-auto mt-32 max-w-3xl">
         <FadeIn>
-          <h2 className="mb-14 text-xs font-medium tracking-[0.15em] text-muted-foreground uppercase">
+          <h2 className="mb-14 text-xs font-medium tracking-[0.15em] text-accent uppercase">
             How It Works
           </h2>
         </FadeIn>
