@@ -41,10 +41,16 @@ const offers = [
 
 const testimonials = [
   { text: "Amr delivered beyond expectations. The brand identity he created captured our vision perfectly and translated seamlessly across every touchpoint. His strategic thinking elevated the entire project.", author: "Overpowered Agency", location: "UK", role: "Brand Identity" },
+  { text: "Very professional and created me an amazing design.", author: "Elliot", location: "London, UK", role: "Apparel Design" },
   { text: "Fantastic work and great communication. Very happy with the outcome of report from a layout and a branding perspective.", author: "Paul", location: "Melbourne, Australia", role: "Branding" },
+  { text: "Amr assisted me in a very challenging Art/Crime book project I authored. Very professional work and his continual ongoing communications and proferred insights were invaluable. I highly recommend him.", author: "Steven Hodel", location: "Blaine, United States", role: "Book Design" },
+  { text: "So professional, on time, high level of skills and capabilities\u2026 don\u2019t waste your time and assign him your work, I didn\u2019t see anything with his level of accountability.", author: "Ahmed", location: "Khobar, KSA", role: "Branding" },
   { text: "Amr provided lots of new UX ideas and put them to me in a detailed explanation. He went above and beyond the project scope to deliver a renewed website and sales funnel.", author: "Robert", location: "Melbourne, Australia", role: "Funnel Copywriting & Design" },
+  { text: "Dude he is the greatest of all time.", author: "Mazen", location: "Qassim, Saudi Arabia", role: "Architecture Portfolio Design" },
+  { text: "Amr was able to discuss different options with me and working together with adjustments was able to create photorealistic expressions on my character. Great job. High quality stuff!", author: "Alex", location: "Melbourne, Australia", role: "Character Design" },
   { text: "Outstanding collaboration! Amr was extremely professional, fast, and precise. He quickly understood the project requirements and delivered flawless work on time. Communication was smooth, he was always available, and paid great attention to detail. Highly recommended!", author: "Stefano", location: "Valencia, Spain", role: "Website Design" },
   { text: "He is Extraordinary! Way beyond anything I expected. Amr is very talented, knowledgeable, professional, and competent. Communication in english is excellent. Prompt to resolve any issues. Goes beyond the expected for customer satisfaction.", author: "Augustina", location: "Herning, Denmark", role: "Website Design" },
+  { text: "Great UI/UX designer, quick delivery and clear communication. Highly recommend working with him!", author: "Stefano", location: "Sydney, Australia", role: "Head of UX, Freelancer.com" },
   { text: "Is there a god or do angels exist? We have been thru hell with 4 previous freelancers for 2 years. All 4 were unable to complete the work. Enter Amr. He is highly intelligent, genuine and lovely. He has integrity, is extremely skilled, has good aesthetic sense and importantly, a great sense of humour!", author: "Dipa", location: "Singapore", role: "Website Design" },
 ]
 
@@ -208,7 +214,7 @@ export default function WorkWithMePage() {
       </section>
 
       {/* ── How It Works ── */}
-      <section className="mx-auto mt-32 max-w-3xl">
+      <section className="mx-auto mt-16 max-w-3xl">
         <FadeIn>
           <h2 className="mb-14 text-xs font-medium tracking-[0.15em] text-accent uppercase">
             How It Works
