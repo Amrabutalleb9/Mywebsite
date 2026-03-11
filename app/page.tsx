@@ -316,7 +316,7 @@ function WorkSection() {
                     <div className="flex gap-4">
                       <span className="font-serif text-[clamp(2rem,4vw,3.5rem)] leading-none font-normal text-accent/20 select-none">{project.num}</span>
                       <div className="flex flex-col">
-                        <span className="text-[10px] tracking-[0.1em] text-muted-foreground/50 uppercase">{project.category}</span>
+                        <span className="text-[10px] tracking-[0.12em] text-muted-foreground/50 uppercase">{project.category}</span>
                         <p className="mt-1 text-xs text-muted-foreground">{project.year}</p>
                         <h3 className="mt-1 text-[clamp(1.5rem,3vw,2.5rem)] font-bold leading-[1.1] tracking-tight text-foreground transition-colors duration-300 group-hover:text-accent">
                           {project.title}
@@ -604,7 +604,7 @@ function BlogPreview() {
                 <span className="text-xs text-muted-foreground">{getReadingTime(blogPosts[0])}</span>
               </div>
               <h3 className="mt-1 text-lg font-medium text-foreground group-hover:text-accent">{blogPosts[0].title}</h3>
-              <p className="mt-2 max-w-[55ch] text-sm leading-relaxed text-muted-foreground">{blogPosts[0].excerpt}</p>
+              <p className="mt-2 max-w-[60ch] text-sm leading-relaxed text-muted-foreground">{blogPosts[0].excerpt}</p>
               <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-foreground">
                 Read Article <ArrowRight size={14} className="article-arrow" />
               </span>

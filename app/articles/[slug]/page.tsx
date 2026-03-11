@@ -95,7 +95,7 @@ export default async function ArticlePage({
             {article.tag}
           </span>
           <span className="text-sm text-muted-foreground">{article.date}</span>
-          <span className="text-xs text-muted-foreground/40">&middot;</span>
+          <span className="text-xs text-muted-foreground/50">&middot;</span>
           <span className="text-sm text-muted-foreground">{getReadingTime(article)}</span>
         </div>
 
@@ -119,7 +119,7 @@ export default async function ArticlePage({
         )}
 
         {/* Content */}
-        <div className="flex flex-col gap-6 text-[17px] leading-relaxed text-muted-foreground">
+        <div className="flex flex-col gap-6 text-[17px] leading-[1.75] text-muted-foreground">
           {article.content.map((paragraph, i) => (
             <p key={`p-${i}`}>{paragraph}</p>
           ))}

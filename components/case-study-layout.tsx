@@ -137,19 +137,19 @@ export default function CaseStudyLayout({
           </FadeIn>
           <div className="flex flex-col gap-10">
             <FadeIn>
-              <h3 className="mb-3 text-xs font-semibold tracking-[0.1em] text-foreground/50 uppercase">Business Context</h3>
+              <h3 className="mb-3 text-xs font-semibold tracking-[0.12em] text-foreground/50 uppercase">Business Context</h3>
               <p className="max-w-[60ch] leading-[1.75] text-muted-foreground">
                 {project.businessContext}
               </p>
             </FadeIn>
             <FadeIn>
-              <h3 className="mb-3 text-xs font-semibold tracking-[0.1em] text-foreground/50 uppercase">The Client&rsquo;s Problem</h3>
+              <h3 className="mb-3 text-xs font-semibold tracking-[0.12em] text-foreground/50 uppercase">The Client&rsquo;s Problem</h3>
               <p className="max-w-[60ch] leading-[1.75] text-muted-foreground">
                 {project.clientProblem}
               </p>
             </FadeIn>
             <FadeIn>
-              <h3 className="mb-3 text-xs font-semibold tracking-[0.1em] text-foreground/50 uppercase">Constraints</h3>
+              <h3 className="mb-3 text-xs font-semibold tracking-[0.12em] text-foreground/50 uppercase">Constraints</h3>
               <p className="max-w-[60ch] leading-[1.75] text-muted-foreground">
                 {project.constraints}
               </p>
@@ -178,25 +178,25 @@ export default function CaseStudyLayout({
           </FadeIn>
           <div className="flex flex-col gap-10">
             <FadeIn>
-              <h3 className="mb-3 text-xs font-semibold tracking-[0.1em] text-foreground/50 uppercase">The Key Insight</h3>
+              <h3 className="mb-3 text-xs font-semibold tracking-[0.12em] text-foreground/50 uppercase">The Key Insight</h3>
               <p className="max-w-[60ch] leading-[1.75] text-muted-foreground">
                 {project.insight}
               </p>
             </FadeIn>
             <FadeIn>
-              <h3 className="mb-3 text-xs font-semibold tracking-[0.1em] text-foreground/50 uppercase">Creative Strategy</h3>
+              <h3 className="mb-3 text-xs font-semibold tracking-[0.12em] text-foreground/50 uppercase">Creative Strategy</h3>
               <p className="max-w-[60ch] leading-[1.75] text-muted-foreground">
                 {project.creativeStrategy}
               </p>
             </FadeIn>
             <FadeIn>
-              <h3 className="mb-3 text-xs font-semibold tracking-[0.1em] text-foreground/50 uppercase">Key Decisions & Why</h3>
+              <h3 className="mb-3 text-xs font-semibold tracking-[0.12em] text-foreground/50 uppercase">Key Decisions & Why</h3>
               <p className="max-w-[60ch] leading-[1.75] text-muted-foreground">
                 {project.keyDecisions}
               </p>
             </FadeIn>
             <FadeIn>
-              <h3 className="mb-3 text-xs font-semibold tracking-[0.1em] text-foreground/50 uppercase">Leadership & Stakeholder Management</h3>
+              <h3 className="mb-3 text-xs font-semibold tracking-[0.12em] text-foreground/50 uppercase">Leadership & Stakeholder Management</h3>
               <p className="max-w-[60ch] leading-[1.75] text-muted-foreground">
                 {project.leadershipRole}
               </p>
@@ -227,7 +227,7 @@ export default function CaseStudyLayout({
                   </div>
                   <div>
                     <h3 className="mb-2 text-sm font-semibold text-foreground">{phase.title}</h3>
-                    <p className="max-w-[55ch] text-sm leading-[1.7] text-muted-foreground">
+                    <p className="max-w-[60ch] text-sm leading-[1.7] text-muted-foreground">
                       {phase.description}
                     </p>
                   </div>

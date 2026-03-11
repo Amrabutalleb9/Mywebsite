@@ -163,14 +163,14 @@ export default function AboutPage() {
               <a
                 href="/Amr_AbuTalleb_Resume.pdf"
                 download
-                className="inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-6 py-3 text-xs font-medium tracking-[0.1em] text-background uppercase transition-all duration-300 hover:bg-transparent hover:text-foreground"
+                className="inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-6 py-3 text-xs font-medium tracking-[0.12em] text-background uppercase transition-all duration-300 hover:bg-transparent hover:text-foreground"
               >
                 <Download size={14} />
                 Check My Resume
               </a>
               <Link
                 href="/#work"
-                className="inline-flex items-center gap-2 rounded-full border border-foreground px-6 py-3 text-xs font-medium tracking-[0.1em] text-foreground uppercase transition-all duration-300 hover:bg-foreground hover:text-background"
+                className="inline-flex items-center gap-2 rounded-full border border-foreground px-6 py-3 text-xs font-medium tracking-[0.12em] text-foreground uppercase transition-all duration-300 hover:bg-foreground hover:text-background"
               >
                 View My Work
                 <ArrowRight size={14} />

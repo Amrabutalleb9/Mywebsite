@@ -1,0 +1,100 @@
+---
+description: Design system tokens — type scale, labels, colors, spacing, and containers for all UI work
+globs: "{app,components}/**/*.tsx"
+alwaysApply: false
+---
+
+# Design System
+
+Use these tokens for every new component or page. Do not invent new values.
+
+## Type Scale
+
+| Token | Classes | Usage |
+|-------|---------|-------|
+| **Display** | `font-serif text-[clamp(2.8rem,7.2vw,8.8rem)] font-normal leading-[0.92] tracking-[-0.03em]` | Hero h1 only |
+| **Page Title** | `font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-normal tracking-tight` | Top-level page headings |
+| **Section Heading** | `font-serif text-[clamp(2rem,4vw,3.5rem)] font-normal tracking-tight` | Section h2 |
+| **Sub Heading** | `font-serif text-[clamp(1.5rem,3vw,2.5rem)] font-normal tracking-tight` | Section h3, about sub-heads |
+| **Service Title** | `font-serif text-2xl lg:text-3xl font-normal tracking-tight` | Offer/service headings |
+| **Body Large** | `text-lg lg:text-xl leading-relaxed` | Testimonials, hero sub-copy |
+| **Body** | `leading-relaxed text-muted-foreground` | Default paragraph text |
+| **Body Long-form** | `leading-[1.75] text-muted-foreground` | Case study / highlight body paragraphs |
+| **Body Small** | `text-sm leading-relaxed` | Secondary descriptions |
+| **Caption** | `text-xs` | Dates, meta, nav links |
+| **Micro** | `text-[10px]` | Item labels, category tags |
+
+## Label Patterns
+
+| Token | Classes | Usage |
+|-------|---------|-------|
+| **Section Label** | `text-xs font-medium tracking-[0.15em] text-accent uppercase` | "Case Studies", "Testimonials", "How It Works" |
+| **Sub-section Label** | `text-xs font-semibold tracking-[0.12em] text-foreground/50 uppercase` | "Business Context", "Creative Strategy" |
+| **Meta Label** | `text-[10px] font-semibold tracking-[0.12em] text-accent uppercase` | "Key Impact", "Result", snapshot item labels |
+| **CTA Button** | `text-xs font-medium tracking-[0.15em] uppercase` | Primary action buttons |
+
+The `SubHeader` component in `app/page.tsx` implements **Section Label** with an accent bar.
+
+## Text Colors
+
+| Role | Class | When |
+|------|-------|------|
+| Primary | `text-foreground` | Headings, author names, emphasis |
+| Secondary | `text-muted-foreground` | Body paragraphs, descriptions |
+| Tertiary | `text-muted-foreground/50` | Meta info, sub-labels, timestamps |
+| Accent | `text-accent` | Section labels, active states, links on hover |
+| Decorative | `text-accent/30` | Large row numbers (01, 02…) |
+| On-dark | `text-primary-foreground` | Text on dark `bg-primary` surfaces |
+
+Do not add new opacity levels. Use `/30`, `/50`, or `/70` only.
+
+## Font Families
+
+- **`font-serif`** (Playfair Display) — headings, display text, blockquotes, large numbers
+- **`font-sans`** (Inter) — body text, labels, UI (default on `<body>`)
+- No mono font is loaded. Avoid `font-mono`.
+
+## Container Widths
+
+| Token | Class | Usage |
+|-------|-------|-------|
+| Body text | `max-w-[60ch]` | Standard paragraphs (55-75 chars/line) |
+| Article body | `max-w-[65ch]` | Long-form article reading only |
+| Narrow | `max-w-[50ch]` | Case study intro, step descriptions |
+| Title | `max-w-[20ch]` | Page titles to force wrapping |
+
+## Section Spacing
+
+| Token | Classes | Usage |
+|-------|---------|-------|
+| Page padding | `px-8 pt-32 pb-24 lg:px-16 lg:pt-40 lg:pb-32` | Every top-level `<main>` |
+| Section gap | `mt-32` | Between major page sections |
+| Inner section | `mt-24` | Between sub-sections within a page |
+| Content gap | `gap-12 lg:gap-16` | Between left/right column layouts |
+| Project detail | `pb-[clamp(80px,10vw,140px)] pt-28` | Case study / highlight articles |
+| Detail sections | `mb-28` | Between sections inside project detail pages |
+
+## Tracking Reference
+
+Only these letter-spacing values exist:
+
+| Value | Usage |
+|-------|-------|
+| `tracking-[-0.03em]` | Display heading only |
+| `tracking-tight` | All other headings |
+| `tracking-[0.15em]` | Section labels, CTA buttons |
+| `tracking-[0.12em]` | Sub-section labels, meta labels, item labels |
+| `tracking-wide` | Service meta, "View all" links |
+| `tracking-widest` | Client marquee |
+
+## Leading Reference
+
+| Value | Usage |
+|-------|-------|
+| `leading-[0.92]` | Display heading only |
+| `leading-[1.05]` | Page titles |
+| `leading-[1.1]` | Section headings |
+| `leading-snug` | Key/value snapshot items |
+| `leading-relaxed` | Default body text |
+| `leading-[1.75]` | Long-form body (case studies, highlights) |
+| `leading-none` | Decorative numbers |

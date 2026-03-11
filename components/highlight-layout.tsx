@@ -111,7 +111,7 @@ export default function HighlightLayout({
             { label: "Year", value: project.year },
           ].map((item) => (
             <div key={item.label} className="flex flex-col gap-1">
-              <span className="text-[10px] font-semibold tracking-[0.12em] text-muted-foreground/40 uppercase">{item.label}</span>
+              <span className="text-[10px] font-semibold tracking-[0.12em] text-accent uppercase">{item.label}</span>
               <span className="text-sm leading-snug text-muted-foreground whitespace-pre-line">{item.value}</span>
             </div>
           ))}
@@ -121,9 +121,9 @@ export default function HighlightLayout({
       {/* Overview , single column, no sidebar */}
       <div className="mx-auto mb-16 max-w-[1000px] px-6">
         <FadeIn>
-          <div className="flex max-w-[65ch] flex-col gap-5">
+          <div className="flex max-w-[60ch] flex-col gap-5">
             {project.description.split("\n\n").map((p) => (
-              <p key={p.slice(0, 30)} className="leading-[1.8] text-muted-foreground">
+              <p key={p.slice(0, 30)} className="leading-[1.75] text-muted-foreground">
                 {p}
               </p>
             ))}
@@ -174,7 +174,7 @@ export default function HighlightLayout({
             {project.keyResult && (
               <FadeIn>
                 <div className="rounded-lg border border-border bg-surface px-6 py-5">
-                  <p className="mb-1 text-[10px] font-semibold tracking-[0.12em] text-muted-foreground/40 uppercase">Result</p>
+                  <p className="mb-1 text-[10px] font-semibold tracking-[0.12em] text-accent uppercase">Result</p>
                   <p className="text-lg font-medium leading-relaxed text-foreground">
                     {project.keyResult}
                   </p>
