@@ -14,7 +14,7 @@ Custom optical scale (~Major Third body, ~Perfect Fourth headings). Defined in `
 
 | Token | Variable | Computed | Tailwind Usage |
 |-------|----------|----------|----------------|
-| **Display** | `--text-display` | 44.8→140.8px | `text-[length:var(--text-display)]` |
+| **Display** | `--text-display` | 44.8→120px | `text-[length:var(--text-display)]` |
 | **Page Title** | `--text-page` | 40→72px | `text-[length:var(--text-page)]` |
 | **Section Heading** | `--text-section` | 32→56px | `text-[length:var(--text-section)]` |
 | **Sub Heading** | `--text-sub` | 24→40px | `text-[length:var(--text-sub)]` |
