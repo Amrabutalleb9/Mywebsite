@@ -13,7 +13,7 @@ const heroServices = ["Brand Strategy", "Web Design", "Product Design"]
 export default function HeroSection() {
   return (
     <>
-      <InfiniteGrid className="flex h-[calc(80vh-4rem)] flex-col bg-background px-8 pt-[77px] lg:px-16 lg:pt-[102px]">
+      <InfiniteGrid className="flex min-h-[calc(80vh-4rem)] flex-col bg-background px-8 pb-16 pt-[77px] lg:px-16 lg:pb-20 lg:pt-[102px]">
         <div className="flex flex-1 items-center justify-center">
           <div className="animate-hero-1 w-full text-center">
             <h1 className="mx-auto font-serif text-[length:var(--text-display)] leading-[var(--leading-display)] font-normal tracking-[var(--tracking-display)] text-foreground">
@@ -50,7 +50,7 @@ export default function HeroSection() {
         </div>
       </InfiniteGrid>
 
-      <div className="mt-12 flex w-full items-center justify-between border-t border-border bg-background px-8 py-5 lg:mt-16 lg:px-16">
+      <div className="flex w-full items-center justify-between border-t border-border bg-background px-8 py-5 lg:px-16">
         <div className="flex flex-wrap gap-8 lg:gap-14">
           {heroServices.map((service) => (
             <span
