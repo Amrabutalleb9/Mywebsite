@@ -26,7 +26,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="animate-hero-2 mb-16 mt-10 flex flex-col items-center text-center lg:mb-20">
+        <div className="animate-hero-2 mb-6 mt-10 flex flex-col items-center text-center">
           <p className="mx-auto max-w-3xl text-base leading-relaxed text-muted-foreground lg:text-lg">
             13&nbsp;years of&nbsp;creative direction, brand strategy, and digital design.
             <br />
@@ -50,7 +50,7 @@ export default function HeroSection() {
         </div>
       </InfiniteGrid>
 
-      <div className="flex w-full items-center justify-between border-t border-border bg-background px-8 py-5 lg:px-16">
+      <div className="mt-12 flex w-full items-center justify-between border-t border-border bg-background px-8 py-5 lg:mt-16 lg:px-16">
         <div className="flex flex-wrap gap-8 lg:gap-14">
           {heroServices.map((service) => (
             <span
