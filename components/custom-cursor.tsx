@@ -71,9 +71,9 @@ export default function CustomCursor() {
       <motion.div
         className="rounded-full bg-foreground"
         animate={{
-          width: hasLabel ? 0 : 8,
-          height: hasLabel ? 0 : 8,
-          opacity: visible && !hasLabel ? 1 : 0,
+          width: hasLabel ? 0 : 24,
+          height: hasLabel ? 0 : 24,
+          opacity: visible && !hasLabel ? 0.4 : 0,
         }}
         transition={{ duration: 0.2 }}
       />
@@ -89,7 +89,7 @@ export default function CustomCursor() {
             exit={{ scale: 0.5, opacity: 0 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
           >
-            <span className="text-xs font-medium tracking-[var(--tracking-label)] text-foreground uppercase">
+            <span className="text-xs font-medium tracking-[var(--tracking-label)] text-foreground/70 uppercase">
               {label}
             </span>
           </motion.div>
