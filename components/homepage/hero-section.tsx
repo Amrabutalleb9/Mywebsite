@@ -26,7 +26,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="animate-hero-2 mb-6 mt-10 flex flex-col items-center text-center">
+        <div className="animate-hero-2 mb-16 mt-10 flex flex-col items-center text-center lg:mb-20">
           <p className="mx-auto max-w-3xl text-base leading-relaxed text-muted-foreground lg:text-lg">
             13&nbsp;years of&nbsp;creative direction, brand strategy, and digital design.
             <br />
