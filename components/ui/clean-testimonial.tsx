@@ -104,7 +104,7 @@ export function CleanTestimonial({
     >
       {/* Magnetic cursor — hidden on touch devices via pointer-events */}
       <motion.div
-        className="pointer-events-none absolute z-50 hidden md:block mix-blend-difference"
+        className="pointer-events-none absolute z-50 hidden md:block"
         style={{
           x: cursorX,
           y: cursorY,
@@ -113,7 +113,7 @@ export function CleanTestimonial({
         }}
       >
         <motion.div
-          className="rounded-full bg-foreground flex items-center justify-center"
+          className="rounded-full bg-black flex items-center justify-center"
           animate={{
             width: isHovered ? 80 : 0,
             height: isHovered ? 80 : 0,
@@ -122,7 +122,7 @@ export function CleanTestimonial({
           transition={{ type: "spring", damping: 20, stiffness: 200 }}
         >
           <motion.span
-            className="text-background text-xs font-medium tracking-wider uppercase"
+            className="text-white text-xs font-medium tracking-wider uppercase"
             animate={{ opacity: isHovered ? 1 : 0 }}
             transition={{ delay: 0.1 }}
           >

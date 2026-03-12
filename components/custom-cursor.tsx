@@ -64,11 +64,11 @@ export default function CustomCursor() {
 
   return (
     <motion.div
-      className="pointer-events-none fixed top-0 left-0 z-[9999] hidden md:block mix-blend-difference"
+      className="pointer-events-none fixed top-0 left-0 z-[9999] hidden md:block"
       style={{ x: cursorX, y: cursorY, translateX: "-50%", translateY: "-50%" }}
     >
       <motion.div
-        className="flex items-center justify-center rounded-full bg-foreground"
+        className="flex items-center justify-center rounded-full bg-black"
         animate={{
           width: hasLabel ? 100 : visible ? 20 : 0,
           height: hasLabel ? 100 : visible ? 20 : 0,
@@ -80,7 +80,7 @@ export default function CustomCursor() {
           {hasLabel && (
             <motion.span
               key={label}
-              className="text-[10px] font-medium tracking-[var(--tracking-label)] text-background uppercase"
+              className="text-[10px] font-medium tracking-[var(--tracking-label)] text-white uppercase"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
