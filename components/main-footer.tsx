@@ -81,7 +81,7 @@ export default function MainFooter() {
                   <a href="mailto:hello@amrabutalleb.com" className="underline">hello@amrabutalleb.com</a>
                 </p>
               )}
-              <button type="submit" disabled={sending} className="footer-submit-btn ml-auto block cursor-pointer rounded-full border border-primary bg-primary px-12 py-4 font-medium text-primary-foreground hover:bg-primary-foreground hover:text-primary disabled:opacity-50" data-cursor-label="Send">
+              <button type="submit" disabled={sending} className="footer-submit-btn ml-auto block cursor-pointer rounded-full border border-primary bg-primary px-12 py-4 font-medium text-primary-foreground hover:bg-primary-foreground hover:text-primary disabled:opacity-50">
                 {sending ? "Sending\u2026" : "Send Message"}
               </button>
             </form>
@@ -125,7 +125,7 @@ export default function MainFooter() {
             {/* Links */}
             <div className="flex gap-6">
               {footerLinks.map((link) => (
-                <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="text-sm text-primary-foreground/50 transition-colors hover:text-primary-foreground" data-cursor-label={link.label}>
+                <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="text-sm text-primary-foreground/50 transition-colors hover:text-primary-foreground">
                   {link.label}
                 </a>
               ))}

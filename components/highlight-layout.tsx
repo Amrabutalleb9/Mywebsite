@@ -53,7 +53,6 @@ export default function HighlightLayout({
           <Link
             href="/#work"
             className="mb-12 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-            data-cursor-label="Back to Work"
           >
             <ArrowLeft size={16} />
             Back to Work
@@ -202,7 +201,6 @@ export default function HighlightLayout({
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-sm border border-accent bg-accent px-6 py-3 text-sm font-medium text-white transition-all hover:bg-accent/90"
-                  data-cursor-label="Check the book"
                 >
                   Check the book from here
                   <ArrowRight size={14} />
@@ -217,7 +215,7 @@ export default function HighlightLayout({
       <div className="mx-auto max-w-[1000px] px-6">
         <div className="flex items-stretch justify-between gap-4 border-t border-border pt-8">
           {prev ? (
-            <Link href={`/highlights/${prev.slug}`} className="group flex flex-col gap-1 text-left" data-cursor-label="Previous">
+            <Link href={`/highlights/${prev.slug}`} className="group flex flex-col gap-1 text-left">
               <span className="flex items-center gap-2 text-xs text-muted-foreground transition-colors group-hover:text-accent">
                 <ArrowLeft size={14} /> Previous
               </span>
@@ -225,7 +223,7 @@ export default function HighlightLayout({
             </Link>
           ) : <span />}
           {next ? (
-            <Link href={`/highlights/${next.slug}`} className="group flex flex-col items-end gap-1 text-right" data-cursor-label="Next">
+            <Link href={`/highlights/${next.slug}`} className="group flex flex-col items-end gap-1 text-right">
               <span className="flex items-center gap-2 text-xs text-muted-foreground transition-colors group-hover:text-accent">
                 Next <ArrowRight size={14} />
               </span>

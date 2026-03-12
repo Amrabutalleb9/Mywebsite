@@ -39,7 +39,6 @@ export default function HeroSection() {
             <CalendlyButton />
             <a
               href="#work"
-              data-cursor-label="See Work"
               className="cta-btn inline-flex items-center gap-2 rounded-full border border-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-foreground uppercase hover:bg-foreground hover:text-background"
             >
               See the&nbsp;Work

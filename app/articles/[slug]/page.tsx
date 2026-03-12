@@ -101,7 +101,6 @@ export default async function ArticlePage({
         <Link
           href="/articles"
           className="mb-12 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-          data-cursor-label="All Articles"
         >
           <ArrowLeft size={16} />
           All Articles
@@ -149,7 +148,6 @@ export default async function ArticlePage({
             <Link
               href={`/articles/${prev.slug}`}
               className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-              data-cursor-label="Previous"
             >
               <ArrowLeft size={16} />
               Previous Article
@@ -161,7 +159,6 @@ export default async function ArticlePage({
             <Link
               href={`/articles/${next.slug}`}
               className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-              data-cursor-label="Next"
             >
               Next Article
               <ArrowRight size={16} />

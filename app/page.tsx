@@ -207,7 +207,7 @@ function WorkSection() {
 
       <ScrollReveal>
         <div className="mt-20 flex justify-center border-t border-border pt-8">
-          <Link href="/projects" data-cursor-label="All Projects" className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase transition-colors hover:text-accent">
+          <Link href="/projects" className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase transition-colors hover:text-accent">
             All&nbsp;Projects
             <ArrowUpRight size={14} />
           </Link>
@@ -274,7 +274,7 @@ function About() {
 
         <ScrollReveal>
           <div className="mt-16 flex justify-center border-t border-border pt-8">
-            <Link href="/about" data-cursor-label="About Me" className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase transition-colors hover:text-accent">
+            <Link href="/about" className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase transition-colors hover:text-accent">
               Read&nbsp;More
               <ArrowUpRight size={14} />
             </Link>
@@ -360,7 +360,7 @@ function BlogPreview() {
 
       <ScrollReveal>
         <div className="mt-16 flex justify-center border-t border-border pt-8">
-          <Link href="/articles" data-cursor-label="All Articles" className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase transition-colors hover:text-accent">
+          <Link href="/articles" className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase transition-colors hover:text-accent">
             All&nbsp;Articles
             <ArrowUpRight size={14} />
           </Link>

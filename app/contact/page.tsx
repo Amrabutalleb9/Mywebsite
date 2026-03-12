@@ -60,19 +60,19 @@ export default function ContactPage() {
             Available for senior Creative Director roles with international agencies and in-house teams in&nbsp;the UAE. If&nbsp;you have a&nbsp;role or a&nbsp;project worth building, reach&nbsp;out.
           </p>
           <div className="flex flex-col gap-4">
-            <a href="mailto:hello@amrabutalleb.com" className="text-lg text-accent underline underline-offset-4 hover:text-accent/80" data-cursor-label="Email">
+            <a href="mailto:hello@amrabutalleb.com" className="text-lg text-accent underline underline-offset-4 hover:text-accent/80">
               hello@amrabutalleb.com
             </a>
             <div className="mt-4 flex gap-5">
               {socialLinks.map((link) => (
-                <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground" aria-label={link.label} data-cursor-label={link.label}>
+                <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground" aria-label={link.label}>
                   <link.icon size={22} />
                 </a>
               ))}
             </div>
             <div className="mt-6">
               <p className="mb-3 text-sm text-muted-foreground">Prefer a&nbsp;live conversation?</p>
-              <CalendlyButton data-cursor-label="Book a Call" />
+              <CalendlyButton />
             </div>
           </div>
         </div>
@@ -112,7 +112,7 @@ export default function ContactPage() {
               {error && (
                 <p className="text-sm text-red-500">
                   {error}{" "}
-                  <a href="mailto:hello@amrabutalleb.com" className="underline" data-cursor-label="Email">hello@amrabutalleb.com</a>
+                  <a href="mailto:hello@amrabutalleb.com" className="underline">hello@amrabutalleb.com</a>
                 </p>
               )}
               <button type="submit" disabled={sending} className="cursor-pointer rounded-full border border-foreground bg-primary px-8 py-3 font-medium text-primary-foreground transition-all duration-300 hover:bg-foreground hover:text-background disabled:opacity-50">

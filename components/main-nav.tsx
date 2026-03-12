@@ -60,7 +60,7 @@ export default function MainNav() {
         }`}
       >
         <nav className="flex items-center justify-between px-8 py-5 lg:px-16">
-          <Link href="/" data-cursor-label="Home" className="text-lg font-bold tracking-tight text-foreground lg:text-xl">
+          <Link href="/" className="text-lg font-bold tracking-tight text-foreground lg:text-xl">
             Amr Abu-Talleb
           </Link>
           <div className="hidden items-center gap-10 md:flex">
@@ -68,7 +68,6 @@ export default function MainNav() {
               <Link
                 key={item.href}
                 href={item.href}
-                data-cursor-label={item.label}
                 className="text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 {item.label}
@@ -76,7 +75,6 @@ export default function MainNav() {
             ))}
             <Link
               href="/contact"
-              data-cursor-label="Get in Touch"
               className="rounded-full border border-accent px-5 py-2 text-sm font-medium text-accent transition-all duration-300 hover:bg-accent hover:text-accent-foreground"
             >
               {"Let\u2019s Talk"}

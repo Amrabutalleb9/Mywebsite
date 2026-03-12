@@ -108,7 +108,7 @@ export default function AboutPage() {
               {recognitionItems.map((item) => (
                 <li key={item.text} className="border-b border-border py-5 text-muted-foreground last:border-0">
                   {item.href ? (
-                    <a href={item.href} target="_blank" rel="noopener noreferrer" data-cursor-label="Visit" className="transition-colors hover:text-accent">
+                    <a href={item.href} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-accent">
                       {item.text}
                     </a>
                   ) : (
@@ -139,7 +139,6 @@ export default function AboutPage() {
               <a
                 href="/Amr_AbuTalleb_Resume.pdf"
                 download
-                data-cursor-label="Download Resume"
                 className="inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-6 py-3 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase transition-all duration-300 hover:bg-transparent hover:text-foreground"
               >
                 <Download size={14} />
@@ -147,7 +146,6 @@ export default function AboutPage() {
               </a>
               <Link
                 href="/#work"
-                data-cursor-label="View Work"
                 className="inline-flex items-center gap-2 rounded-full border border-foreground px-6 py-3 text-xs font-medium tracking-[var(--tracking-label)] text-foreground uppercase transition-all duration-300 hover:bg-foreground hover:text-background"
               >
                 View My&nbsp;Work
@@ -161,7 +159,6 @@ export default function AboutPage() {
                 href="https://www.linkedin.com/in/abutalleb/"
                 target="_blank"
                 rel="noopener noreferrer"
-                data-cursor-label="LinkedIn"
                 className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 <Linkedin size={16} />
@@ -169,7 +166,6 @@ export default function AboutPage() {
               </a>
               <a
                 href="mailto:hello@amrabutalleb.com"
-                data-cursor-label="Email"
                 className="text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 Email
