@@ -339,6 +339,11 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 10px 25px -5px rgba(0,0,0,0.15);
 }
 
+/* ─── Custom cursor: hide default on desktop ─── */
+@media (pointer: fine) {
+  * { cursor: none !important; }
+}
+
 /* ─── Scroll-triggered fade in via IntersectionObserver ─── */
 /* Use doubled selector for higher specificity to beat TW4 utilities */
 .fade-section.fade-section {

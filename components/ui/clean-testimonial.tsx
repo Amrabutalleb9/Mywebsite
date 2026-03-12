@@ -96,6 +96,7 @@ export function CleanTestimonial({
       ref={containerRef}
       className={`relative w-full py-16 px-8 select-none ${className}`}
       style={{ cursor: "none" }}
+      data-cursor-none
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

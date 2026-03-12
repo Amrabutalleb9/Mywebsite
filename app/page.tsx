@@ -94,7 +94,7 @@ function WorkSection() {
 
           return (
             <ScrollReveal key={project.slug}>
-              <Link href={`/work/${project.slug}`} className="group block">
+              <Link href={`/work/${project.slug}`} className="group block" data-cursor-label={`Explore ${project.title}`}>
                 <div className={`flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-12 ${!isRight ? "lg:flex-row-reverse" : ""}`}>
 
                   <div className="lg:w-[30%] lg:flex-shrink-0">
@@ -161,7 +161,7 @@ function WorkSection() {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {highlightCards.map((project) => (
             <ScrollReveal key={project.slug}>
-              <Link href={`/highlights/${project.slug}`} className="group block">
+              <Link href={`/highlights/${project.slug}`} className="group block" data-cursor-label={`View ${project.title}`}>
                 <div className="relative overflow-hidden rounded-xl bg-primary transition-shadow duration-500 group-hover:shadow-xl">
                   {project.featureImage ? (
                     <Image
@@ -207,7 +207,7 @@ function WorkSection() {
 
       <ScrollReveal>
         <div className="mt-20 flex justify-center border-t border-border pt-8">
-          <Link href="/projects" className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase transition-colors hover:text-accent">
+          <Link href="/projects" data-cursor-label="All Projects" className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase transition-colors hover:text-accent">
             All&nbsp;Projects
             <ArrowUpRight size={14} />
           </Link>
@@ -274,7 +274,7 @@ function About() {
 
         <ScrollReveal>
           <div className="mt-16 flex justify-center border-t border-border pt-8">
-            <Link href="/about" className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase transition-colors hover:text-accent">
+            <Link href="/about" data-cursor-label="About Me" className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase transition-colors hover:text-accent">
               Read&nbsp;More
               <ArrowUpRight size={14} />
             </Link>
@@ -305,7 +305,7 @@ function BlogPreview() {
 
         <div className="flex flex-col gap-6 lg:w-[65%]">
           <ScrollReveal>
-            <Link href={`/articles/${blogPosts[0].slug}`} className="group block">
+            <Link href={`/articles/${blogPosts[0].slug}`} className="group block" data-cursor-label="Read Article">
               <div className="overflow-hidden rounded-lg">
                 <Image
                   src={blogPosts[0].image || "/images/blog-branding.png"}
@@ -331,7 +331,7 @@ function BlogPreview() {
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             {blogPosts.slice(1).map((post, i) => (
               <ScrollReveal key={post.title} delay={i * 0.08}>
-                <Link href={`/articles/${post.slug}`} className="group block">
+                <Link href={`/articles/${post.slug}`} className="group block" data-cursor-label="Read Article">
                   <div className="overflow-hidden rounded-lg">
                     <Image
                       src={post.image || "/images/blog-branding.png"}
@@ -360,7 +360,7 @@ function BlogPreview() {
 
       <ScrollReveal>
         <div className="mt-16 flex justify-center border-t border-border pt-8">
-          <Link href="/articles" className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase transition-colors hover:text-accent">
+          <Link href="/articles" data-cursor-label="All Articles" className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase transition-colors hover:text-accent">
             All&nbsp;Articles
             <ArrowUpRight size={14} />
           </Link>

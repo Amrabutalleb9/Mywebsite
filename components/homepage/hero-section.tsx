@@ -13,20 +13,18 @@ const heroServices = ["Brand Strategy", "Web Design", "Product Design"]
 export default function HeroSection() {
   return (
     <>
-      <InfiniteGrid className="flex min-h-[calc(80vh-4rem)] flex-col bg-background px-8 pb-16 pt-[77px] lg:px-16 lg:pb-20 lg:pt-[102px]">
-        <div className="flex flex-1 items-center justify-center">
-          <div className="animate-hero-1 w-full text-center">
-            <h1 className="mx-auto font-serif text-[length:var(--text-display)] leading-[var(--leading-display)] font-normal tracking-[var(--tracking-display)] text-foreground">
-              Brand strategist.
-              <br />
-              Creative director.
-              <br />
-              Obsessed with&nbsp;results.
-            </h1>
-          </div>
+      <InfiniteGrid className="flex min-h-[calc(80vh-4rem)] flex-col items-center justify-center bg-background px-8 pt-[77px] lg:px-16 lg:pt-[102px]">
+        <div className="animate-hero-1 w-full text-center">
+          <h1 className="mx-auto font-serif text-[length:var(--text-display)] leading-[var(--leading-display)] font-normal tracking-[var(--tracking-display)] text-foreground">
+            Brand strategist.
+            <br />
+            Creative director.
+            <br />
+            Obsessed with&nbsp;results.
+          </h1>
         </div>
 
-        <div className="animate-hero-2 mb-6 mt-10 flex flex-col items-center text-center">
+        <div className="animate-hero-2 mt-10 flex flex-col items-center text-center">
           <p className="mx-auto max-w-3xl text-base leading-relaxed text-muted-foreground lg:text-lg">
             13&nbsp;years of&nbsp;creative direction, brand strategy, and digital design.
             <br />
@@ -41,6 +39,7 @@ export default function HeroSection() {
             <CalendlyButton />
             <a
               href="#work"
+              data-cursor-label="See Work"
               className="cta-btn inline-flex items-center gap-2 rounded-full border border-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-foreground uppercase hover:bg-foreground hover:text-background"
             >
               See the&nbsp;Work

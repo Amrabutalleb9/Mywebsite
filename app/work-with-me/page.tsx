@@ -95,7 +95,7 @@ export default function WorkWithMePage() {
           </p>
         </FadeIn>
         <FadeIn delay={0.15}>
-          <CalendlyButton />
+          <CalendlyButton data-cursor-label="Book a Call" />
         </FadeIn>
       </section>
 
@@ -247,10 +247,10 @@ export default function WorkWithMePage() {
             {"Whether it\u2019s a\u00A0brand launch, a\u00A0product redesign, or\u00A0ongoing creative leadership, I\u2019d like to\u00A0hear about it. Book a\u00A0call and\u00A0let\u2019s see if\u00A0there\u2019s a\u00A0fit."}
           </p>
           <div className="flex flex-col items-center gap-4">
-            <CalendlyButton />
+            <CalendlyButton data-cursor-label="Book a Call" />
             <p className="text-sm text-muted-foreground">
               Or&nbsp;email me directly:{" "}
-              <a href="mailto:hello@amrabutalleb.com" className="text-foreground underline underline-offset-4 transition-colors hover:text-accent">
+              <a href="mailto:hello@amrabutalleb.com" className="text-foreground underline underline-offset-4 transition-colors hover:text-accent" data-cursor-label="Email">
                 hello@amrabutalleb.com
               </a>
             </p>

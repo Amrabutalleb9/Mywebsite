@@ -53,6 +53,7 @@ export default function CaseStudyLayout({
           <Link
             href="/#work"
             className="mb-12 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+            data-cursor-label="Back to Work"
           >
             <ArrowLeft size={16} />
             Back to Work
@@ -333,7 +334,7 @@ export default function CaseStudyLayout({
       <div className="mx-auto max-w-[1280px] px-6">
         <div className="flex items-stretch justify-between gap-4 pt-8">
           {prev ? (
-            <Link href={`/work/${prev.slug}`} className="group flex flex-col gap-1 text-left">
+            <Link href={`/work/${prev.slug}`} className="group flex flex-col gap-1 text-left" data-cursor-label="Previous">
               <span className="flex items-center gap-2 text-xs text-muted-foreground transition-colors group-hover:text-accent">
                 <ArrowLeft size={14} /> Previous Case Study
               </span>
@@ -341,7 +342,7 @@ export default function CaseStudyLayout({
             </Link>
           ) : <span />}
           {next ? (
-            <Link href={`/work/${next.slug}`} className="group flex flex-col items-end gap-1 text-right">
+            <Link href={`/work/${next.slug}`} className="group flex flex-col items-end gap-1 text-right" data-cursor-label="Next">
               <span className="flex items-center gap-2 text-xs text-muted-foreground transition-colors group-hover:text-accent">
                 Next Case Study <ArrowRight size={14} />
               </span>

@@ -25,6 +25,7 @@ const caseStudyItems: ShowcaseProject[] = caseStudies.map((p) => ({
   href: `/work/${p.slug}`,
   featureImage: p.featureImage,
   featureImageAlt: p.featureImageAlt,
+  dataCursorLabel: `Explore ${p.title}`,
 }))
 
 const highlightItems: ShowcaseProject[] = projectHighlights.map((p) => ({
@@ -34,6 +35,7 @@ const highlightItems: ShowcaseProject[] = projectHighlights.map((p) => ({
   href: `/highlights/${p.slug}`,
   featureImage: p.featureImage,
   featureImageAlt: p.featureImageAlt,
+  dataCursorLabel: `View ${p.title}`,
 }))
 
 export default function ProjectsPage() {

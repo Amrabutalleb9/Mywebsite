@@ -4,6 +4,7 @@ import { Inter, Playfair_Display } from "next/font/google"
 import { Analytics } from "@vercel/analytics/react"
 import MainNav from "@/components/main-nav"
 import MainFooter from "@/components/main-footer"
+import CustomCursor from "@/components/custom-cursor"
 import "./globals.css"
 
 const inter = Inter({
@@ -166,6 +167,7 @@ export default function RootLayout({
         {children}
         </div>
         <MainFooter />
+        <CustomCursor />
         <Analytics />
       </body>
     </html>

@@ -13,6 +13,7 @@ export interface ShowcaseProject {
   href: string
   featureImage?: string
   featureImageAlt?: string
+  dataCursorLabel?: string
 }
 
 export function ProjectShowcase({
@@ -138,6 +139,7 @@ export function ProjectShowcase({
             className="group flex flex-col gap-3 border-b border-border py-8 transition-colors hover:border-accent/40 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
             onMouseEnter={() => handleMouseEnter(i)}
             onMouseLeave={handleMouseLeave}
+            {...(project.dataCursorLabel && { "data-cursor-label": project.dataCursorLabel })}
           >
             <div className="flex items-start gap-5 sm:items-center">
               <span className="font-serif text-2xl leading-none text-accent/30 select-none">

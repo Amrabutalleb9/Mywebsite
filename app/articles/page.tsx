@@ -34,6 +34,7 @@ export default function ArticlesPage() {
             key={article.slug}
             href={`/articles/${article.slug}`}
             className="group"
+            data-cursor-label="Read Article"
           >
             <article className="border-b border-border py-10 transition-colors hover:border-accent/40">
               <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between lg:gap-12">
