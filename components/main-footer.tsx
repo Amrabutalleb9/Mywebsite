@@ -103,14 +103,14 @@ export default function MainFooter() {
             {/* Service tags */}
             <div className="mb-6 flex flex-wrap gap-x-5 gap-y-2">
               {servicesTags.map((s) => (
-                <span key={s} className="text-xs tracking-[0.12em] text-primary-foreground/50">{s}</span>
+                <span key={s} className="text-xs tracking-[var(--tracking-sublabel)] text-primary-foreground/50">{s}</span>
               ))}
             </div>
 
             {/* Let's Talk heading with gold accent bar */}
             <div className="mb-8 flex items-start gap-3">
               <div className="mt-2 h-20 w-1 bg-accent" />
-              <h2 className="font-serif text-[clamp(2.5rem,5vw,5rem)] font-normal leading-[1.05] tracking-tight text-primary-foreground">
+              <h2 className="font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-primary-foreground">
                 {"Let\u2019s"}
                 <br />
                 Talk!

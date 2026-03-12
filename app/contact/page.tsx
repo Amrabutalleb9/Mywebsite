@@ -39,10 +39,10 @@ export default function ContactPage() {
       if (data.success) {
         setSubmitted(true)
       } else {
-        setError("Something went wrong. Please try emailing me directly.")
+        setError("Something went wrong. Please try\u00A0emailing me directly.")
       }
     } catch {
-      setError("Network error. Please try emailing me directly.")
+      setError("Network error. Please try\u00A0emailing me directly.")
     } finally {
       setSending(false)
     }
@@ -52,11 +52,11 @@ export default function ContactPage() {
     <main className="px-8 pt-32 pb-24 lg:px-16 lg:pt-40 lg:pb-32">
       <div className="flex flex-col gap-16 lg:flex-row lg:gap-20">
         <div className="lg:w-1/2">
-          <h1 className="mb-6 font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-normal tracking-tight text-foreground">
+          <h1 className="mb-6 font-serif text-[length:var(--text-page)] font-normal tracking-tight text-foreground">
             {"Let\u2019s Talk"}
           </h1>
           <p className="mb-10 max-w-md leading-relaxed text-muted-foreground">
-            Available for senior Creative Director roles with international agencies and in-house teams in the UAE. If you have a role or a project worth building, reach out.
+            Available for senior Creative Director roles with international agencies and in-house teams in&nbsp;the UAE. If&nbsp;you have a&nbsp;role or a&nbsp;project worth building, reach&nbsp;out.
           </p>
           <div className="flex flex-col gap-4">
             <a href="mailto:hello@amrabutalleb.com" className="text-lg text-accent underline underline-offset-4 hover:text-accent/80">
@@ -76,8 +76,8 @@ export default function ContactPage() {
           {submitted ? (
             <div className="flex h-full min-h-[400px] items-center justify-center rounded-sm bg-surface p-12 text-center">
               <div>
-                <p className="font-serif text-2xl text-foreground">Message sent.</p>
-                <p className="mt-2 text-muted-foreground">{"I\u2019ll get back to you within 24 hours."}</p>
+                <p className="font-serif text-2xl text-foreground">Message&nbsp;sent.</p>
+                <p className="mt-2 text-muted-foreground">{"I\u2019ll get back to\u00A0you within 24\u00A0hours."}</p>
               </div>
             </div>
           ) : (
@@ -91,13 +91,13 @@ export default function ContactPage() {
                 <input id="email" type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent" />
               </div>
               <div>
-                <label htmlFor="budget" className="mb-2 block text-sm font-medium text-foreground">Budget Range</label>
+                <label htmlFor="budget" className="mb-2 block text-sm font-medium text-foreground">Budget&nbsp;Range</label>
                 <select id="budget" value={form.budget} onChange={(e) => setForm({ ...form, budget: e.target.value })} className="w-full rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent">
-                  <option value="">Select range</option>
+                  <option value="">Select&nbsp;range</option>
                   <option value="5k-10k">$5K - $10K</option>
                   <option value="10k-25k">$10K - $25K</option>
                   <option value="25k+">$25K+</option>
-                  <option value="fulltime">Full-time role</option>
+                  <option value="fulltime">Full-time&nbsp;role</option>
                 </select>
               </div>
               <div>
@@ -111,7 +111,7 @@ export default function ContactPage() {
                 </p>
               )}
               <button type="submit" disabled={sending} className="cursor-pointer rounded-full border border-foreground bg-primary px-8 py-3 font-medium text-primary-foreground transition-all duration-300 hover:bg-foreground hover:text-background disabled:opacity-50">
-                {sending ? "Sending\u2026" : "Send Message"}
+                {sending ? "Sending\u2026" : "Send&nbsp;Message"}
               </button>
             </form>
           )}

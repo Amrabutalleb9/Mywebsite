@@ -61,13 +61,13 @@ export default function HighlightLayout({
 
         {/* Title , smaller than case studies, different label */}
         <FadeIn>
-          <p className="mb-4 text-xs font-medium tracking-[0.15em] text-muted-foreground/50 uppercase">Project Highlight</p>
+          <p className="mb-4 text-xs font-medium tracking-[var(--tracking-label)] text-muted-foreground/50 uppercase">Project Highlight</p>
         </FadeIn>
-        <FadeIn as="h1" delay={0.05} className="mb-3 max-w-[20ch] text-[clamp(2.2rem,5vw,4rem)] font-bold leading-[1.05] tracking-tight text-foreground">
+        <FadeIn as="h1" delay={0.05} className="mb-3 max-w-[20ch] text-[length:var(--text-page)] font-bold leading-[var(--leading-tight)] tracking-tight text-foreground">
           {project.title}
         </FadeIn>
         <FadeIn delay={0.1} className="mb-10 max-w-[50ch]">
-          <p className="font-serif text-[clamp(1rem,1.8vw,1.2rem)] leading-relaxed text-muted-foreground">
+          <p className="font-serif text-[length:var(--text-body-lg)] leading-relaxed text-muted-foreground">
             {project.subtitle}
           </p>
         </FadeIn>
@@ -111,7 +111,7 @@ export default function HighlightLayout({
             { label: "Year", value: project.year },
           ].map((item) => (
             <div key={item.label} className="flex flex-col gap-1">
-              <span className="text-[10px] font-semibold tracking-[0.12em] text-accent uppercase">{item.label}</span>
+              <span className="text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-sublabel)] text-accent uppercase">{item.label}</span>
               <span className="text-sm leading-snug text-muted-foreground whitespace-pre-line">{item.value}</span>
             </div>
           ))}
@@ -123,7 +123,7 @@ export default function HighlightLayout({
         <FadeIn>
           <div className="flex max-w-[60ch] flex-col gap-5">
             {project.description.split("\n\n").map((p) => (
-              <p key={p.slice(0, 30)} className="leading-[1.75] text-muted-foreground">
+              <p key={p.slice(0, 30)} className="leading-[var(--leading-longform)] text-muted-foreground">
                 {p}
               </p>
             ))}
@@ -174,7 +174,7 @@ export default function HighlightLayout({
             {project.keyResult && (
               <FadeIn>
                 <div className="rounded-lg border border-border bg-surface px-6 py-5">
-                  <p className="mb-1 text-[10px] font-semibold tracking-[0.12em] text-accent uppercase">Result</p>
+                  <p className="mb-1 text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-sublabel)] text-accent uppercase">Result</p>
                   <p className="text-lg font-medium leading-relaxed text-foreground">
                     {project.keyResult}
                   </p>

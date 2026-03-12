@@ -39,20 +39,20 @@ const highlightItems: ShowcaseProject[] = projectHighlights.map((p) => ({
 export default function ProjectsPage() {
   return (
     <main className="px-8 pt-32 pb-24 lg:px-16 lg:pt-40 lg:pb-32">
-      <h1 className="mb-4 font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-normal tracking-tight text-foreground">
+      <h1 className="mb-4 font-serif text-[length:var(--text-page)] font-normal tracking-tight text-foreground">
         Projects
       </h1>
       <p className="mb-20 max-w-lg text-muted-foreground">
-        Case studies and selected project highlights across brand identity, creative direction, UI/UX design, and art direction.
+        Case studies and selected project highlights across brand identity, creative direction, UI/UX design, and&nbsp;art&nbsp;direction.
       </p>
 
       {/* ── Case Studies ── */}
       <div className="mb-4 flex items-center gap-3">
         <div className="h-px w-8 bg-accent" />
-        <span className="text-xs font-medium tracking-[0.15em] text-accent uppercase">Case Studies</span>
+        <span className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Case Studies</span>
       </div>
       <p className="mb-8 max-w-md text-sm text-muted-foreground">
-        Deep dives into strategy, process, and results.
+        Deep dives into strategy, process, and&nbsp;results.
       </p>
 
       <div className="mb-28">
@@ -62,10 +62,10 @@ export default function ProjectsPage() {
       {/* ── Project Highlights ── */}
       <div className="mb-4 flex items-center gap-3">
         <div className="h-px w-8 bg-accent" />
-        <span className="text-xs font-medium tracking-[0.15em] text-accent uppercase">Project Highlights</span>
+        <span className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Project Highlights</span>
       </div>
       <p className="mb-8 max-w-md text-sm text-muted-foreground">
-        Selected projects showing range.
+        Selected projects showing&nbsp;range.
       </p>
 
       <ProjectShowcase

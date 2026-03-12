@@ -1,26 +1,82 @@
 ---
-description: Typesetting rules for all user-facing text — widow prevention, line-end hygiene, non-breaking spaces
+description: Typesetting rules for all user-facing text — binding hierarchy, widow prevention, sentence-start protection, non-breaking spaces
 globs: "{app,components,lib}/**/*.{tsx,ts}"
 alwaysApply: false
 ---
 
 # Typesetting Rules
 
-Every paragraph, description, and body-text string must follow these rules.
+Every paragraph, description, label, and body-text string must follow these rules. Apply them in order of tier priority.
 
-## No short words at line endings
+## Tier 1 — Always bind (1-letter words)
 
-Never allow a word of 3 letters or fewer to sit at the end of a line. This includes:
+`a`, `I` → bind to the **following** word with a non-breaking space.
 
-- **1-letter:** a, I
-- **2-letter:** of, at, in, on, to, or, by, an, as, is, it, if, so, up, we, no, do, be
-- **3-letter:** the, and, for, but, nor, yet, are, was, has, its, can, our, his, her, who, how, not, you, all, new, now, one, out, use, may, did, get, let, say, she, too
+```tsx
+// BAD
+{"drove a number."}
+// GOOD
+{"drove a\u00A0number."}
+```
 
-Bind these to the **following** word with a non-breaking space so they can never dangle.
+## Tier 2 — Always bind (2-letter function words)
 
-## Widow prevention
+These words must never sit alone at the end of a line:
 
-The last line of every paragraph must contain at least two words. Bind the final two words with a non-breaking space.
+`of`, `at`, `in`, `on`, `to`, `or`, `by`, `an`, `as`, `is`, `it`, `if`, `so`, `up`, `we`, `no`, `do`, `be`, `he`
+
+Bind each to the **following** word.
+
+```tsx
+// BAD — "of" or "in" can dangle at line end
+the head of creative at a global agency in Dubai
+// GOOD
+the head of\u00A0creative at\u00A0a\u00A0global agency in\u00A0Dubai
+```
+
+## Tier 3 — Sentence-start protection
+
+After `.` `?` `!`, if the **next word is 4 letters or fewer**, bind it to the word after it. This prevents a new sentence from starting with only 1-2 words before a line break.
+
+Affected words include: `We`, `It`, `He`, `So`, `Or`, `No`, `An`, `As`, `If`, `My`, `Do`, `But`, `And`, `The`, `Yet`, `For`, `Nor`, `Now`, `How`, `Who`, `One`, `All`, `Can`, `Our`, `Has`, `Was`, `His`, `Her`, `Any`, `Its`, `Not`, `You`, `Did`, `Get`, `Let`, `Had`, `May`, `Two`, `New`, `Old`, `Own`, `Few`, `Big`, `Use`, `Set`, `Say`, `Too`, `Why`
+
+```tsx
+// BAD — "We" starts a sentence but sits alone at line end
+{"Several times, actually. We tested."}
+// GOOD
+{"Several times, actually. We\u00A0tested."}
+```
+
+## Tier 4 — Clause connectors
+
+After `,` or `;`, if the next word is a conjunction (`and`, `but`, `or`, `nor`, `yet`, `so`), bind it to the word after it.
+
+```tsx
+// BAD — "and" dangles after comma
+well-crafted, and then it
+// GOOD
+well-crafted, and&nbsp;then it
+```
+
+## Tier 5 — Widow prevention
+
+The last line of every paragraph must contain **at least two words**. Bind the final two words with a non-breaking space.
+
+```tsx
+// BAD — single word on last line
+{"Keep going until what remains is inevitable."}
+// GOOD
+{"Keep going until what remains is\u00A0inevitable."}
+```
+
+## Tier 6 — Number binding
+
+Always bind a number to its unit or following noun:
+
+- `13\u00A0years`, `60\u00A0days`, `4,000\u00A0kilometers`
+- `$500\u00A0campaign`, `$8,000\u00A0month`
+- `12%\u00A0increase`, `23%\u00A0higher`
+- `120\u00A0characters`
 
 ## Non-breaking space syntax
 
@@ -30,32 +86,19 @@ The last line of every paragraph must contain at least two words. Bind the final
 | Plain JSX text | `&nbsp;` or `&#160;` | `without a&nbsp;full-time&nbsp;hire.` |
 | Data objects (`.ts` arrays) | `\u00A0` | `desc: "Built to\u00A0last."` |
 
-## Number binding
-
-Always bind a number to its unit or following noun: `13\u00A0years`, `60\u00A0days`, `12%\u00A0increase`, `a\u00A057%`.
-
 ## Text measure
 
-Use `max-w-[60ch]` on paragraph containers. This produces ~55-75 actual characters per line, the target range.
+Use `max-w-[60ch]` on paragraph containers (produces ~55-75 characters per line). Use `max-w-[65ch]` only for article body reading.
 
-## CSS safety net (already in globals.css)
+## CSS safety net (globals.css)
 
-`text-wrap: pretty` on `p, li, blockquote` and `text-wrap: balance` on headings are applied globally. These help but do **not** replace manual `\u00A0` placement.
+`text-wrap: pretty` on `body, p, li, blockquote` and `text-wrap: balance` on headings are applied globally. These help prevent orphans and improve rag but do **not** replace manual `\u00A0` placement for short-word binding.
 
-## Examples
+## Checklist for new text
 
-```tsx
-// BAD — "a" can dangle, widow on "number."
-{"Every campaign had to move a number."}
-
-// GOOD
-{"Every campaign had to move a\u00A0number."}
-```
-
-```tsx
-// BAD — "or" can dangle at line end
-companies entering new markets, or agencies
-
-// GOOD
-companies entering new markets, or&#160;agencies
-```
+1. Scan for standalone `a` and `I` → bind (Tier 1)
+2. Scan for 2-letter function words → bind (Tier 2)
+3. Check sentence boundaries for short starter words → bind (Tier 3)
+4. Check commas/semicolons followed by conjunctions → bind (Tier 4)
+5. Check last line of every paragraph → ensure 2+ words (Tier 5)
+6. Check numbers → bind to units (Tier 6)

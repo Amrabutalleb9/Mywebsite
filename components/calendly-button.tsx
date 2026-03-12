@@ -49,7 +49,7 @@ export default function CalendlyButton({ className, children }: CalendlyButtonPr
       onClick={handleClick}
       className={
         className ||
-        "inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-3.5 text-xs font-medium tracking-[0.15em] text-background uppercase transition-all duration-300 hover:bg-transparent hover:text-foreground cursor-pointer"
+        "inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase transition-all duration-300 hover:bg-transparent hover:text-foreground cursor-pointer"
       }
     >
       {children || (

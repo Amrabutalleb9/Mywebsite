@@ -78,6 +78,35 @@
 @theme inline {
   --font-sans: var(--font-inter), "Inter", sans-serif;
   --font-serif: var(--font-playfair), "Playfair Display", Georgia, serif;
+
+  /* ── Type Scale (Custom Optical: ~Major Third body, ~Perfect Fourth headings) ── */
+  --text-micro: 0.625rem;
+  --text-caption: 0.75rem;
+  --text-body-sm: 0.875rem;
+  --text-body: 1rem;
+  --text-article: 1.0625rem;
+  --text-body-lg: 1.125rem;
+  --text-body-xl: 1.25rem;
+  --text-service-sm: 1.5rem;
+  --text-service-lg: 1.875rem;
+  --text-sub: clamp(1.5rem, 3vw, 2.5rem);
+  --text-section: clamp(2rem, 4vw, 3.5rem);
+  --text-page: clamp(2.5rem, 5vw, 4.5rem);
+  --text-display: clamp(2.8rem, 7.2vw, 8.8rem);
+
+  /* ── Leading ── */
+  --leading-display: 0.92;
+  --leading-tight: 1.05;
+  --leading-heading: 1.1;
+  --leading-snug: 1.375;
+  --leading-body: 1.625;
+  --leading-longform: 1.75;
+
+  /* ── Tracking ── */
+  --tracking-display: -0.03em;
+  --tracking-heading: -0.025em;
+  --tracking-label: 0.15em;
+  --tracking-sublabel: 0.12em;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -129,8 +158,12 @@
   }
 }
 
-/* Text-wrap: pretty MUST be outside @layer to beat TW4 utilities */
-body { text-wrap: pretty; }
+/* ── Typography baseline ── */
+body {
+  text-wrap: pretty;
+  font-kerning: normal;
+  font-feature-settings: 'liga' 1, 'calt' 1;
+}
 p, li, blockquote, td, th, figcaption {
   text-wrap: pretty;
 }

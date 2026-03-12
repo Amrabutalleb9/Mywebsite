@@ -176,7 +176,7 @@ export function CleanTestimonial({
                 className="w-full h-full object-cover"
               />
             ) : (
-              <span className="text-[8px] font-medium bg-accent text-accent-foreground w-full h-full flex items-center justify-center">
+              <span className="text-[length:var(--text-micro)] font-medium bg-accent text-accent-foreground w-full h-full flex items-center justify-center">
                 {getInitials(t.author)}
               </span>
             )}
@@ -288,7 +288,7 @@ export function CleanTestimonial({
 
       {/* Hint */}
       <motion.p
-        className="mt-8 text-[10px] text-muted-foreground uppercase tracking-widest"
+        className="mt-8 text-[length:var(--text-micro)] text-muted-foreground uppercase tracking-widest"
         initial={{ opacity: 0 }}
         animate={{ opacity: isHovered ? 0.4 : 0.15 }}
         transition={{ duration: 0.3 }}

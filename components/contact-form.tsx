@@ -55,7 +55,7 @@ export default function ContactForm() {
 
   return (
     <section id="contact" className="mx-auto max-w-[1280px] px-6 py-[clamp(80px,10vw,140px)]">
-      <FadeIn as="h2" className="mb-6 text-[clamp(1.8rem,3vw,2.5rem)] font-bold tracking-tight text-foreground">
+      <FadeIn as="h2" className="mb-6 text-[length:var(--text-sub)] font-bold tracking-tight text-foreground">
         {"Let's Talk"}
       </FadeIn>
       <FadeIn as="p" className="mb-12 max-w-[640px] text-muted-foreground">

@@ -100,7 +100,7 @@ export default async function ArticlePage({
         </div>
 
         {/* Title */}
-        <h1 className="mb-10 font-serif text-[clamp(2rem,4vw,3.5rem)] font-normal leading-[1.1] tracking-tight text-foreground">
+        <h1 className="mb-10 font-serif text-[length:var(--text-section)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground">
           {article.title}
         </h1>
 
@@ -119,7 +119,7 @@ export default async function ArticlePage({
         )}
 
         {/* Content */}
-        <div className="flex flex-col gap-6 text-[17px] leading-[1.75] text-muted-foreground">
+        <div className="flex flex-col gap-6 text-[17px] leading-[var(--leading-longform)] text-muted-foreground">
           {article.content.map((paragraph, i) => (
             <p key={`p-${i}`}>{paragraph}</p>
           ))}

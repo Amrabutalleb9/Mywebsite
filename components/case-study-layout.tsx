@@ -63,13 +63,13 @@ export default function CaseStudyLayout({
       {/* Hero , label + title + subtitle */}
       <div className="mx-auto max-w-[1280px] px-6">
         <FadeIn>
-          <p className="mb-4 text-xs font-medium tracking-[0.15em] text-accent uppercase">Case Study</p>
+          <p className="mb-4 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Case Study</p>
         </FadeIn>
-        <FadeIn as="h1" delay={0.05} className="mb-4 max-w-[20ch] text-[clamp(2.8rem,6vw,5.5rem)] font-bold leading-[1.05] tracking-tight text-foreground">
+        <FadeIn as="h1" delay={0.05} className="mb-4 max-w-[20ch] text-[length:var(--text-page)] font-bold leading-[var(--leading-tight)] tracking-tight text-foreground">
           {project.title}
         </FadeIn>
         <FadeIn delay={0.1} className="mb-8 max-w-[50ch]">
-          <p className="font-serif text-[clamp(1.1rem,2vw,1.35rem)] leading-relaxed text-muted-foreground">
+          <p className="font-serif text-[length:var(--text-body-lg)] leading-relaxed text-muted-foreground">
             {project.subtitle}
           </p>
         </FadeIn>
@@ -104,7 +104,7 @@ export default function CaseStudyLayout({
 
       {/* Impact Statement , with label */}
       <FadeIn className="mx-auto mb-20 max-w-[1280px] px-6">
-        <p className="mb-3 text-[10px] font-semibold tracking-[0.15em] text-accent uppercase">Key Impact</p>
+        <p className="mb-3 text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-label)] text-accent uppercase">Key Impact</p>
         <p className="text-base font-medium leading-relaxed text-foreground sm:text-lg">
           {project.impactStatement}
         </p>
@@ -122,7 +122,7 @@ export default function CaseStudyLayout({
             { label: "Markets", value: project.markets },
           ].map((item) => (
             <div key={item.label} className="flex flex-col gap-1.5">
-              <span className="text-[10px] font-semibold tracking-[0.15em] text-accent uppercase">{item.label}</span>
+              <span className="text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-label)] text-accent uppercase">{item.label}</span>
               <span className="text-sm leading-snug text-muted-foreground whitespace-pre-line">{item.value}</span>
             </div>
           ))}
@@ -133,24 +133,24 @@ export default function CaseStudyLayout({
       <div className="mx-auto mb-28 max-w-[1280px] px-6">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <FadeIn>
-            <p className="text-xs font-medium tracking-[0.15em] text-accent uppercase">The Challenge</p>
+            <p className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">The Challenge</p>
           </FadeIn>
           <div className="flex flex-col gap-10">
             <FadeIn>
-              <h3 className="mb-3 text-xs font-semibold tracking-[0.12em] text-foreground/50 uppercase">Business Context</h3>
-              <p className="max-w-[60ch] leading-[1.75] text-muted-foreground">
+              <h3 className="mb-3 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/50 uppercase">Business Context</h3>
+              <p className="max-w-[60ch] leading-[var(--leading-longform)] text-muted-foreground">
                 {project.businessContext}
               </p>
             </FadeIn>
             <FadeIn>
-              <h3 className="mb-3 text-xs font-semibold tracking-[0.12em] text-foreground/50 uppercase">The Client&rsquo;s Problem</h3>
-              <p className="max-w-[60ch] leading-[1.75] text-muted-foreground">
+              <h3 className="mb-3 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/50 uppercase">The Client&rsquo;s Problem</h3>
+              <p className="max-w-[60ch] leading-[var(--leading-longform)] text-muted-foreground">
                 {project.clientProblem}
               </p>
             </FadeIn>
             <FadeIn>
-              <h3 className="mb-3 text-xs font-semibold tracking-[0.12em] text-foreground/50 uppercase">Constraints</h3>
-              <p className="max-w-[60ch] leading-[1.75] text-muted-foreground">
+              <h3 className="mb-3 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/50 uppercase">Constraints</h3>
+              <p className="max-w-[60ch] leading-[var(--leading-longform)] text-muted-foreground">
                 {project.constraints}
               </p>
             </FadeIn>
@@ -174,30 +174,30 @@ export default function CaseStudyLayout({
       <div className="mx-auto mb-28 max-w-[1280px] px-6">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <FadeIn>
-            <p className="text-xs font-medium tracking-[0.15em] text-accent uppercase">Strategic Approach</p>
+            <p className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Strategic Approach</p>
           </FadeIn>
           <div className="flex flex-col gap-10">
             <FadeIn>
-              <h3 className="mb-3 text-xs font-semibold tracking-[0.12em] text-foreground/50 uppercase">The Key Insight</h3>
-              <p className="max-w-[60ch] leading-[1.75] text-muted-foreground">
+              <h3 className="mb-3 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/50 uppercase">The Key Insight</h3>
+              <p className="max-w-[60ch] leading-[var(--leading-longform)] text-muted-foreground">
                 {project.insight}
               </p>
             </FadeIn>
             <FadeIn>
-              <h3 className="mb-3 text-xs font-semibold tracking-[0.12em] text-foreground/50 uppercase">Creative Strategy</h3>
-              <p className="max-w-[60ch] leading-[1.75] text-muted-foreground">
+              <h3 className="mb-3 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/50 uppercase">Creative Strategy</h3>
+              <p className="max-w-[60ch] leading-[var(--leading-longform)] text-muted-foreground">
                 {project.creativeStrategy}
               </p>
             </FadeIn>
             <FadeIn>
-              <h3 className="mb-3 text-xs font-semibold tracking-[0.12em] text-foreground/50 uppercase">Key Decisions & Why</h3>
-              <p className="max-w-[60ch] leading-[1.75] text-muted-foreground">
+              <h3 className="mb-3 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/50 uppercase">Key Decisions & Why</h3>
+              <p className="max-w-[60ch] leading-[var(--leading-longform)] text-muted-foreground">
                 {project.keyDecisions}
               </p>
             </FadeIn>
             <FadeIn>
-              <h3 className="mb-3 text-xs font-semibold tracking-[0.12em] text-foreground/50 uppercase">Leadership & Stakeholder Management</h3>
-              <p className="max-w-[60ch] leading-[1.75] text-muted-foreground">
+              <h3 className="mb-3 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/50 uppercase">Leadership & Stakeholder Management</h3>
+              <p className="max-w-[60ch] leading-[var(--leading-longform)] text-muted-foreground">
                 {project.leadershipRole}
               </p>
             </FadeIn>
@@ -216,7 +216,7 @@ export default function CaseStudyLayout({
       <div className="mx-auto mb-28 max-w-[1280px] px-6">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <FadeIn>
-            <p className="text-xs font-medium tracking-[0.15em] text-accent uppercase">Process & Evolution</p>
+            <p className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Process & Evolution</p>
           </FadeIn>
           <div className="flex flex-col gap-8">
             {project.processPhases.map((phase, i) => (
@@ -227,7 +227,7 @@ export default function CaseStudyLayout({
                   </div>
                   <div>
                     <h3 className="mb-2 text-sm font-semibold text-foreground">{phase.title}</h3>
-                    <p className="max-w-[60ch] text-sm leading-[1.7] text-muted-foreground">
+                    <p className="max-w-[60ch] text-sm leading-[var(--leading-longform)] text-muted-foreground">
                       {phase.description}
                     </p>
                   </div>
@@ -277,7 +277,7 @@ export default function CaseStudyLayout({
       <div className="mx-auto mb-28 max-w-[1280px] px-6">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <FadeIn>
-            <p className="text-xs font-medium tracking-[0.15em] text-accent uppercase">Results & Impact</p>
+            <p className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Results & Impact</p>
           </FadeIn>
           <div className="flex flex-col gap-6">
             <FadeIn>
@@ -285,7 +285,7 @@ export default function CaseStudyLayout({
                 {project.results.map((result) => (
                   <li key={result.slice(0, 30)} className="flex gap-3 text-muted-foreground">
                     <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
-                    <span className="leading-[1.7]">{result}</span>
+                    <span className="leading-[var(--leading-longform)]">{result}</span>
                   </li>
                 ))}
               </ul>
@@ -312,10 +312,10 @@ export default function CaseStudyLayout({
       <div className="mx-auto mb-28 max-w-[1280px] px-6">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <FadeIn>
-            <p className="text-xs font-medium tracking-[0.15em] text-accent uppercase">Reflection</p>
+            <p className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Reflection</p>
           </FadeIn>
           <FadeIn>
-            <p className="max-w-[60ch] leading-[1.75] text-muted-foreground">
+            <p className="max-w-[60ch] leading-[var(--leading-longform)] text-muted-foreground">
               {project.reflection}
             </p>
           </FadeIn>
