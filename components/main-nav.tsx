@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 
@@ -14,6 +14,8 @@ const navItems = [
 export default function MainNav() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const overlayRef = useRef<HTMLDivElement>(null)
+  const closeRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -21,10 +23,10 @@ export default function MainNav() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = "hidden"
+      closeRef.current?.focus()
     } else {
       document.body.style.overflow = ""
     }
@@ -32,6 +34,23 @@ export default function MainNav() {
       document.body.style.overflow = ""
     }
   }, [mobileOpen])
+
+  const handleTrapFocus = useCallback((e: React.KeyboardEvent) => {
+    if (e.key !== "Tab" || !overlayRef.current) return
+    const focusable = overlayRef.current.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    )
+    if (focusable.length === 0) return
+    const first = focusable[0]
+    const last = focusable[focusable.length - 1]
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault()
+      last.focus()
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault()
+      first.focus()
+    }
+  }, [])
 
   return (
     <>
@@ -56,7 +75,7 @@ export default function MainNav() {
             ))}
             <Link
               href="/#contact"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="rounded-full border border-accent px-5 py-2 text-sm font-medium text-accent transition-all duration-300 hover:bg-accent hover:text-accent-foreground"
             >
               {"Let\u2019s Talk"}
             </Link>
@@ -66,6 +85,7 @@ export default function MainNav() {
             className="text-foreground md:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -73,8 +93,16 @@ export default function MainNav() {
       </header>
 
       {mobileOpen && (
-        <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-8 bg-background md:hidden">
+        <div
+          ref={overlayRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Navigation menu"
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-8 bg-background md:hidden"
+          onKeyDown={handleTrapFocus}
+        >
           <button
+            ref={closeRef}
             type="button"
             className="absolute top-5 right-6 text-foreground"
             onClick={() => setMobileOpen(false)}
@@ -95,7 +123,7 @@ export default function MainNav() {
           <Link
             href="/#contact"
             onClick={() => setMobileOpen(false)}
-            className="font-serif text-3xl text-foreground"
+            className="font-serif text-3xl text-accent"
           >
             Let{"\u2019"}s Talk
           </Link>

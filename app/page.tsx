@@ -5,10 +5,13 @@ import React from "react"
 import { useState, useEffect, useRef, useCallback, type ReactNode } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import dynamic from "next/dynamic"
 import { ArrowUpRight, ArrowRight } from "lucide-react"
-import { CleanTestimonial } from "@/components/ui/clean-testimonial"
-import { InfiniteGrid } from "@/components/ui/infinite-grid"
+import CalendlyButton from "@/components/calendly-button"
 import { articles, getReadingTime } from "@/lib/articles"
+
+const CleanTestimonial = dynamic(() => import("@/components/ui/clean-testimonial").then(m => ({ default: m.CleanTestimonial })))
+const InfiniteGrid = dynamic(() => import("@/components/ui/infinite-grid").then(m => ({ default: m.InfiniteGrid })))
 
 /* ─── Data ─────────────────────────────────────────── */
 
@@ -193,13 +196,16 @@ function Hero() {
         <p className="mx-auto mt-4 max-w-3xl text-sm tracking-wide text-muted-foreground/70 lg:text-base">
           Available for creative direction engagements and&nbsp;consulting.
         </p>
-        <a
-          href="#work"
-          className="cta-btn mt-8 inline-flex items-center gap-2 rounded-full border border-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-foreground uppercase hover:bg-foreground hover:text-background"
-        >
-          See the&nbsp;Work
-          <ArrowUpRight size={14} className="cta-arrow" />
-        </a>
+        <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row">
+          <CalendlyButton />
+          <a
+            href="#work"
+            className="cta-btn inline-flex items-center gap-2 rounded-full border border-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-foreground uppercase hover:bg-foreground hover:text-background"
+          >
+            See the&nbsp;Work
+            <ArrowUpRight size={14} className="cta-arrow" />
+          </a>
+        </div>
       </div>
     </InfiniteGrid>
   )

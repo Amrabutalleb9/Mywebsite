@@ -1,6 +1,7 @@
 import React from "react"
 import type { Metadata, Viewport } from "next"
 import { Inter, Playfair_Display } from "next/font/google"
+import { Analytics } from "@vercel/analytics/react"
 import MainNav from "@/components/main-nav"
 import MainFooter from "@/components/main-footer"
 import "./globals.css"
@@ -38,10 +39,10 @@ export const metadata: Metadata = {
       "Creative Director with 13+ years in brand strategy, UI/UX, and art direction across the UAE, UK, USA, and Europe. Open to senior roles in Dubai.",
     images: [
       {
-        url: "/images/amr-portrait.png",
-        width: 2000,
-        height: 1116,
-        alt: "Amr Abu-Talleb | Creative Director",
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Amr Abu-Talleb | Creative Director · Dubai",
       },
     ],
   },
@@ -50,7 +51,7 @@ export const metadata: Metadata = {
     title: "Amr Abu-Talleb | Creative Director \u00B7 Dubai",
     description:
       "Creative Director with 13+ years in brand strategy, UI/UX, and art direction across the UAE, UK, USA, and Europe. Open to senior roles in Dubai.",
-    images: ["/images/amr-portrait.png"],
+    images: ["/images/og-image.png"],
   },
   robots: {
     index: true,
@@ -165,6 +166,7 @@ export default function RootLayout({
         {children}
         </div>
         <MainFooter />
+        <Analytics />
       </body>
     </html>
   )

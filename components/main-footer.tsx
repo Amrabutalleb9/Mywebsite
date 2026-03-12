@@ -65,7 +65,7 @@ export default function MainFooter() {
             <form onSubmit={handleSubmit} className="flex h-full flex-col justify-center rounded-b-2xl bg-background p-10 lg:p-12">
               <div className="mb-8">
                 <label htmlFor="fname" className="text-sm text-muted-foreground">Full name</label>
-                <input id="fname" name="name" type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="mt-2 w-full border-b border-border bg-transparent py-4 text-foreground outline-none transition-colors focus:border-accent" />
+                <input id="fname" name="name" type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="mt-2 w-full border-b border-border bg-transparent py-4 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent" />
               </div>
               <div className="mb-8">
                 <label htmlFor="femail" className="text-sm text-muted-foreground">Email</label>
@@ -73,7 +73,7 @@ export default function MainFooter() {
               </div>
               <div className="mb-10">
                 <label htmlFor="fmsg" className="text-sm text-muted-foreground">Message</label>
-                <textarea id="fmsg" name="message" rows={5} required value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="mt-2 w-full resize-none border-b border-border bg-transparent py-4 text-foreground outline-none transition-colors focus:border-accent" />
+                <textarea id="fmsg" name="message" rows={5} required value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="mt-2 w-full resize-none border-b border-border bg-transparent py-4 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent" />
               </div>
               {error && (
                 <p className="mb-4 text-sm text-red-500">

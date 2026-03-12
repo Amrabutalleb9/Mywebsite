@@ -173,6 +173,7 @@ export function CleanTestimonial({
               <img
                 src={t.avatar}
                 alt={t.author}
+                loading="lazy"
                 className="w-full h-full object-cover"
               />
             ) : (
@@ -216,6 +217,7 @@ export function CleanTestimonial({
                     key={i}
                     src={t.avatar}
                     alt={t.author}
+                    loading="lazy"
                     className="absolute inset-0 w-11 h-11 rounded-full object-cover grayscale hover:grayscale-0 transition-[filter] duration-500"
                     animate={{
                       opacity: i === activeIndex ? 1 : 0,

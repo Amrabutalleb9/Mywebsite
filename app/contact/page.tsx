@@ -2,6 +2,7 @@
 
 import React, { useState } from "react"
 import { Linkedin } from "lucide-react"
+import CalendlyButton from "@/components/calendly-button"
 
 const WEB3FORMS_KEY = "b13517be-486e-4aa3-b064-eeb0e5f25951"
 
@@ -69,6 +70,10 @@ export default function ContactPage() {
                 </a>
               ))}
             </div>
+            <div className="mt-6">
+              <p className="mb-3 text-sm text-muted-foreground">Prefer a&nbsp;live conversation?</p>
+              <CalendlyButton />
+            </div>
           </div>
         </div>
 
@@ -84,7 +89,7 @@ export default function ContactPage() {
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <div>
                 <label htmlFor="name" className="mb-2 block text-sm font-medium text-foreground">Name</label>
-                <input id="name" type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent" />
+                <input id="name" type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent" />
               </div>
               <div>
                 <label htmlFor="email" className="mb-2 block text-sm font-medium text-foreground">Email</label>
@@ -92,7 +97,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <label htmlFor="budget" className="mb-2 block text-sm font-medium text-foreground">Budget&nbsp;Range</label>
-                <select id="budget" value={form.budget} onChange={(e) => setForm({ ...form, budget: e.target.value })} className="w-full rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent">
+                <select id="budget" value={form.budget} onChange={(e) => setForm({ ...form, budget: e.target.value })} className="w-full rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent">
                   <option value="">Select&nbsp;range</option>
                   <option value="5k-10k">$5K - $10K</option>
                   <option value="10k-25k">$10K - $25K</option>
@@ -102,7 +107,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <label htmlFor="message" className="mb-2 block text-sm font-medium text-foreground">Message</label>
-                <textarea id="message" rows={5} required value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full resize-none rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent" />
+                <textarea id="message" rows={5} required value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full resize-none rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent" />
               </div>
               {error && (
                 <p className="text-sm text-red-500">

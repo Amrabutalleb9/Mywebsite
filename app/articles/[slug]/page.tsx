@@ -52,16 +52,33 @@ export default async function ArticlePage({
 
   const { prev, next } = getAdjacentArticles(slug)
 
+  const dateMap: Record<string, string> = {
+    "Jan 2025": "2025-01-15",
+    "Feb 2025": "2025-02-15",
+    "Mar 2025": "2025-03-15",
+    "Sep 2024": "2024-09-15",
+    "Oct 2024": "2024-10-15",
+    "Nov 2024": "2024-11-15",
+    "Dec 2024": "2024-12-15",
+  }
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: article.title,
     description: article.excerpt,
     author: { "@type": "Person", name: "Amr Abu-Talleb" },
-    datePublished: article.date,
+    datePublished: dateMap[article.date] || article.date,
     url: `https://amrabutalleb.com/articles/${slug}`,
     image: article.image ? `https://amrabutalleb.com${article.image}` : undefined,
-    publisher: { "@type": "Person", name: "Amr Abu-Talleb" },
+    publisher: {
+      "@type": "Organization",
+      name: "Amr Abu-Talleb",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://amrabutalleb.com/images/amr-portrait.png",
+      },
+    },
   }
 
   const breadcrumbLd = {
