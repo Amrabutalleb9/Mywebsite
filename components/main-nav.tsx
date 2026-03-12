@@ -74,7 +74,7 @@ export default function MainNav() {
               </Link>
             ))}
             <Link
-              href="/#contact"
+              href="/contact"
               className="rounded-full border border-accent px-5 py-2 text-sm font-medium text-accent transition-all duration-300 hover:bg-accent hover:text-accent-foreground"
             >
               {"Let\u2019s Talk"}
@@ -121,7 +121,7 @@ export default function MainNav() {
             </Link>
           ))}
           <Link
-            href="/#contact"
+            href="/contact"
             onClick={() => setMobileOpen(false)}
             className="font-serif text-3xl text-accent"
           >
