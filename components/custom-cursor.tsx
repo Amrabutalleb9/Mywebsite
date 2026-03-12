@@ -13,7 +13,7 @@ export default function CustomCursor() {
   const mouseX = useMotionValue(-100)
   const mouseY = useMotionValue(-100)
 
-  const springConfig = { damping: 25, stiffness: 200 }
+  const springConfig = { damping: 25, stiffness: 150 }
   const cursorX = useSpring(mouseX, springConfig)
   const cursorY = useSpring(mouseY, springConfig)
 
@@ -64,37 +64,33 @@ export default function CustomCursor() {
 
   return (
     <motion.div
-      className="pointer-events-none fixed top-0 left-0 z-[9999] hidden md:block"
+      className="pointer-events-none fixed top-0 left-0 z-[9999] hidden md:block mix-blend-difference"
       style={{ x: cursorX, y: cursorY, translateX: "-50%", translateY: "-50%" }}
     >
-      {/* Default dot */}
       <motion.div
-        className="rounded-full bg-foreground"
+        className="flex items-center justify-center rounded-full bg-foreground"
         animate={{
-          width: hasLabel ? 0 : 24,
-          height: hasLabel ? 0 : 24,
-          opacity: visible && !hasLabel ? 0.4 : 0,
+          width: hasLabel ? 100 : visible ? 20 : 0,
+          height: hasLabel ? 100 : visible ? 20 : 0,
+          opacity: visible ? 1 : 0,
         }}
-        transition={{ duration: 0.2 }}
-      />
-
-      {/* Label pill */}
-      <AnimatePresence>
-        {hasLabel && visible && (
-          <motion.div
-            key={label}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full border border-foreground/10 bg-background/70 px-5 py-2.5 shadow-lg backdrop-blur-md"
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.5, opacity: 0 }}
-            transition={{ type: "spring", damping: 25, stiffness: 300 }}
-          >
-            <span className="text-xs font-medium tracking-[var(--tracking-label)] text-foreground/70 uppercase">
+        transition={{ type: "spring", damping: 20, stiffness: 200 }}
+      >
+        <AnimatePresence>
+          {hasLabel && (
+            <motion.span
+              key={label}
+              className="text-[10px] font-medium tracking-[var(--tracking-label)] text-background uppercase"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.15 }}
+            >
               {label}
-            </span>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </motion.span>
+          )}
+        </AnimatePresence>
+      </motion.div>
     </motion.div>
   )
 }
