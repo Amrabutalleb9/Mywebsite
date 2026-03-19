@@ -90,7 +90,7 @@ export default function MainFooter() {
             {/* Service tags */}
             <div className="mb-6 flex flex-wrap gap-x-5 gap-y-2">
               {servicesTags.map((s) => (
-                <span key={s} className="text-xs tracking-[var(--tracking-sublabel)] text-primary-foreground/50">{s}</span>
+                <span key={s} className="text-xs tracking-[var(--tracking-sublabel)] text-primary-foreground/60">{s}</span>
               ))}
             </div>
 
@@ -112,7 +112,7 @@ export default function MainFooter() {
             {/* Links */}
             <div className="flex gap-6">
               {footerLinks.map((link) => (
-                <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="text-sm text-primary-foreground/50 transition-colors hover:text-primary-foreground">
+                <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="text-sm text-primary-foreground/60 transition-colors hover:text-primary-foreground">
                   {link.label}
                 </a>
               ))}
@@ -124,8 +124,8 @@ export default function MainFooter() {
       {/* Copyright bar */}
       <div className="border-t border-primary-foreground/10 px-8 py-6 lg:px-16">
         <div className="flex flex-col items-center justify-between gap-3 sm:flex-row">
-          <p className="text-xs text-primary-foreground/40">&copy; 2026 Amr Abu-Talleb. All rights reserved.</p>
-          <p className="text-xs text-primary-foreground/40">Cairo, Egypt &middot; Working globally</p>
+          <p className="text-xs text-primary-foreground/60">&copy; 2026 Amr Abu-Talleb. All rights reserved.</p>
+          <p className="text-xs text-primary-foreground/60">Cairo, Egypt &middot; Working globally</p>
         </div>
       </div>
     </footer>
