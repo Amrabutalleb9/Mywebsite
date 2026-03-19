@@ -4,8 +4,8 @@ import { ArrowUpRight } from "lucide-react"
 import { articles, getReadingTime } from "@/lib/articles"
 
 export const metadata: Metadata = {
-  title: "Articles",
-  description: "Thinking out loud about brand strategy, creative direction, typography, and design leadership.",
+  title: "Articles on Brand Strategy & Creative Direction",
+  description: "Practical insights on brand strategy, creative direction, typography, and design leadership. Written by a 13-year veteran.",
   alternates: { canonical: "/articles" },
   openGraph: {
     title: "Articles · Amr Abu-Talleb",

@@ -1,12 +1,16 @@
 import type { Metadata } from "next"
+import dynamic from "next/dynamic"
 import FadeIn from "@/components/fade-in"
 import CalendlyButton from "@/components/calendly-button"
-import { CleanTestimonial } from "@/components/ui/clean-testimonial"
 import { testimonials } from "@/lib/shared-data"
 
+const CleanTestimonial = dynamic(
+  () => import("@/components/ui/clean-testimonial").then((m) => ({ default: m.CleanTestimonial })),
+)
+
 export const metadata: Metadata = {
-  title: "Work With Me",
-  description: "Senior creative direction for brands and products that need to perform. Fractional CD, brand sprints, and UX audits.",
+  title: "Hire a Creative Director | Brand Strategy & Direction Services",
+  description: "Fractional creative direction, brand launch sprints, and UX audits. Book a free discovery call to get started.",
   alternates: { canonical: "/work-with-me" },
   openGraph: {
     title: "Work With Me · Amr Abu-Talleb",
@@ -70,13 +74,14 @@ export default function WorkWithMePage() {
           <h1 className="mb-8 font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
             Senior creative direction for brands and products that need to&nbsp;perform.
           </h1>
+          <p className="mt-3 text-sm text-accent">{"Currently booking for Q2 2026 \u00B7 2 spots available"}</p>
         </FadeIn>
         <FadeIn delay={0.1}>
           <p className="mb-4 max-w-[60ch] leading-relaxed text-muted-foreground">
             I take on select creative direction engagements alongside my leadership work, typically with startups launching products, companies entering new markets, or&#160;agencies that need senior creative firepower without a&#160;full-time&#160;hire.
           </p>
           <p className="mb-10 max-w-[60ch] leading-relaxed text-muted-foreground">
-            {"If you\u2019re looking for\u00A0someone who leads strategy and teams, not just pushes pixels .. let\u2019s\u00A0talk."}
+            {"If you\u2019re looking for\u00A0someone who leads strategy and teams, not just pushes pixels\u00A0\u2014 let\u2019s\u00A0talk."}
           </p>
         </FadeIn>
         <FadeIn delay={0.15}>

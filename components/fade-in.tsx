@@ -1,3 +1,6 @@
+// Self-contained fade-in using inline styles. Used on inner/detail pages.
+// For homepage staggered section reveals, use <ScrollReveal> instead
+// (CSS class-based with doubled-selector specificity for Tailwind v4).
 "use client"
 
 import { useRef, useEffect, useState, useCallback, type ReactNode } from "react"

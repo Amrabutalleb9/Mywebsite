@@ -3,8 +3,9 @@
 import React, { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowLeft, ArrowRight, X } from "lucide-react"
+import { ArrowLeft, ArrowRight } from "lucide-react"
 import FadeIn from "./fade-in"
+import { Lightbox } from "./ui/lightbox"
 import type { ProjectHighlight } from "@/lib/projects"
 
 export default function HighlightLayout({
@@ -21,33 +22,7 @@ export default function HighlightLayout({
   return (
     <>
     {/* Lightbox overlay */}
-    {lightbox && (
-      <div
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
-        onClick={() => setLightbox(null)}
-        onKeyDown={(e) => { if (e.key === "Escape") setLightbox(null) }}
-        role="dialog"
-        aria-modal="true"
-        tabIndex={-1}
-      >
-        <button
-          onClick={() => setLightbox(null)}
-          className="absolute top-6 right-6 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
-          aria-label="Close"
-          autoFocus
-        >
-          <X size={20} />
-        </button>
-        <Image
-          src={lightbox}
-          alt="Enlarged project image"
-          width={1400}
-          height={900}
-          className="max-h-[90vh] max-w-[95vw] rounded-lg object-contain"
-          onClick={(e) => e.stopPropagation()}
-        />
-      </div>
-    )}
+    {lightbox && <Lightbox src={lightbox} onClose={() => setLightbox(null)} />}
 
     <main>
     <article className="pb-[clamp(80px,10vw,140px)] pt-28">
@@ -215,6 +190,17 @@ export default function HighlightLayout({
           </div>
         </div>
       )}
+
+      {/* CTA */}
+      <div className="mx-auto mt-20 max-w-[1000px] border-t border-border pt-12 text-center">
+        <p className="mb-4 text-lg text-muted-foreground">Want results like these for your brand?</p>
+        <a
+          href="/work-with-me"
+          className="cta-btn inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase transition-all hover:bg-transparent hover:text-foreground"
+        >
+          Work With Me
+        </a>
+      </div>
 
       {/* Navigation */}
       <div className="mx-auto max-w-[1000px] px-6">

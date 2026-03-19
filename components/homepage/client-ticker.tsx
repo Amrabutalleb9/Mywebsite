@@ -16,9 +16,11 @@ export default function ClientTicker() {
       onMouseEnter={pause}
       onMouseLeave={resume}
     >
+      <span className="sr-only">{clientNames.join(", ")}</span>
       <div
         ref={trackRef}
         style={{ display: "flex", gap: "3rem", width: "max-content", willChange: "transform" }}
+        aria-hidden="true"
       >
         {[...clientNames, ...clientNames, ...clientNames].map((name, i) => (
           <span

@@ -3,17 +3,11 @@
 import { useState, useEffect, useRef } from "react"
 import dynamic from "next/dynamic"
 import ScrollReveal from "./scroll-reveal"
+import { type Testimonial } from "@/lib/shared-data"
 
 const CleanTestimonial = dynamic(
   () => import("@/components/ui/clean-testimonial").then((m) => ({ default: m.CleanTestimonial })),
 )
-
-interface Testimonial {
-  text: string
-  author: string
-  location: string
-  role: string
-}
 
 interface Stat {
   end: number

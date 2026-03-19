@@ -24,40 +24,40 @@ export function ProjectShowcase({
   startIndex?: number
 }) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [smoothPosition, setSmoothPosition] = useState({ x: 0, y: 0 })
-  const [isVisible, setIsVisible] = useState(false)
-  const [containerRect, setContainerRect] = useState<DOMRect | null>(null)
+  const [isImageVisible, setIsImageVisible] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
+  const previewRef = useRef<HTMLDivElement>(null)
   const animationRef = useRef<number | null>(null)
+  const mouseRef = useRef({ x: 0, y: 0 })
+  const smoothRef = useRef({ x: 0, y: 0 })
+  const isOnScreenRef = useRef(false)
 
   const hasAnyImage = projects.some((p) => p.featureImage)
 
-  const updateRect = useCallback(() => {
-    if (containerRef.current) {
-      setContainerRect(containerRef.current.getBoundingClientRect())
-    }
+  useEffect(() => {
+    const el = containerRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => { isOnScreenRef.current = entry.isIntersecting },
+      { rootMargin: "100px" }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
   }, [])
 
   useEffect(() => {
-    updateRect()
-    window.addEventListener("scroll", updateRect, { passive: true })
-    window.addEventListener("resize", updateRect, { passive: true })
-    return () => {
-      window.removeEventListener("scroll", updateRect)
-      window.removeEventListener("resize", updateRect)
-    }
-  }, [updateRect])
+    if (!hasAnyImage) return
 
-  useEffect(() => {
-    const lerp = (start: number, end: number, factor: number) =>
-      start + (end - start) * factor
+    const LERP_FACTOR = 0.15
+    const lerp = (a: number, b: number, t: number) => a + (b - a) * t
 
     const animate = () => {
-      setSmoothPosition((prev) => ({
-        x: lerp(prev.x, mousePosition.x, 0.15),
-        y: lerp(prev.y, mousePosition.y, 0.15),
-      }))
+      if (isOnScreenRef.current && previewRef.current) {
+        smoothRef.current.x = lerp(smoothRef.current.x, mouseRef.current.x, LERP_FACTOR)
+        smoothRef.current.y = lerp(smoothRef.current.y, mouseRef.current.y, LERP_FACTOR)
+        previewRef.current.style.transform =
+          `translate3d(${smoothRef.current.x + 24}px, ${smoothRef.current.y - 110}px, 0)`
+      }
       animationRef.current = requestAnimationFrame(animate)
     }
 
@@ -65,43 +65,37 @@ export function ProjectShowcase({
     return () => {
       if (animationRef.current) cancelAnimationFrame(animationRef.current)
     }
-  }, [mousePosition])
+  }, [hasAnyImage])
 
-  const handleMouseMove = (e: React.MouseEvent) => {
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
     if (containerRef.current) {
       const rect = containerRef.current.getBoundingClientRect()
-      setMousePosition({
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
-      })
+      mouseRef.current.x = e.clientX - rect.left
+      mouseRef.current.y = e.clientY - rect.top
     }
-  }
+  }, [])
 
-  const handleMouseEnter = (index: number) => {
+  const handleMouseEnter = useCallback((index: number) => {
     if (projects[index].featureImage) {
       setHoveredIndex(index)
-      setIsVisible(true)
-      updateRect()
+      setIsImageVisible(true)
     }
-  }
+  }, [projects])
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = useCallback(() => {
     setHoveredIndex(null)
-    setIsVisible(false)
-  }
+    setIsImageVisible(false)
+  }, [])
 
   return (
     <div ref={containerRef} onMouseMove={handleMouseMove} className="relative">
-      {/* Floating image preview — desktop only */}
       {hasAnyImage && (
         <div
+          ref={previewRef}
           className="pointer-events-none fixed z-50 hidden overflow-hidden rounded-xl shadow-2xl lg:block"
           style={{
-            left: containerRect?.left ?? 0,
-            top: containerRect?.top ?? 0,
-            transform: `translate3d(${smoothPosition.x + 24}px, ${smoothPosition.y - 110}px, 0)`,
-            opacity: isVisible ? 1 : 0,
-            scale: isVisible ? 1 : 0.85,
+            opacity: isImageVisible ? 1 : 0,
+            scale: isImageVisible ? 1 : 0.85,
             transition:
               "opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), scale 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
           }}
@@ -119,8 +113,7 @@ export function ProjectShowcase({
                   style={{
                     opacity: hoveredIndex === index ? 1 : 0,
                     scale: hoveredIndex === index ? 1 : 1.1,
-                    filter:
-                      hoveredIndex === index ? "none" : "blur(10px)",
+                    filter: hoveredIndex === index ? "none" : "blur(10px)",
                   }}
                 />
               ) : null,
@@ -130,7 +123,6 @@ export function ProjectShowcase({
         </div>
       )}
 
-      {/* Project rows */}
       <div className="flex flex-col">
         {projects.map((project, i) => (
           <Link

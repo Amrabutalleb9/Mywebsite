@@ -5,8 +5,8 @@ import { Download, ArrowRight, Linkedin } from "lucide-react"
 import { capabilities } from "@/lib/shared-data"
 
 export const metadata: Metadata = {
-  title: "About",
-  description: "Creative Director with 13 years leading brands, teams, and digital products across the Middle East, UK, Europe, USA, Australia, and Singapore.",
+  title: "About Amr Abu-Talleb | Creative Director & Brand Strategist",
+  description: "13+ years directing brands, leading teams of 25, and designing digital products across 8 markets. See the full story.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About Amr Abu-Talleb | Creative Director",
@@ -40,16 +40,11 @@ export default function AboutPage() {
         {/* ── Left column: ALL content ── */}
         <div className="order-2 min-w-0 lg:order-none lg:w-[55%]">
 
-          <h1 className="mb-10 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal tracking-tight text-foreground">
-            {"I\u2019m Amr Abu-Talleb."}
+          <h1 className="mb-4 max-w-[25ch] font-serif text-[length:var(--text-page)] font-normal tracking-tight text-foreground">
+            {"The kind of\u00A0designer who asks \u2018what\u2019s the business goal?\u2019"}
           </h1>
-
-          {/* Opening statement - "what's the business goal?" on its own line */}
-          <p className="mb-3 max-w-[60ch] text-xl font-medium leading-relaxed text-foreground">
-            Creative&nbsp;Director. Brand&nbsp;strategist.
-          </p>
-          <p className="mb-8 max-w-[60ch] text-xl font-medium leading-relaxed text-foreground">
-            {"The kind of\u00A0designer who asks \u201cwhat\u2019s the business goal?\u201d"}
+          <p className="mb-10 text-xl font-medium leading-relaxed text-muted-foreground">
+            {"I\u2019m Amr Abu-Talleb."}
           </p>
 
           {/* Full Bio */}

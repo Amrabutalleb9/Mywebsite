@@ -8,7 +8,7 @@ const InfiniteGrid = dynamic(
   () => import("@/components/ui/infinite-grid").then((m) => ({ default: m.InfiniteGrid })),
 )
 
-const heroServices = ["Brand Strategy", "Web Design", "Product Design"]
+const heroServices = ["Brand Strategy", "Digital Experience Design", "Product Design"]
 
 export default function HeroSection() {
   return (
@@ -33,7 +33,7 @@ export default function HeroSection() {
             Every project built to&nbsp;move numbers, not just turn&nbsp;heads.
           </p>
           <p className="mx-auto mt-4 max-w-3xl text-base tracking-wide text-accent lg:text-lg">
-            Available for creative direction engagements and&nbsp;consulting.
+            Currently taking on select creative direction engagements.
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row">
             <CalendlyButton />

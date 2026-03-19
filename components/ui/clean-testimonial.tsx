@@ -3,14 +3,9 @@
 import type React from "react"
 import { useState, useCallback, useRef, useEffect } from "react"
 import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion"
+import { type Testimonial } from "@/lib/shared-data"
 
-export interface TestimonialItem {
-  text: string
-  author: string
-  role: string
-  location?: string
-  avatar?: string
-}
+export type TestimonialItem = Testimonial & { avatar?: string }
 
 function getInitials(name: string): string {
   return name
@@ -88,6 +83,20 @@ export function CleanTestimonial({
     setActiveIndex((prev) => (prev + 1) % testimonials.length)
   }
 
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " " || e.key === "ArrowRight") {
+      e.preventDefault()
+      handleNext()
+    } else if (e.key === "ArrowLeft") {
+      e.preventDefault()
+      handlePrev()
+    }
+  }
+
   if (testimonials.length === 0) return null
   const current = testimonials[activeIndex]
 
@@ -101,6 +110,11 @@ export function CleanTestimonial({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleNext}
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Testimonials"
     >
       {/* Magnetic cursor — hidden on touch devices via pointer-events */}
       <motion.div

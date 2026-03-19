@@ -5,8 +5,9 @@ import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motio
 
 export default function CustomCursor() {
   const [label, setLabel] = useState("")
-  const [visible, setVisible] = useState(false)
   const [isTouch, setIsTouch] = useState(false)
+  const visibleRef = useRef(false)
+  const [visible, setVisible] = useState(false)
   const labelRef = useRef(label)
   labelRef.current = label
 
@@ -40,15 +41,18 @@ export default function CustomCursor() {
     const onMove = (e: MouseEvent) => {
       mouseX.set(e.clientX)
       mouseY.set(e.clientY)
-      if (!visible) setVisible(true)
+      if (!visibleRef.current) {
+        visibleRef.current = true
+        setVisible(true)
+      }
 
       const target = e.target as HTMLElement
       const newLabel = findCursorLabel(target)
       if (newLabel !== labelRef.current) setLabel(newLabel)
     }
 
-    const onLeave = () => setVisible(false)
-    const onEnter = () => setVisible(true)
+    const onLeave = () => { visibleRef.current = false; setVisible(false) }
+    const onEnter = () => { visibleRef.current = true; setVisible(true) }
 
     document.addEventListener("mousemove", onMove)
     document.addEventListener("mouseleave", onLeave)
@@ -59,7 +63,7 @@ export default function CustomCursor() {
       document.removeEventListener("mouseleave", onLeave)
       document.removeEventListener("mouseenter", onEnter)
     }
-  }, [mouseX, mouseY, visible, findCursorLabel])
+  }, [mouseX, mouseY, findCursorLabel])
 
   if (isTouch) return null
 

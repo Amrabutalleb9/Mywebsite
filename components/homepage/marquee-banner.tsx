@@ -19,9 +19,11 @@ export default function MarqueeBanner() {
       onMouseEnter={pause}
       onMouseLeave={resume}
     >
+      <span className="sr-only">{marqueeItems.join(", ")}</span>
       <div
         ref={trackRef}
         style={{ display: "flex", gap: "1rem", width: "max-content", willChange: "transform" }}
+        aria-hidden="true"
       >
         {[...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, i) => (
           <span
@@ -30,7 +32,7 @@ export default function MarqueeBanner() {
             className="font-serif text-[length:var(--text-page)] font-normal text-primary-foreground"
           >
             {item}
-            <span className="text-accent" aria-hidden="true">{"\u00B7"}</span>
+            <span className="text-accent">{"\u00B7"}</span>
           </span>
         ))}
       </div>

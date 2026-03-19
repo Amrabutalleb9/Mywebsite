@@ -4,7 +4,7 @@ import { Inter, Playfair_Display } from "next/font/google"
 import { Analytics } from "@vercel/analytics/react"
 import MainNav from "@/components/main-nav"
 import MainFooter from "@/components/main-footer"
-import CustomCursor from "@/components/custom-cursor"
+import LazyCustomCursor from "@/components/lazy-cursor"
 import "./globals.css"
 
 const inter = Inter({
@@ -88,6 +88,8 @@ export const metadata: Metadata = {
     "creative leadership Dubai",
     "visual identity designer",
     "multidisciplinary creative team",
+    "web design dubai",
+    "web design UAE",
   ],
 }
 
@@ -122,9 +124,19 @@ export default function RootLayout({
                 "Creative Director with 13+ years in brand strategy, UI/UX, and art direction across the UAE, UK, USA, Australia, Singapore, and Europe.",
               address: {
                 "@type": "PostalAddress",
-                addressLocality: "Dubai",
-                addressCountry: "AE",
+                addressLocality: "Cairo",
+                addressCountry: "EG",
               },
+              workLocation: [
+                {
+                  "@type": "Place",
+                  name: "Cairo, Egypt",
+                },
+                {
+                  "@type": "Place",
+                  name: "Dubai, UAE",
+                },
+              ],
               knowsAbout: [
                 "Creative Direction",
                 "Brand Identity",
@@ -157,6 +169,51 @@ export default function RootLayout({
             }),
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Amr Abu-Talleb",
+              url: "https://amrabutalleb.com",
+              description:
+                "Creative Director with 13+ years in brand strategy, UI/UX, and art direction.",
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ProfessionalService",
+              name: "Amr Abu-Talleb \u2014 Creative Direction",
+              url: "https://amrabutalleb.com/work-with-me",
+              description:
+                "Senior creative direction, brand strategy, and UX consulting for brands worldwide.",
+              areaServed: [
+                "UAE",
+                "Middle East",
+                "Europe",
+                "United States",
+                "Australia",
+              ],
+              serviceType: [
+                "Creative Direction",
+                "Brand Strategy",
+                "Brand Identity",
+                "UI/UX Design",
+                "Art Direction",
+              ],
+              provider: {
+                "@type": "Person",
+                name: "Amr Abu-Talleb",
+                url: "https://amrabutalleb.com",
+              },
+            }),
+          }}
+        />
       </head>
       <body className="font-sans antialiased" suppressHydrationWarning>
         <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white">
@@ -167,7 +224,7 @@ export default function RootLayout({
         {children}
         </div>
         <MainFooter />
-        <CustomCursor />
+        <LazyCustomCursor />
         <Analytics />
       </body>
     </html>

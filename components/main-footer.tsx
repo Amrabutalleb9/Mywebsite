@@ -97,16 +97,16 @@ export default function MainFooter() {
             {/* Let's Talk heading with gold accent bar */}
             <div className="mb-8 flex items-start gap-3">
               <div className="mt-2 h-20 w-1 bg-accent" />
-              <h2 className="font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-primary-foreground">
+              <p className="font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-primary-foreground">
                 {"Let\u2019s"}
                 <br />
                 Talk!
-              </h2>
+              </p>
             </div>
 
             {/* Body text */}
             <p className="mb-8 max-w-[40ch] text-sm leading-relaxed text-primary-foreground/70">
-              {"I\u2019m open to senior Creative Director roles with international agencies and in-house teams in the UAE."}
+              {"If you have a role or a project worth building, reach\u00A0out."}
             </p>
 
             {/* Links */}

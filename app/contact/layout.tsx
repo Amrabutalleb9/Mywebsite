@@ -1,9 +1,9 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Get in Touch | Creative Direction & Brand Consulting",
   description:
-    "Get in touch with Amr Abu-Talleb for creative direction, brand strategy, and UX consulting. Available for senior roles in Dubai and international engagements.",
+    "Reach out for creative direction, brand strategy, or UX consulting. Book a free discovery call or send a message.",
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact · Amr Abu-Talleb",

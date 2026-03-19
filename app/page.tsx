@@ -130,6 +130,16 @@ function WorkSection() {
         })}
       </div>
 
+      <div className="mx-auto mt-16 max-w-3xl text-center">
+        <a
+          href="/work-with-me"
+          className="cta-btn inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase transition-all hover:bg-transparent hover:text-foreground"
+        >
+          Work With Me
+          <ArrowUpRight size={14} className="cta-arrow" />
+        </a>
+      </div>
+
       {/* ── Project Highlights ── */}
       <div className="mt-28 lg:mt-40">
         <ScrollReveal>
@@ -226,14 +236,21 @@ function About() {
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.15}>
-              <p className="max-w-[60ch] leading-relaxed text-muted-foreground">
-                {"My work has driven a\u00A012% sales increase with zero ad\u00A0spend, a\u00A070% lift in\u00A0social engagement, and a\u00A0unified brand system across three international markets\u00A0\u2014 built in\u00A0two months. I\u2019ve rescued a\u00A0website after four freelancers failed over three years, restructured a\u00A0mis-priced development proposal into a\u00A0two-phase engagement before a\u00A0single wireframe was drawn, and designed a\u00A0212-page illustrated volume for a\u00A0New York Times bestselling\u00A0author."}
+              <p className="mb-6 max-w-[60ch] leading-relaxed text-muted-foreground">
+                {"My work has driven a\u00A012% sales increase with zero ad\u00A0spend and a\u00A070% lift in\u00A0social engagement."}
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
-              <p className="mt-6 text-sm text-muted-foreground">
-                {"Figma / FigJam \u00B7 Adobe Creative Suite \u00B7 Webflow \u00B7 Framer \u00B7 WordPress \u00B7 Cursor AI \u00B7 V0"}
+              <p className="mb-8 max-w-[60ch] leading-relaxed text-muted-foreground">
+                {"I use typography the way a\u00A0filmmaker uses a\u00A0camera: it\u00A0sets the mood, controls the pace, and tells the story before a\u00A0single word gets\u00A0read."}
               </p>
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-accent"
+              >
+                Learn More
+                <ArrowRight size={14} />
+              </Link>
             </ScrollReveal>
 
             <div className="mt-10 grid grid-cols-2 gap-4">
@@ -273,7 +290,7 @@ function BlogPreview() {
         <ScrollReveal className="lg:w-[35%]">
           <SubHeader label="Insights" />
           <h2 className="font-serif text-[length:var(--text-section)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
-            Thinking Out&nbsp;Loud
+            Perspectives
           </h2>
           <p className="mt-4 max-w-[45ch] leading-relaxed text-muted-foreground">
             Thoughts on&nbsp;design, brand strategy, and the craft of&nbsp;creative&nbsp;direction.
@@ -356,6 +373,15 @@ export default function Home() {
       <MarqueeBanner />
       <WorkSection />
       <TestimonialsWithStats testimonials={testimonials} stats={stats} />
+      <div className="mx-auto mt-16 max-w-3xl text-center">
+        <a
+          href="/work-with-me"
+          className="cta-btn inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase transition-all hover:bg-transparent hover:text-foreground"
+        >
+          Work With Me
+          <ArrowUpRight size={14} className="cta-arrow" />
+        </a>
+      </div>
       <About />
       <ClientTicker />
       <BlogPreview />

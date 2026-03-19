@@ -1,3 +1,6 @@
+// Homepage staggered section reveals using CSS classes (.fade-section/.is-visible).
+// Uses doubled-selector specificity to beat Tailwind v4 utilities.
+// For inner/detail pages, use <FadeIn> instead (inline styles, self-contained).
 "use client"
 
 import { useRef, useEffect, type ReactNode } from "react"

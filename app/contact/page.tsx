@@ -47,7 +47,7 @@ export default function ContactPage() {
             {"Let\u2019s Talk"}
           </h1>
           <p className="mb-10 max-w-md leading-relaxed text-muted-foreground">
-            Available for senior Creative Director roles with international agencies and in-house teams in&nbsp;the UAE. If&nbsp;you have a&nbsp;role or a&nbsp;project worth building, reach&nbsp;out.
+            {"Whether it\u2019s a senior creative role, a brand sprint, or a conversion audit\u00A0\u2014 I\u2019d love to hear what you\u2019re working\u00A0on."}
           </p>
           <div className="flex flex-col gap-4">
             <a href="mailto:hello@amrabutalleb.com" className="text-lg text-accent underline underline-offset-4 hover:text-accent/80">

@@ -56,6 +56,8 @@ export default async function ArticlePage({
     "Jan 2025": "2025-01-15",
     "Feb 2025": "2025-02-15",
     "Mar 2025": "2025-03-15",
+    "May 2024": "2024-05-15",
+    "Jul 2024": "2024-07-15",
     "Sep 2024": "2024-09-15",
     "Oct 2024": "2024-10-15",
     "Nov 2024": "2024-11-15",
@@ -69,6 +71,7 @@ export default async function ArticlePage({
     description: article.excerpt,
     author: { "@type": "Person", name: "Amr Abu-Talleb" },
     datePublished: dateMap[article.date] || article.date,
+    dateModified: dateMap[article.date] || article.date,
     url: `https://amrabutalleb.com/articles/${slug}`,
     image: article.image ? `https://amrabutalleb.com${article.image}` : undefined,
     publisher: {

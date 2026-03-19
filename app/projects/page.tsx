@@ -4,8 +4,8 @@ import { ProjectShowcase } from "@/components/ui/project-showcase"
 import type { ShowcaseProject } from "@/components/ui/project-showcase"
 
 export const metadata: Metadata = {
-  title: "Projects",
-  description: "Case studies and project highlights spanning brand identity, UI/UX, creative direction, and art direction across eight international markets.",
+  title: "Portfolio | Brand Identity, UI/UX & Creative Direction Projects",
+  description: "Explore case studies and project highlights in brand identity, UI/UX, and creative direction across 8 international markets.",
   alternates: { canonical: "/projects" },
   openGraph: {
     title: "Projects · Amr Abu-Talleb",
