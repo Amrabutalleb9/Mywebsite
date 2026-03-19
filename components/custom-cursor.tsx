@@ -54,6 +54,10 @@ export default function CustomCursor() {
       if (!visibleRef.current) {
         visibleRef.current = true
         if (wrapperRef.current) wrapperRef.current.style.opacity = "1"
+        if (dotRef.current) {
+          dotRef.current.style.width = "20px"
+          dotRef.current.style.height = "20px"
+        }
       }
 
       const target = e.target as HTMLElement
@@ -76,6 +80,10 @@ export default function CustomCursor() {
     const onLeave = () => {
       visibleRef.current = false
       if (wrapperRef.current) wrapperRef.current.style.opacity = "0"
+      if (dotRef.current) {
+        dotRef.current.style.width = "0"
+        dotRef.current.style.height = "0"
+      }
     }
 
     const onEnter = () => {
