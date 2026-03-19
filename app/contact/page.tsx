@@ -106,7 +106,7 @@ export default function ContactPage() {
                 </p>
               )}
               <button type="submit" disabled={sending} className="cursor-pointer rounded-full border border-foreground bg-primary px-8 py-3 font-medium text-primary-foreground transition-all duration-300 hover:bg-foreground hover:text-background disabled:opacity-50">
-                {sending ? "Sending\u2026" : "Send&nbsp;Message"}
+                {sending ? "Sending\u2026" : "Send\u00A0Message"}
               </button>
             </form>
           )}
