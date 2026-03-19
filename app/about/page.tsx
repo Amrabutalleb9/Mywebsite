@@ -40,8 +40,8 @@ export default function AboutPage() {
         {/* ── Left column: ALL content ── */}
         <div className="order-2 min-w-0 lg:order-none lg:w-[55%]">
 
-          <h1 className="mb-4 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal tracking-tight text-foreground">
-            13&nbsp;years turning strategy into&nbsp;results.
+          <h1 className="mb-4 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
+            <span className="text-[1.25em]">13+</span>&nbsp;years turning strategy into&nbsp;results.
           </h1>
           <p className="mb-10 text-xl font-medium leading-relaxed text-muted-foreground">
             {"I\u2019m Amr Abu-Talleb."}
