@@ -100,7 +100,7 @@ export default function MainFooter() {
               <p className="font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-primary-foreground">
                 {"Let\u2019s"}
                 <br />
-                Talk!
+                Talk
               </p>
             </div>
 

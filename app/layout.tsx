@@ -90,6 +90,9 @@ export const metadata: Metadata = {
     "multidisciplinary creative team",
     "web design dubai",
     "web design UAE",
+    "wordpress designer",
+    "squarespace designer",
+    "wix designer",
   ],
 }
 

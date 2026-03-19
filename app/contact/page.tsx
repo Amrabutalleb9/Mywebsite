@@ -44,10 +44,10 @@ export default function ContactPage() {
       <div className="flex flex-col gap-16 lg:flex-row lg:gap-20">
         <div className="lg:w-1/2">
           <h1 className="mb-6 font-serif text-[length:var(--text-page)] font-normal tracking-tight text-foreground">
-            {"Let\u2019s Talk"}
+            {"What\u2019s the project?"}
           </h1>
           <p className="mb-10 max-w-md leading-relaxed text-muted-foreground">
-            {"Whether it\u2019s a senior creative role, a brand sprint, or a conversion audit\u00A0\u2014 I\u2019d love to hear what you\u2019re working\u00A0on."}
+            {"Brand launch, UX\u00A0audit, product redesign, or\u00A0a creative leadership role\u00A0\u2014 tell me what you\u2019re working on and I\u2019ll get back within 24\u00A0hours."}
           </p>
           <div className="flex flex-col gap-4">
             <a href="mailto:hello@amrabutalleb.com" className="text-lg text-accent underline underline-offset-4 hover:text-accent/80">
@@ -89,10 +89,11 @@ export default function ContactPage() {
                 <label htmlFor="budget" className="mb-2 block text-sm font-medium text-foreground">Budget&nbsp;Range</label>
                 <select id="budget" value={form.budget} onChange={(e) => setForm({ ...form, budget: e.target.value })} className="w-full rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent">
                   <option value="">Select&nbsp;range</option>
-                  <option value="5k-10k">$5K - $10K</option>
-                  <option value="10k-25k">$10K - $25K</option>
+                  <option value="under-5k">Under $5K</option>
+                  <option value="5k-10k">$5K – $10K</option>
+                  <option value="10k-25k">$10K – $25K</option>
                   <option value="25k+">$25K+</option>
-                  <option value="fulltime">Full-time&nbsp;role</option>
+                  <option value="fulltime">Full-time role</option>
                 </select>
               </div>
               <div>
@@ -108,6 +109,9 @@ export default function ContactPage() {
               <button type="submit" disabled={sending} className="cursor-pointer rounded-full border border-foreground bg-primary px-8 py-3 font-medium text-primary-foreground transition-all duration-300 hover:bg-foreground hover:text-background disabled:opacity-50">
                 {sending ? "Sending\u2026" : "Send\u00A0Message"}
               </button>
+              <p className="text-center text-xs text-muted-foreground">
+                I respond within 24&nbsp;hours.
+              </p>
             </form>
           )}
         </div>

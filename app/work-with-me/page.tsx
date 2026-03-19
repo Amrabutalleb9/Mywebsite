@@ -231,10 +231,10 @@ export default function WorkWithMePage() {
       <section className="mx-auto mt-32 max-w-3xl border-t border-border pt-16 text-center">
         <FadeIn>
           <h2 className="mb-6 font-serif text-[length:var(--text-section)] font-normal tracking-tight text-foreground">
-            Have a&nbsp;project in&nbsp;mind?
+            {"Let\u2019s see what your brand is leaving on\u00A0the\u00A0table."}
           </h2>
           <p className="mx-auto mb-10 max-w-md leading-relaxed text-muted-foreground">
-            {"Whether it\u2019s a\u00A0brand launch, a\u00A0product redesign, or\u00A0ongoing creative leadership, I\u2019d like to\u00A0hear about it. Book a\u00A0call and\u00A0let\u2019s see if\u00A0there\u2019s a\u00A0fit."}
+            {"Whether it\u2019s a\u00A0brand launch, a\u00A0product redesign, or\u00A0ongoing creative leadership\u00A0\u2014 book a\u00A0call and let\u2019s find\u00A0out."}
           </p>
           <div className="flex flex-col items-center gap-4">
             <CalendlyButton />

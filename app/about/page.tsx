@@ -40,8 +40,8 @@ export default function AboutPage() {
         {/* ── Left column: ALL content ── */}
         <div className="order-2 min-w-0 lg:order-none lg:w-[55%]">
 
-          <h1 className="mb-4 max-w-[25ch] font-serif text-[length:var(--text-page)] font-normal tracking-tight text-foreground">
-            {"The kind of\u00A0designer who asks \u2018what\u2019s the business goal?\u2019"}
+          <h1 className="mb-4 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal tracking-tight text-foreground">
+            13&nbsp;years turning strategy into&nbsp;results.
           </h1>
           <p className="mb-10 text-xl font-medium leading-relaxed text-muted-foreground">
             {"I\u2019m Amr Abu-Talleb."}
@@ -83,7 +83,7 @@ export default function AboutPage() {
 
           {/* Tools */}
           <p className="mt-10 text-sm text-muted-foreground">
-            {"Figma \u00B7 FigJam \u00B7 Adobe Creative Suite \u00B7 Webflow \u00B7 Squarespace \u00B7 WordPress \u00B7 Framer \u00B7 Wix \u00B7 Cursor AI \u00B7 V0 \u00B7 Miro \u00B7 Whimsical \u00B7 Google Analytics"}
+            {"Figma \u00B7 FigJam \u00B7 Adobe Creative Suite \u00B7 Webflow \u00B7 Framer \u00B7 Cursor\u00A0AI \u00B7 V0 \u00B7 Miro \u00B7 Whimsical \u00B7 Google Analytics"}
           </p>
 
           {/* ── Recognition & Education ── */}
@@ -129,7 +129,7 @@ export default function AboutPage() {
                 className="inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-6 py-3 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase transition-all duration-300 hover:bg-transparent hover:text-foreground"
               >
                 <Download size={14} />
-                Check My&nbsp;Resume
+                Download&nbsp;Resume
               </a>
               <Link
                 href="/#work"

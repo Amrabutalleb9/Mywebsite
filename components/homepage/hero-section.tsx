@@ -35,7 +35,10 @@ export default function HeroSection() {
           <p className="mx-auto mt-4 max-w-3xl text-base tracking-wide text-accent lg:text-lg">
             Currently taking on select creative direction engagements.
           </p>
-          <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row">
+          <p className="mt-6 text-sm text-muted-foreground">
+            Trusted by brands across 8&nbsp;markets &middot; Teams of&nbsp;up&nbsp;to&nbsp;25
+          </p>
+          <div className="mt-6 flex flex-col items-center gap-4 sm:flex-row">
             <CalendlyButton />
             <a
               href="#work"
