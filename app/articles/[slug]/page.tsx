@@ -79,7 +79,7 @@ export default async function ArticlePage({
       name: "Amr Abu-Talleb",
       logo: {
         "@type": "ImageObject",
-        url: "https://amrabutalleb.com/images/amr-portrait.png",
+        url: "https://amrabutalleb.com/images/amr-portrait.webp",
       },
     },
   }

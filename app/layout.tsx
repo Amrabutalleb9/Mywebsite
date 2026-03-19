@@ -1,7 +1,7 @@
 import React from "react"
 import type { Metadata, Viewport } from "next"
 import { Inter, Playfair_Display } from "next/font/google"
-import { Analytics } from "@vercel/analytics/react"
+
 import MainNav from "@/components/main-nav"
 import MainFooter from "@/components/main-footer"
 import LazyCustomCursor from "@/components/lazy-cursor"
@@ -122,7 +122,7 @@ export default function RootLayout({
               url: "https://amrabutalleb.com",
               email: "hello@amrabutalleb.com",
               sameAs: ["https://www.linkedin.com/in/abutalleb/"],
-              image: "https://amrabutalleb.com/images/amr-portrait.png",
+              image: "https://amrabutalleb.com/images/amr-portrait.webp",
               description:
                 "Creative Director with 13+ years in brand strategy, UI/UX, and art direction across the UAE, UK, USA, Australia, Singapore, and Europe.",
               address: {
@@ -228,7 +228,6 @@ export default function RootLayout({
         </div>
         <MainFooter />
         <LazyCustomCursor />
-        <Analytics />
       </body>
     </html>
   )

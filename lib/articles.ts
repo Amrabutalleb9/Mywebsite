@@ -16,7 +16,7 @@ export const articles: Article[] = [
     excerpt: "Most companies get this backwards. Here\u2019s why identity systems matter more than a\u00A0mark.",
     date: "Jan 2025",
     tag: "BRANDING",
-    image: "/images/blog-branding.png",
+    image: "/images/blog-branding.webp",
     imageAlt: "Brand guidelines spread with typography and color swatches, Your logo is not your brand",
     content: [
       "I\u2019m going to tell you something that might sting a\u00A0little.",
@@ -41,7 +41,7 @@ export const articles: Article[] = [
     excerpt: "Same brand. Eight countries. Zero inconsistency. Here\u2019s\u00A0how.",
     date: "Nov 2024",
     tag: "STRATEGY",
-    image: "/images/blog-markets.png",
+    image: "/images/blog-markets.webp",
     imageAlt: "Abstract blurred figures in black and white, brand consistency across multiple international markets",
     content: [
       "When I joined Overpowered Agency as Creative Director, the brief sounded straightforward. One brand. Multiple markets. UK, Egypt, Dubai, EU, the USA, Australia, Singapore,\u00A0Canada.",
@@ -88,7 +88,7 @@ export const articles: Article[] = [
     excerpt: "The pixel pushers who make it are the ones who understand revenue, positioning, and user\u00A0behavior.",
     date: "Jul 2024",
     tag: "CAREER",
-    image: "/images/blog-business.png",
+    image: "/images/blog-business.webp",
     imageAlt: "Strategy desk with financial notes, calculator, and Think Different typography overlay, design leadership and business thinking",
     content: [
       "At ADRAW, I was responsible for design and marketing for a\u00A0software product targeting the US and UK. And that\u2019s where it\u00A0clicked.",
@@ -110,7 +110,7 @@ export const articles: Article[] = [
     excerpt: "More elements don\u2019t mean more impact. Here\u2019s why subtraction is the most powerful design\u00A0tool.",
     date: "May 2024",
     tag: "DESIGN",
-    image: "/images/blog-restraint.png",
+    image: "/images/blog-restraint.webp",
     imageAlt: "Designer sketching logo concepts in a notebook beside a tablet showing color palettes and a cup of coffee",
     content: [
       "Here\u2019s what I tell every junior designer I work with: go crazy first. Add everything. Every effect. Every gradient. Every texture. Get it all\u00A0out.",

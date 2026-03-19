@@ -23,13 +23,13 @@ const caseStudyCards = [
   { slug: "overpowered", num: "01", title: "Overpowered", subtitle: "Rebranding a\u00A0multi-market creative agency for three audiences, one\u00A0identity", impact: "Unified identity across 3\u00A0markets \u00B7 A/B-tested micro campaigns \u00B7 Design system still in\u00A0use months\u00A0later", category: "Brand Identity & Rebrand", year: "2025", role: "Creative Director \u00B7 Led team of\u00A025", featureImage: "", featureImageAlt: "" },
   { slug: "split", num: "02", title: "Split", subtitle: "Redesigning a\u00A0fitness platform from competitive research to\u00A0revenue-driving features", impact: "Won the client by rewriting a\u00A0flawed quotation \u00B7 New monetisation paths \u00B7 Research-validated\u00A0features", category: "UX/UI Product Design", year: "2025", role: "Creative Director & UX Lead \u00B7 Team of\u00A03", featureImage: "", featureImageAlt: "" },
   { slug: "agfin", num: "03", title: "Agfin", subtitle: "Turning a\u00A0static website into a\u00A012% revenue engine through strategic copywriting", impact: "12%\u00A0sales increase in month one \u00B7 Zero ad spend \u00B7 Copy-first strategy\u00A0validated", category: "Sales Funnel & Copywriting", year: "2024", role: "Creative Director, UX & Copywriter \u00B7 Solo\u00A0project", featureImage: "", featureImageAlt: "" },
-  { slug: "dipa", num: "04", title: "Dipa Visionary Art School", subtitle: "Rebuilding a\u00A0visionary art school\u2019s digital home after three\u00A0years of\u00A0failed attempts", impact: "70%\u00A0increase in website views \u00B7 Replaced 4\u00A0failed freelancers \u00B7 Being submitted for\u00A0Awwwards", category: "Immersive Web Experience", year: "2022\u20132026", role: "Creative Director & UX/UI \u00B7 Led small\u00A0team", featureImage: "/images/dipa-showcase.png", featureImageAlt: "Dipa Visionary Art School immersive website design" },
+  { slug: "dipa", num: "04", title: "Dipa Visionary Art School", subtitle: "Rebuilding a\u00A0visionary art school\u2019s digital home after three\u00A0years of\u00A0failed attempts", impact: "70%\u00A0increase in website views \u00B7 Replaced 4\u00A0failed freelancers \u00B7 Being submitted for\u00A0Awwwards", category: "Immersive Web Experience", year: "2022\u20132026", role: "Creative Director & UX/UI \u00B7 Led small\u00A0team", featureImage: "/images/dipa-showcase.webp", featureImageAlt: "Dipa Visionary Art School immersive website design" },
 ]
 
 const highlightCards = [
-  { slug: "alfy", num: "05", title: "Alfy", subtitle: "Repositioning a\u00A0luxury marble brand for B2B\u00A0impact", result: "70%\u00A0engagement increase", year: "2025", category: "Campaign Strategy", role: "Creative Director at\u00A0Overpowered", featureImage: "/images/alfy-feature.png", featureImageAlt: "El Alfy Saraya luxury marble brand website hero" },
-  { slug: "steve-hodel", num: "06", title: "As Within, So Without, Steven Hodel", subtitle: "Designing a\u00A0212-page illustrated volume for a\u00A0NYT bestselling author", result: "212\u00A0pages \u00B7 130+\u00A0images \u00B7 Print-ready", year: "2025", category: "Editorial Design", role: "Book Designer (sole designer)", featureImage: "/images/steve-hodel-feature.png", featureImageAlt: "As Within, So Without by Steve Hodel, hardcover book on desk" },
-  { slug: "alienor", num: "07", title: "Alienor", subtitle: "Premium skincare brand identity & packaging", result: "Full brand identity\u00A0system", year: "2022", category: "Brand & Packaging", role: "Creative Director & Brand Designer", featureImage: "/images/alienor-feature.png", featureImageAlt: "Alienor skincare brand identity with elegant serif logotype" },
+  { slug: "alfy", num: "05", title: "Alfy", subtitle: "Repositioning a\u00A0luxury marble brand for B2B\u00A0impact", result: "70%\u00A0engagement increase", year: "2025", category: "Campaign Strategy", role: "Creative Director at\u00A0Overpowered", featureImage: "/images/alfy-feature.webp", featureImageAlt: "El Alfy Saraya luxury marble brand website hero" },
+  { slug: "steve-hodel", num: "06", title: "As Within, So Without, Steven Hodel", subtitle: "Designing a\u00A0212-page illustrated volume for a\u00A0NYT bestselling author", result: "212\u00A0pages \u00B7 130+\u00A0images \u00B7 Print-ready", year: "2025", category: "Editorial Design", role: "Book Designer (sole designer)", featureImage: "/images/steve-hodel-feature.webp", featureImageAlt: "As Within, So Without by Steve Hodel, hardcover book on desk" },
+  { slug: "alienor", num: "07", title: "Alienor", subtitle: "Premium skincare brand identity & packaging", result: "Full brand identity\u00A0system", year: "2022", category: "Brand & Packaging", role: "Creative Director & Brand Designer", featureImage: "/images/alienor-feature.webp", featureImageAlt: "Alienor skincare brand identity with elegant serif logotype" },
 ]
 
 const blogSlugs = [
@@ -109,6 +109,7 @@ function WorkSection() {
                           alt={project.featureImageAlt || project.title}
                           width={900}
                           height={562}
+                          sizes="(max-width: 768px) 100vw, 50vw"
                           className="cs-card-img aspect-[16/10] w-full object-cover"
                         />
                       ) : (
@@ -156,6 +157,7 @@ function WorkSection() {
                       alt={project.featureImageAlt || project.title}
                       width={600}
                       height={375}
+                      sizes="(max-width: 768px) 100vw, 33vw"
                       className="hl-card-img aspect-[16/10] w-full object-cover"
                     />
                   ) : (
@@ -214,7 +216,7 @@ function About() {
           <ScrollReveal className="lg:w-[40%]">
             <div className="overflow-hidden rounded-full">
               <Image
-                src="/images/amr-portrait.png"
+                src="/images/amr-portrait.webp"
                 alt="Amr Abu-Talleb portrait"
                 width={600}
                 height={600}
@@ -248,7 +250,7 @@ function About() {
                 href="/about"
                 className="inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-accent"
               >
-                Learn More
+                About Amr Abu-Talleb
                 <ArrowRight size={14} />
               </Link>
             </ScrollReveal>
@@ -302,7 +304,7 @@ function BlogPreview() {
             <Link href={`/articles/${blogPosts[0].slug}`} className="group block" data-cursor-label="Read Article">
               <div className="overflow-hidden rounded-lg">
                 <Image
-                  src={blogPosts[0].image || "/images/blog-branding.png"}
+                  src={blogPosts[0].image || "/images/blog-branding.webp"}
                   alt={blogPosts[0].imageAlt || blogPosts[0].title}
                   width={1200}
                   height={630}
@@ -328,7 +330,7 @@ function BlogPreview() {
                 <Link href={`/articles/${post.slug}`} className="group block" data-cursor-label="Read Article">
                   <div className="overflow-hidden rounded-lg">
                     <Image
-                      src={post.image || "/images/blog-branding.png"}
+                      src={post.image || "/images/blog-branding.webp"}
                       alt={post.imageAlt || post.title}
                       width={600}
                       height={375}
