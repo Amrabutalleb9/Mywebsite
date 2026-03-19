@@ -48,7 +48,7 @@ export default function HeroSection() {
         </div>
       </InfiniteGrid>
 
-      <div className="flex w-full items-center justify-between border-t border-border bg-background px-8 py-5 lg:px-16">
+      <div className="hidden w-full items-center justify-between border-t border-border bg-background px-8 py-5 sm:flex lg:px-16">
         <div className="flex flex-wrap gap-8 lg:gap-14">
           {heroServices.map((service) => (
             <span

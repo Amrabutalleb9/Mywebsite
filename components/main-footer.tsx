@@ -37,19 +37,19 @@ export default function MainFooter() {
   }
 
   return (
-    <footer id="contact" className="relative overflow-hidden bg-primary">
+    <footer id="contact" className="relative overflow-hidden bg-primary mt-24 lg:mt-0">
       <div className="relative flex flex-col lg:flex-row lg:items-stretch">
         {/* LEFT - Form card */}
-        <div className="relative z-10 px-8 py-16 lg:ml-[10%] lg:w-[25%] lg:px-0 lg:py-0 lg:pb-[5%]">
+        <div className="relative z-10 -mt-24 px-8 pb-8 lg:mt-0 lg:ml-[10%] lg:w-[25%] lg:px-0 lg:py-0 lg:pb-[5%]">
           {submitted ? (
-            <div className="flex h-full min-h-[600px] items-center justify-center rounded-b-2xl bg-background p-10 lg:min-h-0" aria-live="polite">
+            <div className="flex h-full min-h-[400px] items-center justify-center rounded-2xl bg-background p-10 shadow-lg lg:min-h-[600px] lg:rounded-b-2xl lg:rounded-t-none lg:shadow-none" aria-live="polite">
               <div className="text-center">
                 <p className="font-serif text-2xl text-foreground">Message sent.</p>
                 <p className="mt-2 text-muted-foreground">{"I\u2019ll get back to you within 24 hours."}</p>
               </div>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="flex h-full flex-col justify-center rounded-b-2xl bg-background p-10 lg:p-12">
+            <form onSubmit={handleSubmit} className="flex h-full flex-col justify-center rounded-2xl bg-background p-10 shadow-lg lg:rounded-b-2xl lg:rounded-t-none lg:p-12 lg:shadow-none">
               <div className="mb-8">
                 <label htmlFor="fname" className="text-sm text-muted-foreground">Full name</label>
                 <input id="fname" name="name" type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="mt-2 w-full border-b border-border bg-transparent py-4 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent" />

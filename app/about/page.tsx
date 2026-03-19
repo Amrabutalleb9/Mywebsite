@@ -38,7 +38,7 @@ export default function AboutPage() {
       <div className="flex flex-col gap-16 lg:flex-row lg:gap-20">
 
         {/* ── Left column: ALL content ── */}
-        <div className="min-w-0 lg:w-[55%]">
+        <div className="order-2 min-w-0 lg:order-none lg:w-[55%]">
 
           <h1 className="mb-10 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal tracking-tight text-foreground">
             {"I\u2019m Amr Abu-Talleb."}
@@ -113,7 +113,7 @@ export default function AboutPage() {
         </div>
 
         {/* ── Right column: sticky photo + CTAs + links ── */}
-        <div className="lg:w-[45%]">
+        <div className="order-1 lg:order-none lg:w-[45%]">
           <div className="flex flex-col items-center gap-6 lg:sticky lg:top-32">
             {/* Portrait */}
             <div className="h-[280px] w-[280px] overflow-hidden rounded-full lg:h-[380px] lg:w-[380px]">
