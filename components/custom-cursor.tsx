@@ -53,6 +53,8 @@ export default function CustomCursor() {
 
       if (!visibleRef.current) {
         visibleRef.current = true
+        smoothRef.current.x = e.clientX
+        smoothRef.current.y = e.clientY
         if (wrapperRef.current) wrapperRef.current.style.opacity = "1"
         if (dotRef.current) {
           dotRef.current.style.width = "20px"
@@ -86,9 +88,17 @@ export default function CustomCursor() {
       }
     }
 
-    const onEnter = () => {
+    const onEnter = (e: MouseEvent) => {
       visibleRef.current = true
+      posRef.current.x = e.clientX
+      posRef.current.y = e.clientY
+      smoothRef.current.x = e.clientX
+      smoothRef.current.y = e.clientY
       if (wrapperRef.current) wrapperRef.current.style.opacity = "1"
+      if (dotRef.current) {
+        dotRef.current.style.width = "20px"
+        dotRef.current.style.height = "20px"
+      }
     }
 
     document.addEventListener("mousemove", onMove)
