@@ -68,11 +68,8 @@ export function ProjectShowcase({
   }, [hasAnyImage])
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect()
-      mouseRef.current.x = e.clientX - rect.left
-      mouseRef.current.y = e.clientY - rect.top
-    }
+    mouseRef.current.x = e.clientX
+    mouseRef.current.y = e.clientY
   }, [])
 
   const handleMouseEnter = useCallback((index: number) => {
@@ -92,7 +89,7 @@ export function ProjectShowcase({
       {hasAnyImage && (
         <div
           ref={previewRef}
-          className="pointer-events-none fixed z-50 hidden overflow-hidden rounded-xl shadow-2xl lg:block"
+          className="pointer-events-none fixed top-0 left-0 z-50 hidden overflow-hidden rounded-xl shadow-2xl lg:block"
           style={{
             opacity: isImageVisible ? 1 : 0,
             scale: isImageVisible ? 1 : 0.85,

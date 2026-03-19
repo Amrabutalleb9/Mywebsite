@@ -68,8 +68,15 @@ export default function CustomCursor() {
         labelRef.current = newLabel
         const hasLabel = newLabel.length > 0
         if (dotRef.current) {
-          dotRef.current.style.width = hasLabel ? "100px" : "20px"
-          dotRef.current.style.height = hasLabel ? "100px" : "20px"
+          if (hasLabel) {
+            dotRef.current.style.width = "auto"
+            dotRef.current.style.height = "auto"
+            dotRef.current.style.padding = "14px 22px"
+          } else {
+            dotRef.current.style.width = "20px"
+            dotRef.current.style.height = "20px"
+            dotRef.current.style.padding = "0"
+          }
         }
         if (labelSpanRef.current) {
           labelSpanRef.current.textContent = newLabel
@@ -128,12 +135,13 @@ export default function CustomCursor() {
         style={{
           width: 0,
           height: 0,
-          transition: "width 0.25s cubic-bezier(0.23, 1, 0.32, 1), height 0.25s cubic-bezier(0.23, 1, 0.32, 1)",
+          padding: 0,
+          transition: "width 0.25s cubic-bezier(0.23, 1, 0.32, 1), height 0.25s cubic-bezier(0.23, 1, 0.32, 1), padding 0.25s cubic-bezier(0.23, 1, 0.32, 1)",
         }}
       >
         <span
           ref={labelSpanRef}
-          className="text-[10px] font-medium tracking-[var(--tracking-label)] text-white uppercase"
+          className="whitespace-nowrap text-center text-[10px] font-medium tracking-[var(--tracking-label)] text-white uppercase"
           style={{ opacity: 0, transform: "scale(0.8)", transition: "opacity 0.15s, transform 0.15s" }}
         />
       </div>
