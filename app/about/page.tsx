@@ -3,6 +3,7 @@ import Link from "next/link"
 import type { Metadata } from "next"
 import { Download, ArrowRight, Linkedin } from "lucide-react"
 import { capabilities } from "@/lib/shared-data"
+import FadeIn from "@/components/fade-in"
 
 export const metadata: Metadata = {
   title: "About Amr Abu-Talleb | Creative Director & Brand Strategist",
@@ -40,15 +41,19 @@ export default function AboutPage() {
         {/* ── Left column: ALL content ── */}
         <div className="order-2 min-w-0 lg:order-none lg:w-[55%]">
 
-          <h1 className="mb-6 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
-            <span className="text-[length:var(--text-display)]">13+</span>&nbsp;years turning strategy into&nbsp;results.
-          </h1>
-          <p className="mb-6 text-xl font-medium leading-relaxed text-muted-foreground">
-            {"I\u2019m Amr Abu-Talleb."}
-          </p>
+          <FadeIn>
+            <h1 className="mb-6 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
+              <span className="text-[length:var(--text-display)]">13+</span>&nbsp;years turning strategy into&nbsp;results.
+            </h1>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <p className="mb-6 text-xl font-medium leading-relaxed text-muted-foreground">
+              {"I\u2019m Amr Abu-Talleb."}
+            </p>
+          </FadeIn>
 
           {/* Full Bio */}
-          <div className="flex max-w-[60ch] flex-col gap-6 leading-relaxed text-muted-foreground">
+          <FadeIn delay={0.15} as="div" className="flex max-w-[60ch] flex-col gap-6 leading-relaxed text-muted-foreground">
             <p>
               {"I\u2019ve spent 13\u00A0years directing brands, leading teams of\u00A0up to\u00A025, and designing digital products across the Middle East, UK, Europe, USA, Australia, Singapore, and\u00A0Canada."}
             </p>
@@ -64,10 +69,10 @@ export default function AboutPage() {
             <p>
               {"Currently Creative Director at\u00A0The Line Real Estate in\u00A0Cairo, leading a\u00A0team of\u00A025. Open to\u00A0senior creative leadership roles and select consulting engagements with brands and agencies\u00A0worldwide."}
             </p>
-          </div>
+          </FadeIn>
 
           {/* ── What I Do ── */}
-          <div className="mt-24">
+          <FadeIn as="div" className="mt-24">
             <h2 className="mb-12 font-serif text-[length:var(--text-sub)] font-normal tracking-tight text-foreground">
               What I&nbsp;Do
             </h2>
@@ -79,15 +84,15 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
-          </div>
+          </FadeIn>
 
           {/* Tools */}
-          <p className="mt-10 text-sm text-muted-foreground">
+          <FadeIn as="p" className="mt-10 text-sm text-muted-foreground">
             {"Figma \u00B7 FigJam \u00B7 Adobe Creative Suite \u00B7 Webflow \u00B7 Framer \u00B7 Cursor\u00A0AI \u00B7 V0 \u00B7 Miro \u00B7 Whimsical \u00B7 Google Analytics"}
-          </p>
+          </FadeIn>
 
           {/* ── Recognition & Education ── */}
-          <div className="mt-24">
+          <FadeIn as="div" className="mt-24">
             <h2 className="mb-8 font-serif text-[length:var(--text-sub)] font-normal tracking-tight text-foreground">
               Recognition &amp;&nbsp;Education
             </h2>
@@ -104,12 +109,12 @@ export default function AboutPage() {
                 </li>
               ))}
             </ul>
-          </div>
+          </FadeIn>
         </div>
 
         {/* ── Right column: sticky photo + CTAs + links ── */}
         <div className="order-1 lg:order-none lg:w-[45%]">
-          <div className="flex flex-col items-center gap-6 lg:sticky lg:top-32">
+          <FadeIn delay={0.2} as="div" className="flex flex-col items-center gap-6 lg:sticky lg:top-32">
             {/* Portrait */}
             <div className="h-[280px] w-[280px] overflow-hidden rounded-full lg:h-[380px] lg:w-[380px]">
               <Image
@@ -158,7 +163,7 @@ export default function AboutPage() {
                 Email
               </a>
             </div>
-          </div>
+          </FadeIn>
         </div>
 
       </div>

@@ -4,6 +4,7 @@ import React, { useState } from "react"
 import { Linkedin } from "lucide-react"
 import CalendlyButton from "@/components/calendly-button"
 import { submitContactForm } from "@/lib/contact"
+import FadeIn from "@/components/fade-in"
 
 const socialLinks = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/abutalleb/", icon: Linkedin },
@@ -43,31 +44,37 @@ export default function ContactPage() {
     <main className="px-8 pt-32 pb-24 lg:px-16 lg:pt-40 lg:pb-32">
       <div className="flex flex-col gap-16 lg:flex-row lg:gap-20">
         <div className="lg:w-1/2">
-          <h1 className="mb-6 font-serif text-[length:var(--text-page)] font-normal tracking-tight text-foreground">
-            {"What\u2019s the project?"}
-          </h1>
-          <p className="mb-10 max-w-md leading-relaxed text-muted-foreground">
-            {"Brand launch, UX\u00A0audit, product redesign, or\u00A0a creative leadership role\u00A0\u2014 tell me what you\u2019re working on and I\u2019ll get back within 24\u00A0hours."}
-          </p>
-          <div className="flex flex-col gap-4">
-            <a href="mailto:hello@amrabutalleb.com" className="text-lg text-accent underline underline-offset-4 hover:text-accent/80">
-              hello@amrabutalleb.com
-            </a>
-            <div className="mt-4 flex gap-5">
-              {socialLinks.map((link) => (
-                <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground" aria-label={link.label}>
-                  <link.icon size={22} />
-                </a>
-              ))}
+          <FadeIn>
+            <h1 className="mb-6 font-serif text-[length:var(--text-page)] font-normal tracking-tight text-foreground">
+              {"What\u2019s the project?"}
+            </h1>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <p className="mb-10 max-w-md leading-relaxed text-muted-foreground">
+              {"Brand launch, UX\u00A0audit, product redesign, or\u00A0a creative leadership role\u00A0\u2014 tell me what you\u2019re working on and I\u2019ll get back within 24\u00A0hours."}
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.15}>
+            <div className="flex flex-col gap-4">
+              <a href="mailto:hello@amrabutalleb.com" className="text-lg text-accent underline underline-offset-4 hover:text-accent/80">
+                hello@amrabutalleb.com
+              </a>
+              <div className="mt-4 flex gap-5">
+                {socialLinks.map((link) => (
+                  <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground" aria-label={link.label}>
+                    <link.icon size={22} />
+                  </a>
+                ))}
+              </div>
+              <div className="mt-6">
+                <p className="mb-3 text-sm text-muted-foreground">Prefer a&nbsp;live conversation?</p>
+                <CalendlyButton />
+              </div>
             </div>
-            <div className="mt-6">
-              <p className="mb-3 text-sm text-muted-foreground">Prefer a&nbsp;live conversation?</p>
-              <CalendlyButton />
-            </div>
-          </div>
+          </FadeIn>
         </div>
 
-        <div className="lg:w-1/2">
+        <FadeIn delay={0.2} as="div" className="lg:w-1/2">
           {submitted ? (
             <div className="flex h-full min-h-[400px] items-center justify-center rounded-sm bg-surface p-12 text-center" aria-live="polite">
               <div>
@@ -114,7 +121,7 @@ export default function ContactPage() {
               </p>
             </form>
           )}
-        </div>
+        </FadeIn>
       </div>
     </main>
   )

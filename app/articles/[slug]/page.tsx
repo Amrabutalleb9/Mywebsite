@@ -5,6 +5,7 @@ import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import { articles, getArticleBySlug, getAdjacentArticles, getReadingTime } from "@/lib/articles"
+import FadeIn from "@/components/fade-in"
 
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }))
@@ -101,32 +102,38 @@ export default async function ArticlePage({
     <main className="px-8 pt-32 pb-24 lg:px-16 lg:pt-40 lg:pb-32">
       <article className="mx-auto max-w-[65ch]">
         {/* Back link */}
-        <Link
-          href="/articles"
-          className="mb-12 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <ArrowLeft size={16} />
-          All Articles
-        </Link>
+        <FadeIn>
+          <Link
+            href="/articles"
+            className="mb-12 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <ArrowLeft size={16} />
+            All Articles
+          </Link>
+        </FadeIn>
 
         {/* Tag + Date + Reading time */}
-        <div className="mb-6 flex items-center gap-4">
-          <span className="rounded-sm bg-accent px-3 py-1 text-xs font-medium text-accent-foreground uppercase">
-            {article.tag}
-          </span>
-          <span className="text-sm text-muted-foreground">{article.date}</span>
-          <span className="text-xs text-muted-foreground/50">&middot;</span>
-          <span className="text-sm text-muted-foreground">{getReadingTime(article)}</span>
-        </div>
+        <FadeIn>
+          <div className="mb-6 flex items-center gap-4">
+            <span className="rounded-sm bg-accent px-3 py-1 text-xs font-medium text-accent-foreground uppercase">
+              {article.tag}
+            </span>
+            <span className="text-sm text-muted-foreground">{article.date}</span>
+            <span className="text-xs text-muted-foreground/50">&middot;</span>
+            <span className="text-sm text-muted-foreground">{getReadingTime(article)}</span>
+          </div>
+        </FadeIn>
 
         {/* Title */}
-        <h1 className="mb-10 font-serif text-[length:var(--text-section)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground">
-          {article.title}
-        </h1>
+        <FadeIn delay={0.05}>
+          <h1 className="mb-10 font-serif text-[length:var(--text-section)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground">
+            {article.title}
+          </h1>
+        </FadeIn>
 
         {/* Featured image */}
         {article.image && (
-          <div className="mb-12 overflow-hidden rounded-lg">
+          <FadeIn delay={0.1} as="div" className="mb-12 overflow-hidden rounded-lg">
             <Image
               src={article.image}
               alt={article.imageAlt || article.title}
@@ -135,15 +142,15 @@ export default async function ArticlePage({
               className="h-auto w-full"
               priority
             />
-          </div>
+          </FadeIn>
         )}
 
         {/* Content */}
-        <div className="flex flex-col gap-6 text-[17px] leading-[var(--leading-longform)] text-muted-foreground">
+        <FadeIn delay={0.15} as="div" className="flex flex-col gap-6 text-[17px] leading-[var(--leading-longform)] text-muted-foreground">
           {article.content.map((paragraph, i) => (
             <p key={`p-${i}`}>{paragraph}</p>
           ))}
-        </div>
+        </FadeIn>
 
         {/* Prev / Next */}
         <div className="mt-20 flex items-center justify-between border-t border-border pt-8">

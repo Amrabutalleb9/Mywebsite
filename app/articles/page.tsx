@@ -2,6 +2,7 @@ import Link from "next/link"
 import type { Metadata } from "next"
 import { ArrowUpRight } from "lucide-react"
 import { articles, getReadingTime } from "@/lib/articles"
+import FadeIn from "@/components/fade-in"
 
 export const metadata: Metadata = {
   title: "Articles on Brand Strategy & Creative Direction",
@@ -21,22 +22,24 @@ export const metadata: Metadata = {
 export default function ArticlesPage() {
   return (
     <main className="px-8 pt-32 pb-24 lg:px-16 lg:pt-40 lg:pb-32">
-      <h1 className="mb-4 font-serif text-[length:var(--text-page)] font-normal tracking-tight text-foreground">
-        Articles
-      </h1>
-      <p className="mb-20 max-w-lg text-muted-foreground">
-        Thinking out loud about brand strategy, creative direction, typography, and&nbsp;the business of&nbsp;design.
-      </p>
+      <FadeIn>
+        <h1 className="mb-4 font-serif text-[length:var(--text-page)] font-normal tracking-tight text-foreground">
+          Articles
+        </h1>
+        <p className="mb-20 max-w-lg text-muted-foreground">
+          Thinking out loud about brand strategy, creative direction, typography, and&nbsp;the business of&nbsp;design.
+        </p>
+      </FadeIn>
 
       <div className="flex flex-col">
-        {articles.map((article) => (
-          <Link
-            key={article.slug}
-            href={`/articles/${article.slug}`}
-            className="group"
-            data-cursor-label="Read Article"
-          >
-            <article className="border-b border-border py-10 transition-colors hover:border-accent/40">
+        {articles.map((article, i) => (
+          <FadeIn key={article.slug} delay={i * 0.06}>
+            <Link
+              href={`/articles/${article.slug}`}
+              className="group block"
+              data-cursor-label="Read Article"
+            >
+              <article className="border-b border-border py-10 transition-colors hover:border-accent/40">
               <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between lg:gap-12">
                 <div className="lg:w-[65%]">
                   <div className="mb-3">
@@ -56,8 +59,9 @@ export default function ArticlesPage() {
                   <ArrowUpRight size={16} className="text-muted-foreground transition-colors group-hover:text-foreground" />
                 </div>
               </div>
-            </article>
-          </Link>
+              </article>
+            </Link>
+          </FadeIn>
         ))}
       </div>
     </main>
