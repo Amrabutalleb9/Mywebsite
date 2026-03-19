@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import type { Metadata } from "next"
 import { Download, ArrowRight, Linkedin } from "lucide-react"
+import { capabilities } from "@/lib/shared-data"
 
 export const metadata: Metadata = {
   title: "About",
@@ -19,15 +20,6 @@ export const metadata: Metadata = {
     description: "13+ years directing brands and leading creative teams across 8 international markets.",
   },
 }
-
-const capabilities = [
-  { title: "Creative Direction", desc: "I set the vision. I lead the team. I make sure every piece of\u00A0work that ships is\u00A0something I\u2019d put my name\u00A0on." },
-  { title: "Brand Identity & Strategy", desc: "Logos, type systems, color, guidelines, positioning. The whole foundation. Built to\u00A0scale, built to\u00A0last." },
-  { title: "UI/UX Design", desc: "Interfaces for web and mobile. From wireframes to\u00A0production. Screens that perform, not just screens that look\u00A0nice." },
-  { title: "Art Direction", desc: "Defining the visual tone across campaigns, editorial, packaging, and\u00A0digital. This is\u00A0where the storytelling\u00A0lives." },
-  { title: "Typography Systems", desc: "Type is\u00A0my primary design tool. I build typographic hierarchies that do\u00A0the heavy lifting in\u00A0any layout, any\u00A0language." },
-  { title: "Campaign Design", desc: "Multi-channel creative for digital, social, and\u00A0print. Strategy first. Execution second. Results\u00A0always." },
-]
 
 const recognitionItems: { text: string; href?: string }[] = [
   { text: "Featured Contractor, Freelancer.com (Top-Rated, Branding, UI/UX)", href: "https://www.freelancer.com" },

@@ -1,8 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
-
-const WEB3FORMS_KEY = "b13517be-486e-4aa3-b064-eeb0e5f25951"
+import { submitContactForm } from "@/lib/contact"
 
 const servicesTags = ["Branding", "Product Design", "UX Design", "UI Design"]
 
@@ -22,31 +21,19 @@ export default function MainFooter() {
     setSending(true)
     setError("")
 
-    try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
-          name: form.name,
-          email: form.email,
-          message: form.message,
-          subject: `Portfolio inquiry from ${form.name}`,
-        }),
-      })
+    const result = await submitContactForm({
+      name: form.name,
+      email: form.email,
+      message: form.message,
+    })
 
-      const data = await res.json()
-
-      if (data.success) {
-        setSubmitted(true)
-      } else {
-        setError("Something went wrong. Please try emailing me directly.")
-      }
-    } catch {
-      setError("Network error. Please try emailing me directly.")
-    } finally {
-      setSending(false)
+    if (result.success) {
+      setSubmitted(true)
+    } else {
+      setError(result.error || "Something went wrong. Please try emailing me directly.")
     }
+
+    setSending(false)
   }
 
   return (
@@ -55,7 +42,7 @@ export default function MainFooter() {
         {/* LEFT - Form card */}
         <div className="relative z-10 px-8 py-16 lg:ml-[10%] lg:w-[25%] lg:px-0 lg:py-0 lg:pb-[5%]">
           {submitted ? (
-            <div className="flex h-full min-h-[600px] items-center justify-center rounded-b-2xl bg-background p-10 lg:min-h-0">
+            <div className="flex h-full min-h-[600px] items-center justify-center rounded-b-2xl bg-background p-10 lg:min-h-0" aria-live="polite">
               <div className="text-center">
                 <p className="font-serif text-2xl text-foreground">Message sent.</p>
                 <p className="mt-2 text-muted-foreground">{"I\u2019ll get back to you within 24 hours."}</p>
@@ -76,7 +63,7 @@ export default function MainFooter() {
                 <textarea id="fmsg" name="message" rows={5} required value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="mt-2 w-full resize-none border-b border-border bg-transparent py-4 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent" />
               </div>
               {error && (
-                <p className="mb-4 text-sm text-red-500">
+                <p className="mb-4 text-sm text-red-500" aria-live="polite">
                   {error}{" "}
                   <a href="mailto:hello@amrabutalleb.com" className="underline">hello@amrabutalleb.com</a>
                 </p>

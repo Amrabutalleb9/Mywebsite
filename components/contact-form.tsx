@@ -4,9 +4,8 @@ import { useState } from "react"
 import { Linkedin, Globe, Dribbble } from "lucide-react"
 import FadeIn from "./fade-in"
 import { socialLinks, siteMetadata } from "@/lib/constants"
+import { submitContactForm } from "@/lib/contact"
 import type React from "react"
-
-const WEB3FORMS_KEY = "b13517be-486e-4aa3-b064-eeb0e5f25951"
 
 const iconMap: Record<string, React.ReactNode> = {
   LinkedIn: <Linkedin size={18} />,
@@ -26,31 +25,19 @@ export default function ContactForm() {
 
     const formData = new FormData(e.target as HTMLFormElement)
 
-    try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
-          name: formData.get("name"),
-          email: formData.get("email"),
-          message: formData.get("message"),
-          subject: `Portfolio inquiry from ${formData.get("name")}`,
-        }),
-      })
+    const result = await submitContactForm({
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      message: formData.get("message") as string,
+    })
 
-      const data = await res.json()
-
-      if (data.success) {
-        setSubmitted(true)
-      } else {
-        setError("Something went wrong. Please try emailing me directly.")
-      }
-    } catch {
-      setError("Network error. Please try emailing me directly.")
-    } finally {
-      setSending(false)
+    if (result.success) {
+      setSubmitted(true)
+    } else {
+      setError(result.error || "Something went wrong. Please try emailing me directly.")
     }
+
+    setSending(false)
   }
 
   return (

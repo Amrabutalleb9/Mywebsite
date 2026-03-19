@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
-import { ArrowUpRight } from "lucide-react"
 import FadeIn from "@/components/fade-in"
 import CalendlyButton from "@/components/calendly-button"
 import { CleanTestimonial } from "@/components/ui/clean-testimonial"
+import { testimonials } from "@/lib/shared-data"
 
 export const metadata: Metadata = {
   title: "Work With Me",
@@ -37,21 +37,6 @@ const offers = [
     price: "$1,500\u2013$3,500",
     terms: "5\u20137\u00A0business days",
   },
-]
-
-const testimonials = [
-  { text: "Amr delivered beyond expectations. The brand identity he created captured our vision perfectly and translated seamlessly across every touchpoint. His strategic thinking elevated the entire\u00A0project.", author: "Overpowered Agency", location: "UK", role: "Brand Identity" },
-  { text: "Very professional and created me an\u00A0amazing design.", author: "Elliot", location: "London, UK", role: "Apparel Design" },
-  { text: "Fantastic work and great communication. Very happy with the outcome of\u00A0report from a\u00A0layout and a\u00A0branding perspective.", author: "Paul", location: "Melbourne, Australia", role: "Branding" },
-  { text: "Amr assisted me in\u00A0a very challenging Art/Crime book project I authored. Very professional work and his continual ongoing communications and proferred insights were invaluable. I highly recommend\u00A0him.", author: "Steven Hodel", location: "Blaine, United States", role: "Book Design" },
-  { text: "So professional, on\u00A0time, high level of\u00A0skills and capabilities\u2026 don\u2019t waste your time and assign him your work, I didn\u2019t see anything with his level of\u00A0accountability.", author: "Ahmed", location: "Khobar, KSA", role: "Branding" },
-  { text: "Amr provided lots of\u00A0new UX ideas and put them to\u00A0me in\u00A0a detailed explanation. He went above and beyond the project scope to\u00A0deliver a\u00A0renewed website and sales\u00A0funnel.", author: "Robert", location: "Melbourne, Australia", role: "Funnel Copywriting & Design" },
-  { text: "Dude he is the greatest of\u00A0all time.", author: "Mazen", location: "Qassim, Saudi Arabia", role: "Architecture Portfolio Design" },
-  { text: "Amr was able to\u00A0discuss different options with me and working together with adjustments was able to\u00A0create photorealistic expressions on\u00A0my character. Great job. High quality\u00A0stuff!", author: "Alex", location: "Melbourne, Australia", role: "Character Design" },
-  { text: "Outstanding collaboration! Amr was extremely professional, fast, and precise. He quickly understood the project requirements and delivered flawless work on time. Communication was smooth, he was always available, and paid great attention to detail. Highly recommended!", author: "Stefano", location: "Valencia, Spain", role: "Website Design" },
-  { text: "He is Extraordinary! Way beyond anything I expected. Amr is\u00A0very talented, knowledgeable, professional, and competent. Communication in\u00A0english is\u00A0excellent. Prompt to\u00A0resolve any issues. Goes beyond the expected for customer\u00A0satisfaction.", author: "Augustina", location: "Herning, Denmark", role: "Website Design" },
-  { text: "Great UI/UX designer, quick delivery and clear communication. Highly recommend working with\u00A0him!", author: "Stefano", location: "Sydney, Australia", role: "Head of UX, Freelancer.com" },
-  { text: "Is there a\u00A0god or\u00A0do angels exist? We have been thru hell with 4\u00A0previous freelancers for 2\u00A0years. All 4 were unable to\u00A0complete the work. Enter Amr. He is\u00A0highly intelligent, genuine and lovely. He has integrity, is extremely skilled, has good aesthetic sense and importantly, a\u00A0great sense of\u00A0humour!", author: "Dipa", location: "Singapore", role: "Website Design" },
 ]
 
 const processSteps = [

@@ -35,6 +35,8 @@ export default function CustomCursor() {
       return
     }
 
+    document.documentElement.classList.add("cursor-active")
+
     const onMove = (e: MouseEvent) => {
       mouseX.set(e.clientX)
       mouseY.set(e.clientY)
@@ -52,6 +54,7 @@ export default function CustomCursor() {
     document.addEventListener("mouseleave", onLeave)
     document.addEventListener("mouseenter", onEnter)
     return () => {
+      document.documentElement.classList.remove("cursor-active")
       document.removeEventListener("mousemove", onMove)
       document.removeEventListener("mouseleave", onLeave)
       document.removeEventListener("mouseenter", onEnter)

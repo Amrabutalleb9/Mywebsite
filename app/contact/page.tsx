@@ -3,8 +3,7 @@
 import React, { useState } from "react"
 import { Linkedin } from "lucide-react"
 import CalendlyButton from "@/components/calendly-button"
-
-const WEB3FORMS_KEY = "b13517be-486e-4aa3-b064-eeb0e5f25951"
+import { submitContactForm } from "@/lib/contact"
 
 const socialLinks = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/abutalleb/", icon: Linkedin },
@@ -21,32 +20,23 @@ export default function ContactPage() {
     setSending(true)
     setError("")
 
-    try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
-          name: form.name,
-          email: form.email,
-          budget: form.budget || "Not specified",
-          message: form.message,
-          subject: `Portfolio inquiry from ${form.name}`,
-        }),
-      })
+    const message = form.budget
+      ? `${form.message}\n\nBudget: ${form.budget}`
+      : form.message
 
-      const data = await res.json()
+    const result = await submitContactForm({
+      name: form.name,
+      email: form.email,
+      message,
+    })
 
-      if (data.success) {
-        setSubmitted(true)
-      } else {
-        setError("Something went wrong. Please try\u00A0emailing me directly.")
-      }
-    } catch {
-      setError("Network error. Please try\u00A0emailing me directly.")
-    } finally {
-      setSending(false)
+    if (result.success) {
+      setSubmitted(true)
+    } else {
+      setError(result.error || "Something went wrong. Please try\u00A0emailing me directly.")
     }
+
+    setSending(false)
   }
 
   return (
@@ -79,7 +69,7 @@ export default function ContactPage() {
 
         <div className="lg:w-1/2">
           {submitted ? (
-            <div className="flex h-full min-h-[400px] items-center justify-center rounded-sm bg-surface p-12 text-center">
+            <div className="flex h-full min-h-[400px] items-center justify-center rounded-sm bg-surface p-12 text-center" aria-live="polite">
               <div>
                 <p className="font-serif text-2xl text-foreground">Message&nbsp;sent.</p>
                 <p className="mt-2 text-muted-foreground">{"I\u2019ll get back to\u00A0you within 24\u00A0hours."}</p>
@@ -93,7 +83,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <label htmlFor="email" className="mb-2 block text-sm font-medium text-foreground">Email</label>
-                <input id="email" type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent" />
+                <input id="email" type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent" />
               </div>
               <div>
                 <label htmlFor="budget" className="mb-2 block text-sm font-medium text-foreground">Budget&nbsp;Range</label>
@@ -110,7 +100,7 @@ export default function ContactPage() {
                 <textarea id="message" rows={5} required value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full resize-none rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent" />
               </div>
               {error && (
-                <p className="text-sm text-red-500">
+                <p className="text-sm text-red-500" aria-live="polite">
                   {error}{" "}
                   <a href="mailto:hello@amrabutalleb.com" className="underline">hello@amrabutalleb.com</a>
                 </p>

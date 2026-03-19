@@ -25,11 +25,16 @@ export default function HighlightLayout({
       <div
         className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
         onClick={() => setLightbox(null)}
+        onKeyDown={(e) => { if (e.key === "Escape") setLightbox(null) }}
+        role="dialog"
+        aria-modal="true"
+        tabIndex={-1}
       >
         <button
           onClick={() => setLightbox(null)}
           className="absolute top-6 right-6 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
           aria-label="Close"
+          autoFocus
         >
           <X size={20} />
         </button>

@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useEffect, useState, type ReactNode } from "react"
+import { useRef, useEffect, useState, useCallback, type ReactNode } from "react"
 
 interface FadeInProps {
   children: ReactNode
@@ -10,11 +10,11 @@ interface FadeInProps {
 }
 
 export default function FadeIn({ children, className = "", delay = 0, as: Tag = "div" }: FadeInProps) {
-  const ref = useRef<HTMLDivElement>(null)
+  const elRef = useRef<HTMLElement | null>(null)
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    const el = ref.current
+    const el = elRef.current
     if (!el) return
 
     const observer = new IntersectionObserver(
@@ -30,9 +30,13 @@ export default function FadeIn({ children, className = "", delay = 0, as: Tag = 
     return () => observer.disconnect()
   }, [])
 
+  const refCallback = useCallback((node: HTMLElement | null) => {
+    elRef.current = node
+  }, [])
+
   return (
     <Tag
-      ref={ref as never}
+      ref={refCallback as React.RefCallback<HTMLElement>}
       className={className}
       style={{
         opacity: visible ? 1 : 0,
