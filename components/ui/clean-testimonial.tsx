@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { useState, useCallback, useRef, useEffect } from "react"
-import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { type Testimonial } from "@/lib/shared-data"
 
 export type TestimonialItem = Testimonial & { avatar?: string }
@@ -31,19 +31,13 @@ function SplitText({ text }: { text: string }) {
   return (
     <span className="inline">
       {words.map((word, i) => (
-        <motion.span
+        <span
           key={i}
-          initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{
-            duration: 0.4,
-            delay: i * 0.03,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-          className="inline-block mr-[0.25em]"
+          className="mr-[0.25em] inline-block animate-[wordReveal_0.4s_cubic-bezier(0.22,1,0.36,1)_forwards]"
+          style={{ animationDelay: `${i * 30}ms`, opacity: 0 }}
         >
           {word}
-        </motion.span>
+        </span>
       ))}
     </span>
   )
@@ -59,24 +53,17 @@ export function CleanTestimonial({
   const [activeIndex, setActiveIndex] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
+  const localCursorRef = useRef<HTMLDivElement>(null)
 
   usePreloadImages(testimonials.map((t) => t.avatar || ""))
 
-  const mouseX = useMotionValue(0)
-  const mouseY = useMotionValue(0)
-
-  const springConfig = { damping: 25, stiffness: 150 }
-  const cursorX = useSpring(mouseX, springConfig)
-  const cursorY = useSpring(mouseY, springConfig)
-
   const handleMouseMove = useCallback(
     (e: React.MouseEvent) => {
-      if (!containerRef.current) return
+      if (!containerRef.current || !localCursorRef.current) return
       const rect = containerRef.current.getBoundingClientRect()
-      mouseX.set(e.clientX - rect.left)
-      mouseY.set(e.clientY - rect.top)
+      localCursorRef.current.style.transform = `translate3d(${e.clientX - rect.left}px, ${e.clientY - rect.top}px, 0) translate(-50%, -50%)`
     },
-    [mouseX, mouseY],
+    [],
   )
 
   const handleNext = () => {
@@ -116,34 +103,29 @@ export function CleanTestimonial({
       aria-roledescription="carousel"
       aria-label="Testimonials"
     >
-      {/* Magnetic cursor — hidden on touch devices via pointer-events */}
-      <motion.div
+      {/* Magnetic cursor — hidden on touch devices */}
+      <div
+        ref={localCursorRef}
         className="pointer-events-none absolute z-50 hidden md:block"
-        style={{
-          x: cursorX,
-          y: cursorY,
-          translateX: "-50%",
-          translateY: "-50%",
-        }}
+        style={{ willChange: "transform", transition: "none" }}
       >
-        <motion.div
-          className="rounded-full bg-black flex items-center justify-center"
-          animate={{
+        <div
+          className="flex items-center justify-center rounded-full bg-black"
+          style={{
             width: isHovered ? 80 : 0,
             height: isHovered ? 80 : 0,
             opacity: isHovered ? 1 : 0,
+            transition: "width 0.3s cubic-bezier(0.23,1,0.32,1), height 0.3s cubic-bezier(0.23,1,0.32,1), opacity 0.2s",
           }}
-          transition={{ type: "spring", damping: 20, stiffness: 200 }}
         >
-          <motion.span
-            className="text-white text-xs font-medium tracking-wider uppercase"
-            animate={{ opacity: isHovered ? 1 : 0 }}
-            transition={{ delay: 0.1 }}
+          <span
+            className="text-xs font-medium tracking-wider text-white uppercase"
+            style={{ opacity: isHovered ? 1 : 0, transition: "opacity 0.15s 0.1s" }}
           >
             Next
-          </motion.span>
-        </motion.div>
-      </motion.div>
+          </span>
+        </div>
+      </div>
 
       {/* Index indicator */}
       <motion.div
