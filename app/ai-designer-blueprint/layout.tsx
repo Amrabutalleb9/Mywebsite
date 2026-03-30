@@ -1,5 +1,10 @@
 import { DM_Sans, JetBrains_Mono, Space_Grotesk } from "next/font/google"
+import type { Viewport } from "next"
 import "./funnel.css"
+
+export const viewport: Viewport = {
+  themeColor: "#fafaf9",
+}
 
 const funnelDm = DM_Sans({
   subsets: ["latin"],

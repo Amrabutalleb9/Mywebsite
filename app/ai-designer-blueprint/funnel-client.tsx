@@ -119,7 +119,7 @@ export default function FunnelClient() {
             <span
               style={{
                 fontSize: "0.55em",
-                color: "var(--gray-light)",
+                color: "var(--muted-light)",
                 fontWeight: 400,
                 marginTop: 8,
                 display: "block",
@@ -193,18 +193,18 @@ export default function FunnelClient() {
           <div className="section__divider" />
           <p>
             They give you vague motivation. &quot;Use AI to make money!&quot; But they never tell you{" "}
-            <strong style={{ color: "var(--white)" }}>which AI tools</strong>,{" "}
-            <strong style={{ color: "var(--white)" }}>which platform</strong>,{" "}
-            <strong style={{ color: "var(--white)" }}>which services to sell</strong>,{" "}
-            <strong style={{ color: "var(--white)" }}>what to charge</strong>, or{" "}
-            <strong style={{ color: "var(--white)" }}>how to actually get your first client</strong> when you have zero
+            <strong style={{ color: "var(--ink)" }}>which AI tools</strong>,{" "}
+            <strong style={{ color: "var(--ink)" }}>which platform</strong>,{" "}
+            <strong style={{ color: "var(--ink)" }}>which services to sell</strong>,{" "}
+            <strong style={{ color: "var(--ink)" }}>what to charge</strong>, or{" "}
+            <strong style={{ color: "var(--ink)" }}>how to actually get your first client</strong> when you have zero
             reviews.
           </p>
           <p>
             This book is different. It&apos;s a 47-page operational blueprint built around{" "}
-            <strong style={{ color: "var(--white)" }}>one specific platform</strong> (Freelancer.com),{" "}
-            <strong style={{ color: "var(--white)" }}>four specific services</strong>, and{" "}
-            <strong style={{ color: "var(--white)" }}>one specific goal</strong>: your first $500 in 7 days. Every
+            <strong style={{ color: "var(--ink)" }}>one specific platform</strong> (Freelancer.com),{" "}
+            <strong style={{ color: "var(--ink)" }}>four specific services</strong>, and{" "}
+            <strong style={{ color: "var(--ink)" }}>one specific goal</strong>: your first $500 in 7 days. Every
             chapter has exact tools, exact prices, exact templates, and a day-by-day action plan.
           </p>
           <p style={{ margin: 0 }}>
@@ -339,7 +339,7 @@ export default function FunnelClient() {
           <div className="section__divider" />
 
           <div style={{ marginTop: 32 }}>
-            <div style={{ padding: "20px 0", borderBottom: "1px solid rgba(255,255,255,.06)" }}>
+            <div style={{ padding: "20px 0", borderBottom: "1px solid var(--border)" }}>
               <h3 style={{ color: "var(--red)", marginBottom: 8, fontSize: "1.1rem" }}>&#10140; Complete Beginners</h3>
               <p style={{ margin: 0, fontSize: "0.95rem" }}>
                 You&apos;ve never designed anything. That&apos;s fine. The AI tools do the heavy lifting — you bring
@@ -347,7 +347,7 @@ export default function FunnelClient() {
                 paying clients.
               </p>
             </div>
-            <div style={{ padding: "20px 0", borderBottom: "1px solid rgba(255,255,255,.06)" }}>
+            <div style={{ padding: "20px 0", borderBottom: "1px solid var(--border)" }}>
               <h3 style={{ color: "var(--red)", marginBottom: 8, fontSize: "1.1rem" }}>
                 &#10140; Designers Who Haven&apos;t Cracked Freelancing
               </h3>
@@ -548,7 +548,7 @@ export default function FunnelClient() {
             <Link href="/privacy">Privacy Policy</Link> &middot; <Link href="/terms">Terms of Service</Link> &middot;{" "}
             <a href="mailto:hello@amrabutalleb.com">Contact</a>
           </p>
-          <p style={{ marginTop: 12, fontSize: "0.7rem", color: "rgba(255,255,255,.3)" }}>
+          <p style={{ marginTop: 12, fontSize: "0.7rem", color: "rgba(20, 25, 39, 0.45)" }}>
             This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed
             by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc. Results may vary. The $500 in 7 days
             target is ambitious but not guaranteed — it requires dedicated effort as described in the book.
