@@ -9,12 +9,13 @@
 
 .ai-designer-funnel {
   color-scheme: light;
-  --ink: #141927;
-  --ink-soft: #1e2438;
-  --muted: #57534e;
-  --muted-light: #78716c;
-  --border: rgba(15, 23, 42, 0.08);
-  --border-strong: rgba(15, 23, 42, 0.12);
+  /* Neutrals tuned for WCAG AA on #fafaf9 / #fff (body ~7:1, secondary ~5.5:1) */
+  --ink: #0f172a;
+  --ink-soft: #1e293b;
+  --muted: #334155;
+  --muted-light: #475569;
+  --border: rgba(15, 23, 42, 0.12);
+  --border-strong: rgba(15, 23, 42, 0.2);
   --bg: #fafaf9;
   --bg-alt: #f4f4f5;
   --surface: #ffffff;
@@ -23,11 +24,12 @@
   --red-dark: #b83248;
   --red-glow: rgba(214, 61, 86, 0.12);
   --gold: #b8860b;
-  --gold-light: #c9a227;
-  --gold-dim: rgba(184, 134, 11, 0.12);
-  --green: #059669;
-  --green-bg: rgba(5, 150, 105, 0.08);
-  --green-border: rgba(5, 150, 105, 0.22);
+  --gold-light: #8f6f08;
+  --gold-text: #5c4306;
+  --gold-dim: rgba(184, 134, 11, 0.14);
+  --green: #047857;
+  --green-bg: rgba(5, 150, 105, 0.1);
+  --green-border: rgba(5, 120, 90, 0.28);
   --body-font: var(--funnel-dm), "DM Sans", sans-serif;
   --heading-font: var(--funnel-space), "Space Grotesk", sans-serif;
   --mono-font: var(--funnel-mono), "JetBrains Mono", monospace;
@@ -49,13 +51,15 @@
 }
 
 .ai-designer-funnel a {
-  color: var(--red);
-  text-decoration: none;
+  color: var(--red-dark);
+  text-decoration: underline;
+  text-decoration-color: rgba(184, 51, 72, 0.45);
+  text-underline-offset: 3px;
 }
 
 .ai-designer-funnel a:hover {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  color: var(--red);
+  text-decoration-color: var(--red);
 }
 
 .ai-designer-funnel .container {
@@ -75,7 +79,7 @@
 }
 
 .ai-designer-funnel .text-gold {
-  color: var(--gold);
+  color: var(--gold-text);
 }
 
 .ai-designer-funnel .text-red {
@@ -166,16 +170,16 @@
 .ai-designer-funnel .eyebrow {
   font-family: var(--mono-font);
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: var(--gold);
+  color: var(--gold-text);
   margin-bottom: 12px;
 }
 
 .ai-designer-funnel .lead {
   font-size: clamp(1.1rem, 2vw, 1.25rem);
-  color: var(--muted-light);
+  color: var(--muted);
   line-height: 1.65;
 }
 
@@ -270,7 +274,7 @@
 
 .ai-designer-funnel .hero__price .was {
   font-size: 1.1rem;
-  color: var(--muted-light);
+  color: var(--muted);
   text-decoration: line-through;
 }
 
@@ -334,8 +338,9 @@
 
 .ai-designer-funnel .cta-sub {
   font-size: 0.8rem;
-  color: var(--muted-light);
+  color: var(--muted);
   margin-top: 10px;
+  line-height: 1.5;
 }
 
 .ai-designer-funnel .stats {
@@ -487,7 +492,7 @@
 
 .ai-designer-funnel .feature-card__icon--gold {
   background: var(--gold-dim);
-  color: var(--gold-light);
+  color: var(--gold-text);
 }
 
 .ai-designer-funnel .feature-card__icon--green {
@@ -514,90 +519,6 @@
   }
 }
 
-.ai-designer-funnel .bump {
-  background: var(--surface);
-  border: 2px dashed var(--gold);
-  border-radius: var(--radius);
-  padding: 32px 28px;
-  margin: 40px 0;
-  position: relative;
-  box-shadow: 0 2px 12px rgba(184, 134, 11, 0.08);
-}
-
-.ai-designer-funnel .bump__badge {
-  position: absolute;
-  top: -14px;
-  left: 24px;
-  background: var(--gold);
-  color: var(--ink);
-  font-family: var(--heading-font);
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 4px 14px;
-  border-radius: 20px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.ai-designer-funnel .bump__header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-
-.ai-designer-funnel .bump__checkbox {
-  width: 28px;
-  height: 28px;
-  border: 2px solid var(--gold);
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: all 0.2s;
-  background: var(--surface);
-}
-
-.ai-designer-funnel .bump__checkbox:focus {
-  outline: 2px solid var(--gold);
-  outline-offset: 2px;
-}
-
-.ai-designer-funnel .bump__checkbox:focus:not(:focus-visible) {
-  outline: none;
-}
-
-.ai-designer-funnel .bump__checkbox.checked {
-  background: var(--gold);
-  border-color: var(--gold);
-}
-
-.ai-designer-funnel .bump__checkbox.checked::after {
-  content: "\2713";
-  color: var(--ink);
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-.ai-designer-funnel .bump__title {
-  font-family: var(--heading-font);
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--ink);
-}
-
-.ai-designer-funnel .bump__title .price {
-  color: var(--gold-light);
-}
-
-.ai-designer-funnel .bump p {
-  font-size: 0.9rem;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
 .ai-designer-funnel .guarantee {
   background: var(--green-bg);
   border: 1px solid var(--green-border);
@@ -618,7 +539,7 @@
 }
 
 .ai-designer-funnel .guarantee p {
-  color: var(--muted);
+  color: var(--ink-soft);
   font-size: 0.95rem;
   margin: 0;
 }
@@ -669,18 +590,21 @@
 .ai-designer-funnel .footer {
   padding: 40px 0;
   text-align: center;
-  font-size: 0.75rem;
-  color: var(--muted-light);
+  font-size: 0.8rem;
+  color: var(--muted);
   border-top: 1px solid var(--border);
   background: var(--bg-alt);
 }
 
 .ai-designer-funnel .footer a {
-  color: var(--muted);
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-decoration-color: rgba(15, 23, 42, 0.35);
 }
 
 .ai-designer-funnel .footer a:hover {
-  color: var(--red);
+  color: var(--red-dark);
+  text-decoration-color: var(--red-dark);
 }
 
 .ai-designer-funnel .reveal {
@@ -713,7 +637,7 @@
   font-family: var(--heading-font);
   font-weight: 700;
   font-size: 1.2rem;
-  color: var(--gold-light);
+  color: var(--ink);
   flex-shrink: 0;
 }
 

@@ -59,8 +59,6 @@ function CtaButton({ id, children }: { id?: string; children: React.ReactNode })
 
 export default function FunnelClient() {
   const { h, m, s } = useCountdown()
-  const [bumpActive, setBumpActive] = useState(false)
-  const toggleBump = useCallback(() => setBumpActive((v) => !v), [])
 
   const toggleFaq = useCallback((el: EventTarget & HTMLDivElement) => {
     el.classList.toggle("open")
@@ -119,7 +117,7 @@ export default function FunnelClient() {
             <span
               style={{
                 fontSize: "0.55em",
-                color: "var(--muted-light)",
+                color: "var(--muted)",
                 fontWeight: 400,
                 marginTop: 8,
                 display: "block",
@@ -376,7 +374,7 @@ export default function FunnelClient() {
             <div>
               <div className="author__name">Amr Abu-Talleb</div>
               <div className="author__title">AI Design Strategist & Freelancer.com Expert</div>
-              <p style={{ fontSize: "0.85rem", color: "var(--gray)", marginTop: 8, marginBottom: 0 }}>
+              <p style={{ fontSize: "0.85rem", color: "var(--muted)", marginTop: 8, marginBottom: 0 }}>
                 Built this system from scratch, tested every strategy in the book on real accounts, and packaged it into
                 the blueprint you&apos;re about to download.
               </p>
@@ -395,35 +393,6 @@ export default function FunnelClient() {
             For the price of a latte, you get the complete system: AI toolkit, profile setup, 4 services with pricing,
             proposal templates, and a 7-day action plan.
           </p>
-
-          <div className="bump">
-            <div className="bump__badge">Special Offer</div>
-            <div className="bump__header">
-              <div
-                role="checkbox"
-                tabIndex={0}
-                aria-checked={bumpActive}
-                className={`bump__checkbox${bumpActive ? " checked" : ""}`}
-                id="bump-check"
-                onClick={toggleBump}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault()
-                    toggleBump()
-                  }
-                }}
-                aria-label="Add audio podcast add-on"
-              />
-              <div className="bump__title">
-                YES! Add the 25-Minute Audio Podcast for <span className="price">$10</span>
-              </div>
-            </div>
-            <p>
-              Get a 25-minute deep-dive audio companion covering the key strategies from the book — perfect for
-              listening on the go, during commutes, or while you&apos;re setting up your Freelancer.com profile. Hear the
-              nuances, the decision-making, and the behind-the-scenes thinking that text can&apos;t fully capture.
-            </p>
-          </div>
 
           <div className="guarantee">
             <div className="guarantee__icon">&#128274;</div>
@@ -548,7 +517,7 @@ export default function FunnelClient() {
             <Link href="/privacy">Privacy Policy</Link> &middot; <Link href="/terms">Terms of Service</Link> &middot;{" "}
             <a href="mailto:hello@amrabutalleb.com">Contact</a>
           </p>
-          <p style={{ marginTop: 12, fontSize: "0.7rem", color: "rgba(20, 25, 39, 0.45)" }}>
+          <p style={{ marginTop: 12, fontSize: "0.75rem", color: "rgba(15, 23, 42, 0.72)" }}>
             This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed
             by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc. Results may vary. The $500 in 7 days
             target is ambitious but not guaranteed — it requires dedicated effort as described in the book.
