@@ -1,7 +1,9 @@
 import Link from "next/link"
+import SiteChrome from "@/components/site-chrome"
 
 export default function NotFound() {
   return (
+    <SiteChrome>
     <main className="flex min-h-[70vh] flex-col items-center justify-center px-6 text-center">
       <p className="text-[length:var(--text-display)] font-serif font-bold leading-[var(--leading-display)] tracking-[var(--tracking-display)]">
         404
@@ -16,5 +18,6 @@ export default function NotFound() {
         Back to Home
       </Link>
     </main>
+    </SiteChrome>
   )
 }
