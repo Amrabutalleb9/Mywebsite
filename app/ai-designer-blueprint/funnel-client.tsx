@@ -125,9 +125,9 @@ export default function FunnelClient() {
             <div className="hero__visual">
               <Image
                 src={BOOK_SRC}
-                alt=""
-                width={380}
-                height={475}
+                alt="The AI Designer Blueprint — book cover by Amr Abu-Talleb"
+                width={917}
+                height={1024}
                 className="hero__book"
                 priority
               />
