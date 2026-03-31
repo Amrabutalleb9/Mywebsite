@@ -1,7 +1,6 @@
 import React from "react"
 import type { Metadata, Viewport } from "next"
 import { Inter, Playfair_Display } from "next/font/google"
-import Script from "next/script"
 
 import "./globals.css"
 
@@ -226,13 +225,12 @@ export default function RootLayout({
             }),
           }}
         />
-      </head>
-      <body className="font-sans antialiased" suppressHydrationWarning>
-        <Script
-          id="facebook-pixel"
-          strategy="beforeInteractive"
+        <script
+          type="text/javascript"
           dangerouslySetInnerHTML={{ __html: FB_PIXEL_SNIPPET }}
         />
+      </head>
+      <body className="font-sans antialiased" suppressHydrationWarning>
         <noscript>
           <img
             height={1}
