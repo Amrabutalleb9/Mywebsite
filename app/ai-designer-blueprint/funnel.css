@@ -194,28 +194,6 @@
   background-size: 256px;
 }
 
-.ai-designer-funnel .topbar {
-  background: var(--red);
-  padding: 10px 16px;
-  text-align: center;
-  font-family: var(--heading-font);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #fff;
-  letter-spacing: 0.02em;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.ai-designer-funnel .topbar span {
-  font-family: var(--mono-font);
-  background: rgba(0, 0, 0, 0.18);
-  padding: 2px 8px;
-  border-radius: 4px;
-  margin: 0 2px;
-}
-
 /* Dark split hero (reference layout): copy left, book + glow right — scaled +25% */
 .ai-designer-funnel .hero {
   --hero-bg: #06060d;

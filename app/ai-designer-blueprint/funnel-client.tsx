@@ -2,44 +2,11 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react"
+import { useCallback, useLayoutEffect, useRef } from "react"
 
 const CHECKOUT = process.env.NEXT_PUBLIC_AI_BLUEPRINT_CHECKOUT_URL ?? ""
 const BOOK_SRC = "/ai-designer-blueprint/book-mockup.png"
 const AUTHOR_PORTRAIT_SRC = "/ai-designer-blueprint/amr-portrait.png"
-
-function useCountdown() {
-  const [hms, setHms] = useState({ h: "02", m: "00", s: "00" })
-
-  useEffect(() => {
-    let end = typeof window !== "undefined" ? localStorage.getItem("funnelEnd") : null
-    let endNum: number
-    if (!end) {
-      endNum = Date.now() + 2 * 60 * 60 * 1000
-      localStorage.setItem("funnelEnd", String(endNum))
-    } else {
-      endNum = parseInt(end, 10)
-    }
-
-    let raf = 0
-    const tick = () => {
-      const d = Math.max(0, endNum - Date.now())
-      const h = Math.floor(d / 3600000)
-      const m = Math.floor((d % 3600000) / 60000)
-      const s = Math.floor((d % 60000) / 1000)
-      setHms({
-        h: String(h).padStart(2, "0"),
-        m: String(m).padStart(2, "0"),
-        s: String(s).padStart(2, "0"),
-      })
-      if (d > 0) raf = requestAnimationFrame(tick)
-    }
-    tick()
-    return () => cancelAnimationFrame(raf)
-  }, [])
-
-  return hms
-}
 
 function CtaButton({ id, children }: { id?: string; children: React.ReactNode }) {
   const href = CHECKOUT || "#buy"
@@ -59,8 +26,6 @@ function CtaButton({ id, children }: { id?: string; children: React.ReactNode })
 }
 
 export default function FunnelClient() {
-  const { h, m, s } = useCountdown()
-
   const toggleFaq = useCallback((el: EventTarget & HTMLDivElement) => {
     el.classList.toggle("open")
   }, [])
@@ -90,11 +55,6 @@ export default function FunnelClient() {
 
   return (
     <>
-      <div className="topbar" id="topbar">
-        <span id="timer-icon">&#9203;</span> Launch price ends in <span id="hrs">{h}</span>:
-        <span id="mins">{m}</span>:<span id="secs">{s}</span> — then it&apos;s $19.99
-      </div>
-
       <section className="hero">
         <div className="hero__shell">
           <div className="hero__grid">
