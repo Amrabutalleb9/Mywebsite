@@ -95,57 +95,54 @@ export default function FunnelClient() {
       </div>
 
       <section className="hero">
-        <div className="container text-center">
-          <p className="eyebrow">The Complete Step-by-Step System</p>
+        <div className="hero__shell">
+          <div className="hero__grid">
+            <div className="hero__copy">
+              <p className="hero__eyebrow">The Complete Step-by-Step System</p>
 
-          <Image
-            src={BOOK_SRC}
-            alt=""
-            width={320}
-            height={400}
-            className="hero__book mx-auto"
-            priority
-          />
+              <h1 className="hero__headline">
+                <span className="hero__headline-line">
+                  Make Your First <span className="hero__accent">$500</span>
+                </span>
+                <span className="hero__headline-line">
+                  on Freelancer.com in <span className="hero__accent">7 Days</span>
+                </span>
+                <span className="hero__tagline">Using AI Design Tools — No Experience Required</span>
+              </h1>
 
-          <h1>
-            <span>
-              Make Your First <span className="text-red">$500</span>
-            </span>
-            <span>
-              on Freelancer.com in <span className="text-red">7 Days</span>
-            </span>
-            <span
-              style={{
-                fontSize: "0.55em",
-                color: "var(--muted)",
-                fontWeight: 400,
-                marginTop: 8,
-                display: "block",
-              }}
-            >
-              Using AI Design Tools — No Experience Required
-            </span>
-          </h1>
+              <div className="hero__price">
+                <span className="was">$19.99</span>
+                <span className="now">$5.99</span>
+                <span className="badge">Launch Price</span>
+              </div>
 
-          <p className="lead mt-3">
-            The exact AI tools, the exact Freelancer.com strategies, and the exact 7-day action plan that turns
-            complete beginners into paid designers. 47 pages of pure execution — zero fluff.
-          </p>
+              <div className="hero__actions">
+                <CtaButton id="hero-cta">GET THE BLUEPRINT NOW &rarr;</CtaButton>
+                <p className="cta-sub hero__cta-sub">Instant PDF download &middot; 30-day money-back guarantee</p>
+              </div>
+            </div>
 
-          <div className="hero__price mt-3">
-            <span className="was">$19.99</span>
-            <span className="now">$5.99</span>
-            <span className="badge">Launch Price</span>
-          </div>
-
-          <div className="mt-4">
-            <CtaButton id="hero-cta">GET THE BLUEPRINT NOW &rarr;</CtaButton>
-            <p className="cta-sub">Instant PDF download &middot; 30-day money-back guarantee</p>
+            <div className="hero__visual">
+              <Image
+                src={BOOK_SRC}
+                alt=""
+                width={380}
+                height={475}
+                className="hero__book"
+                priority
+              />
+            </div>
           </div>
         </div>
       </section>
 
       <section className="section">
+        <div className="container">
+          <p className="lead text-center mb-4">
+            The exact AI tools, the exact Freelancer.com strategies, and the exact 7-day action plan that turns
+            complete beginners into paid designers. 47 pages of pure execution — zero fluff.
+          </p>
+        </div>
         <div className="container--wide">
           <div className="stats reveal" ref={refReveal(0)}>
             <div className="stats__item">
