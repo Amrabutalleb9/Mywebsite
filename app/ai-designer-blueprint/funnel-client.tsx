@@ -6,6 +6,7 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react
 
 const CHECKOUT = process.env.NEXT_PUBLIC_AI_BLUEPRINT_CHECKOUT_URL ?? ""
 const BOOK_SRC = "/ai-designer-blueprint/book-mockup.png"
+const AUTHOR_PORTRAIT_SRC = "/ai-designer-blueprint/amr-portrait.png"
 
 function useCountdown() {
   const [hms, setHms] = useState({ h: "02", m: "00", s: "00" })
@@ -367,7 +368,16 @@ export default function FunnelClient() {
       <section className="section section--alt">
         <div className="container reveal" ref={refReveal(5)}>
           <div className="author">
-            <div className="author__avatar">AA</div>
+            <div className="author__avatar">
+              <Image
+                src={AUTHOR_PORTRAIT_SRC}
+                alt="Amr Abu-Talleb"
+                width={1024}
+                height={571}
+                className="author__avatar-img"
+                sizes="64px"
+              />
+            </div>
             <div>
               <div className="author__name">Amr Abu-Talleb</div>
               <div className="author__title">AI Design Strategist & Freelancer.com Expert</div>

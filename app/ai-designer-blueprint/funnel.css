@@ -57,7 +57,7 @@
   text-underline-offset: 3px;
 }
 
-.ai-designer-funnel a:hover {
+.ai-designer-funnel a:not(.cta-btn):hover {
   color: var(--red);
   text-decoration-color: var(--red);
 }
@@ -222,11 +222,14 @@
   --hero-gold: #d4af37;
   --hero-text: #f8fafc;
   --hero-muted: rgba(248, 250, 252, 0.62);
-  padding: clamp(70px, 11.25vw, 125px) 0 clamp(80px, 12.5vw, 140px);
+  padding: clamp(48px, 6vw, 72px) 0 clamp(48px, 6vw, 72px);
   background: var(--hero-bg);
   position: relative;
   overflow: hidden;
   text-align: left;
+  min-height: clamp(620px, 88vh, 980px);
+  display: flex;
+  flex-direction: column;
 }
 
 .ai-designer-funnel .hero::before {
@@ -256,17 +259,26 @@
   max-width: 1475px;
   margin: 0 auto;
   padding: 0 30px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 .ai-designer-funnel .hero__grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
   gap: clamp(35px, 6.25vw, 70px);
-  align-items: center;
+  align-items: stretch;
+  flex: 1;
+  min-height: 0;
 }
 
 .ai-designer-funnel .hero__copy {
   max-width: 42.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .ai-designer-funnel .hero__eyebrow {
@@ -354,14 +366,19 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  min-height: min(76vh, 900px);
+  height: 100%;
+  align-self: stretch;
 }
 
 .ai-designer-funnel .hero__book {
-  width: 100%;
-  max-width: min(500px, 92vw);
+  width: auto;
   height: auto;
+  max-width: min(760px, 52vw);
+  max-height: 100%;
   position: relative;
   z-index: 2;
+  object-fit: contain;
   filter: drop-shadow(0 35px 70px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 60px rgba(214, 61, 86, 0.22));
   animation: ai-funnel-float-hero 6s ease-in-out infinite;
 }
@@ -370,6 +387,12 @@
   font-size: 1.4375rem;
   padding: 22px 60px;
   border-radius: 75px;
+  color: #fff;
+}
+
+.ai-designer-funnel .hero .cta-btn:hover,
+.ai-designer-funnel .hero .cta-btn:focus-visible {
+  color: #fff;
 }
 
 .ai-designer-funnel .hero .hero__cta-sub {
@@ -392,6 +415,17 @@
   .ai-designer-funnel .hero__visual {
     order: 1;
     margin-bottom: 10px;
+    min-height: min(52vh, 520px);
+    height: auto;
+  }
+
+  .ai-designer-funnel .hero__book {
+    max-width: min(92vw, 420px);
+    max-height: min(50vh, 480px);
+  }
+
+  .ai-designer-funnel .hero {
+    min-height: auto;
   }
 
   .ai-designer-funnel .hero__price {
@@ -443,8 +477,10 @@
   text-decoration: none !important;
 }
 
-.ai-designer-funnel .cta-btn:hover {
+.ai-designer-funnel .cta-btn:hover,
+.ai-designer-funnel .cta-btn:focus-visible {
   background: var(--red-dark);
+  color: #fff;
   transform: translateY(-2px);
   box-shadow: 0 8px 28px rgba(214, 61, 86, 0.35);
 }
@@ -754,19 +790,21 @@
 }
 
 .ai-designer-funnel .author__avatar {
+  position: relative;
   width: 64px;
   height: 64px;
   border-radius: 50%;
   background: var(--surface-subtle);
   border: 2px solid var(--gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--heading-font);
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: var(--ink);
+  overflow: hidden;
   flex-shrink: 0;
+}
+
+.ai-designer-funnel .author__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
 }
 
 .ai-designer-funnel .author__name {
