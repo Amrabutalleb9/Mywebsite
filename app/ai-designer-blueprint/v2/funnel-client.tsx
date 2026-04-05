@@ -3,11 +3,10 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
-import { motion, useInView, useReducedMotion } from "motion/react"
 
-import { HeroVideoBackground } from "./hero-video-bg"
 import { LogoMarquee } from "./logo-marquee"
 import { ScrollReveal } from "./scroll-reveal"
+import { usePrefersReducedMotion } from "./use-prefers-reduced-motion"
 
 const CHECKOUT = process.env.NEXT_PUBLIC_AI_BLUEPRINT_CHECKOUT_URL ?? ""
 const AUTHOR_PORTRAIT_SRC = "/images/amr-portrait.webp"
@@ -39,8 +38,6 @@ const TESTIMONIALS = [
     role: "Marketing freelancer",
   },
 ] as const
-
-const ease = [0.16, 1, 0.3, 1] as const
 
 const CHAPTERS = [
   {
@@ -124,7 +121,7 @@ function CountUp({
   start: boolean
   delayMs?: number
 }) {
-  const reduce = useReducedMotion()
+  const reduce = usePrefersReducedMotion()
   const [n, setN] = useState(reduce ? end : 0)
   const [armed, setArmed] = useState(false)
 
@@ -165,7 +162,7 @@ function CountUp({
   )
 }
 
-function StatReveal({
+function StatLine({
   show,
   index,
   children,
@@ -174,96 +171,69 @@ function StatReveal({
   index: number
   children: React.ReactNode
 }) {
-  const reduce = useReducedMotion()
   return (
-    <motion.span
-      style={{ display: "inline-block" }}
-      initial={reduce ? false : { opacity: 0, y: 12 }}
-      animate={reduce || show ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-      transition={{ duration: 0.55, delay: show ? 0.08 * index : 0, ease }}
+    <span
+      className={`stat-line ${show ? "stat-line--in" : ""}`}
+      style={{ transitionDelay: show ? `${index * 100}ms` : undefined }}
     >
       {children}
-    </motion.span>
+    </span>
   )
 }
 
 export default function FunnelClientV2() {
-  const reduce = useReducedMotion()
   const statsBarRef = useRef<HTMLDivElement>(null)
-  const statsActive = useInView(statsBarRef, { once: true, amount: 0.35 })
-  const chaptersRef = useRef<HTMLDivElement>(null)
-  const chaptersInView = useInView(chaptersRef, { once: true, amount: 0.2 })
+  const [statsActive, setStatsActive] = useState(false)
 
   useEffect(() => {
-    document.body.classList.add("js-loaded")
-    return () => document.body.classList.remove("js-loaded")
+    const el = statsBarRef.current
+    if (!el) return
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStatsActive(true)
+          io.disconnect()
+        }
+      },
+      { threshold: 0.15, rootMargin: "80px 0px 0px 0px" }
+    )
+    io.observe(el)
+    return () => io.disconnect()
   }, [])
 
   return (
     <>
-      <header className="hero hero--video">
-        <HeroVideoBackground />
+      <header className="hero hero--atmosphere">
+        <div className="hero-atmosphere" aria-hidden />
         <div className="hero-overlay" aria-hidden />
         <div className="hero-noise hero-noise--light" aria-hidden />
 
         <div className="hero-shell hero-shell--split">
           <div className="hero-col hero-col--main">
-            <motion.p
-              className="hero-eyebrow"
-              initial={reduce ? false : { opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, delay: 0, ease }}
-            >
-              New · PDF blueprint
-            </motion.p>
-            <motion.h1
-              className="hero-title"
-              initial={reduce ? false : { opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.05, ease }}
-            >
+            <p className="hero-eyebrow hero-fade hero-fade--1">New · PDF blueprint</p>
+            <h1 className="hero-title hero-fade hero-fade--2">
               <span className="hero-title-line">Your skills aren&apos;t the problem.</span>
               <span className="hero-title-accent">Your system is.</span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              className="hero-lede"
-              initial={reduce ? false : { opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.15, ease }}
-            >
+            <p className="hero-lede hero-fade hero-fade--3">
               The 7-day sprint that turns AI tools into $500/week on Freelancer.com.
-            </motion.p>
+            </p>
 
-            <motion.p
-              className="hero-sub"
-              initial={reduce ? false : { opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.45, delay: 0.28, ease }}
-            >
+            <p className="hero-sub hero-fade hero-fade--4">
               Rent is climbing. AI is replacing jobs. And every &quot;make money online&quot; guru tells you to{" "}
               <strong>&quot;just use AI&quot;</strong> without naming a single tool, a single platform, or a single price to
               charge. This 47-page blueprint gives you <strong>all three</strong> — plus a day-by-day calendar so you can
               start executing tonight, not &quot;someday.&quot;
-            </motion.p>
+            </p>
 
-            <motion.p
-              className="hero-kicker"
-              initial={reduce ? false : { opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, delay: 0.38, ease }}
-            >
+            <p className="hero-kicker hero-fade hero-fade--5">
               One marketplace (Freelancer.com). Four design services. Named tools at $0/month. A bid-by-bid,
               dollar-by-dollar 7-day sprint — even with zero reviews and zero design experience.
-            </motion.p>
+            </p>
           </div>
 
-          <motion.div
-            className="hero-col hero-col--visual"
-            initial={reduce ? false : { opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.65, delay: 0.2, ease }}
-          >
+          <div className="hero-col hero-col--visual hero-fade hero-fade--6">
             <div className="hero-book-glow">
               <Image
                 src={BOOK_COVER_SRC}
@@ -274,11 +244,11 @@ export default function FunnelClientV2() {
                 priority
               />
             </div>
-          </motion.div>
+          </div>
         </div>
       </header>
 
-      <main className="f2-light">
+      <main className="f2-main">
         <div className="stats-wrap">
           <p className="stats-kicker">Market momentum</p>
           <div className="stats-bar" ref={statsBarRef}>
@@ -290,23 +260,23 @@ export default function FunnelClientV2() {
             </div>
             <div className="stat-item">
               <span className="stat-num">
-                <StatReveal show={statsActive} index={1}>
+                <StatLine show={statsActive} index={1}>
                   25–60%
-                </StatReveal>
+                </StatLine>
               </span>
               <span className="stat-label">higher rates with AI tools</span>
             </div>
             <div className="stat-item">
               <span className="stat-num">
-                <StatReveal show={statsActive} index={2}>
+                <StatLine show={statsActive} index={2}>
                   $16.89B
-                </StatReveal>
+                </StatLine>
               </span>
               <span className="stat-label">freelance market by 2029</span>
             </div>
             <div className="stat-item">
               <span className="stat-num">
-                <CountUp end={0} prefix="$" start={statsActive} delayMs={360} />
+                <CountUp end={0} prefix="$" start={statsActive} delayMs={300} />
               </span>
               <span className="stat-label">tool cost to start</span>
             </div>
@@ -528,21 +498,15 @@ export default function FunnelClientV2() {
                   platform, four services, and one deadline. You open it, you follow it, you earn.
                 </p>
               </div>
-              <div className="chapters-list" ref={chaptersRef}>
-                {CHAPTERS.map((ch, i) => (
-                  <motion.div
-                    key={ch.title}
-                    className="chapter-item"
-                    initial={reduce ? false : { opacity: 0, y: 14 }}
-                    animate={chaptersInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
-                    transition={{ duration: 0.5, delay: reduce ? 0 : 0.09 * i, ease }}
-                  >
-                    <div className="chapter-num" />
+              <div className="chapters-list">
+                {CHAPTERS.map((ch) => (
+                  <div key={ch.title} className="chapter-item">
+                    <div className="chapter-num" aria-hidden />
                     <div>
                       <h3>{ch.title}</h3>
                       <p>{ch.body}</p>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
@@ -558,7 +522,7 @@ export default function FunnelClientV2() {
               Scroll, bookmark, &quot;come back later,&quot; never start. Break the loop. The system is $5.99 and you can
               begin tonight.
             </p>
-            <BuyLink className="cta-primary">Get the blueprint — $5.99</BuyLink>
+            <BuyLink className="cta-primary cta-primary--mid">Get the blueprint — $5.99</BuyLink>
           </ScrollReveal>
         </div>
 
@@ -901,7 +865,7 @@ export default function FunnelClientV2() {
         </ScrollReveal>
       </main>
 
-      <footer className="f2-light f2-footer">
+      <footer className="f2-footer">
         <p className="f2-footer-line">
           © 2026 Amr Abu-Talleb · <Link href="/privacy">Privacy</Link> · <Link href="/terms">Terms</Link> ·{" "}
           <a href="mailto:hello@amrabutalleb.com">Contact</a>

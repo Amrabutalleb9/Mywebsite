@@ -1,13 +1,12 @@
 "use client"
 
-import { useReducedMotion } from "motion/react"
-import { motion } from "motion/react"
+import { useEffect, useLayoutEffect, useRef, useState } from "react"
 
-const ease = [0.16, 1, 0.3, 1] as const
+import { usePrefersReducedMotion } from "./use-prefers-reduced-motion"
 
 /**
- * One scroll-reveal primitive: IntersectionObserver via Framer `whileInView` with `amount` (no negative margins).
- * Respects `prefers-reduced-motion`.
+ * IntersectionObserver + .revealed — content is visible if JS disabled (no inline opacity).
+ * Reduced motion: no hide state, instant visible.
  */
 export function ScrollReveal({
   children,
@@ -18,17 +17,47 @@ export function ScrollReveal({
   className?: string
   id?: string
 }) {
-  const reduce = useReducedMotion()
+  const ref = useRef<HTMLDivElement>(null)
+  const reduce = usePrefersReducedMotion()
+  const [revealed, setRevealed] = useState(reduce)
+
+  useLayoutEffect(() => {
+    if (reduce) return
+    const el = ref.current
+    if (!el) return
+    const r = el.getBoundingClientRect()
+    const vh = typeof window !== "undefined" ? window.innerHeight : 800
+    if (r.top < vh * 0.92 && r.bottom > -60) {
+      setRevealed(true)
+      return
+    }
+  }, [reduce])
+
+  useEffect(() => {
+    if (reduce) return
+    const el = ref.current
+    if (!el) return
+    if (revealed) return
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setRevealed(true)
+          io.disconnect()
+        }
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -24px 0px" }
+    )
+    io.observe(el)
+    return () => io.disconnect()
+  }, [reduce, revealed])
+
   return (
-    <motion.div
+    <div
+      ref={ref}
       id={id}
-      className={className}
-      initial={reduce ? false : { opacity: 0, y: 14 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15, margin: "0px 0px -60px 0px" }}
-      transition={{ duration: 0.7, ease }}
+      className={["reveal-target", revealed ? "revealed" : "", className].filter(Boolean).join(" ")}
     >
       {children}
-    </motion.div>
+    </div>
   )
 }

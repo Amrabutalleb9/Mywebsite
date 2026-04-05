@@ -9,28 +9,28 @@
 
 .ai-designer-funnel-v2 {
   scroll-behavior: smooth;
-  /* Single dark canvas — Syne / Plus Jakarta / JetBrains Mono only */
-  --bg: #0a0a0a;
-  --void: #0a0a0a;
-  --surface: #111111;
-  --border: #1e1e1e;
-  --text: #e8e8e8;
-  --text-muted: #888888;
+  /* One continuous dark canvas (Penpreneur-style) — Syne / Plus Jakarta / JetBrains Mono only */
+  --bg: #050508;
+  --void: #050508;
+  --surface: #0d0d10;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #e8e6e3;
+  --text-muted: #8a8a8a;
   --accent: #00ff88;
   --accent-deep: #00cc6a;
   --accent-bright: #00ff88;
   --accent-glow: rgba(0, 255, 136, 0.12);
-  --accent-soft: rgba(0, 255, 136, 0.12);
+  --accent-soft: rgba(0, 255, 136, 0.1);
   --danger: #ff3b3b;
   --danger-dim: rgba(255, 59, 59, 0.06);
   --danger-border: rgba(255, 59, 59, 0.15);
   --strike: #666666;
-  --warm: #ff6b35;
+  --warm: #ff8a4a;
   --radius: 16px;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --f2-pad-x: clamp(1.25rem, 5vw, 4.5rem);
   --f2-wide: min(1680px, 100%);
-  --f2-section-pad: clamp(5.5rem, 12vw, 8rem);
+  --f2-section-pad: clamp(5rem, 10vw, 7rem);
   font-family: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
   background: var(--bg);
   color: var(--text-muted);
@@ -38,6 +38,11 @@
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   position: relative;
+}
+
+.ai-designer-funnel-v2 .f2-main {
+  background: transparent;
+  color: inherit;
 }
 
 /* Headings — Syne extra-bold, tight editorial stack (matches prior / reference look) */
@@ -64,39 +69,28 @@
   z-index: 1;
 }
 
-/* Post-hero: light editorial canvas (hero stays dark + WebGL) */
-.ai-designer-funnel-v2 .f2-light {
-  --bg: #f3f4f1;
-  --void: #f3f4f1;
-  --surface: #ffffff;
-  --border: #dfe3db;
-  --text: #141816;
-  --text-muted: #5c625e;
-  --accent: #047857;
-  --accent-bright: #059669;
-  --accent-deep: #065f46;
-  --accent-glow: rgba(5, 150, 105, 0.14);
-  --accent-soft: rgba(5, 150, 105, 0.1);
-  --danger: #b45309;
-  --danger-dim: rgba(180, 83, 9, 0.06);
-  --danger-border: rgba(180, 83, 9, 0.22);
-  --strike: #9ca3af;
-  --warm: #c2410c;
-  background: var(--bg);
-  color: var(--text-muted);
-  position: relative;
+/* Scroll reveal — visible when .revealed; reduced motion = no hide */
+.ai-designer-funnel-v2 .reveal-target {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.7s var(--ease),
+    transform 0.7s var(--ease);
 }
 
-.ai-designer-funnel-v2 .f2-light::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.4;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+@media (prefers-reduced-motion: no-preference) {
+  .ai-designer-funnel-v2 .reveal-target:not(.revealed) {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  .ai-designer-funnel-v2 .reveal-target.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Sections: one canvas — band classes removed from markup; keep flow via spacing + tags */
+/* Sections: spacing only — no alternating band fills */
 
 .ai-designer-funnel-v2 .f2-section {
   width: 100%;
@@ -108,30 +102,35 @@
 }
 
 .ai-designer-funnel-v2 .f2-section--agitation {
-  background: linear-gradient(180deg, rgba(5, 150, 105, 0.06) 0%, transparent 42%);
+  background: transparent;
 }
 
 .ai-designer-funnel-v2 .f2-section--cta-mid {
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .ai-designer-funnel-v2 .f2-section--final-cta {
   position: relative;
-  background: var(--surface);
+  background: transparent;
+  padding-bottom: clamp(6rem, 14vw, 9rem);
 }
 
 .ai-designer-funnel-v2 .f2-section--final-cta::before {
   content: "";
   position: absolute;
-  inset: 0;
+  bottom: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(600px, 140vw);
+  height: min(600px, 140vw);
   pointer-events: none;
-  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-  opacity: 1;
+  background: radial-gradient(circle, rgba(0, 255, 136, 0.06) 0%, transparent 70%);
+  z-index: 0;
 }
 
-/* ─── Hero: reference layout — hills fill viewport, copy centered (demo-style) ─── */
+/* ─── Hero: single dark canvas + CSS atmosphere (no video/GL dependency) ─── */
 .ai-designer-funnel-v2 .hero {
   min-height: 100dvh;
   min-height: 100vh;
@@ -143,6 +142,74 @@
   position: relative;
   overflow: hidden;
   background: var(--bg);
+}
+
+.ai-designer-funnel-v2 .hero--atmosphere {
+  background: var(--bg);
+}
+
+.ai-designer-funnel-v2 .hero-atmosphere {
+  content: "";
+  position: absolute;
+  top: -18%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(140%, 920px);
+  aspect-ratio: 1;
+  max-width: none;
+  background: radial-gradient(circle, rgba(0, 255, 136, 0.08) 0%, rgba(0, 255, 136, 0.02) 42%, transparent 72%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes f2-fade-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ai-designer-funnel-v2 .hero-fade {
+    opacity: 0;
+    animation: f2-fade-slide-up 0.8s var(--ease) both;
+  }
+
+  .ai-designer-funnel-v2 .hero-fade--1 {
+    animation-delay: 0.1s;
+  }
+
+  .ai-designer-funnel-v2 .hero-fade--2 {
+    animation-delay: 0.15s;
+  }
+
+  .ai-designer-funnel-v2 .hero-fade--3 {
+    animation-delay: 0.25s;
+  }
+
+  .ai-designer-funnel-v2 .hero-fade--4 {
+    animation-delay: 0.4s;
+  }
+
+  .ai-designer-funnel-v2 .hero-fade--5 {
+    animation-delay: 0.5s;
+  }
+
+  .ai-designer-funnel-v2 .hero-fade--6 {
+    animation-delay: 0.22s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-designer-funnel-v2 .hero-fade {
+    opacity: 1;
+    animation: none;
+  }
 }
 
 .ai-designer-funnel-v2 .hero-gl-wrap {
@@ -214,12 +281,13 @@
     linear-gradient(185deg, #020617 0%, #0f172a 100%);
 }
 
-.ai-designer-funnel-v2 .hero--video .hero-overlay {
+.ai-designer-funnel-v2 .hero--video .hero-overlay,
+.ai-designer-funnel-v2 .hero--atmosphere .hero-overlay {
   background: linear-gradient(
     105deg,
-    rgba(2, 6, 23, 0.88) 0%,
-    rgba(2, 6, 23, 0.55) 45%,
-    rgba(2, 6, 23, 0.35) 100%
+    rgba(5, 5, 8, 0.92) 0%,
+    rgba(5, 5, 8, 0.65) 45%,
+    rgba(5, 5, 8, 0.4) 100%
   );
 }
 
@@ -253,7 +321,8 @@
   gap: 1.25rem;
 }
 
-.ai-designer-funnel-v2 .hero--video .hero-col--main {
+.ai-designer-funnel-v2 .hero--video .hero-col--main,
+.ai-designer-funnel-v2 .hero--atmosphere .hero-col--main {
   align-items: flex-start;
   text-align: left;
 }
@@ -320,14 +389,18 @@
   text-shadow: 0 2px 32px rgba(0, 0, 0, 0.45);
 }
 
-.ai-designer-funnel-v2 .hero--video .hero-title {
+.ai-designer-funnel-v2 .hero--video .hero-title,
+.ai-designer-funnel-v2 .hero--atmosphere .hero-title {
   align-items: flex-start;
   max-width: min(40rem, 100%);
 }
 
 .ai-designer-funnel-v2 .hero--video .hero-lede,
 .ai-designer-funnel-v2 .hero--video .hero-sub,
-.ai-designer-funnel-v2 .hero--video .hero-kicker {
+.ai-designer-funnel-v2 .hero--video .hero-kicker,
+.ai-designer-funnel-v2 .hero--atmosphere .hero-lede,
+.ai-designer-funnel-v2 .hero--atmosphere .hero-sub,
+.ai-designer-funnel-v2 .hero--atmosphere .hero-kicker {
   max-width: 38rem;
   margin-left: 0;
   margin-right: 0;
@@ -470,8 +543,25 @@
 }
 
 .ai-designer-funnel-v2 .cta-primary-large {
-  font-size: 1.15rem;
-  padding: 1.1rem 2.65rem;
+  font-size: 1.25rem;
+  padding: 1.25rem 3rem;
+}
+
+.ai-designer-funnel-v2 .cta-primary--mid {
+  border-radius: 8px;
+  background: #00ff88;
+  color: #000;
+  border: 1px solid rgba(0, 255, 136, 0.5);
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.15);
+}
+
+.ai-designer-funnel-v2 .cta-primary--mid:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 40px rgba(0, 255, 136, 0.25);
+}
+
+.ai-designer-funnel-v2 .cta-primary--mid::after {
+  border-color: #000;
 }
 
 .ai-designer-funnel-v2 .hero-proof {
@@ -533,8 +623,8 @@
 .ai-designer-funnel-v2 .post-stats-offer {
   padding-top: clamp(2rem, 5vw, 3rem);
   padding-bottom: clamp(3rem, 8vw, 5rem);
-  border-top: 1px solid var(--border);
-  background: var(--surface);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: transparent;
 }
 
 .ai-designer-funnel-v2 .post-stats-offer-inner {
@@ -551,9 +641,9 @@
 .ai-designer-funnel-v2 .logo-marquee-section {
   padding-top: clamp(2.5rem, 6vw, 4rem);
   padding-bottom: clamp(2.5rem, 6vw, 4rem);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  background: var(--surface);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: transparent;
   overflow: hidden;
 }
 
@@ -693,8 +783,8 @@
 .ai-designer-funnel-v2 .book-showcase-frame {
   border-radius: 16px;
   padding: 0.5rem;
-  background: linear-gradient(145deg, rgba(5, 150, 105, 0.12), transparent 40%);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(145deg, rgba(0, 255, 136, 0.1), transparent 45%);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
 }
 
 .ai-designer-funnel-v2 .book-showcase-img {
@@ -730,10 +820,10 @@
 .ai-designer-funnel-v2 .testimonial-card {
   margin: 0;
   padding: clamp(1.35rem, 3vw, 1.75rem);
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
 }
 
 .ai-designer-funnel-v2 .testimonial-stars {
@@ -776,9 +866,9 @@
   margin: 0 auto;
   border-radius: 16px;
   overflow: hidden;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  box-shadow: 0 0 60px rgba(0, 255, 136, 0.04);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 80px rgba(0, 255, 136, 0.03);
 }
 
 .ai-designer-funnel-v2 .stat-item {
@@ -791,7 +881,7 @@
 }
 
 .ai-designer-funnel-v2 .stat-item:not(:first-child) {
-  border-left: 1px solid var(--border);
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .ai-designer-funnel-v2 .stat-num {
@@ -813,6 +903,29 @@
   line-height: 1.45;
   padding-left: 0;
   font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.ai-designer-funnel-v2 .stat-line {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.55s var(--ease),
+    transform 0.55s var(--ease);
+}
+
+.ai-designer-funnel-v2 .stat-line--in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-designer-funnel-v2 .stat-line {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 /* Fear */
@@ -842,11 +955,11 @@
 }
 
 .ai-designer-funnel-v2 .fear-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: rgba(255, 59, 59, 0.04);
+  border: 1px solid rgba(255, 59, 59, 0.12);
   border-radius: 12px;
   padding: clamp(1.35rem, 3vw, 1.75rem);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+  box-shadow: none;
 }
 
 .ai-designer-funnel-v2 .fear-card h4 {
@@ -867,8 +980,8 @@
 }
 
 .ai-designer-funnel-v2 .dream-block {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-left: 3px solid var(--accent-bright);
   border-radius: 0 12px 12px 0;
   padding: clamp(1.75rem, 4vw, 2.25rem) clamp(1.25rem, 3vw, 2rem) clamp(1.75rem, 4vw, 2.25rem) clamp(1.5rem, 3vw, 2rem);
@@ -1027,10 +1140,10 @@
 
 .ai-designer-funnel-v2 .chapter-item {
   padding: 1.35rem 0;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   counter-increment: chapter;
   display: grid;
-  grid-template-columns: 40px 1fr;
+  grid-template-columns: 44px 1fr;
   gap: 1rem;
   align-items: start;
 }
@@ -1041,13 +1154,13 @@
 
 .ai-designer-funnel-v2 .chapter-num {
   font-family: var(--font-jet), monospace;
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   color: var(--accent-bright);
-  background: var(--accent-soft);
-  border: 1px solid rgba(5, 150, 105, 0.25);
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
+  background: rgba(0, 255, 136, 0.08);
+  border: 1px solid rgba(0, 255, 136, 0.15);
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1111,23 +1224,26 @@
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 1px;
   margin: clamp(2.5rem, 6vw, 3.5rem) 0;
-  background: var(--border);
+  background: rgba(255, 255, 255, 0.06);
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .ai-designer-funnel-v2 .deliverable {
-  background: var(--surface);
+  background: #0a0a0d;
   border: none;
   border-radius: 0;
   padding: clamp(1.5rem, 3vw, 2rem);
-  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  transition:
+    background 0.2s var(--ease),
+    box-shadow 0.2s var(--ease);
   box-shadow: inset 0 0 0 1px transparent;
 }
 
 .ai-designer-funnel-v2 .deliverable:hover {
-  box-shadow: inset 0 0 0 1px var(--accent);
+  background: rgba(0, 255, 136, 0.03);
+  box-shadow: inset 0 0 0 1px rgba(0, 255, 136, 0.22);
 }
 
 .ai-designer-funnel-v2 .deliverable-icon {
@@ -1192,9 +1308,9 @@
   width: 100%;
   max-width: min(52rem, 100%);
   border-radius: 14px;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
-  background: var(--surface);
+  background: rgba(255, 255, 255, 0.03);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
 }
 
@@ -1298,13 +1414,13 @@
   min-width: 520px;
   border-collapse: collapse;
   font-size: 0.85rem;
-  background: var(--surface);
+  background: transparent;
 }
 
 .ai-designer-funnel-v2 .compare-table thead th {
   text-align: left;
   padding: 0.85rem 1rem;
-  border-bottom: 2px solid var(--accent);
+  border-bottom: 2px solid rgba(0, 255, 136, 0.3);
   font-family: var(--font-display), sans-serif;
   font-weight: 700;
   font-size: 0.7rem;
@@ -1316,7 +1432,7 @@
 
 .ai-designer-funnel-v2 .compare-table td {
   padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   color: var(--text-muted);
 }
 
@@ -1330,12 +1446,13 @@
 }
 
 .ai-designer-funnel-v2 .compare-table .winner {
-  color: var(--accent);
+  color: #00ff88;
   font-weight: 600;
+  text-shadow: 0 0 24px rgba(0, 255, 136, 0.12);
 }
 
 .ai-designer-funnel-v2 .compare-table .loser {
-  color: var(--text-muted);
+  color: #8a8a8a;
   opacity: 0.5;
 }
 
@@ -1355,8 +1472,8 @@
 }
 
 .ai-designer-funnel-v2 .audience-tile {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
   padding: clamp(1.35rem, 3vw, 1.75rem);
   display: flex;
@@ -1368,8 +1485,8 @@
 }
 
 .ai-designer-funnel-v2 .audience-tile:hover {
-  border-color: rgba(5, 150, 105, 0.35);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 255, 136, 0.22);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
 }
 
 .ai-designer-funnel-v2 .audience-tile-num {
@@ -1469,11 +1586,11 @@
 }
 
 .ai-designer-funnel-v2 .guarantee-card-inner {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   padding: clamp(1.75rem, 4vw, 2.5rem) clamp(1.5rem, 3vw, 2.25rem);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
   border-left: 4px solid var(--accent-bright);
 }
 
@@ -1571,6 +1688,17 @@
   line-height: 1.65;
   padding: 0 clamp(1rem, 2vw, 1.25rem) clamp(1.15rem, 2.5vw, 1.45rem);
   max-width: 62rem;
+  transition: opacity 0.3s var(--ease);
+}
+
+.ai-designer-funnel-v2 .faq-item[open] .faq-a {
+  animation: f2-fade-slide-up 0.35s var(--ease) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-designer-funnel-v2 .faq-item[open] .faq-a {
+    animation: none;
+  }
 }
 
 .ai-designer-funnel-v2 .faq-item .faq-a {
@@ -1633,31 +1761,20 @@
 .ai-designer-funnel-v2 .f2-footer {
   text-align: center;
   padding: clamp(2rem, 5vw, 2.5rem) var(--f2-pad-x);
-  border-top: 1px solid var(--border);
-  font-size: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.75rem;
   max-width: none;
-  background: var(--bg);
-  color: var(--text-muted);
-}
-
-.ai-designer-funnel-v2 .f2-light .cta-primary {
-  background: linear-gradient(135deg, var(--accent-bright) 0%, var(--accent-deep) 100%);
-  color: #fff;
-  border-color: rgba(5, 150, 105, 0.35);
-  box-shadow: 0 8px 28px var(--accent-glow);
-}
-
-.ai-designer-funnel-v2 .f2-light .cta-primary:hover {
-  box-shadow: 0 12px 36px rgba(5, 150, 105, 0.28);
+  background: transparent;
+  color: #666;
 }
 
 .ai-designer-funnel-v2 .f2-footer-line {
   margin: 0;
-  color: var(--text-muted);
+  color: #666;
 }
 
 .ai-designer-funnel-v2 .f2-footer-line a {
-  color: var(--text-muted);
+  color: #666;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -1669,9 +1786,10 @@
 .ai-designer-funnel-v2 .f2-footer .disclaimer {
   max-width: 720px;
   margin: 0.85rem auto 0;
-  font-size: 0.62rem;
+  font-size: 0.65rem;
   line-height: 1.55;
-  opacity: 0.65;
+  opacity: 0.4;
+  color: #666;
 }
 
 @media (max-width: 899px) {
@@ -1700,11 +1818,11 @@
   }
 
   .ai-designer-funnel-v2 .stat-item:nth-child(even) {
-    border-left: 1px solid var(--border);
+    border-left: 1px solid rgba(255, 255, 255, 0.06);
   }
 
   .ai-designer-funnel-v2 .stat-item:nth-child(n + 3) {
-    border-top: 1px solid var(--border);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
   }
 
   .ai-designer-funnel-v2 .author-section {
@@ -1713,7 +1831,7 @@
   }
 
   .ai-designer-funnel-v2 .chapter-item {
-    grid-template-columns: 36px 1fr;
+    grid-template-columns: 44px 1fr;
   }
 
   .ai-designer-funnel-v2 .chapter-num {
