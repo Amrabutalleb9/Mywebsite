@@ -140,11 +140,13 @@ export default function FunnelClientV2() {
 
       <header className="hero">
         <div className="hero-gl-wrap" aria-hidden>
-          {reduce ? (
-            <div className="hero-gl-fallback" />
-          ) : (
-            <GLSLHills cameraZ={118} speed={0.42} planeSize={256} hillColor={[0.06, 0.11, 0.17]} />
-          )}
+          {/* Always mount WebGL: rolling hills are the requested hero. Motion prefs only freeze the shader scroll. */}
+          <GLSLHills
+            cameraZ={112}
+            speed={reduce ? 0 : 0.48}
+            planeSize={280}
+            hillColor={[0.09, 0.14, 0.22]}
+          />
         </div>
         <div className="hero-overlay" aria-hidden />
         <div className="hero-noise hero-noise--light" aria-hidden />
@@ -716,14 +718,16 @@ export default function FunnelClientV2() {
       <FadeIn>
         <section className="f2-block f2-band-paper">
           <div className="author-section">
-            <Image
-              src={AUTHOR_PORTRAIT_SRC}
-              alt="Amr Abu-Talleb"
-              width={100}
-              height={100}
-              className="author-img"
-              sizes="100px"
-            />
+            <div className="author-avatar">
+              <Image
+                src={AUTHOR_PORTRAIT_SRC}
+                alt="Amr Abu-Talleb"
+                width={100}
+                height={100}
+                className="author-img"
+                sizes="100px"
+              />
+            </div>
             <div className="author-info">
               <h3>Amr Abu-Talleb</h3>
               <div className="role">AI Design Strategist · Freelancer.com Systems</div>
@@ -752,45 +756,47 @@ export default function FunnelClientV2() {
       </FadeIn>
 
       <FadeIn>
-        <section className="f2-block f2-band-paper">
+        <section className="f2-block f2-band-paper faq-section" aria-labelledby="faq-heading">
           <span className="section-tag">// FAQ</span>
-          <h2>Questions Before You Buy</h2>
+          <h2 id="faq-heading">Questions Before You Buy</h2>
 
-          <div className="faq-item">
-            <div className="faq-q">Do I need design experience?</div>
-            <p className="faq-a">
-              No. AI generates the designs — you steer direction, curate concepts, refine details, and manage clients.
-              Chapter 2 walks you through every tool.
-            </p>
-          </div>
-          <div className="faq-item">
-            <div className="faq-q">Is $500 in 7 days guaranteed?</div>
-            <p className="faq-a">
-              No — and anyone who guarantees income is lying. It&apos;s an ambitious target requiring 6–8 focused hours
-              daily. Chapter 1 shows the full conversion math so you can judge for yourself.
-            </p>
-          </div>
-          <div className="faq-item">
-            <div className="faq-q">Why Freelancer.com instead of Upwork or Fiverr?</div>
-            <p className="faq-a">
-              Contests. You submit actual work — clients judge your designs, not your review count. Fastest path from zero
-              to paid. Free trial = 100 bids at zero cost.
-            </p>
-          </div>
-          <div className="faq-item">
-            <div className="faq-q">Do I need paid AI tools?</div>
-            <p className="faq-a">
-              No. The $0/month stack covers all four services: Canva Free, Gamma Free, Ideogram Free, Vectorizer.ai,
-              ChatGPT, Framer AI Free.
-            </p>
-          </div>
-          <div className="faq-item">
-            <div className="faq-q">What format?</div>
-            <p className="faq-a">Instant PDF — 47 pages. Any device. Start implementing tonight.</p>
-          </div>
-          <div className="faq-item">
-            <div className="faq-q">Refund?</div>
-            <p className="faq-a">30 days. Email me, full refund. Zero risk.</p>
+          <div className="faq-list">
+            <details className="faq-item">
+              <summary className="faq-q">Do I need design experience?</summary>
+              <p className="faq-a">
+                No. AI generates the designs — you steer direction, curate concepts, refine details, and manage clients.
+                Chapter 2 walks you through every tool.
+              </p>
+            </details>
+            <details className="faq-item">
+              <summary className="faq-q">Is $500 in 7 days guaranteed?</summary>
+              <p className="faq-a">
+                No — and anyone who guarantees income is lying. It&apos;s an ambitious target requiring 6–8 focused
+                hours daily. Chapter 1 shows the full conversion math so you can judge for yourself.
+              </p>
+            </details>
+            <details className="faq-item">
+              <summary className="faq-q">Why Freelancer.com instead of Upwork or Fiverr?</summary>
+              <p className="faq-a">
+                Contests. You submit actual work — clients judge your designs, not your review count. Fastest path from
+                zero to paid. Free trial = 100 bids at zero cost.
+              </p>
+            </details>
+            <details className="faq-item">
+              <summary className="faq-q">Do I need paid AI tools?</summary>
+              <p className="faq-a">
+                No. The $0/month stack covers all four services: Canva Free, Gamma Free, Ideogram Free, Vectorizer.ai,
+                ChatGPT, Framer AI Free.
+              </p>
+            </details>
+            <details className="faq-item">
+              <summary className="faq-q">What format?</summary>
+              <p className="faq-a">Instant PDF — 47 pages. Any device. Start implementing tonight.</p>
+            </details>
+            <details className="faq-item">
+              <summary className="faq-q">Refund?</summary>
+              <p className="faq-a">30 days. Email me, full refund. Zero risk.</p>
+            </details>
           </div>
         </section>
       </FadeIn>
