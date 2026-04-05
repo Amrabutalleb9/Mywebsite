@@ -2,12 +2,27 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { motion, useReducedMotion } from "motion/react"
+import { useEffect, useRef, useState } from "react"
+import {
+  AnimatePresence,
+  motion,
+  useInView,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "motion/react"
 
 const CHECKOUT = process.env.NEXT_PUBLIC_AI_BLUEPRINT_CHECKOUT_URL ?? ""
 const AUTHOR_PORTRAIT_SRC = "/images/amr-portrait.webp"
 
 const ease = [0.16, 1, 0.3, 1] as const
+
+const HERO_ROTATE = [
+  "Bids that earn replies",
+  "Contests that beat zero reviews",
+  "Proposals with a repeatable system",
+  "A 7-day calendar that compounds",
+] as const
 
 function buyHref() {
   return CHECKOUT || "#buy"
@@ -43,18 +58,118 @@ function FadeIn({ children, className }: { children: React.ReactNode; className?
   return (
     <motion.div
       className={className}
-      initial={reduce ? false : { opacity: 0, y: 18 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.5, ease }}
+      initial={reduce ? false : { opacity: 0, y: 28, filter: "blur(10px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.65, ease }}
     >
       {children}
     </motion.div>
   )
 }
 
+function HeroRotator() {
+  const reduce = useReducedMotion()
+  const [i, setI] = useState(0)
+  useEffect(() => {
+    if (reduce) return
+    const id = window.setInterval(() => setI((n) => (n + 1) % HERO_ROTATE.length), 3200)
+    return () => window.clearInterval(id)
+  }, [reduce])
+  const phrase = HERO_ROTATE[reduce ? 0 : i]
+  return (
+    <div className="hero-rotate" aria-live="polite">
+      {reduce ? (
+        <span className="hero-rotate-text">{phrase}</span>
+      ) : (
+        <AnimatePresence mode="wait">
+          <motion.span
+            key={phrase}
+            className="hero-rotate-text"
+            initial={{ opacity: 0, y: 18, filter: "blur(8px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            exit={{ opacity: 0, y: -14, filter: "blur(6px)" }}
+            transition={{ duration: 0.45, ease }}
+          >
+            {phrase}
+          </motion.span>
+        </AnimatePresence>
+      )}
+    </div>
+  )
+}
+
+function CountUp({
+  end,
+  prefix = "",
+  suffix = "",
+  duration = 1.35,
+}: {
+  end: number
+  prefix?: string
+  suffix?: string
+  duration?: number
+}) {
+  const ref = useRef<HTMLSpanElement>(null)
+  const isInView = useInView(ref, { once: true, margin: "-60px" })
+  const reduce = useReducedMotion()
+  const [n, setN] = useState(0)
+  useEffect(() => {
+    if (reduce) {
+      setN(end)
+      return
+    }
+    if (!isInView) return
+    let start: number | null = null
+    const ms = duration * 1000
+    let raf = 0
+    const tick = (t: number) => {
+      if (start === null) start = t
+      const p = Math.min((t - start) / ms, 1)
+      const eased = 1 - (1 - p) ** 3
+      setN(Math.round(eased * end))
+      if (p < 1) raf = requestAnimationFrame(tick)
+    }
+    raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
+  }, [isInView, end, duration, reduce])
+  return (
+    <span ref={ref}>
+      {prefix}
+      {n}
+      {suffix}
+    </span>
+  )
+}
+
+function StatFade({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLSpanElement>(null)
+  const isInView = useInView(ref, { once: true, margin: "-40px" })
+  const reduce = useReducedMotion()
+  return (
+    <span ref={ref}>
+      <motion.span
+        style={{ display: "inline-block" }}
+        initial={reduce ? false : { opacity: 0, y: 12 }}
+        animate={reduce || isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+        transition={{ duration: 0.55, ease }}
+      >
+        {children}
+      </motion.span>
+    </span>
+  )
+}
+
 export default function FunnelClientV2() {
   const reduce = useReducedMotion()
+  const heroRef = useRef<HTMLElement | null>(null)
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  })
+  const parallaxAurora = useTransform(scrollYProgress, [0, 1], [0, 100])
+  const parallaxOrbitA = useTransform(scrollYProgress, [0, 1], [0, 60])
+  const parallaxOrbitB = useTransform(scrollYProgress, [0, 1], [0, 90])
 
   return (
     <>
@@ -67,99 +182,155 @@ export default function FunnelClientV2() {
       </div>
       <div className="f2-head-spacer" aria-hidden />
 
-      <header className="hero">
-        <div className="hero-aurora" aria-hidden />
+      <header ref={heroRef} className="hero">
+        <motion.div className="hero-aurora" style={{ y: reduce ? 0 : parallaxAurora }} aria-hidden />
         <div className="hero-noise" aria-hidden />
-        <div className="hero-orbit hero-orbit--a" aria-hidden />
-        <div className="hero-orbit hero-orbit--b" aria-hidden />
+        <motion.div className="hero-orbit hero-orbit--a" style={{ y: reduce ? 0 : parallaxOrbitA }} aria-hidden />
+        <motion.div className="hero-orbit hero-orbit--b" style={{ y: reduce ? 0 : parallaxOrbitB }} aria-hidden />
 
-        <motion.h1
-          className="hero-title"
-          initial={reduce ? false : { opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, ease }}
-        >
-          <span className="hero-title-line">Your skills aren&apos;t the problem.</span>
-          <span className="hero-title-accent">Your system is.</span>
-        </motion.h1>
+        <div className="hero-shell">
+          <div className="hero-col hero-col--main">
+            <motion.p
+              className="hero-pill"
+              initial={reduce ? false : { opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, ease }}
+            >
+              <span className="hero-pill-dot" aria-hidden />
+              47-page PDF · Freelancer.com execution system
+            </motion.p>
 
-        <motion.p
-          className="hero-lede"
-          initial={reduce ? false : { opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: reduce ? 0 : 0.08, ease }}
-        >
-          → The 7-day sprint that turns AI tools into $500/week on Freelancer.com.
-        </motion.p>
+            <p className="hero-rotate-label">What you&apos;re building toward</p>
+            <HeroRotator />
 
-        <motion.p
-          className="hero-sub"
-          initial={reduce ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.45, delay: 0.14, ease }}
-        >
-          Rent is climbing. AI is replacing jobs. And every &quot;make money online&quot; guru tells you to{" "}
-          <strong>&quot;just use AI&quot;</strong> without naming a single tool, a single platform, or a single price to
-          charge. This 47-page blueprint gives you <strong>all three</strong> — plus a day-by-day calendar so you can
-          start executing tonight, not &quot;someday.&quot;
-        </motion.p>
+            <motion.h1
+              className="hero-title"
+              initial={reduce ? false : { opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.06, ease }}
+            >
+              <span className="hero-title-line">Your skills aren&apos;t the problem.</span>
+              <span className="hero-title-accent">Your system is.</span>
+            </motion.h1>
 
-        <motion.p
-          className="hero-kicker"
-          initial={reduce ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.2, ease }}
-        >
-          → One marketplace (Freelancer.com). Four design services. Named tools at $0/month. A bid-by-bid,
-          dollar-by-dollar 7-day sprint — even with zero reviews and zero design experience.
-        </motion.p>
+            <motion.p
+              className="hero-lede"
+              initial={reduce ? false : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: reduce ? 0 : 0.1, ease }}
+            >
+              → The 7-day sprint that turns AI tools into $500/week on Freelancer.com.
+            </motion.p>
 
-        <motion.div
-          className="price-block"
-          initial={reduce ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.24, duration: 0.4 }}
-        >
-          <span className="price-old">$19.99</span>
-          <span className="price-new">$5.99</span>
-          <span className="price-tag">70% OFF</span>
-        </motion.div>
+            <motion.p
+              className="hero-sub"
+              initial={reduce ? false : { opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.45, delay: 0.14, ease }}
+            >
+              Rent is climbing. AI is replacing jobs. And every &quot;make money online&quot; guru tells you to{" "}
+              <strong>&quot;just use AI&quot;</strong> without naming a single tool, a single platform, or a single price to
+              charge. This 47-page blueprint gives you <strong>all three</strong> — plus a day-by-day calendar so you can
+              start executing tonight, not &quot;someday.&quot;
+            </motion.p>
 
-        <motion.div
-          initial={reduce ? false : { opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.28, duration: 0.4, ease }}
-        >
-          <BuyLink className="cta-primary" id="hero-cta-v2">
-            ⚡ DOWNLOAD THE BLUEPRINT — $5.99
-          </BuyLink>
-        </motion.div>
+            <motion.p
+              className="hero-kicker"
+              initial={reduce ? false : { opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.2, ease }}
+            >
+              → One marketplace (Freelancer.com). Four design services. Named tools at $0/month. A bid-by-bid,
+              dollar-by-dollar 7-day sprint — even with zero reviews and zero design experience.
+            </motion.p>
 
-        <div className="hero-proof">
-          <span>📄 Instant PDF</span>
-          <span>·</span>
-          <span>🔒 30-day money-back</span>
-          <span>·</span>
-          <span>🚀 Start executing tonight</span>
+            <motion.div
+              className="price-block"
+              initial={reduce ? false : { opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.24, duration: 0.4 }}
+            >
+              <span className="price-old">$19.99</span>
+              <span className="price-new">$5.99</span>
+              <span className="price-tag">70% OFF</span>
+            </motion.div>
+
+            <motion.div
+              initial={reduce ? false : { opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.28, duration: 0.4, ease }}
+            >
+              <BuyLink className="cta-primary" id="hero-cta-v2">
+                Download the blueprint — $5.99
+              </BuyLink>
+            </motion.div>
+
+            <motion.div
+              className="hero-proof"
+              initial={reduce ? false : { opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.34, duration: 0.4 }}
+            >
+              <span>Instant PDF</span>
+              <span className="hero-proof-dot" aria-hidden />
+              <span>30-day money-back</span>
+              <span className="hero-proof-dot" aria-hidden />
+              <span>Start tonight</span>
+            </motion.div>
+          </div>
+
+          <div className="hero-col hero-col--visual" aria-hidden>
+            <div className="hero-card-stack">
+              <div className="hero-float-card hero-float-card--1">
+                <span className="hero-float-tag">Day 4–7</span>
+                <span className="hero-float-title">Bids → replies → awarded</span>
+              </div>
+              <div className="hero-float-card hero-float-card--2">
+                <span className="hero-float-tag">Stack</span>
+                <span className="hero-float-title">$0/mo AI tools named</span>
+              </div>
+              <div className="hero-float-card hero-float-card--3">
+                <span className="hero-float-tag">Target</span>
+                <span className="hero-float-title">$500 sprint math</span>
+              </div>
+            </div>
+          </div>
         </div>
       </header>
 
       <div className="stats-wrap">
+        <motion.p
+          className="stats-kicker"
+          initial={reduce ? false : { opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease }}
+        >
+          Market momentum
+        </motion.p>
         <div className="stats-bar">
           <div className="stat-item">
-            <span className="stat-num">84%</span>
+            <span className="stat-num">
+              <CountUp end={84} suffix="%" />
+            </span>
             <span className="stat-label">of freelancers using AI (2026)</span>
           </div>
           <div className="stat-item">
-            <span className="stat-num">25‑60%</span>
+            <span className="stat-num">
+              <StatFade>25–60%</StatFade>
+            </span>
             <span className="stat-label">higher rates with AI tools</span>
           </div>
           <div className="stat-item">
-            <span className="stat-num">$16.89B</span>
+            <span className="stat-num">
+              <StatFade>$16.89B</StatFade>
+            </span>
             <span className="stat-label">freelance market by 2029</span>
           </div>
           <div className="stat-item">
-            <span className="stat-num">$0</span>
+            <span className="stat-num">
+              <CountUp end={0} prefix="$" />
+            </span>
             <span className="stat-label">tool cost to start</span>
           </div>
         </div>
@@ -220,7 +391,13 @@ export default function FunnelClientV2() {
       </FadeIn>
 
       <section className="agitation f2-band-ink" aria-labelledby="agitation-heading">
-        <div className="agitation-inner">
+        <motion.div
+          className="agitation-inner"
+          initial={reduce ? false : { opacity: 0, y: 36, filter: "blur(12px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease }}
+        >
           <span className="section-tag">// Why you&apos;re stuck</span>
           <h2 id="agitation-heading">
             You&apos;ve Seen the AI Hype.
@@ -281,7 +458,7 @@ export default function FunnelClientV2() {
             </strong>
           </p>
           <p>That&apos;s what you&apos;re about to download.</p>
-        </div>
+        </motion.div>
       </section>
 
       <FadeIn>
@@ -373,7 +550,13 @@ export default function FunnelClientV2() {
       </FadeIn>
 
       <div className="mid-cta f2-band-ink">
-        <div className="mid-cta-inner">
+        <motion.div
+          className="mid-cta-inner"
+          initial={reduce ? false : { opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease }}
+        >
           <h2>
             Still scrolling? <span className="mid-accent">That&apos;s the pattern.</span>
           </h2>
@@ -381,8 +564,8 @@ export default function FunnelClientV2() {
             Scroll, bookmark, &quot;come back later,&quot; never start. Break the loop. The system is $5.99 and you can
             begin tonight.
           </p>
-          <BuyLink className="cta-primary">⚡ GET THE BLUEPRINT — $5.99</BuyLink>
-        </div>
+          <BuyLink className="cta-primary">Get the blueprint — $5.99</BuyLink>
+        </motion.div>
       </div>
 
       <FadeIn>
@@ -671,7 +854,14 @@ export default function FunnelClientV2() {
         </section>
       </FadeIn>
 
-      <div className="final-cta f2-band-finale" id="buy">
+      <motion.div
+        className="final-cta f2-band-finale"
+        id="buy"
+        initial={reduce ? false : { opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.65, ease }}
+      >
         <span className="section-tag">// Decision time</span>
         <h2>
           Two options.
@@ -692,7 +882,7 @@ export default function FunnelClientV2() {
             <span className="price-tag">70% OFF</span>
           </div>
           <BuyLink className="cta-primary cta-primary-large" id="buy-cta-v2">
-            ⚡ DOWNLOAD THE BLUEPRINT NOW
+            Download the blueprint now
           </BuyLink>
           <div className="hero-proof">
             <span>📄 Instant PDF</span>
@@ -702,7 +892,7 @@ export default function FunnelClientV2() {
             <span>🚀 47 pages of execution</span>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       <footer className="f2-footer f2-band-ink f2-footer-bar">
         <p>© 2026 Amr Abu-Talleb. All rights reserved.</p>
