@@ -1,20 +1,20 @@
-import { DM_Sans, JetBrains_Mono, Space_Grotesk } from "next/font/google"
+import { DM_Sans, JetBrains_Mono, Outfit } from "next/font/google"
 import type { Viewport } from "next"
 import "./funnel.css"
 
 export const viewport: Viewport = {
-  themeColor: "#fafaf9",
+  themeColor: "#07080f",
 }
 
-const funnelDm = DM_Sans({
+const funnelBody = DM_Sans({
   subsets: ["latin"],
   variable: "--funnel-dm",
   display: "swap",
 })
 
-const funnelSpace = Space_Grotesk({
+const funnelHeading = Outfit({
   subsets: ["latin"],
-  variable: "--funnel-space",
+  variable: "--funnel-outfit",
   display: "swap",
 })
 
@@ -31,7 +31,7 @@ export default function AiDesignerBlueprintLayout({
 }) {
   return (
     <div
-      className={`${funnelDm.variable} ${funnelSpace.variable} ${funnelMono.variable} ai-designer-funnel min-h-screen`}
+      className={`${funnelBody.variable} ${funnelHeading.variable} ${funnelMono.variable} ai-designer-funnel ai-designer-funnel--v2 min-h-screen`}
     >
       {children}
     </div>
