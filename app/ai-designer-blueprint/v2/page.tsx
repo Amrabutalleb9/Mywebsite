@@ -4,14 +4,14 @@ import FunnelClientV2 from "./funnel-client"
 const base = "https://amrabutalleb.com"
 
 export const metadata: Metadata = {
-  title: "AI Designer Blueprint (alt) — Income anxiety to action | PDF",
+  title: "The AI Designer Blueprint — Make $500 in 7 Days on Freelancer.com",
   description:
-    "A 47-page PDF: AI design stack, Freelancer.com bids, week-one pricing, and a 7-day plan — for people who feel the income squeeze and want a real sprint, not hype.",
+    "Exact AI tools, bid templates, and a 7-day plan for your first $500 on Freelancer.com. 47-page PDF. $5.99 launch price.",
   alternates: { canonical: "/ai-designer-blueprint/v2" },
   openGraph: {
-    title: "AI Designer Blueprint — From income anxiety to a 7-day client sprint",
+    title: "The AI Designer Blueprint — Make $500 in 7 Days on Freelancer.com",
     description:
-      "Turn AI into a side-income system on Freelancer.com. PDF: tools, proposals, pricing, calendar. $5.99.",
+      "Exact tools, proposals, and day-by-day execution. PDF instant download — $5.99.",
     type: "website",
     url: `${base}/ai-designer-blueprint/v2`,
     images: [
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Designer Blueprint (comparison) — 7-day $500 sprint PDF",
-    description: "Fear-to-plan funnel: Freelancer.com + AI tools + day-by-day execution.",
+    title: "The AI Designer Blueprint — $500 in 7 Days on Freelancer.com",
+    description: "47-page execution PDF. AI tools + Freelancer.com system. $5.99.",
     images: [`${base}/ai-designer-blueprint/book-mockup.png`],
   },
   robots: { index: true, follow: true },
