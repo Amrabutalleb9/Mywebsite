@@ -29,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/contact`, lastModified: siteUpdated, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/ai-designer-blueprint`, lastModified: siteUpdated, changeFrequency: "monthly", priority: 0.5 },
     { url: `${base}/ai-designer-blueprint/v2`, lastModified: siteUpdated, changeFrequency: "monthly", priority: 0.45 },
+    { url: `${base}/ai-designer-blueprint/v3`, lastModified: siteUpdated, changeFrequency: "monthly", priority: 0.45 },
     { url: `${base}/privacy`, lastModified: siteUpdated, changeFrequency: "yearly", priority: 0.3 },
     { url: `${base}/terms`, lastModified: siteUpdated, changeFrequency: "yearly", priority: 0.3 },
   ]
