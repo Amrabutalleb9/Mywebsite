@@ -4,7 +4,7 @@ import Script from "next/script"
 import "./funnel.css"
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0a",
+  themeColor: "#080a0d",
 }
 
 const fontDm = DM_Sans({

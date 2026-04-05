@@ -5,7 +5,7 @@ import Link from "next/link"
 import { motion, useReducedMotion } from "motion/react"
 
 const CHECKOUT = process.env.NEXT_PUBLIC_AI_BLUEPRINT_CHECKOUT_URL ?? ""
-const AUTHOR_PORTRAIT_SRC = "/ai-designer-blueprint/amr-portrait.png"
+const AUTHOR_PORTRAIT_SRC = "/images/amr-portrait.webp"
 
 const ease = [0.16, 1, 0.3, 1] as const
 
@@ -38,6 +38,21 @@ function BuyLink({
   )
 }
 
+function FadeIn({ children, className }: { children: React.ReactNode; className?: string }) {
+  const reduce = useReducedMotion()
+  return (
+    <motion.div
+      className={className}
+      initial={reduce ? false : { opacity: 0, y: 18 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.5, ease }}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
 export default function FunnelClientV2() {
   const reduce = useReducedMotion()
 
@@ -60,7 +75,7 @@ export default function FunnelClientV2() {
           transition={{ duration: 0.45, ease }}
         >
           <span className="badge-dot" />
-          47-page execution system — not another &quot;AI guide&quot;
+          PDF playbook · Freelancer.com + AI tools
         </motion.div>
 
         <motion.h1
@@ -68,38 +83,51 @@ export default function FunnelClientV2() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.05, ease }}
         >
-          Stop Watching Others
+          <span className="dim">The economy won&apos;t save you.</span>
           <br />
-          Cash In on AI.
+          <span className="highlight">Your first $500 will.</span>
           <br />
-          <span className="highlight">Make Your First $500</span>
-          <br />
-          in 7 Days Flat.
+          7 days. One platform. AI does the design.
         </motion.h1>
 
         <motion.p
           className="hero-sub"
           initial={reduce ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.45, delay: 0.12, ease }}
+          transition={{ duration: 0.45, delay: 0.1, ease }}
         >
-          The <strong>exact AI tools</strong>, the <strong>exact bid templates</strong>, and the{" "}
-          <strong>exact day-by-day plan</strong> that turns a zero-review Freelancer.com profile into{" "}
-          <strong>$500 in paid design work</strong> — even if you&apos;ve never opened Photoshop in your life.
+          Rent is climbing. AI is replacing jobs. And every &quot;make money online&quot; guru tells you to{" "}
+          <strong>&quot;just use AI&quot;</strong> without naming a single tool, a single platform, or a single price to
+          charge. This 47-page blueprint gives you <strong>all three</strong> — plus a day-by-day calendar so you can
+          start executing tonight, not &quot;someday.&quot;
+        </motion.p>
+
+        <motion.p
+          className="hero-kicker"
+          initial={reduce ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.14, ease }}
+        >
+          → One marketplace (Freelancer.com). Four design services. Named tools at $0/month. A bid-by-bid,
+          dollar-by-dollar 7-day sprint — even with zero reviews and zero design experience.
         </motion.p>
 
         <motion.div
           className="price-block"
           initial={reduce ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.4 }}
+          transition={{ delay: 0.18, duration: 0.4 }}
         >
           <span className="price-old">$19.99</span>
           <span className="price-new">$5.99</span>
           <span className="price-tag">70% OFF</span>
         </motion.div>
 
-        <motion.div initial={reduce ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25, duration: 0.4, ease }}>
+        <motion.div
+          initial={reduce ? false : { opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.22, duration: 0.4, ease }}
+        >
           <BuyLink className="cta-primary" id="hero-cta-v2">
             ⚡ DOWNLOAD THE BLUEPRINT — $5.99
           </BuyLink>
@@ -108,443 +136,549 @@ export default function FunnelClientV2() {
         <div className="hero-proof">
           <span>📄 Instant PDF</span>
           <span>·</span>
-          <span>🔒 30-day refund</span>
+          <span>🔒 30-day money-back</span>
           <span>·</span>
-          <span>🚀 Start tonight</span>
+          <span>🚀 Start executing tonight</span>
         </div>
       </header>
 
-      <div className="stats-bar">
-        <div className="stat-item">
-          <span className="stat-num">84%</span>
-          <span className="stat-label">of freelancers using AI in 2026</span>
-        </div>
-        <div className="stat-item">
-          <span className="stat-num">25‑60%</span>
-          <span className="stat-label">higher rates with AI tools</span>
-        </div>
-        <div className="stat-item">
-          <span className="stat-num">$16.89B</span>
-          <span className="stat-label">freelance market by 2029</span>
-        </div>
-        <div className="stat-item">
-          <span className="stat-num">$0</span>
-          <span className="stat-label">tool cost to start</span>
+      <div className="stats-wrap">
+        <div className="stats-bar">
+          <div className="stat-item">
+            <span className="stat-num">84%</span>
+            <span className="stat-label">of freelancers using AI (2026)</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-num">25‑60%</span>
+            <span className="stat-label">higher rates with AI tools</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-num">$16.89B</span>
+            <span className="stat-label">freelance market by 2029</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-num">$0</span>
+            <span className="stat-label">tool cost to start</span>
+          </div>
         </div>
       </div>
 
-      <section className="agitation">
-        <div className="inner">
-          <span className="section-tag">// The problem</span>
-          <h2>You&apos;ve Seen the AI Hype. You Still Have $0 to Show for It.</h2>
+      <FadeIn>
+        <div className="fear-section">
+          <span className="section-tag">// The reality</span>
+          <h2>
+            One paycheck. Rising costs.
+            <br />
+            AI moving faster than your plan.
+          </h2>
           <p>
-            Every week there&apos;s a new thread: <strong>&quot;I made $10K with AI!&quot;</strong> — but when you
-            click, it&apos;s a 45-minute video that tells you nothing. You&apos;ve bookmarked the tools. You&apos;ve
-            watched the tutorials. You still haven&apos;t earned a single dollar from AI.
+            You&apos;re not broken for feeling behind. Wages haven&apos;t kept up with how fast tools change. Traditional
+            career advice assumes time you might not have. And side-income ideas online are either vague (&quot;use
+            AI!&quot;) or built for people who already have an audience.
           </p>
-          <p>Here&apos;s why:</p>
+
+          <div className="fear-grid">
+            <div className="fear-card">
+              <h4>You&apos;re watching your ceiling close in</h4>
+              <p>
+                You want a second income stream that fits around a job or caregiving — not a second full-time job in
+                disguise. Not another certificate to collect dust. Something that pays this month.
+              </p>
+            </div>
+            <div className="fear-card">
+              <h4>You&apos;ve burned months on the wrong platform</h4>
+              <p>
+                Upwork charges you to apply. Fiverr buries you without reviews. You keep context-switching between
+                &quot;opportunities&quot; and executing on none of them. This blueprint commits to one marketplace and
+                one sprint goal so you stop browsing and start earning.
+              </p>
+            </div>
+            <div className="fear-card">
+              <h4>You think you need a design degree</h4>
+              <p>
+                You don&apos;t. Clients pay for outcomes and clarity — a professional brand identity, delivered fast. AI
+                accelerates the drafts. You steer taste, briefs, and revisions. Those are skills you build on real
+                projects, not in a classroom.
+              </p>
+            </div>
+          </div>
+
+          <div className="dream-block">
+            <p>
+              <strong>This isn&apos;t a lottery ticket.</strong> It&apos;s waking up knowing you can generate income with
+              skills that compound: faster delivery, stronger proposals, repeat clients — starting with a concrete
+              target (<span className="accent-text">your first $500 sprint</span>) instead of a vague someday.
+            </p>
+            <p>
+              <span className="accent-text">This PDF connects the fear to the plan:</span> name what&apos;s holding you
+              back, then hand you the calendar — day by day, bid by bid, dollar by dollar.
+            </p>
+          </div>
+        </div>
+      </FadeIn>
+
+      <section className="agitation" aria-labelledby="agitation-heading">
+        <div className="agitation-inner">
+          <span className="section-tag">// Why you&apos;re stuck</span>
+          <h2 id="agitation-heading">
+            You&apos;ve Seen the AI Hype.
+            <br />
+            You Still Have $0 to Show for It.
+          </h2>
+          <p>
+            You&apos;ve bookmarked the tools. Watched the tutorials. Read the threads.{" "}
+            <strong>You still haven&apos;t earned a single dollar from AI.</strong> Here&apos;s why:
+          </p>
 
           <ul className="agitation-list">
             <li>
-              <span className="agitation-icon">✕</span>
+              <span className="agitation-icon" aria-hidden>
+                ✕
+              </span>
               <span>
-                <strong>Generic &quot;AI freelancing&quot; guides</strong> tell you to &quot;use AI to make money&quot;
-                but never say which tools, which platform, which services, or what price to charge on day one.
+                <strong>Generic guides say &quot;use AI to make money&quot;</strong> but never tell you which tools,
+                which platform, which services to sell, or what to charge on day one. You&apos;re left improvising under
+                deadline pressure with no map.
               </span>
             </li>
             <li>
-              <span className="agitation-icon">✕</span>
+              <span className="agitation-icon" aria-hidden>
+                ✕
+              </span>
               <span>
-                <strong>Upwork and Fiverr are traps for beginners.</strong> Upwork charges you per proposal. Fiverr
-                buries you without reviews. You bleed money and time before earning a cent.
+                <strong>Upwork and Fiverr are traps for beginners.</strong> Upwork charges you per proposal — 100 bids
+                could cost $15–$240 before earning a cent. Fiverr buries you without reviews. Both assume you already
+                have credibility you don&apos;t have yet.
               </span>
             </li>
             <li>
-              <span className="agitation-icon">✕</span>
+              <span className="agitation-icon" aria-hidden>
+                ✕
+              </span>
               <span>
-                <strong>You don&apos;t have a &quot;design portfolio.&quot;</strong> So you convince yourself you
-                can&apos;t start yet. Meanwhile, people with zero design skills are using AI to land $100+ projects
-                every week.
+                <strong>You don&apos;t have a portfolio</strong> so you convinced yourself you can&apos;t start.
+                Meanwhile, people with zero design skills are building portfolios in a single afternoon with AI and
+                landing $100+ projects every week.
               </span>
             </li>
             <li>
-              <span className="agitation-icon">✕</span>
+              <span className="agitation-icon" aria-hidden>
+                ✕
+              </span>
               <span>
-                <strong>You don&apos;t have a system.</strong> You have scattered notes, half-read articles, and a
-                vague plan to &quot;figure it out eventually.&quot; Eventually never comes.
+                <strong>You don&apos;t have a system.</strong> You have scattered notes, half-finished tutorials, and a
+                plan to &quot;figure it out eventually.&quot; Eventually is how people stay broke.
               </span>
             </li>
           </ul>
 
           <p>
             <strong>
-              The gap between knowing AI exists and making money from it is execution — a specific, repeatable system
-              with named tools, real prices, and a deadline.
+              The gap between knowing AI exists and making money from it is one thing: a specific, repeatable system with
+              named tools, real prices, and a 7-day deadline.
             </strong>
           </p>
           <p>That&apos;s what you&apos;re about to download.</p>
         </div>
       </section>
 
-      <section>
-        <span className="section-tag">// The system</span>
-        <h2>47 Pages That Replace Every &quot;AI Course&quot; You&apos;ve Bookmarked</h2>
-        <p>
-          This is not a motivational PDF. It&apos;s a <strong>step-by-step operational blueprint</strong> built
-          around one platform, four services, and one goal: <strong>your first $500 in 7 days on Freelancer.com</strong>.
-        </p>
-        <p>
-          Every chapter names the specific tool. Every service has an exact Week 1 price. Every day has a target. You
-          open it, you follow it, you execute.
-        </p>
+      <FadeIn>
+        <section className="f2-block">
+          <span className="section-tag">// Inside the blueprint</span>
+          <h2>
+            Seven Chapters. One Sprint.
+            <br />
+            No Motivational Padding.
+          </h2>
+          <p>
+            This is not a course to bookmark. It&apos;s a <strong>47-page execution system</strong> built around one
+            platform, four services, and one deadline. You open it, you follow it, you earn.
+          </p>
 
-        <ul className="chapters">
-          <li className="chapter-item">
-            <div className="chapter-num" />
-            <div>
-              <h3>The $500 Opportunity</h3>
-              <p>
-                Why Freelancer.com destroys Upwork and Fiverr for beginners. The contest loophole that bypasses zero
-                reviews. The real conversion math — 100 bids, 15 conversations, 3+ projects. No hype, just arithmetic.
-              </p>
+          <div className="chapters">
+            <div className="chapter-item">
+              <div className="chapter-num" />
+              <div>
+                <h3>The $500 Opportunity</h3>
+                <p>
+                  Why Freelancer.com for this run, how contests bypass the zero-review wall, and the honest math behind
+                  the 7-day target — with real conversion numbers and caveats, not hype.
+                </p>
+              </div>
             </div>
-          </li>
-          <li className="chapter-item">
-            <div className="chapter-num" />
-            <div>
-              <h3>Your AI Design Toolkit</h3>
-              <p>
-                The exact tools for logos (Ideogram, Logo Diffusion), social media (Canva AI), presentations (Gamma),
-                and web design (Framer AI). Full stack at $0/month. Plus the 6-step workflow that separates $50
-                freelancers from $200 ones.
-              </p>
+            <div className="chapter-item">
+              <div className="chapter-num" />
+              <div>
+                <h3>Your AI Stack at $0/Month</h3>
+                <p>
+                  Tools for logos, social media, presentations, and web design — plus the 6-step workflow that makes
+                  outputs look client-ready instead of AI-generated.
+                </p>
+              </div>
             </div>
-          </li>
-          <li className="chapter-item">
-            <div className="chapter-num" />
-            <div>
-              <h3>Profile Setup That Wins</h3>
-              <p>
-                The headline formula. The 3-paragraph bio template. The exam strategy that makes you 25% more likely to
-                win. How to build a portfolio of 5–8 professional pieces using AI in a single afternoon — before your
-                first bid.
-              </p>
+            <div className="chapter-item">
+              <div className="chapter-num" />
+              <div>
+                <h3>Profile and Proof — Fast</h3>
+                <p>
+                  Positioning, headline formula, exam strategy, and portfolio pieces you generate in one afternoon —
+                  credibility without years of polish.
+                </p>
+              </div>
             </div>
-          </li>
-          <li className="chapter-item">
-            <div className="chapter-num" />
-            <div>
-              <h3>4 Money-Making Services</h3>
-              <p>
-                Logos ($75–$125), social media packs ($40–$75), presentations ($75–$150), landing pages ($150–$250). For
-                each: what clients expect, the AI workflow, the file formats, and the package pricing template that 2.5x
-                your revenue vs. hourly billing.
-              </p>
+            <div className="chapter-item">
+              <div className="chapter-num" />
+              <div>
+                <h3>Four Services to Sell First</h3>
+                <p>
+                  What to deliver, what to charge in week one, and how to package so scope stays under control. Exact
+                  prices: logos $75–$125, social packs $40–$75, decks $75–$150, landing pages $150–$250.
+                </p>
+              </div>
             </div>
-          </li>
-          <li className="chapter-item">
-            <div className="chapter-num" />
-            <div>
-              <h3>Winning Bids & Proposals</h3>
-              <p>
-                The Now–Wow–How formula that outperforms 90% of bids. A copy-paste template. The 30-minute timing window
-                that gets 2.3x higher response rates. The 5-message communication flow. The exact review request
-                script.
-              </p>
+            <div className="chapter-item">
+              <div className="chapter-num" />
+              <div>
+                <h3>Proposals That Earn Replies</h3>
+                <p>
+                  Structure, a paste-ready template, the 30-minute timing window for 2.3x higher response, and short
+                  follow-ups that reduce ghosting.
+                </p>
+              </div>
             </div>
-          </li>
-          <li className="chapter-item">
-            <div className="chapter-num" />
-            <div>
-              <h3>7-Day Action Plan</h3>
-              <p>
-                Day 1: setup (zero bids). Day 2: 15 bids + 3 contests. Day 3: momentum. Day 4: first delivery. Day 5:
-                stack. Day 6: close. Day 7: evaluate. Every day has bid counts, contest targets, and a revenue tracker.
-              </p>
+            <div className="chapter-item">
+              <div className="chapter-num" />
+              <div>
+                <h3>7-Day Calendar</h3>
+                <p>
+                  Daily actions, bid counts, contest entries, and a fill-in tracker — so even your busiest days still move
+                  the number toward $500.
+                </p>
+              </div>
             </div>
-          </li>
-          <li className="chapter-item">
-            <div className="chapter-num" />
-            <div>
-              <h3>From $500 to $5,000/Month</h3>
-              <p>
-                The three scaling levers: systems that cut admin time in half, social proof that compounds, and the
-                niching strategy that turns you from a commodity into a specialist. 90-day roadmap with monthly targets.
-              </p>
+            <div className="chapter-item">
+              <div className="chapter-num" />
+              <div>
+                <h3>After the First Win</h3>
+                <p>
+                  How to turn one project into a pipeline — niching, leverage, retainers, and a 90-day lens so effort
+                  scales instead of repeating week one forever.
+                </p>
+              </div>
             </div>
-          </li>
-        </ul>
-      </section>
+          </div>
+        </section>
+      </FadeIn>
 
       <div className="mid-cta">
-        <h2>
-          Still reading? <span className="accent">Good.</span>
-        </h2>
-        <p>Most people click away. The ones who get results are the ones who decide.</p>
-        <BuyLink className="cta-primary">⚡ GET THE BLUEPRINT — $5.99</BuyLink>
+        <div className="mid-cta-inner">
+          <h2>
+            Still scrolling? <span className="mid-accent">That&apos;s the pattern.</span>
+          </h2>
+          <p>
+            Scroll, bookmark, &quot;come back later,&quot; never start. Break the loop. The system is $5.99 and you can
+            begin tonight.
+          </p>
+          <BuyLink className="cta-primary">⚡ GET THE BLUEPRINT — $5.99</BuyLink>
+        </div>
       </div>
 
-      <section>
-        <span className="section-tag">// Show me the math</span>
-        <h2>Here&apos;s Exactly How $500 in 7 Days Works</h2>
-        <p>
-          This isn&apos;t a &quot;just trust me&quot; promise. It&apos;s <strong>arithmetic you can verify</strong> before
-          you buy.
-        </p>
+      <FadeIn>
+        <section className="f2-block">
+          <span className="section-tag">// What you carry away</span>
+          <h2>Concrete Deliverables — Not Vibes</h2>
 
-        <div className="math-block">
-          <div className="math-row">
-            <span className="m-label">Bids sent (14–15/day × 7 days)</span>
-            <span className="m-value">~100</span>
+          <div className="deliverables-grid">
+            <div className="deliverable">
+              <span className="deliverable-icon">⚙</span>
+              <h4>Tool Map + Workflows</h4>
+              <p>
+                Know exactly what to open for each job so you&apos;re never improvising under deadline pressure. $0
+                starter stack covers all four services.
+              </p>
+            </div>
+            <div className="deliverable">
+              <span className="deliverable-icon">★</span>
+              <h4>Profile That Converts</h4>
+              <p>
+                Look like a serious hire even when your review count is still at zero. Headline formula, bio template,
+                exam badges that boost your ranking 25%.
+              </p>
+            </div>
+            <div className="deliverable">
+              <span className="deliverable-icon">✎</span>
+              <h4>Bid + Proposal Templates</h4>
+              <p>
+                Replace blank-page panic with a repeatable structure you adapt per client. Now–Wow–How formula,
+                copy-paste ready.
+              </p>
+            </div>
+            <div className="deliverable">
+              <span className="deliverable-icon">☑</span>
+              <h4>7-Day Tracker</h4>
+              <p>
+                See whether you&apos;re on pace — or exactly where to fix the leak. Daily bid counts, revenue targets,
+                fill-in table.
+              </p>
+            </div>
+            <div className="deliverable">
+              <span className="deliverable-icon">$</span>
+              <h4>Week-One Pricing</h4>
+              <p>
+                Numbers to start from so you don&apos;t race to the bottom out of fear. Package pricing that captures
+                2.5x more than hourly billing.
+              </p>
+            </div>
+            <div className="deliverable">
+              <span className="deliverable-icon">🚀</span>
+              <h4>Growth Lens</h4>
+              <p>
+                What to tighten after money shows up so effort scales — niching, retainers, and 90-day targets instead of
+                grinding week one on repeat.
+              </p>
+            </div>
           </div>
-          <div className="math-row">
-            <span className="m-label">Response rate (platform average)</span>
-            <span className="m-value">15%</span>
-          </div>
-          <div className="math-row">
-            <span className="m-label">Client conversations</span>
-            <span className="m-value">~15</span>
-          </div>
-          <div className="math-row">
-            <span className="m-label">Conversion to project</span>
-            <span className="m-value">~20%</span>
-          </div>
-          <div className="math-row">
-            <span className="m-label">Projects won from bids</span>
-            <span className="m-value">3</span>
-          </div>
-          <div className="math-row">
-            <span className="m-label">+ Contest wins (2–3 entries/day)</span>
-            <span className="m-value">+1–2</span>
-          </div>
-          <div className="math-row">
-            <span className="m-label">Average project value</span>
-            <span className="m-value">$100–$175</span>
-          </div>
-          <div className="math-total">
-            <span className="m-label">GROSS REVENUE</span>
-            <span className="m-value">$450–$525</span>
-          </div>
-        </div>
+        </section>
+      </FadeIn>
 
-        <p className="math-note">
-          Ambitious but achievable. Requires 6–8 focused hours daily. Not guaranteed — but the math is real.
-        </p>
-      </section>
-
-      <section>
-        <span className="section-tag">// What you get</span>
-        <h2>
-          Everything to Execute.
-          <br />
-          Nothing to &quot;Figure Out Later.&quot;
-        </h2>
-
-        <div className="deliverables-grid">
-          <div className="deliverable">
-            <span className="deliverable-icon">⚙</span>
-            <h4>Complete AI Toolkit</h4>
-            <p>Named tools for every service. $0 starter stack. Upgrade path when revenue hits.</p>
-          </div>
-          <div className="deliverable">
-            <span className="deliverable-icon">★</span>
-            <h4>Profile That Converts</h4>
-            <p>Headline formula, bio template, exam strategy, and a portfolio you build in one afternoon.</p>
-          </div>
-          <div className="deliverable">
-            <span className="deliverable-icon">✎</span>
-            <h4>Proposal Templates</h4>
-            <p>The Now–Wow–How bid formula. Copy-paste ready. Timing strategy for 2.3x higher response.</p>
-          </div>
-          <div className="deliverable">
-            <span className="deliverable-icon">☑</span>
-            <h4>7-Day Action Plan</h4>
-            <p>Daily bid counts, contest targets, and a fill-in tracker so you know if you&apos;re on pace.</p>
-          </div>
-          <div className="deliverable">
-            <span className="deliverable-icon">$</span>
-            <h4>Pricing & Packages</h4>
-            <p>Exact Week 1 prices. Package templates that eliminate scope creep. Value-based pricing 101.</p>
-          </div>
-          <div className="deliverable">
-            <span className="deliverable-icon">🚀</span>
-            <h4>$5K/Month Roadmap</h4>
-            <p>Three growth levers, niching strategy, and 90-day targets to keep compounding after week one.</p>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <span className="section-tag">// Platform choice</span>
-        <h2>Why Freelancer.com Eats Upwork and Fiverr for Breakfast</h2>
-        <p>
-          This isn&apos;t a generic &quot;start freelancing&quot; guide. It&apos;s engineered for{" "}
-          <strong>one platform</strong> because that platform has mechanics that{" "}
-          <strong>specifically favor beginners with zero reviews</strong>.
-        </p>
-
-        <table className="compare-table">
-          <thead>
-            <tr>
-              <th />
-              <th>Freelancer.com</th>
-              <th>Upwork</th>
-              <th>Fiverr</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Fees</td>
-              <td className="winner">10% flat</td>
-              <td className="loser">10% sliding</td>
-              <td className="loser">20% flat</td>
-            </tr>
-            <tr>
-              <td>Cost to bid</td>
-              <td className="winner">Free trial = 100 bids</td>
-              <td className="loser">$0.15–$2.40 each</td>
-              <td className="loser">Wait for buyers</td>
-            </tr>
-            <tr>
-              <td>Zero-review fix</td>
-              <td className="winner">Contests (work speaks)</td>
-              <td className="loser">Almost impossible</td>
-              <td className="loser">Gig ranking takes months</td>
-            </tr>
-            <tr>
-              <td>Speed to first $</td>
-              <td className="winner">Fastest</td>
-              <td className="loser">Moderate</td>
-              <td className="loser">Slowest</td>
-            </tr>
-            <tr>
-              <td>Project range</td>
-              <td className="winner">$100–$500 sweet spot</td>
-              <td>$500+ (harder to win)</td>
-              <td className="loser">$5–$150 (race to bottom)</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p>
-          <strong>Contests are the cheat code.</strong> Clients post a design brief, freelancers submit actual work, best
-          entry wins the prize. Your reviews don&apos;t matter — your <strong>work</strong> does. That&apos;s why this book
-          exists around this platform.
-        </p>
-      </section>
-
-      <section>
-        <span className="section-tag">// Is this for you?</span>
-        <h2>This Blueprint Was Built for Three People</h2>
-
-        <div className="audience-cards">
-          <div className="audience-card">
-            <span className="tag">→ Complete Beginner</span>
-            <h3>&quot;I&apos;ve never designed anything in my life.&quot;</h3>
-            <p>
-              Perfect. The AI does the designing. You bring direction, client communication, and the willingness to send
-              15 bids a day. By Day 1, you&apos;ll have a portfolio. By Day 7, paying clients.
-            </p>
-          </div>
-          <div className="audience-card">
-            <span className="tag">→ Designer Without Clients</span>
-            <h3>&quot;I have skills but zero platform knowledge.&quot;</h3>
-            <p>
-              You have taste — now get distribution. This book gives you the algorithm mechanics, bid timing, pricing
-              frameworks, and contest strategy that turn design ability into recurring income.
-            </p>
-          </div>
-          <div className="audience-card">
-            <span className="tag">→ Freelancer Without AI</span>
-            <h3>&quot;I&apos;m already freelancing but I&apos;m leaving money on the table.&quot;</h3>
-            <p>
-              84% of freelancers already use AI. AI-augmented designers charge 25–60% more. The book gives you the
-              exact tool stack and workflow to generate 20–30 concepts in minutes and deliver twice as fast.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div className="author-section">
-          <Image src={AUTHOR_PORTRAIT_SRC} alt="Amr Abu-Talleb" width={200} height={200} className="author-img" />
-          <div className="author-info">
-            <h3>Amr Abu-Talleb</h3>
-            <div className="role">AI Design Strategist · Freelancer.com Systems</div>
-            <p>
-              I wrote this for the version of me who needed a paycheck before a pep talk. No theory. No fluff. Just the
-              exact tools, exact prices, exact bids, and exact calendar that turns &quot;I should try freelancing&quot;
-              into &quot;$500 in my account.&quot;
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div className="guarantee-box">
-          <span className="shield" aria-hidden>
-            🛡️
-          </span>
-          <h3>30-Day Money-Back Guarantee</h3>
+      <FadeIn>
+        <section className="f2-block">
+          <span className="section-tag">// Show me the math</span>
+          <h2>Here&apos;s Exactly How $500 in 7 Days Works</h2>
           <p>
-            Read it. Try it. If it doesn&apos;t deliver value, email me for a full refund. No questions. No hoops. The
-            entire risk is on me — you keep the PDF either way.
+            Not a vibe. Not a promise. <strong>Arithmetic you can verify before you buy.</strong>
           </p>
-        </div>
-      </section>
 
-      <section>
-        <span className="section-tag">// FAQ</span>
-        <h2>Questions Before You Buy</h2>
+          <div className="math-block">
+            <div className="math-row">
+              <span className="label">Bids sent (14–15/day × 7 days)</span>
+              <span className="value">~100</span>
+            </div>
+            <div className="math-row">
+              <span className="label">Response rate (platform average)</span>
+              <span className="value">15%</span>
+            </div>
+            <div className="math-row">
+              <span className="label">Client conversations</span>
+              <span className="value">~15</span>
+            </div>
+            <div className="math-row">
+              <span className="label">Conversion to awarded project</span>
+              <span className="value">~20%</span>
+            </div>
+            <div className="math-row">
+              <span className="label">Projects won from bids alone</span>
+              <span className="value">3</span>
+            </div>
+            <div className="math-row">
+              <span className="label">+ Contest wins (2–3 entries/day)</span>
+              <span className="value">+1–2</span>
+            </div>
+            <div className="math-row">
+              <span className="label">Average project value</span>
+              <span className="value">$100–$175</span>
+            </div>
+            <div className="math-total">
+              <span className="label">WEEK 1 GROSS REVENUE</span>
+              <span className="value">$450–$525</span>
+            </div>
+          </div>
 
-        <div className="faq-item">
-          <div className="faq-q">Do I need design experience?</div>
-          <p className="faq-a">
-            No. The AI generates the designs. You steer direction, pick the best concepts, refine details, and manage
-            client communication. Chapter 2 walks you through every tool step by step.
+          <p className="math-note">
+            Ambitious but achievable. Requires 6–8 focused hours daily. Not guaranteed — but the math is real and the book
+            shows every variable.
           </p>
-        </div>
-        <div className="faq-item">
-          <div className="faq-q">Is $500 in 7 days guaranteed?</div>
-          <p className="faq-a">
-            No — and anyone who guarantees income is lying to you. It&apos;s an ambitious target that requires 6–8
-            focused hours daily and real market execution. Chapter 1 shows the full conversion math so you can judge the
-            target for yourself.
+        </section>
+      </FadeIn>
+
+      <FadeIn>
+        <section className="f2-block">
+          <span className="section-tag">// Platform choice</span>
+          <h2>Why Freelancer.com Eats Upwork and Fiverr for Breakfast</h2>
+          <p>
+            This isn&apos;t a generic &quot;start freelancing&quot; guide. It&apos;s engineered for{" "}
+            <strong>one platform</strong> — the one with mechanics that <strong>specifically favor beginners with zero reviews</strong>.
           </p>
-        </div>
-        <div className="faq-item">
-          <div className="faq-q">Why Freelancer.com instead of Upwork or Fiverr?</div>
-          <p className="faq-a">
-            Contests. You submit actual work, not just a proposal. Clients judge your designs, not your review count.
-            That&apos;s the fastest path from zero to paid — especially for design work. The Plus plan free trial gives
-            you 100 bids at zero cost.
+
+          <div className="compare-wrap">
+            <table className="compare-table">
+              <thead>
+                <tr>
+                  <th />
+                  <th>Freelancer.com</th>
+                  <th>Upwork</th>
+                  <th>Fiverr</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Fees</td>
+                  <td className="winner">10% flat</td>
+                  <td className="loser">10% sliding</td>
+                  <td className="loser">20% flat</td>
+                </tr>
+                <tr>
+                  <td>Cost to bid</td>
+                  <td className="winner">Free trial = 100 bids</td>
+                  <td className="loser">$0.15–$2.40 each</td>
+                  <td className="loser">Wait for buyers</td>
+                </tr>
+                <tr>
+                  <td>Zero-review fix</td>
+                  <td className="winner">Contests (work speaks)</td>
+                  <td className="loser">Almost impossible</td>
+                  <td className="loser">Months of waiting</td>
+                </tr>
+                <tr>
+                  <td>Speed to first $</td>
+                  <td className="winner">Fastest</td>
+                  <td className="loser">Moderate</td>
+                  <td className="loser">Slowest</td>
+                </tr>
+                <tr>
+                  <td>Sweet spot</td>
+                  <td className="winner">$100–$500/project</td>
+                  <td>$500+ (harder to win)</td>
+                  <td className="loser">$5–$150 (race to bottom)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            <strong>Contests are the cheat code.</strong> Clients post a design brief. Freelancers submit actual work.
+            Best entry wins the money. Your reviews don&apos;t matter — your <strong>work</strong> does. That&apos;s why
+            this entire book is built around this platform and no other.
           </p>
-        </div>
-        <div className="faq-item">
-          <div className="faq-q">Do I need paid AI tools?</div>
-          <p className="faq-a">
-            No. The book includes a $0/month starter stack: Canva Free, Gamma Free, Ideogram Free, Vectorizer.ai,
-            ChatGPT, and Framer AI Free. All four services are covered on free tiers.
-          </p>
-        </div>
-        <div className="faq-item">
-          <div className="faq-q">What format is the book?</div>
-          <p className="faq-a">Instant PDF download — 47 pages. Works on any device. You can start reading and implementing tonight.</p>
-        </div>
-        <div className="faq-item">
-          <div className="faq-q">What if it doesn&apos;t work for me?</div>
-          <p className="faq-a">30-day money-back guarantee. Email me, get a full refund. Zero risk on your end.</p>
-        </div>
-      </section>
+        </section>
+      </FadeIn>
+
+      <FadeIn>
+        <section className="f2-block">
+          <span className="section-tag">// Three entry points</span>
+          <h2>This Blueprint Was Built for You If…</h2>
+
+          <div className="audience-cards">
+            <div className="audience-card">
+              <span className="tag">→ You feel the ceiling closing in</span>
+              <h3>&quot;I need income — not another certificate.&quot;</h3>
+              <p>
+                You want a real side path that fits around a job or family. You can follow steps and send bids when the
+                calendar says so. This is the system for that.
+              </p>
+            </div>
+            <div className="audience-card">
+              <span className="tag">→ You can design but not sell online</span>
+              <h3>&quot;Talent without distribution pays nothing.&quot;</h3>
+              <p>
+                You have taste and skills but zero platform knowledge. This book gives you marketplace mechanics, bid
+                timing, pricing frameworks, and proposal templates — everything that turns design ability into money.
+              </p>
+            </div>
+            <div className="audience-card">
+              <span className="tag">→ You freelance without AI leverage</span>
+              <h3>&quot;Speed and iteration are the new baseline.&quot;</h3>
+              <p>
+                84% of freelancers already use AI. The ones who don&apos;t are losing contracts — not because they&apos;re
+                bad, but because they&apos;re slower. This book shows you how to use AI without shipping generic work.
+              </p>
+            </div>
+          </div>
+        </section>
+      </FadeIn>
+
+      <FadeIn>
+        <section className="f2-block">
+          <div className="author-section">
+            <Image
+              src={AUTHOR_PORTRAIT_SRC}
+              alt="Amr Abu-Talleb"
+              width={100}
+              height={100}
+              className="author-img"
+              sizes="100px"
+            />
+            <div className="author-info">
+              <h3>Amr Abu-Talleb</h3>
+              <div className="role">AI Design Strategist · Freelancer.com Systems</div>
+              <p>
+                I wrote this for the version of me who needed cash flow before confidence — tools, prices, bids, and a
+                calendar, not a pep talk. Every strategy tested on real accounts.
+              </p>
+            </div>
+          </div>
+        </section>
+      </FadeIn>
+
+      <FadeIn>
+        <section className="f2-block">
+          <div className="guarantee-box">
+            <span className="shield" aria-hidden>
+              🛡️
+            </span>
+            <h3>30-Day Money-Back Guarantee</h3>
+            <p>
+              Read it. Try it. If it doesn&apos;t deliver value, email me for a full refund. No questions. No hoops. No
+              risk on your end — you keep the PDF either way.
+            </p>
+          </div>
+        </section>
+      </FadeIn>
+
+      <FadeIn>
+        <section className="f2-block">
+          <span className="section-tag">// FAQ</span>
+          <h2>Questions Before You Buy</h2>
+
+          <div className="faq-item">
+            <div className="faq-q">Do I need design experience?</div>
+            <p className="faq-a">
+              No. AI generates the designs — you steer direction, curate concepts, refine details, and manage clients.
+              Chapter 2 walks you through every tool.
+            </p>
+          </div>
+          <div className="faq-item">
+            <div className="faq-q">Is $500 in 7 days guaranteed?</div>
+            <p className="faq-a">
+              No — and anyone who guarantees income is lying. It&apos;s an ambitious target requiring 6–8 focused hours
+              daily. Chapter 1 shows the full conversion math so you can judge for yourself.
+            </p>
+          </div>
+          <div className="faq-item">
+            <div className="faq-q">Why Freelancer.com instead of Upwork or Fiverr?</div>
+            <p className="faq-a">
+              Contests. You submit actual work — clients judge your designs, not your review count. Fastest path from zero
+              to paid. Free trial = 100 bids at zero cost.
+            </p>
+          </div>
+          <div className="faq-item">
+            <div className="faq-q">Do I need paid AI tools?</div>
+            <p className="faq-a">
+              No. The $0/month stack covers all four services: Canva Free, Gamma Free, Ideogram Free, Vectorizer.ai,
+              ChatGPT, Framer AI Free.
+            </p>
+          </div>
+          <div className="faq-item">
+            <div className="faq-q">What format?</div>
+            <p className="faq-a">Instant PDF — 47 pages. Any device. Start implementing tonight.</p>
+          </div>
+          <div className="faq-item">
+            <div className="faq-q">Refund?</div>
+            <p className="faq-a">30 days. Email me, full refund. Zero risk.</p>
+          </div>
+        </section>
+      </FadeIn>
 
       <div className="final-cta" id="buy">
         <span className="section-tag">// Decision time</span>
         <h2>
-          Two Options.
+          Two options.
           <br />
-          One Leads Somewhere.
+          <span className="cta-head-muted">One keeps you scrolling.</span>
+          <br />
+          <span className="cta-head-accent">One puts money in your account.</span>
         </h2>
-        <p style={{ maxWidth: "550px", margin: "0 auto 1.5rem", position: "relative", zIndex: 1 }}>
+        <p className="final-lead">
           Close this tab and keep watching other people figure out AI freelancing. Or spend $5.99, download the system,
           and start executing tonight. Your first $500 is 7 days of focused work away.
         </p>
@@ -555,10 +689,10 @@ export default function FunnelClientV2() {
             <span className="price-new">$5.99</span>
             <span className="price-tag">70% OFF</span>
           </div>
-          <BuyLink className="cta-primary" id="buy-cta-v2" style={{ fontSize: "1.25rem", padding: "1.2rem 3rem" }}>
+          <BuyLink className="cta-primary cta-primary-large" id="buy-cta-v2">
             ⚡ DOWNLOAD THE BLUEPRINT NOW
           </BuyLink>
-          <div className="hero-proof" style={{ marginTop: "0.5rem" }}>
+          <div className="hero-proof">
             <span>📄 Instant PDF</span>
             <span>·</span>
             <span>🔒 30-day refund</span>
@@ -571,7 +705,8 @@ export default function FunnelClientV2() {
       <footer className="f2-footer">
         <p>© 2026 Amr Abu-Talleb. All rights reserved.</p>
         <p>
-          <Link href="/privacy">Privacy</Link> · <Link href="/terms">Terms</Link> · <a href="mailto:hello@amrabutalleb.com">Contact</a>
+          <Link href="/privacy">Privacy</Link> · <Link href="/terms">Terms</Link> ·{" "}
+          <a href="mailto:hello@amrabutalleb.com">Contact</a>
         </p>
         <p className="disclaimer">
           This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed by
