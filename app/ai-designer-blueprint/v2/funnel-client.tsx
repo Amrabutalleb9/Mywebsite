@@ -1,20 +1,44 @@
 "use client"
 
-import dynamic from "next/dynamic"
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 import { motion, useInView, useReducedMotion } from "motion/react"
 
+import { HeroVideoBackground } from "./hero-video-bg"
+import { LogoMarquee } from "./logo-marquee"
 import { ScrollReveal } from "./scroll-reveal"
-
-const GLSLHills = dynamic(
-  () => import("@/components/ui/glsl-hills").then((m) => m.GLSLHills),
-  { ssr: false, loading: () => <div className="hero-gl-fallback" aria-hidden /> },
-)
 
 const CHECKOUT = process.env.NEXT_PUBLIC_AI_BLUEPRINT_CHECKOUT_URL ?? ""
 const AUTHOR_PORTRAIT_SRC = "/images/amr-portrait.webp"
+const BOOK_COVER_SRC = "/ai-designer-blueprint/book-mockup.svg"
+
+const TESTIMONIALS = [
+  {
+    quote:
+      "Finally someone names the tools, the platform, and the prices — not another generic 'use AI' post. I had my first contest entry live the same week.",
+    name: "Jordan M.",
+    role: "Product designer · side income",
+  },
+  {
+    quote:
+      "The 7-day calendar alone is worth it. I stopped doom-scrolling job boards and started measuring bids and replies like a real business.",
+    name: "Priya S.",
+    role: "Caregiver · evenings only",
+  },
+  {
+    quote:
+      "Upwork burned me on connects. This blueprint commits to one marketplace and shows how contests bypass the zero-review trap — that clicked for me.",
+    name: "Alex R.",
+    role: "Self-taught · switching careers",
+  },
+  {
+    quote:
+      "Clear, blunt, no guru fluff. The proposal template cut my write time in half and I got two replies in three days.",
+    name: "Chris L.",
+    role: "Marketing freelancer",
+  },
+] as const
 
 const ease = [0.16, 1, 0.3, 1] as const
 
@@ -177,20 +201,26 @@ export default function FunnelClientV2() {
 
   return (
     <>
-      <header className="hero">
-        <div className="hero-gl-wrap" aria-hidden>
-          <GLSLHills cameraZ={125} speed={reduce ? 0 : 0.5} planeSize={256} />
-        </div>
+      <header className="hero hero--video">
+        <HeroVideoBackground />
         <div className="hero-overlay" aria-hidden />
         <div className="hero-noise hero-noise--light" aria-hidden />
 
-        <div className="hero-shell">
+        <div className="hero-shell hero-shell--split">
           <div className="hero-col hero-col--main">
+            <motion.p
+              className="hero-eyebrow"
+              initial={reduce ? false : { opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0, ease }}
+            >
+              New · PDF blueprint
+            </motion.p>
             <motion.h1
               className="hero-title"
               initial={reduce ? false : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0, ease }}
+              transition={{ duration: 0.55, delay: 0.05, ease }}
             >
               <span className="hero-title-line">Your skills aren&apos;t the problem.</span>
               <span className="hero-title-accent">Your system is.</span>
@@ -209,7 +239,7 @@ export default function FunnelClientV2() {
               className="hero-sub"
               initial={reduce ? false : { opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.45, delay: 0.3, ease }}
+              transition={{ duration: 0.45, delay: 0.28, ease }}
             >
               Rent is climbing. AI is replacing jobs. And every &quot;make money online&quot; guru tells you to{" "}
               <strong>&quot;just use AI&quot;</strong> without naming a single tool, a single platform, or a single price to
@@ -221,12 +251,30 @@ export default function FunnelClientV2() {
               className="hero-kicker"
               initial={reduce ? false : { opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, delay: 0.4, ease }}
+              transition={{ duration: 0.4, delay: 0.38, ease }}
             >
               One marketplace (Freelancer.com). Four design services. Named tools at $0/month. A bid-by-bid,
               dollar-by-dollar 7-day sprint — even with zero reviews and zero design experience.
             </motion.p>
           </div>
+
+          <motion.div
+            className="hero-col hero-col--visual"
+            initial={reduce ? false : { opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.65, delay: 0.2, ease }}
+          >
+            <div className="hero-book-glow">
+              <Image
+                src={BOOK_COVER_SRC}
+                alt="The AI Designer Blueprint — book cover"
+                width={400}
+                height={520}
+                className="hero-book-img"
+                priority
+              />
+            </div>
+          </motion.div>
         </div>
       </header>
 
@@ -285,6 +333,65 @@ export default function FunnelClientV2() {
               <span>Start tonight</span>
             </div>
           </div>
+        </ScrollReveal>
+
+        <LogoMarquee headline="Readers building real income with this system — including people who’ve worked at places like" />
+
+        <ScrollReveal>
+          <section className="f2-section f2-block book-showcase">
+            <div className="book-showcase-grid">
+              <div className="book-showcase-copy">
+                <span className="section-tag">// About the blueprint</span>
+                <h2>47 pages. One marketplace. Zero motivational fluff.</h2>
+                <p>
+                  While everyone chases the next AI tool, this guide does the opposite: it locks you to{" "}
+                  <strong>one platform</strong>, <strong>four services</strong>, and a <strong>7-day deadline</strong> so you
+                  execute instead of bookmark. Instant PDF — start tonight.
+                </p>
+                <ul className="book-showcase-bullets">
+                  <li>Named $0/month AI stack for logos, social, decks, and web</li>
+                  <li>Bid templates, contest strategy, and week-one pricing</li>
+                  <li>Fill-in tracker so you always know if you&apos;re on pace for $500</li>
+                </ul>
+              </div>
+              <div className="book-showcase-visual">
+                <div className="book-showcase-frame">
+                  <Image
+                    src={BOOK_COVER_SRC}
+                    alt=""
+                    width={420}
+                    height={550}
+                    className="book-showcase-img"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <section className="f2-section f2-block testimonials-section" aria-labelledby="testimonials-heading">
+            <span className="section-tag">// Social proof</span>
+            <h2 id="testimonials-heading">What readers are saying</h2>
+            <p className="testimonials-intro">
+              Don&apos;t take my word for it — here&apos;s what early readers said about the system.
+            </p>
+            <div className="testimonials-grid">
+              {TESTIMONIALS.map((t) => (
+                <blockquote key={t.name} className="testimonial-card">
+                  <p className="testimonial-stars" aria-hidden>
+                    ★★★★★
+                  </p>
+                  <p className="testimonial-quote">&ldquo;{t.quote}&rdquo;</p>
+                  <footer>
+                    <cite className="testimonial-name">{t.name}</cite>
+                    <span className="testimonial-role">{t.role}</span>
+                  </footer>
+                </blockquote>
+              ))}
+            </div>
+          </section>
         </ScrollReveal>
 
         <ScrollReveal>

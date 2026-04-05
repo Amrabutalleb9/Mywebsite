@@ -16,9 +16,9 @@ export const metadata: Metadata = {
     url: `${base}/ai-designer-blueprint/v2`,
     images: [
       {
-        url: `${base}/ai-designer-blueprint/book-mockup.png`,
-        width: 1200,
-        height: 630,
+        url: `${base}/ai-designer-blueprint/book-mockup.svg`,
+        width: 520,
+        height: 680,
         alt: "The AI Designer Blueprint book cover",
       },
     ],
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "The AI Designer Blueprint — $500 in 7 Days on Freelancer.com",
     description: "47-page execution PDF. AI tools + Freelancer.com system. $5.99.",
-    images: [`${base}/ai-designer-blueprint/book-mockup.png`],
+    images: [`${base}/ai-designer-blueprint/book-mockup.svg`],
   },
   robots: { index: true, follow: true },
 }
