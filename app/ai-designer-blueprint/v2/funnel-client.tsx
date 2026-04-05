@@ -68,33 +68,35 @@ export default function FunnelClientV2() {
       <div className="f2-head-spacer" aria-hidden />
 
       <header className="hero">
-        <motion.div
-          className="hero-badge"
-          initial={reduce ? false : { opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, ease }}
-        >
-          <span className="badge-dot" />
-          PDF playbook · Freelancer.com + AI tools
-        </motion.div>
+        <div className="hero-aurora" aria-hidden />
+        <div className="hero-noise" aria-hidden />
+        <div className="hero-orbit hero-orbit--a" aria-hidden />
+        <div className="hero-orbit hero-orbit--b" aria-hidden />
 
         <motion.h1
-          initial={reduce ? false : { opacity: 0, y: 16 }}
+          className="hero-title"
+          initial={reduce ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.05, ease }}
+          transition={{ duration: 0.55, ease }}
         >
-          <span className="dim">The economy won&apos;t save you.</span>
-          <br />
-          <span className="highlight">Your first $500 will.</span>
-          <br />
-          7 days. One platform. AI does the design.
+          <span className="hero-title-line">Your skills aren&apos;t the problem.</span>
+          <span className="hero-title-accent">Your system is.</span>
         </motion.h1>
+
+        <motion.p
+          className="hero-lede"
+          initial={reduce ? false : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: reduce ? 0 : 0.08, ease }}
+        >
+          → The 7-day sprint that turns AI tools into $500/week on Freelancer.com.
+        </motion.p>
 
         <motion.p
           className="hero-sub"
           initial={reduce ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.45, delay: 0.1, ease }}
+          transition={{ duration: 0.45, delay: 0.14, ease }}
         >
           Rent is climbing. AI is replacing jobs. And every &quot;make money online&quot; guru tells you to{" "}
           <strong>&quot;just use AI&quot;</strong> without naming a single tool, a single platform, or a single price to
@@ -106,7 +108,7 @@ export default function FunnelClientV2() {
           className="hero-kicker"
           initial={reduce ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.14, ease }}
+          transition={{ duration: 0.4, delay: 0.2, ease }}
         >
           → One marketplace (Freelancer.com). Four design services. Named tools at $0/month. A bid-by-bid,
           dollar-by-dollar 7-day sprint — even with zero reviews and zero design experience.
@@ -116,7 +118,7 @@ export default function FunnelClientV2() {
           className="price-block"
           initial={reduce ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.18, duration: 0.4 }}
+          transition={{ delay: 0.24, duration: 0.4 }}
         >
           <span className="price-old">$19.99</span>
           <span className="price-new">$5.99</span>
@@ -126,7 +128,7 @@ export default function FunnelClientV2() {
         <motion.div
           initial={reduce ? false : { opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.22, duration: 0.4, ease }}
+          transition={{ delay: 0.28, duration: 0.4, ease }}
         >
           <BuyLink className="cta-primary" id="hero-cta-v2">
             ⚡ DOWNLOAD THE BLUEPRINT — $5.99
@@ -164,7 +166,7 @@ export default function FunnelClientV2() {
       </div>
 
       <FadeIn>
-        <div className="fear-section">
+        <div className="fear-section f2-band-paper">
           <span className="section-tag">// The reality</span>
           <h2>
             One paycheck. Rising costs.
@@ -217,7 +219,7 @@ export default function FunnelClientV2() {
         </div>
       </FadeIn>
 
-      <section className="agitation" aria-labelledby="agitation-heading">
+      <section className="agitation f2-band-ink" aria-labelledby="agitation-heading">
         <div className="agitation-inner">
           <span className="section-tag">// Why you&apos;re stuck</span>
           <h2 id="agitation-heading">
@@ -283,7 +285,7 @@ export default function FunnelClientV2() {
       </section>
 
       <FadeIn>
-        <section className="f2-block">
+        <section className="f2-block f2-band-cream">
           <span className="section-tag">// Inside the blueprint</span>
           <h2>
             Seven Chapters. One Sprint.
@@ -370,7 +372,7 @@ export default function FunnelClientV2() {
         </section>
       </FadeIn>
 
-      <div className="mid-cta">
+      <div className="mid-cta f2-band-ink">
         <div className="mid-cta-inner">
           <h2>
             Still scrolling? <span className="mid-accent">That&apos;s the pattern.</span>
@@ -384,7 +386,7 @@ export default function FunnelClientV2() {
       </div>
 
       <FadeIn>
-        <section className="f2-block">
+        <section className="f2-block f2-band-paper">
           <span className="section-tag">// What you carry away</span>
           <h2>Concrete Deliverables — Not Vibes</h2>
 
@@ -442,7 +444,7 @@ export default function FunnelClientV2() {
       </FadeIn>
 
       <FadeIn>
-        <section className="f2-block">
+        <section className="f2-block f2-band-cream">
           <span className="section-tag">// Show me the math</span>
           <h2>Here&apos;s Exactly How $500 in 7 Days Works</h2>
           <p>
@@ -492,7 +494,7 @@ export default function FunnelClientV2() {
       </FadeIn>
 
       <FadeIn>
-        <section className="f2-block">
+        <section className="f2-block f2-band-paper">
           <span className="section-tag">// Platform choice</span>
           <h2>Why Freelancer.com Eats Upwork and Fiverr for Breakfast</h2>
           <p>
@@ -554,7 +556,7 @@ export default function FunnelClientV2() {
       </FadeIn>
 
       <FadeIn>
-        <section className="f2-block">
+        <section className="f2-block f2-band-cream">
           <span className="section-tag">// Three entry points</span>
           <h2>This Blueprint Was Built for You If…</h2>
 
@@ -588,7 +590,7 @@ export default function FunnelClientV2() {
       </FadeIn>
 
       <FadeIn>
-        <section className="f2-block">
+        <section className="f2-block f2-band-paper">
           <div className="author-section">
             <Image
               src={AUTHOR_PORTRAIT_SRC}
@@ -611,7 +613,7 @@ export default function FunnelClientV2() {
       </FadeIn>
 
       <FadeIn>
-        <section className="f2-block">
+        <section className="f2-block f2-band-cream">
           <div className="guarantee-box">
             <span className="shield" aria-hidden>
               🛡️
@@ -626,7 +628,7 @@ export default function FunnelClientV2() {
       </FadeIn>
 
       <FadeIn>
-        <section className="f2-block">
+        <section className="f2-block f2-band-paper">
           <span className="section-tag">// FAQ</span>
           <h2>Questions Before You Buy</h2>
 
@@ -669,7 +671,7 @@ export default function FunnelClientV2() {
         </section>
       </FadeIn>
 
-      <div className="final-cta" id="buy">
+      <div className="final-cta f2-band-finale" id="buy">
         <span className="section-tag">// Decision time</span>
         <h2>
           Two options.
@@ -702,7 +704,7 @@ export default function FunnelClientV2() {
         </div>
       </div>
 
-      <footer className="f2-footer">
+      <footer className="f2-footer f2-band-ink f2-footer-bar">
         <p>© 2026 Amr Abu-Talleb. All rights reserved.</p>
         <p>
           <Link href="/privacy">Privacy</Link> · <Link href="/terms">Terms</Link> ·{" "}

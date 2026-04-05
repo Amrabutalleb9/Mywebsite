@@ -1,21 +1,21 @@
-import { DM_Sans, JetBrains_Mono, Space_Grotesk } from "next/font/google"
+import { JetBrains_Mono, Plus_Jakarta_Sans, Syne } from "next/font/google"
 import type { Viewport } from "next"
 import Script from "next/script"
 import "./funnel.css"
 
 export const viewport: Viewport = {
-  themeColor: "#080a0d",
+  themeColor: "#1a1714",
 }
 
-const fontDm = DM_Sans({
+const fontBody = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-dm",
+  variable: "--font-body",
   display: "swap",
 })
 
-const fontSpace = Space_Grotesk({
+const fontDisplay = Syne({
   subsets: ["latin"],
-  variable: "--font-space",
+  variable: "--font-display",
   display: "swap",
 })
 
@@ -54,7 +54,7 @@ export default function AiDesignerBlueprintV2Layout({
         />
       </noscript>
       <div
-        className={`${fontDm.variable} ${fontSpace.variable} ${fontJet.variable} ai-designer-funnel-v2 min-h-screen`}
+        className={`${fontBody.variable} ${fontDisplay.variable} ${fontJet.variable} ai-designer-funnel-v2 min-h-screen`}
       >
         {children}
       </div>
