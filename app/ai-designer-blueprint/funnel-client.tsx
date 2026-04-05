@@ -82,6 +82,10 @@ export default function FunnelClient() {
 
   return (
     <>
+      <div className="compare-bar">
+        Original funnel version.{" "}
+        <Link href="/ai-designer-blueprint/v2">View alternate version (fear + aspiration angle)</Link>
+      </div>
       <section className="hero">
         <div className="hero__shell">
           <div className="hero__grid">

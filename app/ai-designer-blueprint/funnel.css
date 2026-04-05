@@ -123,6 +123,25 @@
   margin-bottom: 32px;
 }
 
+.ai-designer-funnel .compare-bar {
+  font-size: 0.8rem;
+  padding: 10px 20px;
+  text-align: center;
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.ai-designer-funnel .compare-bar a {
+  color: var(--red-dark);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ai-designer-funnel .compare-bar a:hover {
+  text-decoration: underline;
+}
+
 .ai-designer-funnel .sr-only {
   position: absolute;
   width: 1px;
