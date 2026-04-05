@@ -53,10 +53,10 @@ function FadeIn({ children, className }: { children: React.ReactNode; className?
   return (
     <motion.div
       className={className}
-      initial={reduce ? false : { opacity: 0, y: 20 }}
+      initial={reduce ? false : { opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-72px" }}
-      transition={{ duration: 0.5, ease }}
+      viewport={{ once: true, margin: "-48px" }}
+      transition={{ duration: 0.4, ease }}
     >
       {children}
     </motion.div>
@@ -129,40 +129,15 @@ export default function FunnelClientV2() {
 
   return (
     <>
-      <div className="f2-head-fixed">
-        <div className="urgency-strip">⚡ LAUNCH PRICE: $5.99 (70% OFF) — THIS PRICE WILL NOT LAST</div>
-        <nav className="topbar" aria-label="Primary">
-          <span className="topbar-left">AI DESIGNER BLUEPRINT</span>
-          <BuyLink className="topbar-cta">GET IT NOW — $5.99</BuyLink>
-        </nav>
-      </div>
-      <div className="f2-head-spacer" aria-hidden />
-
       <header className="hero">
         <div className="hero-gl-wrap" aria-hidden>
-          {/* Always mount WebGL: rolling hills are the requested hero. Motion prefs only freeze the shader scroll. */}
-          <GLSLHills
-            cameraZ={112}
-            speed={reduce ? 0 : 0.48}
-            planeSize={280}
-            hillColor={[0.09, 0.14, 0.22]}
-          />
+          <GLSLHills cameraZ={125} speed={reduce ? 0 : 0.5} planeSize={256} />
         </div>
         <div className="hero-overlay" aria-hidden />
         <div className="hero-noise hero-noise--light" aria-hidden />
 
         <div className="hero-shell">
           <div className="hero-col hero-col--main">
-            <motion.p
-              className="hero-pill"
-              initial={reduce ? false : { opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, ease }}
-            >
-              <span className="hero-pill-dot" aria-hidden />
-              47-page PDF · Freelancer.com execution system
-            </motion.p>
-
             <motion.h1
               className="hero-title"
               initial={reduce ? false : { opacity: 0, y: 18 }}
@@ -216,6 +191,7 @@ export default function FunnelClientV2() {
             </motion.div>
 
             <motion.div
+              className="hero-cta-wrap"
               initial={reduce ? false : { opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.24, duration: 0.35, ease }}
@@ -570,46 +546,52 @@ export default function FunnelClientV2() {
       </FadeIn>
 
       <FadeIn>
-        <section className="f2-block f2-band-cream">
+        <section className="f2-block f2-flow f2-band-flow">
           <span className="section-tag">// Show me the math</span>
           <h2>Here&apos;s Exactly How $500 in 7 Days Works</h2>
-          <p>
+          <p className="math-intro">
             Not a vibe. Not a promise. <strong>Arithmetic you can verify before you buy.</strong>
           </p>
 
-          <div className="math-block">
-            <div className="math-row">
-              <span className="label">Bids sent (14–15/day × 7 days)</span>
-              <span className="value">~100</span>
-            </div>
-            <div className="math-row">
-              <span className="label">Response rate (platform average)</span>
-              <span className="value">15%</span>
-            </div>
-            <div className="math-row">
-              <span className="label">Client conversations</span>
-              <span className="value">~15</span>
-            </div>
-            <div className="math-row">
-              <span className="label">Conversion to awarded project</span>
-              <span className="value">~20%</span>
-            </div>
-            <div className="math-row">
-              <span className="label">Projects won from bids alone</span>
-              <span className="value">3</span>
-            </div>
-            <div className="math-row">
-              <span className="label">+ Contest wins (2–3 entries/day)</span>
-              <span className="value">+1–2</span>
-            </div>
-            <div className="math-row">
-              <span className="label">Average project value</span>
-              <span className="value">$100–$175</span>
-            </div>
-            <div className="math-total">
-              <span className="label">WEEK 1 GROSS REVENUE</span>
-              <span className="value">$450–$525</span>
-            </div>
+          <div className="math-panel">
+            <table className="math-table">
+              <tbody>
+                <tr>
+                  <th scope="row">Bids sent (14–15/day × 7 days)</th>
+                  <td>~100</td>
+                </tr>
+                <tr>
+                  <th scope="row">Response rate (platform average)</th>
+                  <td>15%</td>
+                </tr>
+                <tr>
+                  <th scope="row">Client conversations</th>
+                  <td>~15</td>
+                </tr>
+                <tr>
+                  <th scope="row">Conversion to awarded project</th>
+                  <td>~20%</td>
+                </tr>
+                <tr>
+                  <th scope="row">Projects won from bids alone</th>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <th scope="row">+ Contest wins (2–3 entries/day)</th>
+                  <td>+1–2</td>
+                </tr>
+                <tr>
+                  <th scope="row">Average project value</th>
+                  <td>$100–$175</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr className="math-total-row">
+                  <th scope="row">Week 1 gross revenue</th>
+                  <td>$450–$525</td>
+                </tr>
+              </tfoot>
+            </table>
           </div>
 
           <p className="math-note">

@@ -5,22 +5,21 @@ import * as THREE from "three"
 
 export type GLSLHillsProps = {
   className?: string
+  /** Defaults match reference: 100% / 100% of container */
   cameraZ?: number
   planeSize?: number
   speed?: number
-  /** Dark teal tint for hills (matches high-contrast hero) */
-  hillColor?: [number, number, number]
 }
 
 /**
- * Full-screen WebGL rolling hills (shader plane). Client-only — load with `next/dynamic` + `{ ssr: false }`.
+ * Rolling hills (RawShaderMaterial plane) — aligned with the reference GLSL hills demo.
+ * Client-only: import with `next/dynamic` + `{ ssr: false }`.
  */
 export function GLSLHills({
   className = "",
   cameraZ = 125,
   planeSize = 256,
   speed = 0.5,
-  hillColor = [0.07, 0.12, 0.18],
 }: GLSLHillsProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -30,23 +29,22 @@ export function GLSLHills({
     const container = containerRef.current
     if (!canvas || !container) return
 
+    const segs = Math.min(128, Math.max(32, Math.floor(planeSize / 2)))
+
     class Plane {
-      uniforms: { time: { value: number }; uColor: { value: THREE.Vector3 } }
+      uniforms: { time: { value: number } }
       mesh: THREE.Mesh
       timeScale: number
 
-      constructor(timeScale: number, color: THREE.Vector3) {
+      constructor(timeScale: number) {
         this.timeScale = timeScale
-        this.uniforms = {
-          time: { value: 0 },
-          uColor: { value: color },
-        }
+        this.uniforms = { time: { value: 0 } }
         this.mesh = this.createMesh()
       }
 
       createMesh() {
         return new THREE.Mesh(
-          new THREE.PlaneGeometry(planeSize, planeSize, 128, 128),
+          new THREE.PlaneGeometry(planeSize, planeSize, segs, segs),
           new THREE.RawShaderMaterial({
             uniforms: this.uniforms,
             vertexShader: `
@@ -159,12 +157,11 @@ export function GLSLHills({
             fragmentShader: `
               precision highp float;
               varying vec3 vPosition;
-              uniform vec3 uColor;
 
               void main(void) {
-                float opacity = (96.0 - length(vPosition)) / 256.0 * 0.75;
-                opacity = clamp(opacity, 0.0, 0.85);
-                gl_FragColor = vec4(uColor, opacity);
+                float opacity = (96.0 - length(vPosition)) / 256.0 * 0.6;
+                vec3 color = vec3(0.6);
+                gl_FragColor = vec4(color, opacity);
               }
             `,
             transparent: true,
@@ -179,9 +176,8 @@ export function GLSLHills({
 
     const renderer = new THREE.WebGLRenderer({
       canvas,
-      antialias: true,
+      antialias: false,
       alpha: true,
-      powerPreference: "high-performance",
     })
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     renderer.setClearColor(0x000000, 0)
@@ -189,11 +185,11 @@ export function GLSLHills({
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera(45, 1, 1, 10000)
     const clock = new THREE.Clock()
-    const plane = new Plane(speed, new THREE.Vector3(...hillColor))
+    const plane = new Plane(speed)
 
     scene.add(plane.mesh)
 
-    const setSize = () => {
+    const resize = () => {
       const w = Math.max(container.clientWidth, 1)
       const h = Math.max(container.clientHeight, 1)
       camera.aspect = w / h
@@ -202,20 +198,19 @@ export function GLSLHills({
     }
 
     camera.position.set(0, 16, cameraZ)
-    camera.lookAt(0, 28, 0)
-
-    setSize()
+    camera.lookAt(new THREE.Vector3(0, 28, 0))
 
     let raf = 0
-    const tick = () => {
-      raf = requestAnimationFrame(tick)
+    const loop = () => {
+      raf = requestAnimationFrame(loop)
       plane.render(clock.getDelta())
       renderer.render(scene, camera)
     }
-    raf = requestAnimationFrame(tick)
 
-    const ro = new ResizeObserver(() => setSize())
+    resize()
+    const ro = new ResizeObserver(() => resize())
     ro.observe(container)
+    raf = requestAnimationFrame(loop)
 
     return () => {
       cancelAnimationFrame(raf)
@@ -226,13 +221,18 @@ export function GLSLHills({
       renderer.dispose()
       renderer.forceContextLoss?.()
     }
-  }, [cameraZ, planeSize, speed, hillColor[0], hillColor[1], hillColor[2]])
+  }, [cameraZ, planeSize, speed])
 
   return (
-    <div ref={containerRef} className={`absolute inset-0 overflow-hidden ${className}`}>
+    <div
+      ref={containerRef}
+      className={`relative h-full w-full overflow-hidden ${className}`}
+      style={{ minHeight: "100%" }}
+    >
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 h-full w-full touch-none"
+        className="absolute inset-0 z-[1] h-full w-full touch-none"
+        style={{ display: "block" }}
         aria-hidden
       />
     </div>
