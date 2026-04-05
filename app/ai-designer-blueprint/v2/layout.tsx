@@ -1,4 +1,4 @@
-import { JetBrains_Mono, Plus_Jakarta_Sans, Syne } from "next/font/google"
+import { Instrument_Serif, JetBrains_Mono, Plus_Jakarta_Sans, Syne } from "next/font/google"
 import type { Viewport } from "next"
 import Script from "next/script"
 import "./funnel.css"
@@ -24,6 +24,14 @@ const fontDisplay = Syne({
 const fontJet = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jet",
+  display: "swap",
+})
+
+/** Editorial accent for pull quotes & guarantee — pairs with Syne */
+const fontSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-abp-serif",
   display: "swap",
 })
 
@@ -56,7 +64,7 @@ export default function AiDesignerBlueprintV2Layout({
         />
       </noscript>
       <div
-        className={`${fontBody.variable} ${fontDisplay.variable} ${fontJet.variable} ai-designer-funnel-v2 min-h-screen bg-[#050508]`}
+        className={`${fontBody.variable} ${fontDisplay.variable} ${fontJet.variable} ${fontSerif.variable} ai-designer-funnel-v2 abp-v5 min-h-screen bg-[#050508]`}
       >
         {children}
       </div>
