@@ -1,18 +1,11 @@
 "use client"
 
-import dynamic from "next/dynamic"
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 import { motion, useInView, useReducedMotion } from "motion/react"
 
-const GLSLHills = dynamic(
-  () => import("@/components/ui/glsl-hills").then((m) => m.GLSLHills),
-  {
-    ssr: false,
-    loading: () => <div className="hero-gl-fallback" aria-hidden />,
-  },
-)
+import { ScrollReveal } from "./scroll-reveal"
 
 const CHECKOUT = process.env.NEXT_PUBLIC_AI_BLUEPRINT_CHECKOUT_URL ?? ""
 const AUTHOR_PORTRAIT_SRC = "/images/amr-portrait.webp"
@@ -48,57 +41,43 @@ function BuyLink({
   )
 }
 
-function FadeIn({ children, className }: { children: React.ReactNode; className?: string }) {
-  const reduce = useReducedMotion()
-  return (
-    <motion.div
-      className={className}
-      initial={reduce ? false : { opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-48px" }}
-      transition={{ duration: 0.4, ease }}
-    >
-      {children}
-    </motion.div>
-  )
-}
-
 function CountUp({
   end,
   prefix = "",
   suffix = "",
-  duration = 1.35,
+  duration = 1.5,
+  start,
 }: {
   end: number
   prefix?: string
   suffix?: string
   duration?: number
+  /** When true, counting animation runs (e.g. stats strip in view) */
+  start: boolean
 }) {
-  const ref = useRef<HTMLSpanElement>(null)
-  const isInView = useInView(ref, { once: true, margin: "-60px" })
   const reduce = useReducedMotion()
-  const [n, setN] = useState(0)
+  const [n, setN] = useState(reduce ? end : 0)
   useEffect(() => {
     if (reduce) {
       setN(end)
       return
     }
-    if (!isInView) return
-    let start: number | null = null
+    if (!start) return
+    let t0: number | null = null
     const ms = duration * 1000
     let raf = 0
     const tick = (t: number) => {
-      if (start === null) start = t
-      const p = Math.min((t - start) / ms, 1)
+      if (t0 === null) t0 = t
+      const p = Math.min((t - t0) / ms, 1)
       const eased = 1 - (1 - p) ** 3
       setN(Math.round(eased * end))
       if (p < 1) raf = requestAnimationFrame(tick)
     }
     raf = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(raf)
-  }, [isInView, end, duration, reduce])
+  }, [start, end, duration, reduce])
   return (
-    <span ref={ref}>
+    <span>
       {prefix}
       {n}
       {suffix}
@@ -106,32 +85,35 @@ function CountUp({
   )
 }
 
-function StatFade({ children }: { children: React.ReactNode }) {
-  const ref = useRef<HTMLSpanElement>(null)
-  const isInView = useInView(ref, { once: true, margin: "-40px" })
+function StatFade({ children, active }: { children: React.ReactNode; active: boolean }) {
   const reduce = useReducedMotion()
   return (
-    <span ref={ref}>
-      <motion.span
-        style={{ display: "inline-block" }}
-        initial={reduce ? false : { opacity: 0, y: 12 }}
-        animate={reduce || isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-        transition={{ duration: 0.55, ease }}
-      >
-        {children}
-      </motion.span>
-    </span>
+    <motion.span
+      style={{ display: "inline-block" }}
+      initial={reduce ? false : { opacity: 0, y: 12 }}
+      animate={reduce || active ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+      transition={{ duration: 0.55, ease }}
+    >
+      {children}
+    </motion.span>
   )
 }
 
 export default function FunnelClientV2() {
   const reduce = useReducedMotion()
+  const statsRef = useRef<HTMLDivElement>(null)
+  const statsInView = useInView(statsRef, { once: true, amount: 0.3 })
+
+  useEffect(() => {
+    document.body.classList.add("js-loaded")
+    return () => document.body.classList.remove("js-loaded")
+  }, [])
 
   return (
     <>
       <header className="hero">
         <div className="hero-gl-wrap" aria-hidden>
-          <GLSLHills cameraZ={125} speed={reduce ? 0 : 0.5} planeSize={256} />
+          <div className="hero-gl-fallback" />
         </div>
         <div className="hero-overlay" aria-hidden />
         <div className="hero-noise hero-noise--light" aria-hidden />
@@ -142,7 +124,7 @@ export default function FunnelClientV2() {
               className="hero-title"
               initial={reduce ? false : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.04, ease }}
+              transition={{ duration: 0.55, delay: 0, ease }}
             >
               <span className="hero-title-line">Your skills aren&apos;t the problem.</span>
               <span className="hero-title-accent">Your system is.</span>
@@ -152,7 +134,7 @@ export default function FunnelClientV2() {
               className="hero-lede"
               initial={reduce ? false : { opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.08, ease }}
+              transition={{ duration: 0.5, delay: 0.15, ease }}
             >
               The 7-day sprint that turns AI tools into $500/week on Freelancer.com.
             </motion.p>
@@ -161,7 +143,7 @@ export default function FunnelClientV2() {
               className="hero-sub"
               initial={reduce ? false : { opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, delay: 0.12, ease }}
+              transition={{ duration: 0.45, delay: 0.3, ease }}
             >
               Rent is climbing. AI is replacing jobs. And every &quot;make money online&quot; guru tells you to{" "}
               <strong>&quot;just use AI&quot;</strong> without naming a single tool, a single platform, or a single price to
@@ -173,7 +155,7 @@ export default function FunnelClientV2() {
               className="hero-kicker"
               initial={reduce ? false : { opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.35, delay: 0.16, ease }}
+              transition={{ duration: 0.4, delay: 0.4, ease }}
             >
               One marketplace (Freelancer.com). Four design services. Named tools at $0/month. A bid-by-bid,
               dollar-by-dollar 7-day sprint — even with zero reviews and zero design experience.
@@ -183,7 +165,7 @@ export default function FunnelClientV2() {
               className="price-block"
               initial={reduce ? false : { opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.35 }}
+              transition={{ delay: 0.5, duration: 0.4, ease }}
             >
               <span className="price-old">$19.99</span>
               <span className="price-new">$5.99</span>
@@ -194,7 +176,7 @@ export default function FunnelClientV2() {
               className="hero-cta-wrap"
               initial={reduce ? false : { opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.24, duration: 0.35, ease }}
+              transition={{ delay: 0.6, duration: 0.4, ease }}
             >
               <BuyLink className="cta-primary" id="hero-cta-v2">
                 Download the blueprint — $5.99
@@ -205,7 +187,7 @@ export default function FunnelClientV2() {
               className="hero-proof"
               initial={reduce ? false : { opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.28, duration: 0.35 }}
+              transition={{ delay: 0.7, duration: 0.4, ease }}
             >
               <span>Instant PDF</span>
               <span className="hero-proof-dot" aria-hidden />
@@ -217,46 +199,40 @@ export default function FunnelClientV2() {
         </div>
       </header>
 
-      <div className="stats-wrap">
-        <motion.p
-          className="stats-kicker"
-          initial={reduce ? false : { opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease }}
-        >
-          Market momentum
-        </motion.p>
-        <div className="stats-bar">
-          <div className="stat-item">
-            <span className="stat-num">
-              <CountUp end={84} suffix="%" />
-            </span>
-            <span className="stat-label">of freelancers using AI (2026)</span>
+      <div className="stats-wrap" ref={statsRef}>
+        <ScrollReveal className="stats-reveal-block">
+          <p className="stats-kicker">Market momentum</p>
+          <div className="stats-bar">
+            <div className="stat-item">
+              <span className="stat-num">
+                <CountUp end={84} suffix="%" start={statsInView} />
+              </span>
+              <span className="stat-label">of freelancers using AI (2026)</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-num">
+                <StatFade active={statsInView}>25–60%</StatFade>
+              </span>
+              <span className="stat-label">higher rates with AI tools</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-num">
+                <StatFade active={statsInView}>$16.89B</StatFade>
+              </span>
+              <span className="stat-label">freelance market by 2029</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-num">
+                <CountUp end={0} prefix="$" start={statsInView} />
+              </span>
+              <span className="stat-label">tool cost to start</span>
+            </div>
           </div>
-          <div className="stat-item">
-            <span className="stat-num">
-              <StatFade>25–60%</StatFade>
-            </span>
-            <span className="stat-label">higher rates with AI tools</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-num">
-              <StatFade>$16.89B</StatFade>
-            </span>
-            <span className="stat-label">freelance market by 2029</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-num">
-              <CountUp end={0} prefix="$" />
-            </span>
-            <span className="stat-label">tool cost to start</span>
-          </div>
-        </div>
+        </ScrollReveal>
       </div>
 
-      <FadeIn>
-        <div className="fear-section f2-band-paper">
+      <ScrollReveal>
+        <div className="fear-section f2-section">
           <span className="section-tag">// The reality</span>
           <h2>
             One paycheck. Rising costs.
@@ -307,16 +283,10 @@ export default function FunnelClientV2() {
             </p>
           </div>
         </div>
-      </FadeIn>
+      </ScrollReveal>
 
-      <section className="agitation f2-band-ink" aria-labelledby="agitation-heading">
-        <motion.div
-          className="agitation-inner"
-          initial={reduce ? false : { opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.55, ease }}
-        >
+      <section className="agitation f2-section f2-section--agitation" aria-labelledby="agitation-heading">
+        <ScrollReveal className="agitation-inner">
           <span className="section-tag">// Why you&apos;re stuck</span>
           <h2 id="agitation-heading">
             You&apos;ve Seen the AI Hype.
@@ -377,11 +347,11 @@ export default function FunnelClientV2() {
             </strong>
           </p>
           <p>That&apos;s what you&apos;re about to download.</p>
-        </motion.div>
+        </ScrollReveal>
       </section>
 
-      <FadeIn>
-        <section className="f2-block f2-band-cream">
+      <ScrollReveal>
+        <section className="f2-section f2-block">
           <span className="section-tag">// Inside the blueprint</span>
           <h2>
             Seven Chapters. One Sprint.
@@ -466,16 +436,10 @@ export default function FunnelClientV2() {
             </div>
           </div>
         </section>
-      </FadeIn>
+      </ScrollReveal>
 
-      <div className="mid-cta f2-band-ink">
-        <motion.div
-          className="mid-cta-inner"
-          initial={reduce ? false : { opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease }}
-        >
+      <div className="mid-cta f2-section f2-section--cta-mid">
+        <ScrollReveal className="mid-cta-inner">
           <h2>
             Still scrolling? <span className="mid-accent">That&apos;s the pattern.</span>
           </h2>
@@ -484,11 +448,11 @@ export default function FunnelClientV2() {
             begin tonight.
           </p>
           <BuyLink className="cta-primary">Get the blueprint — $5.99</BuyLink>
-        </motion.div>
+        </ScrollReveal>
       </div>
 
-      <FadeIn>
-        <section className="f2-block f2-band-paper">
+      <ScrollReveal>
+        <section className="f2-section f2-block">
           <span className="section-tag">// What you carry away</span>
           <h2>Concrete Deliverables — Not Vibes</h2>
 
@@ -543,10 +507,10 @@ export default function FunnelClientV2() {
             </div>
           </div>
         </section>
-      </FadeIn>
+      </ScrollReveal>
 
-      <FadeIn>
-        <section className="f2-block f2-flow f2-band-flow">
+      <ScrollReveal>
+        <section className="f2-section f2-block f2-block--math">
           <span className="section-tag">// Show me the math</span>
           <h2>Here&apos;s Exactly How $500 in 7 Days Works</h2>
           <p className="math-intro">
@@ -599,10 +563,10 @@ export default function FunnelClientV2() {
             shows every variable.
           </p>
         </section>
-      </FadeIn>
+      </ScrollReveal>
 
-      <FadeIn>
-        <section className="f2-block f2-band-paper">
+      <ScrollReveal>
+        <section className="f2-section f2-block">
           <span className="section-tag">// Platform choice</span>
           <h2>Why Freelancer.com Eats Upwork and Fiverr for Breakfast</h2>
           <p>
@@ -661,10 +625,10 @@ export default function FunnelClientV2() {
             this entire book is built around this platform and no other.
           </p>
         </section>
-      </FadeIn>
+      </ScrollReveal>
 
-      <FadeIn>
-        <section className="f2-block f2-band-cream">
+      <ScrollReveal>
+        <section className="f2-section f2-block">
           <span className="section-tag">// Three entry points</span>
           <h2>This Blueprint Was Built for You If…</h2>
 
@@ -695,10 +659,10 @@ export default function FunnelClientV2() {
             </div>
           </div>
         </section>
-      </FadeIn>
+      </ScrollReveal>
 
-      <FadeIn>
-        <section className="f2-block f2-band-paper">
+      <ScrollReveal>
+        <section className="f2-section f2-block">
           <div className="author-section">
             <div className="author-avatar">
               <Image
@@ -708,6 +672,7 @@ export default function FunnelClientV2() {
                 height={100}
                 className="author-img"
                 sizes="100px"
+                loading="lazy"
               />
             </div>
             <div className="author-info">
@@ -720,10 +685,10 @@ export default function FunnelClientV2() {
             </div>
           </div>
         </section>
-      </FadeIn>
+      </ScrollReveal>
 
-      <FadeIn>
-        <section className="f2-block f2-band-cream">
+      <ScrollReveal>
+        <section className="f2-section f2-block">
           <div className="guarantee-box">
             <span className="shield" aria-hidden>
               🛡️
@@ -735,10 +700,10 @@ export default function FunnelClientV2() {
             </p>
           </div>
         </section>
-      </FadeIn>
+      </ScrollReveal>
 
-      <FadeIn>
-        <section className="f2-block f2-band-paper faq-section" aria-labelledby="faq-heading">
+      <ScrollReveal>
+        <section className="f2-section f2-block faq-section" aria-labelledby="faq-heading">
           <span className="section-tag">// FAQ</span>
           <h2 id="faq-heading">Questions Before You Buy</h2>
 
@@ -781,16 +746,9 @@ export default function FunnelClientV2() {
             </details>
           </div>
         </section>
-      </FadeIn>
+      </ScrollReveal>
 
-      <motion.div
-        className="final-cta f2-band-finale"
-        id="buy"
-        initial={reduce ? false : { opacity: 0, y: 32 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.65, ease }}
-      >
+      <ScrollReveal className="final-cta f2-section f2-section--final-cta" id="buy">
         <span className="section-tag">// Decision time</span>
         <h2>
           Two options.
@@ -821,12 +779,11 @@ export default function FunnelClientV2() {
             <span>🚀 47 pages of execution</span>
           </div>
         </div>
-      </motion.div>
+      </ScrollReveal>
 
-      <footer className="f2-footer f2-band-ink f2-footer-bar">
-        <p>© 2026 Amr Abu-Talleb. All rights reserved.</p>
-        <p>
-          <Link href="/privacy">Privacy</Link> · <Link href="/terms">Terms</Link> ·{" "}
+      <footer className="f2-footer">
+        <p className="f2-footer-line">
+          © 2026 Amr Abu-Talleb · <Link href="/privacy">Privacy</Link> · <Link href="/terms">Terms</Link> ·{" "}
           <a href="mailto:hello@amrabutalleb.com">Contact</a>
         </p>
         <p className="disclaimer">

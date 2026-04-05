@@ -4,7 +4,7 @@ import Script from "next/script"
 import "./funnel.css"
 
 export const viewport: Viewport = {
-  themeColor: "#030712",
+  themeColor: "#0a0a0a",
 }
 
 const fontBody = Plus_Jakarta_Sans({
@@ -54,7 +54,7 @@ export default function AiDesignerBlueprintV2Layout({
         />
       </noscript>
       <div
-        className={`${fontBody.variable} ${fontDisplay.variable} ${fontJet.variable} ai-designer-funnel-v2 min-h-screen`}
+        className={`${fontBody.variable} ${fontDisplay.variable} ${fontJet.variable} ai-designer-funnel-v2 min-h-screen bg-[#0a0a0a]`}
       >
         {children}
       </div>
