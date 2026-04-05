@@ -17,6 +17,8 @@ const fontDisplay = Syne({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
+  /* Full weight range so h1–h2 at 800 render as Syne, not faux-bold fallback */
+  weight: ["400", "500", "600", "700", "800"],
 })
 
 const fontJet = JetBrains_Mono({
