@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import FunnelClient from "./funnel-client"
+import FunnelClient from "../funnel-client"
 
 const base = "https://amrabutalleb.com"
 
