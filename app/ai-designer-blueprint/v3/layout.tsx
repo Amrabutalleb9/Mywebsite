@@ -1,19 +1,21 @@
-import { Instrument_Serif, JetBrains_Mono, Plus_Jakarta_Sans, Syne } from "next/font/google"
+import { Courier_Prime, JetBrains_Mono, Outfit } from "next/font/google"
 import type { Viewport } from "next"
 import Script from "next/script"
 import "./funnel.css"
 
 export const viewport: Viewport = {
-  themeColor: "#f4f0e8",
+  themeColor: "#0e2c26",
 }
 
-const fontBody = Plus_Jakarta_Sans({
+/** Penpreneur funnel: Outfit headlines + Courier Prime body (matches scottscheper.com source). */
+const fontBody = Courier_Prime({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
+  weight: ["400", "700"],
 })
 
-const fontDisplay = Syne({
+const fontDisplay = Outfit({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
@@ -23,13 +25,6 @@ const fontDisplay = Syne({
 const fontJet = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jet",
-  display: "swap",
-})
-
-const fontSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-abp-serif",
   display: "swap",
 })
 
@@ -61,7 +56,7 @@ export default function AiDesignerBlueprintV3Layout({
         />
       </noscript>
       <div
-        className={`${fontBody.variable} ${fontDisplay.variable} ${fontJet.variable} ${fontSerif.variable} ai-designer-funnel-v3 abp-v3 min-h-screen`}
+        className={`${fontBody.variable} ${fontDisplay.variable} ${fontJet.variable} ai-designer-funnel-v3 abp-v3 abp3-pen min-h-screen`}
       >
         {children}
       </div>
