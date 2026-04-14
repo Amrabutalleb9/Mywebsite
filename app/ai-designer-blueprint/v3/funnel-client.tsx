@@ -9,8 +9,19 @@ import { V7, type V7StoryBlock } from "./copy/v7"
 import { BuyLink } from "../v2/components/buy-link"
 import { PriceBlock } from "../v2/components/price-block"
 import { ScrollReveal } from "./scroll-reveal"
+import { DEFAULT_HERO_VIDEO, PEN_PARITY } from "./pen-parity-copy"
+import { FunnelHeroVideo } from "./components/funnel-hero-video"
+import { LimitedInventoryBlock } from "./components/limited-inventory-block"
+import { LogoMarquee } from "./components/logo-marquee"
+import { OldNewSlider } from "./components/old-new-slider"
+import { PitchVideoSection } from "./components/pitch-video-section"
 
 const BOOK = "/ai-designer-blueprint/book-mockup.svg"
+const HERO_POSTER = "/ai-designer-blueprint/hero-poster.svg"
+const HERO_VIDEO_SRC =
+  (typeof process.env.NEXT_PUBLIC_AI_BLUEPRINT_HERO_VIDEO_URL === "string" &&
+    process.env.NEXT_PUBLIC_AI_BLUEPRINT_HERO_VIDEO_URL.trim()) ||
+  DEFAULT_HERO_VIDEO
 const PORTRAIT = "/images/amr-portrait.webp"
 
 const ease = [0.16, 1, 0.3, 1] as const
@@ -97,7 +108,9 @@ export default function FunnelClientV3() {
   return (
     <>
       <header className="abp3-hero">
+        <FunnelHeroVideo src={HERO_VIDEO_SRC} poster={HERO_POSTER} />
         <div className="abp3-hero__bg" aria-hidden />
+        <div className="abp3-hero__scrim" aria-hidden />
         <div className="abp3-hero__grid" aria-hidden />
 
         <div className="abp3-hero__inner">
@@ -203,6 +216,25 @@ export default function FunnelClientV3() {
           </section>
         </ScrollReveal>
 
+        <ScrollReveal className="abp3-band abp3-band--cream">
+          <section className="abp3-section" aria-labelledby="pitch-heading-v3">
+            <PitchVideoSection
+              headingId="pitch-heading-v3"
+              src={HERO_VIDEO_SRC}
+              poster={HERO_POSTER}
+              kicker={PEN_PARITY.video.kicker}
+              headline={PEN_PARITY.video.headline}
+              headlineAccent={PEN_PARITY.video.headlineAccent}
+              intro={PEN_PARITY.video.intro}
+            />
+            <p className="abp3-kicker abp3-kicker--stack">{PEN_PARITY.marquee.kicker}</p>
+            <h2 className="abp3-h2" id="marquee-heading-v3">
+              {PEN_PARITY.marquee.title}
+            </h2>
+            <LogoMarquee brands={PEN_PARITY.marquee.brands} />
+          </section>
+        </ScrollReveal>
+
         <ScrollReveal className="abp3-band abp3-band--lime">
           <section className="abp3-section abp3-section--split" aria-labelledby="inside-heading-v3">
             <div className="abp3-section__main">
@@ -230,6 +262,41 @@ export default function FunnelClientV3() {
                 <Image src={BOOK} alt="" width={360} height={468} className="abp3-book-card__img" loading="lazy" />
               </div>
             </div>
+          </section>
+        </ScrollReveal>
+
+        <ScrollReveal className="abp3-band abp3-band--cream">
+          <section className="abp3-section abp3-section--tight" aria-labelledby="old-new-heading-v3">
+            <p className="abp3-kicker">Compare</p>
+            <h2 id="old-new-heading-v3" className="abp3-h2">
+              Old way vs new way
+            </h2>
+            <OldNewSlider
+              wordmark={PEN_PARITY.slider.wordmark}
+              wordmarkAccent={PEN_PARITY.slider.wordmarkAccent}
+              oldLabel={PEN_PARITY.slider.oldLabel}
+              newLabel={PEN_PARITY.slider.newLabel}
+              oldLead={PEN_PARITY.slider.oldLead}
+              oldSteps={PEN_PARITY.slider.oldSteps}
+              newLead={PEN_PARITY.slider.newLead}
+              newSteps={PEN_PARITY.slider.newSteps}
+            />
+          </section>
+        </ScrollReveal>
+
+        <ScrollReveal className="abp3-band abp3-band--dark">
+          <section className="abp3-section" aria-labelledby="inventory-heading-v3">
+            <LimitedInventoryBlock
+              titleId="inventory-heading-v3"
+              bookSrc={BOOK}
+              bookAlt="The AI Designer Blueprint — cover"
+              kicker={PEN_PARITY.inventory.kicker}
+              title={PEN_PARITY.inventory.title}
+              lines={PEN_PARITY.inventory.lines}
+              floatTopAlt={PEN_PARITY.inventory.floatTopAlt}
+              floatBottomAlt={PEN_PARITY.inventory.floatBottomAlt}
+              cta={<BuyLink className="abp3-btn abp3-btn--primary">{V7.offer.ctaShort}</BuyLink>}
+            />
           </section>
         </ScrollReveal>
 
