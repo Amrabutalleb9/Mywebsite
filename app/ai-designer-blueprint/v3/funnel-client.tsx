@@ -57,11 +57,11 @@ function RichText({ text }: { text: string }) {
 function HeroMotion({ children }: { children: React.ReactNode }) {
   const reduce = useReducedMotion()
   if (reduce) {
-    return <div className="abp3-hero__motion">{children}</div>
+    return <div className="abp3-hero__motion abp3-hero__body">{children}</div>
   }
   return (
     <motion.div
-      className="abp3-hero__motion"
+      className="abp3-hero__motion abp3-hero__body"
       initial="hidden"
       animate="visible"
       variants={{
@@ -114,8 +114,24 @@ export default function FunnelClientV3() {
         <div className="abp3-hero__grid" aria-hidden />
 
         <div className="abp3-hero__inner">
+          <div className="abp3-hero__bar">
+            <p className="abp3-hero__bar-left">{V7.hero.barLeft}</p>
+            <p className="abp3-hero__bar-right">
+              Need help?{" "}
+              <a href={V7.hero.supportMailto} className="abp3-hero__bar-link">
+                <u>{V7.hero.supportLinkLabel}</u>
+              </a>
+              .
+            </p>
+          </div>
+
           <HeroMotion>
             <HeroItem className="abp3-hero__copy">
+              <p className="abp3-hero__rally">
+                <span className="abp3-hero__rally-line">{V7.hero.rallyLine}</span>{" "}
+                <span className="abp3-hero__rally-accent">{V7.hero.rallyAccent}</span>
+              </p>
+              <p className="abp3-hero__stinger">{V7.hero.stinger}</p>
               <p className="abp3-kicker">{V7.hero.eyebrow}</p>
               <h1 className="abp3-hero__title">
                 <span className="abp3-hero__title-line">{V7.hero.line1}</span>
@@ -126,11 +142,15 @@ export default function FunnelClientV3() {
               <p className="abp3-lede">
                 <RichText text={V7.hero.lede} />
               </p>
-              <div className="abp3-hero__cta-row">
-                <PriceBlock meta={V7.meta} />
-                <BuyLink className="abp3-btn abp3-btn--primary" id="hero-cta-v3">
-                  {V7.offer.cta}
-                </BuyLink>
+              <div className="abp3-hero__cta-shell abp3-changing-gradient-light">
+                <div className="abp3-hero__cta-shell-inner">
+                  <div className="abp3-hero__cta-row">
+                    <PriceBlock meta={V7.meta} />
+                    <BuyLink className="abp3-btn abp3-btn--primary" id="hero-cta-v3">
+                      {V7.offer.cta}
+                    </BuyLink>
+                  </div>
+                </div>
               </div>
               <p className="abp3-proof">
                 {V7.hero.proof.map((t, i) => (
@@ -148,7 +168,7 @@ export default function FunnelClientV3() {
                   alt="The AI Designer Blueprint — cover"
                   width={420}
                   height={546}
-                  className="abp3-hero__book-img"
+                  className="abp3-hero__book-img abp3-glow-img"
                   priority
                 />
               </div>
@@ -158,7 +178,7 @@ export default function FunnelClientV3() {
       </header>
 
       <main>
-        <ScrollReveal className="abp3-band abp3-band--dark">
+        <ScrollReveal className="abp3-band abp3-band--dark abp3-band--pen-corner-tl">
           <section className="abp3-section abp3-section--tight" aria-labelledby="reality-heading-v3">
             <p className="abp3-kicker">{V7.reality.label}</p>
             <h2 id="reality-heading-v3" className="abp3-h2">
@@ -180,18 +200,20 @@ export default function FunnelClientV3() {
             <h2 id="story-heading-v3" className="abp3-h2 abp3-h2--xl">
               {V7.story.title}
             </h2>
-            <div className="abp3-letter">
-              <div className="abp3-story">
-                {V7.story.blocks.map((block: V7StoryBlock, i: number) => (
-                  <div key={block.title ?? `block-${i}`} className="abp3-story__block">
-                    {block.title ? <h3 className="abp3-story__subh">{block.title}</h3> : null}
-                    {block.paragraphs.map((p) => (
-                      <p key={p.slice(0, 40)}>
-                        <RichText text={p} />
-                      </p>
-                    ))}
-                  </div>
-                ))}
+            <div className="abp3-pen-lime-panel">
+              <div className="abp3-letter">
+                <div className="abp3-story">
+                  {V7.story.blocks.map((block: V7StoryBlock, i: number) => (
+                    <div key={block.title ?? `block-${i}`} className="abp3-story__block">
+                      {block.title ? <h3 className="abp3-story__subh">{block.title}</h3> : null}
+                      {block.paragraphs.map((p) => (
+                        <p key={p.slice(0, 40)}>
+                          <RichText text={p} />
+                        </p>
+                      ))}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </section>
@@ -290,7 +312,7 @@ export default function FunnelClientV3() {
         </ScrollReveal>
 
         <ScrollReveal className="abp3-band abp3-band--dark">
-          <section className="abp3-section" aria-labelledby="inventory-heading-v3">
+          <section className="abp3-section abp3-section--inventory-pen" aria-labelledby="inventory-heading-v3">
             <LimitedInventoryBlock
               titleId="inventory-heading-v3"
               bookSrc={BOOK}
@@ -308,7 +330,7 @@ export default function FunnelClientV3() {
         <ScrollReveal className="abp3-band abp3-band--dark">
           <section className="abp3-testimonials" aria-labelledby="testimonials-heading-v3">
             <p className="abp3-kicker">{V7.testimonials.label}</p>
-            <h2 id="testimonials-heading-v3" className="abp3-h2">
+            <h2 id="testimonials-heading-v3" className="abp3-h2 abp3-highlight-testimonials">
               {V7.testimonials.title}
             </h2>
             <div className="abp3-testimonials__grid">
@@ -346,11 +368,13 @@ export default function FunnelClientV3() {
           </section>
         </ScrollReveal>
 
-        <div className="abp3-mid">
+        <div className="abp3-mid abp3-mid--pen-transition">
           <ScrollReveal className="abp3-mid__inner">
-            <h2 className="abp3-mid__title">{midHead}</h2>
-            <p className="abp3-mid__body">{V7.midCta.body}</p>
-            <BuyLink className="abp3-btn abp3-btn--primary abp3-btn--wide">{V7.offer.ctaShort}</BuyLink>
+            <div className="abp3-mid__panel">
+              <h2 className="abp3-mid__title">{midHead}</h2>
+              <p className="abp3-mid__body">{V7.midCta.body}</p>
+              <BuyLink className="abp3-btn abp3-btn--primary abp3-btn--wide">{V7.offer.ctaShort}</BuyLink>
+            </div>
           </ScrollReveal>
         </div>
 
@@ -373,7 +397,7 @@ export default function FunnelClientV3() {
           </section>
         </ScrollReveal>
 
-        <ScrollReveal className="abp3-band abp3-band--lime">
+        <ScrollReveal className="abp3-band abp3-band--lime abp3-band--pen-pill-waist">
           <section className="abp3-guarantee" aria-labelledby="guarantee-heading-v3">
             <p className="abp3-kicker">{V7.guarantee.label}</p>
             <h2 id="guarantee-heading-v3" className="abp3-h2 abp3-h2--serif">
@@ -416,7 +440,7 @@ export default function FunnelClientV3() {
           </section>
         </ScrollReveal>
 
-        <ScrollReveal className="abp3-band abp3-band--dark">
+        <ScrollReveal className="abp3-band abp3-band--dark abp3-band--pen-faq-shape">
           <section className="abp3-section" aria-labelledby="faq-heading-v3">
             <p className="abp3-kicker">FAQ</p>
             <h2 id="faq-heading-v3" className="abp3-h2">
@@ -456,10 +480,14 @@ export default function FunnelClientV3() {
                 </p>
               ))}
             </div>
-            <PriceBlock className="abp-price--large" meta={V7.meta} />
-            <BuyLink className="abp3-btn abp3-btn--primary abp3-btn--hero" id="buy-cta-v3">
-              {V7.offer.ctaFinal}
-            </BuyLink>
+            <div className="abp3-finale__cta-shell abp3-changing-gradient-light">
+              <div className="abp3-finale__cta-shell-inner">
+                <PriceBlock className="abp-price--large" meta={V7.meta} />
+                <BuyLink className="abp3-btn abp3-btn--primary abp3-btn--hero" id="buy-cta-v3">
+                  {V7.offer.ctaFinal}
+                </BuyLink>
+              </div>
+            </div>
             <p className="abp3-proof abp3-finale__proof">
               {V7.final.proof.map((t, i) => (
                 <span key={t}>

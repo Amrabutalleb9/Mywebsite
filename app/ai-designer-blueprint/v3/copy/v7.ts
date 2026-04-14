@@ -34,6 +34,15 @@ export const V7 = {
     line2: "Your system is.",
     lede: "The 7-day sprint that turns AI tools into $1,500 on Freelancer.com.",
     proof: ["Instant PDF", "30-day money-back", "Start tonight"] as const,
+    /** Pen hero top row (Free book / Support) — adapted for digital PDF */
+    barLeft: "Instant PDF · Launch price · Download tonight",
+    supportMailto: "mailto:hello@amrabutalleb.com",
+    supportLinkLabel: "Contact support",
+    /** Pen “NEW BOOK!” strip */
+    stinger: "NEW PDF!",
+    /** Pen sub-hero line (h2 before main headline) */
+    rallyLine: "For anyone tired of",
+    rallyAccent: "hoping a client magically appears.",
   },
 
   offer: {
