@@ -216,7 +216,7 @@ export default function FunnelClientV3() {
           </section>
         </ScrollReveal>
 
-        <ScrollReveal className="abp3-band abp3-band--cream">
+        <ScrollReveal className="abp3-band abp3-band--dark abp3-band--pen-video-curve">
           <section className="abp3-section" aria-labelledby="pitch-heading-v3">
             <PitchVideoSection
               headingId="pitch-heading-v3"
@@ -227,7 +227,12 @@ export default function FunnelClientV3() {
               headlineAccent={PEN_PARITY.video.headlineAccent}
               intro={PEN_PARITY.video.intro}
             />
-            <p className="abp3-kicker abp3-kicker--stack">{PEN_PARITY.marquee.kicker}</p>
+          </section>
+        </ScrollReveal>
+
+        <ScrollReveal className="abp3-band abp3-band--lime">
+          <section className="abp3-section" aria-labelledby="marquee-heading-v3">
+            <p className="abp3-kicker">{PEN_PARITY.marquee.kicker}</p>
             <h2 className="abp3-h2" id="marquee-heading-v3">
               {PEN_PARITY.marquee.title}
             </h2>

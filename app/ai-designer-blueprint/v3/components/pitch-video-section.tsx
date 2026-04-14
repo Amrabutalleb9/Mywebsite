@@ -40,9 +40,7 @@ export function PitchVideoSection({
       <p className="abp3-kicker">{kicker}</p>
       <h2 id={headingId} className="abp3-h2 abp3-pitch__title">
         {headline}
-        <span className="abp3-pitch__title-accent" style={{ color: "var(--pen-lime-bright, #a9eb35)" }}>
-          {headlineAccent}
-        </span>
+        <span className="abp3-pitch__title-accent">{headlineAccent}</span>
       </h2>
       <p className="abp3-pitch__intro">{intro}</p>
       <div className="abp3-pitch__frame">
