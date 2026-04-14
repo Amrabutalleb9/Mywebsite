@@ -142,6 +142,29 @@
   color: transparent;
 }
 
+/* Penpreneur-style highlight chip on hero accent line */
+.abp3-hero__title-accent--hl {
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  color: var(--abp3-ink-strong);
+}
+
+.abp3-hl-mark {
+  display: inline;
+  padding: 0.06em 0.22em 0.1em;
+  border-radius: 0.14em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  background: linear-gradient(104deg, rgba(204, 251, 241, 0.98) 0%, rgba(94, 234, 212, 0.45) 100%);
+  box-shadow: 0 0 0 1px rgba(15, 118, 110, 0.22);
+}
+
+.ai-designer-funnel-v3 .abp3-strong {
+  color: var(--abp3-ink-strong);
+  font-weight: 700;
+}
+
 .abp3-lede {
   font-size: clamp(1.05rem, 2vw, 1.2rem);
   line-height: 1.55;
@@ -470,6 +493,116 @@
   width: 100%;
   height: auto;
   border-radius: 8px;
+}
+
+/* Inside PDF — feature list (long-form sales blocks) */
+.abp3-inside-list {
+  margin: 1.25rem 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.abp3-inside-item {
+  margin-bottom: 1.35rem;
+  padding: 1.1rem 1.15rem 1.15rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid var(--abp3-line);
+}
+
+.abp3-band--b .abp3-inside-item {
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.abp3-inside-item__title {
+  font-family: var(--font-display), Syne, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--abp3-ink-strong);
+  margin: 0 0 0.5rem;
+}
+
+.abp3-inside-item__body {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--abp3-muted);
+  line-height: 1.62;
+}
+
+.abp3-inside-closing {
+  margin: 0 0 1.25rem;
+  font-size: 1.02rem;
+  color: var(--abp3-ink);
+  line-height: 1.55;
+}
+
+/* Testimonials — placeholder cards */
+.abp3-testimonials {
+  max-width: var(--max-wide);
+  margin: 0 auto;
+}
+
+.abp3-testimonials__grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 720px) {
+  .abp3-testimonials__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.abp3-testimonials__card {
+  margin: 0;
+  padding: 1.15rem;
+  border-radius: 14px;
+  background: var(--abp3-bg-elevated);
+  border: 1px dashed rgba(15, 118, 110, 0.35);
+  box-shadow: 0 4px 20px rgba(28, 25, 23, 0.05);
+}
+
+.abp3-testimonials__ph {
+  min-height: 140px;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  background: repeating-linear-gradient(
+    -12deg,
+    rgba(15, 118, 110, 0.06),
+    rgba(15, 118, 110, 0.06) 12px,
+    rgba(28, 25, 23, 0.04) 12px,
+    rgba(28, 25, 23, 0.04) 24px
+  );
+  border: 1px solid var(--abp3-line);
+}
+
+.abp3-testimonials__who {
+  margin: 0 0 0.35rem;
+  font-size: 0.92rem;
+  color: var(--abp3-ink-strong);
+}
+
+.abp3-testimonials__role {
+  color: var(--abp3-subtle);
+  font-weight: 400;
+}
+
+.abp3-testimonials__quote {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--abp3-muted);
+}
+
+.abp3-testimonials__note {
+  margin: 1.75rem 0 0;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--abp3-subtle);
+  max-width: 48rem;
 }
 
 /* Mid CTA */
