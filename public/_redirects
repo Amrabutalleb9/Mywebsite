@@ -1,0 +1,3 @@
+# Cloudflare Pages: serve the static funnel HTML at the clean URL (no iframe — avoids Chrome blocking nested documents).
+/ai-designer-blueprint /ai-designer-blueprint/index.html 200
+/ai-designer-blueprint/ /ai-designer-blueprint/index.html 200
