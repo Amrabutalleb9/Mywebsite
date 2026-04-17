@@ -1,3 +1,8 @@
 # Cloudflare Pages: serve the static funnel HTML at the clean URL (no iframe — avoids Chrome blocking nested documents).
 /ai-designer-blueprint /ai-designer-blueprint/index.html 200
 /ai-designer-blueprint/ /ai-designer-blueprint/index.html 200
+# Thank-you pages (Launchpad JV redirects after purchase)
+/ai-designer-blueprint/thank-you /ai-designer-blueprint/thank-you/index.html 200
+/ai-designer-blueprint/thank-you/ /ai-designer-blueprint/thank-you/index.html 200
+/ai-designer-blueprint/thank-you-bump /ai-designer-blueprint/thank-you-bump/index.html 200
+/ai-designer-blueprint/thank-you-bump/ /ai-designer-blueprint/thank-you-bump/index.html 200
