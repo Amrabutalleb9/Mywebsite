@@ -1,0 +1,3215 @@
+/* Local-only additions — loaded last so these beat exported head-from-source rules. */
+/* Do not set overflow-x hidden here: paired with overflow-y visible, browsers force
+   overflow-y to compute to auto and #preview-container becomes the scroll root — page
+   scroll feels “stuck”. Horizontal clipping stays on body. */
+#preview-container.preview-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+  min-height: 100vh !important;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Text selection — brand red highlight, light text (reads on navy + gold) */
+::selection {
+  background-color: #c0392b;
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background-color: #c0392b;
+  color: #ffffff;
+}
+
+.pen-local-wistia-fallback {
+  width: 100%;
+  max-width: 100%;
+}
+
+.pen-local-embed-video {
+  border-radius: inherit;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Visual fixes: section background seams, stacking, order form (local only) */
+/* -------------------------------------------------------------------------- */
+
+/* Nuxt/HL export uses background-attachment: fixed on .bg/.bgCover — off without the
+   full HL wrapper it causes a visible “cut” between hero and the About section. */
+#preview-container .bg,
+#preview-container .bgCover,
+#preview-container .bg-fixed,
+#preview-container .bgRepeatXTop,
+#preview-container .bgRepeatXBottom {
+  background-attachment: scroll !important;
+}
+
+#preview-container .bg::before,
+#preview-container .bgCover::before,
+#preview-container .bg-fixed::before {
+  background-attachment: scroll !important;
+}
+
+/* Hero: stack above following section; clip bleed (video/gradient) without capping section
+   height — max-height + inner height:100% made the funnel feel non-scrollable.
+   Do NOT pair overflow-x:hidden with overflow-y:visible here: per CSS overflow rules, “visible”
+   on one axis becomes “auto” when the other isn’t visible — the hero becomes its own scrollport. */
+#preview-container #section-0BnD6agQ3.hero-background {
+  position: relative !important;
+  z-index: 20 !important;
+  overflow: visible !important;
+  box-sizing: border-box !important;
+  /* Content-height hero — 100dvh left a tall empty navy band above About */
+  min-height: auto !important;
+  /* HL export uses ~10px top; half for tighter bar under viewport top */
+  padding-top: 5px !important;
+  padding-bottom: clamp(0.75rem, 2.5vw, 1.75rem) !important;
+}
+
+/* Builder adds .full-height (100vh) — would re-create the empty band below the book */
+#preview-container #section-0BnD6agQ3.hero-background.full-height {
+  min-height: auto !important;
+}
+
+#preview-container #section-0BnD6agQ3.hero-background > div:first-of-type {
+  overflow: hidden !important;
+  /* Fade video out at bottom so overlap zone can show About mustard behind hero */
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 52%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 52%, transparent 100%);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+/* Drop embedded min-height:100vh on .inner so the hero is not its own tall scrollport;
+   layout still fills the viewport via hero min-height + flex align (inline styles). */
+#preview-container #section-0BnD6agQ3.hero-background > .inner {
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  /* Keep vertical padding off the flex wrapper — spacing comes from rows (TASK 13 mobile was adding 2rem+ here) */
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Soft fade — bottom clears so About (#row-tYpqFbEfdw) reads through under overlapping book */
+#preview-container #section-0BnD6agQ3.hero-background::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: clamp(120px, 28vh, 320px);
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(22, 46, 51, 0) 0%,
+    rgba(27, 35, 65, 0.35) 42%,
+    rgba(19, 26, 48, 0.45) 68%,
+    rgba(27, 35, 65, 0) 100%
+  );
+}
+
+/* Brand logo PNG — hero: smaller + centered; fist/sunburst raster: Mission column #image-footer-brand-logo-fist */
+#preview-container #section-0BnD6agQ3 #col-OcUn20J942r .vertical.inner {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+#preview-container #svg-UStiz70WN0m.hero-brand-logo {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Top utility row (launch price / logo / email) — no extra top inset */
+#preview-container #section-0BnD6agQ3 #row-RBmj2U62RL3 {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+#preview-container #svg-UStiz70WN0m.hero-brand-logo .image-container {
+  overflow: visible !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#preview-container #svg-UStiz70WN0m.hero-brand-logo img {
+  display: block;
+  width: min(120px, 32vw) !important;
+  max-width: 100%;
+  height: auto;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  object-fit: contain;
+}
+
+/* Footer: logo + mission line + email — single centered stack */
+#preview-container #footer-brand-centered-stack {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  max-width: 40rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  gap: clamp(1rem, 3vw, 1.5rem) !important;
+  padding-top: 0.25rem !important;
+  box-sizing: border-box !important;
+}
+
+#preview-container #section-eGouKHWLmI #image-mission-mark .mission-brand-logo-wrap {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 0.25rem 0 0.35rem !important;
+}
+
+#preview-container #image-footer-brand-logo-fist {
+  display: block;
+  width: min(140px, 40vw);
+  max-width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: contain;
+}
+
+#preview-container #section-eGouKHWLmI #paragraph-QKgO_V5BAm,
+#preview-container #section-eGouKHWLmI #paragraph-QKgO_V5BAm p {
+  text-align: center !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Hero book — size + vertical rhythm (export + HL heading margins stack above the book) */
+#preview-container #section-0BnD6agQ3 #row-shbTFMv0Eo {
+  padding-bottom: 0 !important;
+}
+
+#preview-container #section-0BnD6agQ3 #col-53M3nqBibb {
+  padding-top: 0.25rem !important;
+  padding-bottom: 0 !important;
+}
+
+#preview-container #section-0BnD6agQ3 #row-shbTFMv0Eo #sub-heading-TYIRGrxBlz h2 {
+  margin-top: 0 !important;
+  margin-bottom: 0.2em !important;
+}
+
+#preview-container #section-0BnD6agQ3 #row-shbTFMv0Eo #heading-UiXakRRCXu h1 {
+  margin-top: 0 !important;
+  margin-bottom: 0.2em !important;
+}
+
+#preview-container #section-0BnD6agQ3 #row-shbTFMv0Eo #paragraph-wnepp6znt5 p {
+  margin-top: 0 !important;
+  margin-bottom: 0.45em !important;
+}
+
+#preview-container #section-0BnD6agQ3 #button-Eyv8iotnyh.c-button {
+  margin-top: 0.45rem !important;
+  margin-bottom: 0 !important;
+}
+
+#preview-container #section-0BnD6agQ3 #row-wkDqfQwrR_ {
+  margin-top: clamp(-2rem, -3vw, -0.5rem) !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  position: relative !important;
+  z-index: 25 !important;
+}
+
+#preview-container #section-0BnD6agQ3 #col-IpGhVQn1p7 {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+#preview-container #section-0BnD6agQ3 #custom-code-VBUOVpKX5h {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+/* CTA wrappers (.c-button): centered content-width + transparent wrapper — crimson only on inner
+   button/link (see TASK 9) so buttonRocking and similar animations stay clean. */
+
+#preview-container #section-BKoW9seqjm {
+  position: relative;
+  z-index: 1 !important;
+  background-color: transparent !important;
+  /* Pull up under hero so book straddles hero video + mustard card (ref: Penpreneur-style overlap) */
+  margin-top: clamp(-4.75rem, -9vw, -2.75rem) !important;
+  /* Room for overlapping book only — do not stack with .inner (TASK 6 adds 3–5.5rem to every section .inner) */
+  padding-top: clamp(3.25rem, 5vw, 5rem) !important;
+  padding-bottom: clamp(2rem, 4vw, 3.5rem) !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* TASK 6 pads all `.c-section > .inner` — doubles the navy gap above the mustard row; strip it here */
+#preview-container #section-BKoW9seqjm > .inner {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Mustard “card” sits under the overlapping book; large top radius matches reference */
+#preview-container #section-BKoW9seqjm #row-tYpqFbEfdw {
+  position: relative !important;
+  z-index: 2 !important;
+  border-radius: clamp(40px, 5.5vw, 64px) clamp(40px, 5.5vw, 64px) 0 0 !important;
+  overflow: hidden !important;
+}
+
+@media screen and (max-width: 768px) {
+  #preview-container #section-BKoW9seqjm {
+    margin-top: clamp(-3.25rem, -10vw, -1.5rem) !important;
+    padding-top: clamp(2.75rem, 9vw, 4.5rem) !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #preview-container #section-BKoW9seqjm {
+    padding-bottom: clamp(1.5rem, 5vw, 2.5rem) !important;
+  }
+}
+
+#preview-container #section-BKoW9seqjm .bg-section-BKoW9seqjm {
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* --- Order form: search icon vs text (head-from-source .orderform .form-input wins) --- */
+#preview-container .container-order-form-two-step .hl-address-autocomplete-input-wrapper {
+  position: relative !important;
+}
+
+#preview-container .container-order-form-two-step .hl-address-autocomplete-input-wrapper > input.form-input,
+#preview-container .container-order-form-two-step .hl-address-autocomplete-input-wrapper > input.input {
+  padding-left: 2.75rem !important;
+  padding-right: 1.25rem !important;
+}
+
+#preview-container .container-order-form-two-step .hl-oc-address-autocomplete-search {
+  left: 0.9rem !important;
+  top: 50% !important;
+  right: auto !important;
+  transform: translateY(-50%) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  pointer-events: none !important;
+}
+
+/* Form labels / inputs: use funnel sans (DM Sans) instead of browser default serif. */
+#preview-container .container-order-form-two-step .form-input,
+#preview-container .container-order-form-two-step select.form-input,
+#preview-container .container-order-form-two-step .address-title,
+#preview-container .container-order-form-two-step .form-heading,
+#preview-container .container-order-form-two-step .form-sub-heading,
+#preview-container .container-order-form-two-step .shipping-title-wrapp {
+  font-family: var(--headlinefont, "DM Sans", ui-sans-serif, system-ui, sans-serif) !important;
+}
+
+#preview-container .container-order-form-two-step section.shipping .shipping-title-wrapp {
+  margin-bottom: 0.65rem;
+}
+
+#preview-container .container-order-form-two-step section.shipping .hl-address-autocomplete-input-wrapper {
+  margin-bottom: 0.35rem;
+}
+
+/* Digital offer: hide physical shipping step (PDF / instant access) */
+#preview-container .container-order-form-two-step section.shipping {
+  display: none !important;
+}
+
+/* Navy checkout card — white stroke */
+#preview-container #two-setp-order-cEISIcP7KB .container-order-form-two-step {
+  border: 2px solid rgba(255, 255, 255, 0.92) !important;
+  box-sizing: border-box !important;
+}
+
+/* Order form primary CTA — stack label lines; avoid split “strip” layout */
+#preview-container .two-setp-order-cEISIcP7KB button.form-btn {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  padding: 1rem 1.5rem !important;
+  min-height: 0 !important;
+  white-space: normal !important;
+}
+
+#preview-container .two-setp-order-cEISIcP7KB button.form-btn br {
+  display: none;
+}
+
+/* “NOT” hint bullets — avoid justified spacing gaps */
+#preview-container #bulletList-hW8-9eq47H li p,
+#preview-container #bulletList-Yo5byRT5lN li p,
+#preview-container #bulletList-6emmIUzWFw li p {
+  text-align: left !important;
+  text-wrap: pretty;
+}
+
+/* “New way” headline — tighter gradient pills (head-from-source used huge padding) */
+#preview-container .heading-U7bvwjww9A_ h1 span {
+  padding: 0.15em 0.5em 0.15em 0 !important;
+  border-radius: 0.2em 1.25em 1.25em 0 !important;
+  line-height: 1.35 !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Testimonial intros — full width like masonry grid below                     */
+/* head-from-source sets these rows to padding 15px 30%, */
+/* while testimonial grid rows use 15px 0 — intro looked “boxed” with bad wraps. */
+/* -------------------------------------------------------------------------- */
+#preview-container #row-0-shhXrUL_,
+#preview-container #row-C0EN3EEz8e,
+#preview-container #row-mjIqrVn_9W {
+  padding-left: clamp(1rem, 4vw, 3rem) !important;
+  padding-right: clamp(1rem, 4vw, 3rem) !important;
+  padding-top: clamp(0.75rem, 2vw, 1.5rem) !important;
+  padding-bottom: clamp(0.5rem, 2vw, 1.25rem) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#preview-container #row-0-shhXrUL_ > .inner,
+#preview-container #row-C0EN3EEz8e > .inner,
+#preview-container #row-mjIqrVn_9W > .inner {
+  width: 100% !important;
+  max-width: min(100%, 80rem) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#preview-container #col-LYdK6nINVh,
+#preview-container #col--KSUgArcoQ,
+#preview-container #col-wJEe8YRzxb {
+  max-width: 100% !important;
+}
+
+#preview-container #heading-iUcHeMJ5jK h1,
+#preview-container #heading-Yv1CU0M4d- h1,
+#preview-container #heading-GM_zkkJaQ6 h1,
+#preview-container #heading-msBtEr6NLH h1 {
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Accessibility: testimonial contrast (gold sections + star rows)           */
+/* -------------------------------------------------------------------------- */
+#preview-container #custom-code-kOG_Y4zHk- .testimonial-stars img,
+#preview-container [id^="custom-code-"] .testimonial-stars img {
+  vertical-align: middle;
+}
+
+#preview-container [id^="custom-code-"] .testimonial-name,
+#preview-container #custom-code-kOG_Y4zHk- p.user-name {
+  color: #0f172a !important;
+}
+
+/* Benefits / chat bubbles: avoid low-contrast green on mint gradients */
+#preview-container .benefits h3.tagline {
+  color: #0d2818 !important;
+}
+
+/* Mustard sections: teal chip needs light label text (not forest #0d2818 on dark teal) */
+#preview-container .benefits span.highlight {
+  background-color: #1a4d47 !important;
+  background-image: none !important;
+  color: #fefce8 !important;
+  box-decoration-break: slice !important;
+  -webkit-box-decoration-break: slice !important;
+}
+
+#preview-container .bubble-wrap .name-book h6 {
+  color: #0f172a !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Accessibility: page-wide contrast (WCAG-oriented)                         */
+/* -------------------------------------------------------------------------- */
+
+/* Hero: forest-green tokens read as near-invisible on dark navy video bg */
+#preview-container #section-0BnD6agQ3 {
+  --color-m6tmdjvq: #d1fae5;
+  --color-m8yjctyv: #e2e8f0;
+}
+
+/* Gatekeepers strip: accent spans on dark bg */
+#preview-container #section-VtfETO9mCO {
+  --color-m6tmdjvq: #bbf7d0;
+}
+
+/* Order form (shipping / billing headers on dark strip): force light text */
+#preview-container .container-order-form-two-step .address-title,
+#preview-container .container-order-form-two-step .form-heading,
+#preview-container .container-order-form-two-step .form-sub-heading,
+#preview-container .container-order-form-two-step .payment-title-wrapp,
+#preview-container .container-order-form-two-step .shipping-title-wrapp {
+  color: #f8fafc !important;
+}
+
+/* “Everything included” cards: light text on #1B2341 */
+#preview-container .everything-included-heading h4,
+#preview-container .everything-included .item-content h2,
+#preview-container .everything-included .item-content p {
+  color: #f1f5f9 !important;
+}
+
+/* Old Way / New Way: navy text on orange boxes → white */
+#preview-container .old-column .box,
+#preview-container .old-column .box p {
+  color: #ffffff !important;
+}
+
+/* “The Old Way” column heading on green bg */
+#preview-container .old-new-container .heading {
+  color: #fef08a !important;
+}
+
+/* Escape gatekeepers + similar: green spans on dark navy */
+#preview-container #section-VtfETO9mCO #heading-Mqqu1n5pcx .text-output,
+#preview-container #section-VtfETO9mCO .heading-Mqqu1n5pcx h1 {
+  text-align: center !important;
+}
+
+#preview-container #section-VtfETO9mCO .heading-Mqqu1n5pcx h1 {
+  color: #f1f5f9 !important;
+}
+
+/* 12 reasons / photo collage: lead line outside gold span */
+#preview-container #section-riT6Rdp7kH .sub-heading-7RS08Ecldo h2,
+#preview-container #section-riT6Rdp7kH .sub-heading-afdk2iEK-F p,
+#preview-container #section-riT6Rdp7kH .sub-heading-odcGcmQYNe p {
+  color: #f8fafc !important;
+}
+
+/* Blueprint model section: dark purple h2 lines */
+#preview-container #section-LrhYkmTc8- .sub-heading-nJl3VwWUdc h2,
+#preview-container #section-LrhYkmTc8- .sub-heading-PrDFfLUsQc h2,
+#preview-container #section-LrhYkmTc8- .sub-heading-oaU84vrf2b p {
+  color: #fef3c7 !important;
+}
+
+/* Twelve reasons carousel: body on dark cards */
+#preview-container .twelve-reasons .item-content h6,
+#preview-container .twelve-reasons .item-content p {
+  color: #f1f5f9 !important;
+}
+
+#preview-container .twelve-reasons .item-content p span {
+  color: var(--brand-grad-pill-text) !important;
+  background: var(--brand-grad-pill) !important;
+}
+
+/* “It doesn’t matter…” dark pills */
+#preview-container .paragraph-nfpUD6g3loHu,
+#preview-container .paragraph-iS8M0tmyrOcu,
+#preview-container .paragraph-UUUxzHFyDpYd,
+#preview-container .paragraph-nfpUD6g3loHu p,
+#preview-container .paragraph-iS8M0tmyrOcu p,
+#preview-container .paragraph-UUUxzHFyDpYd p {
+  color: #f1f5f9 !important;
+}
+
+/* Guarantee: “Amr’s” outside gold span */
+#preview-container #section-qodXNy49IYP .heading-ajVyWCZka2 h3 {
+  color: #f8fafc !important;
+}
+
+/* Guarantee: “Furthermore…” — open editorial callout (no solid teal card) */
+#preview-container #section-qodXNy49IYP h2.guarantee-furthermore-panel {
+  background: transparent !important;
+  color: #e8dcc4 !important;
+  padding: 1.35rem 0.75rem 1.5rem !important;
+  margin: 1rem auto 0.5rem !important;
+  max-width: min(100%, 80rem) !important;
+  border-radius: 0 !important;
+  border: none !important;
+  border-top: 1px solid rgba(201, 168, 76, 0.45) !important;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.45) !important;
+  box-shadow: none !important;
+  font-weight: 500 !important;
+  line-height: 1.65 !important;
+  font-size: clamp(1.02rem, 2.35vw, 1.125rem) !important;
+  text-align: center !important;
+  letter-spacing: 0.01em !important;
+}
+
+#preview-container #section-qodXNy49IYP h2.guarantee-furthermore-panel span {
+  color: #e8dcc4 !important;
+}
+
+#preview-container #section-qodXNy49IYP .guarantee-accent-gold {
+  color: #f0d78c !important;
+}
+
+/* Guarantee: launch CTA — no outer navy “blox”; red button sits on section bg */
+#preview-container #section-qodXNy49IYP .guarantee-cta-panel {
+  background: transparent !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  max-width: 100% !important;
+}
+
+#preview-container #section-qodXNy49IYP .guarantee-cta-panel .sub-heading-button {
+  color: #e2e8f0 !important;
+}
+
+/* Guarantee section — centered column, DM Sans, spacing (override HL full-viewport column + left align) */
+#preview-container #section-qodXNy49IYP {
+  padding-top: clamp(2.75rem, 8vw, 5rem) !important;
+  padding-bottom: clamp(2.75rem, 8vw, 5rem) !important;
+  padding-left: clamp(1rem, 4vw, 2rem) !important;
+  padding-right: clamp(1rem, 4vw, 2rem) !important;
+  background-color: #131a30 !important;
+}
+
+#preview-container #section-qodXNy49IYP > .inner {
+  max-width: 84rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Card container for seal + “Amr’s Generous Guarantee” + copy + CTA */
+#preview-container #section-qodXNy49IYP .amr-guarantee-panel {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  padding: clamp(1.5rem, 4vw, 2.35rem) clamp(1.25rem, 3vw, 1.85rem) !important;
+  background: rgba(27, 35, 65, 0.72) !important;
+  border: 1px solid rgba(201, 168, 76, 0.3) !important;
+  border-radius: clamp(14px, 2.2vw, 22px) !important;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.32) !important;
+}
+
+#preview-container #col-1hsCpc4CSj {
+  min-height: 0 !important;
+  animation: none !important;
+  background-image: none !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  width: 100% !important;
+}
+
+#preview-container #row-yaw6Wp8FDq {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+#preview-container #row-yaw6Wp8FDq > .inner {
+  justify-content: center !important;
+}
+
+#preview-container #col-1hsCpc4CSj .vertical.inner {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  max-width: 76rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#preview-container #image-dCAjy8uJXexb {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  margin-bottom: 1.15rem !important;
+}
+
+#preview-container #image-dCAjy8uJXexb .image-container {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#preview-container #image-dCAjy8uJXexb .image-container img {
+  width: min(240px, 72vw) !important;
+  max-width: 260px !important;
+  height: auto !important;
+}
+
+#preview-container #heading-ajVyWCZka2,
+#preview-container #heading-ajVyWCZka2 .text-output {
+  width: 100% !important;
+  text-align: center !important;
+}
+
+#preview-container #heading-ajVyWCZka2 h3 {
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif !important;
+  text-align: center !important;
+  text-transform: none !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  letter-spacing: 0.02em !important;
+}
+
+#preview-container #sub-heading-zHKIGABBBkgJ .text-output,
+#preview-container #sub-heading-zHKIGABBBkgJ h2,
+#preview-container #sub-heading-zHKIGABBBkgJ p {
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif !important;
+  text-align: center !important;
+  text-transform: none !important;
+  font-weight: 400 !important;
+  line-height: 1.58 !important;
+}
+
+#preview-container #section-qodXNy49IYP .guarantee-cta-panel {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: clamp(2.25rem, 5.5vw, 3.5rem) !important;
+  width: 100% !important;
+  max-width: min(100%, 72rem) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+#preview-container #section-qodXNy49IYP .guarantee-cta-panel button {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+#preview-container #section-qodXNy49IYP .guarantee-cta-panel .main-heading-button {
+  font-weight: 700 !important;
+}
+
+/* FAQ: DM Sans + sentence case (overrides global h1/h2 uppercase), centered intro, spaced cards */
+#preview-container #section-qS3x5-UN8Ij h1,
+#preview-container #section-qS3x5-UN8Ij h2,
+#preview-container #section-qS3x5-UN8Ij h3,
+#preview-container #section-qS3x5-UN8Ij p,
+#preview-container #section-qS3x5-UN8Ij li {
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif !important;
+  text-transform: none !important;
+  letter-spacing: 0.01em !important;
+}
+
+#preview-container #section-qS3x5-UN8Ij > .inner {
+  max-width: min(100%, 72rem) !important;
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#preview-container #section-qS3x5-UN8Ij #row-QUGMLFk5fy9i {
+  margin-bottom: 0 !important;
+}
+
+#preview-container #section-qS3x5-UN8Ij #row-QUGMLFk5fy9i > .inner {
+  justify-content: center !important;
+  padding-bottom: 0 !important;
+}
+
+#preview-container #section-qS3x5-UN8Ij #col-Wy12YARiTyLt .vertical.inner {
+  align-items: center !important;
+  text-align: center !important;
+  max-width: min(100%, 48rem) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  gap: 0.4rem !important;
+  padding-bottom: 0.15rem !important;
+}
+
+#preview-container #section-qS3x5-UN8Ij .sub-heading-yFd1XOtpGrzL {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+#preview-container #section-qS3x5-UN8Ij .sub-heading-yFd1XOtpGrzL .text-output,
+#preview-container #section-qS3x5-UN8Ij .sub-heading-yFd1XOtpGrzL h2 {
+  max-width: 100% !important;
+  white-space: normal !important;
+  overflow: visible !important;
+}
+
+/* FAQ main title — same pattern as other section h1s (light line + gold span → unified teal pill) */
+#preview-container #section-qS3x5-UN8Ij .heading-msBtEr6NLH h1 {
+  text-align: center !important;
+  line-height: 1.2 !important;
+  color: #f8fafc !important;
+}
+
+#preview-container #section-qS3x5-UN8Ij .sub-heading-yFd1XOtpGrzL h2 {
+  color: #cbd5e1 !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+  font-size: clamp(0.875rem, 2.2vw, 1rem) !important;
+  line-height: 1.45 !important;
+}
+
+#preview-container #section-qS3x5-UN8Ij .sub-heading-glF0PvV8Fr h2 {
+  color: #94a3b8 !important;
+  font-style: italic !important;
+  text-transform: none !important;
+  font-weight: 400 !important;
+  line-height: 1.55 !important;
+}
+
+/* FAQ: drop pale yellow cards — solid panels, kill busy photo underlay */
+#preview-container #section-qS3x5-UN8Ij .faq-item-row {
+  background-color: transparent !important;
+  background-image: none !important;
+  border-color: transparent !important;
+  width: 100% !important;
+  max-width: min(100%, 64rem) !important;
+  margin-inline: auto !important;
+  padding: clamp(0.5rem, 1.5vw, 0.85rem) !important;
+}
+
+#preview-container #section-qS3x5-UN8Ij #row-JrAZzGxYpe.faq-item-row {
+  margin-top: clamp(0.65rem, 2vw, 1.1rem) !important;
+  margin-bottom: 0 !important;
+}
+
+#preview-container #section-qS3x5-UN8Ij .faq-item-row + .faq-item-row {
+  margin-top: 1.25rem !important;
+}
+
+#preview-container #section-qS3x5-UN8Ij .faq-item-row > .bg {
+  background: none !important;
+  opacity: 0 !important;
+}
+
+#preview-container #section-qS3x5-UN8Ij .faq-qa-card > .inner {
+  background: rgba(27, 35, 65, 0.94) !important;
+  border: 1px solid rgba(201, 168, 76, 0.22) !important;
+  border-radius: 24px !important;
+  padding: clamp(1.65rem, 4.25vw, 2.65rem) !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35) !important;
+}
+
+#preview-container #section-qS3x5-UN8Ij .faq-qa-card .c-heading h1 {
+  color: #f1f5f9 !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+  text-align: left !important;
+  line-height: 1.35 !important;
+}
+
+#preview-container #section-qS3x5-UN8Ij .faq-qa-card .c-sub-heading h2 {
+  text-transform: none !important;
+  font-variant: normal !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.01em !important;
+  line-height: 1.68 !important;
+  color: #e2e8f0 !important;
+  text-align: left !important;
+}
+
+#preview-container #section-qS3x5-UN8Ij .faq-qa-card .c-sub-heading h2 strong {
+  color: #c0392b !important;
+  font-weight: 700 !important;
+}
+
+#preview-container #section-qS3x5-UN8Ij .bulletList-bAdrNe_pD6,
+#preview-container #section-qS3x5-UN8Ij .bulletList-bAdrNe_pD6 p,
+#preview-container #section-qS3x5-UN8Ij .bulletList-bAdrNe_pD6 a {
+  color: #f8fafc !important;
+}
+
+#preview-container #section-qS3x5-UN8Ij .bulletList-bAdrNe_pD6 {
+  border-radius: 999px !important;
+  border: 1px solid rgba(192, 57, 43, 0.4) !important;
+  background: rgba(19, 26, 48, 0.65) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+  margin-top: 1.25rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 0.85rem 1.35rem !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+  text-align: center !important;
+  list-style: none !important;
+}
+
+#preview-container #section-qS3x5-UN8Ij .bulletList-bAdrNe_pD6 ul {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  text-align: center !important;
+}
+
+#preview-container #section-qS3x5-UN8Ij .bulletList-bAdrNe_pD6 li {
+  justify-content: center !important;
+}
+
+/* FAQ: section uses brand navy (overrides export forest-green token) */
+#preview-container #section-qS3x5-UN8Ij {
+  background: var(--brand-grad-vertical) !important;
+  border-color: transparent !important;
+  padding-top: clamp(2.5rem, 7vw, 4rem) !important;
+  padding-bottom: clamp(2.75rem, 8vw, 4.5rem) !important;
+}
+
+/* Mission row — same fist/pen asset as former footer-top logo (#image-footer-brand-logo-fist) */
+#preview-container #section-eGouKHWLmI #image-mission-mark .image-container img {
+  display: block !important;
+}
+
+/* Footer contact row — light text on #section-eGouKHWLmI navy (not ink navy) */
+#preview-container #custom-code-Yl-0gtfyZB .contact-item span,
+#preview-container #custom-code-Yl-0gtfyZB .contact-item a {
+  color: #f1f5f9 !important;
+}
+
+#preview-container #custom-code-Yl-0gtfyZB .contact-item a:hover {
+  color: #e8c96c !important;
+}
+
+#preview-container #custom-code-Yl-0gtfyZB .contact-column {
+  align-items: center !important;
+}
+
+/* Email pill — shrink-wrap + center in column; even padding; icon + label aligned on one row */
+#preview-container #custom-code-Yl-0gtfyZB .contact-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0.75rem 1.2rem !important;
+  gap: 0.65rem !important;
+  box-sizing: border-box !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#preview-container #custom-code-Yl-0gtfyZB .contact-item img {
+  margin: 0 !important;
+  flex-shrink: 0 !important;
+  object-fit: contain !important;
+}
+
+#preview-container #custom-code-Yl-0gtfyZB .contact-item span {
+  display: inline-flex !important;
+  align-items: center !important;
+  line-height: 1.25 !important;
+}
+
+@media (max-width: 768px) {
+  #preview-container #custom-code-Yl-0gtfyZB .contact-item {
+    padding: 0.65rem 1rem !important;
+  }
+}
+
+/* Footer strip (#section-eGouKHWLmI): drop template USPS/postage stamp SVG */
+#preview-container #row-XA0yvAAffr #col-vn3t6ocbeT {
+  display: none !important;
+}
+
+#preview-container #row-XA0yvAAffr > .inner {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-wrap: nowrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  align-content: center !important;
+  gap: clamp(0.65rem, 2vw, 1rem) !important;
+  width: 100% !important;
+  max-width: 40rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Footer top block: logo + mission + email — stack above legal row (was 2 columns with styles row) */
+#preview-container #row-Y5osgkbFcG > .inner {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: clamp(1rem, 3vw, 1.5rem) !important;
+  width: 100% !important;
+}
+
+#preview-container #row-Y5osgkbFcG #col-cKScFhWPjd {
+  width: 100% !important;
+  max-width: 40rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#preview-container #row-moxf58T6qM {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#preview-container #row-moxf58T6qM > .inner {
+  width: 100% !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* © + Terms — single centered column */
+#preview-container #col-R2HBolh99i {
+  width: 100% !important;
+  max-width: 40rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  text-align: center !important;
+}
+
+#preview-container #col-R2HBolh99i > .inner {
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+#preview-container #paragraph-tL6jCXc36h,
+#preview-container #paragraph-tL6jCXc36h p {
+  text-align: center !important;
+  width: 100% !important;
+}
+
+/* Footer green block: full-bleed width (export used 450px / 150px top-left radius = curved cutout) */
+#preview-container #section-eGouKHWLmI,
+#preview-container .section-eGouKHWLmI,
+.hl_page-preview--content .section-eGouKHWLmI {
+  border-radius: 0 !important;
+  /* Beat #preview-container .c-section:nth-child(even) → #131a30; restore export forest green */
+  background-color: #0e2c26 !important;
+  /* Inline custom CSS sets display:flex without flex-direction → rows sat side-by-side */
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+}
+
+/* Legal strip: anchor toward bottom of footer section; trim dead space under last line */
+#preview-container #section-eGouKHWLmI > .inner {
+  padding-bottom: clamp(0.65rem, 1.8vw, 1.15rem) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+#preview-container #row-XA0yvAAffr {
+  margin-top: clamp(1.25rem, 3.5vw, 2.5rem) !important;
+  padding-top: clamp(1.35rem, 3.25vw, 2.25rem) !important;
+  padding-bottom: clamp(0.35rem, 1.2vw, 0.65rem) !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+#preview-container #section-eGouKHWLmI #row-Y5osgkbFcG {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* © line + Terms — kill empty <p> gap; stack tightly when columns wrap */
+#preview-container #paragraph-tL6jCXc36h p:empty {
+  display: none !important;
+}
+
+#preview-container #paragraph-tL6jCXc36h p {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+#preview-container #paragraph-Um4HozDYpi p {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Author section bottom CTA — lock to brand crimson */
+#preview-container #button-ylwJssIp-X_btn.cbutton-ylwJssIp-X,
+#preview-container .cbutton-ylwJssIp-X {
+  background-color: #c0392b !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+}
+
+#preview-container #button-ylwJssIp-X_btn.cbutton-ylwJssIp-X:hover {
+  filter: brightness(1.07) !important;
+}
+
+/* Footer: center Terms | Privacy */
+#preview-container #col-hkFfqAXtiD {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  max-width: 40rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 0.35rem 0 0 !important;
+  text-align: center !important;
+}
+
+#preview-container #col-hkFfqAXtiD .inner {
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+#preview-container #paragraph-Um4HozDYpi,
+#preview-container #paragraph-Um4HozDYpi p {
+  text-align: center !important;
+  width: 100% !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Highlights & accents: brand gold + readable text (no mint-on-gold)         */
+/* -------------------------------------------------------------------------- */
+
+/* Gatekeepers headline: dark ink on gold bar */
+#preview-container #section-VtfETO9mCO .heading-Mqqu1n5pcx h1 span[style*="--color-m6tmdjvq"] {
+  color: var(--brand-grad-pill-text) !important;
+  background: var(--brand-grad-pill) !important;
+  padding: 0.12em 0.45em !important;
+  border-radius: 0.2em !important;
+  line-height: 1.55 !important;
+  box-decoration-break: clone !important;
+  -webkit-box-decoration-break: clone !important;
+}
+
+/* “True Story” block: headline + subline readable on dark bg */
+#preview-container #sub-heading-hQtYfFcbml h2 {
+  color: #f1f5f9 !important;
+}
+
+#preview-container #sub-heading-hQtYfFcbml h2 span[style*="--color-m6tmdjvq"] {
+  color: var(--brand-grad-pill-text) !important;
+  background: var(--brand-grad-pill) !important;
+  padding: 0.12em 0.4em !important;
+  border-radius: 0.2em !important;
+  line-height: 1.55 !important;
+  box-decoration-break: clone !important;
+  -webkit-box-decoration-break: clone !important;
+}
+
+#preview-container #sub-heading-DQLWJ2gvS_2m p {
+  color: #cbd5e1 !important;
+}
+
+/* Sales letter column: parchment/cream surface — brand navy body type (not light-on-light) */
+#preview-container #col-KqDD9fzwHM {
+  --color-m8yjctyv: #1b2341;
+  --color-m6tmdjvq: #1b2341;
+}
+
+#preview-container #col-KqDD9fzwHM .c-sub-heading .text-output > div > p,
+#preview-container #col-KqDD9fzwHM .c-paragraph .text-output > div > p {
+  color: #1b2341 !important;
+}
+
+/* Letter body: navy on cream/parchment (section may sit on navy, but column shows paper texture) */
+#preview-container #section-LevavMsHcV #col-KqDD9fzwHM .text-output,
+#preview-container #section-LevavMsHcV #col-KqDD9fzwHM .text-output p,
+#preview-container #section-LevavMsHcV #col-KqDD9fzwHM .text-output h2,
+#preview-container #section-LevavMsHcV #col-KqDD9fzwHM .text-output h1,
+#preview-container #section-LevavMsHcV #col-KqDD9fzwHM .text-output em {
+  color: #1b2341 !important;
+}
+
+#preview-container #section-LevavMsHcV #col-KqDD9fzwHM .text-output span:not(.highlight):not(.highlight2) {
+  color: #1b2341 !important;
+}
+
+#preview-container #section-LevavMsHcV #col-KqDD9fzwHM .text-output p:not(.par-highlight) strong,
+#preview-container #section-LevavMsHcV #col-KqDD9fzwHM .text-output h2 strong {
+  color: #1b2341 !important;
+}
+
+#preview-container #section-LevavMsHcV #col-KqDD9fzwHM .par-highlight strong,
+#preview-container #section-LevavMsHcV #col-KqDD9fzwHM .par-highlight .highlight {
+  color: var(--brand-grad-pill-text) !important;
+}
+
+#preview-container #section-LevavMsHcV #col-KqDD9fzwHM .text-output a {
+  color: #1b2341 !important;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+#preview-container #section-LevavMsHcV #col-KqDD9fzwHM .text-output a:hover {
+  color: #c0392b !important;
+}
+
+#preview-container #section-LevavMsHcV #col-KqDD9fzwHM .c-button .main-heading-button,
+#preview-container #section-LevavMsHcV #col-KqDD9fzwHM .c-button .sub-heading-button {
+  color: #ffffff !important;
+}
+
+/* Letter closing (e.g. “Peace.”) → primary CTA: clearer separation from body copy */
+#preview-container #section-LevavMsHcV #col-KqDD9fzwHM #sub-heading-gyBY68MB0Q + #button-dgGIEN4wA2 {
+  margin-top: clamp(1.75rem, 5vw, 3rem) !important;
+}
+
+#preview-container #col-KqDD9fzwHM .highlight,
+#preview-container #col-KqDD9fzwHM .par-highlight,
+#preview-container #col-KqDD9fzwHM .par-highlight strong,
+#preview-container #col-KqDD9fzwHM .par-highlight .highlight {
+  background: var(--brand-grad-pill) !important;
+  color: var(--brand-grad-pill-text) !important;
+  padding: 0.35em 0.55em !important;
+  line-height: 1.65 !important;
+  border-radius: 0.35em !important;
+  box-decoration-break: clone !important;
+  -webkit-box-decoration-break: clone !important;
+}
+
+/* “Harsh Reality” row (#row-Mw4Cbgc-wvZj) — replace mint pill spans with editorial h2 */
+#preview-container #col-jvPQ-RIeOrE3 .letter-callout-headline {
+  margin: 0.85rem auto !important;
+  padding: 0 0.75rem !important;
+  max-width: 42rem !important;
+  text-align: center !important;
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(1.08rem, 2.5vw, 1.42rem) !important;
+  line-height: 1.38 !important;
+  letter-spacing: 0.01em !important;
+  text-transform: none !important;
+  color: #f1f5f9 !important;
+}
+
+#preview-container #col-jvPQ-RIeOrE3 .letter-callout-line {
+  color: #f8fafc !important;
+}
+
+#preview-container #col-jvPQ-RIeOrE3 .letter-callout-accent {
+  color: #e8c96c !important;
+}
+
+#preview-container #col-jvPQ-RIeOrE3 .letter-callout-headline em {
+  color: #fde68a !important;
+  font-style: italic !important;
+  font-weight: 600 !important;
+}
+
+/* “Harsh Reality” three reason lines — global h3 is light grey (invisible on white card) */
+#preview-container #sub-heading-UntxzLzSMY8n h3,
+#preview-container #sub-heading-UntxzLzSMY8n .text-output h3 {
+  color: #c0392b !important;
+  font-weight: 700 !important;
+}
+
+/* “The most important factor…” monetization callout — brand crimson */
+#preview-container #custom-code-RYcCsDpKeD11 .letter-callout-headline {
+  color: #c0392b !important;
+}
+
+/* “Will there be any copies…” closing callout — brand crimson */
+#preview-container #custom-code-5avRNrEOXw3v .letter-callout-headline,
+#preview-container #custom-code-5avRNrEOXw3v .letter-callout-headline em {
+  color: #c0392b !important;
+}
+
+/* Embedded block had broken gradient + mint/green — override */
+#preview-container .col-0M3NcqvSTB .highlight,
+#preview-container .col-0M3NcqvSTB .par-highlight {
+  background: var(--brand-grad-pill) !important;
+  color: var(--brand-grad-pill-text) !important;
+}
+
+/* Testimonial / quote strip (mustard section): dark text, no white-on-gold */
+#preview-container #custom-code-C7USs0TMHD p,
+#preview-container #custom-code-C7USs0TMHD span:not(.highlight) {
+  color: #1e293b !important;
+}
+
+#preview-container #custom-code-C7USs0TMHD span.highlight {
+  background: var(--brand-grad-pill) !important;
+  color: var(--brand-grad-pill-text) !important;
+  padding: 0.15em 0.35em !important;
+  border-radius: 0.25em !important;
+}
+
+/* Penpreneur-style benefit cards: no gold stroke (backup if inline returns) */
+#preview-container .book-features-container .feature {
+  border: none !important;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.35);
+  color: #f0f0f0 !important;
+}
+
+#preview-container .book-features-container .feature h6 {
+  color: #c9a84c !important;
+}
+
+/* =====================================================================
+   AI DESIGNER BLUEPRINT — Brand consistency overrides (Task 18b)
+   ===================================================================== */
+
+/* 1. Body base */
+body,
+#preview-container {
+  background-color: #1b2341 !important;
+  color: #f0f0f0 !important;
+}
+
+/* 2. All CTA buttons — brand crimson */
+#preview-container .c-button button,
+#preview-container .c-button > a {
+  background-color: #c0392b !important;
+  color: #ffffff !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+}
+
+#preview-container .c-button button:hover,
+#preview-container .c-button > a:hover {
+  background-color: #a93226 !important;
+}
+
+/* 3. Alternating section backgrounds for visual rhythm */
+#preview-container .c-section:nth-child(even) {
+  background-color: #131a30;
+}
+
+/* 4. Speech-bubble style blocks only — do NOT use [class*="testimonial"]
+   (that substring matches .testimonial-copy / .testimonial-content and wrecks contrast) */
+#preview-container .bubble-wrap {
+  background-color: #232e4a !important;
+  border: 1px solid #2d3a55 !important;
+  border-radius: 8px;
+}
+
+/* 5. Gold accent text overrides (was orange/green) */
+#preview-container [style*="color: rgb(250, 136, 10)"],
+#preview-container [style*="#FA880A"],
+#preview-container [style*="#a9eb35"],
+#preview-container [style*="#A9EB35"] {
+  color: #c9a84c !important;
+}
+
+/* 6. Green background overrides → navy */
+#preview-container [style*="background-color: rgb(14, 44, 38)"],
+#preview-container [style*="#0e2c26"],
+#preview-container [style*="#0E2C26"] {
+  background-color: #131a30 !important;
+}
+
+/* 7. Form inputs — readable on dark background */
+#preview-container input[type="text"],
+#preview-container input[type="email"],
+#preview-container input[type="tel"],
+#preview-container select,
+#preview-container textarea {
+  background-color: #1e2a45 !important;
+  border: 1px solid #3a4a6b !important;
+  color: #f0f0f0 !important;
+}
+
+#preview-container input::placeholder,
+#preview-container textarea::placeholder {
+  color: #9ca3af !important;
+}
+
+/* 8. FAQ accordion — dark themed */
+#preview-container .hl-faq-child-heading {
+  background-color: #232e4a !important;
+  color: #f0f0f0 !important;
+  border-bottom: 1px solid #2d3a55 !important;
+}
+
+#preview-container .hl-faq-child-panel {
+  background-color: #1b2341 !important;
+  color: #f0f0f0 !important;
+}
+
+/* 9. Sticky header bar — darkest background */
+#preview-container .c-section:first-child {
+  background-color: #0d1117 !important;
+  border-bottom: 1px solid #2d3a55 !important;
+}
+
+/* 10. Headline contrast — ensure white on all dark backgrounds */
+#preview-container h1,
+#preview-container h2 {
+  color: #ffffff;
+}
+
+#preview-container h3,
+#preview-container h4 {
+  color: #f0f0f0;
+}
+
+/* Star rating text / SVG icons — gold fill, don't touch images */
+#preview-container .testimonial-stars svg,
+#preview-container .testimonial-stars svg path,
+#preview-container [class*="star-icon"] svg,
+#preview-container [class*="star-icon"] svg path,
+#preview-container [class*="rating"] svg,
+#preview-container [class*="rating"] svg path {
+  fill: #c9a84c !important;
+  color: #c9a84c !important;
+}
+
+#preview-container .testimonial-stars img {
+  object-fit: contain;
+}
+
+/* 12. Guarantee / callout boxes */
+#preview-container [style*="#FEFBEA"],
+#preview-container [style*="#FFF8E6"],
+#preview-container [style*="#FFFBEB"] {
+  background-color: #232e4a !important;
+  border: 1px solid #c9a84c !important;
+  color: #f0f0f0 !important;
+}
+
+/* 13. Barlow Condensed headline tracking */
+#preview-container h1,
+#preview-container h2,
+#preview-container [style*="Barlow Condensed"] {
+  letter-spacing: -0.01em;
+  /* Removed text-transform: uppercase — HTML content controls case */
+}
+
+/* Only force uppercase on specific label/eyebrow headings */
+#preview-container .c-label h1,
+#preview-container .c-label h2,
+#preview-container .eyebrow h2,
+#preview-container h4.eyebrow {
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  font-size: 0.875rem !important;
+}
+
+/* 14. Body text line-height */
+#preview-container p,
+#preview-container li {
+  line-height: 1.75;
+  letter-spacing: 0;
+}
+
+/* 15. Marquee / logo bar */
+#preview-container [class*="marquee"] {
+  background-color: #131a30 !important;
+}
+
+/* 16. HR / dividers */
+#preview-container hr {
+  border: none !important;
+  border-top: 1px solid rgba(201, 168, 76, 0.3) !important;
+  margin: 2rem auto !important;
+  max-width: 200px;
+}
+
+/* Highlight pills / inline callouts — teal pill + gold text */
+#preview-container .highlight,
+#preview-container .par-highlight,
+#preview-container mark {
+  background: var(--brand-grad-pill) !important;
+  color: var(--brand-grad-pill-text) !important;
+  padding: 0.1em 0.35em !important;
+  border-radius: 3px !important;
+  font-weight: 600;
+}
+
+/* 17. Benefits section contrast check */
+#preview-container .benefits h3,
+#preview-container .benefits p {
+  color: #f0f0f0 !important;
+}
+
+/* 18. Old-way boxes — force readable contrast */
+#preview-container .old-column .box,
+#preview-container .old-column .box p,
+#preview-container .old-column .box strong {
+  color: #f0f0f0 !important;
+}
+
+/* 19. "New way" column positive contrast */
+#preview-container .new-column .box,
+#preview-container .new-column .box p {
+  color: #f0f0f0 !important;
+}
+
+/* 20. P.S. emphasis (invalid :contains() omitted — use sub-heading strong) */
+#preview-container #sub-heading-7stvHelppO3Z p strong:first-of-type,
+#preview-container #sub-heading-oZdfyddsRr6f + * p strong {
+  color: #e8c96c !important;
+  font-style: italic;
+}
+
+/* =====================================================================
+   TASK 4c — Kill legacy bg-image textures (flat navy rhythm)
+   ===================================================================== */
+/* #section-BKoW9seqjm omitted — transparent shell + overlap with hero book (mustard on #row-tYpqFbEfdw) */
+/* #section-KPKZo7vTvp — navy band + animated wave PNG row (dedicated rules below) */
+#preview-container #section-rgCVEKG72x,
+#preview-container #section-uEwq4tfKF6,
+#preview-container #section-IMPP1bF5gIX,
+#preview-container #section-LrhYkmTc8-,
+#preview-container #section-riT6Rdp7kH,
+#preview-container #section-aldpS9XQpQ,
+#preview-container #section-F5v7zxLkbi1,
+#preview-container #section-qodXNy49IYP {
+  background-image: none !important;
+  background-color: #1b2341 !important;
+}
+
+#preview-container #section-uEwq4tfKF6,
+#preview-container #section-LrhYkmTc8-,
+#preview-container #section-qodXNy49IYP {
+  background-color: #131a30 !important;
+}
+
+/* “Here’s What It’s All About” — match funnel navy; row uses animated wave texture (head-from-source) */
+@keyframes scrollBgWave {
+  from {
+    background-position-y: 0%;
+  }
+  to {
+    background-position-y: -600px;
+  }
+}
+
+#preview-container #section-KPKZo7vTvp {
+  background-color: #131a30 !important;
+  background-image: none !important;
+}
+
+#preview-container #section-KPKZo7vTvp .bg-section-KPKZo7vTvp {
+  display: block !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+}
+
+#preview-container #section-KPKZo7vTvp .row-FU8H8WQdwwV {
+  display: block !important;
+  width: 100% !important;
+  min-height: 100vh !important;
+  background-color: #131a30 !important;
+  background-image: url(./assets/remote/f1ba4839968bfe96.png) !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  animation: scrollBgWave 25s linear infinite !important;
+  border-radius: 0 3.75rem 0 0 !important;
+  box-sizing: border-box !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #preview-container #section-KPKZo7vTvp .row-FU8H8WQdwwV {
+    animation: none !important;
+  }
+}
+
+#preview-container #section-KPKZo7vTvp > .inner {
+  max-width: min(96vw, 1200px) !important;
+}
+
+@media (max-width: 1200px) {
+  #preview-container #row-FU8H8WQdwwV > .inner {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #preview-container #section-KPKZo7vTvp {
+    padding-left: clamp(0.5rem, 3vw, 1rem) !important;
+    padding-right: clamp(0.5rem, 3vw, 1rem) !important;
+    padding-top: clamp(1.5rem, 5vw, 2.5rem) !important;
+    padding-bottom: clamp(1.5rem, 5vw, 2.5rem) !important;
+  }
+
+  #preview-container #section-KPKZo7vTvp .row-FU8H8WQdwwV {
+    padding: clamp(0.85rem, 3.5vw, 1.25rem) clamp(0.5rem, 2.5vw, 0.85rem) !important;
+  }
+
+  #preview-container #section-KPKZo7vTvp #col-DhQ8Tx9ETt9,
+  #preview-container #section-KPKZo7vTvp #col-v0wCY8gi8TE,
+  #preview-container #section-KPKZo7vTvp #col-_IZwejgMEx {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  #preview-container #section-KPKZo7vTvp .book-offer-text {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  #preview-container #section-KPKZo7vTvp #image-KzrhoBFaBi .image-container {
+    max-width: 100% !important;
+  }
+}
+
+/* Order column: launch banner PNG sits above the pricing SVG (section-BKoW9seqjm, #col-_IZwejgMEx) */
+#preview-container #section-BKoW9seqjm #col-_IZwejgMEx .book-offer-launch-banner {
+  width: 100% !important;
+  max-width: min(100%, 483px) !important;
+  margin: 0 auto clamp(0.35rem, 1.5vw, 0.75rem) !important;
+  line-height: 0 !important;
+}
+
+#preview-container #section-BKoW9seqjm #col-_IZwejgMEx .book-offer-launch-banner-img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+}
+
+/* Portrait → “Hi There” white card: centered + no seam (builder adds section/col padding) */
+#preview-container #section-rgCVEKG72x > .inner {
+  padding-bottom: 0 !important;
+}
+
+/* Headshot row: center the image above the white card */
+#preview-container #section-rgCVEKG72x #row-dgw_0Hu6AY7 {
+  margin-bottom: 0 !important;
+}
+
+#preview-container #section-rgCVEKG72x #row-dgw_0Hu6AY7 > .inner {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-end !important;
+  width: 100% !important;
+}
+
+#preview-container #section-rgCVEKG72x #col-cRHy2ZClCkU {
+  width: auto !important;
+  max-width: 100% !important;
+  flex: 0 1 auto !important;
+  padding-bottom: 0 !important;
+  padding-left: 0.35rem !important;
+  padding-right: 0.35rem !important;
+}
+
+#preview-container #section-rgCVEKG72x #col-cRHy2ZClCkU .vertical.inner {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+#preview-container #section-rgCVEKG72x #image-ts0TB9y0Rip,
+#preview-container #section-rgCVEKG72x #image-ts0TB9y0Rip .image-container {
+  margin-bottom: 0 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  line-height: 0 !important;
+  overflow: visible !important;
+}
+
+#preview-container #section-rgCVEKG72x #image-ts0TB9y0Rip img {
+  display: block !important;
+  /* Soft wide warm gold — ~15% strength on the inner ring, tapering outward */
+  filter: drop-shadow(0 0 48px rgba(232, 201, 108, 0.15))
+    drop-shadow(0 0 88px rgba(201, 168, 76, 0.11))
+    drop-shadow(0 0 140px rgba(232, 201, 108, 0.08))
+    drop-shadow(0 0 220px rgba(201, 168, 76, 0.055));
+}
+
+/* “The New Way…” (#heading-U7bvwjww9A_) — mobile: teal pill + tight line box → mid-word breaks (FREELAN/CE).
+   Strip pill to gold text; normal word wrapping; fluid type that beats global h1 clamp. */
+@media (max-width: 768px) {
+  #preview-container #section-rgCVEKG72x #row-FnUCnDwGcCL > .inner {
+    padding-left: clamp(0.75rem, 4vw, 1.5rem) !important;
+    padding-right: clamp(0.75rem, 4vw, 1.5rem) !important;
+    padding-bottom: clamp(0.35rem, 2vw, 0.85rem) !important;
+    box-sizing: border-box !important;
+  }
+
+  #preview-container #section-rgCVEKG72x #col-AQEcYLvs0Md {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  #preview-container #section-rgCVEKG72x .heading-U7bvwjww9A_ h1 {
+    font-size: clamp(1.15rem, 4.6vw, 1.65rem) !important;
+    line-height: 1.22 !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    hyphens: none !important;
+    text-align: center !important;
+    color: #f8fafc !important;
+  }
+
+  #preview-container #section-rgCVEKG72x .heading-U7bvwjww9A_ h1 span em {
+    font-style: italic !important;
+  }
+}
+
+/* “Hi There” letter — mobile: inset copy inside white card (export padding too tight at 10vw / 0) */
+@media (max-width: 768px) {
+  #preview-container #section-uEwq4tfKF6 {
+    padding-left: clamp(0.75rem, 4vw, 1.25rem) !important;
+    padding-right: clamp(0.75rem, 4vw, 1.25rem) !important;
+  }
+
+  #preview-container #section-uEwq4tfKF6 #col-YB7R84AczrA > .vertical.inner {
+    padding-left: clamp(1.1rem, 4.5vw, 1.75rem) !important;
+    padding-right: clamp(1.1rem, 4.5vw, 1.75rem) !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* hl_page-preview sets padding-top on the section — this was the visible navy gap */
+#preview-container #section-uEwq4tfKF6 {
+  padding-top: 0 !important;
+}
+
+#preview-container #section-uEwq4tfKF6 > .inner {
+  padding-top: 0 !important;
+}
+
+#preview-container #section-uEwq4tfKF6 #row-xiHwA6pRIRJ {
+  margin-top: 0 !important;
+}
+
+/* Pull the rounded white column up to meet the portrait */
+#preview-container #section-uEwq4tfKF6 #col-YB7R84AczrA {
+  margin-top: clamp(-0.75rem, -2vw, -0.25rem) !important;
+}
+
+/* Book offer (#section-KPKZo7vTvp) — editorial headline + sentence-case body */
+#preview-container #section-KPKZo7vTvp .heading-0X6BIRuQdC h1 {
+  line-height: 1.15 !important;
+}
+#preview-container #section-KPKZo7vTvp .heading-0X6BIRuQdC h1 .about-offer-headline,
+#preview-container #section-KPKZo7vTvp .heading-0X6BIRuQdC h1 .about-offer-headline-accent {
+  background: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-decoration-break: unset !important;
+  -webkit-box-decoration-break: unset !important;
+}
+#preview-container #section-KPKZo7vTvp .heading-0X6BIRuQdC h1 .about-offer-headline {
+  color: #ffffff !important;
+}
+#preview-container #section-KPKZo7vTvp .heading-0X6BIRuQdC h1 .about-offer-headline-accent {
+  color: #c9a84c !important;
+}
+#preview-container #section-KPKZo7vTvp #sub-heading-_ns-RDpSS4_ p {
+  text-align: left !important;
+  text-transform: none !important;
+  font-weight: 400 !important;
+  font-size: clamp(1rem, 1.05rem, 1.125rem) !important;
+  line-height: 1.65 !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+  margin: 0 0 1rem !important;
+}
+#preview-container #section-KPKZo7vTvp #sub-heading-_ns-RDpSS4_ p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Letter / quote / TOC sections — teal → navy blend (same palette as pill gradient) */
+#preview-container #section-LevavMsHcV,
+#preview-container #section-AOrfGVh75I5,
+#preview-container #section-FXYaXBQha6f {
+  background-image: none !important;
+  background: var(--brand-grad-section-blend) !important;
+}
+
+/* "$5.99 launch" block — no portrait photos on .bg layers (export used a30fe697 / 21fc86a2 JPEGs) */
+#preview-container #section-FXYaXBQha6f .bg-section-FXYaXBQha6f,
+#preview-container #section-FXYaXBQha6f .bg-row-MosE7g_J_I67 {
+  background: none !important;
+  background-image: none !important;
+  opacity: 1 !important;
+}
+
+/* "Harsh Reality" / Pleasantries — no portrait photos on .bg layers (same a30fe697 / 21fc86a2 JPEGs) */
+#preview-container #section-AOrfGVh75I5 .bg-section-AOrfGVh75I5,
+#preview-container #section-AOrfGVh75I5 .bg-row-Mw4Cbgc-wvZj {
+  background: none !important;
+  background-image: none !important;
+  opacity: 1 !important;
+}
+
+/* "Dear Friend" letter block — no portrait photos on .bg layers */
+#preview-container #section-LevavMsHcV .bg-section-LevavMsHcV,
+#preview-container #section-LevavMsHcV .bg-col-KqDD9fzwHM {
+  background: none !important;
+  background-image: none !important;
+  opacity: 1 !important;
+}
+
+/* $5.99 "not a gimmick" row — one column: headline + subline, then CTA full width */
+#preview-container #row-MosE7g_J_I67 > .inner {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  max-width: 100% !important;
+}
+
+#preview-container #row-MosE7g_J_I67 {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-top: clamp(1rem, 3vw, 1.75rem) !important;
+  padding: clamp(1.25rem, 3vw, 2rem) clamp(1rem, 4vw, 2.5rem) clamp(1.5rem, 3vw, 2.25rem) !important;
+  box-sizing: border-box !important;
+}
+
+#preview-container #col-oECxFTZZfTw_ {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: 1 1 auto !important;
+}
+
+#preview-container #row-MosE7g_J_I67 .vertical.inner {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+}
+
+#preview-container #heading-6aNjXxE2fZ .cheading-6aNjXxE2fZ {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* PDF pricing headline — two-line editorial title (no fragmented teal pills) */
+#preview-container #heading-6aNjXxE2fZ .pdf-pricing-headline-h1 {
+  margin: 0 0 0.3rem !important;
+  padding: 0 !important;
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(1.35rem, 3.2vw, 2.05rem) !important;
+  line-height: 1.16 !important;
+  letter-spacing: -0.02em !important;
+  text-align: center !important;
+  text-transform: none !important;
+  color: #0f241e !important;
+  max-width: none !important;
+}
+
+#preview-container #heading-6aNjXxE2fZ .pdf-pricing-line {
+  color: #0f241e !important;
+}
+
+#preview-container #heading-6aNjXxE2fZ .pdf-pricing-accent {
+  color: #0f241e !important;
+  background: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-decoration-break: unset !important;
+  -webkit-box-decoration-break: unset !important;
+  font-weight: 700 !important;
+  line-height: inherit !important;
+}
+
+#preview-container #sub-heading-mgrboSReNSvB {
+  margin-top: clamp(0.5rem, 1.5vw, 1rem) !important;
+}
+
+#preview-container #row-MosE7g_J_I67 .pdf-pricing-body {
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif !important;
+  text-align: left !important;
+  max-width: min(48rem, 100%) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#preview-container #row-MosE7g_J_I67 .pdf-pricing-body p {
+  margin: 0 0 1.1rem !important;
+  color: #1e293b !important;
+  line-height: 1.75 !important;
+  font-size: clamp(1.0625rem, 2.35vw, 1.2rem) !important;
+  font-weight: 400 !important;
+}
+
+#preview-container #row-MosE7g_J_I67 .pdf-pricing-body h2 {
+  margin: 0.65rem 0 0.85rem !important;
+  color: #0f172a !important;
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif !important;
+  font-size: clamp(1.2rem, 2.75vw, 1.5rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.28 !important;
+  letter-spacing: -0.015em !important;
+}
+
+#preview-container #row-MosE7g_J_I67 .pdf-section-rule {
+  border: none !important;
+  border-top: 1px solid rgba(27, 35, 65, 0.12) !important;
+  margin: 1.35rem 0 !important;
+}
+
+#preview-container #row-MosE7g_J_I67 .pdf-pricing-footer-note {
+  margin: 1rem 0 0 !important;
+  text-align: center !important;
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif !important;
+  font-size: clamp(0.95rem, 2vw, 1.05rem) !important;
+  color: #475569 !important;
+  line-height: 1.55 !important;
+}
+
+#preview-container #button-GBAzsTJWALn2b {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-top: clamp(1.5rem, 4vw, 2.25rem) !important;
+  margin-bottom: 0.5rem !important;
+}
+
+#preview-container #button-GBAzsTJWALn2b .cbutton-GBAzsTJWALn2b {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* =====================================================================
+   "40 Reasons" (#section-F5v7zxLkbi1) — match funnel: DM Sans, navy, gold, spacing
+   Export used cream row, green pills, tight padding, mixed uppercase rules.
+   ===================================================================== */
+#preview-container #section-F5v7zxLkbi1 {
+  background-color: #131a30 !important;
+  background-image: none !important;
+  padding-top: clamp(2.5rem, 6vw, 4rem) !important;
+  padding-bottom: clamp(2.5rem, 6vw, 4.5rem) !important;
+  padding-left: clamp(0.75rem, 3vw, 1.5rem) !important;
+  padding-right: clamp(0.75rem, 3vw, 1.5rem) !important;
+}
+
+/* No photo on decorative bg layers (export used a30fe697 / 21fc86a2 JPEGs) */
+#preview-container #section-F5v7zxLkbi1 .bg-section-F5v7zxLkbi1,
+#preview-container #section-F5v7zxLkbi1 .bg-row--SyHnpoD0GbH {
+  background: none !important;
+  background-image: none !important;
+  opacity: 1 !important;
+}
+
+#preview-container #row--SyHnpoD0GbH {
+  width: min(100%, 52rem) !important;
+  max-width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: clamp(1.75rem, 4vw, 2.75rem) !important;
+  background-color: rgba(27, 35, 65, 0.72) !important;
+  border: 1px solid rgba(201, 168, 76, 0.32) !important;
+  box-shadow: 0 20px 50px -22px rgba(0, 0, 0, 0.55) !important;
+}
+
+#preview-container #col-dKWQzH0NERLR .vertical.inner {
+  padding-left: clamp(0.35rem, 2vw, 1rem) !important;
+  padding-right: clamp(0.35rem, 2vw, 1rem) !important;
+}
+
+#preview-container #heading-QbcpNjuhZO {
+  margin: 0 auto 1.25rem !important;
+  max-width: 48rem !important;
+}
+
+#preview-container #heading-QbcpNjuhZO .cheading-QbcpNjuhZO,
+#preview-container #heading-QbcpNjuhZO h1 {
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif !important;
+  font-weight: 700 !important;
+  color: #f0f0f0 !important;
+  text-transform: none !important;
+  letter-spacing: 0.02em !important;
+  line-height: 1.2 !important;
+  text-align: center !important;
+  border: none !important;
+}
+
+#preview-container #heading-QbcpNjuhZO h1 span[style*="--color-m6tmdjvq"],
+#preview-container #heading-QbcpNjuhZO h1 span {
+  color: #c9a84c !important;
+  background: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-decoration-break: unset !important;
+  -webkit-box-decoration-break: unset !important;
+}
+
+#preview-container #paragraph-V10ZrgLaDv .text-output,
+#preview-container #paragraph-V10ZrgLaDv p,
+#preview-container #paragraph-YCPRYxrB1d .text-output,
+#preview-container #paragraph-YCPRYxrB1d p {
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif !important;
+  color: #cbd5e1 !important;
+  text-align: center !important;
+  font-size: clamp(1rem, 2.4vw, 1.125rem) !important;
+  line-height: 1.55 !important;
+}
+
+#preview-container #section-F5v7zxLkbi1 .c-sub-heading .text-output h2 {
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif !important;
+  color: #e5e7eb !important;
+  font-weight: 500 !important;
+  line-height: 1.55 !important;
+  font-size: clamp(0.95rem, 2.05vw, 1.06rem) !important;
+  margin: 0 0 0.85rem !important;
+  padding: 0.75rem 0.85rem 0.8rem 0.65rem !important;
+  border-left: 3px solid rgba(201, 168, 76, 0.5) !important;
+  background: rgba(15, 23, 42, 0.45) !important;
+  border-radius: 0 12px 12px 0 !important;
+  box-sizing: border-box !important;
+}
+
+#preview-container #section-F5v7zxLkbi1 .c-sub-heading .text-output h2 .reason-list-num {
+  display: inline-block !important;
+  font-size: clamp(1.55rem, 3.6vw, 2.05rem) !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  color: #e8c96c !important;
+  letter-spacing: -0.04em !important;
+  margin-right: 0.35em !important;
+  vertical-align: -0.14em !important;
+  font-variant-numeric: tabular-nums !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) !important;
+}
+
+#preview-container #section-F5v7zxLkbi1 .c-sub-heading .text-output h2 .reason-page-ref {
+  display: inline !important;
+  color: #c0392b !important;
+  font-weight: 600 !important;
+  font-size: 0.82em !important;
+  white-space: nowrap !important;
+  margin-left: 0.2em !important;
+  letter-spacing: 0.01em !important;
+}
+
+#preview-container #section-F5v7zxLkbi1 .c-sub-heading .text-output {
+  text-indent: 0 !important;
+}
+
+#preview-container #image-r-CwZ9-Es9EX,
+#preview-container #image-kK73pJ_nD4 {
+  margin-top: 1.25rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+#preview-container #image-r-CwZ9-Es9EX .image-container img,
+#preview-container #image-kK73pJ_nD4 .image-container img {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* =====================================================================
+   Testimonials intro — "One Final List / About…" (#section-sXLqyMWAau)
+   Export: serif stacks, left alignment, teal pill on gold span, tight top on mobile.
+   ===================================================================== */
+#preview-container #section-sXLqyMWAau {
+  background-color: #131a30 !important;
+  background-image: none !important;
+  padding-top: clamp(3rem, 9vw, 5.5rem) !important;
+  padding-bottom: clamp(1.25rem, 4vw, 2rem) !important;
+  padding-left: clamp(1rem, 4vw, 2rem) !important;
+  padding-right: clamp(1rem, 4vw, 2rem) !important;
+}
+
+#preview-container #section-sXLqyMWAau > .inner {
+  max-width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+#preview-container #row-mjIqrVn_9W {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Same section: intro row was still capped at 80rem via testimonial-intro rule above */
+#preview-container #section-sXLqyMWAau #row-mjIqrVn_9W > .inner {
+  max-width: 100% !important;
+}
+
+#preview-container #row-03PCsrmNrg,
+#preview-container #row-03PCsrmNrg > .inner {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-top: clamp(1rem, 3vw, 1.75rem) !important;
+}
+
+#preview-container #row-03PCsrmNrg .col-aVGmqNH9Hx {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Masonry testimonial strip — full width (embedded CSS used 60px side padding) */
+#preview-container #custom-code-prv9-wJWgW .testimonials-section {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  padding-left: clamp(0.5rem, 2vw, 1rem) !important;
+  padding-right: clamp(0.5rem, 2vw, 1rem) !important;
+}
+
+@media (max-width: 1400px) {
+  #preview-container #custom-code-prv9-wJWgW .testimonials-section {
+    padding-left: clamp(0.5rem, 2vw, 1rem) !important;
+    padding-right: clamp(0.5rem, 2vw, 1rem) !important;
+  }
+}
+
+#preview-container #row-mjIqrVn_9W .vertical.inner {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  gap: 0.35rem !important;
+}
+
+#preview-container #sub-heading-XzjceXWZsf .text-output h2,
+#preview-container #sub-heading-XzjceXWZsf h2 {
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif !important;
+  font-weight: 600 !important;
+  font-size: clamp(0.7rem, 1.6vw, 0.8rem) !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  color: #c9a84c !important;
+  margin: 0 !important;
+  text-align: center !important;
+}
+
+#preview-container #heading-GM_zkkJaQ6 {
+  width: 100% !important;
+  max-width: min(100%, 72rem) !important;
+  margin: 0 auto !important;
+}
+
+#preview-container #heading-GM_zkkJaQ6 .cheading-GM_zkkJaQ6,
+#preview-container #heading-GM_zkkJaQ6 h1 {
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif !important;
+  font-weight: 700 !important;
+  color: #f0f0f0 !important;
+  text-align: center !important;
+  text-transform: none !important;
+  letter-spacing: 0.02em !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
+}
+
+#preview-container #heading-GM_zkkJaQ6 h1 span {
+  color: #c9a84c !important;
+  background: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-decoration-break: unset !important;
+  -webkit-box-decoration-break: unset !important;
+  line-height: 1.1 !important;
+}
+
+#preview-container #paragraph-KAA12bZmF- .text-output,
+#preview-container #paragraph-KAA12bZmF- p {
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif !important;
+  color: #cbd5e1 !important;
+  text-align: center !important;
+  font-size: clamp(1rem, 2.5vw, 1.125rem) !important;
+  line-height: 1.55 !important;
+  max-width: min(100%, 48rem) !important;
+  margin: 0.35rem auto 0 !important;
+}
+
+/* Harsh Reality — less empty navy above the white card (export 80px top pad + very tall masked video) */
+#preview-container #section-AOrfGVh75I5 {
+  padding-top: 24px !important;
+}
+
+#preview-container #custom-code-C7USs0TMHD {
+  margin-bottom: -80px !important;
+}
+
+@media (max-width: 768px) {
+  #preview-container #custom-code-C7USs0TMHD {
+    margin-bottom: -44px !important;
+  }
+}
+
+#preview-container #custom-code-C7USs0TMHD .author-video-container {
+  max-height: min(300px, 42vh) !important;
+}
+
+#preview-container #custom-code-C7USs0TMHD video {
+  max-height: min(300px, 42vh) !important;
+  height: auto !important;
+}
+
+/* "Harsh reality" X pills (ideas / course / writing) — export used dark green on navy */
+#preview-container #paragraph-CAsPDL2TOI5_ .text-output,
+#preview-container #paragraph-CAsPDL2TOI5_ .text-output p,
+#preview-container #paragraph-95kSoIxfyBMM .text-output,
+#preview-container #paragraph-95kSoIxfyBMM .text-output p,
+#preview-container #paragraph-dZQuiJgOXH75 .text-output,
+#preview-container #paragraph-dZQuiJgOXH75 .text-output p {
+  color: #ffffff !important;
+}
+
+/* "Because If You Fail to Attract Your Dream Audience…" — brand crimson headline */
+#preview-container #sub-heading-NVn9PoOaLNdr h2,
+#preview-container #sub-heading-NVn9PoOaLNdr .text-output h2 {
+  color: #c0392b !important;
+}
+
+/* "The Exact Opposite is True!" + monetization system h2 — brand crimson (section-scoped beats card/gradient) */
+#preview-container #section-AOrfGVh75I5 #sub-heading-ZJssBam70l h2,
+#preview-container #section-AOrfGVh75I5 #sub-heading-ZJssBam70l .text-output h2,
+#preview-container #section-AOrfGVh75I5 #sub-heading-ZJssBam70l h2 u,
+#preview-container #section-AOrfGVh75I5 #sub-heading-Am4z8jmASi h2,
+#preview-container #section-AOrfGVh75I5 #sub-heading-Am4z8jmASi .text-output h2,
+#preview-container #section-AOrfGVh75I5 #sub-heading-Am4z8jmASi h2 u,
+#preview-container #sub-heading-ZJssBam70l h2,
+#preview-container #sub-heading-ZJssBam70l .text-output h2,
+#preview-container #sub-heading-ZJssBam70l h2 u,
+#preview-container #sub-heading-Am4z8jmASi h2,
+#preview-container #sub-heading-Am4z8jmASi .text-output h2,
+#preview-container #sub-heading-Am4z8jmASi h2 u {
+  color: #c0392b !important;
+}
+
+/* Glimpse headline + "Seriously…" h2 + P.S. quadruple-guarantee h1s — brand navy (#section-AOrfGVh75I5) */
+#preview-container #section-AOrfGVh75I5 #sub-heading-CbiKg_roYxOt h2,
+#preview-container #section-AOrfGVh75I5 #sub-heading-CbiKg_roYxOt .text-output h2,
+#preview-container #section-AOrfGVh75I5 #sub-heading-CbiKg_roYxOt h2 em,
+#preview-container #sub-heading-CbiKg_roYxOt h2,
+#preview-container #sub-heading-CbiKg_roYxOt .text-output h2,
+#preview-container #sub-heading-CbiKg_roYxOt h2 em {
+  color: #1b2341 !important;
+}
+
+#preview-container #section-AOrfGVh75I5 #sub-heading-oZdfyddsRr6f h2,
+#preview-container #section-AOrfGVh75I5 #sub-heading-oZdfyddsRr6f .text-output h2,
+#preview-container #sub-heading-oZdfyddsRr6f h2,
+#preview-container #sub-heading-oZdfyddsRr6f .text-output h2 {
+  color: #1b2341 !important;
+}
+
+#preview-container #section-AOrfGVh75I5 #sub-heading-7stvHelppO3Z h1,
+#preview-container #section-AOrfGVh75I5 #sub-heading-7stvHelppO3Z .text-output h1,
+#preview-container #section-AOrfGVh75I5 #sub-heading-7stvHelppO3Z h1 u,
+#preview-container #section-AOrfGVh75I5 #sub-heading-7stvHelppO3Z h1 strong,
+#preview-container #sub-heading-7stvHelppO3Z h1,
+#preview-container #sub-heading-7stvHelppO3Z .text-output h1,
+#preview-container #sub-heading-7stvHelppO3Z h1 u,
+#preview-container #sub-heading-7stvHelppO3Z h1 strong {
+  color: #1b2341 !important;
+}
+
+/* Order / launch pricing columns — 39-page + launch window copy (section-aldpS9XQpQ) */
+#preview-container #section-aldpS9XQpQ #sub-heading-2IPQTIN9VD h2,
+#preview-container #section-aldpS9XQpQ #sub-heading-2IPQTIN9VD .text-output h2,
+#preview-container #section-aldpS9XQpQ #sub-heading-2IPQTIN9VD h2 span,
+#preview-container #section-aldpS9XQpQ #sub-heading-2IPQTIN9VD h2 strong,
+#preview-container #section-aldpS9XQpQ #sub-heading-rpQU1ufYtv h2,
+#preview-container #section-aldpS9XQpQ #sub-heading-rpQU1ufYtv .text-output h2,
+#preview-container #section-aldpS9XQpQ #sub-heading-rpQU1ufYtv h2 span,
+#preview-container #section-aldpS9XQpQ #sub-heading-rpQU1ufYtv h2 strong,
+#preview-container #sub-heading-2IPQTIN9VD h2,
+#preview-container #sub-heading-2IPQTIN9VD h2 span,
+#preview-container #sub-heading-2IPQTIN9VD h2 strong,
+#preview-container #sub-heading-rpQU1ufYtv h2,
+#preview-container #sub-heading-rpQU1ufYtv h2 span,
+#preview-container #sub-heading-rpQU1ufYtv h2 strong {
+  color: #1b2341 !important;
+}
+
+/* "Small taste / what you'll learn" — strip stock portrait from .bg layer (21fc86a2 JPEG in head-from-source.css) */
+#preview-container #section-sXLqyMWAau #row-Rfqe8cRetZ .bg-row-Rfqe8cRetZ {
+  background: none !important;
+  background-image: none !important;
+  opacity: 1 !important;
+}
+
+/* "Small taste of what you'll learn" row (megaphone + bridge copy) — cream box ~60% width, centered */
+#preview-container #row-Rfqe8cRetZ {
+  width: 60% !important;
+  max-width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: clamp(2.25rem, 6vw, 3.75rem) !important;
+  margin-bottom: clamp(2.25rem, 6vw, 3.75rem) !important;
+  padding: clamp(1.65rem, 4.5vw, 2.5rem) clamp(1.5rem, 5vw, 3rem) !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  background-color: #e8c96c !important;
+  border-color: rgba(27, 35, 65, 0.2) !important;
+  border-radius: 24px !important;
+}
+
+@media (max-width: 768px) {
+  #preview-container #row-Rfqe8cRetZ {
+    width: min(92%, 100%) !important;
+  }
+}
+
+#preview-container #row-Rfqe8cRetZ > .inner {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 1rem !important;
+}
+
+#preview-container #row-Rfqe8cRetZ .col-ECoz8b7MaY,
+#preview-container #row-Rfqe8cRetZ .col-JTIeYtav2c {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+#preview-container #row-Rfqe8cRetZ .col-ECoz8b7MaY .vertical.inner {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+#preview-container #row-Rfqe8cRetZ .col-JTIeYtav2c .vertical.inner {
+  text-align: center !important;
+  align-items: center !important;
+}
+
+#preview-container #row-Rfqe8cRetZ #image-EbjFURJnsF .image-container img {
+  max-width: 72px !important;
+  height: auto !important;
+}
+
+#preview-container #row-Rfqe8cRetZ #paragraph-fDorx05fjD p,
+#preview-container #row-Rfqe8cRetZ #paragraph-fDorx05fjD strong {
+  color: #c0392b !important;
+  letter-spacing: 0.12em !important;
+  font-size: 0.75rem !important;
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif !important;
+  text-transform: uppercase !important;
+}
+
+#preview-container #row-Rfqe8cRetZ #heading-ImoYxmUbQo .cheading-ImoYxmUbQo,
+#preview-container #row-Rfqe8cRetZ #heading-ImoYxmUbQo h1 {
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif !important;
+  color: #1b2341 !important;
+  text-align: center !important;
+}
+
+#preview-container #row-Rfqe8cRetZ #heading-ImoYxmUbQo h1 {
+  color: #1b2341 !important;
+  font-weight: 800 !important;
+}
+
+/* Accent phrase — brand crimson (was gold) */
+#preview-container #row-Rfqe8cRetZ #heading-ImoYxmUbQo h1 span.book-headline-accent {
+  color: #c0392b !important;
+  font-weight: 800 !important;
+  background: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-decoration-break: unset !important;
+  -webkit-box-decoration-break: unset !important;
+}
+
+#preview-container #row-Rfqe8cRetZ #paragraph-H7BIuSL3qM .text-output,
+#preview-container #row-Rfqe8cRetZ #paragraph-H7BIuSL3qM p,
+#preview-container #row-Rfqe8cRetZ #paragraph-H7BIuSL3qM em {
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif !important;
+  color: #1b2341 !important;
+  text-align: center !important;
+  line-height: 1.65 !important;
+}
+
+/* "It's Time to Toss Out the Pleasantries…" + "Here's The Harsh Reality…" — brand navy (two h1 blocks) */
+#preview-container #heading-kRADZdXE2y_V h1,
+#preview-container #heading-kRADZdXE2y_V .text-output h1,
+#preview-container #heading-kRADZdXE2y_V h1 strong,
+#preview-container #heading-2EyNQeE6P_XW h1,
+#preview-container #heading-2EyNQeE6P_XW .text-output h1,
+#preview-container #heading-2EyNQeE6P_XW h1 span {
+  color: #1b2341 !important;
+}
+
+/* head-from-source adds a mint/cream gradient pill on this span — remove so navy reads cleanly */
+#preview-container #heading-2EyNQeE6P_XW h1 span[style*="--color-m6tmdjvq"],
+#preview-container #heading-2EyNQeE6P_XW h1 span {
+  background: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-decoration-break: unset !important;
+  -webkit-box-decoration-break: unset !important;
+}
+
+/* TASK 4a — Old Way / New Way: section base (was full-bleed crimson in export) */
+#preview-container #section-82LY0qj04m {
+  background-color: #131a30 !important;
+}
+
+/* TASK 4b — Author *header* column only (mountain bg). Do not target whole section — white bio card needs dark type. */
+#preview-container #section-5_g53tghg7c #col-HfHh2uB7NCCa .text-output,
+#preview-container #section-5_g53tghg7c #col-HfHh2uB7NCCa h1,
+#preview-container #section-5_g53tghg7c #col-HfHh2uB7NCCa h2,
+#preview-container #section-5_g53tghg7c #col-HfHh2uB7NCCa h3,
+#preview-container #section-5_g53tghg7c #col-HfHh2uB7NCCa p {
+  color: #f0f0f0 !important;
+}
+
+/* Author bio card (light panel) — navy body copy + DM Sans (overrides global #preview-container h1/h2 white) */
+#preview-container #section-5_g53tghg7c #col-kf_hxGrE2L .text-output,
+#preview-container #section-5_g53tghg7c #col-kf_hxGrE2L h1,
+#preview-container #section-5_g53tghg7c #col-kf_hxGrE2L h2,
+#preview-container #section-5_g53tghg7c #col-kf_hxGrE2L h3,
+#preview-container #section-5_g53tghg7c #col-kf_hxGrE2L h4,
+#preview-container #section-5_g53tghg7c #col-kf_hxGrE2L h5,
+#preview-container #section-5_g53tghg7c #col-kf_hxGrE2L h6,
+#preview-container #section-5_g53tghg7c #col-kf_hxGrE2L p {
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif !important;
+  color: #1b2341 !important;
+}
+
+#preview-container #section-5_g53tghg7c #col-kf_hxGrE2L h1 {
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+}
+
+#preview-container #section-5_g53tghg7c #col-kf_hxGrE2L h5 {
+  color: #243656 !important;
+  font-weight: 600 !important;
+  line-height: 1.45 !important;
+}
+
+#preview-container #section-5_g53tghg7c #col-kf_hxGrE2L p {
+  color: #334155 !important;
+  line-height: 1.75 !important;
+}
+
+/* “About The Author” — inline span uses --color-m6tmdjvq (export green); force brand crimson */
+#preview-container #section-5_g53tghg7c #heading-BVkbxhxkW_ h1 span[style*="--color-m6tmdjvq"],
+#preview-container #heading-BVkbxhxkW_ h1 span {
+  color: #c0392b !important;
+  background: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-decoration-break: unset !important;
+  -webkit-box-decoration-break: unset !important;
+}
+
+/* Author section — tight vertical rhythm; background was on removed video custom-code */
+#preview-container #section-5_g53tghg7c {
+  padding-top: clamp(1rem, 3vw, 1.75rem) !important;
+  padding-bottom: clamp(0.35rem, 1.2vw, 0.75rem) !important;
+  background-color: #131a30 !important;
+  position: relative;
+}
+
+#preview-container #section-5_g53tghg7c > .inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Author bio card: no photo background (export used bg image on .bg-col-kf_hxGrE2L) */
+#preview-container #section-5_g53tghg7c #col-kf_hxGrE2L {
+  background-color: #f1f5f9 !important;
+}
+
+#preview-container #section-5_g53tghg7c .bg-col-kf_hxGrE2L {
+  border-radius: 60px !important;
+  background: none !important;
+  background-image: none !important;
+  opacity: 1 !important;
+}
+
+/* Tighter leading + margins on the three-line header stack */
+#preview-container #section-5_g53tghg7c #sub-heading-CS7fpAmFJZ h2,
+#preview-container #section-5_g53tghg7c #heading-BVkbxhxkW_ h1,
+#preview-container #section-5_g53tghg7c #sub-heading-aibDkXBi90-o h2 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+#preview-container #section-5_g53tghg7c #sub-heading-CS7fpAmFJZ h2 {
+  line-height: 1.2 !important;
+}
+
+#preview-container #section-5_g53tghg7c #heading-BVkbxhxkW_ h1 {
+  line-height: 1.08 !important;
+}
+
+#preview-container #section-5_g53tghg7c #sub-heading-aibDkXBi90-o h2 {
+  line-height: 1.25 !important;
+}
+
+#preview-container #row-zkOWr32i8pMV {
+  min-height: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+#preview-container #row-zkOWr32i8pMV > .inner {
+  min-height: 0 !important;
+}
+
+#preview-container #section-5_g53tghg7c #col-HfHh2uB7NCCa .vertical.inner {
+  gap: 0.28rem !important;
+  min-height: 0 !important;
+}
+
+#preview-container #row-8y8B0gjADV {
+  margin-top: clamp(0.1rem, 0.8vw, 0.35rem) !important;
+}
+
+/* About the author + masked-video section — full-bleed (export boxed rows at ~80% + centered video) */
+#preview-container #section-5_g53tghg7c > .inner,
+#preview-container #section-AOrfGVh75I5 > .inner {
+  max-width: none !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box !important;
+}
+
+#preview-container #section-5_g53tghg7c #row-arvTelOuqS,
+#preview-container .hl_page-preview--content .row-arvTelOuqS {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Harsh Reality letter row — back to normal content width (not full-bleed with section inner) */
+#preview-container #row-Mw4Cbgc-wvZj {
+  width: 100% !important;
+  max-width: 1170px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: clamp(1rem, 4vw, 2.5rem) !important;
+  padding-right: clamp(1rem, 4vw, 2.5rem) !important;
+  box-sizing: border-box !important;
+}
+
+#preview-container #section-5_g53tghg7c #row-zkOWr32i8pMV > .inner,
+#preview-container #section-5_g53tghg7c #row-8y8B0gjADV > .inner,
+#preview-container #section-5_g53tghg7c #row-arvTelOuqS > .inner {
+  padding-left: clamp(1rem, 4vw, 2.5rem) !important;
+  padding-right: clamp(1rem, 4vw, 2.5rem) !important;
+  box-sizing: border-box !important;
+}
+
+#preview-container #custom-code-C7USs0TMHD .author-video-container {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+#preview-container #custom-code-C7USs0TMHD video {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Footer mission/contact — full-width inner (embedded block used max-width: 80%) */
+#preview-container #section-eGouKHWLmI > .inner {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding-left: clamp(1rem, 4vw, 2.5rem) !important;
+  padding-right: clamp(1rem, 4vw, 2.5rem) !important;
+  box-sizing: border-box !important;
+}
+
+/* Export paints this row with --color-lxngiz63 (#FFEDF5) — hides the section green and
+   kills contrast with white Mission/Contact copy. Let the section’s #0e2c26 show through. */
+#preview-container #section-eGouKHWLmI .row-Y5osgkbFcG {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border-color: transparent !important;
+}
+
+/* =====================================================================
+   TASK 5 — Safety net (inline off-brand colors)
+   ===================================================================== */
+#preview-container [style*="#A5EA20"],
+#preview-container [style*="#a5ea20"],
+#preview-container [style*="#A5E920"],
+#preview-container [style*="#a5e920"],
+#preview-container [style*="#A9EB35"],
+#preview-container [style*="#a9eb35"],
+#preview-container [style*="#B4E74F"],
+#preview-container [style*="#b4e74f"],
+#preview-container [style*="#B6F36B"],
+#preview-container [style*="#b6f36b"],
+#preview-container [style*="#DCFF9A"],
+#preview-container [style*="#dcff9a"],
+#preview-container [style*="#d0f58b"] {
+  color: #c9a84c !important;
+}
+
+#preview-container [style*="background-color: #A5EA20"],
+#preview-container [style*="background-color:#A5EA20"],
+#preview-container [style*="background: #A5EA20"],
+#preview-container [style*="background-color: #1B5D51"],
+#preview-container [style*="background-color:#1B5D51"],
+#preview-container [style*="background-color: #0C3125"],
+#preview-container [style*="background-color: #124B38"],
+#preview-container [style*="background-color: #2D876F"],
+#preview-container [style*="background-color: #072114"] {
+  background-color: #131a30 !important;
+}
+
+#preview-container [style*="#FA880A"],
+#preview-container [style*="#fa880a"],
+#preview-container [style*="#FF9B60"],
+#preview-container [style*="#ff9b60"] {
+  color: #c9a84c !important;
+}
+
+#preview-container svg path[fill="#31A8FF"],
+#preview-container svg path[fill="#31a8ff"] {
+  fill: #c9a84c !important;
+}
+
+#preview-container svg path[fill="#A5EA20"],
+#preview-container svg path[fill="#a5ea20"] {
+  fill: #c9a84c !important;
+}
+
+#preview-container [style*="#02274D"],
+#preview-container [style*="#02274d"] {
+  color: #1b2341 !important;
+}
+
+#preview-container [style*="color: #072114"],
+#preview-container [style*="color:#072114"] {
+  color: #f0f0f0 !important;
+}
+
+#preview-container [style*="var(--color-m6ici3xf)"] {
+  color: #c9a84c !important;
+}
+
+/* =====================================================================
+   TASK 6 — Section spacing / rhythm
+   ===================================================================== */
+#preview-container .c-section > .inner {
+  padding-top: clamp(3rem, 6vw, 5.5rem) !important;
+  padding-bottom: clamp(3rem, 6vw, 5.5rem) !important;
+}
+
+#preview-container .c-section:first-child > .inner {
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
+}
+
+#preview-container .c-heading + .c-sub-heading,
+#preview-container .c-heading + .c-paragraph {
+  margin-top: 1.25rem !important;
+}
+
+#preview-container .bubble-wrap,
+#preview-container .testimonial-box {
+  margin-bottom: 1.5rem !important;
+}
+
+#preview-container .c-button {
+  margin-top: 1rem !important;
+  margin-bottom: 1.5rem !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+@media (max-width: 640px) {
+  #preview-container .c-section > .inner {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+}
+
+#preview-container .hl-faq-child {
+  margin-bottom: 0.5rem !important;
+}
+
+#preview-container .hl-faq-child-heading {
+  padding: 1rem 1.25rem !important;
+}
+
+#preview-container .hl-faq-child-panel {
+  padding: 1rem 1.25rem !important;
+}
+
+#preview-container .old-new-container {
+  gap: 1.5rem !important;
+}
+
+#preview-container .book-features-container {
+  gap: 1.25rem !important;
+}
+
+/* =====================================================================
+   TASK 9 — CTA enforcement
+   (Do not set background on .c-button itself — only on inner button/link.) */
+#preview-container button.button,
+#preview-container a.button,
+#preview-container .button-wrapper a,
+#preview-container .cta-button {
+  background-color: #c0392b !important;
+  color: #ffffff !important;
+  border: none !important;
+  text-shadow: none !important;
+}
+
+#preview-container button.button:hover,
+#preview-container a.button:hover,
+#preview-container .button-wrapper a:hover,
+#preview-container .cta-button:hover {
+  background-color: #a93226 !important;
+  color: #ffffff !important;
+}
+
+#preview-container .c-button button,
+#preview-container .c-button > a {
+  width: auto !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  background-color: #c0392b !important;
+  color: #ffffff !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  padding: 1rem 2rem !important;
+  border-radius: 4px !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(192, 57, 43, 0.35) !important;
+  transition: all 0.2s ease !important;
+}
+
+#preview-container .c-button button:hover,
+#preview-container .c-button > a:hover {
+  background-color: #a93226 !important;
+  box-shadow: 0 6px 20px rgba(192, 57, 43, 0.5) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* =====================================================================
+   TASK 11 — Targeted contrast fixes
+   ===================================================================== */
+#preview-container .author-tagline,
+#preview-container [class*="author"] p em {
+  color: #9ca3af !important;
+}
+
+/* Italic book title — navy on gold / light backgrounds */
+#preview-container #paragraph-AId8kBhOaX em,
+#preview-container #sub-heading-oZdfyddsRr6f em {
+  color: #1b2341 !important;
+  font-style: italic;
+}
+
+/* Same title on dark green overlay section — gold (navy would disappear here) */
+#preview-container #paragraph-TNEesHlL8yL em {
+  color: #e8c96c !important;
+  font-style: italic;
+}
+
+#preview-container .signature-name,
+#preview-container [class*="signature"] + p {
+  color: #e8c96c !important;
+  font-family: "Barlow Condensed", sans-serif !important;
+  font-weight: 600;
+}
+
+#preview-container p strong:first-child,
+#preview-container p b:first-child {
+  color: #e8c96c;
+}
+
+/* About section — "And no — it doesn't involve…" : explicit crimson (not gold first-strong rule) */
+#preview-container #paragraph-6Fc3I0ZQ7m p strong,
+#preview-container #paragraph-6Fc3I0ZQ7m p b {
+  color: #c0392b !important;
+  font-weight: 700;
+}
+
+#preview-container label,
+#preview-container .form-label,
+#preview-container .form-heading {
+  color: #f0f0f0 !important;
+  font-weight: 500;
+}
+
+#preview-container select option {
+  background-color: #1b2341 !important;
+  color: #f0f0f0 !important;
+}
+
+#preview-container select {
+  background-image: linear-gradient(45deg, transparent 50%, #25605a 50%),
+    linear-gradient(135deg, #162e33 50%, transparent 50%) !important;
+  background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50% !important;
+  background-size: 5px 5px, 5px 5px !important;
+  background-repeat: no-repeat !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+
+#preview-container input[type="checkbox"],
+#preview-container input[type="radio"] {
+  accent-color: #c9a84c;
+}
+
+/* =====================================================================
+   Unified teal pill gradients — overrides head-from-source.css highlight rules
+   ===================================================================== */
+#preview-container .heading-LqxBTsOXsV h1 span,
+#preview-container .heading-z2znyiWm83 h1 span,
+#preview-container .heading-Mqqu1n5pcx h1 span,
+#preview-container .sub-heading-hQtYfFcbml h2 span,
+#preview-container .heading--Hzuf436Kb h1 span,
+#preview-container .heading-5fLu0AueuP h1 span,
+#preview-container .heading-pZ-dnb_is0 h1 span,
+#preview-container .heading-ajVyWCZka2 h3 span,
+#preview-container .heading-ImoYxmUbQo h1 span,
+#preview-container .heading-U7bvwjww9A_ h1 span,
+#preview-container .heading-GZYvZB-UtB h1 span,
+#preview-container .heading-IsSEcRG21N h1 span,
+#preview-container .heading-uu0OLbsFCC h1 span,
+#preview-container .heading-z6VSjCiLb3 h1 span,
+#preview-container .heading-Yv1CU0M4d- h1 span,
+#preview-container .heading-msBtEr6NLH h1 span,
+#preview-container .sub-heading-PrDFfLUsQc h2 span,
+#preview-container .sub-heading-7RS08Ecldo h2 span,
+#preview-container .heading-Aktjt2lape h1 span,
+#preview-container .heading-iUcHeMJ5jK h1 span,
+#preview-container .heading-GM_zkkJaQ6 h1 span,
+#preview-container .heading-wU2U0KCF3K h1 span,
+#preview-container .highlight-testimonials,
+#preview-container .heading-QbcpNjuhZO h1 span,
+#preview-container .heading-2EyNQeE6P_XW h1 span,
+#preview-container .sub-heading-Ldi66M29bF p strong {
+  background: var(--brand-grad-pill) !important;
+  color: var(--brand-grad-pill-text) !important;
+}
+
+/* “New Way” headline — mobile: must come *after* unified teal pills so spans aren’t re-tealed */
+@media (max-width: 768px) {
+  #preview-container #section-rgCVEKG72x .heading-U7bvwjww9A_ h1 span {
+    background: none !important;
+    background-image: none !important;
+    color: #e8c96c !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    box-decoration-break: unset !important;
+    -webkit-box-decoration-break: unset !important;
+    line-height: inherit !important;
+  }
+}
+
+/* About (gold strip #section-BKoW9seqjm): no teal pills; full white headline (gold #c9a84c failed contrast on mustard) */
+#preview-container #section-BKoW9seqjm .heading-gtKgmGGvih h1 {
+  color: #ffffff !important;
+}
+
+#preview-container #section-BKoW9seqjm .heading-gtKgmGGvih h1 span {
+  background: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-decoration-break: unset !important;
+  -webkit-box-decoration-break: unset !important;
+  line-height: inherit !important;
+  color: #ffffff !important;
+}
+
+/* Order section CTA headline — solid pill (no stacked gradients / seam); cream on teal */
+#preview-container #section-aldpS9XQpQ .heading--Hzuf436Kb h1 {
+  color: #f8fafc !important;
+}
+
+#preview-container #section-aldpS9XQpQ .heading--Hzuf436Kb h1 span {
+  background-color: #1f5c54 !important;
+  background-image: none !important;
+  color: #fef3c7 !important;
+  padding: 0.06em 0.55em 0.06em 0.6em !important;
+  border-radius: 0.12em 999px 999px 0.12em !important;
+  box-decoration-break: slice !important;
+  -webkit-box-decoration-break: slice !important;
+  line-height: 1.2 !important;
+}
+
+/* Cream/yellow order block — embed uses margin-top: -100px; less overlap reads as “a bit lower” */
+#preview-container #section-aldpS9XQpQ #row-jSPiBFq-ph {
+  margin: clamp(-3.25rem, -7vw, -2.75rem) auto 0 auto !important;
+}
+
+/* =====================================================================
+   TASK 13 — Mobile responsiveness
+   ===================================================================== */
+@media (max-width: 768px) {
+  #preview-container .old-new-container {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  #preview-container [class*="testimonial-grid"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  #preview-container .book-features-container {
+    grid-template-columns: 1fr !important;
+  }
+
+  #preview-container #section-0BnD6agQ3 h1 {
+    font-size: clamp(2.21rem, 10.12vw, 3.48rem) !important;
+    line-height: 1.1 !important;
+  }
+
+  #preview-container .c-section > .inner {
+    padding-top: clamp(2rem, 8vw, 3.5rem) !important;
+    padding-bottom: clamp(2rem, 8vw, 3.5rem) !important;
+  }
+
+  /* Hero: TASK 13 section padding was inflating gap above/below headline + book */
+  #preview-container #section-0BnD6agQ3.hero-background > .inner {
+    padding-top: clamp(0.125rem, 1vw, 0.375rem) !important;
+    padding-bottom: 0 !important;
+  }
+
+  #preview-container .c-button button,
+  #preview-container .c-button > a {
+    width: auto !important;
+    max-width: 100% !important;
+    padding: 1rem 1.5rem !important;
+    box-sizing: border-box !important;
+  }
+
+  #preview-container [class*="marquee"] {
+    overflow-x: hidden !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #preview-container h1 {
+    font-size: clamp(1.5rem, 7vw, 2rem) !important;
+  }
+
+  #preview-container h2 {
+    font-size: clamp(1.25rem, 6vw, 1.75rem) !important;
+  }
+}
+
+/* =====================================================================
+   HERO SECTION POLISH — #section-0BnD6agQ3 (headline tiers, eyebrow, CTA, book)
+   ===================================================================== */
+
+#preview-container #section-0BnD6agQ3 h1 {
+  font-family: "Barlow Condensed", system-ui, sans-serif !important;
+  font-weight: 800 !important;
+  font-size: clamp(2.53rem, 6.963vw, 5.379rem) !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.01em !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  max-width: 1000px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+#preview-container #section-0BnD6agQ3 h1 .hero-money {
+  color: #c9a84c !important;
+  display: inline-block !important;
+}
+
+#preview-container #section-0BnD6agQ3 h1 .hero-timeframe {
+  color: #e8c96c !important;
+  display: inline-block !important;
+}
+
+#preview-container #section-0BnD6agQ3 h1 .hero-method {
+  color: #c9a84c !important;
+  display: inline-block !important;
+}
+
+/* Eyebrow — wide tracking on lead; pill on “This Week” */
+#preview-container #section-0BnD6agQ3 .hero-eyebrow h2 {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: #f0f0f0 !important;
+  margin-bottom: 1.25rem !important;
+  text-align: center !important;
+  line-height: 1.45 !important;
+}
+
+#preview-container #section-0BnD6agQ3 .hero-eyebrow-lead {
+  letter-spacing: 0.2em !important;
+}
+
+/* Outer span: tight to em-dash — was 0.35em gap */
+#preview-container #section-0BnD6agQ3 .hero-eyebrow-pill {
+  display: inline-block !important;
+  margin-left: 0.08em !important;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  letter-spacing: 0.08em !important;
+}
+
+/*
+ * “This Week” — soft L→R gold: no hard left border; light wash so “THIS” isn’t on pure bg
+ */
+#preview-container #section-0BnD6agQ3 #sub-heading-wMy6nwNiRpX h2 .hero-eyebrow-pill strong {
+  display: inline-block !important;
+  font-family: "Courier Prime", "Courier New", Courier, monospace !important;
+  font-weight: 700 !important;
+  font-size: 1em !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) !important;
+  padding: 0.48em 1.25em 0.48em 0.65em !important;
+  border-radius: 9999px !important;
+  border: none !important;
+  background: linear-gradient(
+    90deg,
+    rgba(201, 168, 76, 0.1) 0%,
+    rgba(201, 168, 76, 0.22) 18%,
+    rgba(201, 168, 76, 0.42) 38%,
+    rgba(201, 168, 76, 0.68) 58%,
+    rgba(190, 155, 68, 0.95) 78%,
+    #b89438 92%,
+    #d4b25c 100%
+  ) !important;
+  box-shadow:
+    0 2px 14px rgba(8, 10, 14, 0.4),
+    0 0 24px rgba(201, 168, 76, 0.18) !important;
+}
+
+/* “NEW BOOK!” */
+#preview-container #section-0BnD6agQ3 .new-book-label h2 {
+  font-family: "Courier Prime", "Courier New", Courier, monospace !important;
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.25em !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  text-align: center !important;
+  margin-bottom: 1.5rem !important;
+  margin-top: 0 !important;
+}
+
+#preview-container #section-0BnD6agQ3 #paragraph-wnepp6znt5.hero-subheadline p,
+#preview-container #section-0BnD6agQ3 .hero-subheadline p {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: clamp(1rem, 1.25vw, 1.25rem) !important;
+  color: #f0f0f0 !important;
+  line-height: 1.6 !important;
+  letter-spacing: 0.035em !important;
+  max-width: 720px !important;
+  margin: 1.75rem auto 2.5rem !important;
+  text-align: center !important;
+}
+
+#preview-container #section-0BnD6agQ3 .hero-subhead-em {
+  text-decoration: underline !important;
+  text-decoration-thickness: 1px !important;
+  text-underline-offset: 0.2em !important;
+}
+
+/* CTA — pill, padding, crimson glow + hover lift */
+#preview-container #section-0BnD6agQ3 #button-Eyv8iotnyh.c-button button,
+#preview-container #section-0BnD6agQ3 #button-Eyv8iotnyh.c-button > a {
+  background-color: #c0392b !important;
+  color: #ffffff !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  padding: 1.15rem 2.5rem !important;
+  border: none !important;
+  border-radius: 9999px !important;
+  box-shadow:
+    0 10px 30px rgba(192, 57, 43, 0.35),
+    0 2px 6px rgba(192, 57, 43, 0.2) !important;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease !important;
+  cursor: pointer !important;
+}
+
+#preview-container #section-0BnD6agQ3 #button-Eyv8iotnyh.c-button button:hover,
+#preview-container #section-0BnD6agQ3 #button-Eyv8iotnyh.c-button > a:hover {
+  background-color: #a93226 !important;
+  transform: translateY(-2px) !important;
+  box-shadow:
+    0 16px 40px rgba(192, 57, 43, 0.5),
+    0 4px 12px rgba(192, 57, 43, 0.3) !important;
+}
+
+#preview-container #section-0BnD6agQ3 #button-Eyv8iotnyh.c-button {
+  margin-top: 0.5rem !important;
+  margin-bottom: clamp(3rem, 6vw, 4.5rem) !important;
+}
+
+/* Book reveal — negative margin lets the asset overlap the About strip */
+#preview-container #section-0BnD6agQ3 .hero-book-wrapper {
+  position: relative !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  margin: 0 auto clamp(-4.5rem, -7vw, -2.5rem) !important;
+  padding: 0 0 0 !important;
+  max-width: min(650px, 92vw) !important;
+}
+
+#preview-container #section-0BnD6agQ3 .hero-book-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 145%;
+  height: 145%;
+  background: radial-gradient(
+    ellipse 75% 65% at 50% 48%,
+    rgba(232, 201, 108, 0.42) 0%,
+    rgba(201, 168, 76, 0.28) 28%,
+    rgba(201, 168, 76, 0.12) 48%,
+    rgba(201, 168, 76, 0) 72%
+  );
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(22px);
+}
+
+#preview-container #section-0BnD6agQ3 .hero-book-image {
+  position: relative;
+  z-index: 2;
+  width: auto;
+  height: clamp(406px, 59.2vw, 608px);
+  max-width: 100%;
+  transform: rotate(-7deg);
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.2)) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.12));
+  transition: transform 0.3s ease;
+}
+
+#preview-container #section-0BnD6agQ3 .hero-book-image:hover {
+  transform: rotate(-7deg) translateY(-4px);
+}
+
+/* Vertical rhythm — stack from top (no 100vh vertical centering), tighter top inset */
+#preview-container #section-0BnD6agQ3.hero-background > .inner {
+  min-height: 0 !important;
+  padding-top: clamp(0.75rem, 1.25vw, 1.25rem) !important;
+  padding-bottom: clamp(1rem, 2vw, 2rem) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  text-align: center !important;
+  gap: 0 !important;
+}
+
+@media (max-width: 768px) {
+  #preview-container #section-0BnD6agQ3.hero-background > .inner {
+    padding-top: clamp(0.25rem, 1vw, 0.625rem) !important;
+    padding-bottom: clamp(0.65rem, 2.5vw, 1.5rem) !important;
+  }
+
+  #preview-container #section-0BnD6agQ3 h1 {
+    font-size: clamp(2.21rem, 8.855vw, 3.17rem) !important;
+    line-height: 1.1 !important;
+  }
+
+  #preview-container #section-0BnD6agQ3 .hero-book-image {
+    height: clamp(338px, 84.5vw, 473px);
+  }
+
+  #preview-container #section-0BnD6agQ3 #button-Eyv8iotnyh.c-button button,
+  #preview-container #section-0BnD6agQ3 #button-Eyv8iotnyh.c-button > a {
+    padding: 1rem 2rem !important;
+    font-size: 0.95rem !important;
+  }
+}
+
+/* =====================================================================
+   Floating clients (#section-LrhYkmTc8-) — mobile layout
+   Desktop uses absolute bubbles + huge translate() coords; on narrow
+   viewports we stack cards and strip inline transforms via !important.
+   ===================================================================== */
+@media (max-width: 768px) {
+  #preview-container #section-LrhYkmTc8- {
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+  }
+
+  #preview-container #section-LrhYkmTc8- .bubble-wrap {
+    min-height: 0 !important;
+    transform: none !important;
+    transform-origin: center top !important;
+    top: 0 !important;
+    position: relative !important;
+  }
+
+  #preview-container #section-LrhYkmTc8- .bubble-wrap .bubbles {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 1.25rem !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    padding: 0.75rem 0.5rem 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  #preview-container #section-LrhYkmTc8- .bubble-wrap .bubble-container {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  #preview-container #section-LrhYkmTc8- .bubble-wrap .bubble {
+    position: relative !important;
+    transform: none !important;
+    width: clamp(112px, 36vw, 140px) !important;
+    height: clamp(112px, 36vw, 140px) !important;
+    margin: 0 auto !important;
+    flex-shrink: 0 !important;
+  }
+
+  #preview-container #section-LrhYkmTc8- .bubble-wrap .message-box {
+    display: block !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: none !important;
+    transform-origin: center top !important;
+    margin: 0.65rem 0 0 !important;
+    padding: 1rem 0.9rem 1.1rem !important;
+    box-sizing: border-box !important;
+    border-radius: 1.25rem !important;
+    font-size: 13px !important;
+    z-index: 1 !important;
+  }
+
+  #preview-container #section-LrhYkmTc8- .bubble-wrap .bubble-container:hover .message-box {
+    display: block !important;
+  }
+
+  #preview-container #section-LrhYkmTc8- .bubble-wrap .testimonial-text {
+    line-height: 1.45 !important;
+  }
+}

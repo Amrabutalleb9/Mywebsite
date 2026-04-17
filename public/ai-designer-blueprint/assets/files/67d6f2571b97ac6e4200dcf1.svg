@@ -1,0 +1,115 @@
+<svg width="483" height="416" viewBox="0 0 483 416" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="clip-pricing-card">
+      <rect width="483" height="416" fill="white"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#clip-pricing-card)">
+    <g transform="translate(0, 22)">
+
+    <!-- ROW 1: Gold headline "39-PAGE BOOK" (launch banner PNG lives in index.html above this SVG) -->
+    <text x="241" y="30"
+          text-anchor="middle"
+          font-family="'Barlow Condensed', sans-serif"
+          font-weight="800"
+          font-size="28"
+          letter-spacing="0.5"
+          fill="#C9A84C">39-PAGE BOOK</text>
+
+    <!-- ROW 2: White script "Delivered to Your Inbox" -->
+    <text x="241" y="68"
+          text-anchor="middle"
+          font-family="'Courier Prime', 'Courier New', monospace"
+          font-weight="400"
+          font-size="22"
+          letter-spacing="0.5"
+          fill="#F0F0F0">Delivered to Your Inbox</text>
+
+    <!-- ROW 3: PDF icon + "Instant PDF Access" -->
+    <g transform="translate(108, 98)">
+      <!-- Simple document/PDF icon in gold -->
+      <rect x="0" y="0" width="22" height="28" rx="2" fill="none" stroke="#C9A84C" stroke-width="2"/>
+      <line x1="5" y1="8" x2="17" y2="8" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+      <line x1="5" y1="14" x2="17" y2="14" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+      <line x1="5" y1="20" x2="13" y2="20" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+    </g>
+
+    <text x="145" y="118"
+          font-family="'Barlow Condensed', sans-serif"
+          font-weight="700"
+          font-size="22"
+          letter-spacing="0.5"
+          fill="#C9A84C">Instant PDF Access</text>
+
+    <!-- ROW 4: Large gold pill with "ONLY $5.99" -->
+    <rect x="62" y="160"
+          width="360" height="100"
+          rx="50"
+          fill="#C9A84C"
+          opacity="0.15"/>
+    <rect x="62" y="160"
+          width="360" height="100"
+          rx="50"
+          fill="none"
+          stroke="#C9A84C"
+          stroke-width="1.5"
+          opacity="0.6"/>
+
+    <!-- "ONLY" vertical label on left -->
+    <text x="108" y="218"
+          text-anchor="middle"
+          font-family="'Barlow Condensed', sans-serif"
+          font-weight="800"
+          font-size="18"
+          letter-spacing="2"
+          fill="#C9A84C"
+          transform="rotate(-90 108 218)">ONLY</text>
+
+    <!-- Large $5.99 -->
+    <text x="175" y="207"
+          font-family="'Barlow Condensed', sans-serif"
+          font-weight="900"
+          font-size="42"
+          fill="#C9A84C">$</text>
+    <text x="205" y="232"
+          font-family="'Barlow Condensed', sans-serif"
+          font-weight="900"
+          font-size="72"
+          letter-spacing="0"
+          fill="#E8C96C">5.99</text>
+
+    <!-- Gold scribble arrow pointing at the price -->
+    <path d="M410 155 L445 170 L395 205 Z" fill="#C9A84C" opacity="0.85"/>
+    <path d="M418 190 L445 200 L400 210 Z" fill="#C9A84C" opacity="0.85"/>
+
+    <!-- ROW 5: Strikethrough retail price in crimson -->
+    <text x="241" y="302"
+          text-anchor="middle"
+          font-family="'Courier Prime', 'Courier New', monospace"
+          font-weight="700"
+          font-size="20"
+          letter-spacing="2.5"
+          fill="#C0392B">RETAIL PRICE: $19.99</text>
+    <line x1="95" y1="295" x2="387" y2="295"
+          stroke="#C0392B"
+          stroke-width="2"/>
+
+    <!-- ROW 6: Discount callout -->
+    <text x="241" y="352"
+          text-anchor="middle"
+          font-family="'Barlow Condensed', sans-serif"
+          font-weight="900"
+          font-size="26"
+          letter-spacing="1.2"
+          fill="#FFFFFF">YOU'RE GETTING</text>
+    <text x="241" y="382"
+          text-anchor="middle"
+          font-family="'Barlow Condensed', sans-serif"
+          font-weight="900"
+          font-size="28"
+          letter-spacing="1.5"
+          fill="#C9A84C">(70% OFF)</text>
+
+    </g>
+  </g>
+</svg>

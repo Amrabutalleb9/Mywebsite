@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "title": "The AI Designer Blueprint \u2014 $5.99",
+    "supportEmail": "hello@amrabutalleb.com",
+    "mailtoSupport": "mailto:hello@amrabutalleb.com",
+    "siteUrl": "https://amrabutalleb.com/ai-designer-blueprint"
+  },
+  "checkout": {
+    "launchpadUrl": "https://example.com/your-launchpad-checkout",
+    "ctaLabel": "Continue to secure checkout"
+  },
+  "theme": {
+    "navy": "#1B2341",
+    "navyDark": "#0D1117",
+    "navyCard": "#232E4A",
+    "red": "#C0392B",
+    "gold": "#C9A84C",
+    "goldLight": "#E8C96C",
+    "textPrimary": "#F0F0F0",
+    "textMuted": "#9CA3AF",
+    "border": "#2D3A55"
+  },
+  "heroVideo": {
+    "desktop": "./assets/remote/hero-business-office-3840.mp4",
+    "mobile": "./assets/remote/hero-business-office-3840.mp4"
+  }
+}

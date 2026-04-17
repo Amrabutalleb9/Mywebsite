@@ -1,0 +1,18 @@
+/* Central tokens — edit here or mirror keys from site.config.json in app.js */
+:root {
+  --pen-lime: #C9A84C;          /* Gold — primary accent */
+  --pen-lime-soft: #E8C96C;     /* Lighter gold — hover/tint */
+  --pen-forest: #131A30;        /* Dark navy — secondary backgrounds */
+  --pen-ink: #F0F0F0;           /* Off-white — body text */
+  --pen-white: #FFFFFF;         /* Pure white — headlines */
+  --pen-gold-text: #E8C96C;     /* Gold text — decorative accents */
+  --pen-navy-primary: #1B2341;  /* Primary page background */
+  --pen-navy-card: #232E4A;     /* Card / box background */
+  --pen-navy-dark: #0D1117;     /* Darkest — hero, header bar */
+  --pen-red: #C0392B;           /* Brand crimson — CTA buttons */
+  --pen-red-hover: #A93226;     /* Button hover */
+  --pen-muted: #9CA3AF;         /* Muted text — captions */
+  --pen-border: #2D3A55;        /* Card borders */
+  --headlinefont: "Barlow Condensed", system-ui, sans-serif;
+  --contentfont: "DM Sans", system-ui, sans-serif;
+}
