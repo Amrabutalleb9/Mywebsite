@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "siteUrl": "https://amrabutalleb.com/ai-designer-blueprint",
+    "supportEmail": "hello@amrabutalleb.com"
+  },
+  "downloads": {
+    "pdf": "#replace-with-pdf-url",
+    "audio": "#replace-with-audio-url",
+    "dfyFiles": "#replace-with-dfy-files-url",
+    "ddsFiles": "#replace-with-dds-files-url",
+    "caseStudyFiles": "#replace-with-case-study-files-url"
+  },
+  "checkouts": {
+    "otoDfy": "https://example.com/checkout-oto-dfy",
+    "dds": "https://example.com/checkout-dds",
+    "otoCaseStudy": "https://example.com/checkout-oto-case-study"
+  },
+  "copy": {
+    "ddsHeadline": "DDS add-on (placeholder)",
+    "ddsSubhead": "Placeholder description for the DDS offer. Replace headline and subhead in funnel.config.json or edit dds/index.html.",
+    "ddsBullets": [
+      "Structured templates and assets you can plug into your Freelancer workflow",
+      "Written to match The AI Designer Blueprint system — swap placeholders in funnel.config.json",
+      "Delivered as a download bundle; link above when your files are hosted"
+    ]
+  }
+}

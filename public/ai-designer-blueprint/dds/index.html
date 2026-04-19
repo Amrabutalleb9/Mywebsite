@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DDS add-on (placeholder) — The AI Designer Blueprint</title>
+  <meta name="description" content="DDS add-on: placeholder sales page for The AI Designer Blueprint funnel. Edit copy in funnel.config.json or this file." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://amrabutalleb.com/ai-designer-blueprint/dds/" />
+  <link rel="icon" type="image/png" href="../assets/files/brand-logo-fist-pen.png" />
+  <link rel="stylesheet" href="../reset-editor-chrome.css" />
+  <link rel="stylesheet" href="../theme.css" />
+  <link rel="stylesheet" href="../site.css" />
+  <link rel="stylesheet" href="../funnel-oto.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&amp;family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&amp;display=swap" rel="stylesheet" />
+  <style id="ai-designer-blueprint-brand-layer">
+:root {
+ --brand-navy-primary: #1B2341;
+ --brand-navy-secondary: #131A30;
+ --brand-navy-dark: #0D1117;
+ --brand-navy-card: #232E4A;
+ --brand-red: #C0392B;
+ --brand-red-hover: #A93226;
+ --brand-gold: #C9A84C;
+ --brand-gold-light: #E8C96C;
+ --brand-grad-hero-overlay: linear-gradient(
+ to bottom,
+ rgba(22, 46, 51, 0.95) 0%,
+ rgba(27, 35, 65, 0.82) 32%,
+ rgba(37, 96, 90, 0.55) 68%,
+ rgba(19, 26, 48, 0.95) 100%
+ );
+ --brand-text-primary: #F0F0F0;
+ --brand-text-headline: #FFFFFF;
+ --brand-text-muted: #9CA3AF;
+ --brand-border: #2D3A55;
+ --headlinefont: "Barlow Condensed", sans-serif;
+ --contentfont: "DM Sans", sans-serif;
+ --white: #FFFFFF;
+ --black: #2D3A55;
+}
+h1, h2, h3 { letter-spacing: -0.01em; text-transform: uppercase; }
+p, li { letter-spacing: 0; line-height: 1.7; }
+body {
+ background-color: #1B2341 !important;
+ color: #F0F0F0 !important;
+ margin: 0;
+}
+  </style>
+</head>
+<body>
+  <div id="preview-container" class="preview-container hl_page-preview--content funnel-oto-page">
+    <section class="funnel-oto-hero c-section" aria-label="Hero">
+      <video
+        autoplay
+        playsinline
+        src="../assets/remote/hero-business-office-3840.mp4"
+        loop
+        muted
+        preload="metadata"
+        class="bgVideo cover none"
+      ></video>
+      <div class="funnel-oto-hero-inner">
+        <img src="../assets/files/brand-logo-fist-pen.png" alt="The AI Designer Blueprint" class="funnel-oto-logo" width="180" height="180" loading="eager" />
+        <p class="funnel-oto-eyebrow">Upgrade · DDS (placeholder)</p>
+        <h1 class="funnel-oto-title">DDS add-on (placeholder)</h1>
+        <p class="funnel-oto-lead" id="dds-subhead">
+          Placeholder description for the DDS offer. Replace headline and subhead in funnel.config.json or edit this page when your offer is finalized.
+        </p>
+        <a class="funnel-oto-cta" data-checkout="dds" href="https://example.com/checkout-dds">Yes — add the DDS bundle</a>
+      </div>
+    </section>
+
+    <section class="funnel-oto-section alt" aria-labelledby="dds-what">
+      <div class="funnel-oto-section-inner">
+        <h2 id="dds-what">What “DDS” stands for here</h2>
+        <p>This page uses neutral placeholder copy so you can rename the offer (templates, toolkit, sprint, etc.) without rebuilding the layout.</p>
+        <ul class="funnel-oto-list" id="dds-bullets">
+          <li>Structured templates and assets you can plug into your Freelancer workflow</li>
+          <li>Written to match The AI Designer Blueprint system</li>
+          <li>Delivered as a download bundle—set real links in funnel.config.json</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="funnel-oto-section" aria-labelledby="dds-guarantee">
+      <div class="funnel-oto-section-inner funnel-oto-guarantee">
+        <h2 id="dds-guarantee">Questions?</h2>
+        <p>Email <a href="mailto:hello@amrabutalleb.com" style="color: var(--brand-gold)">hello@amrabutalleb.com</a> before you buy if you need clarity on delivery format or timing.</p>
+      </div>
+    </section>
+
+    <footer class="funnel-oto-footer">
+      <p>© 2026 Amr Abu-Talleb. All Rights Reserved.</p>
+      <p>
+        <a rel="noopener noreferrer" href="https://amrabutalleb.com/terms">Terms of Service</a>
+        ·
+        <a rel="noopener noreferrer" href="https://amrabutalleb.com/privacy">Privacy Policy</a>
+      </p>
+    </footer>
+  </div>
+  <script src="../funnel-load.js" defer></script>
+  <script>
+    (function () {
+      function applyDdsCopy(cfg) {
+        if (!cfg || !cfg.copy) return;
+        var sub = document.getElementById("dds-subhead");
+        if (sub && cfg.copy.ddsSubhead) sub.textContent = cfg.copy.ddsSubhead;
+        var h = document.querySelector(".funnel-oto-title");
+        if (h && cfg.copy.ddsHeadline)
+          h.innerHTML = cfg.copy.ddsHeadline.replace(/\bDDS\b/gi, '<span class="accent">DDS</span>');
+        var ul = document.getElementById("dds-bullets");
+        if (ul && Array.isArray(cfg.copy.ddsBullets) && cfg.copy.ddsBullets.length) {
+          ul.innerHTML = cfg.copy.ddsBullets.map(function (t) {
+            return "<li>" + t + "</li>";
+          }).join("");
+        }
+      }
+      var u = new URL(window.location.href);
+      var segs = u.pathname.split("/").filter(Boolean);
+      if (segs[segs.length - 1] === "index.html") segs.pop();
+      if (segs.length) segs.pop();
+      u.pathname = "/" + segs.join("/") + "/funnel.config.json";
+      fetch(u.href)
+        .then(function (r) {
+          return r.json();
+        })
+        .then(applyDdsCopy)
+        .catch(function () {});
+    })();
+  </script>
+</body>
+</html>

@@ -6,25 +6,33 @@
   <title>Thank you — The AI Designer Blueprint</title>
   <meta name="robots" content="noindex, nofollow" />
   <link rel="icon" type="image/png" href="../assets/files/brand-logo-fist-pen.png" />
-  <style>
-    :root { --navy: #0d1117; --gold: #c9a84c; --text: #f0f0f0; --muted: #9ca3af; }
-    * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; font-family: system-ui, sans-serif; background: var(--navy); color: var(--text); display: flex; align-items: center; justify-content: center; padding: 1.5rem; }
-    main { max-width: 32rem; text-align: center; }
-    h1 { font-size: 1.75rem; font-weight: 700; margin: 0 0 1rem; color: #fff; }
-    p { line-height: 1.6; color: var(--muted); margin: 0 0 1rem; }
-    .accent { color: var(--gold); }
-    a { color: var(--gold); }
-    .btn { display: inline-block; margin-top: 1.25rem; padding: 0.75rem 1.25rem; border-radius: 999px; background: var(--gold); color: var(--navy); font-weight: 600; text-decoration: none; }
-    .btn:hover { filter: brightness(1.05); }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&amp;family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../funnel-thank-you.css" />
 </head>
-<body>
-  <main>
-    <h1>You're in — thank you</h1>
-    <p>Your order for <span class="accent">The AI Designer Blueprint</span> is confirmed.</p>
-    <p>Check your email for your receipt and PDF delivery. If you don't see it in a few minutes, look in spam or promotions, then contact <a href="mailto:hello@amrabutalleb.com">hello@amrabutalleb.com</a>.</p>
-    <a class="btn" href="/ai-designer-blueprint">Back to the blueprint page</a>
+<body class="funnel-ty-page">
+  <main class="funnel-ty-main">
+    <img src="../assets/files/brand-logo-fist-pen.png" alt="The AI Designer Blueprint" class="funnel-ty-logo" width="88" height="88" decoding="async" />
+    <h1 class="funnel-ty-title">You're in — thank you</h1>
+    <p class="funnel-ty-intro">
+      Your order for <span class="accent">The AI Designer Blueprint</span> is confirmed. Download your PDF below. You’ll also get a receipt by email.
+    </p>
+    <div class="funnel-ty-downloads" aria-label="Your downloads">
+      <div class="funnel-ty-card">
+        <div>
+          <p class="funnel-ty-card-label">The AI Designer Blueprint (PDF)</p>
+          <p class="funnel-ty-card-meta">Field manual · replace URL in funnel.config.json</p>
+        </div>
+        <a class="funnel-ty-dl" href="#replace-with-pdf-url" data-download="pdf">Download</a>
+      </div>
+    </div>
+    <p class="funnel-ty-note">
+      If you don't see the email in a few minutes, check spam or promotions, then contact
+      <a href="mailto:hello@amrabutalleb.com">hello@amrabutalleb.com</a>.
+    </p>
+    <a class="funnel-ty-back" href="/ai-designer-blueprint">Back to the blueprint page</a>
   </main>
+  <script src="../funnel-load.js" defer></script>
 </body>
 </html>
