@@ -218,11 +218,13 @@ body {
   padding-bottom: 0 !important;
   position: relative !important;
   z-index: 25 !important;
+  overflow: visible !important;
 }
 
 #preview-container #section-0BnD6agQ3 #col-IpGhVQn1p7 {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+  overflow: visible !important;
 }
 
 #preview-container #section-0BnD6agQ3 #custom-code-VBUOVpKX5h {
@@ -230,6 +232,8 @@ body {
   margin-right: auto !important;
   text-align: center !important;
   width: 100% !important;
+  max-width: none !important;
+  overflow: visible !important;
 }
 
 /* CTA wrappers (.c-button): centered content-width + transparent wrapper — crimson only on inner
@@ -3068,15 +3072,26 @@ body,
   margin-bottom: clamp(3rem, 6vw, 4.5rem) !important;
 }
 
-/* Social proof “wall of faces” — replaces single book mockup; pulls into About strip */
+/* Social proof “wall of faces” — full-bleed + horizontal marquee (seamless duplicate strip) */
+@keyframes heroSocialProofMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 #preview-container #section-0BnD6agQ3 .hero-social-proof-wall {
   position: relative !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: flex-start !important;
-  margin: 0 auto clamp(-3.5rem, -6vw, -2rem) !important;
+  width: 100vw !important;
+  max-width: none !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  margin-top: 0 !important;
+  margin-bottom: clamp(-3.5rem, -6vw, -2rem) !important;
   padding: clamp(0.25rem, 1vw, 0.5rem) 0 0 !important;
-  max-width: min(1040px, 96vw) !important;
+  box-sizing: border-box !important;
 }
 
 #preview-container #section-0BnD6agQ3 .hero-social-proof-wall::before {
@@ -3092,14 +3107,57 @@ body,
   pointer-events: none;
 }
 
+#preview-container #section-0BnD6agQ3 .hero-social-proof-wall__viewport {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 2%,
+    #000 98%,
+    transparent
+  );
+  mask-size: 100% 100%;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 2%,
+    #000 98%,
+    transparent
+  );
+  -webkit-mask-size: 100% 100%;
+}
+
+#preview-container #section-0BnD6agQ3 .hero-social-proof-wall__track {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  width: max-content !important;
+  align-items: flex-start !important;
+  gap: 0 !important;
+  animation: heroSocialProofMarquee 55s linear infinite !important;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #preview-container #section-0BnD6agQ3 .hero-social-proof-wall__track {
+    animation: none !important;
+    transform: translateX(0) !important;
+  }
+}
+
 #preview-container #section-0BnD6agQ3 .hero-social-proof-wall__img {
   position: relative;
   z-index: 1;
   display: block;
-  width: 100%;
-  height: auto;
-  max-height: min(72vh, 640px);
-  object-fit: contain;
+  flex: 0 0 auto !important;
+  width: auto !important;
+  height: auto !important;
+  max-height: min(72vh, 640px) !important;
+  object-fit: contain !important;
   border-radius: clamp(8px, 1.2vw, 14px);
   box-shadow:
     0 18px 48px rgba(0, 0, 0, 0.45),
@@ -3131,7 +3189,11 @@ body,
   }
 
   #preview-container #section-0BnD6agQ3 .hero-social-proof-wall__img {
-    max-height: min(58vh, 520px);
+    max-height: min(52vh, 480px) !important;
+  }
+
+  #preview-container #section-0BnD6agQ3 .hero-social-proof-wall__track {
+    animation-duration: 42s !important;
   }
 
   #preview-container #section-0BnD6agQ3 #button-Eyv8iotnyh.c-button button,
