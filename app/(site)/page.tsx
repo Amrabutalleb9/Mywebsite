@@ -2,7 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowUpRight, ArrowRight } from "lucide-react"
 import { articles, getReadingTime } from "@/lib/articles"
-import { testimonials, capabilities } from "@/lib/shared-data"
+import { publishedTestimonials, capabilities } from "@/lib/shared-data"
 
 import HeroSection from "@/components/homepage/hero-section"
 import MarqueeBanner from "@/components/homepage/marquee-banner"
@@ -23,8 +23,7 @@ const caseStudyCards = [
   { slug: "overpowered", num: "01", title: "Overpowered", subtitle: "Rebranding a\u00A0multi-market creative agency for three audiences, one\u00A0identity", impact: "Unified identity across 3\u00A0markets \u00B7 A/B-tested micro campaigns \u00B7 Design system still in\u00A0use months\u00A0later", category: "Brand Identity & Rebrand", year: "2025", role: "Creative Director \u00B7 Led team of\u00A025", featureImage: "", featureImageAlt: "" },
   { slug: "split", num: "02", title: "Split", subtitle: "Redesigning a\u00A0fitness platform from competitive research to\u00A0revenue-driving features", impact: "Won the client by rewriting a\u00A0flawed quotation \u00B7 New monetisation paths \u00B7 Research-validated\u00A0features", category: "UX/UI Product Design", year: "2025", role: "Creative Director & UX Lead \u00B7 Team of\u00A03", featureImage: "", featureImageAlt: "" },
   { slug: "agfin", num: "03", title: "Agfin", subtitle: "Turning a\u00A0static website into a\u00A012% revenue engine through strategic copywriting", impact: "12%\u00A0sales increase in month one \u00B7 Zero ad spend \u00B7 Copy-first strategy\u00A0validated", category: "Sales Funnel & Copywriting", year: "2024", role: "Creative Director, UX & Copywriter \u00B7 Solo\u00A0project", featureImage: "", featureImageAlt: "" },
-  { slug: "dipa", num: "04", title: "Dipa Visionary Art School", subtitle: "Rebuilding a\u00A0visionary art school\u2019s digital home after three\u00A0years of\u00A0failed attempts", impact: "70%\u00A0increase in website views \u00B7 Replaced 4\u00A0failed freelancers \u00B7 Being submitted for\u00A0Awwwards", category: "Immersive Web Experience", year: "2022\u20132026", role: "Creative Director & UX/UI \u00B7 Led small\u00A0team", featureImage: "/images/dipa-showcase.webp", featureImageAlt: "Dipa Visionary Art School immersive website design" },
-]
+].map((card, index) => ({ ...card, num: String(index + 1).padStart(2, "0") }))
 
 const highlightCards = [
   { slug: "alfy", num: "05", title: "Alfy", subtitle: "Repositioning a\u00A0luxury marble brand for B2B\u00A0impact", result: "70%\u00A0engagement increase", year: "2025", category: "Campaign Strategy", role: "Creative Director at\u00A0Overpowered", featureImage: "/images/alfy-feature.webp", featureImageAlt: "El Alfy Saraya luxury marble brand website hero" },
@@ -374,7 +373,7 @@ export default function Home() {
       <HeroSection />
       <MarqueeBanner />
       <WorkSection />
-      <TestimonialsWithStats testimonials={testimonials} stats={stats} />
+      <TestimonialsWithStats testimonials={publishedTestimonials} stats={stats} />
       <div className="mx-auto mt-16 max-w-3xl text-center">
         <a
           href="/work-with-me"

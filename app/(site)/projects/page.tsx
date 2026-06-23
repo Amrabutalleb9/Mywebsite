@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { caseStudies, projectHighlights } from "@/lib/projects"
+import { publishedCaseStudies, projectHighlights } from "@/lib/projects"
 import { ProjectShowcase } from "@/components/ui/project-showcase"
 import type { ShowcaseProject } from "@/components/ui/project-showcase"
 import FadeIn from "@/components/fade-in"
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
 }
 
-const caseStudyItems: ShowcaseProject[] = caseStudies.map((p) => ({
+const caseStudyItems: ShowcaseProject[] = publishedCaseStudies.map((p) => ({
   title: p.title,
   subtitle: p.subtitle,
   year: p.year,
@@ -79,7 +79,7 @@ export default function ProjectsPage() {
 
       <ProjectShowcase
         projects={highlightItems}
-        startIndex={caseStudies.length}
+        startIndex={publishedCaseStudies.length}
       />
     </main>
   )

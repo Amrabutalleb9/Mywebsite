@@ -26,6 +26,8 @@ export interface CaseStudy {
   reflection: string
   credits: string
   featured: boolean
+  /** When true, excluded from listings, sitemap, search indexing, and direct URLs return 404. */
+  hidden?: boolean
   featureImage?: string
   featureImageAlt?: string
   galleryImages?: { src: string; alt: string }[]
@@ -208,6 +210,7 @@ export const caseStudies: CaseStudy[] = [
     reflection: "This is the project I\u2019m most proud of. The decision to\u00A0fix first and redesign later rebuilt Dipa\u2019s confidence before asking her to\u00A0dream big again. Sometimes the best creative strategy begins with simply delivering on\u00A0your\u00A0word.",
     credits: "Creative Direction, Content Strategy & UX: Amr Abu-Talleb \u00b7 UI Design: UX/UI Design Team \u00b7 Client: Dipa, Singapore",
     featured: true,
+    hidden: true,
     featureImage: "/images/dipa-showcase.webp",
     featureImageAlt: "Dipa Visionary Art School website homepage showing immersive studio experience with story section",
     galleryImages: [
@@ -286,16 +289,28 @@ export const projectHighlights: ProjectHighlight[] = [
 
 /* ─── Helpers ────────────────────────────────────── */
 
+export function isCaseStudyPublished(study: CaseStudy): boolean {
+  return !study.hidden
+}
+
+export const publishedCaseStudies = caseStudies.filter(isCaseStudyPublished)
+
+export function getHiddenCaseStudySlugs(): string[] {
+  return caseStudies.filter((p) => p.hidden).map((p) => p.slug)
+}
+
 export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {
-  return caseStudies.find((p) => p.slug === slug)
+  const project = caseStudies.find((p) => p.slug === slug)
+  if (!project || project.hidden) return undefined
+  return project
 }
 export function getHighlightBySlug(slug: string): ProjectHighlight | undefined {
   return projectHighlights.find((p) => p.slug === slug)
 }
 export function getAdjacentCaseStudies(slug: string) {
-  const index = caseStudies.findIndex((p) => p.slug === slug)
-  const prev = index > 0 ? caseStudies[index - 1] : null
-  const next = index < caseStudies.length - 1 ? caseStudies[index + 1] : null
+  const index = publishedCaseStudies.findIndex((p) => p.slug === slug)
+  const prev = index > 0 ? publishedCaseStudies[index - 1] : null
+  const next = index < publishedCaseStudies.length - 1 ? publishedCaseStudies[index + 1] : null
   return { prev, next }
 }
 export function getAdjacentHighlights(slug: string) {
@@ -306,6 +321,6 @@ export function getAdjacentHighlights(slug: string) {
 }
 // Backward compat
 export type Project = CaseStudy
-export const projects = caseStudies
+export const projects = publishedCaseStudies
 export function getProjectBySlug(slug: string) { return getCaseStudyBySlug(slug) }
 export function getAdjacentProjects(slug: string) { return getAdjacentCaseStudies(slug) }

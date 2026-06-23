@@ -4,6 +4,7 @@ import { caseStudies, getCaseStudyBySlug, getAdjacentCaseStudies } from "@/lib/p
 import CaseStudyLayout from "@/components/case-study-layout"
 
 export function generateStaticParams() {
+  // Include hidden slugs so static export can emit a 404 page instead of failing at runtime.
   return caseStudies.map((p) => ({ slug: p.slug }))
 }
 

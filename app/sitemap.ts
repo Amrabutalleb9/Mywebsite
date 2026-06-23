@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next"
 import { articles } from "@/lib/articles"
-import { caseStudies, projectHighlights } from "@/lib/projects"
+import { publishedCaseStudies, projectHighlights } from "@/lib/projects"
 
 export const dynamic = "force-static"
 
@@ -32,7 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/terms`, lastModified: siteUpdated, changeFrequency: "yearly", priority: 0.3 },
   ]
 
-  const workPages: MetadataRoute.Sitemap = caseStudies.map((p) => ({
+  const workPages: MetadataRoute.Sitemap = publishedCaseStudies.map((p) => ({
     url: `${base}/work/${p.slug}`,
     lastModified: siteUpdated,
     changeFrequency: "monthly",

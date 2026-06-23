@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import dynamic from "next/dynamic"
 import FadeIn from "@/components/fade-in"
 import CalendlyButton from "@/components/calendly-button"
-import { testimonials } from "@/lib/shared-data"
+import { publishedTestimonials } from "@/lib/shared-data"
 
 const CleanTestimonial = dynamic(
   () => import("@/components/ui/clean-testimonial").then((m) => ({ default: m.CleanTestimonial })),
@@ -199,7 +199,7 @@ export default function WorkWithMePage() {
           </h2>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <CleanTestimonial testimonials={testimonials} />
+          <CleanTestimonial testimonials={publishedTestimonials} />
         </FadeIn>
       </section>
 
