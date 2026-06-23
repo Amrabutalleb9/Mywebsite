@@ -1,53 +1,38 @@
-// Self-contained fade-in using inline styles. Used on inner/detail pages.
-// For homepage staggered section reveals, use <ScrollReveal> instead
-// (CSS class-based with doubled-selector specificity for Tailwind v4).
 "use client"
 
-import { useRef, useEffect, useState, useCallback, type ReactNode } from "react"
+import { useMemo, type ReactNode } from "react"
+import { motion, useReducedMotion } from "motion/react"
+
+const EASE_OUT = [0.16, 1, 0.3, 1] as const
+
+type FadeInTag = "div" | "h1" | "h2" | "p" | "li" | "article" | "section"
 
 interface FadeInProps {
   children: ReactNode
   className?: string
   delay?: number
-  as?: "div" | "h1" | "h2" | "p" | "li" | "article" | "section"
+  as?: FadeInTag
+  y?: number
 }
 
-export default function FadeIn({ children, className = "", delay = 0, as: Tag = "div" }: FadeInProps) {
-  const elRef = useRef<HTMLElement | null>(null)
-  const [visible, setVisible] = useState(false)
+export default function FadeIn({ children, className = "", delay = 0, as = "div", y = 24 }: FadeInProps) {
+  const reduced = useReducedMotion()
+  const MotionTag = useMemo(() => motion.create(as), [as])
 
-  useEffect(() => {
-    const el = elRef.current
-    if (!el) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true)
-          observer.unobserve(el)
-        }
-      },
-      { rootMargin: "-50px" }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
-  const refCallback = useCallback((node: HTMLElement | null) => {
-    elRef.current = node
-  }, [])
+  if (reduced) {
+    const StaticTag = as
+    return <StaticTag className={className}>{children}</StaticTag>
+  }
 
   return (
-    <Tag
-      ref={refCallback as React.RefCallback<HTMLElement>}
+    <MotionTag
       className={className}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(24px)",
-        transition: `opacity 0.4s ease ${delay}s, transform 0.4s ease ${delay}s`,
-      }}
+      initial={{ opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-6% 0px -4% 0px", amount: 0.1 }}
+      transition={{ duration: 0.6, delay, ease: EASE_OUT }}
     >
       {children}
-    </Tag>
+    </MotionTag>
   )
 }

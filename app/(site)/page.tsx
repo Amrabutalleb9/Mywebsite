@@ -69,10 +69,9 @@ function WorkSection() {
           const isRight = i % 2 === 0
 
           return (
-            <ScrollReveal key={project.slug}>
-              <Link href={`/work/${project.slug}`} className="group block" data-cursor-label={`Explore ${project.title}`}>
+            <ScrollReveal key={project.slug} delay={0.05}>
+              <Link href={`/work/${project.slug}`} className="work-card group block" data-cursor-label={`Explore ${project.title}`}>
                 <div className={`flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-12 ${!isRight ? "lg:flex-row-reverse" : ""}`}>
-
                   <div className="lg:w-[30%] lg:flex-shrink-0">
                     <div className="flex gap-4">
                       <span className="font-serif text-[length:var(--text-section)] leading-none font-normal text-accent/20 select-none">{project.num}</span>
@@ -85,23 +84,14 @@ function WorkSection() {
                         <p className="mt-2 max-w-md font-serif text-sm leading-relaxed text-muted-foreground italic">
                           {project.subtitle}
                         </p>
-                        <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground/50">
-                          {project.role}
-                        </p>
-                        <p className="mt-4 max-w-sm text-xs leading-relaxed text-accent/80">
-                          {project.impact}
-                        </p>
+                        <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground/50">{project.role}</p>
+                        <p className="mt-4 max-w-sm text-xs leading-relaxed text-accent/80">{project.impact}</p>
                       </div>
                     </div>
                   </div>
 
                   <div className="relative min-w-0 lg:flex-1">
-                    <div
-                      className="pointer-events-none absolute -top-8 h-48 w-48 rounded-full border border-border/50 lg:h-64 lg:w-64"
-                      style={{ [isRight ? "right" : "left"]: "-2rem" }}
-                      aria-hidden="true"
-                    />
-                    <div className="relative overflow-hidden rounded-2xl bg-primary transition-shadow duration-500 group-hover:shadow-2xl">
+                    <div className="work-media relative overflow-hidden rounded-2xl bg-primary">
                       {project.featureImage ? (
                         <Image
                           src={project.featureImage}
@@ -109,15 +99,15 @@ function WorkSection() {
                           width={900}
                           height={562}
                           sizes="(max-width: 768px) 100vw, 50vw"
-                          className="cs-card-img aspect-[16/10] w-full object-cover"
+                          className="card-img aspect-[16/10] w-full object-cover"
                         />
                       ) : (
-                        <div className="cs-card-img flex aspect-[16/10] items-center justify-center">
+                        <div className="card-img flex aspect-[16/10] items-center justify-center">
                           <span className="font-serif text-lg text-primary-foreground/20">{project.title}</span>
                         </div>
                       )}
                       <div className="absolute right-6 bottom-6">
-                        <div className="cs-card-arrow flex h-10 w-10 items-center justify-center rounded-full border border-primary-foreground/20 text-primary-foreground/40">
+                        <div className="card-arrow flex h-10 w-10 items-center justify-center rounded-full border border-primary-foreground/20 text-primary-foreground/40">
                           <ArrowUpRight size={18} />
                         </div>
                       </div>
@@ -133,7 +123,7 @@ function WorkSection() {
       <div className="mx-auto mt-16 max-w-3xl text-center">
         <a
           href="/work-with-me"
-          className="cta-btn inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase transition-all hover:bg-transparent hover:text-foreground"
+          className="cta-btn cta-btn-filled inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase"
         >
           Work With Me
           <ArrowUpRight size={14} className="cta-arrow" />
@@ -146,10 +136,10 @@ function WorkSection() {
           <p className="mb-10 text-xs font-medium tracking-[var(--tracking-label)] text-muted-foreground/50 uppercase">Project Highlights</p>
         </ScrollReveal>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {highlightCards.map((project) => (
-            <ScrollReveal key={project.slug}>
-              <Link href={`/highlights/${project.slug}`} className="group block" data-cursor-label={`View ${project.title}`}>
-                <div className="relative overflow-hidden rounded-xl bg-primary transition-shadow duration-500 group-hover:shadow-xl">
+          {highlightCards.map((project, i) => (
+            <ScrollReveal key={project.slug} delay={i * 0.08}>
+              <Link href={`/highlights/${project.slug}`} className="highlight-card group block" data-cursor-label={`View ${project.title}`}>
+                <div className="relative overflow-hidden rounded-xl bg-primary">
                   {project.featureImage ? (
                     <Image
                       src={project.featureImage}
@@ -157,15 +147,15 @@ function WorkSection() {
                       width={600}
                       height={375}
                       sizes="(max-width: 768px) 100vw, 33vw"
-                      className="hl-card-img aspect-[16/10] w-full object-cover"
+                      className="card-img aspect-[16/10] w-full object-cover"
                     />
                   ) : (
-                    <div className="hl-card-img flex aspect-[16/10] items-center justify-center">
+                    <div className="card-img flex aspect-[16/10] items-center justify-center">
                       <span className="font-serif text-sm text-primary-foreground/15">{project.title}</span>
                     </div>
                   )}
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" aria-hidden="true" />
-                  <div className="hl-card-arrow absolute right-4 bottom-4">
+                  <div className="highlight-shine pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" aria-hidden="true" />
+                  <div className="card-arrow absolute right-4 bottom-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <div className="flex h-8 w-8 items-center justify-center rounded-full border border-primary-foreground/30 text-primary-foreground/60">
                       <ArrowUpRight size={14} />
                     </div>
@@ -195,7 +185,7 @@ function WorkSection() {
 
       <ScrollReveal>
         <div className="mt-20 flex justify-center border-t border-border pt-8">
-          <Link href="/projects" className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase transition-colors hover:text-accent">
+          <Link href="/projects" className="text-link inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase">
             All&nbsp;Projects
             <ArrowUpRight size={14} />
           </Link>
@@ -213,7 +203,7 @@ function About() {
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
           <ScrollReveal className="lg:w-[40%]">
-            <div className="overflow-hidden rounded-full">
+            <div className="portrait-wrap overflow-hidden rounded-full">
               <Image
                 src="/images/amr-portrait.webp"
                 alt="Amr Abu-Talleb portrait"
@@ -245,10 +235,7 @@ function About() {
               <p className="mb-8 max-w-[60ch] leading-relaxed text-muted-foreground">
                 {"I use typography the way a\u00A0filmmaker uses a\u00A0camera: it\u00A0sets the mood, controls the pace, and tells the story before a\u00A0single word gets\u00A0read."}
               </p>
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-accent"
-              >
+              <Link href="/about" className="text-link inline-flex items-center gap-2 text-sm font-medium text-foreground">
                 About Amr Abu-Talleb
                 <ArrowRight size={14} />
               </Link>
@@ -257,7 +244,7 @@ function About() {
             <div className="mt-10 grid grid-cols-2 gap-4">
               {capabilities.map((cap, i) => (
                 <ScrollReveal key={cap.title} delay={0.25 + i * 0.06}>
-                  <div className="rounded-sm bg-surface p-6">
+                  <div className="capability-card rounded-sm bg-surface p-6">
                     <h3 className="mb-2 text-sm font-medium text-foreground">{cap.title}</h3>
                     <p className="text-xs leading-relaxed text-muted-foreground">{cap.desc}</p>
                   </div>
@@ -269,7 +256,7 @@ function About() {
 
         <ScrollReveal>
           <div className="mt-16 flex justify-center border-t border-border pt-8">
-            <Link href="/about" className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase transition-colors hover:text-accent">
+            <Link href="/about" className="text-link inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase">
               Read&nbsp;More
               <ArrowUpRight size={14} />
             </Link>
@@ -300,14 +287,14 @@ function BlogPreview() {
 
         <div className="flex flex-col gap-6 lg:w-[65%]">
           <ScrollReveal>
-            <Link href={`/articles/${blogPosts[0].slug}`} className="group block" data-cursor-label="Read Article">
+            <Link href={`/articles/${blogPosts[0].slug}`} className="article-card group block" data-cursor-label="Read Article">
               <div className="overflow-hidden rounded-lg">
                 <Image
                   src={blogPosts[0].image || "/images/blog-branding.webp"}
                   alt={blogPosts[0].imageAlt || blogPosts[0].title}
                   width={1200}
                   height={630}
-                  className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="card-img aspect-[16/9] w-full object-cover"
                 />
               </div>
               <div className="mt-3 flex items-center gap-3">
@@ -317,8 +304,8 @@ function BlogPreview() {
               </div>
               <h3 className="mt-1 text-lg font-medium text-foreground group-hover:text-accent">{blogPosts[0].title}</h3>
               <p className="mt-2 max-w-[60ch] text-sm leading-relaxed text-muted-foreground">{blogPosts[0].excerpt}</p>
-              <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-foreground">
-                Read&nbsp;Article <ArrowRight size={14} className="article-arrow" />
+              <span className="text-link mt-3 inline-flex items-center gap-1 text-sm font-medium text-foreground">
+                Read&nbsp;Article <ArrowRight size={14} className="inline-arrow" />
               </span>
             </Link>
           </ScrollReveal>
@@ -326,14 +313,14 @@ function BlogPreview() {
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             {blogPosts.slice(1).map((post, i) => (
               <ScrollReveal key={post.title} delay={i * 0.08}>
-                <Link href={`/articles/${post.slug}`} className="group block" data-cursor-label="Read Article">
+                <Link href={`/articles/${post.slug}`} className="article-card group block" data-cursor-label="Read Article">
                   <div className="overflow-hidden rounded-lg">
                     <Image
                       src={post.image || "/images/blog-branding.webp"}
                       alt={post.imageAlt || post.title}
                       width={600}
                       height={375}
-                      className="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="card-img aspect-[16/10] w-full object-cover"
                     />
                   </div>
                   <div className="mt-3 flex items-center gap-3">
@@ -355,7 +342,7 @@ function BlogPreview() {
 
       <ScrollReveal>
         <div className="mt-16 flex justify-center border-t border-border pt-8">
-          <Link href="/articles" className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase transition-colors hover:text-accent">
+          <Link href="/articles" className="text-link inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase">
             All&nbsp;Articles
             <ArrowUpRight size={14} />
           </Link>
@@ -377,7 +364,7 @@ export default function Home() {
       <div className="mx-auto mt-16 max-w-3xl text-center">
         <a
           href="/work-with-me"
-          className="cta-btn inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase transition-all hover:bg-transparent hover:text-foreground"
+          className="cta-btn cta-btn-filled inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase"
         >
           Work With Me
           <ArrowUpRight size={14} className="cta-arrow" />

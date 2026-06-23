@@ -22,6 +22,11 @@
   --ring: #c9a96e;
   --radius: 18px;
   --surface: #f5f5f5;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --duration-fast: 200ms;
+  --duration-normal: 320ms;
+  --duration-slow: 550ms;
 }
 
 @theme inline {
@@ -180,59 +185,106 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Marquee animation is applied via inline styles; pause handled by JS onMouseEnter/Leave */
 
-/* ─── CTA button hover ─── */
+/* ─── Motion & interaction polish ─── */
 .cta-btn {
-  transition: all 0.3s ease;
+  transition:
+    transform var(--duration-normal) var(--ease-out-expo),
+    background-color var(--duration-normal) var(--ease-out-expo),
+    color var(--duration-normal) var(--ease-out-expo),
+    border-color var(--duration-normal) var(--ease-out-expo),
+    box-shadow var(--duration-normal) var(--ease-out-expo);
 }
-.cta-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+.cta-btn-filled:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px -12px rgba(13, 13, 26, 0.25);
+  background-color: transparent;
+  color: var(--foreground);
+}
+.cta-btn-outline:hover {
+  background-color: var(--foreground);
+  color: var(--background);
+  transform: translateY(-2px);
 }
 .cta-btn .cta-arrow {
-  transition: transform 0.3s ease;
+  transition: transform var(--duration-normal) var(--ease-out-expo);
 }
 .cta-btn:hover .cta-arrow {
   transform: translate(2px, -2px);
 }
 
-/* ─── Case study card hover ─── */
-.cs-card-img {
-  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+.text-link {
+  transition: color var(--duration-fast) var(--ease-out-expo);
 }
-.group:hover .cs-card-img {
-  transform: scale(1.05);
+.text-link:hover {
+  color: var(--accent);
 }
-.cs-card-arrow {
-  transition: all 0.3s ease;
+.text-link:hover .inline-arrow {
+  transform: translateX(4px);
 }
-.group:hover .cs-card-arrow {
+.inline-arrow,
+.article-arrow {
+  transition: transform var(--duration-normal) var(--ease-out-expo);
+}
+.group:hover .article-arrow,
+.article-card:hover .inline-arrow {
+  transform: translateX(4px);
+}
+
+.card-img {
+  transition: transform var(--duration-slow) var(--ease-out-quart);
+}
+.work-card:hover .card-img,
+.highlight-card:hover .card-img,
+.article-card:hover .card-img {
+  transform: scale(1.04);
+}
+.work-media {
+  transition: box-shadow var(--duration-slow) var(--ease-out-expo);
+}
+.work-card:hover .work-media {
+  box-shadow: 0 28px 56px -16px rgba(13, 13, 26, 0.35);
+}
+.card-arrow {
+  transition:
+    transform var(--duration-normal) var(--ease-out-expo),
+    border-color var(--duration-normal) var(--ease-out-expo),
+    color var(--duration-normal) var(--ease-out-expo),
+    opacity var(--duration-normal) var(--ease-out-expo);
+}
+.work-card:hover .card-arrow {
   border-color: var(--primary-foreground);
   color: var(--primary-foreground);
   transform: translate(2px, -2px);
 }
+.highlight-shine {
+  background: linear-gradient(135deg, rgba(201, 169, 110, 0.08) 0%, transparent 50%, rgba(201, 169, 110, 0.12) 100%);
+}
+.portrait-wrap img {
+  transition: transform var(--duration-slow) var(--ease-out-quart), filter var(--duration-slow) var(--ease-out-expo);
+}
+.portrait-wrap:hover img {
+  transform: scale(1.03);
+  filter: grayscale(0.4);
+}
+.capability-card {
+  transition:
+    transform var(--duration-normal) var(--ease-out-expo),
+    box-shadow var(--duration-normal) var(--ease-out-expo);
+}
+.capability-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px -16px rgba(13, 13, 26, 0.15);
+}
 
-/* ─── Highlight card hover ─── */
-.hl-card-img {
-  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.group:hover .hl-card-img {
-  transform: scale(1.05);
-}
-.hl-card-arrow {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.group:hover .hl-card-arrow {
-  opacity: 1;
-}
-
-/* ─── Article "Read Article" arrow slide ─── */
-.article-arrow {
-  transition: transform 0.3s ease;
-}
-.group:hover .article-arrow {
-  transform: translateX(4px);
-}
+/* Legacy aliases */
+.cs-card-img { transition: transform var(--duration-slow) var(--ease-out-quart); }
+.group:hover .cs-card-img { transform: scale(1.04); }
+.cs-card-arrow { transition: transform var(--duration-normal) var(--ease-out-expo), border-color var(--duration-normal) var(--ease-out-expo), color var(--duration-normal) var(--ease-out-expo); }
+.group:hover .cs-card-arrow { border-color: var(--primary-foreground); color: var(--primary-foreground); transform: translate(2px, -2px); }
+.hl-card-img { transition: transform var(--duration-slow) var(--ease-out-quart); }
+.group:hover .hl-card-img { transform: scale(1.04); }
+.hl-card-arrow { opacity: 0; transition: opacity var(--duration-normal) var(--ease-out-expo); }
+.group:hover .hl-card-arrow { opacity: 1; }
 
 /* ─── Project detail image hover (lightbox trigger) ─── */
 .project-img {
@@ -262,11 +314,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Footer Get Started button ─── */
 .footer-submit-btn {
-  transition: all 0.3s ease;
+  transition:
+    transform var(--duration-normal) var(--ease-out-expo),
+    box-shadow var(--duration-normal) var(--ease-out-expo);
 }
 .footer-submit-btn:hover:not(:disabled) {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px -12px rgba(13, 13, 26, 0.15);
 }
 
 /* ─── Custom cursor: hide default on desktop (only when JS cursor is active) ─── */
@@ -274,21 +328,24 @@ h1, h2, h3, h4, h5, h6 {
   .cursor-active * { cursor: none !important; }
 }
 
-/* ─── Scroll-triggered fade in via IntersectionObserver ─── */
-/* Use doubled selector for higher specificity to beat TW4 utilities */
-.fade-section.fade-section {
-  opacity: 1;
-  transform: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .fade-section.fade-section {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+@media (prefers-reduced-motion: reduce) {
+  .cta-btn-filled:hover,
+  .cta-btn-outline:hover,
+  .capability-card:hover,
+  .footer-submit-btn:hover:not(:disabled) {
+    transform: none;
   }
-  .fade-section.fade-section.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+  .card-img,
+  .portrait-wrap img,
+  .cs-card-img,
+  .hl-card-img {
+    transition: none;
+  }
+  .work-card:hover .card-img,
+  .highlight-card:hover .card-img,
+  .article-card:hover .card-img,
+  .group:hover .cs-card-img,
+  .group:hover .hl-card-img {
+    transform: none;
   }
 }

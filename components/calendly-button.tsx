@@ -49,13 +49,13 @@ export default function CalendlyButton({ className, children }: CalendlyButtonPr
       onClick={handleClick}
       className={
         className ||
-        "inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase transition-all duration-300 hover:bg-transparent hover:text-foreground cursor-pointer"
+        "cta-btn cta-btn-filled inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase cursor-pointer"
       }
     >
       {children || (
         <>
           Book a Strategy Call
-          <ArrowUpRight size={14} />
+          <ArrowUpRight size={14} className="cta-arrow" />
         </>
       )}
     </button>

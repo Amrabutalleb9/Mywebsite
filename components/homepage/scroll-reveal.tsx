@@ -1,50 +1,38 @@
-// Homepage staggered section reveals using CSS classes (.fade-section/.is-visible).
-// Uses doubled-selector specificity to beat Tailwind v4 utilities.
-// For inner/detail pages, use <FadeIn> instead (inline styles, self-contained).
 "use client"
 
-import { useRef, useEffect, type ReactNode } from "react"
+import { useRef, type ReactNode } from "react"
+import { motion, useInView, useReducedMotion } from "motion/react"
+
+const EASE_OUT = [0.16, 1, 0.3, 1] as const
 
 export default function ScrollReveal({
   children,
   className = "",
   delay = 0,
+  y = 28,
 }: {
   children: ReactNode
   className?: string
   delay?: number
+  y?: number
 }) {
   const ref = useRef<HTMLDivElement>(null)
+  const inView = useInView(ref, { once: true, margin: "-8% 0px -5% 0px", amount: 0.12 })
+  const reduced = useReducedMotion()
 
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    let observer: IntersectionObserver | null = null
-    const timer = setTimeout(() => {
-      observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            el.classList.add("is-visible")
-            observer?.unobserve(el)
-          }
-        },
-        { threshold: 0.08, rootMargin: "-30px" },
-      )
-      observer.observe(el)
-    }, 80)
-    return () => {
-      clearTimeout(timer)
-      observer?.disconnect()
-    }
-  }, [])
+  if (reduced) {
+    return <div className={className}>{children}</div>
+  }
 
   return (
-    <div
+    <motion.div
       ref={ref}
-      className={`fade-section ${className}`}
-      style={delay ? { transitionDelay: `${delay}s` } : undefined}
+      className={className}
+      initial={{ opacity: 0, y }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y }}
+      transition={{ duration: 0.65, delay, ease: EASE_OUT }}
     >
       {children}
-    </div>
+    </motion.div>
   )
 }

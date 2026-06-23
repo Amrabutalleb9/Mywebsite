@@ -78,7 +78,7 @@ export default function AboutPage() {
             </h2>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {capabilities.map((cap) => (
-                <div key={cap.title} className="rounded-sm bg-surface p-6 lg:p-8">
+                <div key={cap.title} className="capability-card rounded-sm bg-surface p-6 lg:p-8">
                   <h3 className="mb-3 font-medium text-foreground">{cap.title}</h3>
                   <p className="text-sm leading-relaxed text-muted-foreground">{cap.desc}</p>
                 </div>

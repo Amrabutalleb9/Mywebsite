@@ -196,7 +196,7 @@ export default function HighlightLayout({
         <p className="mb-4 text-lg text-muted-foreground">Want results like these for your brand?</p>
         <a
           href="/work-with-me"
-          className="cta-btn inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase transition-all hover:bg-transparent hover:text-foreground"
+          className="cta-btn cta-btn-filled inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase"
         >
           Work With Me
         </a>
