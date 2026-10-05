@@ -31,6 +31,10 @@ export interface CaseStudy {
   featureImage?: string
   featureImageAlt?: string
   galleryImages?: { src: string; alt: string }[]
+  /** Two images for the "Process Detail" row under The Challenge (4:3). */
+  processImages?: { src: string; alt: string }[]
+  /** Full-width 16:9 showcase. A muted looping video, with a poster for first paint. */
+  showcaseVideo?: { mp4: string; webm?: string; poster: string; alt: string }
 }
 
 export interface ProjectHighlight {
@@ -167,6 +171,22 @@ export const caseStudies: CaseStudy[] = [
     reflection: "The most powerful design tool is often a\u00A0well-written sentence. The 12%\u00A0lift came from rewriting the story, not from animations. Robert\u2019s pushback on\u00A0my initial copy made the final product stronger. Sometimes the best design decision is to\u00A0dial it\u00A0back.",
     credits: "Strategy, Copywriting, UX/UI Design & Build: Amr Abu-Talleb (solo) \u00b7 Client: Agfin, Australia",
     featured: true,
+    featureImage: "/images/agfin-feature.jpg",
+    featureImageAlt: "Agfin homepage hero: farm profit road map headline over a Wimmera paddock at golden hour",
+    processImages: [
+      { src: "/images/agfin-process-1.jpg", alt: "Does This Sound Familiar section naming the farmer\u2019s cash flow and bank-planning pain points" },
+      { src: "/images/agfin-process-2.jpg", alt: "Case study section: how a young farming couple secured finance after their bank said no" },
+    ],
+    showcaseVideo: {
+      mp4: "/videos/agfin-showcase.mp4",
+      poster: "/images/agfin-showcase-poster.jpg",
+      alt: "Scroll-through of the Agfin homepage showing the story-led sales funnel and micro-animations",
+    },
+    galleryImages: [
+      { src: "/images/agfin-detail-1.jpg", alt: "About page introducing Agfin and founder Robert Barnes" },
+      { src: "/images/agfin-detail-2.jpg", alt: "Services page with the farm financial fitness assessment and service list" },
+      { src: "/images/agfin-detail-3.jpg", alt: "Contact page with the Get In Touch headline set behind the Grampians ranges" },
+    ],
   },
   {
     slug: "dipa",
