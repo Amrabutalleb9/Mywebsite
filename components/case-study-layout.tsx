@@ -4,6 +4,7 @@ import React, { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, ArrowRight } from "lucide-react"
+import { useReducedMotion } from "motion/react"
 import FadeIn from "./fade-in"
 import { Lightbox } from "./ui/lightbox"
 import type { CaseStudy } from "@/lib/projects"
@@ -18,6 +19,7 @@ export default function CaseStudyLayout({
   next: CaseStudy | null
 }) {
   const [lightbox, setLightbox] = useState<string | null>(null)
+  const reducedMotion = useReducedMotion()
 
   return (
     <>
@@ -141,12 +143,31 @@ export default function CaseStudyLayout({
       {/* Image break */}
       <FadeIn className="mx-auto mb-28 max-w-[1400px] px-6">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <div className="flex aspect-[4/3] items-center justify-center rounded-xl bg-primary">
-            <span className="text-sm text-primary-foreground/15">Process Detail</span>
-          </div>
-          <div className="flex aspect-[4/3] items-center justify-center rounded-xl bg-primary">
-            <span className="text-sm text-primary-foreground/15">Process Detail</span>
-          </div>
+          {project.processImages && project.processImages.length > 0
+            ? project.processImages.slice(0, 2).map((img, i) => (
+                <div
+                  key={img.src}
+                  className="project-img-wrap overflow-hidden rounded-xl"
+                  onClick={() => setLightbox(img.src)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`View process image ${i + 1} full size`}
+                  onKeyDown={(e) => { if (e.key === "Enter") setLightbox(img.src) }}
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    width={700}
+                    height={525}
+                    className="project-img aspect-[4/3] w-full object-cover"
+                  />
+                </div>
+              ))
+            : [1, 2].map((n) => (
+                <div key={n} className="flex aspect-[4/3] items-center justify-center rounded-xl bg-primary">
+                  <span className="text-sm text-primary-foreground/15">Process Detail</span>
+                </div>
+              ))}
         </div>
       </FadeIn>
 
@@ -187,9 +208,28 @@ export default function CaseStudyLayout({
 
       {/* Full-width showcase */}
       <FadeIn className="mx-auto mb-28 max-w-[1400px] px-6">
-        <div className="flex aspect-video w-full items-center justify-center rounded-2xl bg-primary">
-          <span className="font-serif text-lg text-primary-foreground/15">Showcase</span>
-        </div>
+        {project.showcaseVideo ? (
+          <div className="overflow-hidden rounded-2xl bg-primary">
+            <video
+              className="aspect-video w-full object-cover"
+              poster={project.showcaseVideo.poster}
+              aria-label={project.showcaseVideo.alt}
+              autoPlay={!reducedMotion}
+              controls={!!reducedMotion}
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            >
+              {project.showcaseVideo.webm && <source src={project.showcaseVideo.webm} type="video/webm" />}
+              <source src={project.showcaseVideo.mp4} type="video/mp4" />
+            </video>
+          </div>
+        ) : (
+          <div className="flex aspect-video w-full items-center justify-center rounded-2xl bg-primary">
+            <span className="font-serif text-lg text-primary-foreground/15">Showcase</span>
+          </div>
+        )}
       </FadeIn>
 
       {/* Process & Evolution */}
