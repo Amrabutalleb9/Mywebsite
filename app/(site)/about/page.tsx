@@ -6,31 +6,25 @@ import { capabilities } from "@/lib/shared-data"
 import FadeIn from "@/components/fade-in"
 
 export const metadata: Metadata = {
-  title: "About Amr Abu-Talleb | Creative Director & Brand Strategist",
-  description: "13+ years directing brands, leading teams of 25, and designing digital products across 8 markets. See the full story.",
+  title: "About Amr Abu-Talleb | Creative Director",
+  description: "13 years directing brands and leading creative teams of up to 25 across 8 markets. Open to Creative Director roles in Europe.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About Amr Abu-Talleb | Creative Director",
-    description: "13+ years directing brands and leading creative teams across 8 international markets. German University in Cairo and CalArts educated.",
+    description: "13 years directing brands and leading creative teams of up to 25 across 8 markets. Engineer by training.",
     type: "profile",
     url: "https://amrabutalleb.com/about",
   },
   twitter: {
     card: "summary_large_image",
     title: "About Amr Abu-Talleb | Creative Director",
-    description: "13+ years directing brands and leading creative teams across 8 international markets.",
+    description: "13 years directing brands and leading creative teams across 8 markets.",
   },
 }
 
 const recognitionItems: { text: string; href?: string }[] = [
-  { text: "Featured Contractor, Freelancer.com (Top-Rated, Branding, UI/UX)", href: "https://www.freelancer.com" },
-  { text: "UX Design Professional Certificate, Google", href: "https://grow.google/certificates/ux-design/" },
-  { text: "UI/UX Design Specialisation, California Institute of the Arts", href: "https://www.calarts.edu" },
-  { text: "Graphic Design Specialisation, California Institute of the Arts", href: "https://www.calarts.edu" },
-  { text: "Design: Creation of Artifacts, The Wharton School", href: "https://www.wharton.upenn.edu" },
-  { text: "Research Design, University of North Texas", href: "https://www.unt.edu" },
-  { text: "Introduction to Personal Branding, University of Virginia", href: "https://www.virginia.edu" },
   { text: "B.Sc. Mechatronics Engineering, German University in Cairo" },
+  { text: "Featured Contractor, Freelancer.com (Top-Rated, Branding, UI/UX)", href: "https://www.freelancer.com/u/Amrabutalleb93" },
 ]
 
 export default function AboutPage() {
@@ -43,7 +37,7 @@ export default function AboutPage() {
 
           <FadeIn>
             <h1 className="mb-6 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
-              <span className="text-[length:var(--text-display)]">13+</span>&nbsp;years turning strategy into&nbsp;results.
+              <span className="text-[length:var(--text-display)]">13</span>&nbsp;years leading teams that&nbsp;ship.
             </h1>
           </FadeIn>
           <FadeIn delay={0.1}>
@@ -55,19 +49,22 @@ export default function AboutPage() {
           {/* Full Bio */}
           <FadeIn delay={0.15} as="div" className="flex max-w-[60ch] flex-col gap-6 leading-relaxed text-muted-foreground">
             <p>
-              {"I\u2019ve spent 13\u00A0years directing brands, leading teams of\u00A0up to\u00A025, and designing digital products across the Middle East, UK, Europe, USA, Australia, Singapore, and\u00A0Canada."}
+              {"I\u2019ve spent 13\u00A0years directing brands and leading creative teams of\u00A0up to\u00A025 across 8\u00A0markets: Egypt, the UAE, the UK, Europe, the US, Canada, Australia and\u00A0Singapore."}
             </p>
             <p>
-              {"My work has driven a\u00A012% sales increase with zero ad\u00A0spend, a\u00A070% lift in\u00A0social engagement, and a\u00A0unified brand system across three international markets\u00A0\u2014 built in\u00A0two months. I\u2019ve rescued a\u00A0website after four freelancers failed over three years, restructured a\u00A0mis-priced development proposal into a\u00A0two-phase engagement before a\u00A0single wireframe was drawn, and designed a\u00A0212-page illustrated volume for a\u00A0New York Times bestselling\u00A0author."}
+              {"My work has driven a\u00A012% sales increase in\u00A0one month with zero ad\u00A0spend, a\u00A070% lift in\u00A0social engagement for a\u00A0luxury marble brand, and one brand system rolled out across three international markets in\u00A0two months. I\u2019ve rescued a\u00A0website after four freelancers failed over three years, rewritten a\u00A0mis-priced development proposal before a\u00A0single wireframe was drawn, and designed a\u00A0212-page illustrated book for a\u00A0New York Times bestselling\u00A0author."}
+            </p>
+            <p>
+              {"How I\u00A0lead: I\u2019ve hired more than 50\u00A0people over my career, and I\u00A0hire for two things first, the will to\u00A0keep learning and integrity. Skills can be sharpened; the rest is hard to\u00A0teach. Work is\u00A0reviewed against the system, not my\u00A0taste, and product decisions are tested against what\u00A0is already live, with A/B tests, one-to-one interviews and\u00A0surveys."}
+            </p>
+            <p>
+              {"My mechatronics engineering degree taught me to\u00A0think in\u00A0systems, and it\u00A0means my creative direction doesn\u2019t stop at\u00A0Figma. I\u00A0prototype and ship in\u00A0code with AI as\u00A0my engineering team, so an\u00A0idea goes from brief to\u00A0a\u00A0live staging build in\u00A0days, not sprints. This site is one example: I\u00A0designed and built\u00A0it."}
             </p>
             <p>
               {"I use typography the way a\u00A0filmmaker uses a\u00A0camera: it\u00A0sets the mood, controls the pace, and\u00A0tells the story before a\u00A0single word gets\u00A0read."}
             </p>
-            <p>
-              {"My engineering background from the German University in\u00A0Cairo taught me to\u00A0think in\u00A0systems. My CalArts training taught me to\u00A0think in\u00A0stories. I\u00A0bring both to\u00A0every\u00A0project."}
-            </p>
-            <p>
-              {"Currently Creative Director at\u00A0The Line Real Estate in\u00A0Cairo, leading a\u00A0team of\u00A025. Open to\u00A0senior creative leadership roles and select consulting engagements with brands and agencies\u00A0worldwide."}
+            <p className="font-medium text-foreground">
+              {"Currently leading a\u00A025-person creative team in\u00A0Cairo. Open to\u00A0Creative Director roles in\u00A0Europe, on\u2011site or\u00A0remote."}
             </p>
           </FadeIn>
 
@@ -88,7 +85,7 @@ export default function AboutPage() {
 
           {/* Tools */}
           <FadeIn as="p" className="mt-10 text-sm text-muted-foreground">
-            {"Figma \u00B7 FigJam \u00B7 Adobe Creative Suite \u00B7 Webflow \u00B7 Framer \u00B7 Cursor\u00A0AI \u00B7 V0 \u00B7 Miro \u00B7 Whimsical \u00B7 Google Analytics"}
+            {"Figma \u00B7 Adobe Creative Suite \u00B7 Premiere Pro \u00B7 Cursor \u00B7 Next.js \u00B7 Nano Banana \u00B7 Seedance \u00B7 ElevenLabs \u00B7 Google Analytics"}
           </FadeIn>
 
           {/* ── Recognition & Education ── */}
@@ -134,7 +131,7 @@ export default function AboutPage() {
                 className="inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-6 py-3 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase transition-all duration-300 hover:bg-transparent hover:text-foreground"
               >
                 <Download size={14} />
-                Download&nbsp;Resume
+                Download&nbsp;CV
               </a>
               <Link
                 href="/#work"

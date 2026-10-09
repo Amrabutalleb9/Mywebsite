@@ -23,9 +23,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { url: base, lastModified: siteUpdated, changeFrequency: "weekly", priority: 1 },
     { url: `${base}/about`, lastModified: siteUpdated, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${base}/work-with-me`, lastModified: siteUpdated, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/consulting`, lastModified: siteUpdated, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/projects`, lastModified: siteUpdated, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${base}/articles`, lastModified: siteUpdated, changeFrequency: "weekly", priority: 0.8 },
     { url: `${base}/contact`, lastModified: siteUpdated, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/ai-designer-blueprint`, lastModified: siteUpdated, changeFrequency: "monthly", priority: 0.5 },
     { url: `${base}/privacy`, lastModified: siteUpdated, changeFrequency: "yearly", priority: 0.3 },
@@ -53,5 +52,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
-  return [...staticPages, ...workPages, ...highlightPages, ...articlePages]
+  // Articles stay reachable but out of the sitemap until they are refreshed.
+  void articlePages
+  return [...staticPages, ...workPages, ...highlightPages]
 }

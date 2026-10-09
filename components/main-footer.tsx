@@ -3,7 +3,7 @@
 import React, { useState } from "react"
 import { submitContactForm } from "@/lib/contact"
 
-const servicesTags = ["Branding", "Product Design", "UX Design", "UI Design"]
+const servicesTags = ["Creative Direction", "Brand Systems", "Product Design", "Prototyping"]
 
 const footerLinks = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/abutalleb/" },
@@ -124,8 +124,8 @@ export default function MainFooter() {
       {/* Copyright bar */}
       <div className="border-t border-primary-foreground/10 px-8 py-6 lg:px-16">
         <div className="flex flex-col items-center justify-between gap-3 sm:flex-row">
-          <p className="text-xs text-primary-foreground/60">&copy; 2026 Amr Abu-Talleb. All rights reserved.</p>
-          <p className="text-xs text-primary-foreground/60">Cairo, Egypt &middot; Working globally</p>
+          <p className="text-xs text-primary-foreground/60">&copy; 2026 Amr Abu-Talleb &middot; Designed and built by&nbsp;me</p>
+          <p className="text-xs text-primary-foreground/60">Based in Cairo &middot; Relocating to&nbsp;Europe</p>
         </div>
       </div>
     </footer>

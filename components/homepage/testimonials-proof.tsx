@@ -80,7 +80,7 @@ export default function TestimonialsProof({ groups, stats }: { groups: ProofGrou
             </div>
           </div>
           <p className="max-w-[34ch] text-sm leading-relaxed text-muted-foreground">
-            {"The questions you’d ask a reference, answered by the people I’ve worked with."}
+            {"What it\u2019s like to\u00A0work with me, in\u00A0the words of\u00A0the people I\u2019ve worked\u00A0with."}
           </p>
         </div>
       </ScrollReveal>

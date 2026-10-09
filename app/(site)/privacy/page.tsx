@@ -27,7 +27,7 @@ export default function PrivacyPage() {
 
         <div className="flex flex-col gap-8 text-[15px] leading-[var(--leading-longform)] text-muted-foreground">
           <section>
-            <h2 className="mb-3 font-serif text-xl text-foreground">1. Who we are</h2>
+            <h2 className="mb-3 font-serif text-2xl text-foreground">1. Who we are</h2>
             <p>
               The Site is operated by Amr Abu-Talleb. For privacy-related questions, contact{" "}
               <a href="mailto:hello@amrabutalleb.com" className="text-accent underline underline-offset-2">
@@ -38,7 +38,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 font-serif text-xl text-foreground">2. Information we collect</h2>
+            <h2 className="mb-3 font-serif text-2xl text-foreground">2. Information we collect</h2>
             <p className="mb-3">We may collect:</p>
             <ul className="list-disc space-y-2 pl-6">
               <li>
@@ -59,7 +59,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 font-serif text-xl text-foreground">3. How we use information</h2>
+            <h2 className="mb-3 font-serif text-2xl text-foreground">3. How we use information</h2>
             <p className="mb-3">We use the information above to:</p>
             <ul className="list-disc space-y-2 pl-6">
               <li>Respond to inquiries and provide services you request;</li>
@@ -70,7 +70,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 font-serif text-xl text-foreground">4. Third-party services</h2>
+            <h2 className="mb-3 font-serif text-2xl text-foreground">4. Third-party services</h2>
             <p>
               The Site may use third-party processors (for example, form delivery, scheduling embeds, payment or checkout
               providers, or hosting). Those services have their own privacy policies. We encourage you to read them.
@@ -79,7 +79,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 font-serif text-xl text-foreground">5. Retention</h2>
+            <h2 className="mb-3 font-serif text-2xl text-foreground">5. Retention</h2>
             <p>
               We retain personal information only as long as needed for the purposes above, unless a longer period is
               required by law. Email inquiries may be kept for a reasonable period to manage ongoing communication.
@@ -87,7 +87,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 font-serif text-xl text-foreground">6. Your rights</h2>
+            <h2 className="mb-3 font-serif text-2xl text-foreground">6. Your rights</h2>
             <p>
               Depending on where you live, you may have rights to access, correct, delete, or restrict processing of your
               personal data, or to object to certain processing. To exercise these rights, contact us at the email
@@ -96,7 +96,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 font-serif text-xl text-foreground">7. International transfers</h2>
+            <h2 className="mb-3 font-serif text-2xl text-foreground">7. International transfers</h2>
             <p>
               If you access the Site from outside the country where we operate, your information may be transferred
               to and processed in other countries where our providers host data.
@@ -104,7 +104,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 font-serif text-xl text-foreground">8. Children</h2>
+            <h2 className="mb-3 font-serif text-2xl text-foreground">8. Children</h2>
             <p>
               The Site is not directed at children under 16. We do not knowingly collect personal information from
               children. If you believe we have, please contact us and we will delete it.
@@ -112,7 +112,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 font-serif text-xl text-foreground">9. Changes</h2>
+            <h2 className="mb-3 font-serif text-2xl text-foreground">9. Changes</h2>
             <p>
               We may update this policy from time to time. The &quot;Last updated&quot; date at the top will change when
               we do. Continued use of the Site after changes means you accept the updated policy.

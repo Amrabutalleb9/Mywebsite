@@ -5,10 +5,9 @@ import Link from "next/link"
 import { Menu, X } from "lucide-react"
 
 const navItems = [
-  { label: "About", href: "/about" },
-  { label: "Work With Me", href: "/work-with-me" },
   { label: "Projects", href: "/projects" },
-  { label: "Articles", href: "/articles" },
+  { label: "About", href: "/about" },
+  { label: "Consulting", href: "/consulting" },
 ]
 
 export default function MainNav() {

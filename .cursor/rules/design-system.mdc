@@ -124,9 +124,9 @@ The link sits directly under the content and the divider line **closes** the sec
 
 ## Homepage Order
 
-Hero → Marquee → Case Studies (+ Project Highlights, All Projects) → Testimonials + Stats → Client ticker → Work With Me CTA → About (Read More) → Perspectives (All Articles) → Footer.
+Hero → Marquee → Case Studies (+ Project Highlights, All Projects) → Testimonials + Stats → Client ticker → "Hiring a Creative Director?" CTA (to /contact) → About (Read More). Perspectives (articles) is hidden until the articles are refreshed.
 
-The only Work With Me CTA belongs to the testimonials/clients block: keep it directly under the client ticker (`pt-16 lg:pt-20`) and keep the testimonials section bottom tight (`pb-16 lg:pb-20`).
+The only homepage CTA (“Hiring a Creative Director? Let’s Talk”) belongs to the testimonials/clients block: keep it directly under the client ticker (`pt-16 lg:pt-20`) and keep the testimonials section bottom tight (`pb-16 lg:pb-20`).
 
 ## Homepage Section Rhythm
 
@@ -139,3 +139,8 @@ These are applied globally and must not be overridden:
 - `font-feature-settings: 'liga' 1, 'calt' 1` — ligatures and contextual alternates
 - `text-wrap: pretty` on body, p, li, blockquote
 - `text-wrap: balance` on h1–h6
+
+
+## Positioning (Oct 2026)
+
+The site is written for hiring managers first: one fact sheet everywhere (13 years, teams of up to 25, 8 markets, 50+ people hired), UK English, no named current employer. Consulting lives at /consulting (old /work-with-me redirects) and is secondary; case-study CTAs lead with “Hiring a Creative Director?”.

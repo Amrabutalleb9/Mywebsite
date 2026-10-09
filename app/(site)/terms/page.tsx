@@ -27,7 +27,7 @@ export default function TermsPage() {
 
         <div className="flex flex-col gap-8 text-[15px] leading-[var(--leading-longform)] text-muted-foreground">
           <section>
-            <h2 className="mb-3 font-serif text-xl text-foreground">1. Use of the Site</h2>
+            <h2 className="mb-3 font-serif text-2xl text-foreground">1. Use of the Site</h2>
             <p>
               You may use the Site for lawful purposes only. You agree not to misuse the Site, attempt unauthorized
               access, interfere with security, scrape content in violation of these terms, or use the Site in a way
@@ -36,7 +36,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 font-serif text-xl text-foreground">2. Intellectual property</h2>
+            <h2 className="mb-3 font-serif text-2xl text-foreground">2. Intellectual property</h2>
             <p>
               All content on the Site — including text, graphics, logos, layouts, and downloadable materials — is
               owned by Amr Abu-Talleb or licensed to us and is protected by copyright and other laws. You may not copy,
@@ -47,7 +47,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 font-serif text-xl text-foreground">3. Digital products</h2>
+            <h2 className="mb-3 font-serif text-2xl text-foreground">3. Digital products</h2>
             <p className="mb-3">
               When you purchase a digital product (such as guides or templates), you receive a limited, non-exclusive,
               non-transferable license to use the materials for your personal or internal business use, unless a
@@ -61,7 +61,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 font-serif text-xl text-foreground">4. Refunds</h2>
+            <h2 className="mb-3 font-serif text-2xl text-foreground">4. Refunds</h2>
             <p>
               Unless stated otherwise on the product page at the time of purchase, digital products may be eligible for
               a refund within the period and under the conditions stated there (for example, a 30-day satisfaction
@@ -75,7 +75,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 font-serif text-xl text-foreground">5. Disclaimers</h2>
+            <h2 className="mb-3 font-serif text-2xl text-foreground">5. Disclaimers</h2>
             <p className="mb-3">
               The Site and all content are provided &quot;as is&quot; and &quot;as available.&quot; To the fullest
               extent permitted by law, we disclaim warranties of merchantability, fitness for a particular purpose, and
@@ -89,7 +89,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 font-serif text-xl text-foreground">6. Limitation of liability</h2>
+            <h2 className="mb-3 font-serif text-2xl text-foreground">6. Limitation of liability</h2>
             <p>
               To the fullest extent permitted by law, Amr Abu-Talleb shall not be liable for any indirect, incidental,
               special, consequential, or punitive damages, or for loss of profits, data, or goodwill, arising from your
@@ -100,7 +100,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 font-serif text-xl text-foreground">7. Indemnity</h2>
+            <h2 className="mb-3 font-serif text-2xl text-foreground">7. Indemnity</h2>
             <p>
               You agree to indemnify and hold harmless Amr Abu-Talleb from claims, damages, or expenses arising from
               your violation of these terms or misuse of the Site or products.
@@ -108,7 +108,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 font-serif text-xl text-foreground">8. Governing law</h2>
+            <h2 className="mb-3 font-serif text-2xl text-foreground">8. Governing law</h2>
             <p>
               These terms are governed by the laws applicable in the jurisdiction of our principal place of business,
               without regard to conflict-of-law rules. Courts in that jurisdiction shall have exclusive jurisdiction
@@ -118,7 +118,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 font-serif text-xl text-foreground">9. Changes</h2>
+            <h2 className="mb-3 font-serif text-2xl text-foreground">9. Changes</h2>
             <p>
               We may update these terms from time to time. The updated date will appear at the top. Continued use after
               changes constitutes acceptance. For material changes affecting purchases, we may provide additional
@@ -127,7 +127,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 font-serif text-xl text-foreground">10. Contact</h2>
+            <h2 className="mb-3 font-serif text-2xl text-foreground">10. Contact</h2>
             <p>
               Questions about these terms:{" "}
               <a href="mailto:hello@amrabutalleb.com" className="text-accent underline underline-offset-2">

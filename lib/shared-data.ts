@@ -30,11 +30,11 @@ export interface Capability {
 
 export const capabilities: Capability[] = [
   { title: "Creative Direction", desc: "I set the vision. I\u00A0lead the team. I\u00A0make sure every piece of\u00A0work that ships is something I\u2019d put my name\u00A0on." },
-  { title: "Brand Identity & Strategy", desc: "Logos, type systems, color, guidelines, positioning. The\u00A0whole foundation. Built to\u00A0scale, built to\u00A0last." },
-  { title: "UI/UX Design", desc: "Interfaces for web and mobile. From\u00A0wireframes to\u00A0production. Screens that perform, not just screens that look\u00A0nice." },
-  { title: "Typography Systems", desc: "Type is my primary design tool. I\u00A0build typographic hierarchies that do the heavy lifting in\u00A0any layout, any\u00A0language." },
-  { title: "Art Direction", desc: "Defining the visual tone across campaigns, editorial, packaging, and digital. This\u00A0is where the storytelling\u00A0lives." },
-  { title: "Campaign Design", desc: "Multi-channel creative for digital, social, and print. Strategy\u00A0first. Execution\u00A0second. Results\u00A0always." },
+  { title: "Brand Identity & Strategy", desc: "Logos, type systems, colour, guidelines, positioning. The\u00A0whole foundation. Built to\u00A0scale, built to\u00A0last." },
+  { title: "UI/UX Design", desc: "Interfaces for web and mobile, from wireframes to\u00A0shipped product, tested with real users before they\u00A0scale." },
+  { title: "Prototype & Ship", desc: "Creative direction that doesn\u2019t stop at\u00A0Figma. I\u00A0build working prototypes in\u00A0code with AI, from brief to\u00A0a\u00A0live staging build in\u00A0days, not\u00A0sprints." },
+  { title: "Art Direction & Typography", desc: "The visual tone across campaigns, editorial, packaging and digital, with type doing the heavy lifting in\u00A0any layout, any\u00A0language." },
+  { title: "Campaign Design", desc: "Multi-channel campaigns for digital, social and print, tested in\u00A0small runs before they\u00A0scale." },
 ]
 
 /* ─── Homepage testimonials, grouped by what an agency checks before hiring ───
@@ -56,7 +56,7 @@ export const testimonialProof: ProofGroup[] = [
     title: "Strategy",
     question: "Will they think, or just\u00A0execute?",
     quotes: [
-      { quote: "His strategic thinking elevated the entire\u00A0project.", name: "Overpowered Agency", credential: "Creative agency \u00B7 UK" },
+      { quote: "His strategic thinking elevated the entire\u00A0project.", name: "Overpowered", credential: "Agency leadership \u00B7 UK" },
       { quote: "Amr provided lots of\u00A0new UX ideas and put them to\u00A0me in\u00A0a\u00A0detailed\u00A0explanation.", name: "Robert, founder of\u00A0Agfin", credential: "Melbourne, Australia" },
       { quote: "His continual ongoing communications and proffered insights were\u00A0invaluable.", name: "Steven Hodel", credential: "NYT bestselling author \u00B7 US" },
     ],
@@ -65,7 +65,7 @@ export const testimonialProof: ProofGroup[] = [
     title: "Craft",
     question: "Is the work actually\u00A0good?",
     quotes: [
-      { quote: "The brand identity he created captured our vision perfectly and translated seamlessly across every\u00A0touchpoint.", name: "Overpowered Agency", credential: "Creative agency \u00B7 UK" },
+      { quote: "The brand identity he created captured our vision perfectly and translated seamlessly across every\u00A0touchpoint.", name: "Overpowered", credential: "Agency leadership \u00B7 UK" },
       { quote: "Great UI/UX designer, quick delivery and clear\u00A0communication.", name: "Head of\u00A0UX, Freelancer.com", credential: "Sydney, Australia" },
       { quote: "Way beyond anything I\u00A0expected.", name: "Augustina", credential: "Website design \u00B7 Denmark" },
     ],

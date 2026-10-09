@@ -1,17 +1,15 @@
 "use client"
 
 import dynamic from "next/dynamic"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowDown, ArrowUpRight } from "lucide-react"
 import { motion, useReducedMotion } from "motion/react"
-import CalendlyButton from "@/components/calendly-button"
 
 const InfiniteGrid = dynamic(
   () => import("@/components/ui/infinite-grid").then((m) => ({ default: m.InfiniteGrid })),
 )
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const
-const heroLines = ["Brand strategist.", "Creative director.", "Obsessed with results."]
-const heroServices = ["Brand Strategy", "Digital Experience Design", "Product Design"]
+const heroLines = ["Creative Director.", "I\u00A0lead the team, build the\u00A0system,", "and make sure it\u00A0ships."]
 
 const lineVariants = {
   hidden: { opacity: 0, y: 36, filter: "blur(6px)" },
@@ -58,55 +56,34 @@ export default function HeroSection() {
           animate={reduced ? undefined : { opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.45, ease: EASE_OUT }}
         >
-          <p className="mx-auto max-w-[65ch] text-base leading-relaxed text-muted-foreground lg:text-lg">
-            13&nbsp;years of&nbsp;creative direction, brand strategy, and digital design.
+          <p className="mx-auto max-w-[60ch] text-base leading-relaxed text-muted-foreground lg:text-lg">
+            13&nbsp;years leading brand and product teams of&nbsp;up&nbsp;to&nbsp;25, across 8&nbsp;markets.
             <br />
-            Work delivered across MENA, Europe, the&nbsp;US, and&nbsp;beyond.
-            <br />
-            Every project built to&nbsp;move numbers, not just turn&nbsp;heads.
+            Creative direction that doesn&rsquo;t stop at&nbsp;Figma: from brief to&nbsp;a&nbsp;live staging build in&nbsp;days, not&nbsp;sprints.
           </p>
-          <p className="mx-auto mt-4 max-w-[65ch] text-base tracking-wide text-accent lg:text-lg">
-            Currently taking on select creative direction engagements.
-          </p>
-          <p className="mt-6 text-sm text-muted-foreground">
-            Trusted by brands across 8&nbsp;markets &middot; Teams of&nbsp;up&nbsp;to&nbsp;25
+          <p className="mx-auto mt-5 max-w-[65ch] text-sm font-medium tracking-wide text-foreground lg:text-base">
+            Open to&nbsp;Creative Director roles in&nbsp;Europe, on‑site or&nbsp;remote.
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row">
-            <CalendlyButton />
             <a
               href="#work"
-              className="cta-btn cta-btn-outline inline-flex items-center gap-2 rounded-full border border-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-foreground uppercase"
+              className="cta-btn cta-btn-filled inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase"
             >
               See the&nbsp;Work
               <ArrowUpRight size={14} className="cta-arrow" />
+            </a>
+            <a
+              href="/Amr_AbuTalleb_Resume.pdf"
+              download
+              className="cta-btn cta-btn-outline inline-flex items-center gap-2 rounded-full border border-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-foreground uppercase"
+            >
+              Download&nbsp;CV
+              <ArrowDown size={14} className="cta-arrow" />
             </a>
           </div>
         </motion.div>
       </InfiniteGrid>
 
-      <motion.div
-        className="hidden w-full items-center justify-between border-t border-border bg-background px-8 py-5 sm:flex lg:px-16"
-        initial={reduced ? false : { opacity: 0 }}
-        animate={reduced ? undefined : { opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.7, ease: EASE_OUT }}
-      >
-        <div className="flex flex-wrap gap-8 lg:gap-14">
-          {heroServices.map((service, i) => (
-            <motion.span
-              key={service}
-              initial={reduced ? false : { opacity: 0, y: 8 }}
-              animate={reduced ? undefined : { opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.75 + i * 0.06, ease: EASE_OUT }}
-              className="text-[length:var(--text-micro)] tracking-[var(--tracking-label)] text-muted-foreground uppercase lg:text-[length:var(--text-caption)]"
-            >
-              {service}
-            </motion.span>
-          ))}
-        </div>
-        <span className="hidden text-[length:var(--text-micro)] tracking-wide text-muted-foreground sm:block lg:text-[length:var(--text-caption)]">
-          Creative Director
-        </span>
-      </motion.div>
     </>
   )
 }

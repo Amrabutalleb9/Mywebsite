@@ -29,11 +29,11 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: "Amr Abu-Talleb | Creative Director \u00B7 Dubai",
+    default: "Amr Abu-Talleb | Creative Director",
     template: "%s \u00B7 Amr Abu-Talleb",
   },
   description:
-    "Creative Director with 13+ years in brand strategy, UI/UX, and art direction across the UAE, UK, USA, Australia, Singapore, and Europe.",
+    "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets. Open to Creative Director roles in Europe, on-site or remote.",
   metadataBase: new URL("https://amrabutalleb.com"),
   alternates: {
     canonical: "/",
@@ -43,24 +43,24 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://amrabutalleb.com",
     siteName: "Amr Abu-Talleb",
-    title: "Amr Abu-Talleb | Creative Director \u00B7 Dubai",
+    title: "Amr Abu-Talleb | Creative Director",
     description:
-      "Creative Director with 13+ years in brand strategy, UI/UX, and art direction across the UAE, UK, USA, and Europe. Open to senior roles in Dubai.",
+      "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets. Open to Creative Director roles in Europe, on-site or remote.",
     images: [
       {
-        url: "/images/og-image.png",
+        url: "/images/og-image-v2.png",
         width: 1200,
         height: 630,
-        alt: "Amr Abu-Talleb | Creative Director · Dubai",
+        alt: "Amr Abu-Talleb, Creative Director, open to roles in Europe",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amr Abu-Talleb | Creative Director \u00B7 Dubai",
+    title: "Amr Abu-Talleb | Creative Director",
     description:
-      "Creative Director with 13+ years in brand strategy, UI/UX, and art direction across the UAE, UK, USA, and Europe. Open to senior roles in Dubai.",
-    images: ["/images/og-image.png"],
+      "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets. Open to Creative Director roles in Europe, on-site or remote.",
+    images: ["/images/og-image-v2.png"],
   },
   robots: {
     index: true,
@@ -81,26 +81,19 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   keywords: [
-    "creative director dubai",
-    "brand identity designer UAE",
-    "UI UX designer MENA",
-    "art director Dubai",
-    "brand strategist Middle East",
-    "creative direction agency",
-    "senior designer UAE",
-    "head of design Dubai",
-    "creative lead UAE",
-    "design director Dubai",
-    "senior art director UAE",
-    "brand direction MENA",
-    "creative leadership Dubai",
-    "visual identity designer",
-    "multidisciplinary creative team",
-    "web design dubai",
-    "web design UAE",
-    "wordpress designer",
-    "squarespace designer",
-    "wix designer",
+    "creative director",
+    "creative director Europe",
+    "creative director remote",
+    "head of design",
+    "design director",
+    "brand creative director",
+    "creative director Berlin",
+    "creative director Vienna",
+    "associate creative director",
+    "brand identity",
+    "design systems",
+    "product design leadership",
+    "creative team leadership",
   ],
 }
 
@@ -132,7 +125,7 @@ export default function RootLayout({
               sameAs: ["https://www.linkedin.com/in/abutalleb/"],
               image: "https://amrabutalleb.com/images/amr-portrait.webp",
               description:
-                "Creative Director with 13+ years in brand strategy, UI/UX, and art direction across the UAE, UK, USA, Australia, Singapore, and Europe.",
+                "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets. Open to Creative Director roles in Europe, on-site or remote.",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Cairo",
@@ -145,7 +138,7 @@ export default function RootLayout({
                 },
                 {
                   "@type": "Place",
-                  name: "Dubai, UAE",
+                  name: "Europe (relocating) or remote",
                 },
               ],
               knowsAbout: [
@@ -164,17 +157,13 @@ export default function RootLayout({
                   "@type": "CollegeOrUniversity",
                   name: "German University in Cairo",
                 },
-                {
-                  "@type": "CollegeOrUniversity",
-                  name: "California Institute of the Arts",
-                },
               ],
               hasOccupation: {
                 "@type": "Occupation",
                 name: "Creative Director",
                 occupationLocation: {
-                  "@type": "City",
-                  name: "Dubai",
+                  "@type": "Place",
+                  name: "Europe",
                 },
               },
             }),
@@ -189,7 +178,7 @@ export default function RootLayout({
               name: "Amr Abu-Talleb",
               url: "https://amrabutalleb.com",
               description:
-                "Creative Director with 13+ years in brand strategy, UI/UX, and art direction.",
+                "Creative Director with 13 years leading brand and product teams across 8 markets.",
             }),
           }}
         />
@@ -200,7 +189,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "ProfessionalService",
               name: "Amr Abu-Talleb \u2014 Creative Direction",
-              url: "https://amrabutalleb.com/work-with-me",
+              url: "https://amrabutalleb.com/consulting",
               description:
                 "Senior creative direction, brand strategy, and UX consulting for brands worldwide.",
               areaServed: [

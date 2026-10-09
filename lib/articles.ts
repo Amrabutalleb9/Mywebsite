@@ -37,8 +37,8 @@ export const articles: Article[] = [
   },
   {
     slug: "directing-a-brand-across-four-markets",
-    title: "What directing a brand across eight markets taught me about consistency.",
-    excerpt: "Same brand. Eight countries. Zero inconsistency. Here\u2019s\u00A0how.",
+    title: "What directing a brand across three markets taught me about consistency.",
+    excerpt: "Same brand. Three markets. One system. Here\u2019s\u00A0how.",
     date: "Nov 2024",
     tag: "STRATEGY",
     image: "/images/blog-markets.webp",
@@ -85,7 +85,7 @@ export const articles: Article[] = [
   {
     slug: "why-every-designer-should-think-like-a-business-owner",
     title: "Why every designer should think like a business owner.",
-    excerpt: "The pixel pushers who make it are the ones who understand revenue, positioning, and user\u00A0behavior.",
+    excerpt: "The designers who grow are the ones who understand revenue, positioning and user\u00A0behaviour.",
     date: "Jul 2024",
     tag: "CAREER",
     image: "/images/blog-business.webp",

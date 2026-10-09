@@ -46,12 +46,12 @@ export default function ContactPage() {
         <div className="lg:w-1/2">
           <FadeIn>
             <h1 className="mb-6 font-serif text-[length:var(--text-page)] font-normal tracking-tight text-foreground">
-              {"What\u2019s the project?"}
+              {"Hiring, or a\u00A0project?"}
             </h1>
           </FadeIn>
           <FadeIn delay={0.1}>
             <p className="mb-10 max-w-md leading-relaxed text-muted-foreground">
-              {"Brand launch, UX\u00A0audit, product redesign, or\u00A0a creative leadership role\u00A0\u2014 tell me what you\u2019re working on and I\u2019ll get back within 24\u00A0hours."}
+              {"A Creative Director role, or a\u00A0launch, audit or redesign: tell me what you\u2019re working on and I\u2019ll reply within 24\u00A0hours."}
             </p>
           </FadeIn>
           <FadeIn delay={0.15}>
@@ -93,14 +93,14 @@ export default function ContactPage() {
                 <input id="email" type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent" />
               </div>
               <div>
-                <label htmlFor="budget" className="mb-2 block text-sm font-medium text-foreground">Budget&nbsp;Range</label>
+                <label htmlFor="budget" className="mb-2 block text-sm font-medium text-foreground">Role or&nbsp;budget</label>
                 <select id="budget" value={form.budget} onChange={(e) => setForm({ ...form, budget: e.target.value })} className="w-full rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent">
                   <option value="">Select&nbsp;range</option>
-                  <option value="under-5k">Under $5K</option>
-                  <option value="5k-10k">$5K – $10K</option>
-                  <option value="10k-25k">$10K – $25K</option>
-                  <option value="25k+">$25K+</option>
                   <option value="fulltime">Full-time role</option>
+                  <option value="under-5k">Project under €5K</option>
+                  <option value="5k-10k">Project €5K – €10K</option>
+                  <option value="10k-25k">Project €10K – €25K</option>
+                  <option value="25k+">Project €25K+</option>
                 </select>
               </div>
               <div>

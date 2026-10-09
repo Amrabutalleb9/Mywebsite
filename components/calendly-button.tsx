@@ -54,7 +54,7 @@ export default function CalendlyButton({ className, children }: CalendlyButtonPr
     >
       {children || (
         <>
-          Book a Strategy Call
+          Book a 30-min Call
           <ArrowUpRight size={14} className="cta-arrow" />
         </>
       )}

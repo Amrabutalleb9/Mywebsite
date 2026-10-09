@@ -51,7 +51,7 @@ export default function CaseStudyLayout({
           {project.title}
         </FadeIn>
         <FadeIn delay={0.1} className="mb-8 max-w-[50ch]">
-          <p className="font-serif text-[length:var(--text-body-lg)] leading-relaxed text-muted-foreground">
+          <p className="font-serif text-2xl leading-snug tracking-tight text-muted-foreground">
             {project.subtitle}
           </p>
         </FadeIn>
@@ -331,7 +331,7 @@ export default function CaseStudyLayout({
             {project.testimonial && (
               <FadeIn className="mt-6">
                 <blockquote className="rounded-xl border border-accent/15 bg-accent/5 px-6 py-6 sm:px-8">
-                  <p className="mb-4 font-serif text-base leading-relaxed text-foreground italic">
+                  <p className="mb-4 font-serif text-2xl leading-snug tracking-tight text-foreground italic">
                     &ldquo;{project.testimonial.quote}&rdquo;
                   </p>
                   <footer className="text-sm text-muted-foreground">
@@ -368,13 +368,17 @@ export default function CaseStudyLayout({
 
       {/* CTA */}
       <div className="mx-auto mt-20 max-w-[1000px] pt-12 text-center">
-        <p className="mb-4 text-lg text-muted-foreground">Want results like these for your brand?</p>
+        <p className="mb-4 text-lg text-muted-foreground">{"Hiring a\u00A0Creative Director?"}</p>
         <a
-          href="/work-with-me"
+          href="/contact"
           className="cta-btn cta-btn-filled inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase"
         >
-          Work With Me
+          {"Let\u2019s Talk"}
         </a>
+        <p className="mt-4 text-sm text-muted-foreground">
+          {"Or need one for a\u00A0project? "}
+          <a href="/consulting" className="text-foreground underline underline-offset-4 transition-colors hover:text-accent">See consulting</a>
+        </p>
       </div>
 
       {/* Prev / Next , no line */}

@@ -10,3 +10,7 @@
 /ai-designer-blueprint/thank-you-oto-dfy/ /ai-designer-blueprint/thank-you-oto-dfy/index.html 200
 /ai-designer-blueprint/thank-you-oto-course /ai-designer-blueprint/thank-you-oto-course/index.html 200
 /ai-designer-blueprint/thank-you-oto-course/ /ai-designer-blueprint/thank-you-oto-course/index.html 200
+
+# Work With Me was renamed to Consulting
+/work-with-me /consulting 301
+/work-with-me/ /consulting 301
