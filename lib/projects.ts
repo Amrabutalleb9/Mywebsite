@@ -61,6 +61,7 @@ export interface ProjectHighlight {
 export const caseStudies: CaseStudy[] = [
   {
     slug: "overpowered",
+    hidden: true, // Hidden for now (Oct 2026); set to false to bring it back
     title: "Overpowered",
     subtitle: "Rebranding a\u00A0Multi-Market Creative Agency for Three Audiences, One Identity",
     impactStatement: "Unified brand identity across 3 markets \u00b7 Eliminated inconsistent visual elements \u00b7 A/B-tested micro campaigns that informed a\u00A0new market-specific design system",
@@ -216,6 +217,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "dipa",
+    hidden: true, // Hidden for now (Oct 2026); set to false to bring it back
     title: "Dipa Visionary Art School",
     subtitle: "Rebuilding a\u00A0Visionary Art School\u2019s Digital Home After Three Years of\u00A0Failed Attempts",
     impactStatement: "70%\u00A0more website views after\u00A0launch \u00b7 Replaced 4 failed freelancers \u00b7 Immersive 360\u00b0 studio\u00A0tour",

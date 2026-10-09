@@ -2,6 +2,7 @@ import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import { caseStudies, getCaseStudyBySlug, getAdjacentCaseStudies } from "@/lib/projects"
 import CaseStudyLayout from "@/components/case-study-layout"
+import { pageMeta } from "@/lib/seo"
 
 export function generateStaticParams() {
   // Include hidden slugs so static export can emit a 404 page instead of failing at runtime.
@@ -15,29 +16,17 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params
   const project = getCaseStudyBySlug(slug)
-  if (!project) return {}
+  if (!project) return { robots: { index: false, follow: false } }
   const description = `${project.subtitle}. ${project.impactStatement}`
-  const ogImages = project.featureImage
-    ? [{ url: `https://amrabutalleb.com${project.featureImage}`, width: 1200, height: 630, alt: project.featureImageAlt || project.title }]
-    : undefined
-  return {
-    title: `${project.title} | Case Study`,
+  return pageMeta({
+    title: `${project.title} Case Study · Amr Abu-Talleb`,
     description,
-    alternates: { canonical: `/work/${slug}` },
-    openGraph: {
-      title: `${project.title} | Case Study · Amr Abu-Talleb`,
-      description,
-      type: "article",
-      url: `https://amrabutalleb.com/work/${slug}`,
-      images: ogImages,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `${project.title} | Case Study · Amr Abu-Talleb`,
-      description,
-      images: ogImages,
-    },
-  }
+    path: `/work/${slug}`,
+    type: "article",
+    image: project.featureImage
+      ? { url: project.featureImage, alt: project.featureImageAlt || project.title }
+      : undefined,
+  })
 }
 
 export default async function CaseStudyPage({

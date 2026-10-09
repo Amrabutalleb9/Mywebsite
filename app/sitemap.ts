@@ -1,24 +1,11 @@
 import type { MetadataRoute } from "next"
-import { articles } from "@/lib/articles"
 import { publishedCaseStudies, projectHighlights } from "@/lib/projects"
 
 export const dynamic = "force-static"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://amrabutalleb.com"
-  const siteUpdated = new Date("2026-03-19")
-
-  const articleDateMap: Record<string, string> = {
-    "Jan 2025": "2025-01-15",
-    "Feb 2025": "2025-02-15",
-    "Mar 2025": "2025-03-15",
-    "May 2024": "2024-05-15",
-    "Jul 2024": "2024-07-15",
-    "Sep 2024": "2024-09-15",
-    "Oct 2024": "2024-10-15",
-    "Nov 2024": "2024-11-15",
-    "Dec 2024": "2024-12-15",
-  }
+  const siteUpdated = new Date("2026-10-09")
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: base, lastModified: siteUpdated, changeFrequency: "weekly", priority: 1 },
@@ -26,7 +13,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/consulting`, lastModified: siteUpdated, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/projects`, lastModified: siteUpdated, changeFrequency: "weekly", priority: 0.8 },
     { url: `${base}/contact`, lastModified: siteUpdated, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${base}/ai-designer-blueprint`, lastModified: siteUpdated, changeFrequency: "monthly", priority: 0.5 },
     { url: `${base}/privacy`, lastModified: siteUpdated, changeFrequency: "yearly", priority: 0.3 },
     { url: `${base}/terms`, lastModified: siteUpdated, changeFrequency: "yearly", priority: 0.3 },
   ]
@@ -45,14 +31,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
-  const articlePages: MetadataRoute.Sitemap = articles.map((a) => ({
-    url: `${base}/articles/${a.slug}`,
-    lastModified: new Date(articleDateMap[a.date] || "2026-03-19"),
-    changeFrequency: "monthly",
-    priority: 0.6,
-  }))
-
-  // Articles stay reachable but out of the sitemap until they are refreshed.
-  void articlePages
   return [...staticPages, ...workPages, ...highlightPages]
 }

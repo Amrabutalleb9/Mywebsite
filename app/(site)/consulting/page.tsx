@@ -2,25 +2,16 @@ import type { Metadata } from "next"
 import FadeIn from "@/components/fade-in"
 import CalendlyButton from "@/components/calendly-button"
 import { publishedTestimonials } from "@/lib/shared-data"
+import { pageMeta } from "@/lib/seo"
 
 const featured = publishedTestimonials.filter((t) => ["Dipa", "Robert", "Steven Hodel"].some((n) => t.author.startsWith(n))).slice(0, 3)
 
-export const metadata: Metadata = {
-  title: "Consulting",
-  description: "Short creative direction engagements alongside my leadership work: fractional direction, launch sprints and UX audits.",
-  alternates: { canonical: "/consulting" },
-  openGraph: {
-    title: "Consulting · Amr Abu-Talleb",
-    description: "Fractional creative direction, launch sprints and UX audits.",
-    type: "website",
-    url: "https://amrabutalleb.com/consulting",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Consulting · Amr Abu-Talleb",
-    description: "Fractional creative direction, launch sprints and UX audits.",
-  },
-}
+export const metadata: Metadata = pageMeta({
+  title: "Fractional Creative Director · Amr Abu-Talleb",
+  description:
+    "Fractional creative direction, launch sprints and UX audits for startups and agencies. Senior creative leadership from brief to a live staging build.",
+  path: "/consulting",
+})
 
 const offers = [
   {

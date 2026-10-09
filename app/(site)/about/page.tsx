@@ -4,23 +4,15 @@ import type { Metadata } from "next"
 import { Download, ArrowRight, Linkedin } from "lucide-react"
 import { capabilities } from "@/lib/shared-data"
 import FadeIn from "@/components/fade-in"
+import { pageMeta } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "About Amr Abu-Talleb | Creative Director",
-  description: "13 years directing brands and leading creative teams of up to 25 across 8 markets. Open to Creative Director roles in Europe.",
-  alternates: { canonical: "/about" },
-  openGraph: {
-    title: "About Amr Abu-Talleb | Creative Director",
-    description: "13 years directing brands and leading creative teams of up to 25 across 8 markets. Engineer by training.",
-    type: "profile",
-    url: "https://amrabutalleb.com/about",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "About Amr Abu-Talleb | Creative Director",
-    description: "13 years directing brands and leading creative teams across 8 markets.",
-  },
-}
+export const metadata: Metadata = pageMeta({
+  title: "About Amr Abu-Talleb · Creative Director & Design Leader",
+  description:
+    "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets. 50+ designers hired. Open to roles in Europe or remote.",
+  path: "/about",
+  type: "profile",
+})
 
 const recognitionItems: { text: string; href?: string }[] = [
   { text: "B.Sc. Mechatronics Engineering, German University in Cairo" },

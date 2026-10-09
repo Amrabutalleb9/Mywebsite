@@ -2,6 +2,7 @@ import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import { projectHighlights, getHighlightBySlug, getAdjacentHighlights } from "@/lib/projects"
 import HighlightLayout from "@/components/highlight-layout"
+import { pageMeta } from "@/lib/seo"
 
 export function generateStaticParams() {
   return projectHighlights.map((p) => ({ slug: p.slug }))
@@ -14,29 +15,17 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params
   const project = getHighlightBySlug(slug)
-  if (!project) return {}
-  const description = `${project.subtitle}. ${project.role} | ${project.industry}.`
-  const ogImages = project.featureImage
-    ? [{ url: `https://amrabutalleb.com${project.featureImage}`, width: 1200, height: 630, alt: project.featureImageAlt || project.title }]
-    : undefined
-  return {
-    title: `${project.title} | Project`,
+  if (!project) return { robots: { index: false, follow: false } }
+  const description = `${project.subtitle}. My role: ${project.role}.`
+  return pageMeta({
+    title: `${project.title} · ${project.industry.split(/\n| \/ /)[0]} · Amr Abu-Talleb`,
     description,
-    alternates: { canonical: `/highlights/${slug}` },
-    openGraph: {
-      title: `${project.title} | Project · Amr Abu-Talleb`,
-      description,
-      type: "article",
-      url: `https://amrabutalleb.com/highlights/${slug}`,
-      images: ogImages,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `${project.title} | Project · Amr Abu-Talleb`,
-      description,
-      images: ogImages,
-    },
-  }
+    path: `/highlights/${slug}`,
+    type: "article",
+    image: project.featureImage
+      ? { url: project.featureImage, alt: project.featureImageAlt || project.title }
+      : undefined,
+  })
 }
 
 export default async function HighlightPage({

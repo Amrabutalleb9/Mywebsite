@@ -14,3 +14,8 @@
 # Work With Me was renamed to Consulting
 /work-with-me /consulting 301
 /work-with-me/ /consulting 301
+
+# Articles were retired (Oct 2026)
+/articles /about 301
+/articles/ /about 301
+/articles/* /about 301

@@ -29,7 +29,7 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: "Amr Abu-Talleb | Creative Director",
+    default: "Amr Abu-Talleb · Creative Director, Open to Roles in Europe",
     template: "%s \u00B7 Amr Abu-Talleb",
   },
   description:
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://amrabutalleb.com",
     siteName: "Amr Abu-Talleb",
-    title: "Amr Abu-Talleb | Creative Director",
+    title: "Amr Abu-Talleb · Creative Director, Open to Roles in Europe",
     description:
       "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets. Open to Creative Director roles in Europe, on-site or remote.",
     images: [
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amr Abu-Talleb | Creative Director",
+    title: "Amr Abu-Talleb · Creative Director, Open to Roles in Europe",
     description:
       "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets. Open to Creative Director roles in Europe, on-site or remote.",
     images: ["/images/og-image-v2.png"],
@@ -87,9 +87,9 @@ export const metadata: Metadata = {
     "head of design",
     "design director",
     "brand creative director",
-    "creative director Berlin",
-    "creative director Vienna",
-    "associate creative director",
+    "fractional creative director",
+    "creative director for startups",
+    "creative director for agencies",
     "brand identity",
     "design systems",
     "product design leadership",
@@ -147,10 +147,14 @@ export default function RootLayout({
                 "Brand Strategy",
                 "UI/UX Design",
                 "Art Direction",
-                "Typography Systems",
                 "Campaign Design",
+                "Design Leadership",
                 "Team Leadership",
+                "Hiring and Mentoring Designers",
                 "Design Systems",
+                "Product Design",
+                "Rapid Prototyping",
+                "AI-assisted Design Workflows",
               ],
               alumniOf: [
                 {
@@ -179,6 +183,8 @@ export default function RootLayout({
               url: "https://amrabutalleb.com",
               description:
                 "Creative Director with 13 years leading brand and product teams across 8 markets.",
+              inLanguage: "en",
+              author: { "@type": "Person", name: "Amr Abu-Talleb" },
             }),
           }}
         />
@@ -191,16 +197,12 @@ export default function RootLayout({
               name: "Amr Abu-Talleb \u2014 Creative Direction",
               url: "https://amrabutalleb.com/consulting",
               description:
-                "Senior creative direction, brand strategy, and UX consulting for brands worldwide.",
-              areaServed: [
-                "UAE",
-                "Middle East",
-                "Europe",
-                "United States",
-                "Australia",
-              ],
+                "Fractional creative direction, launch sprints and UX audits for startups and agencies.",
+              areaServed: ["Europe", "Middle East", "Worldwide (remote)"],
               serviceType: [
+                "Fractional Creative Direction",
                 "Creative Direction",
+                "UX Audit",
                 "Brand Strategy",
                 "Brand Identity",
                 "UI/UX Design",

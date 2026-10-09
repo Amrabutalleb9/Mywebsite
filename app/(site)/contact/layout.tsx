@@ -1,23 +1,12 @@
 import type { Metadata } from "next"
+import { pageMeta } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Contact",
+export const metadata: Metadata = pageMeta({
+  title: "Hire a Creative Director · Amr Abu-Talleb",
   description:
-    "Hiring a Creative Director, or need one for a project? Send a message and I'll reply within 24 hours.",
-  alternates: { canonical: "/contact" },
-  openGraph: {
-    title: "Contact · Amr Abu-Talleb",
-    description:
-      "Open to Creative Director roles in Europe, on-site or remote.",
-    url: "https://amrabutalleb.com/contact",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Contact · Amr Abu-Talleb",
-    description:
-      "Get in touch for creative direction and brand strategy.",
-  },
-}
+    "Hiring a Creative Director in Europe or remote, or need one for a project? Send a message and I'll reply within 24 hours.",
+  path: "/contact",
+})
 
 export default function ContactLayout({
   children,

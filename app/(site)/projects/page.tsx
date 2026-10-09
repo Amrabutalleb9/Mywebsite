@@ -3,21 +3,14 @@ import { publishedCaseStudies, projectHighlights } from "@/lib/projects"
 import { ProjectShowcase } from "@/components/ui/project-showcase"
 import type { ShowcaseProject } from "@/components/ui/project-showcase"
 import FadeIn from "@/components/fade-in"
+import { pageMeta } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Portfolio | Brand Identity, UI/UX & Creative Direction Projects",
-  description: "Explore case studies and project highlights in brand identity, UI/UX, and creative direction across 8 international markets.",
-  alternates: { canonical: "/projects" },
-  openGraph: {
-    title: "Projects · Amr Abu-Talleb",
-    description: "Case studies and project highlights spanning brand identity, UI/UX, creative direction, and art direction across eight international markets.",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Projects · Amr Abu-Talleb",
-    description: "Case studies and project highlights spanning brand identity, UI/UX, creative direction, and art direction across eight international markets.",
-  },
-}
+export const metadata: Metadata = pageMeta({
+  title: "Creative Director Portfolio · Amr Abu-Talleb",
+  description:
+    "Case studies in brand identity, product design and campaigns: the strategy, the team I led and the results. Creative Director open to roles in Europe.",
+  path: "/projects",
+})
 
 const caseStudyItems: ShowcaseProject[] = publishedCaseStudies.map((p) => ({
   title: p.title,
