@@ -36,6 +36,8 @@ export interface CaseStudy {
   /** Full-width 16:9 showcase. A muted looping video, with a poster for first paint. */
   showcaseVideo?: { mp4: string; webm?: string; poster: string; alt: string }
   featureVideo?: { mp4: string; webm?: string; poster: string; alt: string }
+  /** Optional external link, e.g. where to buy a published book. */
+  buyLink?: { href: string; label: string }
 }
 
 export interface ProjectHighlight {
@@ -216,6 +218,49 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
+    slug: "steve-hodel",
+    title: "As Within, So\u00A0Without",
+    subtitle: "Designing a\u00A0212-Page Illustrated Book for\u00A0a\u00A0Decades-Long\u00A0Investigation",
+    impactStatement: "212\u00A0pages · 130+\u00A0archival images placed and\u00A0captioned · Print-ready for\u00A0paperback and\u00A0hardcover on\u00A0Amazon",
+    client: "Steve Hodel\nNYT bestselling author, former LAPD homicide detective",
+    role: "Book Designer\nSole designer: typography, layout, production",
+    scope: "Interior design, typesetting, image placement and\u00A0captions, restoration coordination, print\u00A0production",
+    timeline: "Several rounds of\u00A0revision",
+    industry: "Publishing\nInvestigative nonfiction",
+    markets: "United States\u00A0(Amazon)",
+    year: "2025–2026",
+    businessContext: "Steve Hodel is\u00A0a\u00A0former LAPD homicide detective. After he retired, he spent decades investigating his own father, Dr. George Hodel, whom he believes was behind the\u00A0Black Dahlia murder. As Within, So Without follows that investigation into the\u00A0surrealist art world his father moved\u00A0in.",
+    clientProblem: "The manuscript carried decades of\u00A0research: records, letters, photographs and\u00A0artworks, more than 130\u00A0images in\u00A0all. It had to\u00A0read as\u00A0a\u00A0serious book, not a\u00A0case file, and\u00A0every image had to\u00A0sit next to\u00A0the\u00A0passage that explains\u00A0it.",
+    constraints: "Many images were old scans of\u00A0uneven quality. The book had to\u00A0meet Amazon's print specifications for\u00A0paperback and\u00A0hardcover in\u00A0full colour, and\u00A0the\u00A0text kept changing across several rounds of\u00A0edits.",
+    insight: "This is\u00A0a\u00A0book about art as\u00A0much as\u00A0about a\u00A0crime. A modern true-crime look would have undercut its own argument. It had to\u00A0look like it\u00A0came from the\u00A0period it\u00A0describes.",
+    creativeStrategy: "I\u00A0read the\u00A0manuscript and\u00A0Steve's earlier books first. Then I\u00A0studied how the\u00A0art world of\u00A0the\u00A01930s and\u00A040s talked about itself in\u00A0print: the\u00A0catalogues, the\u00A0magazines, the\u00A0typefaces and\u00A0the\u00A0way pages were built around images. Adobe Caslon carries the\u00A0text. It has the\u00A0weight of\u00A0that period and\u00A0stays easy to\u00A0read over 212\u00A0pages.",
+    keyDecisions: "Images are treated as\u00A0exhibits. Each one is\u00A0anchored to\u00A0its paragraph, captioned the\u00A0same way and\u00A0given the\u00A0same frame, so\u00A0a\u00A0reader can check a\u00A0claim against the\u00A0picture without flipping pages. The type stays quiet: one serif family, a\u00A0strict grid and\u00A0generous margins, so\u00A0the\u00A0material does the\u00A0talking.",
+    leadershipRole: "I\u00A0was the\u00A0only designer, so\u00A0the\u00A0leadership here was with the\u00A0author. I\u00A0kept Steve involved at\u00A0every stage, explained each decision in\u00A0terms of\u00A0how a\u00A0reader follows the\u00A0evidence, and\u00A0coordinated image restoration and\u00A0structural changes across rounds without breaking the\u00A0layout.",
+    processPhases: [
+      { title: "Reading & Research", description: "Read the\u00A0manuscript and\u00A0Steve's earlier books, then studied the\u00A0printed matter of\u00A0the\u00A0period the\u00A0story moves\u00A0through." },
+      { title: "Type & Grid", description: "Chose Adobe Caslon for\u00A0its period character and\u00A0readability, and\u00A0built a\u00A0strict grid with master pages for\u00A0chapters, exhibits and\u00A0notes." },
+      { title: "Exhibits & Images", description: "Placed more than 130\u00A0images as\u00A0anchored figures with consistent captions, and\u00A0coordinated restoration of\u00A0the\u00A0weakest\u00A0scans." },
+      { title: "Production", description: "Prepared print-ready files for\u00A0paperback and\u00A0hardcover in\u00A0full colour, through several rounds of\u00A0structural\u00A0edits." },
+    ],
+    results: [
+      "A 212-page full-colour interior, typeset and\u00A0print-ready",
+      "130+\u00A0images placed, captioned and\u00A0coordinated through\u00A0restoration",
+      "Prepared for\u00A0paperback and\u00A0hardcover, now on\u00A0sale on\u00A0Amazon",
+      "A long-term working relationship with a\u00A0New York Times bestselling\u00A0author",
+    ],
+    testimonial: { quote: "Very professional work and his continual ongoing communications and proffered insights were invaluable. I\u00A0highly recommend\u00A0him.", author: "Steven Hodel", role: "NYT Bestselling Author" },
+    reflection: "It's the\u00A0project I'm proudest of. A man spent most of\u00A0his life trying to\u00A0put a\u00A0hard truth on\u00A0the\u00A0record. My job was to\u00A0make that record clear and\u00A0credible, and\u00A0to\u00A0let the\u00A0design language of\u00A0the\u00A0period carry\u00A0it.",
+    credits: "Book Design & Typesetting: Amr Abu-Talleb \u00b7 Author: Steve Hodel",
+    featured: true,
+    featureImage: "/images/steve-hodel-feature.webp",
+    featureImageAlt: "As Within, So Without by Steve Hodel, hardcover book on a wooden desk with warm lighting",
+    processImages: [
+      { src: "/images/steve-hodel-key-1.webp", alt: "Interior spread with exhibit pages: archival photographs anchored to the text on a structured grid" },
+      { src: "/images/steve-hodel-key-2.webp", alt: "Chapter opener set in Adobe Caslon beside a full-bleed archival photograph" },
+    ],
+    buyLink: { href: "https://www.amazon.com/AS-WITHIN-SO-WITHOUT-Surrealism/dp/B0GMQSVHQP", label: "See the book on Amazon" },
+  },
+  {
     slug: "dipa",
     hidden: true, // Hidden for now (Oct 2026); set to false to bring it back
     title: "Dipa Visionary Art School",
@@ -291,29 +336,7 @@ export const projectHighlights: ProjectHighlight[] = [
     description: "Alfy is a\u00A0major marble manufacturer with presence across Egypt, the EU, and Dubai. The agency was producing weekly social media assets with no strategic direction. For a\u00A0B2B brand, all the content was styled as\u00A0B2C.\n\nI\u00A0shifted the approach entirely. Alfy\u2019s real buyers are architects who specify materials for projects. I\u00A0reframed the campaign to\u00A0appeal to\u00A0these decision-makers: marble in\u00A0aspirational contexts showing warmth, luxury, and versatility. Stopped AI-generated renders in\u00A0favour of\u00A0graphic design-led compositions with real product\u00A0photography.",
     keyResult: "70%\u00A0increase in\u00A0social engagement. The creative direction continues to\u00A0be used months after my\u00A0departure.",
   },
-  {
-    slug: "steve-hodel",
-    title: "As Within, So Without, Steven Hodel",
-    subtitle: "Designing and typesetting a\u00A0212-page illustrated volume for a\u00A0NYT bestselling author",
-    client: "Steven Hodel\nNYT Bestselling Author",
-    role: "Book Designer\nSole designer: typography, layout, production",
-    scope: "Full interior design and typesetting for 212-page illustrated investigative nonfiction with ~130 images",
-    industry: "Publishing / Investigative Nonfiction",
-    year: "2025\u20132026",
-    featureImage: "/images/steve-hodel-feature.webp",
-    featureImageAlt: "As Within, So Without by Steve Hodel, hardcover book on a wooden desk with warm lighting",
-    keyVisuals: [
-      { src: "/images/steve-hodel-key-1.webp", alt: "Interior spread from As Within, So Without showing exhibit pages with evidentiary photographs and structured grid layout in Adobe InDesign" },
-      { src: "/images/steve-hodel-key-2.webp", alt: "Open spread of As Within, So Without showing chapter opener with Caslon Pro typography and full-bleed archival photograph" },
-    ],
-    description: "When New York Times bestselling author Steve Hodel began preparing As Within, So Without, he needed a\u00A0designer who could handle not only complex typography and image-heavy layouts, but also the responsibility of\u00A0presenting decades of\u00A0research with clarity and respect. I\u00A0was commissioned to\u00A0design and typeset the full publication, which ultimately grew into a\u00A0212-page illustrated volume.\n\nThe book sits at\u00A0the intersection of\u00A0forensic investigation, art history, and archival research, so\u00A0the design needed to\u00A0balance clarity, restraint, and visual pacing.\n\nBefore designing, I\u00A0spent time studying both the manuscript and Hodel\u2019s earlier work to\u00A0understand the tone and narrative structure. Typography and layout decisions were guided by\u00A0historical context and readability, with Adobe Caslon selected for its authority and period character. The interior was built in\u00A0Adobe InDesign using structured grids, master pages, anchored figures, and print-ready production workflows, and prepared for\u00A0Amazon KDP publication.\n\nBeyond the technical work, this project was personally meaningful to\u00A0me. Hodel\u2019s decades-long investigation is not just a\u00A0book; it\u00A0is an effort to\u00A0document truth, preserve evidence, and give historical context to\u00A0events that shaped lives and families. Contributing to\u00A0a\u00A0work of\u00A0that nature, where design helps communicate research of\u00A0such depth and human weight, made the project especially important to\u00A0me.\n\nThe final result was a\u00A0fully typeset, print-ready, full-color publication prepared for paperback and hardcover production, delivered after several rounds of\u00A0structural refinement and image restoration\u00A0coordination.",
-    buyLink: "https://www.amazon.com/AS-WITHIN-SO-WITHOUT-Surrealism/dp/B0GMQSVHQP",
-    testimonial: {
-      quote: "Very professional work and his continual ongoing communications and proffered insights were invaluable. I\u00A0highly recommend\u00A0him.",
-      author: "Steven Hodel",
-      role: "NYT Bestselling Author",
-    },
-  },
+
   {
     slug: "alienor",
     title: "Alienor",

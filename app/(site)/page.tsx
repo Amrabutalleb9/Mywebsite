@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowUpRight, ArrowRight } from "lucide-react"
-import { testimonialProof, capabilities } from "@/lib/shared-data"
+import { testimonialProof, capabilities, leadershipPrinciples } from "@/lib/shared-data"
 import { publishedCaseStudies } from "@/lib/projects"
 
 import HeroSection from "@/components/homepage/hero-section"
@@ -23,6 +23,7 @@ const caseStudyCards = [
   { slug: "overpowered", num: "01", title: "Overpowered", subtitle: "Rebranding a\u00A0multi-market creative agency for three audiences, one\u00A0identity", impact: "Unified identity across 3\u00A0markets \u00B7 A/B-tested micro campaigns \u00B7 Design system still in\u00A0use months\u00A0later", category: "Brand Identity & Rebrand", year: "2025", role: "Creative Director \u00B7 Led team of\u00A025", featureImage: "", featureImageAlt: "" },
   { slug: "split", num: "02", title: "SPLT", subtitle: "Turning a\u00A0marketplace brief into a\u00A0four-sided fitness\u00A0platform", impact: "Won the contract by\u00A0rewriting a\u00A0flawed quotation \u00B7 330+\u00A0screens across 4\u00A0roles \u00B7 Trainer subscriptions as\u00A0a\u00A0new revenue\u00A0line", category: "UX/UI Product Design", year: "2025", role: "Creative Director & UX Lead \u00B7 Team of\u00A03", featureImage: "/images/split-card-v2.webp", featureImageAlt: "SPLT trainer dashboard beside the trainer profile and subscription plans in the app" },
   { slug: "agfin", num: "03", title: "Agfin", subtitle: "Turning a\u00A0static website into a\u00A0sales funnel through strategic\u00A0copywriting", impact: "12%\u00A0sales increase in month one \u00B7 Zero ad spend \u00B7 Copy-first strategy\u00A0validated", category: "Sales Funnel & Copywriting", year: "2024", role: "Creative Director, UX & Copywriter \u00B7 Solo\u00A0project", featureImage: "/images/agfin-feature-v3.webp", featureImageAlt: "Agfin homepage hero: morning cloud clearing over a Wimmera paddock", featureVideo: "/videos/agfin-hero.mp4" },
+  { slug: "steve-hodel", num: "04", title: "As Within, So\u00A0Without", subtitle: "Designing a\u00A0212-page illustrated book for a\u00A0decades-long\u00A0investigation", impact: "212\u00A0pages \u00B7 130+\u00A0archival images \u00B7 Published on\u00A0Amazon for a\u00A0NYT bestselling\u00A0author", category: "Editorial & Book Design", year: "2025\u20132026", role: "Book Designer \u00B7 Sole\u00A0designer", featureImage: "/images/steve-hodel-feature.webp", featureImageAlt: "As Within, So Without by Steve Hodel, hardcover book on a wooden desk" },
   { slug: "dipa", num: "04", title: "Dipa Visionary Art School", subtitle: "Rebuilding a\u00A0visionary art school\u2019s digital home after three\u00A0years of\u00A0failed attempts", impact: "70% more website views after\u00A0launch \u00B7 Replaced 4\u00A0failed freelancers \u00B7 Immersive 360\u00B0 studio\u00A0tour", category: "Immersive Web Experience", year: "2022\u20132026", role: "Creative Director & UX/UI \u00B7 Led small\u00A0team", featureImage: "/images/dipa-showcase.webp", featureImageAlt: "Dipa Visionary Art School immersive website design" },
 ]
   // Cards for hidden case studies (hidden: true in lib/projects.ts) drop out automatically.
@@ -31,7 +32,6 @@ const caseStudyCards = [
 
 const highlightCards = [
   { slug: "alfy", num: "05", title: "Alfy", subtitle: "Repositioning a\u00A0luxury marble brand for B2B\u00A0impact", result: "70%\u00A0lift in\u00A0social engagement", year: "2025", category: "Campaign Strategy", role: "Creative Director at\u00A0Overpowered", featureImage: "/images/alfy-feature.webp", featureImageAlt: "El Alfy Saraya luxury marble brand website hero" },
-  { slug: "steve-hodel", num: "06", title: "As Within, So Without, Steven Hodel", subtitle: "Designing a\u00A0212-page illustrated volume for a\u00A0NYT bestselling author", result: "212\u00A0pages \u00B7 130+\u00A0images \u00B7 Print-ready", year: "2025", category: "Editorial Design", role: "Book Designer (sole designer)", featureImage: "/images/steve-hodel-feature.webp", featureImageAlt: "As Within, So Without by Steve Hodel, hardcover book on desk" },
   { slug: "alienor", num: "07", title: "Alienor", subtitle: "Premium skincare brand identity & packaging", result: "Full brand identity\u00A0system", year: "2022", category: "Brand & Packaging", role: "Creative Director & Brand Designer", featureImage: "/images/alienor-feature.webp", featureImageAlt: "Alienor skincare brand identity with elegant serif logotype" },
 ]
 
@@ -147,7 +147,7 @@ function WorkSection() {
         <ScrollReveal>
           <p className="mb-10 text-xs font-medium tracking-[var(--tracking-label)] text-muted-foreground uppercase">Project Highlights</p>
         </ScrollReveal>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {highlightCards.map((project, i) => (
             <ScrollReveal key={project.slug} delay={i * 0.08}>
               <Link href={`/highlights/${project.slug}`} className="highlight-card group block" data-cursor-label={`View ${project.title}`}>
@@ -207,6 +207,33 @@ function WorkSection() {
   )
 }
 
+/* ─── How I Lead ─────────────────────────────────── */
+
+function LeadSection() {
+  return (
+    <section id="leadership" className="px-8 pt-24 lg:px-16 lg:pt-32">
+      <div className="mx-auto max-w-6xl">
+        <ScrollReveal>
+          <SubHeader label="Leadership" />
+          <h2 className="mb-12 max-w-[22ch] font-serif text-[length:var(--text-section)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground">
+            {"How I\u00A0run a\u00A0creative\u00A0team"}
+          </h2>
+        </ScrollReveal>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {leadershipPrinciples.map((item, i) => (
+            <ScrollReveal key={item.title} delay={0.05 + i * 0.06}>
+              <div className="capability-card h-full rounded-sm bg-surface p-6 lg:p-8">
+                <h3 className="mb-3 font-medium text-foreground">{item.title}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 /* ─── About ───────────────────────────────────────── */
 
 function About() {
@@ -235,7 +262,7 @@ function About() {
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <p className="mb-6 max-w-[60ch] leading-relaxed text-muted-foreground">
-                {"Drawing, sculpture and\u00A0calligraphy trained my\u00A0eye. A layout has to\u00A0carry weight and\u00A0leave the\u00A0right space around it,\u00A0the\u00A0same way a\u00A0stroke of\u00A0ink\u00A0does."}
+                {"I\u2019m a\u00A0creative director with a\u00A0background in\u00A0drawing, sculpture and\u00A0calligraphy, and\u00A013\u00A0years of\u00A0leading brand and\u00A0product\u00A0teams."}
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.15}>
@@ -287,6 +314,7 @@ export default function Home() {
       <HeroSection />
       <MarqueeBanner />
       <WorkSection />
+      <LeadSection />
       <TestimonialsProof groups={testimonialProof} stats={stats} />
       <ClientTicker />
       <div className="mx-auto max-w-3xl px-8 pt-16 text-center lg:pt-20">

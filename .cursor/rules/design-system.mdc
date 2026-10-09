@@ -124,7 +124,7 @@ The link sits directly under the content and the divider line **closes** the sec
 
 ## Homepage Order
 
-Hero → Marquee → Case Studies (+ Project Highlights, All Projects) → Testimonials + Stats → Client ticker → "Hiring a Creative Director?" CTA (to /contact) → About (Read More). Articles were retired in Oct 2026 (/articles 301s to /about); the refreshed drafts are parked on the `articles-refresh-draft` branch. Page metadata goes through `pageMeta()` in `lib/seo.ts`.
+Hero → Marquee → Case Studies (+ Project Highlights, All Projects) → How I Lead → Testimonials + Stats → Client ticker → "Hiring a Creative Director?" CTA (to /contact) → About (Read More). Articles were retired in Oct 2026 (/articles 301s to /about); the refreshed drafts are parked on the `articles-refresh-draft` branch. Page metadata goes through `pageMeta()` in `lib/seo.ts`.
 
 The only homepage CTA (“Hiring a Creative Director? Let’s Talk”) belongs to the testimonials/clients block: keep it directly under the client ticker (`pt-16 lg:pt-20`) and keep the testimonials section bottom tight (`pb-16 lg:pb-20`).
 
@@ -150,7 +150,7 @@ The site is written for hiring managers first: one fact sheet everywhere (13 yea
 Copy is written in Amr's voice, built from his own words. Rules:
 - Short declarative sentences, first person, owning the work. Plain words.
 - A story before a number. At most one or two numbers per paragraph.
-- One metaphor per page at most; his recurring images are ink/calligraphy and the filmmaker's camera.
+- Grounded, senior tone: a working creative director, not a poet. Mention the art background as a fact, not as imagery. No metaphors in headlines.
 - Use his phrases verbatim where they fit: "Skills can be sharpened. Anything else can be fixed." "From brief to a live staging build in days, not sprints."
 - Banned: arrow lists (→), "in practice", colon reveals, labels-as-sentences ("How I lead:"), runs of three-item lists, "not just X but Y", semicolons, filler verbs (leverage, drive, elevate).
 - The "Open to roles in Europe" line appears only in the hero, the About close and the contact page.
