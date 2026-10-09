@@ -106,7 +106,7 @@ export default function AboutPage() {
             {/* Portrait */}
             <div className="h-[280px] w-[280px] overflow-hidden rounded-full lg:h-[380px] lg:w-[380px]">
               <Image
-                src="/images/amr-portrait.webp"
+                src="/images/amr-portrait-v2.webp"
                 alt="Amr Abu-Talleb portrait"
                 width={600}
                 height={600}

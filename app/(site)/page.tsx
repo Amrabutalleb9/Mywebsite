@@ -217,7 +217,7 @@ function About() {
           <ScrollReveal className="lg:w-[40%]">
             <div className="portrait-wrap overflow-hidden rounded-full">
               <Image
-                src="/images/amr-portrait.webp"
+                src="/images/amr-portrait-v2.webp"
                 alt="Amr Abu-Talleb portrait"
                 width={600}
                 height={600}
