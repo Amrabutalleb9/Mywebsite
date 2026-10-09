@@ -22,7 +22,7 @@ const stats = [
 const caseStudyCards = [
   { slug: "overpowered", num: "01", title: "Overpowered", subtitle: "Rebranding a\u00A0multi-market creative agency for three audiences, one\u00A0identity", impact: "Unified identity across 3\u00A0markets \u00B7 A/B-tested micro campaigns \u00B7 Design system still in\u00A0use months\u00A0later", category: "Brand Identity & Rebrand", year: "2025", role: "Creative Director \u00B7 Led team of\u00A025", featureImage: "", featureImageAlt: "" },
   { slug: "split", num: "02", title: "Split", subtitle: "Redesigning a\u00A0fitness platform from competitive research to\u00A0revenue-driving features", impact: "Won the client by rewriting a\u00A0flawed quotation \u00B7 New monetisation paths \u00B7 Research-validated\u00A0features", category: "UX/UI Product Design", year: "2025", role: "Creative Director & UX Lead \u00B7 Team of\u00A03", featureImage: "", featureImageAlt: "" },
-  { slug: "agfin", num: "03", title: "Agfin", subtitle: "Turning a\u00A0static website into a\u00A012% revenue engine through strategic copywriting", impact: "12%\u00A0sales increase in month one \u00B7 Zero ad spend \u00B7 Copy-first strategy\u00A0validated", category: "Sales Funnel & Copywriting", year: "2024", role: "Creative Director, UX & Copywriter \u00B7 Solo\u00A0project", featureImage: "", featureImageAlt: "" },
+  { slug: "agfin", num: "03", title: "Agfin", subtitle: "Turning a\u00A0static website into a\u00A012% revenue engine through strategic copywriting", impact: "12%\u00A0sales increase in month one \u00B7 Zero ad spend \u00B7 Copy-first strategy\u00A0validated", category: "Sales Funnel & Copywriting", year: "2024", role: "Creative Director, UX & Copywriter \u00B7 Solo\u00A0project", featureImage: "/images/agfin-feature.jpg", featureImageAlt: "Agfin homepage hero: morning cloud clearing over a Wimmera paddock", featureVideo: "/videos/agfin-hero.mp4" },
 ].map((card, index) => ({ ...card, num: String(index + 1).padStart(2, "0") }))
 
 const highlightCards = [
@@ -92,7 +92,30 @@ function WorkSection() {
 
                   <div className="relative min-w-0 lg:flex-1">
                     <div className="work-media relative overflow-hidden rounded-2xl bg-primary">
-                      {project.featureImage ? (
+                      {"featureVideo" in project && project.featureVideo ? (
+                        <>
+                          <video
+                            className="card-img aspect-[16/10] w-full object-cover motion-reduce:hidden"
+                            poster={project.featureImage}
+                            aria-label={project.featureImageAlt || project.title}
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            preload="metadata"
+                          >
+                            <source src={project.featureVideo} type="video/mp4" />
+                          </video>
+                          <Image
+                            src={project.featureImage}
+                            alt={project.featureImageAlt || project.title}
+                            width={900}
+                            height={562}
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            className="card-img hidden aspect-[16/10] w-full object-cover motion-reduce:block"
+                          />
+                        </>
+                      ) : project.featureImage ? (
                         <Image
                           src={project.featureImage}
                           alt={project.featureImageAlt || project.title}
