@@ -29,7 +29,7 @@ export default function CustomCursor() {
   const rafRef = useRef<number>(0)
 
   const findCursorLabel = useCallback((el: HTMLElement | null): string => {
-    while (el) {
+    while (el && el instanceof Element) {
       const val = el.getAttribute("data-cursor-label")
       if (val) return val
       if (el.getAttribute("data-cursor-none") !== null) return ""
@@ -149,6 +149,32 @@ export default function CustomCursor() {
       }
     }
 
+    /* Invert the cursor over dark surfaces (footer, filled buttons, dark cards) so it never disappears. */
+    let lastTarget: Element | null = null
+    let onDark = false
+    const isDarkSurface = (el: Element | null): boolean => {
+      while (el && el instanceof Element && el !== document.documentElement) {
+        if ((el as HTMLElement).dataset?.cursorInvert !== undefined) return true
+        const bg = getComputedStyle(el).backgroundColor
+        const m = bg.match(/rgba?\(([\d.]+),\s*([\d.]+),\s*([\d.]+)(?:,\s*([\d.]+))?\)/)
+        if (m && (m[4] === undefined || parseFloat(m[4]) > 0.5)) {
+          const [r, g, b] = [m[1], m[2], m[3]].map(Number)
+          return 0.2126 * r + 0.7152 * g + 0.0722 * b < 110
+        }
+        el = el.parentElement
+      }
+      return false
+    }
+    const setTone = (dark: boolean) => {
+      if (dark === onDark) return
+      onDark = dark
+      const fg = dark ? "var(--background)" : "var(--foreground)"
+      const bg = dark ? "var(--foreground)" : "var(--background)"
+      if (ringRef.current) ringRef.current.style.borderColor = fg
+      if (dotRef.current) dotRef.current.style.backgroundColor = fg
+      if (labelSpanRef.current) labelSpanRef.current.style.color = bg
+    }
+
     const onMove = (e: MouseEvent) => {
       posRef.current.x = e.clientX
       posRef.current.y = e.clientY
@@ -157,6 +183,10 @@ export default function CustomCursor() {
       else startAnimation()
 
       setLabel(findCursorLabel(e.target as HTMLElement))
+      if (e.target !== lastTarget) {
+        lastTarget = e.target as Element
+        setTone(isDarkSurface(lastTarget))
+      }
     }
 
     const onLeave = () => {
@@ -193,7 +223,7 @@ export default function CustomCursor() {
   if (!enabled) return null
 
   const morphTransition =
-    "width 0.2s cubic-bezier(0.23, 1, 0.32, 1), height 0.2s cubic-bezier(0.23, 1, 0.32, 1), padding 0.2s cubic-bezier(0.23, 1, 0.32, 1)"
+    "width 0.2s cubic-bezier(0.23, 1, 0.32, 1), height 0.2s cubic-bezier(0.23, 1, 0.32, 1), padding 0.2s cubic-bezier(0.23, 1, 0.32, 1), background-color 0.2s ease"
 
   return (
     <>
@@ -201,7 +231,7 @@ export default function CustomCursor() {
         ref={ringRef}
         aria-hidden="true"
         className="pointer-events-none fixed top-0 left-0 z-[9998] hidden size-9 rounded-full border border-foreground md:block"
-        style={{ opacity: 0, willChange: "transform, opacity", transition: "opacity 0.15s ease" }}
+        style={{ opacity: 0, willChange: "transform, opacity", transition: "opacity 0.15s ease, border-color 0.2s ease" }}
       />
       <div
         ref={dotWrapperRef}

@@ -65,7 +65,7 @@ export const articles: Article[] = [
     excerpt: "If you\u2019re still picking fonts from a\u00A0dropdown, we need to\u00A0talk.",
     date: "Sep 2024",
     tag: "DESIGN",
-    image: "/images/blog-typography.png",
+    image: "/images/blog-typography.webp",
     imageAlt: "Elegant typographic print reading Life Goes On with editorial layout, typography in brand design and creative direction",
     content: [
       "Typography is the first thing people read and the last thing most designers think\u00A0about.",

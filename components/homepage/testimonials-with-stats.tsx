@@ -18,47 +18,30 @@ interface Stat {
   label: string
 }
 
-function AnimatedCounter({ end, suffix, duration = 1600 }: { end: number; suffix: string; duration?: number }) {
+function AnimatedCounter({ end, suffix, start, delay = 0, duration = 1800 }: { end: number; suffix: string; start: boolean; delay?: number; duration?: number }) {
   const [count, setCount] = useState(0)
-  const [started, setStarted] = useState(false)
-  const ref = useRef<HTMLSpanElement>(null)
   const reduced = useReducedMotion()
 
   useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setStarted(true)
-          observer.unobserve(el)
-        }
-      },
-      { rootMargin: "-20px" },
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
-  useEffect(() => {
-    if (!started || reduced) {
-      if (reduced && started) setCount(end)
+    if (!start) return
+    if (reduced) {
+      setCount(end)
       return
     }
-    const startTime = performance.now()
-    let raf: number
+    let raf = 0
+    const begin = performance.now() + delay
     function tick(now: number) {
-      const progress = Math.min((now - startTime) / duration, 1)
-      const eased = 1 - Math.pow(1 - progress, 4)
+      const progress = Math.min(Math.max((now - begin) / duration, 0), 1)
+      const eased = 1 - Math.pow(1 - progress, 3)
       setCount(Math.round(eased * end))
       if (progress < 1) raf = requestAnimationFrame(tick)
     }
     raf = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(raf)
-  }, [started, end, duration, reduced])
+  }, [start, end, delay, duration, reduced])
 
   return (
-    <span ref={ref}>
+    <span className="tabular-nums">
       {count}
       {suffix}
     </span>
@@ -67,7 +50,7 @@ function AnimatedCounter({ end, suffix, duration = 1600 }: { end: number; suffix
 
 function StatCard({ stat, index }: { stat: Stat; index: number }) {
   const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, margin: "-10%" })
+  const inView = useInView(ref, { once: true, amount: 0.6 })
   const reduced = useReducedMotion()
 
   return (
@@ -79,7 +62,7 @@ function StatCard({ stat, index }: { stat: Stat; index: number }) {
       transition={{ duration: 0.55, delay: index * 0.08, ease: EASE_OUT }}
     >
       <p className="font-serif text-3xl tracking-tight text-accent lg:text-4xl">
-        <AnimatedCounter end={stat.end} suffix={stat.suffix} />
+        <AnimatedCounter end={stat.end} suffix={stat.suffix} start={inView} delay={200 + index * 120} />
       </p>
       <p className="mt-2 text-xs text-muted-foreground lg:text-sm">{stat.label}</p>
     </motion.div>
@@ -94,7 +77,7 @@ export default function TestimonialsWithStats({
   stats: Stat[]
 }) {
   return (
-    <section className="px-8 py-24 lg:px-16 lg:py-32">
+    <section className="px-8 pt-24 pb-16 lg:px-16 lg:pt-32 lg:pb-20">
       <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
         <ScrollReveal className="lg:w-[55%]">
           <div className="mb-4 flex items-center gap-3">
@@ -104,7 +87,7 @@ export default function TestimonialsWithStats({
             </span>
           </div>
           <div className="mb-4 flex items-start gap-4">
-            <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+            <div className="mt-1 h-12 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true" />
             <h2 className="font-serif text-[length:var(--text-sub)] font-normal tracking-tight text-foreground">
               What Clients&nbsp;Say
             </h2>

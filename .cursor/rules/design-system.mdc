@@ -111,6 +111,23 @@ Allowed opacity levels: `/30`, `/50`, `/70` only.
 | Content gap | `gap-12 lg:gap-16` |
 | Detail page | `pb-[clamp(80px,10vw,140px)] pt-28` |
 
+## Section Endings
+
+Every homepage section that ends with a "view all" link (All Projects, Read More, All Articles) follows one pattern, so the link reads as part of the section above it:
+
+| Element | Classes |
+|---------|---------|
+| Link wrapper | `mt-12 flex justify-center border-b border-border pb-8` |
+| Link | `text-link inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase` |
+
+The link sits directly under the content and the divider line **closes** the section. Never put the divider above the link.
+
+## Homepage Order
+
+Hero → Marquee → Case Studies (+ Work With Me CTA, Project Highlights, All Projects) → Testimonials + Stats → Client ticker → Work With Me CTA → About (Read More) → Perspectives (All Articles) → Footer.
+
+The second Work With Me CTA belongs to the testimonials/clients block: keep it directly under the client ticker (`pt-16 lg:pt-20`) and keep the testimonials section bottom tight (`pb-16 lg:pb-20`).
+
 ## CSS Baseline (globals.css)
 
 These are applied globally and must not be overridden:

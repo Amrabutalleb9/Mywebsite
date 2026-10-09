@@ -236,7 +236,6 @@ export const caseStudies: CaseStudy[] = [
     reflection: "This is the project I\u2019m most proud of. The decision to\u00A0fix first and redesign later rebuilt Dipa\u2019s confidence before asking her to\u00A0dream big again. Sometimes the best creative strategy begins with simply delivering on\u00A0your\u00A0word.",
     credits: "Creative Direction, Content Strategy & UX: Amr Abu-Talleb \u00b7 UI Design: UX/UI Design Team \u00b7 Client: Dipa, Singapore",
     featured: true,
-    hidden: true,
     featureImage: "/images/dipa-showcase.webp",
     featureImageAlt: "Dipa Visionary Art School website homepage showing immersive studio experience with story section",
     galleryImages: [

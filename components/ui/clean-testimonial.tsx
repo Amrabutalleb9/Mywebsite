@@ -184,22 +184,35 @@ export function CleanTestimonial({
 
       {/* Quote */}
       <div className="relative mt-8">
-        <AnimatePresence mode="wait">
-          <motion.blockquote
-            key={activeIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0, transition: { duration: 0.2 } }}
-            className="font-serif text-xl md:text-2xl font-normal leading-relaxed tracking-tight text-foreground italic"
-          >
-            {"\u201C"}
-            <SplitText text={current.text} />
-            {"\u201D"}
-          </motion.blockquote>
-        </AnimatePresence>
+        {/* Every quote is laid out invisibly in the same cell, so the block is always as tall as the
+            longest testimonial and the page never jumps when the quote changes. */}
+        <div className="grid">
+          {testimonials.map((t, i) => (
+            <p
+              key={i}
+              aria-hidden="true"
+              className="invisible col-start-1 row-start-1 font-serif text-xl md:text-2xl font-normal leading-relaxed tracking-tight italic"
+            >
+              {"\u201C"}{t.text}{"\u201D"}
+            </p>
+          ))}
+          <AnimatePresence mode="wait">
+            <motion.blockquote
+              key={activeIndex}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0, transition: { duration: 0.2 } }}
+              className="col-start-1 row-start-1 font-serif text-xl md:text-2xl font-normal leading-relaxed tracking-tight text-foreground italic"
+            >
+              {"\u201C"}
+              <SplitText text={current.text} />
+              {"\u201D"}
+            </motion.blockquote>
+          </AnimatePresence>
+        </div>
 
         {/* Author */}
-        <motion.div className="mt-10 relative" layout>
+        <div className="mt-10 relative">
           <div className="flex items-center gap-4">
             <div className="relative w-11 h-11">
               <motion.div
@@ -270,7 +283,7 @@ export function CleanTestimonial({
               </motion.div>
             </AnimatePresence>
           </div>
-        </motion.div>
+        </div>
 
         {/* Progress bar */}
         <div className="mt-14 h-px bg-border relative overflow-hidden">
