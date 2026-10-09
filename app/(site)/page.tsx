@@ -22,7 +22,7 @@ const stats = [
 const caseStudyCards = [
   { slug: "overpowered", num: "01", title: "Overpowered", subtitle: "Rebranding a\u00A0multi-market creative agency for three audiences, one\u00A0identity", impact: "Unified identity across 3\u00A0markets \u00B7 A/B-tested micro campaigns \u00B7 Design system still in\u00A0use months\u00A0later", category: "Brand Identity & Rebrand", year: "2025", role: "Creative Director \u00B7 Led team of\u00A025", featureImage: "", featureImageAlt: "" },
   { slug: "split", num: "02", title: "SPLT", subtitle: "Turning a\u00A0marketplace brief into a\u00A0four-sided fitness\u00A0platform", impact: "Won the contract by\u00A0rewriting a\u00A0flawed quotation \u00B7 330+\u00A0screens across 4\u00A0roles \u00B7 Trainer subscriptions as\u00A0a\u00A0new revenue\u00A0line", category: "UX/UI Product Design", year: "2025", role: "Creative Director & UX Lead \u00B7 Team of\u00A03", featureImage: "/images/split-card-v2.webp", featureImageAlt: "SPLT trainer dashboard beside the trainer profile and subscription plans in the app" },
-  { slug: "agfin", num: "03", title: "Agfin", subtitle: "Turning a\u00A0static website into a\u00A0sales funnel through strategic\u00A0copywriting", impact: "12%\u00A0sales increase in month one \u00B7 Zero ad spend \u00B7 Copy-first strategy\u00A0validated", category: "Sales Funnel & Copywriting", year: "2024", role: "Creative Director, UX & Copywriter \u00B7 Solo\u00A0project", featureImage: "/images/agfin-feature-v2.jpg", featureImageAlt: "Agfin homepage hero: morning cloud clearing over a Wimmera paddock", featureVideo: "/videos/agfin-hero.mp4" },
+  { slug: "agfin", num: "03", title: "Agfin", subtitle: "Turning a\u00A0static website into a\u00A0sales funnel through strategic\u00A0copywriting", impact: "12%\u00A0sales increase in month one \u00B7 Zero ad spend \u00B7 Copy-first strategy\u00A0validated", category: "Sales Funnel & Copywriting", year: "2024", role: "Creative Director, UX & Copywriter \u00B7 Solo\u00A0project", featureImage: "/images/agfin-feature-v3.webp", featureImageAlt: "Agfin homepage hero: morning cloud clearing over a Wimmera paddock", featureVideo: "/videos/agfin-hero.mp4" },
   { slug: "dipa", num: "04", title: "Dipa Visionary Art School", subtitle: "Rebuilding a\u00A0visionary art school\u2019s digital home after three\u00A0years of\u00A0failed attempts", impact: "70% more website views after\u00A0launch \u00B7 Replaced 4\u00A0failed freelancers \u00B7 Immersive 360\u00B0 studio\u00A0tour", category: "Immersive Web Experience", year: "2022\u20132026", role: "Creative Director & UX/UI \u00B7 Led small\u00A0team", featureImage: "/images/dipa-showcase.webp", featureImageAlt: "Dipa Visionary Art School immersive website design" },
 ]
   // Cards for hidden case studies (hidden: true in lib/projects.ts) drop out automatically.
@@ -235,17 +235,17 @@ function About() {
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <p className="mb-6 max-w-[60ch] leading-relaxed text-muted-foreground">
-                {"I\u2019ve spent 13\u00A0years directing brands and leading teams of\u00A0up to\u00A025 across 8\u00A0markets: Egypt, the UAE, the UK, Europe, the US, Canada, Australia and\u00A0Singapore."}
+                {"Drawing, sculpture and\u00A0calligraphy trained my\u00A0eye. A layout has to\u00A0carry weight and\u00A0leave the\u00A0right space around it,\u00A0the\u00A0same way a\u00A0stroke of\u00A0ink\u00A0does."}
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.15}>
               <p className="mb-6 max-w-[60ch] leading-relaxed text-muted-foreground">
-                {"I lead by\u00A0building the system first: the brand, the design system, the review rhythm. Then the team moves fast without me in\u00A0every\u00A0file."}
+                {"I\u00A0lead creative teams of\u00A0up\u00A0to\u00A025,\u00A0for\u00A0brands in\u00A0eight markets, and\u00A0I\u00A0measure myself by\u00A0who comes out of\u00A0them. Designers who grow into art directors. Art directors who go on\u00A0to\u00A0lead."}
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <p className="mb-8 max-w-[60ch] leading-relaxed text-muted-foreground">
-                {"My creative direction doesn\u2019t stop at\u00A0Figma. I\u00A0prototype and ship in\u00A0code with AI as\u00A0my engineering team: from brief to\u00A0a\u00A0live staging build in\u00A0days, not\u00A0sprints."}
+                {"And I\u00A0still build. When an\u00A0idea matters, it\u2019s on\u00A0a\u00A0live staging build in\u00A0days, not\u00A0sprints."}
               </p>
               <Link href="/about" className="text-link inline-flex items-center gap-2 text-sm font-medium text-foreground">
                 About Amr Abu-Talleb

@@ -132,7 +132,7 @@ export default function CaseStudyLayout({
       <div className="mx-auto mb-28 max-w-[1280px] px-6">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <FadeIn>
-            <p className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">The Challenge</p>
+            <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">The Challenge</h2>
           </FadeIn>
           <div className="flex flex-col gap-10">
             <FadeIn>
@@ -192,7 +192,7 @@ export default function CaseStudyLayout({
       <div className="mx-auto mb-28 max-w-[1280px] px-6">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <FadeIn>
-            <p className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Strategic Approach</p>
+            <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Strategic Approach</h2>
           </FadeIn>
           <div className="flex flex-col gap-10">
             <FadeIn>
@@ -253,7 +253,7 @@ export default function CaseStudyLayout({
       <div className="mx-auto mb-28 max-w-[1280px] px-6">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <FadeIn>
-            <p className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Process & Evolution</p>
+            <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Process & Evolution</h2>
           </FadeIn>
           <div className="flex flex-col gap-8">
             {project.processPhases.map((phase, i) => (
@@ -314,7 +314,7 @@ export default function CaseStudyLayout({
       <div className="mx-auto mb-28 max-w-[1280px] px-6">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <FadeIn>
-            <p className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Results & Impact</p>
+            <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Results & Impact</h2>
           </FadeIn>
           <div className="flex flex-col gap-6">
             <FadeIn>
@@ -349,7 +349,7 @@ export default function CaseStudyLayout({
       <div className="mx-auto mb-28 max-w-[1280px] px-6">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <FadeIn>
-            <p className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Reflection</p>
+            <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Reflection</h2>
           </FadeIn>
           <FadeIn>
             <p className="max-w-[60ch] leading-[var(--leading-longform)] text-muted-foreground">

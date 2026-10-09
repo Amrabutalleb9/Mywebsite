@@ -92,7 +92,7 @@ export default function ConsultingPage() {
               Recent work has delivered a&nbsp;<strong className="font-semibold text-foreground">12%</strong> sales increase with zero ad spend, a&nbsp;<strong className="font-semibold text-foreground">70%</strong> lift in&nbsp;social engagement, and a&nbsp;unified brand system across <strong className="font-semibold text-foreground">3</strong> international markets, built in&nbsp;<strong className="font-semibold text-foreground">2</strong>&nbsp;months.
             </p>
             <p>
-              {"I\u2019ve worked across branding, UI/UX, campaign strategy, product design, editorial and packaging. The common thread: set the system first, then let the team move\u00A0fast."}
+              {"I\u2019ve worked across branding, UI/UX, campaign strategy, product design, editorial and packaging. The common thread never changes. Set the system first, then let the team move\u00A0fast."}
             </p>
           </div>
         </FadeIn>

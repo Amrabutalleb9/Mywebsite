@@ -349,3 +349,16 @@ h1, h2, h3, h4, h5, h6 {
     transform: none;
   }
 }
+
+/* Hero headline: CSS-only entrance so the LCP text paints without waiting for JavaScript */
+.hero-line {
+  animation: hero-line-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(0.12s + var(--i, 0) * 0.1s);
+}
+@keyframes hero-line-in {
+  from { opacity: 0; transform: translateY(36px); filter: blur(6px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-line { animation: none; }
+}

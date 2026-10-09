@@ -193,11 +193,11 @@ export const caseStudies: CaseStudy[] = [
     reflection: "The most powerful design tool is often a\u00A0well-written sentence. The 12%\u00A0lift came from rewriting the story, not from animations. Robert\u2019s pushback on\u00A0my initial copy made the final product stronger. Sometimes the best design decision is to\u00A0dial it\u00A0back.",
     credits: "Strategy, Copywriting, UX/UI Design & Build: Amr Abu-Talleb (solo) \u00b7 Client: Agfin, Australia",
     featured: true,
-    featureImage: "/images/agfin-feature-v2.jpg",
+    featureImage: "/images/agfin-feature-v3.webp",
     featureImageAlt: "Agfin homepage hero: the farm profit road map headline settling in as the morning clouds clear over a Wimmera paddock",
     featureVideo: {
       mp4: "/videos/agfin-hero.mp4",
-      poster: "/images/agfin-feature-v2.jpg",
+      poster: "/images/agfin-feature-v3.webp",
       alt: "The Agfin hero animation: a fly-through of morning cloud that clears to reveal the headline over a Wimmera paddock",
     },
     processImages: [

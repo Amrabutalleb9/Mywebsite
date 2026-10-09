@@ -28,7 +28,7 @@ export default function AboutPage() {
 
           <FadeIn>
             <h1 className="mb-6 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
-              <span className="text-[length:var(--text-display)]">13</span>&nbsp;years leading teams that&nbsp;ship.
+              I learned to see with ink on my hands.
             </h1>
           </FadeIn>
           <FadeIn delay={0.1}>
@@ -40,22 +40,34 @@ export default function AboutPage() {
           {/* Full Bio */}
           <FadeIn delay={0.15} as="div" className="flex max-w-[60ch] flex-col gap-6 leading-relaxed text-muted-foreground">
             <p>
-              {"I\u2019ve spent 13\u00A0years directing brands and leading creative teams of\u00A0up to\u00A025 across 8\u00A0markets: Egypt, the UAE, the UK, Europe, the US, Canada, Australia and\u00A0Singapore."}
+              {"I\u2019ve spent years drawing, sculpting and\u00A0writing calligraphy, and\u00A0that\u2019s still how I\u00A0look at\u00A0work. A layout has to\u00A0carry weight and\u00A0leave the\u00A0right space around it,\u00A0the\u00A0same way a\u00A0stroke of\u00A0ink\u00A0does."}
             </p>
             <p>
-              {"My work has driven a\u00A012% sales increase in\u00A0one month with zero ad\u00A0spend, a\u00A070% lift in\u00A0social engagement for a\u00A0luxury marble brand, and one brand system rolled out across three international markets in\u00A0two months. I\u2019ve rescued a\u00A0website after four freelancers failed over three years, rewritten a\u00A0mis-priced development proposal before a\u00A0single wireframe was drawn, and designed a\u00A0212-page illustrated book for a\u00A0New York Times bestselling\u00A0author."}
+              {"Over 13\u00A0years I\u2019ve led creative teams of\u00A0up\u00A0to\u00A025\u00A0people, for\u00A0brands in\u00A0eight markets. I\u00A0measure myself by\u00A0who comes out of\u00A0those teams. I\u00A0want every designer I\u00A0manage to\u00A0be\u00A0able to\u00A0run a\u00A0team of\u00A0their own one\u00A0day."}
             </p>
             <p>
-              {"How I\u00A0lead: I\u2019ve hired more than 50\u00A0people over my career, and I\u00A0hire for two things first, the will to\u00A0keep learning and integrity. Skills can be sharpened; the rest is hard to\u00A0teach. Work is\u00A0reviewed against the system, not my\u00A0taste, and product decisions are tested against what\u00A0is already live, with A/B tests, one-to-one interviews and\u00A0surveys."}
+              {"So I\u00A0hand over the\u00A0brief and\u00A0let people go wild inside it. Then we\u00A0keep exploring together. We talk about what makes work artistic, when to\u00A0think like an\u00A0artist and\u00A0when to\u00A0think like a\u00A0designer, and\u00A0the\u00A0gap between what the\u00A0client asks for\u00A0and\u00A0what the\u00A0user actually\u00A0needs."}
             </p>
             <p>
-              {"I\u00A0think in\u00A0systems, and my creative direction doesn\u2019t stop at\u00A0Figma. I\u00A0prototype and ship in\u00A0code with AI as\u00A0my engineering team, so an\u00A0idea goes from brief to\u00A0a\u00A0live staging build in\u00A0days, not sprints. This site is one example: I\u00A0designed and built\u00A0it."}
+              {"I\u2019ve hired more than 50\u00A0people. I\u00A0look for\u00A0integrity first. Then the\u00A0will to\u00A0learn, the\u00A0kind of\u00A0person who\u2019ll do the\u00A0same thing again and\u00A0again until it\u2019s right. Skills can be\u00A0sharpened. Anything else can be\u00A0fixed."}
             </p>
             <p>
-              {"I use typography the way a\u00A0filmmaker uses a\u00A0camera: it\u00A0sets the mood, controls the pace, and\u00A0tells the story before a\u00A0single word gets\u00A0read."}
+              {"I\u00A0protect my\u00A0people. They get heard, and\u00A0they get what they deserve from the\u00A0company. In return the\u00A0system works, and\u00A0we\u00A0deliver before the\u00A0date we\u00A0promised."}
+            </p>
+            <p>
+              {"The project I\u2019m proudest of\u00A0is\u00A0a\u00A0book. Steve Hodel is\u00A0a\u00A0former LAPD homicide detective who spent decades investigating his own father. For his book As Within, So Without, I\u00A0designed 212\u00A0pages around more than 130\u00A0images. I\u00A0studied the\u00A0type and\u00A0layouts of\u00A0the\u00A0era and\u00A0of\u00A0the\u00A0artists in\u00A0the\u00A0story, so\u00A0the\u00A0book looks like it\u00A0belongs to\u00A0the\u00A0world it\u00A0describes."}
+            </p>
+            <p>
+              {"The results follow the\u00A0craft. Agfin\u2019s sales rose 12%\u00A0in\u00A0the\u00A0first month with zero ad spend, and\u00A0one campaign of\u00A0mine sold $125k on\u00A0its\u00A0own."}
+            </p>
+            <p>
+              {"I\u00A0also build. I\u2019ve written about AI and\u00A0I\u00A0prototype with it\u00A0in\u00A0code, so\u00A0an\u00A0idea can go from brief to\u00A0a\u00A0live staging build in\u00A0days, not sprints. I\u00A0designed and\u00A0built this site\u00A0myself."}
+            </p>
+            <p>
+              {"I\u00A0use typography the\u00A0way a\u00A0filmmaker uses a\u00A0camera: it\u00A0sets the\u00A0mood, controls the\u00A0pace, and\u00A0tells the\u00A0story before a\u00A0single word gets\u00A0read."}
             </p>
             <p className="font-medium text-foreground">
-              {"Currently leading a\u00A025-person creative team in\u00A0Cairo. Open to\u00A0Creative Director roles in\u00A0Europe, on\u2011site or\u00A0remote."}
+              {"Today I\u00A0run a\u00A025-person team across design, product, video and\u00A0support for\u00A0a\u00A0software company in\u00A0the\u00A0UAE, from Cairo. I\u2019m looking for\u00A0my\u00A0next Creative Director role in\u00A0Europe."}
             </p>
           </FadeIn>
 
