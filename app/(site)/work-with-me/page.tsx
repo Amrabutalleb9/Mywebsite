@@ -185,7 +185,7 @@ export default function WorkWithMePage() {
         <FadeIn>
           <div className="border-l-2 border-border pl-8">
             <p className="max-w-[60ch] leading-relaxed text-muted-foreground">
-              {"Most of\u00A0my engagements start with an\u00A0audit or\u00A0a single sprint and grow from there. The Agfin project started as\u00A0a request for minor website fixes. It\u00A0became a full redesign and sales funnel that drove a\u00A012% revenue increase in\u00A0month one. The Split engagement started when I rewrote a\u00A0flawed development quotation. It\u00A0became a complete product redesign with new revenue-generating features. I don\u2019t chase scope creep. But\u00A0when the work proves its value, the relationship tends to\u00A0deepen\u00A0naturally."}
+              {"Most of\u00A0my engagements start with an\u00A0audit or\u00A0a single sprint and grow from there. The Agfin project started as\u00A0a request for minor website fixes. It\u00A0became a full redesign and sales funnel that drove a\u00A012% revenue increase in\u00A0month one. The SPLT engagement started when I rewrote a\u00A0flawed development quotation. It\u00A0became a complete product redesign with new revenue-generating features. I don\u2019t chase scope creep. But\u00A0when the work proves its value, the relationship tends to\u00A0deepen\u00A0naturally."}
             </p>
           </div>
         </FadeIn>
