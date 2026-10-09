@@ -59,7 +59,24 @@ export default function CaseStudyLayout({
 
       {/* Hero image */}
       <FadeIn delay={0.15} className="mx-auto mb-8 max-w-[1400px] px-6">
-        {project.featureImage ? (
+        {project.featureVideo ? (
+          <div className="overflow-hidden rounded-2xl">
+            <video
+              className="aspect-video w-full object-cover"
+              poster={project.featureVideo.poster}
+              aria-label={project.featureVideo.alt}
+              autoPlay={!reducedMotion}
+              controls={!!reducedMotion}
+              muted
+              loop
+              playsInline
+              preload="auto"
+            >
+              {project.featureVideo.webm && <source src={project.featureVideo.webm} type="video/webm" />}
+              <source src={project.featureVideo.mp4} type="video/mp4" />
+            </video>
+          </div>
+        ) : project.featureImage ? (
           <div
             className="project-img-wrap overflow-hidden rounded-2xl"
             onClick={() => setLightbox(project.featureImage!)}
