@@ -105,7 +105,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Creative Director & UX Lead\nLed a\u00A0team of\u00A03",
     teamSize: "1 Senior + 1 Junior Designer",
     scope: "Quotation rewrite, competitor research, information architecture, mobile app, admin, vendor and trainer dashboards, design system",
-    timeline: "3\u00A0months",
+    timeline: "6+\u00A0months",
     industry: "Health & Fitness\nMarketplace",
     markets: "Egypt (EGP pricing)",
     year: "2025",
