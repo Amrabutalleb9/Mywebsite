@@ -8,6 +8,7 @@ const navItems = [
   { label: "Projects", href: "/projects" },
   { label: "About", href: "/about" },
   { label: "Consulting", href: "/consulting" },
+  { label: "Articles", href: "/articles" },
 ]
 
 export default function MainNav() {

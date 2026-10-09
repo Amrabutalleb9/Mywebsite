@@ -14,3 +14,7 @@
 # Work With Me was renamed to Consulting
 /work-with-me /consulting 301
 /work-with-me/ /consulting 301
+
+# Article renamed (three markets, not four)
+/articles/directing-a-brand-across-four-markets /articles/directing-a-brand-across-three-markets 301
+/articles/directing-a-brand-across-four-markets/ /articles/directing-a-brand-across-three-markets 301

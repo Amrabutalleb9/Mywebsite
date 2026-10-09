@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowUpRight, ArrowRight } from "lucide-react"
+import { articles, getReadingTime, formatMonth } from "@/lib/articles"
 import { testimonialProof, capabilities } from "@/lib/shared-data"
 
 import HeroSection from "@/components/homepage/hero-section"
@@ -275,6 +276,91 @@ function About() {
   )
 }
 
+/* ─── Blog Preview (Insights layout) ─────────────── */
+
+function BlogPreview() {
+  const blogPosts = articles.slice(0, 3)
+
+  return (
+    <section id="blog" className="px-8 py-24 lg:px-16 lg:py-32">
+      <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
+        <ScrollReveal className="lg:w-[35%]">
+          <SubHeader label="Insights" />
+          <h2 className="font-serif text-[length:var(--text-section)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
+            Perspectives
+          </h2>
+          <p className="mt-4 max-w-[45ch] leading-relaxed text-muted-foreground">
+            On leading creative teams, brand systems, and using AI without lowering the&nbsp;bar.
+          </p>
+        </ScrollReveal>
+
+        <div className="flex flex-col gap-6 lg:w-[65%]">
+          <ScrollReveal>
+            <Link href={`/articles/${blogPosts[0].slug}`} className="article-card group block" data-cursor-label="Read Article">
+              <div className="overflow-hidden rounded-lg">
+                <Image
+                  src={blogPosts[0].image!}
+                  alt={blogPosts[0].imageAlt || blogPosts[0].title}
+                  width={1200}
+                  height={630}
+                  className="card-img aspect-[16/9] w-full object-cover"
+                />
+              </div>
+              <div className="mt-3 flex items-center gap-3">
+                <span className="text-xs text-muted-foreground">{formatMonth(blogPosts[0].updated)}</span>
+                <span className="text-xs text-muted-foreground/60">&middot;</span>
+                <span className="text-xs text-muted-foreground">{getReadingTime(blogPosts[0])}</span>
+              </div>
+              <h3 className="mt-1 text-lg font-medium text-foreground group-hover:text-accent">{blogPosts[0].title}</h3>
+              <p className="mt-2 max-w-[60ch] text-sm leading-relaxed text-muted-foreground">{blogPosts[0].excerpt}</p>
+              <span className="text-link mt-3 inline-flex items-center gap-1 text-sm font-medium text-foreground">
+                Read&nbsp;Article <ArrowRight size={14} className="inline-arrow" />
+              </span>
+            </Link>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            {blogPosts.slice(1).map((post, i) => (
+              <ScrollReveal key={post.title} delay={i * 0.08}>
+                <Link href={`/articles/${post.slug}`} className="article-card group block" data-cursor-label="Read Article">
+                  <div className="overflow-hidden rounded-lg">
+                    <Image
+                      src={post.image!}
+                      alt={post.imageAlt || post.title}
+                      width={600}
+                      height={375}
+                      className="card-img aspect-[16/10] w-full object-cover"
+                    />
+                  </div>
+                  <div className="mt-3 flex items-center gap-3">
+                    <span className="text-xs text-muted-foreground">{formatMonth(post.updated)}</span>
+                    <span className="text-xs text-muted-foreground/60">&middot;</span>
+                    <span className="text-xs text-muted-foreground">{getReadingTime(post)}</span>
+                  </div>
+                  <h3 className="mt-1 font-medium text-foreground group-hover:text-accent">{post.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p>
+                  <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-foreground">
+                    Read&nbsp;Article <ArrowRight size={14} className="article-arrow" />
+                  </span>
+                </Link>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <ScrollReveal>
+        <div className="mt-12 flex justify-center border-b border-border pb-8">
+          <Link href="/articles" className="text-link inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase">
+            All&nbsp;Articles
+            <ArrowUpRight size={14} />
+          </Link>
+        </div>
+      </ScrollReveal>
+    </section>
+  )
+}
+
 /* ─── Page ────────────────────────────────────────── */
 
 export default function Home() {
@@ -296,6 +382,7 @@ export default function Home() {
         </a>
       </div>
       <About />
+      <BlogPreview />
     </main>
   )
 }

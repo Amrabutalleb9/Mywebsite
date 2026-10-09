@@ -1,21 +1,21 @@
 import Link from "next/link"
 import type { Metadata } from "next"
 import { ArrowUpRight } from "lucide-react"
-import { articles, getReadingTime } from "@/lib/articles"
+import { articles, getReadingTime, formatMonth, wasUpdated } from "@/lib/articles"
 import FadeIn from "@/components/fade-in"
 
 export const metadata: Metadata = {
-  title: "Articles on Brand Strategy & Creative Direction",
-  description: "Practical insights on brand strategy, creative direction, typography, and design leadership. Written by a 13-year veteran.",
+  title: "Articles on Creative Direction, Design Leadership & Brand Systems",
+  description: "Practical writing on creative direction, design leadership, AI in creative teams, brand systems and typography, from 13 years of leading creative teams.",
   alternates: { canonical: "/articles" },
   openGraph: {
     title: "Articles · Amr Abu-Talleb",
-    description: "Thinking out loud about brand strategy, creative direction, typography, and design leadership.",
+    description: "Writing on creative direction, design leadership, brand systems and typography.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Articles · Amr Abu-Talleb",
-    description: "Thinking out loud about brand strategy, creative direction, typography, and design leadership.",
+    description: "Writing on creative direction, design leadership, brand systems and typography.",
   },
 }
 
@@ -27,7 +27,7 @@ export default function ArticlesPage() {
           Articles
         </h1>
         <p className="mb-20 max-w-lg text-muted-foreground">
-          Thinking out loud about brand strategy, creative direction, typography, and&nbsp;the business of&nbsp;design.
+          On leading creative teams, building brand systems, using AI without lowering the&nbsp;bar, and the craft of&nbsp;type.
         </p>
       </FadeIn>
 
@@ -53,7 +53,7 @@ export default function ArticlesPage() {
                   <p className="mt-3 leading-relaxed text-muted-foreground">{article.excerpt}</p>
                 </div>
                 <div className="flex items-center gap-4 lg:w-[35%] lg:justify-end">
-                  <span className="text-sm text-muted-foreground">{article.date}</span>
+                  <span className="text-sm text-muted-foreground">{wasUpdated(article) ? `Updated ${formatMonth(article.updated)}` : article.date}</span>
                   <span className="text-xs text-muted-foreground/50">&middot;</span>
                   <span className="text-sm text-muted-foreground">{getReadingTime(article)}</span>
                   <ArrowUpRight size={16} className="text-muted-foreground transition-colors group-hover:text-foreground" />

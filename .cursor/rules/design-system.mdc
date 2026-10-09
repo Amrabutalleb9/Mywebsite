@@ -124,7 +124,7 @@ The link sits directly under the content and the divider line **closes** the sec
 
 ## Homepage Order
 
-Hero → Marquee → Case Studies (+ Project Highlights, All Projects) → Testimonials + Stats → Client ticker → "Hiring a Creative Director?" CTA (to /contact) → About (Read More). Perspectives (articles) is hidden until the articles are refreshed.
+Hero → Marquee → Case Studies (+ Project Highlights, All Projects) → Testimonials + Stats → Client ticker → "Hiring a Creative Director?" CTA (to /contact) → About (Read More) → Perspectives (latest 3 articles, All Articles) → Footer. Article covers are typographic (`public/images/articles/<slug>-cover-vN.webp`), never AI images.
 
 The only homepage CTA (“Hiring a Creative Director? Let’s Talk”) belongs to the testimonials/clients block: keep it directly under the client ticker (`pt-16 lg:pt-20`) and keep the testimonials section bottom tight (`pb-16 lg:pb-20`).
 

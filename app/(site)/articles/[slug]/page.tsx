@@ -4,7 +4,7 @@ import Image from "next/image"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import { ArrowLeft, ArrowRight } from "lucide-react"
-import { articles, getArticleBySlug, getAdjacentArticles, getReadingTime } from "@/lib/articles"
+import { articles, getArticleBySlug, getAdjacentArticles, getReadingTime, formatMonth, wasUpdated } from "@/lib/articles"
 import FadeIn from "@/components/fade-in"
 
 export function generateStaticParams() {
@@ -23,23 +23,43 @@ export async function generateMetadata({
     ? [{ url: `https://amrabutalleb.com${article.image}`, width: 1200, height: 630, alt: article.imageAlt || article.title }]
     : undefined
   return {
-    title: article.title,
-    description: article.excerpt,
+    title: { absolute: article.seoTitle },
+    description: article.description,
+    keywords: article.keywords,
+    authors: [{ name: "Amr Abu-Talleb", url: "https://amrabutalleb.com/about" }],
     alternates: { canonical: `/articles/${slug}` },
     openGraph: {
-      title: `${article.title} · Amr Abu-Talleb`,
-      description: article.excerpt,
+      title: `${article.seoTitle} · Amr Abu-Talleb`,
+      description: article.description,
       type: "article",
       url: `https://amrabutalleb.com/articles/${slug}`,
+      publishedTime: article.published,
+      modifiedTime: article.updated,
+      authors: ["Amr Abu-Talleb"],
+      tags: article.keywords,
       images: ogImage,
     },
     twitter: {
       card: "summary_large_image",
-      title: `${article.title} · Amr Abu-Talleb`,
-      description: article.excerpt,
+      title: `${article.seoTitle} · Amr Abu-Talleb`,
+      description: article.description,
       images: ogImage,
     },
   }
+}
+
+/** Turns [text](/path) into links; everything else stays plain text. */
+function renderInline(text: string) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g)
+  return parts.map((part, i) => {
+    const m = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/)
+    if (!m) return part
+    return (
+      <Link key={i} href={m[2]} className="text-foreground underline decoration-accent underline-offset-4 transition-colors hover:text-accent">
+        {m[1]}
+      </Link>
+    )
+  })
 }
 
 export default async function ArticlePage({
@@ -53,26 +73,19 @@ export default async function ArticlePage({
 
   const { prev, next } = getAdjacentArticles(slug)
 
-  const dateMap: Record<string, string> = {
-    "Jan 2025": "2025-01-15",
-    "Feb 2025": "2025-02-15",
-    "Mar 2025": "2025-03-15",
-    "May 2024": "2024-05-15",
-    "Jul 2024": "2024-07-15",
-    "Sep 2024": "2024-09-15",
-    "Oct 2024": "2024-10-15",
-    "Nov 2024": "2024-11-15",
-    "Dec 2024": "2024-12-15",
-  }
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: article.title,
-    description: article.excerpt,
-    author: { "@type": "Person", name: "Amr Abu-Talleb" },
-    datePublished: dateMap[article.date] || article.date,
-    dateModified: dateMap[article.date] || article.date,
+    headline: article.seoTitle,
+    description: article.description,
+    keywords: article.keywords.join(", "),
+    articleSection: article.tag,
+    wordCount: article.content.join(" ").split(/\s+/).length,
+    mainEntityOfPage: `https://amrabutalleb.com/articles/${slug}`,
+    author: { "@type": "Person", name: "Amr Abu-Talleb", jobTitle: "Creative Director", url: "https://amrabutalleb.com/about" },
+    datePublished: article.published,
+    dateModified: article.updated,
     url: `https://amrabutalleb.com/articles/${slug}`,
     image: article.image ? `https://amrabutalleb.com${article.image}` : undefined,
     publisher: {
@@ -118,7 +131,9 @@ export default async function ArticlePage({
             <span className="rounded-sm bg-accent px-3 py-1 text-xs font-medium text-accent-foreground uppercase">
               {article.tag}
             </span>
-            <span className="text-sm text-muted-foreground">{article.date}</span>
+            <span className="text-sm text-muted-foreground">
+              {wasUpdated(article) ? <>Updated <time dateTime={article.updated}>{formatMonth(article.updated)}</time></> : <time dateTime={article.published}>{article.date}</time>}
+            </span>
             <span className="text-xs text-muted-foreground/50">&middot;</span>
             <span className="text-sm text-muted-foreground">{getReadingTime(article)}</span>
           </div>
@@ -147,9 +162,18 @@ export default async function ArticlePage({
 
         {/* Content */}
         <FadeIn delay={0.15} as="div" className="flex flex-col gap-6 text-[17px] leading-[var(--leading-longform)] text-muted-foreground">
-          {article.content.map((paragraph, i) => (
-            <p key={`p-${i}`}>{paragraph}</p>
-          ))}
+          {article.content.map((paragraph, i) =>
+            paragraph.startsWith("## ") ? (
+              <h2
+                key={`h-${i}`}
+                className="mt-8 font-serif text-2xl font-normal leading-[var(--leading-heading)] tracking-tight text-foreground lg:text-3xl"
+              >
+                {paragraph.slice(3)}
+              </h2>
+            ) : (
+              <p key={`p-${i}`}>{renderInline(paragraph)}</p>
+            ),
+          )}
         </FadeIn>
 
         {/* Prev / Next */}
