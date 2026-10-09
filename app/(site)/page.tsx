@@ -2,12 +2,12 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowUpRight, ArrowRight } from "lucide-react"
 import { articles, getReadingTime } from "@/lib/articles"
-import { publishedTestimonials, capabilities } from "@/lib/shared-data"
+import { testimonialProof, capabilities } from "@/lib/shared-data"
 
 import HeroSection from "@/components/homepage/hero-section"
 import MarqueeBanner from "@/components/homepage/marquee-banner"
 import ClientTicker from "@/components/homepage/client-ticker"
-import TestimonialsWithStats from "@/components/homepage/testimonials-with-stats"
+import TestimonialsProof from "@/components/homepage/testimonials-proof"
 import ScrollReveal from "@/components/homepage/scroll-reveal"
 
 /* ─── Data ─────────────────────────────────────────── */
@@ -384,7 +384,7 @@ export default function Home() {
       <HeroSection />
       <MarqueeBanner />
       <WorkSection />
-      <TestimonialsWithStats testimonials={publishedTestimonials} stats={stats} />
+      <TestimonialsProof groups={testimonialProof} stats={stats} />
       <ClientTicker />
       <div className="mx-auto max-w-3xl px-8 pt-16 pb-8 text-center lg:pt-20">
         <a

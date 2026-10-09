@@ -36,3 +36,56 @@ export const capabilities: Capability[] = [
   { title: "Art Direction", desc: "Defining the visual tone across campaigns, editorial, packaging, and digital. This\u00A0is where the storytelling\u00A0lives." },
   { title: "Campaign Design", desc: "Multi-channel creative for digital, social, and print. Strategy\u00A0first. Execution\u00A0second. Results\u00A0always." },
 ]
+
+/* ─── Homepage testimonials, grouped by what an agency checks before hiring ───
+   Quotes are the clients' own words (from `testimonials` above), cut short with typos tidied. */
+export interface ProofQuote {
+  quote: string
+  name: string
+  credential: string
+}
+
+export interface ProofGroup {
+  title: string
+  question: string
+  quotes: ProofQuote[]
+}
+
+export const testimonialProof: ProofGroup[] = [
+  {
+    title: "Strategy",
+    question: "Will they think, or just\u00A0execute?",
+    quotes: [
+      { quote: "His strategic thinking elevated the entire\u00A0project.", name: "Overpowered Agency", credential: "Creative agency \u00B7 UK" },
+      { quote: "Amr provided lots of\u00A0new UX ideas and put them to\u00A0me in\u00A0a\u00A0detailed\u00A0explanation.", name: "Robert, founder of\u00A0Agfin", credential: "Melbourne, Australia" },
+      { quote: "His continual ongoing communications and proffered insights were\u00A0invaluable.", name: "Steven Hodel", credential: "NYT bestselling author \u00B7 US" },
+    ],
+  },
+  {
+    title: "Craft",
+    question: "Is the work actually\u00A0good?",
+    quotes: [
+      { quote: "The brand identity he created captured our vision perfectly and translated seamlessly across every\u00A0touchpoint.", name: "Overpowered Agency", credential: "Creative agency \u00B7 UK" },
+      { quote: "Great UI/UX designer, quick delivery and clear\u00A0communication.", name: "Head of\u00A0UX, Freelancer.com", credential: "Sydney, Australia" },
+      { quote: "Way beyond anything I\u00A0expected.", name: "Augustina", credential: "Website design \u00B7 Denmark" },
+    ],
+  },
+  {
+    title: "Communication",
+    question: "Can they work with our team\u00A0remotely?",
+    quotes: [
+      { quote: "Communication was smooth, he was always available, and paid great attention to\u00A0detail.", name: "Stefano", credential: "Website design \u00B7 Valencia, Spain" },
+      { quote: "Communication in\u00A0English is\u00A0excellent. Prompt to\u00A0resolve any\u00A0issues.", name: "Augustina", credential: "Website design \u00B7 Denmark" },
+      { quote: "Very professional work and his continual ongoing communications\u2026 were\u00A0invaluable.", name: "Steven Hodel", credential: "NYT bestselling author \u00B7 US" },
+    ],
+  },
+  {
+    title: "Ownership",
+    question: "Will they deliver without being\u00A0chased?",
+    quotes: [
+      { quote: "We have been through hell with 4\u00A0previous freelancers\u2026 All\u00A04 were unable to\u00A0complete the work. Enter\u00A0Amr.", name: "Dipa, founder", credential: "Visionary Art School \u00B7 Singapore" },
+      { quote: "He quickly understood the project requirements and delivered flawless work on\u00A0time.", name: "Stefano", credential: "Website design \u00B7 Valencia, Spain" },
+      { quote: "He went above and beyond the project\u00A0scope.", name: "Robert, founder of\u00A0Agfin", credential: "Melbourne, Australia" },
+    ],
+  },
+]
