@@ -367,7 +367,7 @@ export default function CaseStudyLayout({
       </FadeIn>
 
       {/* CTA */}
-      <div className="mx-auto mt-20 max-w-[1000px] border-t border-border pt-12 text-center">
+      <div className="mx-auto mt-20 max-w-[1000px] pt-12 text-center">
         <p className="mb-4 text-lg text-muted-foreground">Want results like these for your brand?</p>
         <a
           href="/work-with-me"

@@ -143,9 +143,6 @@ export default function TestimonialsProof({ groups, stats }: { groups: ProofGrou
                     on ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"
                   }`}
                 >
-                  <p className="mb-5 text-sm text-muted-foreground">
-                    The question: <span className="font-medium text-foreground">{g.question}</span>
-                  </p>
                   <ul className="border-t border-border">
                     {g.quotes.map((q) => (
                       <li key={q.quote} className="grid grid-cols-1 gap-3 border-b border-border py-5 md:grid-cols-[minmax(0,1fr)_13rem] md:gap-8">
