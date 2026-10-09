@@ -117,7 +117,7 @@ export default function AboutPage() {
             {/* CTA buttons */}
             <div className="flex gap-3">
               <a
-                href="/Amr_AbuTalleb_Resume.pdf"
+                href="/Amr_AbuTalleb_CV_Creative_Director.pdf"
                 download
                 className="inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-6 py-3 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase transition-all duration-300 hover:bg-transparent hover:text-foreground"
               >

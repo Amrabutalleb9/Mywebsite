@@ -73,7 +73,7 @@ export default function HeroSection() {
               <ArrowUpRight size={14} className="cta-arrow" />
             </a>
             <a
-              href="/Amr_AbuTalleb_Resume.pdf"
+              href="/Amr_AbuTalleb_CV_Creative_Director.pdf"
               download
               className="cta-btn cta-btn-outline inline-flex items-center gap-2 rounded-full border border-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-foreground uppercase"
             >

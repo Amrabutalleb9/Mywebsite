@@ -19,3 +19,6 @@
 /articles /about 301
 /articles/ /about 301
 /articles/* /about 301
+
+# Old CV filename
+/Amr_AbuTalleb_Resume.pdf /Amr_AbuTalleb_CV_Creative_Director.pdf 301
