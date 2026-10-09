@@ -86,7 +86,7 @@ export default function ConsultingPage() {
         <FadeIn delay={0.1}>
           <div className="flex max-w-[60ch] flex-col gap-6 leading-relaxed text-muted-foreground">
             <p>
-              <strong className="font-semibold text-foreground">13</strong> years of&nbsp;creative direction across <strong className="font-semibold text-foreground">8</strong> markets, leading teams of&nbsp;up to&nbsp;<strong className="font-semibold text-foreground">25</strong>. An engineering degree, so I&nbsp;speak business and product as&nbsp;fluently as&nbsp;design, and I&nbsp;can take an&nbsp;idea from brief to&nbsp;a&nbsp;live staging build in&nbsp;days.
+              <strong className="font-semibold text-foreground">13</strong> years of&nbsp;creative direction across <strong className="font-semibold text-foreground">8</strong> markets, leading teams of&nbsp;up to&nbsp;<strong className="font-semibold text-foreground">25</strong>. I&nbsp;speak business and product as&nbsp;fluently as&nbsp;design, and I&nbsp;can take an&nbsp;idea from brief to&nbsp;a&nbsp;live staging build in&nbsp;days.
             </p>
             <p>
               Recent work has delivered a&nbsp;<strong className="font-semibold text-foreground">12%</strong> sales increase with zero ad spend, a&nbsp;<strong className="font-semibold text-foreground">70%</strong> lift in&nbsp;social engagement, and a&nbsp;unified brand system across <strong className="font-semibold text-foreground">3</strong> international markets, built in&nbsp;<strong className="font-semibold text-foreground">2</strong>&nbsp;months.

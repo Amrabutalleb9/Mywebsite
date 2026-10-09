@@ -156,12 +156,6 @@ export default function RootLayout({
                 "Rapid Prototyping",
                 "AI-assisted Design Workflows",
               ],
-              alumniOf: [
-                {
-                  "@type": "CollegeOrUniversity",
-                  name: "German University in Cairo",
-                },
-              ],
               hasOccupation: {
                 "@type": "Occupation",
                 name: "Creative Director",

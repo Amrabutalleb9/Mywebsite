@@ -15,7 +15,6 @@ export const metadata: Metadata = pageMeta({
 })
 
 const recognitionItems: { text: string; href?: string }[] = [
-  { text: "B.Sc. Mechatronics Engineering, German University in Cairo" },
   { text: "Featured Contractor, Freelancer.com (Top-Rated, Branding, UI/UX)", href: "https://www.freelancer.com/u/Amrabutalleb93" },
 ]
 
@@ -50,7 +49,7 @@ export default function AboutPage() {
               {"How I\u00A0lead: I\u2019ve hired more than 50\u00A0people over my career, and I\u00A0hire for two things first, the will to\u00A0keep learning and integrity. Skills can be sharpened; the rest is hard to\u00A0teach. Work is\u00A0reviewed against the system, not my\u00A0taste, and product decisions are tested against what\u00A0is already live, with A/B tests, one-to-one interviews and\u00A0surveys."}
             </p>
             <p>
-              {"My mechatronics engineering degree taught me to\u00A0think in\u00A0systems, and it\u00A0means my creative direction doesn\u2019t stop at\u00A0Figma. I\u00A0prototype and ship in\u00A0code with AI as\u00A0my engineering team, so an\u00A0idea goes from brief to\u00A0a\u00A0live staging build in\u00A0days, not sprints. This site is one example: I\u00A0designed and built\u00A0it."}
+              {"I\u00A0think in\u00A0systems, and my creative direction doesn\u2019t stop at\u00A0Figma. I\u00A0prototype and ship in\u00A0code with AI as\u00A0my engineering team, so an\u00A0idea goes from brief to\u00A0a\u00A0live staging build in\u00A0days, not sprints. This site is one example: I\u00A0designed and built\u00A0it."}
             </p>
             <p>
               {"I use typography the way a\u00A0filmmaker uses a\u00A0camera: it\u00A0sets the mood, controls the pace, and\u00A0tells the story before a\u00A0single word gets\u00A0read."}
@@ -83,7 +82,7 @@ export default function AboutPage() {
           {/* ── Recognition & Education ── */}
           <FadeIn as="div" className="mt-24">
             <h2 className="mb-8 font-serif text-[length:var(--text-sub)] font-normal tracking-tight text-foreground">
-              Recognition &amp;&nbsp;Education
+              Recognition
             </h2>
             <ul className="flex flex-col">
               {recognitionItems.map((item) => (

@@ -245,7 +245,7 @@ function About() {
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <p className="mb-8 max-w-[60ch] leading-relaxed text-muted-foreground">
-                {"I trained as\u00A0an\u00A0engineer, so my creative direction doesn\u2019t stop at\u00A0Figma. I\u00A0prototype and ship in\u00A0code with AI as\u00A0my engineering team: from brief to\u00A0a\u00A0live staging build in\u00A0days, not\u00A0sprints."}
+                {"My creative direction doesn\u2019t stop at\u00A0Figma. I\u00A0prototype and ship in\u00A0code with AI as\u00A0my engineering team: from brief to\u00A0a\u00A0live staging build in\u00A0days, not\u00A0sprints."}
               </p>
               <Link href="/about" className="text-link inline-flex items-center gap-2 text-sm font-medium text-foreground">
                 About Amr Abu-Talleb
