@@ -124,9 +124,13 @@ The link sits directly under the content and the divider line **closes** the sec
 
 ## Homepage Order
 
-Hero → Marquee → Case Studies (+ Work With Me CTA, Project Highlights, All Projects) → Testimonials + Stats → Client ticker → Work With Me CTA → About (Read More) → Perspectives (All Articles) → Footer.
+Hero → Marquee → Case Studies (+ Project Highlights, All Projects) → Testimonials + Stats → Client ticker → Work With Me CTA → About (Read More) → Perspectives (All Articles) → Footer.
 
-The second Work With Me CTA belongs to the testimonials/clients block: keep it directly under the client ticker (`pt-16 lg:pt-20`) and keep the testimonials section bottom tight (`pb-16 lg:pb-20`).
+The only Work With Me CTA belongs to the testimonials/clients block: keep it directly under the client ticker (`pt-16 lg:pt-20`) and keep the testimonials section bottom tight (`pb-16 lg:pb-20`).
+
+## Homepage Section Rhythm
+
+Each homepage section owns its **top** spacing only (`pt-24 lg:pt-32`). It ends at its divider line or CTA with no bottom padding, so the gap between any two sections is the same: 96px on mobile, 128px on desktop. Only the last section before the footer keeps bottom padding.
 
 ## CSS Baseline (globals.css)
 

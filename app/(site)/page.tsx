@@ -53,7 +53,7 @@ function SubHeader({ label }: { label: string }) {
 
 function WorkSection() {
   return (
-    <section id="work" className="overflow-hidden px-8 pt-32 pb-24 lg:px-16 lg:pt-40 lg:pb-32">
+    <section id="work" className="overflow-hidden px-8 pt-32 lg:px-16 lg:pt-40">
 
       <ScrollReveal>
         <SubHeader label="Work" />
@@ -144,16 +144,6 @@ function WorkSection() {
         })}
       </div>
 
-      <div className="mx-auto mt-16 max-w-3xl text-center">
-        <a
-          href="/work-with-me"
-          className="cta-btn cta-btn-filled inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase"
-        >
-          Work With Me
-          <ArrowUpRight size={14} className="cta-arrow" />
-        </a>
-      </div>
-
       {/* ── Project Highlights ── */}
       <div className="mt-28 lg:mt-40">
         <ScrollReveal>
@@ -223,7 +213,7 @@ function WorkSection() {
 
 function About() {
   return (
-    <section id="about" className="px-8 py-24 lg:px-16 lg:py-32">
+    <section id="about" className="px-8 pt-24 lg:px-16 lg:pt-32">
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
           <ScrollReveal className="lg:w-[40%]">
@@ -386,7 +376,7 @@ export default function Home() {
       <WorkSection />
       <TestimonialsProof groups={testimonialProof} stats={stats} />
       <ClientTicker />
-      <div className="mx-auto max-w-3xl px-8 pt-16 pb-8 text-center lg:pt-20">
+      <div className="mx-auto max-w-3xl px-8 pt-16 text-center lg:pt-20">
         <a
           href="/work-with-me"
           className="cta-btn cta-btn-filled inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase"
