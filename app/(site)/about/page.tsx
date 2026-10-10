@@ -52,7 +52,7 @@ export default function AboutPage() {
               {"What I\u2019m proudest of\u00A0doesn\u2019t fit in\u00A0a\u00A0portfolio. I\u2019ve hired more than fifty people, and\u00A0some of\u00A0the\u00A0designers I\u00A0hired now run teams of\u00A0their own. I\u00A0hire for\u00A0integrity first and\u00A0the\u00A0will to\u00A0learn second. Skills can be\u00A0sharpened. Anything else can be\u00A0fixed."}
             </p>
             <p className="font-medium text-foreground">
-              {"Today I\u00A0run a\u00A025-person team across design, product, video, support and\u00A0PR from Cairo, with five or\u00A0six projects live at\u00A0any time, and\u00A0I\u00A0report to\u00A0the\u00A0owners and\u00A0the\u00A0board every quarter. Next, I\u00A0want to\u00A0do it\u00A0in\u00A0Europe."}
+              {"Today I\u00A0run a\u00A025-person team across design, product, video, support and\u00A0PR, with five or\u00A0six projects live at\u00A0once and\u00A0the\u00A0numbers on\u00A0the\u00A0table every quarter. The next team I\u00A0build will be\u00A0in\u00A0Europe."}
             </p>
           </FadeIn>
 
