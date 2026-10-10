@@ -73,7 +73,7 @@ export default function AboutPage() {
 
           {/* Tools */}
           <FadeIn as="p" className="mt-10 text-sm text-muted-foreground">
-            {"Figma \u00B7 Adobe Creative Suite \u00B7 Premiere Pro \u00B7 Cursor \u00B7 Next.js \u00B7 Nano Banana \u00B7 Seedance \u00B7 ElevenLabs \u00B7 Google Analytics"}
+            {"Figma, Adobe Creative Suite, Premiere Pro, Cursor and\u00A0Next.js, plus AI tools for\u00A0image, video and\u00A0voice."}
           </FadeIn>
 
         </div>

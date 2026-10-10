@@ -29,12 +29,12 @@ export interface Capability {
 }
 
 export const capabilities: Capability[] = [
-  { title: "Creative Direction", desc: "One standard across every channel and\u00A0every person on\u00A0the\u00A0team. If it\u00A0ships, I\u2019d put my\u00A0name on\u00A0it." },
-  { title: "Brand Strategy & Identity", desc: "Positioning, identity and\u00A0guidelines that hold up\u00A0in\u00A0more than one market and\u00A0more than one\u00A0language." },
-  { title: "Product & UX Design", desc: "Apps, dashboards and\u00A0websites designed around the\u00A0people who use them, and\u00A0tested before they\u00A0scale." },
-  { title: "Prototype & Ship", desc: "Working prototypes in\u00A0code, built with AI, so\u00A0decisions get made on\u00A0something\u00A0real." },
-  { title: "Art Direction & Typography", desc: "Campaigns, editorial and\u00A0packaging with a\u00A0clear visual voice, in\u00A0Arabic and\u00A0English. Type does the\u00A0heavy\u00A0lifting." },
-  { title: "Integrated Campaigns", desc: "Digital, social and\u00A0print campaigns, tested in\u00A0small runs and\u00A0scaled on\u00A0what\u00A0works." },
+  { title: "Creative Direction", desc: "I\u00A0set the\u00A0bar for\u00A0the\u00A0whole team and\u00A0hold it\u00A0in\u00A0every review, from a\u00A0single social post to\u00A0a\u00A0full\u00A0rebrand." },
+  { title: "Brand Strategy & Identity", desc: "First I\u00A0work out where the\u00A0brand should sit in\u00A0its market. Then I\u00A0build the\u00A0identity and\u00A0the\u00A0guidelines that let other people use it\u00A0well when I\u2019m not in\u00A0the\u00A0room. Most of\u00A0mine have had to\u00A0work in\u00A0more than one market and\u00A0more than one\u00A0language." },
+  { title: "Product & UX Design", desc: "Apps, dashboards and\u00A0websites designed around the\u00A0people who use them, and\u00A0tested with real users before the\u00A0client pays to\u00A0scale\u00A0them." },
+  { title: "Prototype & Ship", desc: "I\u00A0build working prototypes in\u00A0code with AI, usually in\u00A0days, so\u00A0the\u00A0client signs off on\u00A0something they can click rather than a\u00A0picture of\u00A0it." },
+  { title: "Arabic & Latin Typography", desc: "I\u00A0draw and\u00A0set type in\u00A0both scripts and\u00A0pair them so\u00A0a\u00A0bilingual brand reads as\u00A0one voice. It\u2019s where I\u00A0started, and\u00A0it\u2019s still the\u00A0part I\u00A0do by\u00A0hand." },
+  { title: "Campaigns", desc: "Digital, social and\u00A0print campaigns, run as\u00A0small tests first. The budget goes behind whatever the\u00A0numbers\u00A0back." },
 ]
 
 /* ─── Homepage testimonials, grouped by what an agency checks before hiring ───
