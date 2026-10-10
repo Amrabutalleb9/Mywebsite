@@ -20,7 +20,7 @@ export default function HeroSection() {
 
   return (
     <>
-      <InfiniteGrid className="flex min-h-[calc(85vh-4rem)] flex-col items-center justify-center bg-background px-8 pb-20 pt-[120px] lg:px-16 lg:pb-24 lg:pt-[140px]">
+      <InfiniteGrid className="flex min-h-[calc(85vh-4rem)] flex-col items-center justify-center bg-background px-8 pb-10 pt-[120px] lg:px-16 lg:pb-12 lg:pt-[140px]">
         <div className="w-full text-center">
           <p
             className="hero-line mb-6 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase lg:mb-8"
@@ -77,6 +77,9 @@ export default function HeroSection() {
               <ArrowDown size={14} className="cta-arrow" />
             </a>
           </div>
+          <p className="mt-14 text-xs tracking-wide text-muted-foreground lg:mt-16 lg:text-sm">
+            {"Trusted by\u00A0brands in\u00A0eight markets"}
+          </p>
         </div>
       </InfiniteGrid>
 
