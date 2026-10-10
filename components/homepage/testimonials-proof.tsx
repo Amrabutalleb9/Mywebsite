@@ -12,25 +12,22 @@ interface Stat {
 }
 
 /* Counts up once the stats row is on screen. */
-function Counter({ end, suffix, start, delay }: { end: number; suffix: string; start: boolean; delay: number }) {
+function Counter({ end, suffix, start, gone, delay }: { end: number; suffix: string; start: boolean; gone: boolean; delay: number }) {
   // The final number is in the static HTML, so it reads correctly without JS, in previews and for crawlers.
-  // It only counts up when the row was still off screen at load and motion is allowed.
+  // Whenever the row is fully off screen it resets to 0 (unseen), and it counts up again every time it comes back into view.
   const [n, setN] = useState(end)
-  const ref = useRef<HTMLSpanElement>(null)
   const armed = useRef(false)
   const reduced = useReducedMotion()
 
   useEffect(() => {
-    if (reduced || !ref.current) return
-    const r = ref.current.getBoundingClientRect()
-    if (r.top > window.innerHeight) {
-      armed.current = true
-      setN(0)
-    }
-  }, [reduced])
+    if (reduced || !gone) return
+    armed.current = true
+    setN(0)
+  }, [gone, reduced])
 
   useEffect(() => {
     if (!start || !armed.current) return
+    armed.current = false
     if (reduced) {
       setN(end)
       return
@@ -43,11 +40,14 @@ function Counter({ end, suffix, start, delay }: { end: number; suffix: string; s
       if (p < 1) raf = requestAnimationFrame(tick)
     }
     raf = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(raf)
+    return () => {
+      cancelAnimationFrame(raf)
+      setN(end)
+    }
   }, [start, end, delay, reduced])
 
   return (
-    <span ref={ref} className="tabular-nums">
+    <span className="tabular-nums">
       {n}
       {suffix}
     </span>
@@ -57,7 +57,8 @@ function Counter({ end, suffix, start, delay }: { end: number; suffix: string; s
 export default function TestimonialsProof({ groups, stats }: { groups: ProofGroup[]; stats: Stat[] }) {
   const [active, setActive] = useState(0)
   const statsRef = useRef<HTMLDivElement>(null)
-  const statsInView = useInView(statsRef, { once: true, amount: 0.6 })
+  const statsInView = useInView(statsRef, { amount: 0.6 })
+  const statsOnScreen = useInView(statsRef)
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
 
   const select = (i: number, focus = false) => {
@@ -178,7 +179,7 @@ export default function TestimonialsProof({ groups, stats }: { groups: ProofGrou
         </div>
       </ScrollReveal>
 
-      {/* The numbers: one quiet row under the proof, counting up when it scrolls into view */}
+      {/* The numbers: one quiet row under the proof, counting up every time it scrolls into view */}
       <div ref={statsRef} className="mt-16 grid grid-cols-2 border-t border-border lg:mt-20 lg:grid-cols-4">
         {stats.map((s, i) => (
           <div
@@ -186,7 +187,7 @@ export default function TestimonialsProof({ groups, stats }: { groups: ProofGrou
             className={`pt-6 pr-6 ${i % 2 === 1 ? "border-l border-border pl-6" : ""} ${i === 2 ? "lg:border-l lg:border-border lg:pl-6" : ""} ${i >= 2 ? "mt-6 lg:mt-0" : ""}`}
           >
             <p className="font-serif text-[length:var(--text-sub)] leading-none tracking-tight text-accent [font-variant-numeric:lining-nums]">
-              <Counter end={s.end} suffix={s.suffix} start={statsInView} delay={150 + i * 120} />
+              <Counter end={s.end} suffix={s.suffix} start={statsInView} gone={!statsOnScreen} delay={150 + i * 120} />
             </p>
             <p className="mt-3 text-xs text-muted-foreground lg:text-sm">{s.label}</p>
           </div>
