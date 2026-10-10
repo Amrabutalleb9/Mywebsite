@@ -6,6 +6,7 @@ import { publishedCaseStudies } from "@/lib/projects"
 
 import HeroSection from "@/components/homepage/hero-section"
 import ClientTicker from "@/components/homepage/client-ticker"
+import ServicesMarquee from "@/components/homepage/services-marquee"
 import TestimonialsProof from "@/components/homepage/testimonials-proof"
 import ScrollReveal from "@/components/homepage/scroll-reveal"
 import { SpltReel, HodelProof } from "@/components/homepage/card-motion"
@@ -296,6 +297,7 @@ export default function Home() {
       <ClientTicker />
       <WorkSection />
       <About />
+      <ServicesMarquee />
       <LeadSection />
       <TestimonialsProof groups={testimonialProof} stats={stats} />
       <div className="mx-auto max-w-3xl px-8 pt-16 pb-24 text-center lg:pt-20 lg:pb-32">

@@ -37,7 +37,7 @@ export default function ClientTicker() {
             className="font-serif text-[length:var(--text-section)] font-normal text-primary-foreground"
           >
             {name}
-            <span className="text-primary-foreground/30">/</span>
+            <span className="text-accent">{"\u00B7"}</span>
           </span>
         ))}
       </div>

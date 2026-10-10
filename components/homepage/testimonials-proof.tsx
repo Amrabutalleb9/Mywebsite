@@ -172,7 +172,7 @@ export default function TestimonialsProof({ groups, stats }: { groups: ProofGrou
             key={s.label}
             className={`pt-6 pr-6 ${i % 2 === 1 ? "border-l border-border pl-6" : ""} ${i === 2 ? "lg:border-l lg:border-border lg:pl-6" : ""} ${i >= 2 ? "mt-6 lg:mt-0" : ""}`}
           >
-            <p className="font-serif text-[length:var(--text-sub)] leading-none tracking-tight text-accent">
+            <p className="font-serif text-[length:var(--text-sub)] leading-none tracking-tight text-accent [font-variant-numeric:lining-nums]">
               <Counter end={s.end} suffix={s.suffix} start={statsInView} delay={150 + i * 120} />
             </p>
             <p className="mt-3 text-xs text-muted-foreground lg:text-sm">{s.label}</p>
