@@ -3,7 +3,7 @@
 import { useMarquee } from "@/hooks/use-marquee"
 
 const clientNames = [
-  "The Line Real Estate", "Overpowered Agency", "Steven Hodel", "Dipa Art School", "SPLT Fitness",
+  "The Line Real Estate", "Overpowered Agency", "Steve Hodel", "Dipa Art School", "SPLT Fitness",
   "Alfy Marble", "Alienor Skincare", "Agfin", "Taptools", "ADRAW",
   "Freelancer.com", "Like a Nerd", "Edge Holdings", "Gwelly Law Firm", "Ezz Law Firm",
 ]
@@ -24,6 +24,9 @@ export default function ClientTicker() {
         className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-r from-transparent to-primary sm:w-20 lg:w-28"
         aria-hidden={true}
       />
+      <p className="mb-4 text-center text-[length:var(--text-micro)] font-medium tracking-[var(--tracking-label)] text-accent uppercase lg:mb-5">
+        Selected clients
+      </p>
       <span className="sr-only">{clientNames.join(", ")}</span>
       <div
         ref={trackRef}
