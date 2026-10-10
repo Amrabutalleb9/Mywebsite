@@ -363,3 +363,21 @@ h1, h2, h3, h4, h5, h6 {
 @media (prefers-reduced-motion: reduce) {
   .hero-line { animation: none; }
 }
+
+/* ── Homepage card motion: SPLT product reel + Hodel press proof ── */
+.reel-row { display: flex; gap: 1.1%; height: 42%; width: max-content; animation: reel-x 70s linear infinite; }
+.reel-row-reverse { animation-direction: reverse; animation-duration: 80s; }
+.reel-tile { height: 100%; width: auto; flex-shrink: 0; border: 1px solid rgb(255 255 255 / 0.08); }
+.reel-tile-phone { border-radius: 9% / 4.2%; }
+.reel-tile-dash { border-radius: 2.2% / 3.3%; }
+@keyframes reel-x { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.proof-sheet { position: absolute; top: 0; left: 0; width: 260%; max-width: none; height: auto; animation: proof-pan 56s ease-in-out infinite alternate; will-change: transform; }
+@keyframes proof-pan {
+  0% { transform: translate(-1%, -2%); }
+  30% { transform: translate(-31%, -4%); }
+  62% { transform: translate(-57%, -47%); }
+  100% { transform: translate(-18%, -52%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reel-row, .proof-sheet { animation: none; }
+}

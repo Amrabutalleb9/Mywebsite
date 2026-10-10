@@ -8,6 +8,7 @@ import HeroSection from "@/components/homepage/hero-section"
 import ClientTicker from "@/components/homepage/client-ticker"
 import TestimonialsProof from "@/components/homepage/testimonials-proof"
 import ScrollReveal from "@/components/homepage/scroll-reveal"
+import { SpltReel, HodelProof } from "@/components/homepage/card-motion"
 
 /* ─── Data ─────────────────────────────────────────── */
 
@@ -20,9 +21,9 @@ const stats = [
 
 const caseStudyCards = [
   { slug: "overpowered", num: "01", title: "Overpowered", subtitle: "Rebranding a\u00A0multi-market creative agency for three audiences, one\u00A0identity", impact: "Unified identity across 3\u00A0markets \u00B7 A/B-tested micro campaigns \u00B7 Design system still in\u00A0use months\u00A0later", category: "Brand Identity & Rebrand", year: "2025", role: "Creative Director \u00B7 Led team of\u00A025", featureImage: "", featureImageAlt: "" },
-  { slug: "split", num: "02", title: "SPLT", subtitle: "Turning a\u00A0marketplace brief into a\u00A0four-sided fitness\u00A0platform", impact: "Won the contract by\u00A0rewriting a\u00A0flawed quotation \u00B7 330+\u00A0screens across 4\u00A0roles \u00B7 Trainer subscriptions as\u00A0a\u00A0new revenue\u00A0line", category: "UX/UI Product Design", year: "2025", role: "Creative Director & UX Lead \u00B7 Team of\u00A03", featureImage: "/images/split-card-v2.webp", featureImageAlt: "SPLT trainer dashboard beside the trainer profile and subscription plans in the app" },
+  { slug: "split", motion: "splt-reel", num: "02", title: "SPLT", subtitle: "Turning a\u00A0marketplace brief into a\u00A0four-sided fitness\u00A0platform", impact: "Won the contract by\u00A0rewriting a\u00A0flawed quotation \u00B7 330+\u00A0screens across 4\u00A0roles \u00B7 Trainer subscriptions as\u00A0a\u00A0new revenue\u00A0line", category: "UX/UI Product Design", year: "2025", role: "Creative Director & UX Lead \u00B7 Team of\u00A03", featureImage: "/images/split-card-v2.webp", featureImageAlt: "SPLT trainer dashboard beside the trainer profile and subscription plans in the app" },
   { slug: "agfin", num: "03", title: "Agfin", subtitle: "Turning a\u00A0brochure website into a\u00A0sales funnel, words\u00A0first", impact: "12%\u00A0sales increase in month one \u00B7 Zero ad spend", category: "Sales Funnel & Copywriting", year: "2024", role: "Creative Director, UX & Copywriter \u00B7 Solo\u00A0project", featureImage: "/images/agfin-feature-v3.webp", featureImageAlt: "Agfin homepage hero: morning cloud clearing over a Wimmera paddock", featureVideo: "/videos/agfin-hero.mp4" },
-  { slug: "steve-hodel", num: "04", title: "As Within, So\u00A0Without", subtitle: "Designing a\u00A0212-page illustrated book for a\u00A0decades-long\u00A0investigation", impact: "212\u00A0pages \u00B7 130+\u00A0archival images \u00B7 Published on\u00A0Amazon for a\u00A0NYT bestselling\u00A0author", category: "Editorial & Book Design", year: "2025\u20132026", role: "Book Designer \u00B7 Sole\u00A0designer", featureImage: "/images/steve-hodel-feature.webp", featureImageAlt: "As Within, So Without by Steve Hodel, hardcover book on a wooden desk" },
+  { slug: "steve-hodel", motion: "hodel-proof", num: "04", title: "As Within, So\u00A0Without", subtitle: "Designing a\u00A0212-page illustrated book for a\u00A0decades-long\u00A0investigation", impact: "212\u00A0pages \u00B7 130+\u00A0archival images \u00B7 Published on\u00A0Amazon for a\u00A0NYT bestselling\u00A0author", category: "Editorial & Book Design", year: "2025\u20132026", role: "Book Designer \u00B7 Sole\u00A0designer", featureImage: "/images/steve-hodel-feature.webp", featureImageAlt: "As Within, So Without by Steve Hodel, hardcover book on a wooden desk" },
   { slug: "dipa", num: "04", title: "Dipa Visionary Art School", subtitle: "Rebuilding a\u00A0visionary art school\u2019s digital home after three\u00A0years of\u00A0failed attempts", impact: "70% more website views after\u00A0launch \u00B7 Replaced 4\u00A0failed freelancers \u00B7 Immersive 360\u00B0 studio\u00A0tour", category: "Immersive Web Experience", year: "2022\u20132026", role: "Creative Director & UX/UI \u00B7 Led small\u00A0team", featureImage: "/images/dipa-showcase.webp", featureImageAlt: "Dipa Visionary Art School immersive website design" },
 ]
   // Cards for hidden case studies (hidden: true in lib/projects.ts) drop out automatically.
@@ -90,7 +91,11 @@ function WorkSection() {
 
                   <div className="relative min-w-0 lg:flex-1">
                     <div className="work-media relative overflow-hidden rounded-2xl bg-primary">
-                      {"featureVideo" in project && project.featureVideo ? (
+                      {"motion" in project && project.motion === "splt-reel" ? (
+                        <SpltReel label="SPLT screens and dashboards: trainer profile, subscription plans, goals, shop, live workout, and the trainer, admin, vendor and video dashboards" />
+                      ) : "motion" in project && project.motion === "hodel-proof" ? (
+                        <HodelProof label="Printer's proof of As Within, So Without: the jacket and eleven interior spreads with crop marks and colour bars" />
+                      ) : "featureVideo" in project && project.featureVideo ? (
                         <>
                           <video
                             className="card-img aspect-[16/10] w-full object-cover motion-reduce:hidden"
@@ -128,7 +133,7 @@ function WorkSection() {
                         </div>
                       )}
                       <div className="absolute right-6 bottom-6">
-                        <div className="card-arrow flex h-10 w-10 items-center justify-center rounded-full border border-primary-foreground/20 text-primary-foreground/40">
+                        <div className={`card-arrow flex h-10 w-10 items-center justify-center rounded-full border ${"motion" in project && project.motion === "hodel-proof" ? "border-foreground/25 bg-background/70 text-foreground/60" : "border-primary-foreground/20 text-primary-foreground/40"}`}>
                           <ArrowUpRight size={18} />
                         </div>
                       </div>
