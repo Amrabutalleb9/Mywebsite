@@ -30,7 +30,7 @@ export default function AboutPage() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <p className="mb-12 max-w-[60ch] text-xl leading-relaxed text-foreground">
-              {"I\u2019m Amr Abu-Talleb, and\u00A0I\u00A0started with a\u00A0pen: illustration, calligraphy, letters drawn by\u00A0hand until they looked right. That\u2019s where I\u00A0learned to\u00A0use typography the\u00A0way a\u00A0filmmaker uses a\u00A0camera, to\u00A0set the\u00A0mood, control the\u00A0pace and\u00A0tell the\u00A0story before anyone reads a\u00A0word. The habit of\u00A0looking at\u00A0every mark until it\u00A0earns its place never left. It just got\u00A0bigger."}
+              {"I\u2019m Amr Abu-Talleb, and\u00A0I\u00A0started with a\u00A0pen: illustration, calligraphy, Arabic and\u00A0Latin letters drawn by\u00A0hand until they looked right. That\u2019s where I\u00A0learned to\u00A0use typography the\u00A0way a\u00A0filmmaker uses a\u00A0camera, to\u00A0set the\u00A0mood, control the\u00A0pace and\u00A0tell the\u00A0story before anyone reads a\u00A0word. The habit of\u00A0looking at\u00A0every mark until it\u00A0earns its place never left. It just got\u00A0bigger."}
             </p>
           </FadeIn>
 
@@ -40,10 +40,19 @@ export default function AboutPage() {
               {"Thirteen years later I\u2019ve led brand, campaign and\u00A0product teams of\u00A0up\u00A0to\u00A025\u00A0people, for\u00A0clients in\u00A0Egypt, the\u00A0Gulf, the\u00A0UK, the\u00A0US, Australia and\u00A0Singapore. I\u2019ve rebuilt an\u00A0agency\u2019s identity to\u00A0speak to\u00A0three markets at\u00A0once, and\u00A0shipped it\u00A0in\u00A0two months. I\u2019ve rewritten a\u00A0client\u2019s development quotation line by\u00A0line before a\u00A0single screen existed, and\u00A0won the\u00A0contract with it. And I\u2019ve designed a\u00A0212-page book for\u00A0Steve Hodel, the\u00A0former LAPD detective who spent decades investigating his own father. That one stays with\u00A0me."}
             </p>
             <p>
+              {"Most of\u00A0my\u00A0job now is\u00A0building the\u00A0system the\u00A0work runs through. Which designer gets which brief, based on\u00A0their capacity and\u00A0what they do best. How many rounds someone needs before their strongest idea shows up. How work passes from one desk to\u00A0the\u00A0next, and\u00A0how it\u00A0reaches the\u00A0client: staged, shown, approved, fixed. Every two or\u00A0three days the\u00A0team puts its work up. Everyone presents, the\u00A0others say what\u2019s working and\u00A0what isn\u2019t, the\u00A0art directors guide, and\u00A0I\u00A0speak last. I\u00A0step in\u00A0when the\u00A0work drifts from the\u00A0brand, from what users need, or\u00A0from what makes the\u00A0client\u00A0money."}
+            </p>
+            <p>
+              {"I\u00A0still think like an\u00A0artist. I\u00A0just don\u2019t stop there. Art has meaning and\u00A0doesn\u2019t need a\u00A0purpose. Design has a\u00A0purpose, and\u00A0you can measure whether it\u2019s working. So I\u00A0push designers to\u00A0find the\u00A0concept in\u00A0their own life and\u00A0values, and\u00A0to\u00A0go as\u00A0far with it\u00A0as\u00A0they like, as\u00A0long as\u00A0people understand it,\u00A0relate to\u00A0it\u00A0and\u00A0it\u00A0does its\u00A0job."}
+            </p>
+            <p>
+              {"I\u00A0work in\u00A0Arabic and\u00A0English, as\u00A0a\u00A0typographer and\u00A0calligrapher in\u00A0both, and\u00A0I\u2019ve built identities for\u00A0brands that carry two scripts and\u00A0still need to\u00A0sound like one voice. AI sits in\u00A0the\u00A0same toolbox as\u00A0the\u00A0brush and\u00A0the\u00A0pen tool. It takes the\u00A0repetitive work and\u00A0the\u00A0research, never the\u00A0idea. I\u00A0give it\u00A0my\u00A0thinking, it\u00A0gives the\u00A0team more ways to\u00A0execute it,\u00A0and\u00A0we\u00A0test several directions instead of\u00A0one before finishing the\u00A0best by\u00A0hand."}
+            </p>
+            <p>
               {"What I\u2019m proudest of\u00A0doesn\u2019t fit in\u00A0a\u00A0portfolio. I\u2019ve hired more than fifty people, and\u00A0some of\u00A0the\u00A0designers I\u00A0hired now run teams of\u00A0their own. I\u00A0hire for\u00A0integrity first and\u00A0the\u00A0will to\u00A0learn second. Skills can be\u00A0sharpened. Anything else can be\u00A0fixed."}
             </p>
             <p className="font-medium text-foreground">
-              {"Today I\u00A0lead a\u00A025-person team across design, product, video and\u00A0support from Cairo. Next, I\u00A0want to\u00A0do it\u00A0in\u00A0Europe."}
+              {"Today I\u00A0run a\u00A025-person team across design, product, video, support and\u00A0PR from Cairo, with five or\u00A0six projects live at\u00A0any time, and\u00A0I\u00A0report to\u00A0the\u00A0owners and\u00A0the\u00A0board every quarter. Next, I\u00A0want to\u00A0do it\u00A0in\u00A0Europe."}
             </p>
           </FadeIn>
 
