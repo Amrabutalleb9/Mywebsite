@@ -30,29 +30,23 @@ export default function AboutPage() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <p className="mb-12 max-w-[60ch] text-xl leading-relaxed text-foreground">
-              {"I\u2019m Amr Abu-Talleb, a\u00A0creative director who started out with a\u00A0pen and\u00A0a\u00A0brush. Illustration, calligraphy and\u00A0type taught me early that every mark changes how something is\u00A0read, and\u00A0thirteen years of\u00A0brand, campaign and\u00A0product work across eight markets have only made me surer of\u00A0it."}
+              {"I\u00A0use typography the\u00A0way a\u00A0filmmaker uses a\u00A0camera. It sets the\u00A0mood, controls the\u00A0pace, and\u00A0tells the\u00A0story before anyone reads a\u00A0word."}
             </p>
           </FadeIn>
 
           {/* Full Bio */}
           <FadeIn delay={0.15} as="div" className="flex max-w-[62ch] flex-col gap-6 text-[1.0625rem] leading-[1.75] text-muted-foreground">
             <p>
-              {"Most companies don\u2019t call a\u00A0creative director when things are going well. They call when the\u00A0brand says something different in\u00A0every market, when good designers are producing work nobody can defend, or\u00A0when deadlines keep slipping and\u00A0nobody is\u00A0sure why. That\u2019s the\u00A0work I\u00A0like best. At Overpowered, a\u00A0creative agency selling to\u00A0enterprise clients in\u00A0the\u00A0UAE, partners in\u00A0the\u00A0UK and\u00A0startups in\u00A0Egypt, I\u00A0rebuilt the\u00A0brand into one system that could speak three different ways, and\u00A0rolled it\u00A0out in\u00A0two months with a\u00A0team of\u00A0twenty-five."}
+              {"I\u2019m Amr Abu-Talleb, and\u00A0I\u00A0started with a\u00A0pen: illustration, calligraphy, letters drawn by\u00A0hand until they looked right. That habit of\u00A0looking at\u00A0every mark until it\u00A0earns its place never left. It just got\u00A0bigger."}
             </p>
             <p>
-              {"The part of\u00A0the\u00A0job I\u00A0care about most is\u00A0the\u00A0people. I\u2019ve hired more than fifty of\u00A0them, and\u00A0I\u00A0look for\u00A0integrity first and\u00A0a\u00A0hunger to\u00A0learn second, because skills can be\u00A0sharpened and\u00A0anything else can be\u00A0fixed. I\u00A0give a\u00A0team the\u00A0brief and\u00A0the\u00A0room to\u00A0go further than it\u00A0asks, then we\u00A0review the\u00A0work against the\u00A0brand and\u00A0the\u00A0user rather than against my\u00A0taste. Over the\u00A0years, designers I\u00A0hired have grown into art directors, and\u00A0art directors into people leading teams of\u00A0their own. That matters more to\u00A0me than any single\u00A0project."}
+              {"Thirteen years later I\u2019ve led brand, campaign and\u00A0product teams of\u00A0up\u00A0to\u00A025\u00A0people, for\u00A0clients in\u00A0Egypt, the\u00A0Gulf, the\u00A0UK, the\u00A0US, Australia and\u00A0Singapore. I\u2019ve rebuilt an\u00A0agency\u2019s identity to\u00A0speak to\u00A0three markets at\u00A0once, and\u00A0shipped it\u00A0in\u00A0two months. I\u2019ve rewritten a\u00A0client\u2019s development quotation line by\u00A0line before a\u00A0single screen existed, and\u00A0won the\u00A0contract with it. And I\u2019ve designed a\u00A0212-page book for\u00A0Steve Hodel, the\u00A0former LAPD detective who spent decades investigating his own father. That one stays with\u00A0me."}
             </p>
             <p>
-              {"I\u00A0also speak the\u00A0language of\u00A0the\u00A0people who sign off the\u00A0budget. On SPLT, a\u00A0fitness marketplace, the\u00A0development quotation the\u00A0client had been handed didn\u2019t hold up,\u00A0so\u00A0I\u00A0rewrote it\u00A0line by\u00A0line before a\u00A0single screen was designed, and\u00A0that rewrite won the\u00A0contract. For Agfin, an\u00A0Australian farm finance practice, a\u00A0website rebuilt around clearer copy lifted sales by\u00A012%\u00A0in\u00A0its first month without a\u00A0penny spent on\u00A0ads. I\u00A0agree scope, budget and\u00A0risk up\u00A0front, flag problems while they\u2019re still small, and\u00A0report progress in\u00A0terms a\u00A0CEO can act\u00A0on."}
-            </p>
-            <p>
-              {"Craft is\u00A0still where my\u00A0background shows. When Steve Hodel, a\u00A0former LAPD homicide detective who spent decades investigating his own father, asked me to\u00A0design his book, I\u00A0went back to\u00A0the\u00A0type and\u00A0printed matter of\u00A0the\u00A01940s art world his story moves through. The result is\u00A0212\u00A0pages and\u00A0more than 130\u00A0archival images that read as\u00A0though they belong to\u00A0that world. It\u2019s the\u00A0project I\u2019m proudest\u00A0of."}
-            </p>
-            <p>
-              {"And I\u00A0build. I\u00A0prototype in\u00A0code with AI, so\u00A0an\u00A0idea can go from brief to\u00A0a\u00A0working staging build in\u00A0days, and\u00A0stakeholders react to\u00A0something real instead of\u00A0a\u00A0slide. I\u00A0designed and\u00A0built this site\u00A0myself."}
+              {"What I\u2019m proudest of\u00A0doesn\u2019t fit in\u00A0a\u00A0portfolio. I\u2019ve hired more than fifty people, and\u00A0some of\u00A0the\u00A0designers I\u00A0hired now run teams of\u00A0their own. I\u00A0hire for\u00A0integrity first and\u00A0the\u00A0will to\u00A0learn second. Skills can be\u00A0sharpened. Anything else can be\u00A0fixed."}
             </p>
             <p className="font-medium text-foreground">
-              {"Today I\u00A0lead a\u00A025-person team across design, product, video and\u00A0support for\u00A0a\u00A0software company in\u00A0the\u00A0UAE, working from Cairo. I\u2019m looking for\u00A0my\u00A0next Creative Director role in\u00A0Europe, on-site or\u00A0remote, somewhere the\u00A0work matters and\u00A0the\u00A0team is\u00A0ready to\u00A0grow."}
+              {"Today I\u00A0lead a\u00A025-person team across design, product, video and\u00A0support from Cairo. Next, I\u00A0want to\u00A0do it\u00A0in\u00A0Europe."}
             </p>
           </FadeIn>
 
