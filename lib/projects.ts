@@ -65,7 +65,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "overpowered",
     hidden: true, // Hidden for now (Oct 2026); set to false to bring it back
     title: "Overpowered",
-    subtitle: "Rebranding a\u00A0Multi-Market Creative Agency for Three Audiences, One Identity",
+    subtitle: "Rebranding a\u00A0multi-market creative agency for three audiences, one\u00A0identity",
     impactStatement: "Unified brand identity across 3 markets \u00b7 Eliminated inconsistent visual elements \u00b7 A/B-tested micro campaigns that informed a\u00A0new market-specific design system",
     client: "Overpowered\nCreative & Digital Agency",
     role: "Creative Director\nLed team of 25",
@@ -102,7 +102,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "split",
     title: "SPLT",
-    subtitle: "Turning a\u00A0Marketplace Brief into a\u00A0Four-Sided Fitness Platform",
+    subtitle: "Turning a\u00A0marketplace brief into a\u00A0four-sided fitness\u00A0platform",
     impactStatement: "Won the contract by\u00A0rewriting a\u00A0flawed quotation \u00B7 330+\u00A0screens across one app and three dashboards \u00B7 Trainer subscriptions and paid video added as\u00A0new revenue\u00A0lines",
     client: "SPLT\nFitness Social App & Marketplace, Egypt",
     role: "Creative Director & UX Lead\nLed a\u00A0team of\u00A03",
@@ -159,7 +159,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "agfin",
     title: "Agfin",
-    subtitle: "Turning a\u00A0Brochure Website into a\u00A0Sales Funnel, Words\u00A0First",
+    subtitle: "Turning a\u00A0brochure website into a\u00A0sales funnel, words\u00A0first",
     impactStatement: "12%\u00A0sales increase in\u00A0month\u00A0one \u00b7 Zero ad\u00A0spend \u00b7 A brochure site rebuilt as\u00A0a\u00A0story that\u00A0sells",
     client: "Agfin\nRobert, Financial Consultant, Australia",
     role: "Creative Director, UX Designer & Copywriter\nSolo project",
@@ -220,7 +220,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "steve-hodel",
     title: "As Within, So\u00A0Without",
-    subtitle: "Designing a\u00A0212-Page Illustrated Book for\u00A0a\u00A0Decades-Long\u00A0Investigation",
+    subtitle: "Designing a\u00A0212-page illustrated book for\u00A0a\u00A0decades-long\u00A0investigation",
     impactStatement: "212\u00A0pages · 130+\u00A0archival images placed and\u00A0captioned · Print-ready for\u00A0paperback and\u00A0hardcover on\u00A0Amazon",
     client: "Steve Hodel\nNYT bestselling author, former LAPD homicide detective",
     role: "Book Designer\nSole designer: typography, layout, production",
@@ -272,7 +272,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "dipa",
     hidden: true, // Hidden for now (Oct 2026); set to false to bring it back
     title: "Dipa Visionary Art School",
-    subtitle: "Rebuilding a\u00A0Visionary Art School\u2019s Digital Home After Three Years of\u00A0Failed Attempts",
+    subtitle: "Rebuilding a\u00A0visionary art school\u2019s digital home after three\u00A0years of\u00A0failed attempts",
     impactStatement: "70%\u00A0more website views after\u00A0launch \u00b7 Replaced 4 failed freelancers \u00b7 Immersive 360\u00b0 studio\u00A0tour",
     client: "Dipa\nVisionary Art School, Singapore",
     role: "Creative Director, UX/UI Designer & Copywriter",
@@ -329,7 +329,7 @@ export const projectHighlights: ProjectHighlight[] = [
   {
     slug: "alfy",
     title: "Alfy",
-    subtitle: "Repositioning a\u00A0Luxury Marble Brand for\u00A0the\u00A0Architects Who Buy\u00A0It",
+    subtitle: "Repositioning a\u00A0luxury marble brand for\u00A0the\u00A0architects who buy\u00A0it",
     client: "Alfy\nPremium Marble Manufacturer",
     role: "Creative Director at Overpowered",
     scope: "Campaign strategy, art direction, social media redesign, website redesign",
@@ -348,7 +348,7 @@ export const projectHighlights: ProjectHighlight[] = [
   {
     slug: "alienor",
     title: "Alienor",
-    subtitle: "Premium Skincare Brand Identity & Packaging",
+    subtitle: "Premium skincare brand identity & packaging",
     client: "Dr.\u00a0Noor\nAlienor Skincare",
     role: "Creative Director & Brand Designer",
     scope: "Full brand identity, packaging design, visual direction",

@@ -20,10 +20,10 @@ export default function HeroSection() {
 
   return (
     <>
-      <InfiniteGrid className="flex min-h-[calc(85vh-4rem)] flex-col items-center justify-center bg-background px-8 pb-10 pt-[120px] lg:px-16 lg:pb-12 lg:pt-[140px]">
+      <InfiniteGrid className="flex min-h-[calc(100svh-4.5rem)] flex-col items-center justify-center bg-background px-8 pb-[clamp(1.25rem,3svh,3rem)] pt-[clamp(6rem,14svh,8.75rem)] lg:px-16">
         <div className="w-full text-center">
           <p
-            className="hero-line mb-6 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase lg:mb-8"
+            className="hero-line mb-[clamp(1rem,3svh,2rem)] text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase"
             style={{ "--i": 0 } as React.CSSProperties}
           >
             Creative Director
@@ -42,7 +42,7 @@ export default function HeroSection() {
         </div>
 
         <div
-          className="hero-line mt-10 flex flex-col items-center text-center"
+          className="hero-line mt-[clamp(1.25rem,4svh,2.5rem)] flex flex-col items-center text-center"
           style={{ "--i": 3 } as React.CSSProperties}
         >
           <dl className="grid w-full max-w-3xl grid-cols-3 divide-x divide-border">
@@ -54,13 +54,13 @@ export default function HeroSection() {
               </div>
             ))}
           </dl>
-          <p className="mx-auto mt-8 max-w-[60ch] text-base leading-relaxed text-muted-foreground lg:text-lg">
+          <p className="mx-auto mt-[clamp(1rem,3svh,2rem)] max-w-[60ch] text-base leading-relaxed text-muted-foreground lg:text-lg">
             From brief to&nbsp;a&nbsp;live staging build in&nbsp;days, not&nbsp;sprints.
           </p>
-          <p className="mx-auto mt-5 max-w-[65ch] text-sm font-medium tracking-wide text-foreground lg:text-base">
+          <p className="mx-auto mt-[clamp(0.75rem,2svh,1.25rem)] max-w-[65ch] text-sm font-medium tracking-wide text-foreground lg:text-base">
             Open to&nbsp;Creative Director roles in&nbsp;Europe, on‑site or&nbsp;remote.
           </p>
-          <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row">
+          <div className="mt-[clamp(1.25rem,3svh,2rem)] flex flex-col items-center gap-4 sm:flex-row">
             <a
               href="#work"
               className="cta-btn cta-btn-filled inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase"
@@ -77,7 +77,7 @@ export default function HeroSection() {
               <ArrowDown size={14} className="cta-arrow" />
             </a>
           </div>
-          <p className="mt-14 text-xs tracking-wide text-muted-foreground lg:mt-16 lg:text-sm">
+          <p className="mt-[clamp(1.25rem,5svh,4rem)] text-xs tracking-wide text-muted-foreground lg:text-sm">
             {"Trusted by\u00A0brands in\u00A0eight markets"}
           </p>
         </div>

@@ -13,11 +13,24 @@ interface Stat {
 
 /* Counts up once the stats row is on screen. */
 function Counter({ end, suffix, start, delay }: { end: number; suffix: string; start: boolean; delay: number }) {
-  const [n, setN] = useState(0)
+  // The final number is in the static HTML, so it reads correctly without JS, in previews and for crawlers.
+  // It only counts up when the row was still off screen at load and motion is allowed.
+  const [n, setN] = useState(end)
+  const ref = useRef<HTMLSpanElement>(null)
+  const armed = useRef(false)
   const reduced = useReducedMotion()
 
   useEffect(() => {
-    if (!start) return
+    if (reduced || !ref.current) return
+    const r = ref.current.getBoundingClientRect()
+    if (r.top > window.innerHeight) {
+      armed.current = true
+      setN(0)
+    }
+  }, [reduced])
+
+  useEffect(() => {
+    if (!start || !armed.current) return
     if (reduced) {
       setN(end)
       return
@@ -34,7 +47,7 @@ function Counter({ end, suffix, start, delay }: { end: number; suffix: string; s
   }, [start, end, delay, reduced])
 
   return (
-    <span className="tabular-nums">
+    <span ref={ref} className="tabular-nums">
       {n}
       {suffix}
     </span>
