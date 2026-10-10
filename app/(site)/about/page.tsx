@@ -30,15 +30,12 @@ export default function AboutPage() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <p className="mb-12 max-w-[60ch] text-xl leading-relaxed text-foreground">
-              {"I\u00A0use typography the\u00A0way a\u00A0filmmaker uses a\u00A0camera. It sets the\u00A0mood, controls the\u00A0pace, and\u00A0tells the\u00A0story before anyone reads a\u00A0word."}
+              {"I\u2019m Amr Abu-Talleb, and\u00A0I\u00A0started with a\u00A0pen: illustration, calligraphy, letters drawn by\u00A0hand until they looked right. That\u2019s where I\u00A0learned to\u00A0use typography the\u00A0way a\u00A0filmmaker uses a\u00A0camera, to\u00A0set the\u00A0mood, control the\u00A0pace and\u00A0tell the\u00A0story before anyone reads a\u00A0word. The habit of\u00A0looking at\u00A0every mark until it\u00A0earns its place never left. It just got\u00A0bigger."}
             </p>
           </FadeIn>
 
           {/* Full Bio */}
           <FadeIn delay={0.15} as="div" className="flex max-w-[62ch] flex-col gap-6 text-[1.0625rem] leading-[1.75] text-muted-foreground">
-            <p>
-              {"I\u2019m Amr Abu-Talleb, and\u00A0I\u00A0started with a\u00A0pen: illustration, calligraphy, letters drawn by\u00A0hand until they looked right. That habit of\u00A0looking at\u00A0every mark until it\u00A0earns its place never left. It just got\u00A0bigger."}
-            </p>
             <p>
               {"Thirteen years later I\u2019ve led brand, campaign and\u00A0product teams of\u00A0up\u00A0to\u00A025\u00A0people, for\u00A0clients in\u00A0Egypt, the\u00A0Gulf, the\u00A0UK, the\u00A0US, Australia and\u00A0Singapore. I\u2019ve rebuilt an\u00A0agency\u2019s identity to\u00A0speak to\u00A0three markets at\u00A0once, and\u00A0shipped it\u00A0in\u00A0two months. I\u2019ve rewritten a\u00A0client\u2019s development quotation line by\u00A0line before a\u00A0single screen existed, and\u00A0won the\u00A0contract with it. And I\u2019ve designed a\u00A0212-page book for\u00A0Steve Hodel, the\u00A0former LAPD detective who spent decades investigating his own father. That one stays with\u00A0me."}
             </p>
