@@ -51,7 +51,8 @@ export default function ContactPage() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <p className="mb-10 max-w-md leading-relaxed text-muted-foreground">
-              {"Tell me about the\u00A0role or\u00A0what you\u2019d like to\u00A0build together. I\u00A0reply within 24\u00A0hours."}
+              {"Tell me about the\u00A0role or\u00A0what you\u2019d like to\u00A0build together. I\u00A0reply within 24\u00A0hours."}{" "}
+              <a href="/working-together" className="text-foreground underline underline-offset-4 transition-colors hover:text-accent">{"How collaborations\u00A0work"}</a>
             </p>
           </FadeIn>
           <FadeIn delay={0.15}>

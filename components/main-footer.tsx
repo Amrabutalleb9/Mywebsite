@@ -6,6 +6,7 @@ import { submitContactForm } from "@/lib/contact"
 const servicesTags = ["Creative Direction", "Brand Systems", "Product Design", "Prototyping"]
 
 const footerLinks = [
+  { label: "Working together", href: "/working-together" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/abutalleb/" },
   { label: "Email", href: "mailto:hello@amrabutalleb.com" },
 ]
@@ -112,7 +113,7 @@ export default function MainFooter() {
             {/* Links */}
             <div className="flex gap-6">
               {footerLinks.map((link) => (
-                <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="text-sm text-primary-foreground/60 transition-colors hover:text-primary-foreground">
+                <a key={link.label} href={link.href} {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="text-sm text-primary-foreground/60 transition-colors hover:text-primary-foreground">
                   {link.label}
                 </a>
               ))}

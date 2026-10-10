@@ -11,11 +11,11 @@
 /ai-designer-blueprint/thank-you-oto-course /ai-designer-blueprint/thank-you-oto-course/index.html 200
 /ai-designer-blueprint/thank-you-oto-course/ /ai-designer-blueprint/thank-you-oto-course/index.html 200
 
-# Work With Me / Consulting were retired (Oct 2026)
-/work-with-me /contact 301
-/work-with-me/ /contact 301
-/consulting /contact 301
-/consulting/ /contact 301
+# Work With Me / Consulting were replaced by Working Together (Oct 2026)
+/work-with-me /working-together 301
+/work-with-me/ /working-together 301
+/consulting /working-together 301
+/consulting/ /working-together 301
 
 # Articles were retired (Oct 2026)
 /articles /about 301

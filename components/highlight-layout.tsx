@@ -202,7 +202,7 @@ export default function HighlightLayout({
         </a>
         <p className="mt-4 text-sm text-muted-foreground">
           {"Or want to\u00A0collaborate? "}
-          <a href="/contact" className="text-foreground underline underline-offset-4 transition-colors hover:text-accent">Get in&nbsp;touch</a>
+          <a href="/working-together" className="text-foreground underline underline-offset-4 transition-colors hover:text-accent">See how I&nbsp;work with&nbsp;teams</a>
         </p>
       </div>
 
