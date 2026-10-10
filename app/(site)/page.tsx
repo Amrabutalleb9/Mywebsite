@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowUpRight, ArrowRight } from "lucide-react"
-import { testimonialProof, capabilities, leadershipPrinciples } from "@/lib/shared-data"
+import { testimonialProof, leadershipPrinciples } from "@/lib/shared-data"
 import { publishedCaseStudies } from "@/lib/projects"
 
 import HeroSection from "@/components/homepage/hero-section"
@@ -280,27 +280,9 @@ function About() {
               </Link>
             </ScrollReveal>
 
-            <div className="mt-10 grid grid-cols-2 gap-4">
-              {capabilities.map((cap, i) => (
-                <ScrollReveal key={cap.title} delay={0.25 + i * 0.06}>
-                  <div className="capability-card rounded-sm bg-surface p-6">
-                    <h3 className="mb-2 text-sm font-medium text-foreground">{cap.title}</h3>
-                    <p className="text-xs leading-relaxed text-muted-foreground">{cap.desc}</p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
           </div>
         </div>
 
-        <ScrollReveal>
-          <div className="mt-12 flex justify-center border-b border-border pb-8">
-            <Link href="/about" className="text-link inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase">
-              Read&nbsp;More
-              <ArrowUpRight size={14} />
-            </Link>
-          </div>
-        </ScrollReveal>
       </div>
     </section>
   )
