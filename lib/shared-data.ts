@@ -96,5 +96,5 @@ export const leadershipPrinciples: { title: string; desc: string }[] = [
   { title: "Hiring", desc: "Integrity first, then the\u00A0will to\u00A0learn. I\u2019ve hired more than 50\u00A0people that way. Skills can be\u00A0sharpened. Anything else can be\u00A0fixed." },
   { title: "Briefs and reviews", desc: "I\u00A0give the\u00A0brief and\u00A0room to\u00A0explore inside it. In reviews we\u00A0judge the\u00A0work against the\u00A0system and\u00A0the\u00A0user, not against my\u00A0taste." },
   { title: "Growing people", desc: "Designers grow into art directors, and\u00A0art directors into leads. I\u00A0teach the\u00A0thinking behind a\u00A0fix, including when a\u00A0piece needs an\u00A0artist and\u00A0when it\u00A0needs a\u00A0designer." },
-  { title: "Delivery", desc: "The team is\u00A0heard and\u00A0protected. The system holds the\u00A0deadline, and\u00A0we\u00A0deliver before the\u00A0date we\u00A0promised." },
+  { title: "Balance and delivery", desc: "I\u00A0weigh creative ambition against budget, timelines and\u00A0risk before the\u00A0work starts. Scope is\u00A0agreed up\u00A0front, problems surface early, and\u00A0progress is\u00A0reported in\u00A0terms the\u00A0business cares about. We deliver on\u00A0or\u00A0before the\u00A0date we\u00A0promised." },
 ]
