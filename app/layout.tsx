@@ -122,7 +122,7 @@ export default function RootLayout({
               url: "https://amrabutalleb.com",
               email: "hello@amrabutalleb.com",
               sameAs: ["https://www.linkedin.com/in/abutalleb/"],
-              image: "https://amrabutalleb.com/images/amr-portrait-v2.webp",
+              image: "https://amrabutalleb.com/images/amr-portrait-v3.webp",
               description:
                 "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets. Open to Creative Director roles in Europe, on-site or remote.",
               address: {

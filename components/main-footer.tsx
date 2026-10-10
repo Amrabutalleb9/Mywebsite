@@ -106,7 +106,7 @@ export default function MainFooter() {
 
             {/* Body text */}
             <p className="mb-8 max-w-[40ch] text-sm leading-relaxed text-primary-foreground/70">
-              {"If you have a role or a project worth building, reach\u00A0out."}
+              {"Hiring, or\u00A0have something worth building together? Write to\u00A0me."}
             </p>
 
             {/* Links */}

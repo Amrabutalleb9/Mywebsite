@@ -22,7 +22,7 @@ const stats = [
 const caseStudyCards = [
   { slug: "overpowered", num: "01", title: "Overpowered", subtitle: "Rebranding a\u00A0multi-market creative agency for three audiences, one\u00A0identity", impact: "Unified identity across 3\u00A0markets \u00B7 A/B-tested micro campaigns \u00B7 Design system still in\u00A0use months\u00A0later", category: "Brand Identity & Rebrand", year: "2025", role: "Creative Director \u00B7 Led team of\u00A025", featureImage: "", featureImageAlt: "" },
   { slug: "split", num: "02", title: "SPLT", subtitle: "Turning a\u00A0marketplace brief into a\u00A0four-sided fitness\u00A0platform", impact: "Won the contract by\u00A0rewriting a\u00A0flawed quotation \u00B7 330+\u00A0screens across 4\u00A0roles \u00B7 Trainer subscriptions as\u00A0a\u00A0new revenue\u00A0line", category: "UX/UI Product Design", year: "2025", role: "Creative Director & UX Lead \u00B7 Team of\u00A03", featureImage: "/images/split-card-v2.webp", featureImageAlt: "SPLT trainer dashboard beside the trainer profile and subscription plans in the app" },
-  { slug: "agfin", num: "03", title: "Agfin", subtitle: "Turning a\u00A0static website into a\u00A0sales funnel through strategic\u00A0copywriting", impact: "12%\u00A0sales increase in month one \u00B7 Zero ad spend", category: "Sales Funnel & Copywriting", year: "2024", role: "Creative Director, UX & Copywriter \u00B7 Solo\u00A0project", featureImage: "/images/agfin-feature-v3.webp", featureImageAlt: "Agfin homepage hero: morning cloud clearing over a Wimmera paddock", featureVideo: "/videos/agfin-hero.mp4" },
+  { slug: "agfin", num: "03", title: "Agfin", subtitle: "Turning a\u00A0brochure website into a\u00A0sales funnel, words\u00A0first", impact: "12%\u00A0sales increase in month one \u00B7 Zero ad spend", category: "Sales Funnel & Copywriting", year: "2024", role: "Creative Director, UX & Copywriter \u00B7 Solo\u00A0project", featureImage: "/images/agfin-feature-v3.webp", featureImageAlt: "Agfin homepage hero: morning cloud clearing over a Wimmera paddock", featureVideo: "/videos/agfin-hero.mp4" },
   { slug: "steve-hodel", num: "04", title: "As Within, So\u00A0Without", subtitle: "Designing a\u00A0212-page illustrated book for a\u00A0decades-long\u00A0investigation", impact: "212\u00A0pages \u00B7 130+\u00A0archival images \u00B7 Published on\u00A0Amazon for a\u00A0NYT bestselling\u00A0author", category: "Editorial & Book Design", year: "2025\u20132026", role: "Book Designer \u00B7 Sole\u00A0designer", featureImage: "/images/steve-hodel-feature.webp", featureImageAlt: "As Within, So Without by Steve Hodel, hardcover book on a wooden desk" },
   { slug: "dipa", num: "04", title: "Dipa Visionary Art School", subtitle: "Rebuilding a\u00A0visionary art school\u2019s digital home after three\u00A0years of\u00A0failed attempts", impact: "70% more website views after\u00A0launch \u00B7 Replaced 4\u00A0failed freelancers \u00B7 Immersive 360\u00B0 studio\u00A0tour", category: "Immersive Web Experience", year: "2022\u20132026", role: "Creative Director & UX/UI \u00B7 Led small\u00A0team", featureImage: "/images/dipa-showcase.webp", featureImageAlt: "Dipa Visionary Art School immersive website design" },
 ]
@@ -31,7 +31,7 @@ const caseStudyCards = [
   .map((card, index) => ({ ...card, num: String(index + 1).padStart(2, "0") }))
 
 const highlightCards = [
-  { slug: "alfy", num: "05", title: "Alfy", subtitle: "Repositioning a\u00A0luxury marble brand for B2B\u00A0impact", result: "70%\u00A0lift in\u00A0social engagement", year: "2025", category: "Campaign Strategy", role: "Creative Director at\u00A0Overpowered", featureImage: "/images/alfy-feature.webp", featureImageAlt: "El Alfy Saraya luxury marble brand website hero" },
+  { slug: "alfy", num: "05", title: "Alfy", subtitle: "Repositioning a\u00A0luxury marble brand for\u00A0the\u00A0architects who buy\u00A0it", result: "70%\u00A0lift in\u00A0social engagement", year: "2025", category: "Campaign Strategy", role: "Creative Director at\u00A0Overpowered", featureImage: "/images/alfy-feature.webp", featureImageAlt: "El Alfy Saraya luxury marble brand website hero" },
   { slug: "alienor", num: "07", title: "Alienor", subtitle: "Premium skincare brand identity & packaging", result: "Full brand identity\u00A0system", year: "2022", category: "Brand & Packaging", role: "Creative Director & Brand Designer", featureImage: "/images/alienor-feature.webp", featureImageAlt: "Alienor skincare brand identity with elegant serif logotype" },
 ]
 
@@ -238,13 +238,13 @@ function LeadSection() {
 
 function About() {
   return (
-    <section id="about" className="px-8 pt-24 lg:px-16 lg:pt-32">
+    <section id="about" className="px-8 pt-24 pb-24 lg:px-16 lg:pt-32 lg:pb-32">
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
           <ScrollReveal className="lg:w-[40%]">
             <div className="portrait-wrap overflow-hidden rounded-full">
               <Image
-                src="/images/amr-portrait-v2.webp"
+                src="/images/amr-portrait-v3.webp"
                 alt="Amr Abu-Talleb portrait"
                 width={600}
                 height={600}

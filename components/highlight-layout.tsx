@@ -182,7 +182,7 @@ export default function HighlightLayout({
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-sm border border-accent bg-accent px-6 py-3 text-sm font-medium text-white transition-all hover:bg-accent/90"
                 >
-                  Check the book from here
+                  See the book on&nbsp;Amazon
                   <ArrowRight size={14} />
                 </a>
               </FadeIn>

@@ -9,7 +9,7 @@ import { pageMeta } from "@/lib/seo"
 export const metadata: Metadata = pageMeta({
   title: "About Amr Abu-Talleb · Creative Director & Design Leader",
   description:
-    "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets. 50+ designers hired. Open to roles in Europe or remote.",
+    "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets. 50+ people hired. Open to roles in Europe or remote.",
   path: "/about",
   type: "profile",
 })
@@ -84,7 +84,7 @@ export default function AboutPage() {
             {/* Portrait */}
             <div className="h-[280px] w-[280px] overflow-hidden rounded-full lg:h-[380px] lg:w-[380px]">
               <Image
-                src="/images/amr-portrait-v2.webp"
+                src="/images/amr-portrait-v3.webp"
                 alt="Amr Abu-Talleb portrait"
                 width={600}
                 height={600}

@@ -40,7 +40,7 @@ export default function ProjectsPage() {
           Projects
         </h1>
         <p className="mb-20 max-w-lg text-muted-foreground">
-          Case studies and selected project highlights across brand identity, creative direction, UI/UX design, and&nbsp;art&nbsp;direction.
+          {"Case studies first, then shorter projects across brand, product, campaigns and\u00A0print."}
         </p>
       </FadeIn>
 
@@ -51,7 +51,7 @@ export default function ProjectsPage() {
           <span className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Case Studies</span>
         </div>
         <p className="mb-8 max-w-md text-sm text-muted-foreground">
-          Deep dives into strategy, process, and&nbsp;results.
+          {"The full story: the\u00A0brief, the\u00A0calls I\u00A0made and\u00A0what\u00A0changed."}
         </p>
       </FadeIn>
 
@@ -66,7 +66,7 @@ export default function ProjectsPage() {
           <span className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Project Highlights</span>
         </div>
         <p className="mb-8 max-w-md text-sm text-muted-foreground">
-          Selected projects showing&nbsp;range.
+          {"Shorter projects, from marble campaigns to\u00A0skincare\u00A0packaging."}
         </p>
       </FadeIn>
 

@@ -22,7 +22,7 @@ export default function ContactPage() {
     setError("")
 
     const message = form.budget
-      ? `${form.message}\n\nBudget: ${form.budget}`
+      ? `${form.message}\n\nTopic: ${form.budget}`
       : form.message
 
     const result = await submitContactForm({
