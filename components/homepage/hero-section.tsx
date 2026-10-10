@@ -33,9 +33,14 @@ export default function HeroSection() {
           className="hero-line mt-10 flex flex-col items-center text-center"
           style={{ "--i": 3.3 } as React.CSSProperties}
         >
-          <p className="mx-auto max-w-[60ch] text-base leading-relaxed text-muted-foreground lg:text-lg">
-            13&nbsp;years. Teams of&nbsp;up&nbsp;to&nbsp;25. 8&nbsp;markets.
-            <br />
+          <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-base text-muted-foreground sm:gap-x-10 lg:gap-x-14 lg:text-lg">
+            <li>13&nbsp;years</li>
+            <li aria-hidden="true" className="h-1 w-1 rounded-full bg-accent" />
+            <li>Teams of&nbsp;up&nbsp;to&nbsp;25</li>
+            <li aria-hidden="true" className="h-1 w-1 rounded-full bg-accent" />
+            <li>8&nbsp;markets</li>
+          </ul>
+          <p className="mx-auto mt-4 max-w-[60ch] text-base leading-relaxed text-muted-foreground lg:text-lg">
             From brief to&nbsp;a&nbsp;live staging build in&nbsp;days, not&nbsp;sprints.
           </p>
           <p className="mx-auto mt-5 max-w-[65ch] text-sm font-medium tracking-wide text-foreground lg:text-base">

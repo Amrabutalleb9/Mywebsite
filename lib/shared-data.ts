@@ -93,8 +93,8 @@ export const testimonialProof: ProofGroup[] = [
 /* ─── How I lead (shown on the homepage and About page) ─── */
 
 export const leadershipPrinciples: { title: string; desc: string }[] = [
-  { title: "Hiring", desc: "Integrity first, then the\u00A0will to\u00A0learn. I\u2019ve hired more than 50\u00A0people that way. Skills can be\u00A0sharpened. Anything else can be\u00A0fixed." },
-  { title: "Briefs and reviews", desc: "I\u00A0give the\u00A0brief and\u00A0room to\u00A0explore inside it. In reviews we\u00A0judge the\u00A0work against the\u00A0system and\u00A0the\u00A0user, not against my\u00A0taste." },
-  { title: "Growing people", desc: "Designers grow into art directors, and\u00A0art directors into leads. I\u00A0teach the\u00A0thinking behind a\u00A0fix, including when a\u00A0piece needs an\u00A0artist and\u00A0when it\u00A0needs a\u00A0designer." },
-  { title: "Balance and delivery", desc: "I\u00A0weigh creative ambition against budget, timelines and\u00A0risk before the\u00A0work starts. Scope is\u00A0agreed up\u00A0front, problems surface early, and\u00A0progress is\u00A0reported in\u00A0terms the\u00A0business cares about. We deliver on\u00A0or\u00A0before the\u00A0date we\u00A0promised." },
+  { title: "Vision and standards", desc: "I\u00A0set the\u00A0creative direction and\u00A0the\u00A0bar for\u00A0quality, then make that bar easy to\u00A0reach. Work is\u00A0judged against the\u00A0brand system and\u00A0the\u00A0user, not against my\u00A0taste. When something isn\u2019t working, I\u00A0say so\u00A0early." },
+  { title: "Hiring and growth", desc: "Integrity first, then the\u00A0will to\u00A0learn. I\u2019ve hired more than 50\u00A0people that way. I\u00A0spot talent early and\u00A0grow designers into art directors, and\u00A0art directors into leads. Skills can be\u00A0sharpened. Anything else can be\u00A0fixed." },
+  { title: "Partnership with the business", desc: "I\u00A0bring product, marketing and\u00A0leadership into the\u00A0work early, so\u00A0creative decisions are made with the\u00A0business at\u00A0the\u00A0table. Big ideas come with evidence, tested against what\u2019s live through A/B tests, user interviews and\u00A0the\u00A0numbers." },
+  { title: "Balance and delivery", desc: "I\u00A0weigh creative ambition against budget, timelines and\u00A0risk before the\u00A0work starts. Scope is\u00A0agreed up\u00A0front, problems surface early, and\u00A0I\u00A0report progress in\u00A0terms the\u00A0business cares about. We deliver on\u00A0or\u00A0before the\u00A0date we\u00A0promised." },
 ]

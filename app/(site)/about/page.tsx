@@ -14,10 +14,6 @@ export const metadata: Metadata = pageMeta({
   type: "profile",
 })
 
-const recognitionItems: { text: string; href?: string }[] = [
-  { text: "Featured Contractor, Freelancer.com (Top-Rated, Branding, UI/UX)", href: "https://www.freelancer.com/u/Amrabutalleb93" },
-]
-
 export default function AboutPage() {
   return (
     <main className="px-8 pt-32 pb-24 lg:px-16 lg:pt-40 lg:pb-32">
@@ -94,25 +90,6 @@ export default function AboutPage() {
             {"Figma \u00B7 Adobe Creative Suite \u00B7 Premiere Pro \u00B7 Cursor \u00B7 Next.js \u00B7 Nano Banana \u00B7 Seedance \u00B7 ElevenLabs \u00B7 Google Analytics"}
           </FadeIn>
 
-          {/* ── Recognition & Education ── */}
-          <FadeIn as="div" className="mt-24">
-            <h2 className="mb-8 font-serif text-[length:var(--text-sub)] font-normal tracking-tight text-foreground">
-              Recognition
-            </h2>
-            <ul className="flex flex-col">
-              {recognitionItems.map((item) => (
-                <li key={item.text} className="border-b border-border py-5 text-muted-foreground last:border-0">
-                  {item.href ? (
-                    <a href={item.href} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-accent">
-                      {item.text}
-                    </a>
-                  ) : (
-                    item.text
-                  )}
-                </li>
-              ))}
-            </ul>
-          </FadeIn>
         </div>
 
         {/* ── Right column: sticky photo + CTAs + links ── */}

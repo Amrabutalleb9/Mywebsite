@@ -87,7 +87,6 @@ export const metadata: Metadata = {
     "head of design",
     "design director",
     "brand creative director",
-    "fractional creative director",
     "creative director for startups",
     "creative director for agencies",
     "brand identity",
@@ -179,34 +178,6 @@ export default function RootLayout({
                 "Creative Director with 13 years leading brand and product teams across 8 markets.",
               inLanguage: "en",
               author: { "@type": "Person", name: "Amr Abu-Talleb" },
-            }),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "ProfessionalService",
-              name: "Amr Abu-Talleb \u2014 Creative Direction",
-              url: "https://amrabutalleb.com/consulting",
-              description:
-                "Fractional creative direction, launch sprints and UX audits for startups and agencies.",
-              areaServed: ["Europe", "Middle East", "Worldwide (remote)"],
-              serviceType: [
-                "Fractional Creative Direction",
-                "Creative Direction",
-                "UX Audit",
-                "Brand Strategy",
-                "Brand Identity",
-                "UI/UX Design",
-                "Art Direction",
-              ],
-              provider: {
-                "@type": "Person",
-                name: "Amr Abu-Talleb",
-                url: "https://amrabutalleb.com",
-              },
             }),
           }}
         />

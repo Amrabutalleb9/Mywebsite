@@ -7,7 +7,6 @@ import { Menu, X } from "lucide-react"
 const navItems = [
   { label: "Projects", href: "/projects" },
   { label: "About", href: "/about" },
-  { label: "Consulting", href: "/consulting" },
 ]
 
 export default function MainNav() {

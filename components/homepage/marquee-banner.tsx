@@ -2,7 +2,7 @@
 
 import { useMarquee } from "@/hooks/use-marquee"
 
-const marqueeItems = ["Creative Direction", "Brand Systems", "Product Design", "Prototype & Ship", "Art Direction", "Campaign Design"]
+const marqueeItems = ["Creative Leadership", "Brand Strategy & Identity", "Integrated Campaigns", "Product & UX Design", "Team Building & Mentoring", "Design Systems", "Cross-functional Partnership", "AI-assisted Workflows", "Art Direction"]
 
 export default function MarqueeBanner() {
   const { trackRef, pause, resume } = useMarquee(80)
