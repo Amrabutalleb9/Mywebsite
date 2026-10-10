@@ -13,16 +13,16 @@ import ScrollReveal from "@/components/homepage/scroll-reveal"
 /* ─── Data ─────────────────────────────────────────── */
 
 const stats = [
-  { end: 13, suffix: "", label: "Years in creative\u00A0direction" },
-  { end: 25, suffix: "", label: "Largest team\u00A0led" },
   { end: 50, suffix: "+", label: "People\u00A0hired" },
+  { end: 6, suffix: "", label: "Projects live at\u00A0once" },
   { end: 8, suffix: "", label: "Markets\u00A0served" },
+  { end: 2, suffix: "", label: "Scripts, Arabic and\u00A0Latin" },
 ]
 
 const caseStudyCards = [
   { slug: "overpowered", num: "01", title: "Overpowered", subtitle: "Rebranding a\u00A0multi-market creative agency for three audiences, one\u00A0identity", impact: "Unified identity across 3\u00A0markets \u00B7 A/B-tested micro campaigns \u00B7 Design system still in\u00A0use months\u00A0later", category: "Brand Identity & Rebrand", year: "2025", role: "Creative Director \u00B7 Led team of\u00A025", featureImage: "", featureImageAlt: "" },
   { slug: "split", num: "02", title: "SPLT", subtitle: "Turning a\u00A0marketplace brief into a\u00A0four-sided fitness\u00A0platform", impact: "Won the contract by\u00A0rewriting a\u00A0flawed quotation \u00B7 330+\u00A0screens across 4\u00A0roles \u00B7 Trainer subscriptions as\u00A0a\u00A0new revenue\u00A0line", category: "UX/UI Product Design", year: "2025", role: "Creative Director & UX Lead \u00B7 Team of\u00A03", featureImage: "/images/split-card-v2.webp", featureImageAlt: "SPLT trainer dashboard beside the trainer profile and subscription plans in the app" },
-  { slug: "agfin", num: "03", title: "Agfin", subtitle: "Turning a\u00A0static website into a\u00A0sales funnel through strategic\u00A0copywriting", impact: "12%\u00A0sales increase in month one \u00B7 Zero ad spend \u00B7 Copy-first strategy\u00A0validated", category: "Sales Funnel & Copywriting", year: "2024", role: "Creative Director, UX & Copywriter \u00B7 Solo\u00A0project", featureImage: "/images/agfin-feature-v3.webp", featureImageAlt: "Agfin homepage hero: morning cloud clearing over a Wimmera paddock", featureVideo: "/videos/agfin-hero.mp4" },
+  { slug: "agfin", num: "03", title: "Agfin", subtitle: "Turning a\u00A0static website into a\u00A0sales funnel through strategic\u00A0copywriting", impact: "12%\u00A0sales increase in month one \u00B7 Zero ad spend", category: "Sales Funnel & Copywriting", year: "2024", role: "Creative Director, UX & Copywriter \u00B7 Solo\u00A0project", featureImage: "/images/agfin-feature-v3.webp", featureImageAlt: "Agfin homepage hero: morning cloud clearing over a Wimmera paddock", featureVideo: "/videos/agfin-hero.mp4" },
   { slug: "steve-hodel", num: "04", title: "As Within, So\u00A0Without", subtitle: "Designing a\u00A0212-page illustrated book for a\u00A0decades-long\u00A0investigation", impact: "212\u00A0pages \u00B7 130+\u00A0archival images \u00B7 Published on\u00A0Amazon for a\u00A0NYT bestselling\u00A0author", category: "Editorial & Book Design", year: "2025\u20132026", role: "Book Designer \u00B7 Sole\u00A0designer", featureImage: "/images/steve-hodel-feature.webp", featureImageAlt: "As Within, So Without by Steve Hodel, hardcover book on a wooden desk" },
   { slug: "dipa", num: "04", title: "Dipa Visionary Art School", subtitle: "Rebuilding a\u00A0visionary art school\u2019s digital home after three\u00A0years of\u00A0failed attempts", impact: "70% more website views after\u00A0launch \u00B7 Replaced 4\u00A0failed freelancers \u00B7 Immersive 360\u00B0 studio\u00A0tour", category: "Immersive Web Experience", year: "2022\u20132026", role: "Creative Director & UX/UI \u00B7 Led small\u00A0team", featureImage: "/images/dipa-showcase.webp", featureImageAlt: "Dipa Visionary Art School immersive website design" },
 ]
@@ -59,7 +59,7 @@ function WorkSection() {
           Case Studies
         </h2>
         <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
-          Strategy, process, and results. Each&nbsp;project shows how I&nbsp;think, lead, and drive business&nbsp;outcomes.
+          {"Each one starts with the\u00A0brief as\u00A0it\u00A0landed on\u00A0my\u00A0desk and\u00A0ends with what changed for\u00A0the\u00A0business. The middle is\u00A0how the\u00A0team got\u00A0there."}
         </p>
       </ScrollReveal>
 
@@ -262,17 +262,12 @@ function About() {
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <p className="mb-6 max-w-[60ch] leading-relaxed text-muted-foreground">
-                {"I\u2019m a\u00A0creative director who started out in\u00A0illustration, calligraphy and\u00A0type, with 13\u00A0years of\u00A0leading brand, campaign and\u00A0product teams\u00A0since."}
+                {"I\u00A0started with a\u00A0pen: illustration, calligraphy, Arabic and\u00A0Latin letters drawn by\u00A0hand until they looked right. Thirteen years later I\u00A0run brand, campaign and\u00A0product teams, and\u00A0most of\u00A0my\u00A0job is\u00A0building the\u00A0system the\u00A0work runs\u00A0through."}
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.15}>
-              <p className="mb-6 max-w-[60ch] leading-relaxed text-muted-foreground">
-                {"I\u00A0lead creative teams of\u00A0up\u00A0to\u00A025,\u00A0for\u00A0brands in\u00A0eight markets, and\u00A0I\u00A0measure myself by\u00A0who comes out of\u00A0them. Designers who grow into art directors. Art directors who go on\u00A0to\u00A0lead."}
-              </p>
-            </ScrollReveal>
-            <ScrollReveal delay={0.2}>
               <p className="mb-8 max-w-[60ch] leading-relaxed text-muted-foreground">
-                {"And I\u00A0still build. When an\u00A0idea matters, it\u2019s on\u00A0a\u00A0live staging build in\u00A0days, not\u00A0sprints."}
+                {"Today that\u2019s a\u00A025-person team across design, product, video, support and\u00A0PR, with five or\u00A0six projects live at\u00A0once. The next team I\u00A0build will be\u00A0in\u00A0Europe."}
               </p>
               <Link href="/about" className="text-link inline-flex items-center gap-2 text-sm font-medium text-foreground">
                 About Amr Abu-Talleb
