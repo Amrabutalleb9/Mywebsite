@@ -13,6 +13,7 @@ export function useMarquee(speed: number) {
   useEffect(() => {
     const track = trackRef.current
     if (!track) return
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return
 
     const observer = new IntersectionObserver(
       ([entry]) => { isVisibleRef.current = entry.isIntersecting },

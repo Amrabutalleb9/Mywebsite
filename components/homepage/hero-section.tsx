@@ -8,7 +8,13 @@ const InfiniteGrid = dynamic(
   () => import("@/components/ui/infinite-grid").then((m) => ({ default: m.InfiniteGrid })),
 )
 
-const heroLines = ["Creative Director.", "I\u00A0lead the team, build the\u00A0system,", "and make sure it\u00A0ships."]
+const heroLines = ["I\u00A0lead the team, build the\u00A0system,", "and make sure it\u00A0ships."]
+
+const stats = [
+  { n: "13", label: "years leading creative\u00A0teams" },
+  { n: "25", label: "people in my largest\u00A0team" },
+  { n: "8", label: "markets on five\u00A0continents" },
+]
 
 export default function HeroSection() {
 
@@ -16,12 +22,18 @@ export default function HeroSection() {
     <>
       <InfiniteGrid className="flex min-h-[calc(85vh-4rem)] flex-col items-center justify-center bg-background px-8 pb-20 pt-[120px] lg:px-16 lg:pb-24 lg:pt-[140px]">
         <div className="w-full text-center">
-          <h1 className="mx-auto font-serif text-[length:var(--text-display)] leading-[var(--leading-display)] font-normal tracking-[var(--tracking-display)] text-foreground">
+          <p
+            className="hero-line mb-6 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase lg:mb-8"
+            style={{ "--i": 0 } as React.CSSProperties}
+          >
+            Creative Director
+          </p>
+          <h1 className="mx-auto max-w-[18ch] font-serif text-[length:var(--text-hero)] leading-[1.02] font-normal tracking-[var(--tracking-display)] text-balance text-foreground lg:max-w-none">
             {heroLines.map((line, i) => (
               <span
                 key={line}
                 className="hero-line block"
-                style={{ "--i": i } as React.CSSProperties}
+                style={{ "--i": i + 1 } as React.CSSProperties}
               >
                 {line}
               </span>
@@ -31,16 +43,18 @@ export default function HeroSection() {
 
         <div
           className="hero-line mt-10 flex flex-col items-center text-center"
-          style={{ "--i": 3.3 } as React.CSSProperties}
+          style={{ "--i": 3 } as React.CSSProperties}
         >
-          <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-base text-muted-foreground sm:gap-x-10 lg:gap-x-14 lg:text-lg">
-            <li>13&nbsp;years</li>
-            <li aria-hidden="true" className="h-1 w-1 rounded-full bg-accent" />
-            <li>Teams of&nbsp;up&nbsp;to&nbsp;25</li>
-            <li aria-hidden="true" className="h-1 w-1 rounded-full bg-accent" />
-            <li>8&nbsp;markets</li>
-          </ul>
-          <p className="mx-auto mt-4 max-w-[60ch] text-base leading-relaxed text-muted-foreground lg:text-lg">
+          <dl className="grid w-full max-w-3xl grid-cols-3 divide-x divide-border">
+            {stats.map((st) => (
+              <div key={st.n} className="flex flex-col items-center gap-1 px-3 sm:px-6">
+                <dt className="sr-only">{st.label}</dt>
+                <dd className="font-serif text-[length:var(--text-sub)] leading-none text-foreground [font-variant-numeric:lining-nums]">{st.n}</dd>
+                <dd className="max-w-[16ch] text-xs leading-snug text-muted-foreground sm:text-sm">{st.label}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="mx-auto mt-8 max-w-[60ch] text-base leading-relaxed text-muted-foreground lg:text-lg">
             From brief to&nbsp;a&nbsp;live staging build in&nbsp;days, not&nbsp;sprints.
           </p>
           <p className="mx-auto mt-5 max-w-[65ch] text-sm font-medium tracking-wide text-foreground lg:text-base">
