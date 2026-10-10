@@ -23,35 +23,33 @@ export default function AboutPage() {
         <div className="order-2 min-w-0 lg:order-none lg:w-[55%]">
 
           <FadeIn>
-            <h1 className="mb-6 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
-              I run creative teams that ship, and grow the people in them.
+            <h1 className="mb-6 font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
+              <span className="block">Work I’d put my name on.</span>
+              <span className="block">Teams built to outgrow me.</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <p className="mb-6 text-xl font-medium leading-relaxed text-muted-foreground">
-              {"I\u2019m Amr Abu-Talleb."}
+            <p className="mb-12 max-w-[60ch] text-xl leading-relaxed text-foreground">
+              {"I\u2019m Amr Abu-Talleb, a\u00A0creative director with 13\u00A0years of\u00A0leading brand, campaign and\u00A0product teams across eight markets. Companies bring me in\u00A0when their creative output needs to\u00A0grow up: a\u00A0clearer brand, a\u00A0stronger team, and\u00A0work that ships on\u00A0time and\u00A0can show what it\u00A0earned."}
             </p>
           </FadeIn>
 
           {/* Full Bio */}
-          <FadeIn delay={0.15} as="div" className="flex max-w-[60ch] flex-col gap-6 leading-relaxed text-muted-foreground">
-            <p>
-              {"I\u2019m a\u00A0creative director with a\u00A0background in\u00A0drawing, sculpture and\u00A0calligraphy. I\u00A0still judge a\u00A0layout by\u00A0its weight and\u00A0the\u00A0space around\u00A0it."}
-            </p>
-            <p>
-              {"Over 13\u00A0years I\u2019ve led creative teams of\u00A0up\u00A0to\u00A025\u00A0people, for\u00A0brands in\u00A0eight markets. I\u00A0measure myself by\u00A0who comes out of\u00A0those teams. I\u00A0want every designer I\u00A0manage to\u00A0be\u00A0able to\u00A0run a\u00A0team of\u00A0their own one\u00A0day."}
-            </p>
-            <p>
-              {"The project I\u2019m proudest of\u00A0is\u00A0a\u00A0book. Steve Hodel is\u00A0a\u00A0former LAPD homicide detective who spent decades investigating his own father. I\u00A0designed his 212-page book, As Within, So Without, around more than 130\u00A0images, with type and\u00A0layouts drawn from the\u00A0period it\u00A0describes."}
-            </p>
-            <p>
-              {"The results follow the\u00A0craft. Agfin\u2019s sales rose 12%\u00A0in\u00A0the\u00A0first month with zero ad spend, and\u00A0one campaign of\u00A0mine sold $125k on\u00A0its\u00A0own."}
-            </p>
-            <p>
-              {"I\u00A0also build. I\u00A0prototype in\u00A0code with AI, so\u00A0an\u00A0idea can go from brief to\u00A0a\u00A0live staging build in\u00A0days, not sprints. I\u00A0designed and\u00A0built this site\u00A0myself."}
-            </p>
+          <FadeIn delay={0.15} as="div" className="flex max-w-[60ch] flex-col gap-8 leading-relaxed text-muted-foreground">
+            <div>
+              <h2 className="mb-2 text-sm font-semibold tracking-wide text-foreground">Proof, not promises</h2>
+              <p>{"Agfin\u2019s sales rose 12%\u00A0in\u00A0the\u00A0first month after we\u00A0rebuilt its website, with zero ad spend. A B2B marble brand saw social engagement rise 70%\u00A0once we\u00A0stopped talking to\u00A0homeowners and\u00A0started talking to\u00A0architects. One campaign of\u00A0mine sold $125k on\u00A0its\u00A0own."}</p>
+            </div>
+            <div>
+              <h2 className="mb-2 text-sm font-semibold tracking-wide text-foreground">Craft with a point of view</h2>
+              <p>{"My background is\u00A0drawing, sculpture and\u00A0calligraphy, so\u00A0I\u00A0care about type, proportion and\u00A0the\u00A0space around things. When former LAPD homicide detective Steve Hodel needed a\u00A0212-page book about his father and\u00A0the\u00A0surrealists, I\u00A0built it\u00A0on\u00A0Caslon and\u00A0the\u00A0print culture of\u00A0the\u00A01940s, so\u00A0it\u00A0reads like it\u00A0belongs to\u00A0the\u00A0world it\u00A0describes."}</p>
+            </div>
+            <div>
+              <h2 className="mb-2 text-sm font-semibold tracking-wide text-foreground">Ideas you can click</h2>
+              <p>{"I\u00A0prototype in\u00A0code with AI. A concept reaches a\u00A0working staging build in\u00A0days, stakeholders react to\u00A0something real, and\u00A0engineering gets a\u00A0reference instead of\u00A0a\u00A0guess. I\u00A0designed and\u00A0built this site\u00A0myself."}</p>
+            </div>
             <p className="font-medium text-foreground">
-              {"Today I\u00A0run a\u00A025-person team across design, product, video and\u00A0support for\u00A0a\u00A0software company in\u00A0the\u00A0UAE, from Cairo. I\u2019m looking for\u00A0my\u00A0next Creative Director role in\u00A0Europe."}
+              {"Today I\u00A0lead a\u00A025-person team across design, product, video and\u00A0support for\u00A0a\u00A0software company in\u00A0the\u00A0UAE, from Cairo. Next, I\u2019m looking for\u00A0a\u00A0Creative Director role in\u00A0Europe, on-site or\u00A0remote, with a\u00A0team that wants to\u00A0get better and\u00A0a\u00A0business that wants\u00A0proof."}
             </p>
           </FadeIn>
 

@@ -29,12 +29,12 @@ export interface Capability {
 }
 
 export const capabilities: Capability[] = [
-  { title: "Creative Direction", desc: "I set the vision. I\u00A0lead the team. I\u00A0make sure every piece of\u00A0work that ships is something I\u2019d put my name\u00A0on." },
-  { title: "Brand Identity & Strategy", desc: "Logos, type systems, colour, guidelines, positioning. The\u00A0whole foundation. Built to\u00A0scale, built to\u00A0last." },
-  { title: "UI/UX Design", desc: "Interfaces for web and mobile, from wireframes to\u00A0shipped product, tested with real users before they\u00A0scale." },
-  { title: "Prototype & Ship", desc: "Creative direction that doesn\u2019t stop at\u00A0Figma. I\u00A0build working prototypes in\u00A0code with AI, from brief to\u00A0a\u00A0live staging build in\u00A0days, not\u00A0sprints." },
-  { title: "Art Direction & Typography", desc: "The visual tone across campaigns, editorial, packaging and digital, with type doing the heavy lifting in\u00A0any layout, any\u00A0language." },
-  { title: "Campaign Design", desc: "Multi-channel campaigns for digital, social and print, tested in\u00A0small runs before they\u00A0scale." },
+  { title: "Creative Direction", desc: "One standard across every channel and\u00A0every person on\u00A0the\u00A0team. If it\u00A0ships, I\u2019d put my\u00A0name on\u00A0it." },
+  { title: "Brand Strategy & Identity", desc: "Positioning, identity and\u00A0guidelines that hold up\u00A0in\u00A0more than one market and\u00A0more than one\u00A0language." },
+  { title: "Product & UX Design", desc: "Apps, dashboards and\u00A0websites designed around the\u00A0people who use them, and\u00A0tested before they\u00A0scale." },
+  { title: "Prototype & Ship", desc: "Working prototypes in\u00A0code, built with AI, so\u00A0decisions get made on\u00A0something\u00A0real." },
+  { title: "Art Direction & Typography", desc: "Campaigns, editorial and\u00A0packaging with a\u00A0clear visual voice, in\u00A0Arabic and\u00A0English. Type does the\u00A0heavy\u00A0lifting." },
+  { title: "Integrated Campaigns", desc: "Digital, social and\u00A0print campaigns, tested in\u00A0small runs and\u00A0scaled on\u00A0what\u00A0works." },
 ]
 
 /* ─── Homepage testimonials, grouped by what an agency checks before hiring ───
