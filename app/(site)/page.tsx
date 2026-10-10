@@ -5,7 +5,6 @@ import { testimonialProof, leadershipPrinciples } from "@/lib/shared-data"
 import { publishedCaseStudies } from "@/lib/projects"
 
 import HeroSection from "@/components/homepage/hero-section"
-import MarqueeBanner from "@/components/homepage/marquee-banner"
 import ClientTicker from "@/components/homepage/client-ticker"
 import TestimonialsProof from "@/components/homepage/testimonials-proof"
 import ScrollReveal from "@/components/homepage/scroll-reveal"
@@ -238,7 +237,7 @@ function LeadSection() {
 
 function About() {
   return (
-    <section id="about" className="px-8 pt-24 pb-24 lg:px-16 lg:pt-32 lg:pb-32">
+    <section id="about" className="px-8 pt-24 lg:px-16 lg:pt-32">
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
           <ScrollReveal className="lg:w-[40%]">
@@ -289,12 +288,12 @@ export default function Home() {
   return (
     <main>
       <HeroSection />
-      <MarqueeBanner />
+      <ClientTicker />
       <WorkSection />
+      <About />
       <LeadSection />
       <TestimonialsProof groups={testimonialProof} stats={stats} />
-      <ClientTicker />
-      <div className="mx-auto max-w-3xl px-8 pt-16 text-center lg:pt-20">
+      <div className="mx-auto max-w-3xl px-8 pt-16 pb-24 text-center lg:pt-20 lg:pb-32">
         <p className="mb-5 text-base text-muted-foreground lg:text-lg">{"Hiring a\u00A0Creative Director?"}</p>
         <a
           href="/contact"
@@ -304,7 +303,6 @@ export default function Home() {
           <ArrowUpRight size={14} className="cta-arrow" />
         </a>
       </div>
-      <About />
     </main>
   )
 }

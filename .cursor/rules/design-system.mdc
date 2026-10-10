@@ -124,9 +124,9 @@ The link sits directly under the content and the divider line **closes** the sec
 
 ## Homepage Order
 
-Hero → Marquee → Case Studies (+ Project Highlights, All Projects) → How I Lead → Testimonials + Stats → Client ticker → "Hiring a Creative Director?" CTA (to /contact) → About (ends on its inline “About Amr Abu-Talleb” link; no capability cards, no Read More). Articles were retired in Oct 2026 (/articles 301s to /about); the refreshed drafts are parked on the `articles-refresh-draft` branch. Page metadata goes through `pageMeta()` in `lib/seo.ts`.
+Hero → Client ticker → Case Studies (+ Project Highlights, All Projects) → About (ends on its inline “About Amr Abu-Talleb” link) → How I Lead → Testimonials + Stats → "Hiring a Creative Director?" CTA (to /contact), which is the last section before the footer and keeps the bottom padding (`pb-24 lg:pb-32`). The skills marquee was retired in Oct 2026. Articles were retired in Oct 2026 (/articles 301s to /about); the refreshed drafts are parked on the `articles-refresh-draft` branch. Page metadata goes through `pageMeta()` in `lib/seo.ts`.
 
-The only homepage CTA (“Hiring a Creative Director? Let’s Talk”) belongs to the testimonials/clients block: keep it directly under the client ticker (`pt-16 lg:pt-20`) and keep the testimonials section bottom tight (`pb-16 lg:pb-20`).
+The only homepage CTA (“Hiring a Creative Director? Let’s Talk”) belongs to the testimonials/clients block: keep it directly under the testimonials (`pt-16 lg:pt-20`) and keep the testimonials section bottom tight (`pb-16 lg:pb-20`).
 
 ## Homepage Section Rhythm
 
