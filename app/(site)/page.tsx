@@ -262,7 +262,7 @@ function About() {
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <p className="mb-6 max-w-[60ch] leading-relaxed text-muted-foreground">
-                {"I\u2019m a\u00A0creative director with a\u00A0background in\u00A0drawing, sculpture and\u00A0calligraphy, and\u00A013\u00A0years of\u00A0leading brand and\u00A0product\u00A0teams."}
+                {"I\u2019m a\u00A0creative director who started out in\u00A0illustration, calligraphy and\u00A0type, with 13\u00A0years of\u00A0leading brand, campaign and\u00A0product teams\u00A0since."}
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.15}>
