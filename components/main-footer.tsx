@@ -1,132 +1,158 @@
 "use client"
 
 import React, { useState } from "react"
+import { usePathname } from "next/navigation"
+import { ArrowUpRight } from "lucide-react"
 import { submitContactForm } from "@/lib/contact"
 
-const servicesTags = ["Creative Direction", "Brand Systems", "Product Design", "Prototyping"]
+const EMAIL = "hello@amrabutalleb.com"
+const LINKEDIN = "https://www.linkedin.com/in/abutalleb/"
+const CV = "/Amr_AbuTalleb_CV_Creative_Director.pdf"
 
-const footerLinks = [
-  { label: "Working together", href: "/working-together" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/abutalleb/" },
-  { label: "Email", href: "mailto:hello@amrabutalleb.com" },
+const topics = [
+  { value: "A full-time role", label: "A full-time role" },
+  { value: "A contract or interim role", label: "A contract or interim role" },
+  { value: "A collaboration", label: "A collaboration" },
+  { value: "Something else", label: "Something else" },
 ]
 
+const darkLink = "text-sm text-primary-foreground/70 transition-colors hover:text-primary-foreground"
+const field =
+  "mt-2 w-full border-0 border-b border-border bg-transparent py-3 text-base text-foreground outline-none transition-colors duration-300 focus:border-accent"
+
+/* Footer: a white card hanging from the top edge holds the form; the words sit beside it.
+   Messages go through Web3Forms (lib/contact.ts) to the inbox tied to the access key.
+   On /contact the page has its own form, so the footer drops the card. */
 export default function MainFooter() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" })
-  const [submitted, setSubmitted] = useState(false)
-  const [sending, setSending] = useState(false)
-  const [error, setError] = useState("")
+  const pathname = usePathname()
+  const onContact = pathname === "/contact"
+  const [form, setForm] = useState({ name: "", email: "", topic: "", message: "", botcheck: false })
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle")
+
+  const set = (k: "name" | "email" | "message") => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    setForm((f) => ({ ...f, [k]: e.target.value }))
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    setSending(true)
-    setError("")
-
+    if (form.botcheck) return
+    setStatus("sending")
     const result = await submitContactForm({
       name: form.name,
       email: form.email,
-      message: form.message,
+      message: form.topic ? `${form.message}\n\nTopic: ${form.topic}` : form.message,
+      subject: form.topic ? `${form.topic}: message from ${form.name}` : undefined,
     })
-
-    if (result.success) {
-      setSubmitted(true)
-    } else {
-      setError(result.error || "Something went wrong. Please try emailing me directly.")
-    }
-
-    setSending(false)
+    setStatus(result.success ? "sent" : "error")
   }
 
-  return (
-    <footer id="contact" className="relative overflow-hidden bg-primary mt-24 lg:mt-0">
-      <div className="relative flex flex-col lg:flex-row lg:items-stretch">
-        {/* LEFT - Form card */}
-        <div className="relative z-10 -mt-24 px-8 pb-8 lg:mt-0 lg:ml-[10%] lg:w-[25%] lg:px-0 lg:py-0 lg:pb-[5%]">
-          {submitted ? (
-            <div className="flex h-full min-h-[400px] items-center justify-center rounded-b-2xl bg-background p-10 shadow-lg lg:min-h-[600px] lg:shadow-none" aria-live="polite">
-              <div className="text-center">
-                <p className="font-serif text-2xl text-foreground">Message sent.</p>
-                <p className="mt-2 text-muted-foreground">{"I\u2019ll get back to you within 24 hours."}</p>
-              </div>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="flex h-full flex-col justify-center rounded-b-2xl bg-background p-10 shadow-lg lg:p-12 lg:shadow-none">
-              <div className="mb-8">
-                <label htmlFor="fname" className="text-sm text-muted-foreground">Full name</label>
-                <input id="fname" name="name" type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="mt-2 w-full border-b border-border bg-transparent py-4 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent" />
-              </div>
-              <div className="mb-8">
-                <label htmlFor="femail" className="text-sm text-muted-foreground">Email</label>
-                <input id="femail" name="email" type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="mt-2 w-full border-b border-border bg-transparent py-4 text-foreground outline-none transition-colors focus:border-accent" />
-              </div>
-              <div className="mb-10">
-                <label htmlFor="fmsg" className="text-sm text-muted-foreground">Message</label>
-                <textarea id="fmsg" name="message" rows={5} required value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="mt-2 w-full resize-none border-b border-border bg-transparent py-4 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent" />
-              </div>
-              {error && (
-                <p className="mb-4 text-sm text-red-500" aria-live="polite">
-                  {error}{" "}
-                  <a href="mailto:hello@amrabutalleb.com" className="underline">hello@amrabutalleb.com</a>
-                </p>
-              )}
-              <button type="submit" disabled={sending} className="footer-submit-btn ml-auto block cursor-pointer rounded-full border border-primary bg-primary px-12 py-4 font-medium text-primary-foreground hover:bg-primary-foreground hover:text-primary disabled:opacity-50">
-                {sending ? "Sending\u2026" : "Send Message"}
-              </button>
-            </form>
-          )}
-        </div>
-
-        {/* RIGHT area */}
-        <div className="relative flex-1 py-16 lg:flex lg:justify-end lg:py-32">
-          {/* Decorative overlapping circles */}
-          <div className="pointer-events-none absolute inset-0 flex items-center justify-center" aria-hidden="true">
-            <div className="relative">
-              <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full border border-primary-foreground/10 lg:h-96 lg:w-96" />
-              <div className="absolute -right-8 top-8 h-56 w-56 rounded-full border border-primary-foreground/10 lg:h-72 lg:w-72" />
-            </div>
-          </div>
-
-          {/* Content */}
-          <div className="relative z-10 flex w-full max-w-md flex-col justify-start px-8 lg:ml-auto lg:px-0 lg:pr-16">
-            {/* Service tags */}
-            <div className="mb-6 flex flex-wrap gap-x-5 gap-y-2">
-              {servicesTags.map((s) => (
-                <span key={s} className="text-xs tracking-[var(--tracking-sublabel)] text-primary-foreground/60">{s}</span>
-              ))}
-            </div>
-
-            {/* Let's Talk heading with gold accent bar */}
-            <div className="mb-8 flex items-start gap-3">
-              <div className="mt-2 h-20 w-1 bg-accent" />
-              <p className="font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-primary-foreground">
-                {"Let\u2019s"}
-                <br />
-                Talk
-              </p>
-            </div>
-
-            {/* Body text */}
-            <p className="mb-8 max-w-[40ch] text-sm leading-relaxed text-primary-foreground/70">
-              {"Hiring, or\u00A0have something worth building together? Write to\u00A0me."}
-            </p>
-
-            {/* Links */}
-            <div className="flex gap-6">
-              {footerLinks.map((link) => (
-                <a key={link.label} href={link.href} {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="text-sm text-primary-foreground/60 transition-colors hover:text-primary-foreground">
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
+  const words = (
+    <>
+      <p className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">{"Let’s talk"}</p>
+      <h2 className="mt-6 font-serif text-[length:var(--text-section)] font-normal leading-[var(--leading-heading)] tracking-tight">
+        Hiring, or&nbsp;have something worth building&nbsp;together?
+      </h2>
+      <p className="mt-6 max-w-[40ch] text-base leading-relaxed text-primary-foreground/70">
+        {onContact ? "Write to me directly at" : "Write to me here, or directly at"}{" "}
+        <a href={`mailto:${EMAIL}`} className="text-primary-foreground underline decoration-accent underline-offset-4">{EMAIL}</a>.
+      </p>
+      <div className="mt-10 flex flex-wrap gap-x-6 gap-y-2">
+        <a href="/working-together" className={darkLink}>Working together</a>
+        <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className={darkLink}>LinkedIn</a>
+        <a href={CV} download className={darkLink}>Download&nbsp;CV</a>
       </div>
+    </>
+  )
 
-      {/* Copyright bar */}
+  return (
+    <footer id="contact" className="relative bg-primary text-primary-foreground">
+      {onContact ? (
+        <div className="px-8 py-24 lg:px-16 lg:py-32">{words}</div>
+      ) : (
+        <div className="grid gap-12 px-8 lg:grid-cols-12 lg:gap-16 lg:px-16">
+          {/* Card */}
+          <div className="order-2 pb-16 lg:order-1 lg:col-span-7 lg:pb-24">
+            <div className="rounded-b-[var(--radius)] bg-background p-8 text-foreground sm:p-10 lg:p-14">
+              {status === "sent" ? (
+                <div className="flex min-h-[420px] flex-col justify-center" aria-live="polite">
+                  <p className="font-serif text-[length:var(--text-sub)] tracking-tight">Message&nbsp;sent.</p>
+                  <p className="mt-3 text-muted-foreground">{"Thank you. I’ll reply within 24 hours."}</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+                  <input
+                    type="checkbox"
+                    name="botcheck"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    className="hidden"
+                    checked={form.botcheck}
+                    onChange={(e) => setForm((f) => ({ ...f, botcheck: e.target.checked }))}
+                  />
+                  <div className="grid gap-8 sm:grid-cols-2">
+                    <label className="block">
+                      <span className="text-sm text-muted-foreground">Your name</span>
+                      <input name="name" autoComplete="name" required value={form.name} onChange={set("name")} className={field} />
+                    </label>
+                    <label className="block">
+                      <span className="text-sm text-muted-foreground">Email</span>
+                      <input name="email" type="email" autoComplete="email" required value={form.email} onChange={set("email")} className={field} />
+                    </label>
+                  </div>
+                  <fieldset>
+                    <legend className="text-sm text-muted-foreground">{"What’s it about?"}</legend>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {topics.map((t) => (
+                        <button
+                          type="button"
+                          key={t.value}
+                          aria-pressed={form.topic === t.value}
+                          onClick={() => setForm((f) => ({ ...f, topic: f.topic === t.value ? "" : t.value }))}
+                          className={`rounded-full border px-4 py-2 text-sm transition-colors ${
+                            form.topic === t.value
+                              ? "border-foreground bg-foreground text-background"
+                              : "border-border text-foreground hover:border-foreground"
+                          }`}
+                        >
+                          {t.label}
+                        </button>
+                      ))}
+                    </div>
+                  </fieldset>
+                  <label className="block">
+                    <span className="text-sm text-muted-foreground">Message</span>
+                    <textarea name="message" rows={4} required value={form.message} onChange={set("message")} className={`${field} resize-none`} />
+                  </label>
+                  {status === "error" && (
+                    <p className="text-sm text-destructive" aria-live="polite">
+                      {"That didn’t go through. Please email me at"}{" "}
+                      <a href={`mailto:${EMAIL}`} className="underline">{EMAIL}</a>.
+                    </p>
+                  )}
+                  <div className="flex flex-col-reverse items-start justify-between gap-4 sm:flex-row sm:items-center">
+                    <p className="text-xs text-muted-foreground">I&nbsp;reply within 24&nbsp;hours.</p>
+                    <button
+                      type="submit"
+                      disabled={status === "sending"}
+                      className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-foreground bg-foreground px-10 py-4 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase transition-colors hover:bg-transparent hover:text-foreground disabled:opacity-50"
+                    >
+                      {status === "sending" ? "Sending…" : "Send message"} <ArrowUpRight size={14} />
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
+          </div>
+
+          {/* Words */}
+          <div className="order-1 flex flex-col justify-center pt-24 lg:order-2 lg:col-span-5 lg:pt-0 lg:pb-24">{words}</div>
+        </div>
+      )}
+
       <div className="border-t border-primary-foreground/10 px-8 py-6 lg:px-16">
-        <div className="flex flex-col items-center justify-between gap-3 sm:flex-row">
-          <p className="text-xs text-primary-foreground/60">&copy; 2026 Amr Abu-Talleb &middot; Designed and built by&nbsp;me</p>
-          <p className="text-xs text-primary-foreground/60">Based in Cairo &middot; Relocating to&nbsp;Europe</p>
+        <div className="flex flex-col items-start justify-between gap-3 text-xs text-primary-foreground/50 sm:flex-row sm:items-center">
+          <p>&copy; 2026 Amr Abu-Talleb &middot; Designed and built by&nbsp;me</p>
+          <p>Based in Cairo &middot; Relocating to&nbsp;Europe</p>
         </div>
       </div>
     </footer>

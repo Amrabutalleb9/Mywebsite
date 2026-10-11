@@ -16,6 +16,8 @@ export async function submitContactForm(data: {
         email: data.email,
         message: data.message,
         subject: data.subject || `Portfolio inquiry from ${data.name}`,
+        from_name: "amrabutalleb.com",
+        replyto: data.email,
       }),
     })
     if (!res.ok) return { success: false, error: "Something went wrong. Please try emailing me directly." }

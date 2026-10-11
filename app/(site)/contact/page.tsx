@@ -87,11 +87,11 @@ export default function ContactPage() {
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <div>
                 <label htmlFor="name" className="mb-2 block text-sm font-medium text-foreground">Name</label>
-                <input id="name" type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent" />
+                <input id="name" type="text" autoComplete="name" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent" />
               </div>
               <div>
                 <label htmlFor="email" className="mb-2 block text-sm font-medium text-foreground">Email</label>
-                <input id="email" type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent" />
+                <input id="email" type="email" autoComplete="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent" />
               </div>
               <div>
                 <label htmlFor="budget" className="mb-2 block text-sm font-medium text-foreground">What&rsquo;s it&nbsp;about?</label>
