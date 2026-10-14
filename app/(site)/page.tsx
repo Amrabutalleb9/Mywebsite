@@ -38,10 +38,10 @@ const caseStudyCards = [
 const highlightCards = [
   { slug: "alfy", num: "05", title: "Alfy", subtitle: "Repositioning a\u00A0luxury marble brand for\u00A0the\u00A0architects who buy\u00A0it", result: "70%\u00A0lift in\u00A0social engagement", year: "2025", category: "Campaign Strategy", role: "Creative Director at\u00A0Overpowered", featureImage: "/images/alfy-feature.webp", featureImageAlt: "El Alfy Saraya luxury marble brand website hero" },
   { slug: "alienor", num: "07", title: "Alienor", subtitle: "Premium skincare brand identity & packaging", result: "Full brand identity\u00A0system", year: "2022", category: "Brand & Packaging", role: "Creative Director & Brand Designer", featureImage: "/images/alienor-feature.webp", featureImageAlt: "Alienor skincare brand identity with elegant serif logotype" },
-  { slug: "salel", num: "", title: "Salel", subtitle: tp("A hand-drawn Arabic calligraphy wordmark and the system around it"), result: "", year: "2025", category: "Calligraphy & Identity", role: "Brand Designer", featureImage: "", featureImageAlt: "" },
+  { slug: "salel", num: "", title: "Salel", subtitle: tp("A hand-drawn Arabic calligraphy wordmark for a ghutra brand in Qatar"), result: "", year: "2025", category: "Calligraphy & Identity", role: "Brand Designer", featureImage: "", featureImageAlt: "" },
   { slug: "nexus", num: "", title: "Nexus", subtitle: tp("Three brand personalities, written before anything was drawn"), result: tp("Identity and Webflow website"), year: "2024", category: "Brand Strategy", role: "Brand Strategist & Designer", featureImage: "", featureImageAlt: "" },
-  { slug: "hickey", num: "", title: "Hickey", subtitle: tp("An investor deck for a US makeup start-up"), result: tp("Helped secure a $2M investment"), year: "TBC", category: "Investor Deck", role: "Deck Designer", featureImage: "", featureImageAlt: "" },
-  { slug: "shavery", num: "", title: "Shavery & Co", subtitle: tp("A full identity for a barbershop, from the badge to the sign outside"), result: "", year: "2025", category: "Brand Identity", role: "Brand Designer", featureImage: "", featureImageAlt: "" },
+  { slug: "hickey", num: "", title: "Hickey", subtitle: tp("An investor deck for a US makeup start-up"), result: tp("Helped secure a $2M investment"), year: "", category: "Investor Deck", role: "Deck Designer", featureImage: "", featureImageAlt: "" },
+  { slug: "shavery", num: "", title: "Shavery & Co", subtitle: tp("A luxury identity for a barbershop in Saudi Arabia"), result: "", year: "2025", category: "Brand Identity", role: "Brand Designer", featureImage: "", featureImageAlt: "" },
 ]
 
 
@@ -189,8 +189,12 @@ function WorkSection() {
                 <div className="mt-4">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-[length:var(--text-micro)] font-medium tracking-[var(--tracking-sublabel)] text-accent uppercase">{project.category}</span>
-                    <span className="text-[length:var(--text-micro)] text-muted-foreground/60">&middot;</span>
-                    <span className="text-[length:var(--text-micro)] text-muted-foreground">{project.year}</span>
+                    {project.year && (
+                      <>
+                        <span className="text-[length:var(--text-micro)] text-muted-foreground/60">&middot;</span>
+                        <span className="text-[length:var(--text-micro)] text-muted-foreground">{project.year}</span>
+                      </>
+                    )}
                   </div>
                   <h3 className="text-base font-semibold leading-snug text-foreground transition-colors duration-300 group-hover:text-accent">
                     {project.title}

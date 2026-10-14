@@ -89,7 +89,7 @@ export default function HighlightLayout({
             { label: "Scope", value: project.scope },
             { label: "Industry", value: project.industry },
             { label: "Year", value: project.year },
-          ].map((item) => (
+          ].filter((item) => item.value).map((item) => (
             <div key={item.label} className="flex flex-col gap-1">
               <span className="text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-sublabel)] text-accent uppercase">{item.label}</span>
               <span className="text-sm leading-snug text-muted-foreground whitespace-pre-line">{item.value}</span>
