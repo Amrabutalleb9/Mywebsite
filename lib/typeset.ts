@@ -21,6 +21,8 @@ export function tp(input: string): string {
       s = s.replace(/([,;]\s+)(and|but|or|nor|yet|so) (?=\S)/g, `$1$2${NB}`)
       // Tier 6: numbers bind to their unit or noun.
       s = s.replace(/(\d[\d,.]*[%+k]?) (?=[A-Za-z·])/g, `$1${NB}`)
+      // Keep number-word compounds like "25-person" on one line.
+      s = s.replace(/(\d)-(?=[A-Za-z])/g, "$1\u2011")
       // Tier 5: no single-word last line.
       const last = s.lastIndexOf(" ")
       if (last > 0 && s.trim().split(/\s+/).length > 2) s = s.slice(0, last) + NB + s.slice(last + 1)
