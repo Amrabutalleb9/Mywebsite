@@ -4,7 +4,7 @@ import { useMarquee } from "@/hooks/use-marquee"
 
 const clientNames = [
   "The Line Real Estate", "Overpowered Agency", "Steve Hodel", "Dipa Visionary Art School", "SPLT Fitness",
-  "Alfy Marble", "Alienor Skincare", "Agfin", "Taptools", "ADRAW",
+  "Alfy Marble", "Alienor Skincare", "Agfin", "TapTools", "ADRAW",
   "Freelancer.com", "Like a Nerd", "Edge Holdings", "Gwelly Law Firm", "Ezz Law Firm",
 ]
 
