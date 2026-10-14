@@ -12,7 +12,7 @@ export const testimonials: Testimonial[] = [
   { text: "Amr delivered beyond expectations. The\u00A0brand identity he created captured our vision perfectly and translated seamlessly across every touchpoint. His strategic thinking elevated the entire\u00A0project.", author: "Overpowered Agency", location: "UK", role: "Brand Identity" },
   { text: "Outstanding collaboration! Amr\u00A0was extremely professional, fast, and\u00A0precise. He\u00A0quickly understood the project requirements and delivered flawless work on\u00A0time. Communication was smooth, he was always available, and\u00A0paid great attention to\u00A0detail. Highly\u00A0recommended!", author: "Stefano", location: "Valencia, Spain", role: "Website Design" },
   { text: "He is Extraordinary! Way\u00A0beyond anything I expected. Amr is very talented, knowledgeable, professional, and\u00A0competent. Communication in\u00A0english is excellent. Prompt to\u00A0resolve any issues. Goes beyond the expected for customer\u00A0satisfaction.", author: "Augustina", location: "Herning, Denmark", role: "Website Design" },
-  { text: "Amr assisted me in a\u00A0very challenging Art/Crime book project I authored. Very\u00A0professional work and his continual ongoing communications and proferred insights were invaluable. I\u00A0highly recommend him.", author: "Steven Hodel", location: "Blaine, United States", role: "Book Design" },
+  { text: "Amr assisted me in a\u00A0very challenging Art/Crime book project I authored. Very\u00A0professional work and his continual ongoing communications and proferred insights were invaluable. I\u00A0highly recommend him.", author: "Steve Hodel", location: "Blaine, United States", role: "Book Design" },
   { text: "So professional, on time, high level of\u00A0skills and capabilities\u2026 don\u2019t waste your time and\u00A0assign him your work, I didn\u2019t see anything with his level of\u00A0accountability.", author: "Ahmed", location: "Khobar, KSA", role: "Branding" },
   { text: "Fantastic work and great communication. Very\u00A0happy with the outcome of report from a\u00A0layout and a\u00A0branding perspective.", author: "Paul", location: "Melbourne, Australia", role: "Branding" },
   { text: "Very professional and created me an amazing\u00A0design.", author: "Elliot", location: "London, UK", role: "Apparel Design" },
@@ -58,7 +58,7 @@ export const testimonialProof: ProofGroup[] = [
     quotes: [
       { quote: "His strategic thinking elevated the entire\u00A0project.", name: "Overpowered", credential: "Agency leadership \u00B7 UK" },
       { quote: "Amr provided lots of\u00A0new UX ideas and put them to\u00A0me in\u00A0a\u00A0detailed\u00A0explanation.", name: "Robert, founder of\u00A0Agfin", credential: "Melbourne, Australia" },
-      { quote: "His continual ongoing communications and proffered insights were\u00A0invaluable.", name: "Steven Hodel", credential: "NYT bestselling author \u00B7 US" },
+      { quote: "His continual ongoing communications and proffered insights were\u00A0invaluable.", name: "Steve Hodel", credential: "NYT bestselling author \u00B7 US" },
     ],
   },
   {
@@ -76,14 +76,14 @@ export const testimonialProof: ProofGroup[] = [
     quotes: [
       { quote: "Communication was smooth, he was always available, and paid great attention to\u00A0detail.", name: "Stefano", credential: "Website design \u00B7 Valencia, Spain" },
       { quote: "Communication in\u00A0English is\u00A0excellent. Prompt to\u00A0resolve any\u00A0issues.", name: "Augustina", credential: "Website design \u00B7 Denmark" },
-      { quote: "Very professional work and his continual ongoing communications\u2026 were\u00A0invaluable.", name: "Steven Hodel", credential: "NYT bestselling author \u00B7 US" },
+      { quote: "Very professional work and his continual ongoing communications\u2026 were\u00A0invaluable.", name: "Steve Hodel", credential: "NYT bestselling author \u00B7 US" },
     ],
   },
   {
     title: "Ownership",
     question: "Will they deliver without being\u00A0chased?",
     quotes: [
-      { quote: "We have been through hell with 4\u00A0previous freelancers\u2026 All\u00A04 were unable to\u00A0complete the work. Enter\u00A0Amr.", name: "Dipa, founder", credential: "Visionary Art School \u00B7 Singapore" },
+      { quote: "We have been through hell with 4\u00A0previous freelancers\u2026 All\u00A04 were unable to\u00A0complete the work. Enter\u00A0Amr.", name: "Dipa, founder", credential: "Dipa Visionary Art School \u00B7 Singapore" },
       { quote: "He quickly understood the project requirements and delivered flawless work on\u00A0time.", name: "Stefano", credential: "Website design \u00B7 Valencia, Spain" },
       { quote: "He went above and beyond the project\u00A0scope.", name: "Robert, founder of\u00A0Agfin", credential: "Melbourne, Australia" },
     ],

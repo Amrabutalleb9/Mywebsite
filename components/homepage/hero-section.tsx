@@ -36,6 +36,7 @@ export default function HeroSection() {
                 style={{ "--i": i + 1 } as React.CSSProperties}
               >
                 {line}
+                {i < heroLines.length - 1 ? " " : null}
               </span>
             ))}
           </h1>
