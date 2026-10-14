@@ -29,11 +29,11 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: "Amr Abu-Talleb · Creative Director, Open to Roles in Europe",
+    default: "Amr Abu-Talleb · Creative Director",
     template: "%s \u00B7 Amr Abu-Talleb",
   },
   description:
-    "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets. Open to Creative Director roles in Europe, on-site or remote.",
+    "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets, and 50+ people hired. Open to roles in Europe, on-site or remote.",
   metadataBase: new URL("https://amrabutalleb.com"),
   alternates: {
     canonical: "/",
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://amrabutalleb.com",
     siteName: "Amr Abu-Talleb",
-    title: "Amr Abu-Talleb · Creative Director, Open to Roles in Europe",
+    title: "Amr Abu-Talleb · Creative Director",
     description:
-      "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets. Open to Creative Director roles in Europe, on-site or remote.",
+      "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets, and 50+ people hired. Open to roles in Europe, on-site or remote.",
     images: [
       {
         url: "/images/og-image-v3.png",
@@ -57,9 +57,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amr Abu-Talleb · Creative Director, Open to Roles in Europe",
+    title: "Amr Abu-Talleb · Creative Director",
     description:
-      "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets. Open to Creative Director roles in Europe, on-site or remote.",
+      "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets, and 50+ people hired. Open to roles in Europe, on-site or remote.",
     images: ["/images/og-image-v3.png"],
   },
   robots: {
@@ -124,7 +124,7 @@ export default function RootLayout({
               sameAs: ["https://www.linkedin.com/in/abutalleb/"],
               image: "https://amrabutalleb.com/images/amr-portrait-v3.webp",
               description:
-                "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets. Open to Creative Director roles in Europe, on-site or remote.",
+                "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets, and 50+ people hired. Open to roles in Europe, on-site or remote.",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Cairo",
