@@ -14,7 +14,7 @@ export const metadata: Metadata = pageMeta({
 
 const teams = [
   { label: "Agency", size: "25", desc: tp("Overpowered, a creative and digital agency in London. Five disciplines, art directors leading the creative teams, UX/UI with me directly.") },
-  { label: "Real estate", size: "11", desc: tp("The Line, an in-house brand and marketing team for a real estate developer.") },
+  { label: "Real estate", size: "11", desc: tp("The Line, an in-house brand and marketing team of eleven. Before that, brand and marketing design for Edge Holdings and Akadia Development.") },
   { label: "Today", size: "25", desc: tp("Design, product, video, support and PR, with five or six projects live at once.") },
 ]
 
