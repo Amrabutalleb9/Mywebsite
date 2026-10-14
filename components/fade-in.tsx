@@ -19,18 +19,20 @@ export default function FadeIn({ children, className = "", delay = 0, as = "div"
   const reduced = useReducedMotion()
   const MotionTag = useMemo(() => motion.create(as), [as])
 
-  if (reduced) {
-    const StaticTag = as
-    return <StaticTag className={className}>{children}</StaticTag>
-  }
-
   return (
     <MotionTag
       className={className}
       initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-6% 0px -4% 0px", amount: 0.1 }}
-      transition={{ duration: 0.6, delay, ease: EASE_OUT }}
+      // Reduced motion: the server HTML still carries the hidden start state,
+      // so animate straight to visible instead of swapping the element
+      // (a swapped element keeps the server's opacity:0 after hydration).
+      {...(reduced
+        ? { animate: { opacity: 1, y: 0 }, transition: { duration: 0 } }
+        : {
+            whileInView: { opacity: 1, y: 0 },
+            viewport: { once: true, margin: "-6% 0px -4% 0px", amount: 0.1 },
+            transition: { duration: 0.6, delay, ease: EASE_OUT },
+          })}
     >
       {children}
     </MotionTag>

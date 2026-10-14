@@ -20,17 +20,14 @@ export default function ScrollReveal({
   const inView = useInView(ref, { once: true, margin: "-8% 0px -5% 0px", amount: 0.12 })
   const reduced = useReducedMotion()
 
-  if (reduced) {
-    return <div className={className}>{children}</div>
-  }
-
   return (
     <motion.div
       ref={ref}
       className={className}
       initial={{ opacity: 0, y }}
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y }}
-      transition={{ duration: 0.65, delay, ease: EASE_OUT }}
+      // Reduced motion: show at once (see fade-in.tsx for why the element isn't swapped).
+      animate={reduced || inView ? { opacity: 1, y: 0 } : { opacity: 0, y }}
+      transition={reduced ? { duration: 0 } : { duration: 0.65, delay, ease: EASE_OUT }}
     >
       {children}
     </motion.div>
