@@ -48,10 +48,10 @@ export const metadata: Metadata = {
       "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets. Open to Creative Director roles in Europe, on-site or remote.",
     images: [
       {
-        url: "/images/og-image-v2.png",
+        url: "/images/og-image-v3.png",
         width: 1200,
         height: 630,
-        alt: "Amr Abu-Talleb, Creative Director, open to roles in Europe",
+        alt: "Amr Abu-Talleb, Creative Director, open to roles in Europe: portrait with 13 years, 25-person team, 8 markets, 50+ hired",
       },
     ],
   },
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     title: "Amr Abu-Talleb · Creative Director, Open to Roles in Europe",
     description:
       "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets. Open to Creative Director roles in Europe, on-site or remote.",
-    images: ["/images/og-image-v2.png"],
+    images: ["/images/og-image-v3.png"],
   },
   robots: {
     index: true,

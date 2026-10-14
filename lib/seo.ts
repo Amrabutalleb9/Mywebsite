@@ -2,10 +2,10 @@ import type { Metadata } from "next"
 
 export const SITE_URL = "https://amrabutalleb.com"
 export const DEFAULT_OG_IMAGE = {
-  url: "/images/og-image-v2.png",
+  url: "/images/og-image-v3.png",
   width: 1200,
   height: 630,
-  alt: "Amr Abu-Talleb, Creative Director, open to roles in Europe",
+  alt: "Amr Abu-Talleb, Creative Director, open to roles in Europe: portrait with 13 years, 25-person team, 8 markets, 50+ hired",
 }
 
 type PageMetaInput = {
