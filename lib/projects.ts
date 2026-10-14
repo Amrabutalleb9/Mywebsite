@@ -133,6 +133,7 @@ export const caseStudies: CaseStudy[] = [
       tp("Took a sprawling idea to a live product across the web, mobile web and an app"),
       tp("Four account types: travellers, kids and families, businesses and creators"),
       tp("About 60 app sections and the full website designed in one system"),
+      tp("Launched a first version, then reworked features and structure using feedback from the first 200 users"),
       tp("The client’s team has kept developing the product since launch"),
     ],
     reflection: tp("My job was to make a big idea buildable. The product has changed since launch, which is what products do. The structure underneath is what I’d point to."),
