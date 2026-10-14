@@ -15,6 +15,8 @@ const ways = [
   { title: "Leading a\u00A0rebrand with your\u00A0team", desc: "Your designers do the\u00A0work. I\u00A0set the\u00A0direction, run the\u00A0reviews and\u00A0make the\u00A0calls, and\u00A0the\u00A0guidelines and\u00A0asset library stay with you when we\u2019re\u00A0done." },
   { title: "Interim creative\u00A0director", desc: "Between hires, or\u00A0while you look for\u00A0the\u00A0right person. I\u00A0keep the\u00A0standard, the\u00A0pipeline and\u00A0the\u00A0client relationships steady, and\u00A0help you hire the\u00A0person who replaces\u00A0me." },
   { title: "Partnering with\u00A0agencies", desc: "For agencies that need a\u00A0creative lead on\u00A0a\u00A0pitch or\u00A0a\u00A0multi-market account, or\u00A0work that has to\u00A0hold up\u00A0in\u00A0Arabic and\u00A0English at\u00A0the\u00A0same\u00A0time." },
+  { title: "Setting up a\u00A0studio or\u00A0agency", desc: "Positioning, service lines, the\u00A0process, outreach, the\u00A0hiring test and\u00A0the\u00A0review rhythm. I\u2019ve built the\u00A0whole kit for\u00A0an\u00A0agency before, and\u00A0I\u00A0hand it\u00A0over in\u00A0writing." },
+  { title: "Scoping a\u00A0product before it\u2019s\u00A0built", desc: "I\u00A0rewrite the\u00A0brief and\u00A0the\u00A0quotation, map every role that will use the\u00A0product, and\u00A0give the\u00A0team a\u00A0scope the\u00A0client can\u00A0sign." },
   { title: "Testing an\u00A0idea before you build\u00A0it", desc: "When a\u00A0product idea needs proof, I\u00A0take it\u00A0from brief to\u00A0a\u00A0working staging build in\u00A0days, so\u00A0the\u00A0decision gets made on\u00A0something you can\u00A0click." },
 ]
 
@@ -46,7 +48,12 @@ export default function WorkingTogetherPage() {
         <FadeIn as="div" className="mt-24 flex max-w-[62ch] flex-col gap-6 text-[1.0625rem] leading-[1.75] text-muted-foreground">
           <h2 className="font-serif text-[length:var(--text-sub)] font-normal tracking-tight text-foreground">How it works</h2>
           <p>{"It starts with a\u00A0call about the\u00A0problem, not the\u00A0deliverables. Then a\u00A0short written scope: what we\u2019ll make, who decides, and\u00A0how we\u2019ll know it\u00A0worked. Reviews run every two or\u00A0three days, so\u00A0you see the\u00A0work while it\u00A0can still change, not only when it\u2019s\u00A0finished."}</p>
-          <p>{"The case studies show what that looks like: a\u00A0quotation rewritten before a\u00A0single screen existed, a\u00A0brochure site rebuilt into a\u00A0funnel that lifted sales 12%\u00A0in\u00A0its first month, and\u00A0a\u00A0212-page book delivered through round after round of\u00A0edits."}</p>
+          <p>{"The case studies show what that looks like: an\u00A0agency repositioned and\u00A0staffed from the\u00A0ground up, a\u00A0quotation rewritten before a\u00A0single screen existed, a\u00A0brochure site rebuilt into a\u00A0funnel that lifted sales 12%\u00A0in\u00A0its first month, and\u00A0a\u00A0212-page book delivered through round after round of\u00A0edits."}</p>
+        </FadeIn>
+
+        <FadeIn as="div" className="mt-16 flex max-w-[62ch] flex-col gap-3 text-[1.0625rem] leading-[1.75] text-muted-foreground">
+          <h2 className="font-serif text-[length:var(--text-sub)] font-normal tracking-tight text-foreground">Practical details</h2>
+          <p>{"I\u2019m based in\u00A0Cairo and\u00A0relocating to\u00A0Europe. I\u2019m available in\u00A030\u00A0days and\u00A0can start remotely from day one, as\u00A0a\u00A0contractor or\u00A0through an\u00A0employer of\u00A0record. On-site roles in\u00A0the\u00A0UK and\u00A0the\u00A0EU need visa\u00A0sponsorship."}</p>
         </FadeIn>
 
         <FadeIn as="div" className="mt-16 flex flex-col items-start gap-5">
