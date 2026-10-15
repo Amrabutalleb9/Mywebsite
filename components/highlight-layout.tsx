@@ -41,7 +41,7 @@ export default function HighlightLayout({
 
         {/* Title , smaller than case studies, different label */}
         <FadeIn>
-          <p className="mb-4 text-xs font-medium tracking-[var(--tracking-label)] text-muted-foreground/50 uppercase">Project Highlight</p>
+          <p className="mb-4 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Project Highlight</p>
         </FadeIn>
         <FadeIn as="h1" delay={0.05} className="mb-3 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
           {project.title}
