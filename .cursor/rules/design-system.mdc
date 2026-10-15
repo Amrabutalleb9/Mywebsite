@@ -163,3 +163,18 @@ Copy is written in Amr's voice, built from his own words. Rules:
 ## Footer (Oct 2026)
 
 Option B from the footer lab (`footer-options` branch, /footer-lab): a white form card hanging from the top edge (7 of 12 columns) beside the "Let’s talk" words. Name and email side by side, topic as one-tap pills, focus is a gold underline (never a box or ring), inputs carry `autoComplete`. Messages go through Web3Forms (`lib/contact.ts`) with the topic in the subject and the sender as reply-to. On /contact the card is dropped because the page has its own form.
+
+## Buttons (Oct 2026)
+
+Every CTA uses one of two classes from `globals.css`, never hand-built pill classes:
+- `btn btn-primary`: filled ink (`--primary`, the same colour as the footer). One per view, for the main action.
+- `btn btn-secondary`: outlined ink. For the alternative action next to a primary (e.g. "Book a 30-min call" beside "Send message").
+States are built in: hover lifts 2px (primary lightens, secondary gets a 6% ink wash), active presses to 98%, focus-visible shows a gold ring, disabled fades to 50%. Reduced motion removes the movement. Add `cta-arrow` to an arrow icon to nudge it on hover.
+
+## Typesetting safety net (Oct 2026)
+
+`tp()` now also binds articles and common short words (the, and, for, our, with…) and splits any bound chain longer than 18 characters from the right, so headings never overflow and the last line never holds one word. `components/typeset-dom.tsx` runs `tp()` over all page text after render, so strings that were not wrapped still follow the rules. Add `data-no-typeset` to opt an element out.
+
+## Count-ups (Oct 2026)
+
+Stat numbers use `components/count-up.tsx`. It counts every number in the value ("50+", "2–3") each time it comes into view and resets once off screen. Reduced motion shows the final value.
