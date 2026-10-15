@@ -5,7 +5,7 @@ import { motion, useReducedMotion } from "motion/react"
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const
 
-type FadeInTag = "div" | "h1" | "h2" | "p" | "li" | "article" | "section"
+type FadeInTag = "div" | "h1" | "h2" | "p" | "li" | "article" | "section" | "nav"
 
 interface FadeInProps {
   children: ReactNode
@@ -13,15 +13,19 @@ interface FadeInProps {
   delay?: number
   as?: FadeInTag
   y?: number
+  id?: string
+  "aria-label"?: string
 }
 
-export default function FadeIn({ children, className = "", delay = 0, as = "div", y = 24 }: FadeInProps) {
+export default function FadeIn({ children, className = "", delay = 0, as = "div", y = 24, id, "aria-label": ariaLabel }: FadeInProps) {
   const reduced = useReducedMotion()
   const MotionTag = useMemo(() => motion.create(as), [as])
 
   return (
     <MotionTag
       className={className}
+      id={id}
+      aria-label={ariaLabel}
       initial={{ opacity: 0, y }}
       // Reduced motion: the server HTML still carries the hidden start state,
       // so animate straight to visible instead of swapping the element
