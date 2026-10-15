@@ -135,8 +135,8 @@ export default function CaseStudyLayout({
       </FadeIn>
 
       {/* Project facts: one horizontal band under the hero */}
-      <FadeIn as="div" className="wrap mt-12 lg:mt-16">
-        <dl className="grid grid-cols-2 gap-x-8 gap-y-8 border-t border-border pt-8 md:grid-cols-3 lg:grid-cols-6">
+      <FadeIn as="div" className="wrap-wide mt-12 lg:mt-16">
+        <dl className="grid grid-cols-2 gap-x-8 gap-y-8 border-t border-border pt-8 md:grid-cols-3 lg:flex lg:justify-between lg:gap-12">
           {[
             { label: "Client", value: project.client },
             { label: "My role", value: project.role },
@@ -147,7 +147,7 @@ export default function CaseStudyLayout({
           ].map((item) => (
             <div key={item.label} className="flex flex-col gap-1.5">
               <dt className="text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-label)] text-accent uppercase">{item.label}</dt>
-              <dd className="max-w-[36ch] text-sm leading-snug text-muted-foreground whitespace-pre-line">{item.value}</dd>
+              <dd className="max-w-[30ch] text-sm leading-snug text-muted-foreground whitespace-pre-line">{item.value}</dd>
             </div>
           ))}
         </dl>

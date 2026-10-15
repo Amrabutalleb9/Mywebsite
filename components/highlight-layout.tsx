@@ -90,15 +90,12 @@ export default function HighlightLayout({
           { label: "Year", value: project.year },
         ].filter((item) => item.value)
         return (
-          <FadeIn as="div" className="wrap mb-20">
-            <dl
-              className="grid grid-cols-2 gap-x-8 gap-y-8 border-t border-border pt-8 md:grid-cols-3 lg:[grid-template-columns:repeat(var(--n),minmax(0,1fr))]"
-              style={{ "--n": facts.length } as React.CSSProperties}
-            >
+          <FadeIn as="div" className="wrap-wide mb-24">
+            <dl className="grid grid-cols-2 gap-x-8 gap-y-8 border-t border-border pt-8 md:grid-cols-3 lg:flex lg:justify-between lg:gap-12">
               {facts.map((item) => (
                 <div key={item.label} className="flex flex-col gap-1.5">
                   <dt className="text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-label)] text-accent uppercase">{item.label}</dt>
-                  <dd className="max-w-[36ch] text-sm leading-snug text-muted-foreground whitespace-pre-line">{item.value}</dd>
+                  <dd className="max-w-[30ch] text-sm leading-snug text-muted-foreground whitespace-pre-line">{item.value}</dd>
                 </div>
               ))}
             </dl>
@@ -106,18 +103,26 @@ export default function HighlightLayout({
         )
       })()}
 
-      {/* Overview , single column, no sidebar */}
-      <div className="wrap mb-16">
-        <FadeIn>
-          <div className="flex max-w-[60ch] flex-col gap-5">
-            {project.description.split("\n\n").map((p) => (
-              <p key={p.slice(0, 30)} className="leading-[var(--leading-longform)] text-muted-foreground">
-                {p}
-              </p>
-            ))}
-          </div>
-        </FadeIn>
-      </div>
+      {/* Overview: the first paragraph leads on the left, the rest follows on the right */}
+      {(() => {
+        const paras = project.description.split("\n\n")
+        const [lead, ...rest] = paras
+        return (
+          <section className="wrap mb-24">
+            <div className="grid gap-10 lg:grid-cols-2 lg:gap-20">
+              <FadeIn as="div">
+                <p className="mb-6 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Overview</p>
+                <p className="max-w-[36ch] font-serif text-2xl leading-snug tracking-tight text-foreground">{lead}</p>
+              </FadeIn>
+              <FadeIn as="div" className="flex max-w-[60ch] flex-col gap-5 lg:pt-10">
+                {rest.map((p) => (
+                  <p key={p.slice(0, 30)} className="leading-[var(--leading-longform)] text-muted-foreground">{p}</p>
+                ))}
+              </FadeIn>
+            </div>
+          </section>
+        )
+      })()}
 
       {/* 2-column image grid */}
       <FadeIn className="wrap-wide mb-16">

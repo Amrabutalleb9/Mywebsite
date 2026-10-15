@@ -192,3 +192,7 @@ Title, subtitle, hero media, then the project facts as one horizontal band (thre
 ## Homepage About balance (Oct 2026)
 
 The portrait and the text are centred as a group (`lg:items-center lg:justify-center`, portrait 38% capped at 420px, text max 36rem) so the round portrait doesn't pull the section to the left.
+
+## Detail-page facts strip and highlight overview (Oct 2026)
+
+The facts strip under a hero spans the hero's width (`.wrap-wide`) with the items spread edge to edge (`lg:flex lg:justify-between`), hairline above, on case studies and highlights alike. Highlights open with a two-column Overview: label and the first paragraph as a serif lead on the left, the remaining paragraphs on the right, so no column is left empty.
