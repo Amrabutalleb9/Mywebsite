@@ -115,6 +115,9 @@ export const caseStudies: CaseStudy[] = [
           tp("The CEO and I had been discussing the agency’s future for two years before I joined. He wanted to build a global agency with a team of more than forty people. We worked through the financial and operational requirements, including the investment needed for the first six to twelve months and how the team could grow as the business developed."),
           tp("When he was ready to move forward, he invited me to join as Creative Director. I worked alongside him to put the plan into practice while the studio kept serving its existing clients."),
         ],
+        figures: [
+          { images: [{ src: "/images/op-fig-01-v5.webp", alt: tp("The audit: six findings beside the old Overpowered homepage and its empty service cards, December 2024") }], caption: tp("The website as I found it, December 2024.") },
+        ],
       },
       {
         label: "What I found",
@@ -123,9 +126,6 @@ export const caseStudies: CaseStudy[] = [
           tp("The website offered six services, from branding to AI data analysis, under a headline about digital dominance. Some service cards were empty, and the portfolio didn’t consistently show the breadth of the offer. The identity relied on gun imagery, which limited where we could advertise and made it a harder sell to the corporate clients the agency wanted in Dubai."),
           tp("Inside the studio, day-to-day coordination happened in WhatsApp groups, so tasks, owners and workloads were hard to see across disciplines. There was no shared asset library, hiring process, outreach plan or review routine."),
           tp("The agency already had a team, clients and work to build on. The next step was to make the positioning, the way the team worked and the way the agency presented itself tell the same story."),
-        ],
-        figures: [
-          { images: [{ src: "/images/op-fig-01-v5.webp", alt: tp("The audit: six findings beside the old Overpowered homepage and its empty service cards, December 2024") }], caption: tp("The website as I found it, December 2024.") },
         ],
       },
       {
@@ -811,7 +811,7 @@ export const projectHighlights: ProjectHighlight[] = [
       { src: "/images/alienor-pumpkin-v3.webp", alt: "Alienor Superfood AHA Glow Cleansing Butter resting on a small pumpkin in warm autumn light" },
     ],
     figures: [
-      { images: [{ src: "/images/alienor-brand-v2.webp", alt: tp("Alienor brand system: the logotype on plum, a palette of plum, berry, rose, pink, light grey and white, Century Schoolbook and Montserrat, the ring pattern and the favicon"), ratio: "16 / 9" }], caption: tp("The brand system: plum and rose, a classic serif and a light sans.") },
+      { images: [{ src: "/images/alienor-brand-v3.webp", alt: tp("Alienor brand system: the logotype on plum, a palette of plum, berry, rose, pink, light grey and white, Century Schoolbook and Montserrat, the ring pattern and the favicon"), ratio: "16 / 9" }], caption: tp("The brand system: plum and rose, a classic serif and a light sans.") },
     ],
   },
   {

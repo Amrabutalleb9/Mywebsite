@@ -92,7 +92,7 @@ export default function HighlightLayout({
         return (
           <FadeIn as="div" className="wrap-wide mb-24">
             <dl
-              className="grid grid-cols-2 gap-x-8 gap-y-8 border-t border-border pt-8 md:grid-cols-3 lg:gap-x-10 lg:[grid-template-columns:repeat(var(--n),minmax(0,1fr))]"
+              className="mx-auto grid grid-cols-2 gap-x-8 gap-y-8 border-t border-border pt-8 md:grid-cols-3 lg:w-[80%] lg:gap-x-10 lg:[grid-template-columns:repeat(var(--n),minmax(0,1fr))]"
               style={{ "--n": facts.length } as React.CSSProperties}
             >
               {facts.map((item) => (
@@ -126,6 +126,34 @@ export default function HighlightLayout({
           </section>
         )
       })()}
+
+      {/* Brand figures first, then the product visuals */}
+      {project.figures && project.figures.length > 0 && (
+        <div className="wrap-wide mb-16 flex flex-col gap-10">
+          {project.figures.map((row, r) => (
+            <FadeIn as="div" key={row.images[0].src}>
+              <figure className="m-0">
+                <div className={`grid grid-cols-1 gap-4 ${row.images.length === 2 ? "md:grid-cols-2" : row.images.length >= 3 ? "md:grid-cols-3" : ""}`}>
+                  {row.images.map((img, i) => (
+                    <div
+                      key={img.src}
+                      className="project-img-wrap overflow-hidden rounded-2xl"
+                      onClick={() => setLightbox(img.src)}
+                      role="button"
+                      tabIndex={0}
+                      aria-label={`View figure ${r + 1}${row.images.length > 1 ? `, image ${i + 1}` : ""} full size`}
+                      onKeyDown={(e) => { if (e.key === "Enter") setLightbox(img.src) }}
+                    >
+                      <Image src={img.src} alt={img.alt} width={1600} height={900} sizes={row.images.length > 1 ? "(max-width: 768px) 100vw, 33vw" : "100vw"} className="project-img h-auto w-full object-cover" style={{ aspectRatio: img.ratio ?? "16 / 9" }} />
+                    </div>
+                  ))}
+                </div>
+                {row.caption && <figcaption className="mt-3 max-w-[70ch] text-sm leading-relaxed text-muted-foreground">{row.caption}</figcaption>}
+              </figure>
+            </FadeIn>
+          ))}
+        </div>
+      )}
 
       {/* 2-column image grid */}
       <FadeIn className="wrap-wide mb-16">
@@ -162,34 +190,6 @@ export default function HighlightLayout({
           )}
         </div>
       </FadeIn>
-
-      {/* Extra figure rows */}
-      {project.figures && project.figures.length > 0 && (
-        <div className="wrap-wide mb-16 flex flex-col gap-10">
-          {project.figures.map((row, r) => (
-            <FadeIn as="div" key={row.images[0].src}>
-              <figure className="m-0">
-                <div className={`grid grid-cols-1 gap-4 ${row.images.length === 2 ? "md:grid-cols-2" : row.images.length >= 3 ? "md:grid-cols-3" : ""}`}>
-                  {row.images.map((img, i) => (
-                    <div
-                      key={img.src}
-                      className="project-img-wrap overflow-hidden rounded-2xl"
-                      onClick={() => setLightbox(img.src)}
-                      role="button"
-                      tabIndex={0}
-                      aria-label={`View figure ${r + 1}${row.images.length > 1 ? `, image ${i + 1}` : ""} full size`}
-                      onKeyDown={(e) => { if (e.key === "Enter") setLightbox(img.src) }}
-                    >
-                      <Image src={img.src} alt={img.alt} width={1600} height={900} sizes={row.images.length > 1 ? "(max-width: 768px) 100vw, 33vw" : "100vw"} className="project-img h-auto w-full object-cover" style={{ aspectRatio: img.ratio ?? "16 / 9" }} />
-                    </div>
-                  ))}
-                </div>
-                {row.caption && <figcaption className="mt-3 max-w-[70ch] text-sm leading-relaxed text-muted-foreground">{row.caption}</figcaption>}
-              </figure>
-            </FadeIn>
-          ))}
-        </div>
-      )}
 
       {/* Key result + testimonial + buy link */}
       {(project.keyResult || project.testimonial || project.buyLink) && (

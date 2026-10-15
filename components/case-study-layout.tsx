@@ -136,7 +136,7 @@ export default function CaseStudyLayout({
 
       {/* Project facts: one horizontal band under the hero */}
       <FadeIn as="div" className="wrap-wide mt-12 lg:mt-16">
-        <dl className="grid grid-cols-2 gap-x-8 gap-y-8 border-t border-border pt-8 md:grid-cols-3 lg:grid-cols-6 lg:gap-x-10">
+        <dl className="mx-auto grid grid-cols-2 gap-x-8 gap-y-8 border-t border-border pt-8 md:grid-cols-3 lg:w-[80%] lg:grid-cols-6 lg:gap-x-10">
           {[
             { label: "Client", value: project.client },
             { label: "My role", value: project.role },
