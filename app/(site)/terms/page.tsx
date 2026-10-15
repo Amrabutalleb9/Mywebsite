@@ -15,7 +15,7 @@ export default function TermsPage() {
         <p className="mb-4 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">
           Legal
         </p>
-        <h1 className="mb-8 font-serif text-[length:var(--text-page)] font-normal tracking-tight text-foreground">
+        <h1 className="mb-8 font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
           Terms of Service
         </h1>
         <p className="mb-10 text-sm text-muted-foreground">

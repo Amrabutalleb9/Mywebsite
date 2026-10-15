@@ -6,7 +6,7 @@
  * Strings that already carry   are safe to pass through.
  */
 const NB = " "
-const SHORT = "a|i|of|at|in|on|to|or|by|an|as|is|it|if|so|up|we|no|do|be|he|my"
+const SHORT = "a|i|of|at|in|on|to|or|by|an|as|is|it|if|so|up|we|no|do|be|he|my|the|and|for|but|nor|yet|our|its|his|her|your|their|with|from|into|per|via"
 
 export function tp(input: string): string {
   return input

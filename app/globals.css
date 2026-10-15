@@ -149,6 +149,57 @@ h1, h2, h3, h4, h5, h6 {
   .rounded-3xl { border-radius: 40px !important; }
 }
 
+
+/* ─── Buttons ─────────────────────────────────────────
+   One primary and one secondary style for every CTA on the site.
+   Primary uses the same ink as the footer (--primary).
+   States: hover lifts, active presses, focus-visible shows a gold ring,
+   disabled fades. Reduced motion drops the movement. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  padding: 0.875rem 2rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-normal) var(--ease-out-expo),
+    border-color var(--duration-normal) var(--ease-out-expo),
+    color var(--duration-normal) var(--ease-out-expo),
+    box-shadow var(--duration-normal) var(--ease-out-expo),
+    transform var(--duration-normal) var(--ease-out-expo);
+}
+.btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.btn:disabled, .btn[aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; }
+.btn .cta-arrow, .btn svg { transition: transform var(--duration-normal) var(--ease-out-expo); }
+
+.btn-primary { background-color: var(--primary); border-color: var(--primary); color: var(--primary-foreground); }
+.btn-primary:hover:not(:disabled) {
+  background-color: #262638; border-color: #262638;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px -12px rgba(13, 13, 26, 0.35);
+}
+.btn-primary:active:not(:disabled) { background-color: #000; border-color: #000; transform: translateY(0) scale(0.98); box-shadow: none; }
+
+.btn-secondary { background-color: transparent; border-color: var(--foreground); color: var(--foreground); }
+.btn-secondary:hover:not(:disabled) { background-color: rgba(13, 13, 26, 0.06); transform: translateY(-2px); }
+.btn-secondary:active:not(:disabled) { background-color: rgba(13, 13, 26, 0.12); transform: translateY(0) scale(0.98); }
+
+.btn:hover:not(:disabled) .cta-arrow { transform: translate(2px, -2px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn, .btn .cta-arrow, .btn svg { transition: background-color 0s, border-color 0s, color 0s; }
+  .btn:hover:not(:disabled), .btn:active:not(:disabled), .btn:hover .cta-arrow { transform: none !important; }
+}
+
 /* Clickable elements show pointer cursor */
 [role="button"], .project-img-wrap {
   cursor: pointer;

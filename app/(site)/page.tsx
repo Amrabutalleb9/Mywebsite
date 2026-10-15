@@ -281,7 +281,7 @@ function About() {
           <div className="lg:w-[60%]">
             <ScrollReveal>
               <SubHeader label="About" />
-              <h2 className="mb-8 font-serif text-[length:var(--text-section)] font-normal tracking-tight text-foreground">
+              <h2 className="mb-8 font-serif text-[length:var(--text-section)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground">
                 {"I\u2019m Amr Abu-Talleb."}
               </h2>
             </ScrollReveal>
@@ -324,7 +324,7 @@ export default function Home() {
         <p className="mb-5 text-base text-muted-foreground lg:text-lg">{"Hiring a\u00A0Creative Director?"}</p>
         <a
           href="/contact"
-          className="cta-btn cta-btn-filled inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase"
+          className="btn btn-primary"
         >
           {"Let\u2019s Talk"}
           <ArrowUpRight size={14} className="cta-arrow" />

@@ -7,6 +7,7 @@ import { ArrowDown, ArrowUpRight } from "lucide-react"
 const InfiniteGrid = dynamic(
   () => import("@/components/ui/infinite-grid").then((m) => ({ default: m.InfiniteGrid })),
 )
+import CountUp from "@/components/count-up"
 
 const heroLines = ["I\u00A0lead the team, build the\u00A0system,", "and make sure it\u00A0ships."]
 
@@ -50,7 +51,7 @@ export default function HeroSection() {
             {stats.map((st) => (
               <div key={st.n} className="flex flex-col items-center gap-1 px-3 sm:px-6">
                 <dt className="sr-only">{st.label}</dt>
-                <dd className="font-serif text-[length:var(--text-sub)] leading-none text-foreground [font-variant-numeric:lining-nums]">{st.n}</dd>
+                <dd className="font-serif text-[length:var(--text-sub)] leading-none text-foreground [font-variant-numeric:lining-nums]"><CountUp value={st.n} /></dd>
                 <dd className="max-w-[16ch] text-xs leading-snug text-muted-foreground sm:text-sm">{st.label}</dd>
               </div>
             ))}
@@ -64,7 +65,7 @@ export default function HeroSection() {
           <div className="mt-[clamp(1.25rem,3svh,2rem)] flex flex-col items-center gap-4 sm:flex-row">
             <a
               href="#work"
-              className="cta-btn cta-btn-filled inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase"
+              className="btn btn-primary"
             >
               See the&nbsp;Work
               <ArrowUpRight size={14} className="cta-arrow" />
@@ -72,7 +73,7 @@ export default function HeroSection() {
             <a
               href="/Amr_AbuTalleb_CV_Creative_Director.pdf"
               download
-              className="cta-btn cta-btn-outline inline-flex items-center gap-2 rounded-full border border-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-foreground uppercase"
+              className="btn btn-secondary"
             >
               Download&nbsp;CV
               <ArrowDown size={14} className="cta-arrow" />

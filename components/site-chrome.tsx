@@ -1,6 +1,7 @@
 import MainNav from "@/components/main-nav"
 import MainFooter from "@/components/main-footer"
 import LazyCustomCursor from "@/components/lazy-cursor"
+import TypesetDom from "@/components/typeset-dom"
 
 export default function SiteChrome({ children }: { children: React.ReactNode }) {
   return (
@@ -15,6 +16,7 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
       <div id="main-content">{children}</div>
       <MainFooter />
       <LazyCustomCursor />
+      <TypesetDom />
     </>
   )
 }

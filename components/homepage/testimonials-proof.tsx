@@ -88,7 +88,7 @@ export default function TestimonialsProof({ groups, stats }: { groups: ProofGrou
             </div>
             <div className="flex items-start gap-4">
               <div className="mt-1 h-12 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true" />
-              <h2 id="testimonials-heading" className="font-serif text-[length:var(--text-sub)] font-normal tracking-tight text-foreground">
+              <h2 id="testimonials-heading" className="font-serif text-[length:var(--text-sub)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground">
                 What Clients&nbsp;Say
               </h2>
             </div>

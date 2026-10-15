@@ -36,7 +36,7 @@ export default function ProjectsPage() {
   return (
     <main className="px-8 pt-32 pb-24 lg:px-16 lg:pt-40 lg:pb-32">
       <FadeIn>
-        <h1 className="mb-4 font-serif text-[length:var(--text-page)] font-normal tracking-tight text-foreground">
+        <h1 className="mb-4 font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
           Projects
         </h1>
         <p className="mb-20 max-w-lg text-muted-foreground">

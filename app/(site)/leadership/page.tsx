@@ -2,6 +2,7 @@ import Link from "next/link"
 import type { Metadata } from "next"
 import { ArrowUpRight } from "lucide-react"
 import FadeIn from "@/components/fade-in"
+import CountUp from "@/components/count-up"
 import { pageMeta } from "@/lib/seo"
 import { tp } from "@/lib/typeset"
 
@@ -113,7 +114,7 @@ export default function LeadershipPage() {
           <FadeIn as="div" className="mb-4 grid grid-cols-3 border-t border-border">
             {stats.map((st, i) => (
               <div key={st.n} className={`py-6 ${i > 0 ? "border-l border-border pl-6" : ""}`}>
-                <p className="font-serif text-[2.5rem] leading-none tracking-tight text-foreground">{st.n}</p>
+                <p className="font-serif text-[2.5rem] leading-none tracking-tight text-foreground"><CountUp value={st.n} /></p>
                 <p className="mt-2 text-xs leading-snug text-muted-foreground">{st.label}</p>
               </div>
             ))}
@@ -150,7 +151,7 @@ export default function LeadershipPage() {
             <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
               <Link
                 href="/work/overpowered"
-                className="cta-btn cta-btn-filled inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase"
+                className="btn btn-primary"
               >
                 The Overpowered case&nbsp;study
                 <ArrowUpRight size={14} className="cta-arrow" />

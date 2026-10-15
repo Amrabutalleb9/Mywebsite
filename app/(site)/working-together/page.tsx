@@ -70,14 +70,14 @@ export default function WorkingTogetherPage() {
             <FadeIn delay={0.1} as="div" className="mt-10 flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="cta-btn cta-btn-filled inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase"
+                className="btn btn-primary"
               >
                 {"Let\u2019s Talk"}
                 <ArrowUpRight size={14} className="cta-arrow" />
               </Link>
               <Link
                 href="/projects"
-                className="cta-btn cta-btn-outline inline-flex items-center gap-2 rounded-full border border-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-foreground uppercase"
+                className="btn btn-secondary"
               >
                 See the&nbsp;Work
                 <ArrowUpRight size={14} className="cta-arrow" />

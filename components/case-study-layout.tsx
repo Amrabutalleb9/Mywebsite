@@ -507,7 +507,7 @@ export default function CaseStudyLayout({
         <p className="mb-4 text-lg text-muted-foreground">{"Hiring a\u00A0Creative Director?"}</p>
         <a
           href="/contact"
-          className="cta-btn cta-btn-filled inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase"
+          className="btn btn-primary"
         >
           {"Let\u2019s Talk"}
         </a>

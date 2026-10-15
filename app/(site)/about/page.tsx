@@ -46,7 +46,7 @@ export default function AboutPage() {
 
           {/* ── What I Do ── */}
           <FadeIn as="div" className="mt-24">
-            <h2 className="mb-12 font-serif text-[length:var(--text-sub)] font-normal tracking-tight text-foreground">
+            <h2 className="mb-12 font-serif text-[length:var(--text-sub)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground">
               What I&nbsp;do
             </h2>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -85,14 +85,14 @@ export default function AboutPage() {
               <a
                 href="/Amr_AbuTalleb_CV_Creative_Director.pdf"
                 download
-                className="inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-6 py-3 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase transition-all duration-300 hover:bg-transparent hover:text-foreground"
+                className="btn btn-primary"
               >
                 <Download size={14} />
                 Download&nbsp;CV
               </a>
               <Link
                 href="/#work"
-                className="inline-flex items-center gap-2 rounded-full border border-foreground px-6 py-3 text-xs font-medium tracking-[var(--tracking-label)] text-foreground uppercase transition-all duration-300 hover:bg-foreground hover:text-background"
+                className="btn btn-secondary"
               >
                 View My&nbsp;Work
                 <ArrowRight size={14} />

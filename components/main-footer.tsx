@@ -134,7 +134,7 @@ export default function MainFooter() {
                     <button
                       type="submit"
                       disabled={status === "sending"}
-                      className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-foreground bg-foreground px-10 py-4 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase transition-colors hover:bg-transparent hover:text-foreground disabled:opacity-50"
+                      className="btn btn-primary"
                     >
                       {status === "sending" ? "Sending…" : "Send message"} <ArrowUpRight size={14} />
                     </button>

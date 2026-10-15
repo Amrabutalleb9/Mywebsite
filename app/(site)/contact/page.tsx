@@ -114,7 +114,7 @@ export default function ContactPage() {
                   <a href="mailto:hello@amrabutalleb.com" className="underline">hello@amrabutalleb.com</a>
                 </p>
               )}
-              <button type="submit" disabled={sending} className="cursor-pointer rounded-full border border-foreground bg-primary px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] uppercase text-primary-foreground transition-all duration-300 hover:bg-foreground hover:text-background disabled:opacity-50">
+              <button type="submit" disabled={sending} className="btn btn-primary">
                 {sending ? "Sending\u2026" : "Send\u00A0Message"}
               </button>
               <p className="text-center text-xs text-muted-foreground">

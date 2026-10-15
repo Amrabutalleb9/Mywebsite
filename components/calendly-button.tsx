@@ -49,7 +49,7 @@ export default function CalendlyButton({ className, children }: CalendlyButtonPr
       onClick={handleClick}
       className={
         className ||
-        "cta-btn cta-btn-filled inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase cursor-pointer"
+        "btn btn-secondary"
       }
     >
       {children || (
