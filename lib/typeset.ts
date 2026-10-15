@@ -53,8 +53,11 @@ function capRuns(s: string): string {
       for (let i = words.length - 2; i >= 0; i--) {
         const w = words[i]
         const cur = pieces[0]
-        if (isBinder(w) || cur.join(NB).length + 1 + w.length <= MAX_RUN) cur.unshift(w)
-        else pieces.unshift([w])
+        if (cur.join(NB).length + 1 + w.length <= MAX_RUN) cur.unshift(w)
+        else if (!isBinder(w)) pieces.unshift([w])
+        // A binder that no longer fits takes the next word with it into a new piece.
+        else if (cur.length > 1) pieces.unshift([w, cur.shift() as string])
+        else cur.unshift(w)
       }
       return pieces.map((p) => p.join(NB)).join(" ")
     })
