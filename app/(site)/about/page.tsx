@@ -25,7 +25,7 @@ export default function AboutPage() {
 
           <FadeIn>
             <h1 className="mb-6 font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
-              <span className="block">Work I’d put my name on.</span>
+              <span className="block">Work worth signing.</span>
               <span className="block">Teams built to outgrow me.</span>
             </h1>
           </FadeIn>
