@@ -26,7 +26,7 @@ export default function HighlightLayout({
 
     <main>
     <article className="pb-[clamp(80px,10vw,140px)] pt-32 lg:pt-40">
-      <div className="px-8 lg:px-16">
+      <div className="wrap">
 
         {/* Back link */}
         <FadeIn>
@@ -54,7 +54,7 @@ export default function HighlightLayout({
       </div>
 
       {/* Hero image */}
-      <FadeIn delay={0.15} className="mb-14 px-8 lg:px-16">
+      <FadeIn delay={0.15} className="wrap-wide mb-14">
         {project.featureImage ? (
           <div
             className="project-img-wrap overflow-hidden rounded-xl"
@@ -81,7 +81,7 @@ export default function HighlightLayout({
       </FadeIn>
 
       {/* Meta row , compact */}
-      <FadeIn className="mb-16 px-8 lg:px-16">
+      <FadeIn className="wrap mb-16">
         <div className="flex flex-wrap gap-x-10 gap-y-4 border-b border-border pb-6">
           {[
             { label: "Client", value: project.client },
@@ -99,7 +99,7 @@ export default function HighlightLayout({
       </FadeIn>
 
       {/* Overview , single column, no sidebar */}
-      <div className="mb-16 px-8 lg:px-16">
+      <div className="wrap mb-16">
         <FadeIn>
           <div className="flex max-w-[60ch] flex-col gap-5">
             {project.description.split("\n\n").map((p) => (
@@ -112,7 +112,7 @@ export default function HighlightLayout({
       </div>
 
       {/* 2-column image grid */}
-      <FadeIn className="mb-16 px-8 lg:px-16">
+      <FadeIn className="wrap-wide mb-16">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {project.keyVisuals && project.keyVisuals.length > 0 ? (
             project.keyVisuals.map((visual, i) => (
@@ -149,7 +149,7 @@ export default function HighlightLayout({
 
       {/* Key result + testimonial + buy link */}
       {(project.keyResult || project.testimonial || project.buyLink) && (
-        <div className="mb-16 px-8 lg:px-16">
+        <div className="wrap mb-16">
           <div className="flex flex-col gap-6">
             {project.keyResult && (
               <FadeIn>
@@ -180,7 +180,7 @@ export default function HighlightLayout({
                   href={project.buyLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-sm border border-accent bg-accent px-6 py-3 text-sm font-medium text-white transition-all hover:bg-accent/90"
+                  className="btn btn-secondary"
                 >
                   See the book on&nbsp;Amazon
                   <ArrowRight size={14} />
@@ -192,7 +192,7 @@ export default function HighlightLayout({
       )}
 
       {/* CTA */}
-      <div className="mt-20 pt-12 text-center px-8 lg:px-16">
+      <div className="mx-auto mt-20 max-w-[1000px] pt-12 text-center">
         <p className="mb-4 text-lg text-muted-foreground">{"Hiring a\u00A0Creative Director?"}</p>
         <a
           href="/contact"
@@ -201,13 +201,13 @@ export default function HighlightLayout({
           {"Let\u2019s Talk"}
         </a>
         <p className="mt-4 text-sm text-muted-foreground">
-          {"Or want to\u00A0collaborate? "}
+          {"Looking for a\u00A0creative partner? "}
           <a href="/working-together" className="text-foreground underline underline-offset-4 transition-colors hover:text-accent">See how I&nbsp;work with&nbsp;teams</a>
         </p>
       </div>
 
       {/* Navigation */}
-      <div className="px-8 lg:px-16">
+      <div className="wrap">
         <div className="flex items-stretch justify-between gap-4 border-t border-border pt-8">
           {prev ? (
             <Link href={`/highlights/${prev.slug}`} className="group flex flex-col gap-1 text-left">

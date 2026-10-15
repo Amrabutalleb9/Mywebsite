@@ -63,7 +63,7 @@ export default function CaseStudyLayout({
     <article className="pb-[clamp(80px,10vw,140px)] pt-32 lg:pt-40">
 
       {/* Back link */}
-      <div className="px-8 lg:px-16">
+      <div className="wrap">
         <FadeIn>
           <Link
             href="/#work"
@@ -76,7 +76,7 @@ export default function CaseStudyLayout({
       </div>
 
       {/* Hero , label + title + subtitle */}
-      <div className="px-8 lg:px-16">
+      <div className="wrap">
         <FadeIn>
           <p className="mb-4 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Case Study</p>
         </FadeIn>
@@ -91,7 +91,7 @@ export default function CaseStudyLayout({
       </div>
 
       {/* Hero image */}
-      <FadeIn delay={0.15} className="mb-8 px-8 lg:px-16">
+      <FadeIn delay={0.15} className="wrap-wide">
         {project.featureVideo ? (
           <div className="overflow-hidden rounded-2xl">
             <video
@@ -134,66 +134,71 @@ export default function CaseStudyLayout({
         )}
       </FadeIn>
 
-      {/* Intro , after the hero */}
-      {project.intro && project.intro.length > 0 && (
-        <FadeIn as="div" className="mt-16 mb-20 px-8 lg:px-16">
-          <div className="flex max-w-[62ch] flex-col gap-4">
-            {project.intro.map((para, i) => (
-              <p key={i} className="text-lg leading-relaxed text-foreground/80">{para}</p>
-            ))}
-          </div>
-        </FadeIn>
-      )}
-
-      {/* Impact Statement , with label */}
-      <FadeIn className="mb-20 px-8 lg:px-16">
-        {project.contributions && project.contributions.length > 0 ? (
-          <>
-            <p className="mb-6 text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-label)] text-accent uppercase">What I Led</p>
-            <ul className="grid grid-cols-1 gap-x-10 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
-              {project.contributions.map((item) => (
-                <li key={item.label} className="border-t border-border pt-4">
-                  <p className="mb-2 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground uppercase">{item.label}</p>
-                  <p className="text-sm leading-relaxed text-muted-foreground">{item.text}</p>
-                </li>
+      {/* Overview: the project facts beside the intro, on the same grid as the chapters */}
+      <section className="wrap mt-20 mb-28 lg:mt-28">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+          <FadeIn as="div">
+            <dl className="grid grid-cols-2 gap-x-8 lg:grid-cols-1">
+              {[
+                { label: "Client", value: project.client },
+                { label: "My role", value: project.role },
+                { label: "Timeline", value: project.timeline },
+                { label: "Scope", value: project.scope },
+                { label: "Industry", value: project.industry },
+                { label: "Markets", value: project.markets },
+              ].map((item) => (
+                <div key={item.label} className="flex flex-col gap-1.5 border-t border-border py-4">
+                  <dt className="text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-label)] text-accent uppercase">{item.label}</dt>
+                  <dd className="max-w-[40ch] text-sm leading-snug text-muted-foreground whitespace-pre-line">{item.value}</dd>
+                </div>
               ))}
-            </ul>
-          </>
-        ) : (
-          <>
-            <p className="mb-3 text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-label)] text-accent uppercase">Key Impact</p>
-            <p className="text-base font-medium leading-relaxed text-foreground sm:text-lg">
-              {project.impactStatement}
-            </p>
-          </>
-        )}
-      </FadeIn>
-
-      {/* Project Snapshot */}
-      <FadeIn className="mb-28 px-8 lg:px-16">
-        <div className="grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-3 lg:grid-cols-6">
-          {[
-            { label: "Client", value: project.client },
-            { label: "My Role", value: project.role },
-            { label: "Scope", value: project.scope },
-            { label: "Timeline", value: project.timeline },
-            { label: "Industry", value: project.industry },
-            { label: "Markets", value: project.markets },
-          ].map((item) => (
-            <div key={item.label} className="flex flex-col gap-1.5">
-              <span className="text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-label)] text-accent uppercase">{item.label}</span>
-              <span className="text-sm leading-snug text-muted-foreground whitespace-pre-line">{item.value}</span>
-            </div>
-          ))}
+            </dl>
+          </FadeIn>
+          <FadeIn as="div" className="flex max-w-[60ch] flex-col gap-6">
+            {project.intro && project.intro.length > 0 ? (
+              project.intro.map((para, i) => (
+                <p key={i} className={i === 0 ? "text-xl leading-relaxed text-foreground" : "text-[1.0625rem] leading-[var(--leading-longform)] text-muted-foreground"}>{para}</p>
+              ))
+            ) : (
+              <p className="text-xl leading-relaxed text-foreground">{project.impactStatement}</p>
+            )}
+            {project.intro && project.intro.length > 0 && !(project.contributions && project.contributions.length > 0) && (
+              <div className="mt-4 border-l-2 border-accent pl-5">
+                <p className="mb-2 text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-label)] text-accent uppercase">Key impact</p>
+                <p className="text-base font-medium leading-relaxed text-foreground">{project.impactStatement}</p>
+              </div>
+            )}
+          </FadeIn>
         </div>
-      </FadeIn>
+      </section>
+
+      {/* What I led: the author's own contribution, before the story */}
+      {project.contributions && project.contributions.length > 0 && (
+        <section className="wrap mb-28">
+          <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+            <FadeIn>
+              <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">What I led</h2>
+            </FadeIn>
+            <FadeIn as="div">
+              <ul className="grid grid-cols-1 gap-x-12 gap-y-10 sm:grid-cols-2">
+                {project.contributions.map((item) => (
+                  <li key={item.label} className="border-t border-border pt-5">
+                    <h3 className="mb-2 font-serif text-2xl font-normal leading-snug tracking-tight text-foreground">{item.label}</h3>
+                    <p className="text-[0.9375rem] leading-relaxed text-muted-foreground">{item.text}</p>
+                  </li>
+                ))}
+              </ul>
+            </FadeIn>
+          </div>
+        </section>
+      )}
 
       {project.chapters && project.chapters.length > 0 ? (
         /* Chapters: each part of the story followed by its own figures */
         <>
         {project.chapters.map((chapter, c) => (
           <section key={chapter.label} className="mb-28">
-            <div className="px-8 lg:px-16">
+            <div className="wrap">
               <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
                 <FadeIn>
                   <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">{chapter.label}</h2>
@@ -218,14 +223,14 @@ export default function CaseStudyLayout({
               </div>
             </div>
             {chapter.figures && chapter.figures.length > 0 && (
-              <div className="mt-16 flex flex-col gap-6 px-8 lg:px-16">
+              <div className="wrap-wide mt-16 flex flex-col gap-6">
                 {chapter.figures.map((row, r) => renderFigureRow(row, `${c + 1}.${r + 1}`))}
               </div>
             )}
           </section>
         ))}
         {project.showcaseVideo && (
-          <FadeIn className="mb-28 px-8 lg:px-16">
+          <FadeIn className="wrap-wide mb-28">
             <div className="overflow-hidden rounded-2xl bg-primary">
               <video
                 className="aspect-video w-full object-cover"
@@ -248,7 +253,7 @@ export default function CaseStudyLayout({
       ) : (
       <>
       {/* The Challenge */}
-      <div className="mb-28 px-8 lg:px-16">
+      <div className="wrap mb-28">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <FadeIn>
             <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">The Brief</h2>
@@ -278,7 +283,7 @@ export default function CaseStudyLayout({
 
       {/* Image break */}
       {project.processImages && project.processImages.length > 0 && (
-      <FadeIn className="mb-28 px-8 lg:px-16">
+      <FadeIn className="wrap-wide mb-28">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {project.processImages && project.processImages.length > 0
             ? project.processImages.slice(0, 2).map((img, i) => (
@@ -306,7 +311,7 @@ export default function CaseStudyLayout({
       )}
 
       {/* Strategic Approach */}
-      <div className="mb-28 px-8 lg:px-16">
+      <div className="wrap mb-28">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <FadeIn>
             <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">The Turn</h2>
@@ -342,7 +347,7 @@ export default function CaseStudyLayout({
 
       {/* Full-width showcase */}
       {project.showcaseVideo && (
-      <FadeIn className="mb-28 px-8 lg:px-16">
+      <FadeIn className="wrap-wide mb-28">
         {project.showcaseVideo ? (
           <div className="overflow-hidden rounded-2xl bg-primary">
             <video
@@ -366,13 +371,13 @@ export default function CaseStudyLayout({
 
       {/* Story figures: rows of diagrams and work shown between the strategy and the process */}
       {project.storyFigures && project.storyFigures.length > 0 && (
-        <div className="mb-28 flex flex-col gap-14 px-8 lg:px-16">
+        <div className="wrap-wide mb-28 flex flex-col gap-14">
           {project.storyFigures.map((row, r) => renderFigureRow(row, String(r + 1)))}
         </div>
       )}
 
       {/* Process & Evolution */}
-      <div className="mb-28 px-8 lg:px-16">
+      <div className="wrap mb-28">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <FadeIn>
             <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">The Work</h2>
@@ -402,7 +407,7 @@ export default function CaseStudyLayout({
 
       {/* Image gallery */}
       {project.galleryImages && project.galleryImages.length > 0 && (
-      <FadeIn className="mb-28 px-8 lg:px-16">
+      <FadeIn className="wrap-wide mb-28">
         {project.galleryImages && project.galleryImages.length > 0 ? (
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {project.galleryImages.map((img, i) => (
@@ -430,7 +435,7 @@ export default function CaseStudyLayout({
       )}
 
       {/* Results & Impact */}
-      <div className="mb-28 px-8 lg:px-16">
+      <div className="wrap mb-28">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <FadeIn>
             <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">{project.resultsTitle ?? "What Changed"}</h2>
@@ -482,7 +487,7 @@ export default function CaseStudyLayout({
       </div>
 
       {/* Reflection */}
-      <div className="mb-28 px-8 lg:px-16">
+      <div className="wrap mb-28">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <FadeIn>
             <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Looking Back</h2>
@@ -496,7 +501,7 @@ export default function CaseStudyLayout({
       </div>
 
       {/* Credits */}
-      <FadeIn className="mb-24 px-8 lg:px-16">
+      <FadeIn className="wrap mb-24">
         <div className="border-t border-border pt-6">
           <p className="text-xs leading-relaxed text-muted-foreground/50">{project.credits}</p>
         </div>
@@ -518,7 +523,7 @@ export default function CaseStudyLayout({
       </div>
 
       {/* Prev / Next , no line */}
-      <div className="px-8 lg:px-16">
+      <div className="wrap">
         <div className="flex items-stretch justify-between gap-4 pt-8">
           {prev ? (
             <Link href={`/work/${prev.slug}`} className="group flex flex-col gap-1 text-left">

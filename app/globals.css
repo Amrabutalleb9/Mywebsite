@@ -150,6 +150,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+
+/* ─── Page containers ─────────────────────────────────
+   .wrap: the homepage's centred column (max-w-6xl inside the page gutter),
+   used for all text, headings and grids on every page.
+   .wrap-wide: the page gutter only (the nav's edge), for full-width media. */
+.wrap { width: 100%; max-width: calc(72rem + 4rem); margin-inline: auto; padding-inline: 2rem; }
+.wrap-wide { width: 100%; padding-inline: 2rem; }
+@media (min-width: 1024px) {
+  .wrap { max-width: calc(72rem + 8rem); padding-inline: 4rem; }
+  .wrap-wide { padding-inline: 4rem; }
+}
+
 /* ─── Buttons ─────────────────────────────────────────
    One primary and one secondary style for every CTA on the site.
    Primary uses the same ink as the footer (--primary).
@@ -183,11 +195,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-primary { background-color: var(--primary); border-color: var(--primary); color: var(--primary-foreground); }
 .btn-primary:hover:not(:disabled) {
-  background-color: #262638; border-color: #262638;
+  background-color: transparent; border-color: var(--foreground); color: var(--foreground);
   transform: translateY(-2px);
-  box-shadow: 0 16px 40px -12px rgba(13, 13, 26, 0.35);
+  box-shadow: 0 16px 40px -12px rgba(13, 13, 26, 0.25);
 }
-.btn-primary:active:not(:disabled) { background-color: #000; border-color: #000; transform: translateY(0) scale(0.98); box-shadow: none; }
+.btn-primary:active:not(:disabled) { background-color: rgba(13, 13, 26, 0.08); transform: translateY(0) scale(0.98); box-shadow: none; }
 
 .btn-secondary { background-color: transparent; border-color: var(--foreground); color: var(--foreground); }
 .btn-secondary:hover:not(:disabled) { background-color: rgba(13, 13, 26, 0.06); transform: translateY(-2px); }

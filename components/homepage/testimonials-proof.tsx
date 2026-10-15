@@ -78,7 +78,8 @@ export default function TestimonialsProof({ groups, stats }: { groups: ProofGrou
   }
 
   return (
-    <section className="px-8 pt-24 pb-16 lg:px-16 lg:pt-32 lg:pb-20" aria-labelledby="testimonials-heading">
+    <section className="px-8 pt-32 pb-16 lg:px-16 lg:pt-48 lg:pb-20" aria-labelledby="testimonials-heading">
+      <div className="mx-auto max-w-6xl">
       <ScrollReveal>
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
@@ -192,6 +193,7 @@ export default function TestimonialsProof({ groups, stats }: { groups: ProofGrou
             <p className="mt-3 text-xs text-muted-foreground lg:text-sm">{s.label}</p>
           </div>
         ))}
+      </div>
       </div>
     </section>
   )

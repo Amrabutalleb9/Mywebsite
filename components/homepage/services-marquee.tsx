@@ -12,7 +12,7 @@ export default function ServicesMarquee() {
   const { trackRef, pause, resume } = useMarquee(55)
   return (
     <div
-      className="relative mt-24 overflow-hidden border-y border-border bg-background py-6 lg:mt-32 lg:py-8"
+      className="relative mt-32 overflow-hidden border-y border-border bg-background py-6 lg:mt-48 lg:py-8"
       onMouseEnter={pause}
       onMouseLeave={resume}
     >

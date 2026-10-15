@@ -18,7 +18,7 @@ export const metadata: Metadata = pageMeta({
 export default function AboutPage() {
   return (
     <main className="px-8 pt-32 pb-24 lg:px-16 lg:pt-40 lg:pb-32">
-      <div className="flex flex-col gap-16 lg:flex-row lg:gap-20">
+      <div className="mx-auto max-w-6xl flex flex-col gap-16 lg:flex-row lg:gap-20">
 
         {/* ── Left column: ALL content ── */}
         <div className="order-2 min-w-0 lg:order-none lg:w-[55%]">

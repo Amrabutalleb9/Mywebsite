@@ -35,6 +35,7 @@ const highlightItems: ShowcaseProject[] = projectHighlights.map((p) => ({
 export default function ProjectsPage() {
   return (
     <main className="px-8 pt-32 pb-24 lg:px-16 lg:pt-40 lg:pb-32">
+      <div className="mx-auto max-w-6xl">
       <FadeIn>
         <h1 className="mb-4 font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
           Projects
@@ -74,6 +75,7 @@ export default function ProjectsPage() {
         projects={highlightItems}
         startIndex={publishedCaseStudies.length}
       />
+      </div>
     </main>
   )
 }

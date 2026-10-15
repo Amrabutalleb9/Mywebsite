@@ -42,7 +42,7 @@ export default function ContactPage() {
 
   return (
     <main className="px-8 pt-32 pb-24 lg:px-16 lg:pt-40 lg:pb-32">
-      <div className="flex flex-col gap-16 lg:flex-row lg:gap-20">
+      <div className="mx-auto max-w-6xl flex flex-col gap-16 lg:flex-row lg:gap-20">
         <div className="lg:w-1/2">
           <FadeIn>
             <p className="mb-4 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">{"Let\u2019s talk"}</p>

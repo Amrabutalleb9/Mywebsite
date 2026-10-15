@@ -130,7 +130,7 @@ The only homepage CTA (“Hiring a Creative Director? Let’s Talk”) belongs t
 
 ## Homepage Section Rhythm
 
-Each homepage section owns its **top** spacing only (`pt-24 lg:pt-32`). It ends at its divider line or CTA with no bottom padding, so the gap between any two sections is the same: 96px on mobile, 128px on desktop. Only the last section before the footer keeps bottom padding.
+Each homepage section owns its **top** spacing only (`pt-32 lg:pt-48`, the services marquee `mt-32 lg:mt-48`). It ends at its divider line or CTA with no bottom padding, so the gap between any two sections is the same: 128px on mobile, 192px on desktop. Only the last section before the footer keeps bottom padding.
 
 ## CSS Baseline (globals.css)
 
@@ -178,3 +178,13 @@ States are built in: hover lifts 2px (primary lightens, secondary gets a 6% ink 
 ## Count-ups (Oct 2026)
 
 Stat numbers use `components/count-up.tsx`. It counts every number in the value ("50+", "2–3") each time it comes into view and resets once off screen. Reduced motion shows the final value.
+
+## Page containers (Oct 2026)
+
+Two widths, used on every page (`globals.css`):
+- `.wrap` (or `px-8 lg:px-16` + inner `mx-auto max-w-6xl`): the homepage's centred column. All text, headings, grids and cards sit in it, on every page, so the side margins match the homepage About and Leadership sections.
+- `.wrap-wide`: the nav's 64px gutter only. Reserved for full-width media (case-study hero video, figures, galleries) and the homepage case-study cards.
+
+## Case-study top (Oct 2026)
+
+Title, subtitle, hero media, then an Overview on the chapter grid: project facts stacked on the left, the intro on the right (first paragraph large). "What I led" follows as its own section on the same grid (label left, two-column list with serif titles right). Case studies without an intro show the impact statement there instead.
