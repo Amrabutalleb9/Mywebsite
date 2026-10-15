@@ -110,7 +110,7 @@ export default function LeadershipPage() {
             <p className="text-[1.0625rem] leading-[var(--leading-longform)] text-muted-foreground">{tp("The setup changes from one team to the next, but the aim stays the same: clear responsibilities, good communication, and room for people to do their best work.")}</p>
           </FadeIn>
 
-          <FadeIn as="div" className="mb-16 grid grid-cols-3 border-y border-border">
+          <FadeIn as="div" className="mb-4 grid grid-cols-3 border-t border-border">
             {stats.map((st, i) => (
               <div key={st.n} className={`py-6 ${i > 0 ? "border-l border-border pl-6" : ""}`}>
                 <p className="font-serif text-[2.5rem] leading-none tracking-tight text-foreground">{st.n}</p>
