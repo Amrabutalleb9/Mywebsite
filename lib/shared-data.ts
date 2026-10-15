@@ -1,3 +1,4 @@
+import { tp } from "./typeset"
 export interface Testimonial {
   text: string
   author: string
@@ -29,12 +30,12 @@ export interface Capability {
 }
 
 export const capabilities: Capability[] = [
-  { title: "Creative Direction", desc: "I\u00A0set the\u00A0bar for\u00A0the\u00A0whole team and\u00A0hold it\u00A0in\u00A0every review, from a\u00A0single social post to\u00A0a\u00A0full\u00A0rebrand." },
-  { title: "Brand Strategy & Identity", desc: "First I\u00A0work out where the\u00A0brand should sit in\u00A0its market. Then I\u00A0build the\u00A0identity and\u00A0the\u00A0guidelines that let other people use it\u00A0well when I\u2019m not in\u00A0the\u00A0room. Most of\u00A0mine have had to\u00A0work in\u00A0more than one market and\u00A0more than one\u00A0language." },
-  { title: "Product & UX Design", desc: "Apps, dashboards and\u00A0websites designed around the\u00A0people who use them, and\u00A0tested with real users before the\u00A0client pays to\u00A0scale\u00A0them." },
-  { title: "Prototype & Ship", desc: "I\u00A0build working prototypes in\u00A0code with AI, usually in\u00A0days, so\u00A0the\u00A0client signs off on\u00A0something they can click rather than a\u00A0picture of\u00A0it." },
-  { title: "Arabic & Latin Typography", desc: "I\u00A0draw and\u00A0set type in\u00A0both scripts and\u00A0pair them so\u00A0a\u00A0bilingual brand reads as\u00A0one voice. It\u2019s where I\u00A0started, and\u00A0it\u2019s still the\u00A0part I\u00A0do by\u00A0hand." },
-  { title: "Campaigns", desc: "Digital, social and\u00A0print campaigns, run as\u00A0small tests first. The budget goes behind whatever the\u00A0numbers\u00A0back." },
+  { title: "Creative Direction", desc: tp("Set the direction and standard for the work, from a single campaign to a full rebrand. Give the team a clear idea to work toward, then help it hold together across the details.") },
+  { title: "Brand Strategy & Identity", desc: tp("Find the position a brand can credibly own, then turn it into an identity system people can use. My work often spans markets and languages, so consistency has to survive beyond the original design presentation.") },
+  { title: "Product & UX Design", desc: tp("Shape the experience of apps, dashboards and websites, from user flows and information architecture to interface direction and feature priorities. Keep the design tied to the people using it and the job the product needs to do.") },
+  { title: "Prototype & Ship", desc: tp("Build working prototypes in code with AI-assisted tools, often in days. Give clients something they can click, test and react to before committing to a full build.") },
+  { title: "Arabic & Latin Typography", desc: tp("Work across both scripts, bringing calligraphy and typographic judgment into identities that need to read naturally in Arabic and English.") },
+  { title: "Campaigns", desc: tp("Develop ideas and art direction for digital, social and print. Where possible, test creative directions on a small scale before putting a larger budget behind them.") },
 ]
 
 /* ─── Homepage testimonials, grouped by what an agency checks before hiring ───

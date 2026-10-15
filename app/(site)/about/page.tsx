@@ -15,6 +15,52 @@ export const metadata: Metadata = pageMeta({
   type: "profile",
 })
 
+const aboutSections = [
+  {
+    title: tp("How I lead"),
+    body: [
+      tp("Much of my work happens before a finished design reaches the client: deciding who should take on a brief, considering the team’s workload, and helping people get to a stronger idea."),
+      tp("When we review work, I prefer to speak last. Designers present their decisions, colleagues challenge what isn’t working, and the art directors guide the discussion. I want the team to have a chance to work through the problem before my opinion enters the room."),
+      tp("I step in when the work drifts from the brief, the brand, or the people it is meant for. Otherwise, I want designers to develop their own judgment, not get good at guessing what I would choose."),
+      tp("That matters to me more than having every decision pass through my desk."),
+    ],
+  },
+  {
+    title: tp("Art and design"),
+    body: [
+      tp("I’m an artist at heart, but I work in design."),
+      tp("Art can exist for its own sake. Design has to answer to the people who encounter it and the business behind it. The most interesting projects leave room for both: an idea with its own character that still does the job it was made to do."),
+      tp("I encourage designers to draw from their own experiences, interests and values. We explore those ideas, challenge them, and work out what belongs in the final piece. I don’t want everything to end up looking the same just because it passed through the same team."),
+      tp("The brief sets the direction. It shouldn’t erase the person doing the work."),
+    ],
+  },
+  {
+    title: tp("Arabic and Latin"),
+    body: [
+      tp("I work in Arabic and English as a typographer and calligrapher. I’ve built identities that carry both scripts while feeling like one brand."),
+      tp("Arabic and Latin have different rhythms, proportions and visual behaviours. Designing for both takes more than translating a word or choosing two matching fonts. Each script needs to feel natural on its own, while the identity still holds together across languages."),
+      tp("It’s the part of my practice that takes me closest to where I started, and it’s still work I enjoy doing by hand."),
+    ],
+  },
+  {
+    title: tp("The tools change. The judgment doesn’t."),
+    body: [
+      tp("AI sits in my toolbox alongside the brush and the pen tool. I use it for research, repetitive tasks and exploring directions quickly. It gives me more options to consider and reduces the time spent on work that doesn’t need my full attention."),
+      tp("It doesn’t decide which idea is worth pursuing. I still have to judge the direction, make the design decisions and take responsibility for the result."),
+      tp("I also prototype in code, often taking an idea from a brief to a working staging build in days. For me, a prototype is useful because people can interact with it, find what doesn’t work, and have a more concrete conversation about what comes next."),
+    ],
+  },
+  {
+    title: tp("What I’m proudest of"),
+    body: [
+      tp("I’ve been involved in hiring more than fifty people. Some of the designers I’ve helped bring into teams now lead teams of their own."),
+      tp("I look for integrity, curiosity and a willingness to learn. Skills can be sharpened through practice and good feedback. I can help someone become a better designer; I can’t supply the curiosity or integrity for them."),
+      tp("Today, I lead a team of around twenty-five across design, product build, video and customer support, with several projects moving at once."),
+      tp("I’m interested in creative leadership roles in Europe where I can stay close to the work, help a team do its best work, and take part in the decisions that shape the business around it."),
+    ],
+  },
+]
+
 export default function AboutPage() {
   return (
     <main className="px-8 pt-32 pb-24 lg:px-16 lg:pt-40 lg:pb-32">
@@ -25,37 +71,34 @@ export default function AboutPage() {
 
           <FadeIn>
             <h1 className="mb-6 font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
-              <span className="block">Work worth signing.</span>
-              <span className="block">Teams built to outgrow me.</span>
+              {tp("A letter has nowhere to hide.")}
             </h1>
           </FadeIn>
-          <FadeIn delay={0.1}>
-            <p className="mb-12 max-w-[60ch] text-xl leading-relaxed text-foreground">
-              {tp("I’m Amr Abu-Talleb, and my first medium was the pen. Long before I led teams, I spent years drawing Arabic and Latin letters by hand, learning how the weight of a stroke and the space between two letters change the way a word feels. That is where I discovered that typography behaves like a filmmaker’s camera. It sets the mood, controls the pace and tells the story before anyone reads a word. I still hold every project to a calligrapher’s standard, where nothing is decorative and nothing is accidental. Only the canvas has grown.")}
+          <FadeIn delay={0.05}>
+            <p className="mb-10 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">
+              {tp("Amr Abu-Talleb · Creative Director across brand, campaigns and digital products")}
             </p>
+          </FadeIn>
+          <FadeIn delay={0.1} as="div" className="mb-12 flex max-w-[60ch] flex-col gap-5 text-xl leading-relaxed text-foreground">
+            <p>{tp("I learned that drawing Arabic calligraphy and Latin letterforms by hand. Change the weight of a stroke, tighten the space around it, or shift the balance between two forms, and the whole word takes on a different character. With letters, even a small decision is visible.")}</p>
+            <p>{tp("I still look at design that way.")}</p>
           </FadeIn>
 
           {/* Full Bio */}
           <FadeIn delay={0.15} as="div" className="flex max-w-[62ch] flex-col gap-6 text-[1.0625rem] leading-[1.75] text-muted-foreground">
-            <p>
-              {tp("Thirteen years on, I lead brand, campaign and product teams of up to twenty-five people, for clients in Egypt, the Gulf area, the UK, the US, Australia and Singapore. I helped a small design studio discover who it was really for and built the agency around that answer, with a growth plan that let it scale at its own pace. I rebuilt a client’s development proposal line by line, before a single screen existed, and won the project with it. And I designed a 212-page book for Steve Hodel, the former LAPD detective who spent decades investigating his own father. That one stays with me.")}
-            </p>
-            <p>
-              {tp("Much of my work now is building the system the work flows through. I decide which brief goes to which designer, based on their capacity and what they do best, and I learn how many rounds each person needs before their strongest idea appears. I shape how work travels from one desk to the next, and how it reaches the client, staged, shown, approved and refined. Every few days the team puts its work on the wall. Everyone presents, the others say what is working and what isn’t, the art directors guide, and I speak last, so the team’s judgement grows before mine is heard. I step in when the work drifts from the brand or from the people it is meant for.")}
-            </p>
-            <p>
-              {tp("I am still an artist at heart, and I bring that into every brief. Art can exist for its own sake. Design has to work, for the people who meet it and for the business behind it. The best work lives where the two meet, and that is where I lead my teams. I encourage designers to draw their ideas from their own lives and values and push them as far as their imagination will carry them, then shape them until they are clear, true to their audience and doing their job.")}
-            </p>
-            <p>
-              {tp("I work in Arabic and English, as a typographer and calligrapher in both, and I’ve built identities that carry two scripts while speaking with one voice. AI sits in my toolbox beside the brush and the pen tool. It takes on the repetition and the research, never the idea. I bring the thinking, it gives the team more ways to explore it, and we test several directions before finishing the strongest one by hand.")}
-            </p>
-            <p>
-              {tp("What I’m proudest of doesn’t fit in a portfolio. I’ve hired more than fifty people, and some of the designers I hired now lead teams of their own. I hire for integrity first and the will to learn second. Skills can be sharpened. Anything else can be fixed.")}
-            </p>
-            <p className="font-medium text-foreground">
-              {tp("Today I lead a team of twenty-five across design, product, video, support and PR, with five or six projects in motion at once. The next team I build will be in Europe.")}
-            </p>
+            <p>{tp("Over thirteen years, my work has moved from typography and identity into campaigns, digital products and creative leadership. The scale is different, but I still pay attention to the details that make an idea hold together.")}</p>
+            <p>{tp("I’ve led teams of up to twenty-five across brand, campaign and product work, with clients in Egypt, the Gulf, the UK, the US, Australia and Singapore. Some projects have been about finding a clearer position for a business. Others have involved shaping a product’s user experience or building an identity that works across languages.")}</p>
+            <p>{tp("I also designed a 212-page illustrated book for Steve Hodel, the New York Times bestselling author and former LAPD detective whose work followed his decades-long investigation into his father. That project stays with me.")}</p>
           </FadeIn>
+
+          {aboutSections.map((sec) => (
+            <FadeIn key={sec.title} as="section" className="mt-16 max-w-[62ch]">
+              <h2 className="mb-6 font-serif text-[length:var(--text-sub)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground">{sec.title}</h2>
+              <div className="flex flex-col gap-6 text-[1.0625rem] leading-[1.75] text-muted-foreground">
+                {sec.body.map((para) => <p key={para.slice(0, 24)}>{para}</p>)}
+              </div>
+            </FadeIn>
+          ))}
 
           {/* ── What I Do ── */}
           <FadeIn as="div" className="mt-24">
@@ -74,7 +117,7 @@ export default function AboutPage() {
 
           {/* Tools */}
           <FadeIn as="p" className="mt-10 text-sm text-muted-foreground">
-            {"Figma, Adobe Creative Suite, Premiere Pro, Cursor and\u00A0Next.js, plus AI tools for\u00A0image, video and\u00A0voice."}
+            {tp("Tools: Figma, Adobe Creative Suite, Premiere Pro, Cursor, Next.js, and AI tools for image, video and voice.")}
           </FadeIn>
 
         </div>

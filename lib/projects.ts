@@ -40,8 +40,14 @@ export interface CaseStudy {
   featureVideo?: { mp4: string; webm?: string; poster: string; alt: string }
   /** Rows of figures shown between the strategy and the process; each row 1–3 images with an optional caption. */
   storyFigures?: { images: { src: string; alt: string; ratio?: string }[]; caption?: string }[]
+  /** Short opening paragraphs shown under the subtitle. */
+  intro?: string[]
+  /** Scannable list of what the author personally led, shown in place of the impact line. */
+  contributions?: { label: string; text: string }[]
+  /** Heading for the results list (defaults to "What Changed"). */
+  resultsTitle?: string
   /** Optional story told in chapters; each chapter is followed by its own figures. Replaces the brief/turn/work blocks when present. */
-  chapters?: { label: string; lead?: string; paragraphs: string[]; figures?: { images: { src: string; alt: string; ratio?: string }[]; caption?: string }[] }[]
+  chapters?: { label: string; summary?: string; lead?: string; paragraphs: string[]; figures?: { images: { src: string; alt: string; ratio?: string }[]; caption?: string }[] }[]
   /** Optional external link, e.g. where to buy a published book. */
   buyLink?: { href: string; label: string }
 }

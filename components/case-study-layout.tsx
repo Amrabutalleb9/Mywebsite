@@ -88,6 +88,13 @@ export default function CaseStudyLayout({
             {project.subtitle}
           </p>
         </FadeIn>
+        {project.intro && project.intro.length > 0 && (
+          <FadeIn delay={0.12} as="div" className="mb-10 flex max-w-[62ch] flex-col gap-4">
+            {project.intro.map((para, i) => (
+              <p key={i} className="text-lg leading-relaxed text-foreground/80">{para}</p>
+            ))}
+          </FadeIn>
+        )}
       </div>
 
       {/* Hero image */}
@@ -136,10 +143,26 @@ export default function CaseStudyLayout({
 
       {/* Impact Statement , with label */}
       <FadeIn className="mx-auto mb-20 max-w-[1280px] px-6">
-        <p className="mb-3 text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-label)] text-accent uppercase">Key Impact</p>
-        <p className="text-base font-medium leading-relaxed text-foreground sm:text-lg">
-          {project.impactStatement}
-        </p>
+        {project.contributions && project.contributions.length > 0 ? (
+          <>
+            <p className="mb-6 text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-label)] text-accent uppercase">What I Led</p>
+            <ul className="grid grid-cols-1 gap-x-10 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
+              {project.contributions.map((item) => (
+                <li key={item.label} className="border-t border-border pt-4">
+                  <p className="mb-2 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground uppercase">{item.label}</p>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{item.text}</p>
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : (
+          <>
+            <p className="mb-3 text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-label)] text-accent uppercase">Key Impact</p>
+            <p className="text-base font-medium leading-relaxed text-foreground sm:text-lg">
+              {project.impactStatement}
+            </p>
+          </>
+        )}
       </FadeIn>
 
       {/* Project Snapshot */}
@@ -171,6 +194,11 @@ export default function CaseStudyLayout({
                   <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">{chapter.label}</h2>
                 </FadeIn>
                 <div className="flex flex-col gap-6">
+                  {chapter.summary && (
+                    <FadeIn>
+                      <p className="max-w-[60ch] text-lg font-medium leading-snug text-foreground">{chapter.summary}</p>
+                    </FadeIn>
+                  )}
                   {chapter.lead && (
                     <FadeIn>
                       <p className="max-w-[30ch] font-serif text-[length:var(--text-sub)] leading-[var(--leading-heading)] tracking-tight text-foreground">{chapter.lead}</p>
@@ -379,7 +407,7 @@ export default function CaseStudyLayout({
       <div className="mx-auto mb-28 max-w-[1280px] px-6">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <FadeIn>
-            <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">What Changed</h2>
+            <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">{project.resultsTitle ?? "What Changed"}</h2>
           </FadeIn>
           <div className="flex flex-col gap-6">
             <FadeIn>
@@ -387,7 +415,10 @@ export default function CaseStudyLayout({
                 {project.results.map((result) => (
                   <li key={result.slice(0, 30)} className="flex gap-3 text-muted-foreground">
                     <span className="mt-[calc(0.875em-3px)] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
-                    <span className="leading-[var(--leading-longform)]">{result}</span>
+                    <span className="leading-[var(--leading-longform)]">{(() => {
+                      const i = result.indexOf(": ")
+                      return i > 0 && i < 48 ? (<><strong className="font-semibold text-foreground">{result.slice(0, i)}.</strong>{" "}{result.slice(i + 2)}</>) : result
+                    })()}</span>
                   </li>
                 ))}
               </ul>
