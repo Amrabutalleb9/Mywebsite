@@ -26,7 +26,40 @@ export function tp(input: string): string {
       // Tier 5: no single-word last line.
       const last = s.lastIndexOf(" ")
       if (last > 0 && s.trim().split(/\s+/).length > 2) s = s.slice(0, last) + NB + s.slice(last + 1)
-      return s
+      return capRuns(s)
     })
     .join("\n")
+}
+
+/**
+ * A chain of bound words can't wrap, so a long one overflows narrow columns
+ * and large headings. Any unbreakable run longer than MAX_RUN characters is
+ * loosened again, keeping only the strongest bindings: 1–2 letter words and
+ * numbers stay with the word after them.
+ */
+const MAX_RUN = 18
+const BINDERS = new Set(SHORT.split("|"))
+const isBinder = (w: string) => BINDERS.has(w.replace(/^[(\[“"‘']+/, "").toLowerCase()) || /^\d/.test(w)
+
+function capRuns(s: string): string {
+  return s
+    .split(" ")
+    .map((run) => {
+      if (run.length <= MAX_RUN || !run.includes(NB)) return run
+      const words = run.split(NB)
+      const pieces: string[][] = [[words[0]]]
+      for (const w of words.slice(1)) {
+        const cur = pieces[pieces.length - 1]
+        if (cur.join(NB).length + 1 + w.length <= MAX_RUN) {
+          cur.push(w)
+          continue
+        }
+        // Break before any trailing binders, so "the" or "of" still travels with its word.
+        let k = cur.length
+        while (k > 1 && isBinder(cur[k - 1])) k--
+        pieces.push([...cur.splice(k), w])
+      }
+      return pieces.map((p) => p.join(NB)).join(" ")
+    })
+    .join(" ")
 }
