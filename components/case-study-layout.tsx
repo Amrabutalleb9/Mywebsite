@@ -21,6 +21,39 @@ export default function CaseStudyLayout({
   const [lightbox, setLightbox] = useState<string | null>(null)
   const reducedMotion = useReducedMotion()
 
+  const renderFigureRow = (row: NonNullable<CaseStudy["storyFigures"]>[number], key: string) => (
+    <FadeIn as="div" key={row.images[0].src}>
+      <figure className="m-0">
+        <div className={`grid grid-cols-1 gap-4 ${row.images.length === 2 ? "md:grid-cols-2" : row.images.length >= 3 ? "md:grid-cols-3" : ""}`}>
+          {row.images.map((img, i) => (
+            <div
+              key={img.src}
+              className="project-img-wrap overflow-hidden rounded-2xl bg-primary"
+              onClick={() => setLightbox(img.src)}
+              role="button"
+              tabIndex={0}
+              aria-label={`View figure ${key}${row.images.length > 1 ? `, image ${i + 1}` : ""} full size`}
+              onKeyDown={(e) => { if (e.key === "Enter") setLightbox(img.src) }}
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                width={1400}
+                height={788}
+                sizes={row.images.length > 1 ? "(max-width: 768px) 100vw, 50vw" : "100vw"}
+                className="project-img h-auto w-full object-cover"
+                style={{ aspectRatio: img.ratio ?? "16 / 9" }}
+              />
+            </div>
+          ))}
+        </div>
+        {row.caption && (
+          <figcaption className="mt-3 max-w-[70ch] text-sm leading-relaxed text-muted-foreground">{row.caption}</figcaption>
+        )}
+      </figure>
+    </FadeIn>
+  )
+
   return (
     <>
     {/* Lightbox overlay */}
@@ -128,6 +161,38 @@ export default function CaseStudyLayout({
         </div>
       </FadeIn>
 
+      {project.chapters && project.chapters.length > 0 ? (
+        /* Chapters: each part of the story followed by its own figures */
+        project.chapters.map((chapter, c) => (
+          <section key={chapter.label} className="mb-28">
+            <div className="mx-auto max-w-[1280px] px-6">
+              <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+                <FadeIn>
+                  <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">{chapter.label}</h2>
+                </FadeIn>
+                <div className="flex flex-col gap-6">
+                  {chapter.lead && (
+                    <FadeIn>
+                      <p className="max-w-[30ch] font-serif text-[length:var(--text-sub)] leading-[var(--leading-heading)] tracking-tight text-foreground">{chapter.lead}</p>
+                    </FadeIn>
+                  )}
+                  {chapter.paragraphs.map((para, i) => (
+                    <FadeIn key={i}>
+                      <p className="max-w-[60ch] leading-[var(--leading-longform)] text-muted-foreground">{para}</p>
+                    </FadeIn>
+                  ))}
+                </div>
+              </div>
+            </div>
+            {chapter.figures && chapter.figures.length > 0 && (
+              <div className="mx-auto mt-16 flex max-w-[1400px] flex-col gap-6 px-6">
+                {chapter.figures.map((row, r) => renderFigureRow(row, `${c + 1}.${r + 1}`))}
+              </div>
+            )}
+          </section>
+        ))
+      ) : (
+      <>
       {/* The Challenge */}
       <div className="mx-auto mb-28 max-w-[1280px] px-6">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
@@ -248,38 +313,7 @@ export default function CaseStudyLayout({
       {/* Story figures: rows of diagrams and work shown between the strategy and the process */}
       {project.storyFigures && project.storyFigures.length > 0 && (
         <div className="mx-auto mb-28 flex max-w-[1400px] flex-col gap-14 px-6">
-          {project.storyFigures.map((row, r) => (
-            <FadeIn as="div" key={row.images[0].src}>
-              <figure className="m-0">
-                <div className={`grid grid-cols-1 gap-4 ${row.images.length === 2 ? "md:grid-cols-2" : row.images.length >= 3 ? "md:grid-cols-3" : ""}`}>
-                  {row.images.map((img, i) => (
-                    <div
-                      key={img.src}
-                      className="project-img-wrap overflow-hidden rounded-2xl bg-primary"
-                      onClick={() => setLightbox(img.src)}
-                      role="button"
-                      tabIndex={0}
-                      aria-label={`View figure ${r + 1}${row.images.length > 1 ? `, image ${i + 1}` : ""} full size`}
-                      onKeyDown={(e) => { if (e.key === "Enter") setLightbox(img.src) }}
-                    >
-                      <Image
-                        src={img.src}
-                        alt={img.alt}
-                        width={1400}
-                        height={788}
-                        sizes={row.images.length > 1 ? "(max-width: 768px) 100vw, 50vw" : "100vw"}
-                        className="project-img h-auto w-full object-cover"
-                        style={{ aspectRatio: img.ratio ?? "16 / 9" }}
-                      />
-                    </div>
-                  ))}
-                </div>
-                {row.caption && (
-                  <figcaption className="mt-3 max-w-[70ch] text-sm leading-relaxed text-muted-foreground">{row.caption}</figcaption>
-                )}
-              </figure>
-            </FadeIn>
-          ))}
+          {project.storyFigures.map((row, r) => renderFigureRow(row, String(r + 1)))}
         </div>
       )}
 
@@ -308,6 +342,9 @@ export default function CaseStudyLayout({
           </div>
         </div>
       </div>
+
+      </>
+      )}
 
       {/* Image gallery */}
       {project.galleryImages && project.galleryImages.length > 0 && (
