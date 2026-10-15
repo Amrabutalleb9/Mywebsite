@@ -133,6 +133,22 @@ h1, h2, h3, h4, h5, h6 {
 .rounded-lg  { border-radius: 14px !important; }
 .rounded-sm  { border-radius: 10px !important; }
 
+/* Apple-style continuous corners. A superellipse curve eases into the
+   straight edge instead of meeting it at a hard tangent, like iOS icons.
+   Radii grow a little so the visual size matches the plain round corner.
+   Browsers without corner-shape keep the round corners above. */
+@supports (corner-shape: superellipse(1.5)) {
+  .rounded-sm, .rounded, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl, .rounded-3xl,
+  .reel-tile-phone, .reel-tile-dash {
+    corner-shape: superellipse(1.5);
+  }
+  .rounded-sm  { border-radius: 12px !important; }
+  .rounded-lg  { border-radius: 17px !important; }
+  .rounded-xl  { border-radius: 22px !important; }
+  .rounded-2xl { border-radius: 30px !important; }
+  .rounded-3xl { border-radius: 40px !important; }
+}
+
 /* Clickable elements show pointer cursor */
 [role="button"], .project-img-wrap {
   cursor: pointer;

@@ -229,7 +229,7 @@ function WorkSection() {
 function LeadSection() {
   return (
     <section id="leadership" className="px-8 pt-24 lg:px-16 lg:pt-32">
-      <div className="mx-auto max-w-6xl">
+      <div>
         <ScrollReveal>
           <SubHeader label="Leadership" />
           <h2 className="mb-12 max-w-[22ch] font-serif text-[length:var(--text-section)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground">
@@ -264,7 +264,7 @@ function LeadSection() {
 function About() {
   return (
     <section id="about" className="px-8 pt-24 lg:px-16 lg:pt-32">
-      <div className="mx-auto max-w-6xl">
+      <div>
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
           <ScrollReveal className="lg:w-[40%]">
             <div className="portrait-wrap overflow-hidden rounded-full">

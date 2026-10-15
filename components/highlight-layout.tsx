@@ -25,8 +25,8 @@ export default function HighlightLayout({
     {lightbox && <Lightbox src={lightbox} onClose={() => setLightbox(null)} />}
 
     <main>
-    <article className="pb-[clamp(80px,10vw,140px)] pt-28">
-      <div className="mx-auto max-w-[1000px] px-6">
+    <article className="pb-[clamp(80px,10vw,140px)] pt-32 lg:pt-40">
+      <div className="px-8 lg:px-16">
 
         {/* Back link */}
         <FadeIn>
@@ -43,7 +43,7 @@ export default function HighlightLayout({
         <FadeIn>
           <p className="mb-4 text-xs font-medium tracking-[var(--tracking-label)] text-muted-foreground/50 uppercase">Project Highlight</p>
         </FadeIn>
-        <FadeIn as="h1" delay={0.05} className="mb-3 max-w-[20ch] text-[length:var(--text-page)] font-bold leading-[var(--leading-tight)] tracking-tight text-foreground">
+        <FadeIn as="h1" delay={0.05} className="mb-3 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
           {project.title}
         </FadeIn>
         <FadeIn delay={0.1} className="mb-10 max-w-[50ch]">
@@ -54,7 +54,7 @@ export default function HighlightLayout({
       </div>
 
       {/* Hero image */}
-      <FadeIn delay={0.15} className="mx-auto mb-14 max-w-[1200px] px-6">
+      <FadeIn delay={0.15} className="mb-14 px-8 lg:px-16">
         {project.featureImage ? (
           <div
             className="project-img-wrap overflow-hidden rounded-xl"
@@ -81,7 +81,7 @@ export default function HighlightLayout({
       </FadeIn>
 
       {/* Meta row , compact */}
-      <FadeIn className="mx-auto mb-16 max-w-[1000px] px-6">
+      <FadeIn className="mb-16 px-8 lg:px-16">
         <div className="flex flex-wrap gap-x-10 gap-y-4 border-b border-border pb-6">
           {[
             { label: "Client", value: project.client },
@@ -99,7 +99,7 @@ export default function HighlightLayout({
       </FadeIn>
 
       {/* Overview , single column, no sidebar */}
-      <div className="mx-auto mb-16 max-w-[1000px] px-6">
+      <div className="mb-16 px-8 lg:px-16">
         <FadeIn>
           <div className="flex max-w-[60ch] flex-col gap-5">
             {project.description.split("\n\n").map((p) => (
@@ -112,7 +112,7 @@ export default function HighlightLayout({
       </div>
 
       {/* 2-column image grid */}
-      <FadeIn className="mx-auto mb-16 max-w-[1200px] px-6">
+      <FadeIn className="mb-16 px-8 lg:px-16">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {project.keyVisuals && project.keyVisuals.length > 0 ? (
             project.keyVisuals.map((visual, i) => (
@@ -149,7 +149,7 @@ export default function HighlightLayout({
 
       {/* Key result + testimonial + buy link */}
       {(project.keyResult || project.testimonial || project.buyLink) && (
-        <div className="mx-auto mb-16 max-w-[1000px] px-6">
+        <div className="mb-16 px-8 lg:px-16">
           <div className="flex flex-col gap-6">
             {project.keyResult && (
               <FadeIn>
@@ -192,7 +192,7 @@ export default function HighlightLayout({
       )}
 
       {/* CTA */}
-      <div className="mx-auto mt-20 max-w-[1000px] pt-12 text-center">
+      <div className="mt-20 pt-12 text-center px-8 lg:px-16">
         <p className="mb-4 text-lg text-muted-foreground">{"Hiring a\u00A0Creative Director?"}</p>
         <a
           href="/contact"
@@ -207,7 +207,7 @@ export default function HighlightLayout({
       </div>
 
       {/* Navigation */}
-      <div className="mx-auto max-w-[1000px] px-6">
+      <div className="px-8 lg:px-16">
         <div className="flex items-stretch justify-between gap-4 border-t border-border pt-8">
           {prev ? (
             <Link href={`/highlights/${prev.slug}`} className="group flex flex-col gap-1 text-left">

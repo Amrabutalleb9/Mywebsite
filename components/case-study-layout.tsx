@@ -60,10 +60,10 @@ export default function CaseStudyLayout({
     {lightbox && <Lightbox src={lightbox} onClose={() => setLightbox(null)} />}
 
     <main>
-    <article className="pb-[clamp(80px,10vw,140px)] pt-28">
+    <article className="pb-[clamp(80px,10vw,140px)] pt-32 lg:pt-40">
 
       {/* Back link */}
-      <div className="mx-auto max-w-[1280px] px-6">
+      <div className="px-8 lg:px-16">
         <FadeIn>
           <Link
             href="/#work"
@@ -76,11 +76,11 @@ export default function CaseStudyLayout({
       </div>
 
       {/* Hero , label + title + subtitle */}
-      <div className="mx-auto max-w-[1280px] px-6">
+      <div className="px-8 lg:px-16">
         <FadeIn>
           <p className="mb-4 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Case Study</p>
         </FadeIn>
-        <FadeIn as="h1" delay={0.05} className="mb-4 max-w-[20ch] text-[length:var(--text-page)] font-bold leading-[var(--leading-tight)] tracking-tight text-foreground">
+        <FadeIn as="h1" delay={0.05} className="mb-4 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
           {project.title}
         </FadeIn>
         <FadeIn delay={0.1} className="mb-8 max-w-[50ch]">
@@ -91,7 +91,7 @@ export default function CaseStudyLayout({
       </div>
 
       {/* Hero image */}
-      <FadeIn delay={0.15} className="mx-auto mb-8 max-w-[1400px] px-6">
+      <FadeIn delay={0.15} className="mb-8 px-8 lg:px-16">
         {project.featureVideo ? (
           <div className="overflow-hidden rounded-2xl">
             <video
@@ -136,7 +136,7 @@ export default function CaseStudyLayout({
 
       {/* Intro , after the hero */}
       {project.intro && project.intro.length > 0 && (
-        <FadeIn as="div" className="mx-auto mt-16 mb-20 max-w-[1280px] px-6">
+        <FadeIn as="div" className="mt-16 mb-20 px-8 lg:px-16">
           <div className="flex max-w-[62ch] flex-col gap-4">
             {project.intro.map((para, i) => (
               <p key={i} className="text-lg leading-relaxed text-foreground/80">{para}</p>
@@ -146,7 +146,7 @@ export default function CaseStudyLayout({
       )}
 
       {/* Impact Statement , with label */}
-      <FadeIn className="mx-auto mb-20 max-w-[1280px] px-6">
+      <FadeIn className="mb-20 px-8 lg:px-16">
         {project.contributions && project.contributions.length > 0 ? (
           <>
             <p className="mb-6 text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-label)] text-accent uppercase">What I Led</p>
@@ -170,7 +170,7 @@ export default function CaseStudyLayout({
       </FadeIn>
 
       {/* Project Snapshot */}
-      <FadeIn className="mx-auto mb-28 max-w-[1280px] px-6">
+      <FadeIn className="mb-28 px-8 lg:px-16">
         <div className="grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-3 lg:grid-cols-6">
           {[
             { label: "Client", value: project.client },
@@ -193,7 +193,7 @@ export default function CaseStudyLayout({
         <>
         {project.chapters.map((chapter, c) => (
           <section key={chapter.label} className="mb-28">
-            <div className="mx-auto max-w-[1280px] px-6">
+            <div className="px-8 lg:px-16">
               <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
                 <FadeIn>
                   <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">{chapter.label}</h2>
@@ -218,14 +218,14 @@ export default function CaseStudyLayout({
               </div>
             </div>
             {chapter.figures && chapter.figures.length > 0 && (
-              <div className="mx-auto mt-16 flex max-w-[1400px] flex-col gap-6 px-6">
+              <div className="mt-16 flex flex-col gap-6 px-8 lg:px-16">
                 {chapter.figures.map((row, r) => renderFigureRow(row, `${c + 1}.${r + 1}`))}
               </div>
             )}
           </section>
         ))}
         {project.showcaseVideo && (
-          <FadeIn className="mx-auto mb-28 max-w-[1400px] px-6">
+          <FadeIn className="mb-28 px-8 lg:px-16">
             <div className="overflow-hidden rounded-2xl bg-primary">
               <video
                 className="aspect-video w-full object-cover"
@@ -248,7 +248,7 @@ export default function CaseStudyLayout({
       ) : (
       <>
       {/* The Challenge */}
-      <div className="mx-auto mb-28 max-w-[1280px] px-6">
+      <div className="mb-28 px-8 lg:px-16">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <FadeIn>
             <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">The Brief</h2>
@@ -278,7 +278,7 @@ export default function CaseStudyLayout({
 
       {/* Image break */}
       {project.processImages && project.processImages.length > 0 && (
-      <FadeIn className="mx-auto mb-28 max-w-[1400px] px-6">
+      <FadeIn className="mb-28 px-8 lg:px-16">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {project.processImages && project.processImages.length > 0
             ? project.processImages.slice(0, 2).map((img, i) => (
@@ -306,7 +306,7 @@ export default function CaseStudyLayout({
       )}
 
       {/* Strategic Approach */}
-      <div className="mx-auto mb-28 max-w-[1280px] px-6">
+      <div className="mb-28 px-8 lg:px-16">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <FadeIn>
             <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">The Turn</h2>
@@ -342,7 +342,7 @@ export default function CaseStudyLayout({
 
       {/* Full-width showcase */}
       {project.showcaseVideo && (
-      <FadeIn className="mx-auto mb-28 max-w-[1400px] px-6">
+      <FadeIn className="mb-28 px-8 lg:px-16">
         {project.showcaseVideo ? (
           <div className="overflow-hidden rounded-2xl bg-primary">
             <video
@@ -366,13 +366,13 @@ export default function CaseStudyLayout({
 
       {/* Story figures: rows of diagrams and work shown between the strategy and the process */}
       {project.storyFigures && project.storyFigures.length > 0 && (
-        <div className="mx-auto mb-28 flex max-w-[1400px] flex-col gap-14 px-6">
+        <div className="mb-28 flex flex-col gap-14 px-8 lg:px-16">
           {project.storyFigures.map((row, r) => renderFigureRow(row, String(r + 1)))}
         </div>
       )}
 
       {/* Process & Evolution */}
-      <div className="mx-auto mb-28 max-w-[1280px] px-6">
+      <div className="mb-28 px-8 lg:px-16">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <FadeIn>
             <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">The Work</h2>
@@ -402,7 +402,7 @@ export default function CaseStudyLayout({
 
       {/* Image gallery */}
       {project.galleryImages && project.galleryImages.length > 0 && (
-      <FadeIn className="mx-auto mb-28 max-w-[1400px] px-6">
+      <FadeIn className="mb-28 px-8 lg:px-16">
         {project.galleryImages && project.galleryImages.length > 0 ? (
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {project.galleryImages.map((img, i) => (
@@ -430,7 +430,7 @@ export default function CaseStudyLayout({
       )}
 
       {/* Results & Impact */}
-      <div className="mx-auto mb-28 max-w-[1280px] px-6">
+      <div className="mb-28 px-8 lg:px-16">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <FadeIn>
             <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">{project.resultsTitle ?? "What Changed"}</h2>
@@ -482,7 +482,7 @@ export default function CaseStudyLayout({
       </div>
 
       {/* Reflection */}
-      <div className="mx-auto mb-28 max-w-[1280px] px-6">
+      <div className="mb-28 px-8 lg:px-16">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <FadeIn>
             <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Looking Back</h2>
@@ -496,7 +496,7 @@ export default function CaseStudyLayout({
       </div>
 
       {/* Credits */}
-      <FadeIn className="mx-auto mb-24 max-w-[1280px] px-6">
+      <FadeIn className="mb-24 px-8 lg:px-16">
         <div className="border-t border-border pt-6">
           <p className="text-xs leading-relaxed text-muted-foreground/50">{project.credits}</p>
         </div>
@@ -518,7 +518,7 @@ export default function CaseStudyLayout({
       </div>
 
       {/* Prev / Next , no line */}
-      <div className="mx-auto max-w-[1280px] px-6">
+      <div className="px-8 lg:px-16">
         <div className="flex items-stretch justify-between gap-4 pt-8">
           {prev ? (
             <Link href={`/work/${prev.slug}`} className="group flex flex-col gap-1 text-left">
