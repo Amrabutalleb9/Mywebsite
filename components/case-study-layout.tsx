@@ -134,25 +134,30 @@ export default function CaseStudyLayout({
         )}
       </FadeIn>
 
-      {/* Overview: the project facts beside the intro, on the same grid as the chapters */}
-      <section className="wrap mt-20 mb-28 lg:mt-28">
+      {/* Project facts: one horizontal band under the hero */}
+      <FadeIn as="div" className="wrap mt-12 lg:mt-16">
+        <dl className="grid grid-cols-2 gap-x-10 gap-y-8 border-t border-border pt-8 md:grid-cols-3">
+          {[
+            { label: "Client", value: project.client },
+            { label: "My role", value: project.role },
+            { label: "Timeline", value: project.timeline },
+            { label: "Scope", value: project.scope },
+            { label: "Industry", value: project.industry },
+            { label: "Markets", value: project.markets },
+          ].map((item) => (
+            <div key={item.label} className="flex flex-col gap-1.5">
+              <dt className="text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-label)] text-accent uppercase">{item.label}</dt>
+              <dd className="max-w-[36ch] text-sm leading-snug text-muted-foreground whitespace-pre-line">{item.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </FadeIn>
+
+      {/* Overview: the intro, on the same grid as the chapters */}
+      <section className="wrap mt-24 mb-28 lg:mt-32">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
-          <FadeIn as="div">
-            <dl className="grid grid-cols-2 gap-x-8 lg:grid-cols-1">
-              {[
-                { label: "Client", value: project.client },
-                { label: "My role", value: project.role },
-                { label: "Timeline", value: project.timeline },
-                { label: "Scope", value: project.scope },
-                { label: "Industry", value: project.industry },
-                { label: "Markets", value: project.markets },
-              ].map((item) => (
-                <div key={item.label} className="flex flex-col gap-1.5 border-t border-border py-4">
-                  <dt className="text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-label)] text-accent uppercase">{item.label}</dt>
-                  <dd className="max-w-[40ch] text-sm leading-snug text-muted-foreground whitespace-pre-line">{item.value}</dd>
-                </div>
-              ))}
-            </dl>
+          <FadeIn>
+            <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Overview</h2>
           </FadeIn>
           <FadeIn as="div" className="flex max-w-[60ch] flex-col gap-6">
             {project.intro && project.intro.length > 0 ? (

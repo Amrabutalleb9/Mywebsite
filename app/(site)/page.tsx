@@ -265,8 +265,8 @@ function About() {
   return (
     <section id="about" className="px-8 pt-32 lg:px-16 lg:pt-48">
       <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
-          <ScrollReveal className="lg:w-[40%]">
+        <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-center lg:gap-24">
+          <ScrollReveal className="w-full max-w-[420px] lg:w-[38%] lg:shrink-0">
             <div className="portrait-wrap overflow-hidden rounded-full">
               <Image
                 src="/images/amr-portrait-v3.webp"
@@ -278,7 +278,7 @@ function About() {
             </div>
           </ScrollReveal>
 
-          <div className="lg:w-[60%]">
+          <div className="lg:w-[50%] lg:max-w-[36rem]">
             <ScrollReveal>
               <SubHeader label="About" />
               <h2 className="mb-8 font-serif text-[length:var(--text-section)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground">
@@ -286,12 +286,12 @@ function About() {
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <p className="mb-6 max-w-[60ch] leading-relaxed text-muted-foreground">
+              <p className="mb-6 text-[1.0625rem] leading-relaxed text-muted-foreground">
                 {"I\u00A0started with a\u00A0pen: illustration, calligraphy, Arabic and\u00A0Latin letters drawn by\u00A0hand until they looked right. Thirteen years later I\u00A0run brand, campaign and\u00A0product teams, and\u00A0most of\u00A0my\u00A0job is\u00A0building the\u00A0system the\u00A0work runs\u00A0through."}
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.15}>
-              <p className="mb-8 max-w-[60ch] leading-relaxed text-muted-foreground">
+              <p className="mb-8 text-[1.0625rem] leading-relaxed text-muted-foreground">
                 {"Today that\u2019s a\u00A025-person team across design, product, video, support and\u00A0PR, with five or\u00A0six projects live at\u00A0once. The next team I\u00A0build will be\u00A0in\u00A0Europe."}
               </p>
               <Link href="/about" className="text-link inline-flex items-center gap-2 text-sm font-medium text-foreground">

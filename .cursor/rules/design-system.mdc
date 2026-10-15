@@ -187,4 +187,8 @@ Two widths, used on every page (`globals.css`):
 
 ## Case-study top (Oct 2026)
 
-Title, subtitle, hero media, then an Overview on the chapter grid: project facts stacked on the left, the intro on the right (first paragraph large). "What I led" follows as its own section on the same grid (label left, two-column list with serif titles right). Case studies without an intro show the impact statement there instead.
+Title, subtitle, hero media, then the project facts as one horizontal band (three columns, two rows, hairline above), then an Overview on the chapter grid (label left, intro right, first paragraph large). "What I led" follows as its own section on the same grid (label left, two-column list with serif titles right). Case studies without an intro show the impact statement there instead.
+
+## Homepage About balance (Oct 2026)
+
+The portrait and the text are centred as a group (`lg:items-center lg:justify-center`, portrait 38% capped at 420px, text max 36rem) so the round portrait doesn't pull the section to the left.
