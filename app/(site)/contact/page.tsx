@@ -45,12 +45,13 @@ export default function ContactPage() {
       <div className="flex flex-col gap-16 lg:flex-row lg:gap-20">
         <div className="lg:w-1/2">
           <FadeIn>
-            <h1 className="mb-6 font-serif text-[length:var(--text-page)] font-normal tracking-tight text-foreground">
+            <p className="mb-4 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">{"Let\u2019s talk"}</p>
+            <h1 className="mb-8 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
               {"Hiring, or want to\u00A0collaborate?"}
             </h1>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <p className="mb-10 max-w-md leading-relaxed text-muted-foreground">
+            <p className="mb-10 max-w-[50ch] text-lg leading-relaxed text-muted-foreground">
               {"Tell me about the\u00A0role or\u00A0what you\u2019d like to\u00A0build together. I\u00A0reply within 24\u00A0hours."}{" "}
               <a href="/working-together" className="text-foreground underline underline-offset-4 transition-colors hover:text-accent">{"How collaborations\u00A0work"}</a>
             </p>
@@ -113,7 +114,7 @@ export default function ContactPage() {
                   <a href="mailto:hello@amrabutalleb.com" className="underline">hello@amrabutalleb.com</a>
                 </p>
               )}
-              <button type="submit" disabled={sending} className="cursor-pointer rounded-full border border-foreground bg-primary px-8 py-3 font-medium text-primary-foreground transition-all duration-300 hover:bg-foreground hover:text-background disabled:opacity-50">
+              <button type="submit" disabled={sending} className="cursor-pointer rounded-full border border-foreground bg-primary px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] uppercase text-primary-foreground transition-all duration-300 hover:bg-foreground hover:text-background disabled:opacity-50">
                 {sending ? "Sending\u2026" : "Send\u00A0Message"}
               </button>
               <p className="text-center text-xs text-muted-foreground">
