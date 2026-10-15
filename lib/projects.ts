@@ -70,8 +70,8 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "overpowered",
     title: "Overpowered",
-    subtitle: tp("Turning a design studio into an agency that knew who it was for"),
-    impactStatement: tp("Repositioned for small and mid-sized businesses · Built a 25-person team across five disciplines · Won SPLT, a four-sided fitness platform, and led its product design"),
+    subtitle: tp("Turning a six-person studio into a 25-person agency in seven months"),
+    impactStatement: tp("Grew the team from 6 to 25 in seven months · Signed five new clients, including SPLT · Repositioned for small and mid-sized businesses"),
     client: tp("Overpowered\nCreative & digital agency, London"),
     role: tp("Creative Director\nReported to the CEO · Team of 25"),
     teamSize: tp("Art directors plus graphic, video, 3D, copy and UX/UI teams"),
@@ -95,15 +95,15 @@ export const caseStudies: CaseStudy[] = [
       { title: "Identity & website direction", description: tp("Directed the new identity, dropped the gun imagery and tested visual elements in small Instagram campaigns in the UAE, the UK and Egypt. Then directed five website concepts with the team.") },
     ],
     results: [
-      tp("A clear position for small and mid-sized businesses, and a separate offer, OP Labs, for product and technology buyers"),
-      tp("An outreach system the team ran without me, from the first LinkedIn message to the closing call"),
-      tp("A 25-person team with a hiring test, a review rhythm every two or three days and a designer promoted to Art Director"),
-      tp("A new identity without the gun imagery, used across the agency for about a year"),
-      tp("Won SPLT, a four-sided fitness marketplace, with a rebuilt scope and cost, then led its product design across 330+ screens"),
-      tp("Turned a mis-priced $8k proposal into a two-phase $10k engagement, and won both phases"),
-      tp("Rebuilt Alfy’s campaigns for the architects who buy marble, and social engagement rose 70%"),
+      tp("Grew the team from 6 to 25 people in seven months, across five disciplines"),
+      tp("Signed five new clients, including SPLT, a four-sided fitness platform"),
+      tp("Repositioned the agency for small and mid-sized businesses, with OP Labs for product buyers"),
+      tp("Moved delivery from WhatsApp to Slack, Trello and Google Workspace, with fewer missed deadlines"),
+      tp("Built an outreach system the team ran without me, tracked lead by lead in a CRM"),
+      tp("Replaced the brand with an identity that ran for about a year"),
+      tp("Refocused Alfy’s campaigns on the architects who buy marble, lifting social engagement 70%"),
     ],
-    reflection: tp("I was hired as a creative director and spent half my time on the business around the work. That half is what makes the creative work possible. An agency does its best work once it knows who it serves, how it wins them and what standard it holds itself to."),
+    reflection: tp("I was hired to lead the creative work and spent half my time building the business around it. That half is what let the work get good. An agency does its best work once it knows who it serves, how it wins them and how its people work together."),
     credits: tp("Creative Direction & Agency Strategy: Amr Abu-Talleb · Art Direction & Design: the Overpowered team"),
     featured: true,
     featureImage: "/images/op-hero-v1.webp",
@@ -117,34 +117,32 @@ export const caseStudies: CaseStudy[] = [
       {
         label: "The brief",
         paragraphs: [
-          tp("Overpowered was a London-registered creative studio working across the UK, the UAE and Egypt. Its CEO wanted to turn it into a full-service agency, and his first plan was a global operation of more than forty people from day one."),
-          tp("I advised against it before I joined. I modelled the first six to twelve months to breakeven and proposed a smaller agency that could earn its way to that scale. When the CEO was ready to build, he brought me in as Creative Director, reporting directly to him. The mandate was to make the agency worth hiring without interrupting the client work that was paying for it."),
+          tp("Overpowered was a six-person creative studio, registered in London and working across the UK, the UAE and Egypt. Its CEO wanted a full-service agency, and his first plan was a global operation of more than forty people from day one."),
+          tp("I advised against it before I joined. I modelled the first six to twelve months to breakeven and proposed an agency that would earn its way to that size. When the CEO was ready, he hired me as Creative Director, reporting to him, to build that agency without interrupting the client work that paid for it."),
         ],
       },
       {
         label: "The audit",
         paragraphs: [
-          tp("I started by reading the agency the way a buyer would, and the gaps were commercial before they were visual. The homepage claimed ten years of design-driven product development, then showed empty service cards where the case studies should have been. Six services, from branding to AI data analysis, were offered to anyone, under a headline about digital dominance that could have belonged to any studio. Claims such as saving clients 40% of their time had nothing behind them."),
-          tp("The brand made it harder still. Gun imagery ran from the logo to every social post, which ruled out paid advertising in the EU and worked against the corporate clients the agency wanted in Dubai. Behind the brand there was no asset library, no logo system, no outreach plan, no hiring process and no agreed standard for good work. Growth depended entirely on the CEO’s personal network."),
+          tp("I read the agency the way a buyer would. The homepage claimed ten years of product development and showed empty service cards. Six services, from branding to AI data analysis, were offered to anyone. The gun imagery that ran through the brand ruled out paid ads in the EU and put off the corporate clients the agency wanted in Dubai."),
+          tp("Inside, work was assigned and reported in WhatsApp groups, so nobody could see who owned what. There was no asset library, no hiring process, no outreach plan and no shared standard for good work."),
         ],
         figures: [
           { images: [{ src: "/images/op-fig-01-v5.webp", alt: tp("The audit: six findings beside the old Overpowered homepage and its empty service cards, December 2024") }], caption: tp("The site as I found it, December 2024.") },
         ],
       },
       {
-        label: "The diagnosis",
+        label: "The call",
         lead: tp("The problem wasn’t the logo. Overpowered was selling everything to everyone."),
         paragraphs: [
-          tp("Rebranding first would have been cosmetic. The agency needed a defined buyer, a focused offer it could deliver consistently, and a way of winning work beyond one person’s contacts. The identity would follow from those decisions, not lead them."),
-          tp("Budget sat with the CEO, so every recommendation reached him as an investment case, with its cost, the people it needed and what the next quarter would deliver."),
+          tp("So the brand would come last. First the agency needed a buyer, a focused offer and a way to win work beyond the CEO’s contacts. Each recommendation reached the CEO as an investment case, with its cost, the people it needed and what the next quarter would deliver."),
         ],
       },
       {
         label: "Positioning",
         paragraphs: [
-          tp("We positioned Overpowered for small and mid-sized businesses, and the evidence made the case. Word of mouth and the CEO’s network already reached that market in volume, and the agency’s strongest existing work and case studies were for exactly those clients. That gave us a credible pitch on day one, and every new project added proof for the next."),
-          tp("Their problems also matched what the team did best, brands that blended in and websites that didn’t convert. The long service menu came down to branding, web and app, and video. Websites moved to Webflow and Framer to fit SMB budgets and timelines, and every engagement followed one four-step process from discovery to launch."),
-          tp("Product and technology buyers needed a different conversation. A CTO buys scope, architecture and delivery. A marketing lead buys distinction. We separated them into two offers, OP and OP Labs, each with its own audience, pitch and outreach."),
+          tp("We chose small and mid-sized businesses because the agency could win them straight away. Word of mouth and the CEO’s network reached them in volume, and the strongest work in the portfolio was already for them. Their problems, brands that blended in and websites that didn’t convert, matched what the team did best."),
+          tp("The menu came down to branding, web and app, and video, with sites built on Webflow and Framer to fit SMB budgets. Product buyers got their own offer, OP Labs, because a CTO buys scope and architecture while a marketing lead buys distinction."),
         ],
         figures: [
           { images: [{ src: "/images/op-fig-02-v3.webp", alt: tp("Positioning before and after: from digital dominance for anyone to more than ordinary for small and mid-sized businesses, three services, one process") }], caption: tp("Positioning, before and after.") },
@@ -152,10 +150,11 @@ export const caseStudies: CaseStudy[] = [
         ],
       },
       {
-        label: "Go-to-market",
+        label: "Winning clients",
         paragraphs: [
-          tp("The growth plan ran in two stages. Stage one used the assets the agency already had to win early projects and build proof. The CEO worked his network directly, the agency published twice a week on LinkedIn, Instagram and Facebook, released collaborative projects on Behance and Dribbble, and bid daily on Freelancer. Stage two turned that proof into a measurable pipeline, with research into ideal clients and niche markets abroad, small paid tests on Instagram and Facebook, and a CRM tracking every lead to signature."),
-          tp("Outreach was designed to run without me. Each prospect received three days of LinkedIn engagement before a first message. Openers ran in two versions, and the stronger one became the standard. Five structured follow-ups came after, with separate scripts for OP and OP Labs buyers. I wrote the strategy, the messaging and the targeting, the team operated it from the CRM, and I joined the CEO on closing calls."),
+          tp("Stage one turned the agency’s existing reach into proof. The CEO worked his network, the agency posted twice a week on LinkedIn, Instagram and Facebook, released collaborative projects on Behance and Dribbble, and bid daily on Freelancer. Stage two built a pipeline we could measure, with targeted research, small paid tests and a CRM that tracked every lead."),
+          tp("SPLT came through the CEO’s network in that first stage, as a brief for a fitness store with an inflated development quotation. I rebuilt the scope and cost around what the business really needed, a platform for members, trainers, vendors and its own team. We won it, and I led its product design. It was one of five new clients the agency signed in seven months."),
+          tp("I wrote the outreach system so the team could run it without me. Every prospect saw three days of LinkedIn engagement before a first message, two openers were tested against each other, and five follow-ups came after, with separate scripts for OP and OP Labs. I joined the CEO on closing calls."),
         ],
         figures: [
           { images: [{ src: "/images/op-fig-04-v5.webp", alt: tp("The two-stage go-to-market plan: the CEO’s network, social posts, Behance and Dribbble projects and Freelancer bids first, then paid ads and a CRM-tracked pipeline") }], caption: tp("Two stages, from proof to pipeline.") },
@@ -165,19 +164,27 @@ export const caseStudies: CaseStudy[] = [
       {
         label: "The team",
         paragraphs: [
-          tp("The studio grew to 25 people across graphic, video, 3D, copy and UX/UI, a mix of full-time, part-time and consultant roles. Two art directors led the creative teams, one across branding and collateral, the other across video, 2D and 3D. UX/UI and copy reported to me directly. Staffing, promotions and performance reviews were mine, and the budget remained with the CEO."),
-          tp("I hire for integrity first and the will to learn second. Skills can be sharpened. Anything else can be fixed. I wrote the hiring test, a brief for a premium olive-oil brand built on Arabic calligraphy, and reviewed every candidate personally. One designer grew into the Art Director role during my time there, and I promoted them."),
-          tp("Standards were set in the room. Every two or three days the team presented its work, the art directors guided the discussion, and I spoke last, so the team’s judgement developed before mine was heard. Every case study came back with written direction on reasoning, personas, testing and typography, with two non-negotiables. No placeholder copy, and contrast that passes accessibility checks."),
+          tp("The studio grew from six people to 25 across graphic, video, 3D, copy and UX/UI. Two art directors led the creative teams, one across branding and the other across video, 2D and 3D, while UX/UI and copy reported to me. Hiring, promotions and reviews were mine."),
+          tp("I hire for integrity first and the will to learn second. Skills can be sharpened. Anything else can be fixed. I wrote the hiring test, a premium olive-oil brand built on Arabic calligraphy, reviewed every candidate and promoted one of our designers to Art Director."),
         ],
         figures: [
           { images: [{ src: "/images/op-fig-06-v5.webp", alt: tp("Org chart: CEO, Creative Director, an art director for branding over graphic, an art director for video over video and 3D, and UX/UI and copy reporting directly") }], caption: tp("Team structure. Roles only.") },
         ],
       },
       {
+        label: "Operations",
+        paragraphs: [
+          tp("Twenty-five people can’t run on group chats, so I moved the agency onto one system. The CEO set up a Google Workspace account for everyone, and all work lived in one shared space. Each discipline and client got a Slack channel. Every task, owner and deadline went onto weekly Trello boards, so I could see each person’s load before assigning more."),
+          tp("A fixed rhythm held it together. The whole team met weekly, I checked in with the art directors every two days, and every two or three days the team reviewed its work, with me speaking last. Fewer deadlines slipped and handovers stopped getting lost."),
+        ],
+        figures: [
+          { images: [{ src: "/images/op-fig-07-v1.webp", alt: tp("Operations: from tasks in WhatsApp groups to Slack, weekly Trello boards and Google Workspace, with a weekly meeting, art director check-ins every two days and reviews every two to three days") }], caption: tp("From group chats to one system.") },
+        ],
+      },
+      {
         label: "Identity",
         paragraphs: [
-          tp("Only then did we redesign the brand. I directed the new identity with the team and removed the gun imagery entirely. The system was built around a connected O and P, with logo variations, an OP Labs lock-up, a single palette and type scale, and a pattern drawn from the logo’s own geometry."),
-          tp("Direction was decided by evidence rather than taste, including mine. We tested visual elements through small Instagram campaigns in the UAE, the UK and Egypt before committing. The guidelines were completed in January 2025, and the identity carried the agency’s social, proposals and materials for about a year."),
+          tp("With the business defined, I directed the new identity. The gun imagery went. In its place came a connected O and P, logo variations, an OP Labs lock-up, one palette, one type scale and a pattern drawn from the logo’s geometry. We tested its elements in small Instagram campaigns in the UAE, the UK and Egypt before committing, and it ran across the agency’s social, proposals and materials for about a year."),
         ],
         figures: [
           { images: [{ src: "/images/op-fig-09-v2.webp", alt: tp("Pages from the January 2025 brand guidelines: logomark, logo variations, OP Labs lock-up, colour, type and pattern") }], caption: tp("From the January 2025 brand guidelines.") },
@@ -190,12 +197,11 @@ export const caseStudies: CaseStudy[] = [
       {
         label: "The website",
         paragraphs: [
-          tp("The website came last by design. Launching a new site before the new case studies existed would have repeated the original problem, so it waited for the work."),
-          tp("I led the team through five concepts, each a different way into the same story of services, team and results. Power Up stages the site like a game powering on. Interactive Blueprint maps the brand as modules to explore. Origami Fold unfolds a single sheet into each service. Forge & Conquer is raw and industrial, and Command Center frames the agency as mission control for its clients’ brands. The strongest direction became a cinematic story in four acts, paced after David Fincher’s storytelling. I wrote the briefs for the UI/UX, graphic, motion and 3D teams and reviewed the design section by section with the art directors."),
+          tp("The website waited for the work, because a new site without new case studies would have repeated the old problem. I led five concepts with the team and took the strongest into a cinematic story in four acts, briefing the UI/UX, graphic, motion and 3D teams and reviewing each section with the art directors."),
         ],
         figures: [
           { images: [{ src: "/images/op-concept-1-v1.webp", alt: tp("Concept 01, Power Up: Power up your brand, with a charging bar that unlocks branding, web, video, the squad and results"), ratio: "16 / 10" }, { src: "/images/op-concept-4-v1.webp", alt: tp("Concept 04, Forge and Conquer: Forged to conquer, over the logomark glowing on an anvil"), ratio: "16 / 10" }] },
-          { images: [{ src: "/images/op-concept-2-v1.webp", alt: tp("Concept 02, Interactive Blueprint: the blueprint behind big brands, with branding, web and video modules"), ratio: "16 / 10" }, { src: "/images/op-concept-3-v1.webp", alt: tp("Concept 03, Origami Fold: unfold what your brand can be, with folded paper service cards"), ratio: "16 / 10" }, { src: "/images/op-concept-5-v1.webp", alt: tp("Concept 05, Command Center: your brand, under control, with live module panels and a data globe"), ratio: "16 / 10" }], caption: tp("The five website concepts.") },
+          { images: [{ src: "/images/op-concept-2-v2.webp", alt: tp("Concept 02, Interactive Blueprint: the logomark drawn as a technical construction, with branding, web and video modules called out"), ratio: "16 / 10" }, { src: "/images/op-concept-3-v1.webp", alt: tp("Concept 03, Origami Fold: unfold what your brand can be, with folded paper service cards"), ratio: "16 / 10" }, { src: "/images/op-concept-5-v2.webp", alt: tp("Concept 05, Command Center: your brand, under control, above a glowing globe with London, Brussels, Cairo and Dubai marked"), ratio: "16 / 10" }], caption: tp("The five website concepts.") },
         ],
       },
     ],
