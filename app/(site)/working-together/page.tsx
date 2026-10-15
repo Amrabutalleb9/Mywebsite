@@ -3,21 +3,22 @@ import type { Metadata } from "next"
 import { ArrowUpRight } from "lucide-react"
 import FadeIn from "@/components/fade-in"
 import { pageMeta } from "@/lib/seo"
+import { tp } from "@/lib/typeset"
 
 export const metadata: Metadata = pageMeta({
   title: "Working Together · Amr Abu-Talleb, Creative Director",
   description:
-    "Rebrands led with your in-house team, interim creative direction, agency partnerships and fast product prototypes. How a collaboration with Amr Abu-Talleb works.",
+    "Contract and interim creative direction across brand, digital product and agency positioning. How a collaboration with Amr Abu-Talleb works.",
   path: "/working-together",
 })
 
 const ways = [
-  { title: "Leading a\u00A0rebrand with your\u00A0team", desc: "Your designers do the\u00A0work. I\u00A0set the\u00A0direction, run the\u00A0reviews and\u00A0make the\u00A0calls, and\u00A0the\u00A0guidelines and\u00A0asset library stay with you when we\u2019re\u00A0done." },
-  { title: "Interim creative\u00A0director", desc: "Between hires, or\u00A0while you look for\u00A0the\u00A0right person. I\u00A0keep the\u00A0standard, the\u00A0pipeline and\u00A0the\u00A0client relationships steady, and\u00A0help you hire the\u00A0person who replaces\u00A0me." },
-  { title: "Partnering with\u00A0agencies", desc: "For agencies that need a\u00A0creative lead on\u00A0a\u00A0pitch or\u00A0a\u00A0multi-market account, or\u00A0work that has to\u00A0hold up\u00A0in\u00A0Arabic and\u00A0English at\u00A0the\u00A0same\u00A0time." },
-  { title: "Setting up a\u00A0studio or\u00A0agency", desc: "Positioning, service lines, the\u00A0process, outreach, the\u00A0hiring test and\u00A0the\u00A0review rhythm. I\u2019ve built the\u00A0whole kit for\u00A0an\u00A0agency before, and\u00A0I\u00A0hand it\u00A0over in\u00A0writing." },
-  { title: "Scoping a\u00A0product before it\u2019s\u00A0built", desc: "I\u00A0rewrite the\u00A0brief and\u00A0the\u00A0quotation, map every role that will use the\u00A0product, and\u00A0give the\u00A0team a\u00A0scope the\u00A0client can\u00A0sign." },
-  { title: "Testing an\u00A0idea before you build\u00A0it", desc: "When a\u00A0product idea needs proof, I\u00A0take it\u00A0from brief to\u00A0a\u00A0working staging build in\u00A0days, so\u00A0the\u00A0decision gets made on\u00A0something you can\u00A0click." },
+  { title: tp("Creative direction and rebranding"), desc: tp("Setting the direction for a project, developing concepts with the team, and guiding the work through design reviews and delivery. This covers brand repositioning, identity systems, campaigns and art direction.") },
+  { title: tp("Brand strategy and identity"), desc: tp("Working through audience, positioning, brand personality and visual direction before moving into identity design. I can lead the process or work alongside an existing strategy and design team.") },
+  { title: tp("Digital product and UX/UI"), desc: tp("Defining product structure, mapping user roles and journeys, prioritising features and designing interfaces. I can work with a team before development starts, or join an existing product to improve its experience and direction.") },
+  { title: tp("Agency positioning and operations"), desc: tp("Helping agencies clarify what they offer, who they serve and how they deliver. This can cover service structure, team responsibilities, project workflows, review processes and outreach planning.") },
+  { title: tp("Arabic and English typography"), desc: tp("Developing identities and creative work across both scripts, with attention to lettering, typography, visual consistency and the character of the brand across markets.") },
+  { title: tp("Prototyping and creative technology"), desc: tp("Using code and AI-assisted tools to explore ideas, test interactions and build prototypes before committing to full development.") },
 ]
 
 export default function WorkingTogetherPage() {
@@ -26,17 +27,16 @@ export default function WorkingTogetherPage() {
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <h1 className="mb-8 max-w-[22ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
-            <span className="block">{"Some work needs a\u00A0creative\u00A0director"}</span>
-            <span className="block">{"before it\u00A0needs a\u00A0full-time\u00A0one."}</span>
+            {tp("Some projects need someone to own the direction.")}
           </h1>
         </FadeIn>
-        <FadeIn delay={0.1}>
-          <p className="max-w-[60ch] text-xl leading-relaxed text-foreground">
-            {"Most of\u00A0what I\u00A0do is\u00A0full-time leadership, and\u00A0that\u2019s what I\u2019m looking for\u00A0in\u00A0Europe. But some teams need a\u00A0creative director for\u00A0one big piece of\u00A0work first: a\u00A0rebrand, a\u00A0launch, or\u00A0a\u00A0product that has to\u00A0ship. I\u00A0work inside your team, not beside it,\u00A0and\u00A0I\u00A0leave the\u00A0system behind when I\u00A0go."}
-          </p>
+        <FadeIn delay={0.1} as="div" className="flex max-w-[60ch] flex-col gap-6">
+          <p className="text-xl leading-relaxed text-foreground">{tp("I take on selected contract and interim engagements across creative direction, brand and digital product. That can mean joining an existing team to guide a rebrand, helping an agency clarify its positioning and services, or defining a digital product before development begins.")}</p>
+          <p className="text-[1.0625rem] leading-[1.75] text-muted-foreground">{tp("My involvement depends on the project. I can lead the direction and reviews, work directly on strategy and design, or help the team through decisions that have stalled progress. Either way, I stay close to the execution, whether that means guiding the work or getting hands-on myself.")}</p>
         </FadeIn>
 
-        <FadeIn as="div" className="mt-24 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <h2 className="mt-24 font-serif text-[length:var(--text-sub)] font-normal tracking-tight text-foreground">What I work on</h2>
+        <FadeIn as="div" className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {ways.map((w) => (
             <div key={w.title} className="capability-card rounded-sm bg-surface p-6 lg:p-8">
               <h2 className="mb-3 font-medium text-foreground">{w.title}</h2>
@@ -46,18 +46,19 @@ export default function WorkingTogetherPage() {
         </FadeIn>
 
         <FadeIn as="div" className="mt-24 flex max-w-[62ch] flex-col gap-6 text-[1.0625rem] leading-[1.75] text-muted-foreground">
-          <h2 className="font-serif text-[length:var(--text-sub)] font-normal tracking-tight text-foreground">How it works</h2>
-          <p>{"It starts with a\u00A0call about the\u00A0problem, not the\u00A0deliverables. Then a\u00A0short written scope: what we\u2019ll make, who decides, and\u00A0how we\u2019ll know it\u00A0worked. Reviews run every two or\u00A0three days, so\u00A0you see the\u00A0work while it\u00A0can still change, not only when it\u2019s\u00A0finished."}</p>
-          <p>{"The case studies show what that looks like: an\u00A0agency repositioned and\u00A0staffed from the\u00A0ground up, a\u00A0quotation rewritten before a\u00A0single screen existed, a\u00A0brochure site rebuilt into a\u00A0funnel that lifted sales 12%\u00A0in\u00A0its first month, and\u00A0a\u00A0212-page book delivered through round after round of\u00A0edits."}</p>
+          <h2 className="font-serif text-[length:var(--text-sub)] font-normal tracking-tight text-foreground">How I work</h2>
+          <p>{tp("We start with a conversation about the problem, the context and what needs to change. Before the work begins, I put the scope in writing, so the deliverables, responsibilities, decision-making and constraints are clear.")}</p>
+          <p>{tp("I prefer to review work while it’s still developing, rather than wait until a finished design needs to be reconsidered. That gives us room to challenge decisions, explore alternatives and refine the direction before too much time has been invested.")}</p>
+          <p>{tp("At handover, I provide the agreed deliverables and documentation, along with the working files the team needs to carry on.")}</p>
         </FadeIn>
 
         <FadeIn as="div" className="mt-16 flex max-w-[62ch] flex-col gap-3 text-[1.0625rem] leading-[1.75] text-muted-foreground">
           <h2 className="font-serif text-[length:var(--text-sub)] font-normal tracking-tight text-foreground">Practical details</h2>
-          <p>{"I\u2019m based in\u00A0Cairo and\u00A0relocating to\u00A0Europe. I\u2019m available in\u00A030\u00A0days and\u00A0can start remotely from day one, as\u00A0a\u00A0contractor or\u00A0through an\u00A0employer of\u00A0record. On-site roles in\u00A0the\u00A0UK and\u00A0the\u00A0EU need visa\u00A0sponsorship."}</p>
+          <p>{tp("Based in Cairo, relocating to Europe. Available within 30 days. Remote work can start straight away, as a contractor or through an employer of record; on-site roles in the UK or EU will need sponsorship.")}</p>
         </FadeIn>
 
         <FadeIn as="div" className="mt-16 flex flex-col items-start gap-5">
-          <p className="text-lg text-foreground">{"Tell me what you\u2019re working\u00A0on."}</p>
+          <p className="text-lg text-foreground">{tp("Tell me about the project, the team or the problem you’re working through.")}</p>
           <div className="flex flex-wrap gap-3">
             <Link
               href="/contact"

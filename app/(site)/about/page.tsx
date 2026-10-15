@@ -15,52 +15,6 @@ export const metadata: Metadata = pageMeta({
   type: "profile",
 })
 
-const aboutSections = [
-  {
-    title: tp("How I lead"),
-    body: [
-      tp("Much of my work happens before a finished design reaches the client: deciding who should take on a brief, considering the team’s workload, and helping people get to a stronger idea."),
-      tp("When we review work, I prefer to speak last. Designers present their decisions, colleagues challenge what isn’t working, and the art directors guide the discussion. I want the team to have a chance to work through the problem before my opinion enters the room."),
-      tp("I step in when the work drifts from the brief, the brand, or the people it is meant for. Otherwise, I want designers to develop their own judgment, not get good at guessing what I would choose."),
-      tp("That matters to me more than having every decision pass through my desk."),
-    ],
-  },
-  {
-    title: tp("Art and design"),
-    body: [
-      tp("I’m an artist at heart, but I work in design."),
-      tp("Art can exist for its own sake. Design has to answer to the people who encounter it and the business behind it. The most interesting projects leave room for both: an idea with its own character that still does the job it was made to do."),
-      tp("I encourage designers to draw from their own experiences, interests and values. We explore those ideas, challenge them, and work out what belongs in the final piece. I don’t want everything to end up looking the same just because it passed through the same team."),
-      tp("The brief sets the direction. It shouldn’t erase the person doing the work."),
-    ],
-  },
-  {
-    title: tp("Arabic and Latin"),
-    body: [
-      tp("I work in Arabic and English as a typographer and calligrapher. I’ve built identities that carry both scripts while feeling like one brand."),
-      tp("Arabic and Latin have different rhythms, proportions and visual behaviours. Designing for both takes more than translating a word or choosing two matching fonts. Each script needs to feel natural on its own, while the identity still holds together across languages."),
-      tp("It’s the part of my practice that takes me closest to where I started, and it’s still work I enjoy doing by hand."),
-    ],
-  },
-  {
-    title: tp("The tools change. The judgment doesn’t."),
-    body: [
-      tp("AI sits in my toolbox alongside the brush and the pen tool. I use it for research, repetitive tasks and exploring directions quickly. It gives me more options to consider and reduces the time spent on work that doesn’t need my full attention."),
-      tp("It doesn’t decide which idea is worth pursuing. I still have to judge the direction, make the design decisions and take responsibility for the result."),
-      tp("I also prototype in code, often taking an idea from a brief to a working staging build in days. For me, a prototype is useful because people can interact with it, find what doesn’t work, and have a more concrete conversation about what comes next."),
-    ],
-  },
-  {
-    title: tp("What I’m proudest of"),
-    body: [
-      tp("I’ve been involved in hiring more than fifty people. Some of the designers I’ve helped bring into teams now lead teams of their own."),
-      tp("I look for integrity, curiosity and a willingness to learn. Skills can be sharpened through practice and good feedback. I can help someone become a better designer; I can’t supply the curiosity or integrity for them."),
-      tp("Today, I lead a team of around twenty-five across design, product build, video and customer support, with several projects moving at once."),
-      tp("I’m interested in creative leadership roles in Europe where I can stay close to the work, help a team do its best work, and take part in the decisions that shape the business around it."),
-    ],
-  },
-]
-
 export default function AboutPage() {
   return (
     <main className="px-8 pt-32 pb-24 lg:px-16 lg:pt-40 lg:pb-32">
@@ -70,40 +24,30 @@ export default function AboutPage() {
         <div className="order-2 min-w-0 lg:order-none lg:w-[55%]">
 
           <FadeIn>
-            <h1 className="mb-6 font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
-              {tp("A letter has nowhere to hide.")}
+            <h1 className="mb-10 font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
+              <span className="block">{tp("Work worth signing.")}</span>
+              <span className="block">{tp("Teams built to outgrow me.")}</span>
             </h1>
           </FadeIn>
-          <FadeIn delay={0.05}>
-            <p className="mb-10 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">
-              {tp("Amr Abu-Talleb · Creative Director across brand, campaigns and digital products")}
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.1} as="div" className="mb-12 flex max-w-[60ch] flex-col gap-5 text-xl leading-relaxed text-foreground">
-            <p>{tp("I learned that drawing Arabic calligraphy and Latin letterforms by hand. Change the weight of a stroke, tighten the space around it, or shift the balance between two forms, and the whole word takes on a different character. With letters, even a small decision is visible.")}</p>
-            <p>{tp("I still look at design that way.")}</p>
+          <FadeIn delay={0.1}>
+            <p className="mb-12 max-w-[60ch] text-xl leading-relaxed text-foreground">{tp("I’m Amr Abu-Talleb. Before I directed teams, I drew Arabic calligraphy and English lettering by hand. It taught me how much the weight of a stroke or the space around a curve can change the character of a whole word. I still look at brands, campaigns and digital products that way.")}</p>
           </FadeIn>
 
           {/* Full Bio */}
           <FadeIn delay={0.15} as="div" className="flex max-w-[62ch] flex-col gap-6 text-[1.0625rem] leading-[1.75] text-muted-foreground">
-            <p>{tp("Over thirteen years, my work has moved from typography and identity into campaigns, digital products and creative leadership. The scale is different, but I still pay attention to the details that make an idea hold together.")}</p>
-            <p>{tp("I’ve led teams of up to twenty-five across brand, campaign and product work, with clients in Egypt, the Gulf, the UK, the US, Australia and Singapore. Some projects have been about finding a clearer position for a business. Others have involved shaping a product’s user experience or building an identity that works across languages.")}</p>
-            <p>{tp("I also designed a 212-page illustrated book for Steve Hodel, the New York Times bestselling author and former LAPD detective whose work followed his decades-long investigation into his father. That project stays with me.")}</p>
+            <p>{tp("Over thirteen years, I’ve moved from hands-on design into creative direction, leading multidisciplinary teams of up to twenty-five across brand, digital product, campaigns and creative production. My work spans identity systems, digital experiences, creative strategy and the business decisions behind them, with clients in Egypt, the Gulf area, the UK, the US, Australia and Singapore. Most recently, I helped grow an agency from six people to twenty-five in seven months, and reshaped what it sold and who it sold to.")}</p>
+            <p>{tp("One project stays with me: As Within, So Without, a 212-page book I designed and typeset for Steve Hodel, the retired LAPD homicide detective and New York Times bestselling author. It holds decades of investigation and more than 130 images, from crime-scene photographs to paintings. The design had to give that material structure without getting in the way of the evidence.")}</p>
+            <p>{tp("I’ve always moved between art and design. Art can have a character of its own; design also has to make sense to the people who meet it and the business behind it. Working in Arabic and English sharpens that balance: an identity has to feel native in both scripts and still be recognisably itself.")}</p>
+            <p>{tp("AI gives the team more ways into an idea and takes the repetitive work off our desks. The thinking still starts with the brief, and the judgement about which direction is worth pursuing stays with us.")}</p>
+            <p>{tp("When I lead a team, I want everyone to understand what we’re trying to achieve and to have room to bring their own perspective. In reviews, I usually let the designer walk us through the work before I weigh in. We talk about what’s working, what isn’t and what needs another look. I’ll help resolve a difficult decision or bring the work back to the brief when it drifts, but I don’t want every choice to wait for me. A good team can make a considered call on its own, and knows when to ask for a second pair of eyes.")}</p>
+            <p>{tp("Some of the people I’ve hired now lead teams of their own. ")}<strong className="font-medium text-foreground">{tp("That’s what I’m proudest of.")}</strong>{tp(" It won’t show up in a portfolio, but it’s the part of the job I’d least want to give up.")}</p>
+            <p className="font-medium text-foreground">{tp("I’m interested in creative leadership roles in Europe where strategy, craft and team development belong together. I want to shape the direction of the work, stay close to the details that make it good, and build teams that become more capable over time.")}</p>
           </FadeIn>
-
-          {aboutSections.map((sec) => (
-            <FadeIn key={sec.title} as="section" className="mt-16 max-w-[62ch]">
-              <h2 className="mb-6 font-serif text-[length:var(--text-sub)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground">{sec.title}</h2>
-              <div className="flex flex-col gap-6 text-[1.0625rem] leading-[1.75] text-muted-foreground">
-                {sec.body.map((para) => <p key={para.slice(0, 24)}>{para}</p>)}
-              </div>
-            </FadeIn>
-          ))}
 
           {/* ── What I Do ── */}
           <FadeIn as="div" className="mt-24">
             <h2 className="mb-12 font-serif text-[length:var(--text-sub)] font-normal tracking-tight text-foreground">
-              What I&nbsp;Do
+              What I&nbsp;do
             </h2>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {capabilities.map((cap) => (
@@ -117,7 +61,7 @@ export default function AboutPage() {
 
           {/* Tools */}
           <FadeIn as="p" className="mt-10 text-sm text-muted-foreground">
-            {tp("Tools: Figma, Adobe Creative Suite, Premiere Pro, Cursor, Next.js, and AI tools for image, video and voice.")}
+            {tp("Tools: Figma, Adobe Creative Suite, Webflow, Framer, Cursor, Next.js, and AI-assisted image, video and voice tools.")}
           </FadeIn>
 
         </div>

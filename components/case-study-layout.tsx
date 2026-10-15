@@ -186,7 +186,8 @@ export default function CaseStudyLayout({
 
       {project.chapters && project.chapters.length > 0 ? (
         /* Chapters: each part of the story followed by its own figures */
-        project.chapters.map((chapter, c) => (
+        <>
+        {project.chapters.map((chapter, c) => (
           <section key={chapter.label} className="mb-28">
             <div className="mx-auto max-w-[1280px] px-6">
               <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
@@ -218,7 +219,28 @@ export default function CaseStudyLayout({
               </div>
             )}
           </section>
-        ))
+        ))}
+        {project.showcaseVideo && (
+          <FadeIn className="mx-auto mb-28 max-w-[1400px] px-6">
+            <div className="overflow-hidden rounded-2xl bg-primary">
+              <video
+                className="aspect-video w-full object-cover"
+                poster={project.showcaseVideo.poster}
+                aria-label={project.showcaseVideo.alt}
+                autoPlay={!reducedMotion}
+                controls={!!reducedMotion}
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              >
+                {project.showcaseVideo.webm && <source src={project.showcaseVideo.webm} type="video/webm" />}
+                <source src={project.showcaseVideo.mp4} type="video/mp4" />
+              </video>
+            </div>
+          </FadeIn>
+        )}
+        </>
       ) : (
       <>
       {/* The Challenge */}
@@ -486,7 +508,7 @@ export default function CaseStudyLayout({
           {"Let\u2019s Talk"}
         </a>
         <p className="mt-4 text-sm text-muted-foreground">
-          {"Or want to\u00A0collaborate? "}
+          {"Looking for a\u00A0creative partner? "}
           <a href="/working-together" className="text-foreground underline underline-offset-4 transition-colors hover:text-accent">See how I&nbsp;work with&nbsp;teams</a>
         </p>
       </div>

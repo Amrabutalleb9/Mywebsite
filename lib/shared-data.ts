@@ -30,12 +30,12 @@ export interface Capability {
 }
 
 export const capabilities: Capability[] = [
-  { title: "Creative Direction", desc: tp("Set the direction and standard for the work, from a single campaign to a full rebrand. Give the team a clear idea to work toward, then help it hold together across the details.") },
-  { title: "Brand Strategy & Identity", desc: tp("Find the position a brand can credibly own, then turn it into an identity system people can use. My work often spans markets and languages, so consistency has to survive beyond the original design presentation.") },
-  { title: "Product & UX Design", desc: tp("Shape the experience of apps, dashboards and websites, from user flows and information architecture to interface direction and feature priorities. Keep the design tied to the people using it and the job the product needs to do.") },
-  { title: "Prototype & Ship", desc: tp("Build working prototypes in code with AI-assisted tools, often in days. Give clients something they can click, test and react to before committing to a full build.") },
-  { title: "Arabic & Latin Typography", desc: tp("Work across both scripts, bringing calligraphy and typographic judgment into identities that need to read naturally in Arabic and English.") },
-  { title: "Campaigns", desc: tp("Develop ideas and art direction for digital, social and print. Where possible, test creative directions on a small scale before putting a larger budget behind them.") },
+  { title: "Creative Direction", desc: tp("Set the creative vision and standard, guiding work from the first idea through execution across brands, campaigns and digital experiences.") },
+  { title: "Brand Strategy & Identity", desc: tp("Clarify a brand’s position, define what makes it distinct, and build an identity system that works across channels, markets and languages.") },
+  { title: "Digital Product & UX Design", desc: tp("Shape digital products through research, user flows, information architecture, feature priorities and interface direction, connecting user needs with the business behind the product.") },
+  { title: "Prototyping & Creative Technology", desc: tp("Turn concepts into working prototypes with code and AI-assisted tools, so ideas can be tested and refined before full development.") },
+  { title: "Arabic & English Typography", desc: tp("Bring calligraphy and typographic judgement to identities that need to work naturally in both scripts.") },
+  { title: "Campaigns & Art Direction", desc: tp("Develop creative concepts and direct their execution across digital, social and print, testing small before a bigger budget goes behind an idea.") },
 ]
 
 /* ─── Homepage testimonials, grouped by what an agency checks before hiring ───
