@@ -48,7 +48,7 @@ const sections = [
   {
     title: tp("The business around the work"),
     body: [
-      tp("Creative work only gets good when the business around it is clear. I’ve rewritten a client’s development quotation line by line and won the contract with it, turned a mis-priced proposal into a two-phase engagement that won both phases, and written an agency’s go-to-market plan and outreach system. Budgets stay with the owner. My job is to bring them a plan they can approve."),
+      tp("Creative work only gets good when the business around it is clear. I’ve rewritten a client’s development quotation line by line and won the contract with it, turned a mis-priced proposal into a two-phase engagement that won both phases, and written an agency’s go-to-market plan and outreach system. Budgets stay with the CEO. My job is to bring them a plan they can approve."),
     ],
   },
 ]
