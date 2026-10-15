@@ -191,6 +191,27 @@ export default function HighlightLayout({
         </div>
       )}
 
+      {/* Prev / Next, before the CTA */}
+      <div className="wrap">
+        <div className="flex items-stretch justify-between gap-4 border-b border-border pb-10">
+          {prev ? (
+            <Link href={`/highlights/${prev.slug}`} className="group flex flex-col gap-1 text-left">
+              <span className="flex items-center gap-2 text-xs text-muted-foreground transition-colors group-hover:text-accent">
+                <ArrowLeft size={14} /> Previous
+              </span>
+              <span className="font-serif text-2xl leading-snug tracking-tight text-foreground transition-colors group-hover:text-accent">{prev.title}</span>
+            </Link>
+          ) : <span />}
+          {next ? (
+            <Link href={`/highlights/${next.slug}`} className="group flex flex-col items-end gap-1 text-right">
+              <span className="flex items-center gap-2 text-xs text-muted-foreground transition-colors group-hover:text-accent">
+                Next <ArrowRight size={14} />
+              </span>
+              <span className="font-serif text-2xl leading-snug tracking-tight text-foreground transition-colors group-hover:text-accent">{next.title}</span>
+            </Link>
+          ) : <span />}
+        </div>
+      </div>
       {/* CTA */}
       <div className="mx-auto mt-20 max-w-[1000px] pt-12 text-center">
         <p className="mb-4 text-lg text-muted-foreground">{"Hiring a\u00A0Creative Director?"}</p>
@@ -206,27 +227,6 @@ export default function HighlightLayout({
         </p>
       </div>
 
-      {/* Navigation */}
-      <div className="wrap">
-        <div className="flex items-stretch justify-between gap-4 border-t border-border pt-8">
-          {prev ? (
-            <Link href={`/highlights/${prev.slug}`} className="group flex flex-col gap-1 text-left">
-              <span className="flex items-center gap-2 text-xs text-muted-foreground transition-colors group-hover:text-accent">
-                <ArrowLeft size={14} /> Previous
-              </span>
-              <span className="text-sm font-medium text-foreground transition-colors group-hover:text-accent">{prev.title}</span>
-            </Link>
-          ) : <span />}
-          {next ? (
-            <Link href={`/highlights/${next.slug}`} className="group flex flex-col items-end gap-1 text-right">
-              <span className="flex items-center gap-2 text-xs text-muted-foreground transition-colors group-hover:text-accent">
-                Next <ArrowRight size={14} />
-              </span>
-              <span className="text-sm font-medium text-foreground transition-colors group-hover:text-accent">{next.title}</span>
-            </Link>
-          ) : <span />}
-        </div>
-      </div>
     </article>
     </main>
     </>

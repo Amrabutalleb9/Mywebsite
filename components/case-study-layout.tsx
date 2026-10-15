@@ -136,7 +136,7 @@ export default function CaseStudyLayout({
 
       {/* Project facts: one horizontal band under the hero */}
       <FadeIn as="div" className="wrap mt-12 lg:mt-16">
-        <dl className="grid grid-cols-2 gap-x-10 gap-y-8 border-t border-border pt-8 md:grid-cols-3">
+        <dl className="grid grid-cols-2 gap-x-8 gap-y-8 border-t border-border pt-8 md:grid-cols-3 lg:grid-cols-6">
           {[
             { label: "Client", value: project.client },
             { label: "My role", value: project.role },
@@ -154,7 +154,7 @@ export default function CaseStudyLayout({
       </FadeIn>
 
       {/* Overview: the intro, on the same grid as the chapters */}
-      <section className="wrap mt-24 mb-28 lg:mt-32">
+      <section className="wrap mt-20 mb-28 lg:mt-24">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <FadeIn>
             <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Overview</h2>
@@ -512,6 +512,27 @@ export default function CaseStudyLayout({
         </div>
       </FadeIn>
 
+      {/* Prev / Next, before the CTA */}
+      <div className="wrap">
+        <div className="flex items-stretch justify-between gap-4 border-b border-border pb-10">
+          {prev ? (
+            <Link href={`/work/${prev.slug}`} className="group flex flex-col gap-1 text-left">
+              <span className="flex items-center gap-2 text-xs text-muted-foreground transition-colors group-hover:text-accent">
+                <ArrowLeft size={14} /> Previous Case Study
+              </span>
+              <span className="font-serif text-2xl leading-snug tracking-tight text-foreground transition-colors group-hover:text-accent">{prev.title}</span>
+            </Link>
+          ) : <span />}
+          {next ? (
+            <Link href={`/work/${next.slug}`} className="group flex flex-col items-end gap-1 text-right">
+              <span className="flex items-center gap-2 text-xs text-muted-foreground transition-colors group-hover:text-accent">
+                Next Case Study <ArrowRight size={14} />
+              </span>
+              <span className="font-serif text-2xl leading-snug tracking-tight text-foreground transition-colors group-hover:text-accent">{next.title}</span>
+            </Link>
+          ) : <span />}
+        </div>
+      </div>
       {/* CTA */}
       <div className="mx-auto mt-20 max-w-[1000px] pt-12 text-center">
         <p className="mb-4 text-lg text-muted-foreground">{"Hiring a\u00A0Creative Director?"}</p>
@@ -527,27 +548,6 @@ export default function CaseStudyLayout({
         </p>
       </div>
 
-      {/* Prev / Next , no line */}
-      <div className="wrap">
-        <div className="flex items-stretch justify-between gap-4 pt-8">
-          {prev ? (
-            <Link href={`/work/${prev.slug}`} className="group flex flex-col gap-1 text-left">
-              <span className="flex items-center gap-2 text-xs text-muted-foreground transition-colors group-hover:text-accent">
-                <ArrowLeft size={14} /> Previous Case Study
-              </span>
-              <span className="text-sm font-medium text-foreground transition-colors group-hover:text-accent">{prev.title}</span>
-            </Link>
-          ) : <span />}
-          {next ? (
-            <Link href={`/work/${next.slug}`} className="group flex flex-col items-end gap-1 text-right">
-              <span className="flex items-center gap-2 text-xs text-muted-foreground transition-colors group-hover:text-accent">
-                Next Case Study <ArrowRight size={14} />
-              </span>
-              <span className="text-sm font-medium text-foreground transition-colors group-hover:text-accent">{next.title}</span>
-            </Link>
-          ) : <span />}
-        </div>
-      </div>
     </article>
     </main>
     </>
