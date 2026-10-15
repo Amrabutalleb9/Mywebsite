@@ -47,17 +47,14 @@ function capRuns(s: string): string {
     .map((run) => {
       if (run.length <= MAX_RUN || !run.includes(NB)) return run
       const words = run.split(NB)
-      const pieces: string[][] = [[words[0]]]
-      for (const w of words.slice(1)) {
-        const cur = pieces[pieces.length - 1]
-        if (cur.join(NB).length + 1 + w.length <= MAX_RUN) {
-          cur.push(w)
-          continue
-        }
-        // Break before any trailing binders, so "the" or "of" still travels with its word.
-        let k = cur.length
-        while (k > 1 && isBinder(cur[k - 1])) k--
-        pieces.push([...cur.splice(k), w])
+      // Build from the right, so the last two words stay together (no widow).
+      // A binder ("the", "of", "a", a number) always stays with the word after it.
+      const pieces: string[][] = [[words[words.length - 1]]]
+      for (let i = words.length - 2; i >= 0; i--) {
+        const w = words[i]
+        const cur = pieces[0]
+        if (isBinder(w) || cur.join(NB).length + 1 + w.length <= MAX_RUN) cur.unshift(w)
+        else pieces.unshift([w])
       }
       return pieces.map((p) => p.join(NB)).join(" ")
     })
