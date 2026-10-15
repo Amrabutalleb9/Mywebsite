@@ -128,7 +128,7 @@ export const caseStudies: CaseStudy[] = [
           tp("The brand made it harder still. Gun imagery ran from the logo to every social post, which ruled out paid advertising in the EU and worked against the corporate clients the agency wanted in Dubai. Behind the brand there was no asset library, no logo system, no outreach plan, no hiring process and no agreed standard for good work. Growth depended entirely on the CEO’s personal network."),
         ],
         figures: [
-          { images: [{ src: "/images/op-fig-01-v4.webp", alt: tp("The audit: six findings beside the old Overpowered homepage and its empty service cards, December 2024") }], caption: tp("The site as I found it, December 2024.") },
+          { images: [{ src: "/images/op-fig-01-v5.webp", alt: tp("The audit: six findings beside the old Overpowered homepage and its empty service cards, December 2024") }], caption: tp("The site as I found it, December 2024.") },
         ],
       },
       {
