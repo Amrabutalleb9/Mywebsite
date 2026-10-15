@@ -68,6 +68,8 @@ export interface ProjectHighlight {
   featureImage?: string
   featureImageAlt?: string
   keyVisuals?: { src: string; alt: string }[]
+  /** Extra rows of figures shown after the key visuals; each row 1–3 images with an optional caption. */
+  figures?: { images: { src: string; alt: string; ratio?: string }[]; caption?: string }[]
 }
 
 /* ─── Full Case Studies ──────────────────────────── */
@@ -802,11 +804,20 @@ export const projectHighlights: ProjectHighlight[] = [
     client: "Dr.\u00a0Noor\nAlienor Skincare",
     industry: "Luxury Skincare / Beauty",
     year: "2022",
-    featureImage: "/images/alienor-feature.webp",
+    featureImage: "/images/alienor-feature-v2.webp",
     featureImageAlt: "Alienor skincare brand identity featuring elegant serif logotype with tagline As Soothing As Moonlight",
     keyVisuals: [
       { src: "/images/alienor-key-1.webp", alt: "Alienor Day Cream packaging design showing minimalist white box and glass jar with purple lid, alongside black zen stones" },
       { src: "/images/alienor-key-2.webp", alt: "Alienor Superfood AHA Glow Cleansing Butter product photography with vibrant orange packaging on a pumpkin" },
+    ],
+    figures: [
+      { images: [{ src: "/images/alienor-brand-v1.webp", alt: tp("Alienor brand system: the logotype on plum, a palette of plum, berry, rose, pink, light grey and white, Century Schoolbook and Montserrat, the ring pattern and the favicon"), ratio: "16 / 9" }], caption: tp("The brand system, rebuilt from the original guidelines.") },
+      { images: [
+        { src: "/images/alienor-logo-black-v1.webp", alt: tp("Alienor logotype in white on black"), ratio: "843 / 596" },
+        { src: "/images/alienor-logo-plum-v1.webp", alt: tp("Alienor logotype in white on plum"), ratio: "843 / 596" },
+        { src: "/images/alienor-logo-pink-v1.webp", alt: tp("Alienor logotype in rose on white"), ratio: "843 / 596" },
+      ], caption: tp("The logotype on dark, brand and light grounds.") },
+      { images: [{ src: "/images/alienor-stationery-v1.webp", alt: tp("Alienor stationery: business cards, envelopes, letterhead, invoices, gift cards and pins"), ratio: "16 / 9" }], caption: tp("Stationery and packaging inserts.") },
     ],
   },
   {

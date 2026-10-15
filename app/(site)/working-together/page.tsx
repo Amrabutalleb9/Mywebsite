@@ -47,7 +47,7 @@ const PartLabel = ({ n, children }: { n: number; children: React.ReactNode }) =>
 
 export default function WorkingTogetherPage() {
   return (
-    <main className="px-8 pt-32 lg:px-16 lg:pt-40">
+    <main className="px-8 pt-32 pb-24 lg:px-16 lg:pt-40 lg:pb-32">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-16 lg:grid-cols-[5fr_7fr] lg:gap-24">
 
         {/* Left: title, contents and actions, sticky on desktop */}
@@ -129,7 +129,7 @@ export default function WorkingTogetherPage() {
       </div>
 
       {/* Ending: light band, so it sits apart from the black footer */}
-      <section className="-mx-8 mt-24 bg-surface px-8 py-24 lg:-mx-16 lg:mt-32 lg:px-16 lg:py-32">
+      <section className="mx-auto mt-24 max-w-6xl border-t border-border pt-20 lg:mt-32 lg:pt-24">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 lg:grid-cols-[5fr_7fr] lg:gap-24">
           <FadeIn>
             <p className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Get in touch</p>

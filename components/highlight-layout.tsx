@@ -147,13 +147,41 @@ export default function HighlightLayout({
         </div>
       </FadeIn>
 
+      {/* Extra figure rows */}
+      {project.figures && project.figures.length > 0 && (
+        <div className="wrap-wide mb-16 flex flex-col gap-10">
+          {project.figures.map((row, r) => (
+            <FadeIn as="div" key={row.images[0].src}>
+              <figure className="m-0">
+                <div className={`grid grid-cols-1 gap-4 ${row.images.length === 2 ? "md:grid-cols-2" : row.images.length >= 3 ? "md:grid-cols-3" : ""}`}>
+                  {row.images.map((img, i) => (
+                    <div
+                      key={img.src}
+                      className="project-img-wrap overflow-hidden rounded-2xl"
+                      onClick={() => setLightbox(img.src)}
+                      role="button"
+                      tabIndex={0}
+                      aria-label={`View figure ${r + 1}${row.images.length > 1 ? `, image ${i + 1}` : ""} full size`}
+                      onKeyDown={(e) => { if (e.key === "Enter") setLightbox(img.src) }}
+                    >
+                      <Image src={img.src} alt={img.alt} width={1600} height={900} sizes={row.images.length > 1 ? "(max-width: 768px) 100vw, 33vw" : "100vw"} className="project-img h-auto w-full object-cover" style={{ aspectRatio: img.ratio ?? "16 / 9" }} />
+                    </div>
+                  ))}
+                </div>
+                {row.caption && <figcaption className="mt-3 max-w-[70ch] text-sm leading-relaxed text-muted-foreground">{row.caption}</figcaption>}
+              </figure>
+            </FadeIn>
+          ))}
+        </div>
+      )}
+
       {/* Key result + testimonial + buy link */}
       {(project.keyResult || project.testimonial || project.buyLink) && (
         <div className="wrap mb-16">
           <div className="flex flex-col gap-6">
             {project.keyResult && (
               <FadeIn>
-                <div className="rounded-lg border border-border bg-surface px-6 py-5">
+                <div className="rounded-lg border border-border bg-background px-6 py-5">
                   <p className="mb-1 text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-sublabel)] text-accent uppercase">Result</p>
                   <p className="text-lg font-medium leading-relaxed text-foreground">
                     {project.keyResult}

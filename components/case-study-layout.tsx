@@ -462,7 +462,7 @@ export default function CaseStudyLayout({
 
             {project.testimonial && (
               <FadeIn className="mt-6">
-                <blockquote className="rounded-xl border border-accent/15 bg-accent/5 px-6 py-6 sm:px-8">
+                <blockquote className="border-l-2 border-accent py-2 pl-6 sm:pl-8">
                   <p className="mb-4 font-serif text-2xl leading-snug tracking-tight text-foreground italic">
                     &ldquo;{project.testimonial.quote}&rdquo;
                   </p>

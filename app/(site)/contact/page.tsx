@@ -78,7 +78,7 @@ export default function ContactPage() {
 
         <FadeIn delay={0.2} as="div" className="lg:w-1/2">
           {submitted ? (
-            <div className="flex h-full min-h-[400px] items-center justify-center rounded-sm bg-surface p-12 text-center" aria-live="polite">
+            <div className="flex h-full min-h-[400px] items-center justify-center rounded-sm border border-border bg-background p-12 text-center" aria-live="polite">
               <div>
                 <p className="font-serif text-2xl text-foreground">Message&nbsp;sent.</p>
                 <p className="mt-2 text-muted-foreground">{"I\u2019ll get back to\u00A0you within 24\u00A0hours."}</p>

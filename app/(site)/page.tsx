@@ -38,7 +38,7 @@ const caseStudyCards = [
 const highlightCards = [
   { slug: "alfy", num: "05", title: "Alfy", subtitle: tp("Refocusing a marble brand’s campaigns on the architects who specify it"), result: tp("70% lift in social engagement"), year: "2025", category: "B2B Campaign Direction", role: "Creative Director at\u00A0Overpowered", featureImage: "/images/alfy-feature.webp", featureImageAlt: "El Alfy Saraya luxury marble brand website hero" },
   { slug: "nexus", num: "", title: "Nexus", subtitle: tp("Three brand personalities, written before anything was drawn"), result: tp("Identity and Webflow website"), year: "2024", category: "Brand Identity & Website", role: "Brand Strategist & Designer", featureImage: "", featureImageAlt: "" },
-  { slug: "alienor", num: "07", title: "Alienor", subtitle: tp("Placing a physician’s skincare line beside clinical brands, not organic ones"), result: "Full brand identity\u00A0system", year: "2022", category: "Brand Identity & Packaging", role: tp("Brand Designer"), featureImage: "/images/alienor-feature.webp", featureImageAlt: "Alienor skincare brand identity with elegant serif logotype" },
+  { slug: "alienor", num: "07", title: "Alienor", subtitle: tp("Placing a physician’s skincare line beside clinical brands, not organic ones"), result: "Full brand identity\u00A0system", year: "2022", category: "Brand Identity & Packaging", role: tp("Brand Designer"), featureImage: "/images/alienor-feature-v2.webp", featureImageAlt: "Alienor skincare brand identity with elegant serif logotype" },
   { slug: "hickey", num: "", title: "Hickey", subtitle: tp("An investor deck for a US makeup start-up’s $2M raise"), result: tp("Company raised $2M"), year: "", category: "Investor Presentation", role: "Deck Designer", featureImage: "", featureImageAlt: "" },
   { slug: "salel", num: "", title: "Salel", subtitle: tp("A hand-drawn Arabic wordmark for a ghutra brand in Qatar"), result: "", year: "2025", category: "Calligraphy & Identity", role: "Brand Designer", featureImage: "", featureImageAlt: "" },
   { slug: "shavery", num: "", title: "Shavery & Co", subtitle: tp("A luxury barbershop identity that holds up from the street sign to the cup"), result: "", year: "2025", category: "Identity & Signage", role: "Brand Designer", featureImage: "", featureImageAlt: "" },
@@ -239,7 +239,7 @@ function LeadSection() {
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {leadershipPrinciples.map((item, i) => (
             <ScrollReveal key={item.title} delay={0.05 + i * 0.06}>
-              <div className="capability-card h-full rounded-sm bg-surface p-6 lg:p-8">
+              <div className="capability-card h-full rounded-sm border border-border bg-background p-6 lg:p-8">
                 <h3 className="mb-3 font-medium text-foreground">{item.title}</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
               </div>
