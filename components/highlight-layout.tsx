@@ -54,7 +54,7 @@ export default function HighlightLayout({
       </div>
 
       {/* Hero image */}
-      <FadeIn delay={0.15} className="wrap-wide mb-14">
+      <FadeIn delay={0.15} className="wrap-wide mb-12 lg:mb-16">
         {project.featureImage ? (
           <div
             className="project-img-wrap overflow-hidden rounded-xl"
@@ -80,23 +80,31 @@ export default function HighlightLayout({
         )}
       </FadeIn>
 
-      {/* Meta row , compact */}
-      <FadeIn className="wrap mb-16">
-        <div className="flex flex-wrap gap-x-10 gap-y-4 border-b border-border pb-6">
-          {[
-            { label: "Client", value: project.client },
-            { label: "My Role", value: project.role },
-            { label: "Scope", value: project.scope },
-            { label: "Industry", value: project.industry },
-            { label: "Year", value: project.year },
-          ].filter((item) => item.value).map((item) => (
-            <div key={item.label} className="flex flex-col gap-1">
-              <span className="text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-sublabel)] text-accent uppercase">{item.label}</span>
-              <span className="text-sm leading-snug text-muted-foreground whitespace-pre-line">{item.value}</span>
-            </div>
-          ))}
-        </div>
-      </FadeIn>
+      {/* Project facts: one horizontal band under the hero, stretched like the case studies */}
+      {(() => {
+        const facts = [
+          { label: "Client", value: project.client },
+          { label: "My role", value: project.role },
+          { label: "Scope", value: project.scope },
+          { label: "Industry", value: project.industry },
+          { label: "Year", value: project.year },
+        ].filter((item) => item.value)
+        return (
+          <FadeIn as="div" className="wrap mb-20">
+            <dl
+              className="grid grid-cols-2 gap-x-8 gap-y-8 border-t border-border pt-8 md:grid-cols-3 lg:[grid-template-columns:repeat(var(--n),minmax(0,1fr))]"
+              style={{ "--n": facts.length } as React.CSSProperties}
+            >
+              {facts.map((item) => (
+                <div key={item.label} className="flex flex-col gap-1.5">
+                  <dt className="text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-label)] text-accent uppercase">{item.label}</dt>
+                  <dd className="max-w-[36ch] text-sm leading-snug text-muted-foreground whitespace-pre-line">{item.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </FadeIn>
+        )
+      })()}
 
       {/* Overview , single column, no sidebar */}
       <div className="wrap mb-16">

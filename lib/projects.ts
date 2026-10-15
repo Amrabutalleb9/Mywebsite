@@ -804,20 +804,14 @@ export const projectHighlights: ProjectHighlight[] = [
     client: "Dr.\u00a0Noor\nAlienor Skincare",
     industry: "Luxury Skincare / Beauty",
     year: "2022",
-    featureImage: "/images/alienor-feature-v2.webp",
-    featureImageAlt: "Alienor skincare brand identity featuring elegant serif logotype with tagline As Soothing As Moonlight",
+    featureImage: "/images/alienor-hero-v3.webp",
+    featureImageAlt: "Alienor day cream jar and carton on a travertine plinth under cool moonlight, a ring of light behind echoing the O of the logotype",
     keyVisuals: [
-      { src: "/images/alienor-key-1.webp", alt: "Alienor Day Cream packaging design showing minimalist white box and glass jar with purple lid, alongside black zen stones" },
-      { src: "/images/alienor-key-2.webp", alt: "Alienor Superfood AHA Glow Cleansing Butter product photography with vibrant orange packaging on a pumpkin" },
+      { src: "/images/alienor-daycream-v3.webp", alt: "Alienor Day Cream jar and carton beside a stack of black basalt stones in soft daylight" },
+      { src: "/images/alienor-pumpkin-v3.webp", alt: "Alienor Superfood AHA Glow Cleansing Butter resting on a small pumpkin in warm autumn light" },
     ],
     figures: [
-      { images: [{ src: "/images/alienor-brand-v1.webp", alt: tp("Alienor brand system: the logotype on plum, a palette of plum, berry, rose, pink, light grey and white, Century Schoolbook and Montserrat, the ring pattern and the favicon"), ratio: "16 / 9" }], caption: tp("The brand system, rebuilt from the original guidelines.") },
-      { images: [
-        { src: "/images/alienor-logo-black-v1.webp", alt: tp("Alienor logotype in white on black"), ratio: "843 / 596" },
-        { src: "/images/alienor-logo-plum-v1.webp", alt: tp("Alienor logotype in white on plum"), ratio: "843 / 596" },
-        { src: "/images/alienor-logo-pink-v1.webp", alt: tp("Alienor logotype in rose on white"), ratio: "843 / 596" },
-      ], caption: tp("The logotype on dark, brand and light grounds.") },
-      { images: [{ src: "/images/alienor-stationery-v1.webp", alt: tp("Alienor stationery: business cards, envelopes, letterhead, invoices, gift cards and pins"), ratio: "16 / 9" }], caption: tp("Stationery and packaging inserts.") },
+      { images: [{ src: "/images/alienor-brand-v1.webp", alt: tp("Alienor brand system: the logotype on plum, a palette of plum, berry, rose, pink, light grey and white, Century Schoolbook and Montserrat, the ring pattern and the favicon"), ratio: "16 / 9" }], caption: tp("The brand system: plum and rose, a classic serif and a light sans.") },
     ],
   },
   {
