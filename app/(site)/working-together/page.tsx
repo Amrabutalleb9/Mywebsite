@@ -1,7 +1,7 @@
 import type React from "react"
 import Link from "next/link"
 import type { Metadata } from "next"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowDown, ArrowUpRight } from "lucide-react"
 import FadeIn from "@/components/fade-in"
 import { pageMeta } from "@/lib/seo"
 import { tp } from "@/lib/typeset"
@@ -138,18 +138,13 @@ export default function WorkingTogetherPage() {
             <p className="max-w-[24ch] font-serif text-[length:var(--text-section)] leading-[var(--leading-heading)] tracking-tight text-foreground">
               {tp("Tell me about the project, the team or the problem you’re working through.")}
             </p>
-            <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
-              <Link
-                href="/contact"
-                className="cta-btn cta-btn-filled inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-8 py-3.5 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase"
-              >
-                {"Let\u2019s Talk"}
-                <ArrowUpRight size={14} className="cta-arrow" />
-              </Link>
-              <a href="mailto:hello@amrabutalleb.com" className="text-link inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground">
-                hello@amrabutalleb.com
-              </a>
-            </div>
+            <p className="mt-8 flex items-center gap-3 text-[1.0625rem] leading-relaxed text-muted-foreground">
+              <ArrowDown size={16} className="text-accent" aria-hidden="true" />
+              <span>
+                {tp("Use the form below, or write to")}{" "}
+                <a href="mailto:hello@amrabutalleb.com" className="text-foreground underline underline-offset-4 transition-colors hover:text-accent">hello@amrabutalleb.com</a>.
+              </span>
+            </p>
           </FadeIn>
         </div>
       </section>

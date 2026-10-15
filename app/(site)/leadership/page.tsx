@@ -99,14 +99,6 @@ export default function LeadershipPage() {
                 </a>
               ))}
             </FadeIn>
-            <FadeIn delay={0.1} as="div" className="mt-10 flex gap-8">
-              {stats.map((st) => (
-                <div key={st.n}>
-                  <p className="font-serif text-[2.5rem] leading-none tracking-tight text-foreground">{st.n}</p>
-                  <p className="mt-2 max-w-[12ch] text-xs leading-snug text-muted-foreground">{st.label}</p>
-                </div>
-              ))}
-            </FadeIn>
           </div>
         </div>
 
@@ -116,6 +108,15 @@ export default function LeadershipPage() {
             <p className="text-xl leading-relaxed text-foreground">{tp("Most of my job is building the system the work runs through. That means setting priorities, assigning responsibility, reviewing decisions, and giving people a clear understanding of what they’re working towards.")}</p>
             <p className="text-[1.0625rem] leading-[var(--leading-longform)] text-muted-foreground">{tp("My experience ranges from an eleven-person in-house brand and marketing team at The Line to Overpowered, where the agency grew from six people to twenty-five across five disciplines in seven months. I managed UX/UI directly, while two art directors led the other creative disciplines. I’ve also led teams spanning design, product, video, support and PR, often with five or six projects live at once.")}</p>
             <p className="text-[1.0625rem] leading-[var(--leading-longform)] text-muted-foreground">{tp("The setup changes from one team to the next, but the aim stays the same: clear responsibilities, good communication, and room for people to do their best work.")}</p>
+          </FadeIn>
+
+          <FadeIn as="div" className="mb-16 grid grid-cols-3 border-y border-border">
+            {stats.map((st, i) => (
+              <div key={st.n} className={`py-6 ${i > 0 ? "border-l border-border pl-6" : ""}`}>
+                <p className="font-serif text-[2.5rem] leading-none tracking-tight text-foreground">{st.n}</p>
+                <p className="mt-2 text-xs leading-snug text-muted-foreground">{st.label}</p>
+              </div>
+            ))}
           </FadeIn>
 
           {sections.map((sec, i) => (
