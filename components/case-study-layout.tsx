@@ -386,7 +386,7 @@ export default function CaseStudyLayout({
               <ul className="flex flex-col gap-4">
                 {project.results.map((result) => (
                   <li key={result.slice(0, 30)} className="flex gap-3 text-muted-foreground">
-                    <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
+                    <span className="mt-[calc(0.875em-3px)] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
                     <span className="leading-[var(--leading-longform)]">{result}</span>
                   </li>
                 ))}

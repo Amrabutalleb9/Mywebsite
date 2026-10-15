@@ -31,29 +31,29 @@ export default function AboutPage() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <p className="mb-12 max-w-[60ch] text-xl leading-relaxed text-foreground">
-              {tp("I’m Amr Abu-Talleb, a creative director with thirteen years of building brands, products and the teams that make them, across eight markets and two scripts. I started as a calligrapher and illustrator, and I still judge work the way I learned to judge a letter, by whether every mark earns its place.")}
+              {tp("I’m Amr Abu-Talleb, and my first medium was the pen. Long before I led teams, I spent years drawing Arabic and Latin letters by hand, learning how the weight of a stroke and the space between two letters change the way a word feels. That is where I discovered that typography behaves like a filmmaker’s camera. It sets the mood, controls the pace and tells the story before anyone reads a word. I still hold every project to a calligrapher’s standard, where nothing is decorative and nothing is accidental. Only the canvas has grown.")}
             </p>
           </FadeIn>
 
           {/* Full Bio */}
           <FadeIn delay={0.15} as="div" className="flex max-w-[62ch] flex-col gap-6 text-[1.0625rem] leading-[1.75] text-muted-foreground">
             <p>
-              {tp("I’ve led teams of up to 25 for clients in Egypt, the Gulf, the UK, the US, Australia and Singapore. At Overpowered I turned a six-person studio into a 25-person agency in seven months, after first talking its CEO out of opening with forty. I rebuilt a fitness platform’s scope and cost before a single screen existed and won the contract with it. I rebuilt Agfin’s website around a sharper sales story, and sales rose 12% in the first month with no ad spend. And I designed a 212-page book for Steve Hodel, the former LAPD detective who spent decades investigating his own father.")}
+              {tp("Thirteen years on, I lead brand, campaign and product teams of up to twenty-five people, for clients in Egypt, the Gulf area, the UK, the US, Australia and Singapore. I helped a small design studio discover who it was really for and built the agency around that answer, with a growth plan that let it scale at its own pace. I rebuilt a client’s development proposal line by line, before a single screen existed, and won the project with it. And I designed a 212-page book for Steve Hodel, the former LAPD detective who spent decades investigating his own father. That one stays with me.")}
             </p>
             <p>
-              {tp("Most of my job now is the system the work runs through. Briefs go to the people with the capacity and strengths for them, and every task, owner and deadline sits where the whole team can see it. Every two or three days the team presents its work, the art directors guide and I speak last. I step in when the work drifts from the brand, from what users need or from what makes the client money.")}
+              {tp("Much of my work now is building the system the work flows through. I decide which brief goes to which designer, based on their capacity and what they do best, and I learn how many rounds each person needs before their strongest idea appears. I shape how work travels from one desk to the next, and how it reaches the client, staged, shown, approved and refined. Every few days the team puts its work on the wall. Everyone presents, the others say what is working and what isn’t, the art directors guide, and I speak last, so the team’s judgement grows before mine is heard. I step in when the work drifts from the brand or from the people it is meant for.")}
             </p>
             <p>
-              {tp("I still think like an artist. I just don’t stop there. Art can mean something without a purpose. Design has a purpose, and you can measure whether it works. I push designers to find the idea in their own life and values and take it as far as they like, provided people understand it and it does its job.")}
+              {tp("I am still an artist at heart, and I bring that into every brief. Art can exist for its own sake. Design has to work, for the people who meet it and for the business behind it. The best work lives where the two meet, and that is where I lead my teams. I encourage designers to draw their ideas from their own lives and values and push them as far as their imagination will carry them, then shape them until they are clear, true to their audience and doing their job.")}
             </p>
             <p>
-              {tp("I work as a typographer and calligrapher in Arabic and English, and I’ve built identities that carry both scripts and still sound like one brand. AI sits in the same toolbox as the brush and the pen tool. It handles the repetitive work and the research, never the idea, and it lets the team test several directions before we finish the best one by hand.")}
+              {tp("I work in Arabic and English, as a typographer and calligrapher in both, and I’ve built identities that carry two scripts while speaking with one voice. AI sits in my toolbox beside the brush and the pen tool. It takes on the repetition and the research, never the idea. I bring the thinking, it gives the team more ways to explore it, and we test several directions before finishing the strongest one by hand.")}
             </p>
             <p>
-              {tp("What I’m proudest of doesn’t fit in a portfolio. I’ve hired more than fifty people, for integrity first and the will to learn second, and some of the designers I hired now run teams of their own. Skills can be sharpened. Anything else can be fixed.")}
+              {tp("What I’m proudest of doesn’t fit in a portfolio. I’ve hired more than fifty people, and some of the designers I hired now lead teams of their own. I hire for integrity first and the will to learn second. Skills can be sharpened. Anything else can be fixed.")}
             </p>
             <p className="font-medium text-foreground">
-              {tp("Today I lead a 25-person team across design, product, video, support and PR, with five or six projects live at once and the numbers reviewed every quarter. The next team I build will be in Europe.")}
+              {tp("Today I lead a team of twenty-five across design, product, video, support and PR, with five or six projects in motion at once. The next team I build will be in Europe.")}
             </p>
           </FadeIn>
 
