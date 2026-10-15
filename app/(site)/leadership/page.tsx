@@ -13,7 +13,7 @@ export const metadata: Metadata = pageMeta({
 })
 
 const teams = [
-  { label: "Agency", size: "25", desc: tp("Overpowered, a creative and digital agency in London. Five disciplines, art directors leading the creative teams, UX/UI with me directly.") },
+  { label: "Agency", size: "25", desc: tp("Overpowered, London. Grown from six people to 25 in seven months, across five disciplines, with two art directors and UX/UI and copy reporting to me.") },
   { label: "Real estate", size: "11", desc: tp("The Line, an in-house brand and marketing team of eleven. Before that, brand and marketing design for Edge Holdings and Akadia Development.") },
   { label: "Today", size: "25", desc: tp("Design, product, video, support and PR, with five or six projects live at once.") },
 ]
@@ -22,33 +22,33 @@ const sections = [
   {
     title: tp("How the work moves"),
     body: [
-      tp("Every brief goes to the designer with the capacity and the strengths for it. I learn how many rounds each person needs before their best idea shows up, and plan for it. Work passes from desk to desk and reaches the client the same way every time. It’s staged, shown, approved and fixed."),
-      tp("Every two or three days the team puts its work up. Everyone presents, the others say what’s working and what isn’t, the art directors guide, and I speak last. I step in when the work drifts from the brand, from what users need, or from what makes the client money."),
+      tp("Every brief goes to the person with the capacity and the strengths for it, and I plan for how many rounds each person needs to reach their best idea. Tasks, owners and deadlines live on one board, conversations live in channels by discipline and client, and every file lives in one shared workspace. Nobody should have to ask who owns what."),
+      tp("A fixed rhythm does the rest. The team meets weekly, I check in with the art directors every two days, and every two or three days the team reviews its work. Everyone presents, the art directors guide and I speak last. I step in when the work drifts from the brand, from what users need or from what makes the client money."),
     ],
   },
   {
     title: tp("Hiring"),
     body: [
-      tp("I’ve hired more than fifty people. I hire for integrity first and the will to learn second. Skills can be sharpened. Anything else can be fixed."),
-      tp("At Overpowered I wrote the hiring test myself. Candidates got a brief for a premium olive-oil brand built on Arabic calligraphy, which shows in one task whether someone can think about a market, handle type and present an idea."),
+      tp("I’ve hired more than fifty people, for integrity first and the will to learn second. Skills can be sharpened. Anything else can be fixed."),
+      tp("I write the hiring test myself. At Overpowered it was a premium olive-oil brand built on Arabic calligraphy, one brief that shows whether someone can read a market, handle type and present an idea."),
     ],
   },
   {
     title: tp("The standard"),
     body: [
-      tp("Every case study my team writes comes back with written notes. I ask for the reasoning behind the work, the positioning, the personas, the wireframes and what testing showed. I check the typography, I send back anything with lorem ipsum in it, and I ask for contrast that passes accessibility checks. The notes are specific so the next version is better without another meeting."),
+      tp("Every case study my team writes comes back with written notes on the reasoning, the positioning, the personas and what testing showed. I check the typography, return anything with placeholder copy and ask for contrast that passes accessibility checks. The notes are specific enough that the next version improves without another meeting."),
     ],
   },
   {
     title: tp("Growing people"),
     body: [
-      tp("The best sign a team is working is that it produces its next leaders. At Overpowered I promoted one of the designers to Art Director. Some of the designers I hired over the years now run teams of their own, and some still come to me for advice when they don’t report to me any more."),
+      tp("A team is working when it produces its next leaders. At Overpowered I promoted one of our designers to Art Director, and designers I hired years ago now run teams of their own."),
     ],
   },
   {
     title: tp("The business around the work"),
     body: [
-      tp("Creative work only gets good when the business around it is clear. I’ve rewritten a client’s development quotation line by line and won the contract with it, turned a mis-priced proposal into a two-phase engagement that won both phases, and written an agency’s go-to-market plan and outreach system. Budgets stay with the CEO. My job is to bring them a plan they can approve."),
+      tp("Creative work gets good when the business around it is clear. I rebuilt a fitness platform’s scope and cost before any design existed and won the contract with it, and I wrote an agency’s positioning, go-to-market plan and outreach system. Budgets stay with the CEO, so every recommendation reaches them as an investment case they can approve."),
     ],
   },
 ]
@@ -65,7 +65,7 @@ export default function LeadershipPage() {
         </FadeIn>
         <FadeIn delay={0.1}>
           <p className="max-w-[60ch] text-xl leading-relaxed text-foreground">
-            {tp("Most of my job is building the system the work runs through. Here is what that looks like, with the documents behind it.")}
+            {tp("Most of my job is building the system the work runs through. This is how I set teams up, hire, review and grow people, and keep the work tied to the business.")}
           </p>
         </FadeIn>
 

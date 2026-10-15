@@ -5,6 +5,7 @@ import { Download, ArrowRight, Linkedin } from "lucide-react"
 import { capabilities } from "@/lib/shared-data"
 import FadeIn from "@/components/fade-in"
 import { pageMeta } from "@/lib/seo"
+import { tp } from "@/lib/typeset"
 
 export const metadata: Metadata = pageMeta({
   title: "About Amr Abu-Talleb · Creative Director & Design Leader",
@@ -30,29 +31,29 @@ export default function AboutPage() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <p className="mb-12 max-w-[60ch] text-xl leading-relaxed text-foreground">
-              {"I\u2019m Amr Abu-Talleb, and\u00A0I\u00A0started with a\u00A0pen: illustration, calligraphy, Arabic and\u00A0Latin letters drawn by\u00A0hand until they looked right. That\u2019s where I\u00A0learned to\u00A0use typography the\u00A0way a\u00A0filmmaker uses a\u00A0camera, to\u00A0set the\u00A0mood, control the\u00A0pace and\u00A0tell the\u00A0story before anyone reads a\u00A0word. The habit of\u00A0looking at\u00A0every mark until it\u00A0earns its place never left. It just got\u00A0bigger."}
+              {tp("I’m Amr Abu-Talleb, a creative director with thirteen years of building brands, products and the teams that make them, across eight markets and two scripts. I started as a calligrapher and illustrator, and I still judge work the way I learned to judge a letter, by whether every mark earns its place.")}
             </p>
           </FadeIn>
 
           {/* Full Bio */}
           <FadeIn delay={0.15} as="div" className="flex max-w-[62ch] flex-col gap-6 text-[1.0625rem] leading-[1.75] text-muted-foreground">
             <p>
-              {"Thirteen years later I\u2019ve led brand, campaign and\u00A0product teams of\u00A0up\u00A0to\u00A025\u00A0people, for\u00A0clients in\u00A0Egypt, the\u00A0Gulf, the\u00A0UK, the\u00A0US, Australia and\u00A0Singapore. I\u2019ve repositioned an\u00A0agency, written its go-to-market plan and\u00A0built the\u00A0team that delivered\u00A0it, after first talking its CEO out of\u00A0starting with forty\u00A0people. I\u2019ve rewritten a\u00A0client\u2019s development quotation line by\u00A0line before a\u00A0single screen existed, and\u00A0won the\u00A0contract with it. And I\u2019ve designed a\u00A0212-page book for\u00A0Steve Hodel, the\u00A0former LAPD detective who spent decades investigating his own father. That one stays with\u00A0me."}
+              {tp("I’ve led teams of up to 25 for clients in Egypt, the Gulf, the UK, the US, Australia and Singapore. At Overpowered I turned a six-person studio into a 25-person agency in seven months, after first talking its CEO out of opening with forty. I rebuilt a fitness platform’s scope and cost before a single screen existed and won the contract with it. I rebuilt Agfin’s website around a sharper sales story, and sales rose 12% in the first month with no ad spend. And I designed a 212-page book for Steve Hodel, the former LAPD detective who spent decades investigating his own father.")}
             </p>
             <p>
-              {"Most of\u00A0my\u00A0job now is\u00A0building the\u00A0system the\u00A0work runs through. Which designer gets which brief, based on\u00A0their capacity and\u00A0what they do best. How many rounds someone needs before their strongest idea shows up. How work passes from one desk to\u00A0the\u00A0next, and\u00A0how it\u00A0reaches the\u00A0client: staged, shown, approved, fixed. Every two or\u00A0three days the\u00A0team puts its work up. Everyone presents, the\u00A0others say what\u2019s working and\u00A0what isn\u2019t, the\u00A0art directors guide, and\u00A0I\u00A0speak last. I\u00A0step in\u00A0when the\u00A0work drifts from the\u00A0brand, from what users need, or\u00A0from what makes the\u00A0client\u00A0money."}
+              {tp("Most of my job now is the system the work runs through. Briefs go to the people with the capacity and strengths for them, and every task, owner and deadline sits where the whole team can see it. Every two or three days the team presents its work, the art directors guide and I speak last. I step in when the work drifts from the brand, from what users need or from what makes the client money.")}
             </p>
             <p>
-              {"I\u00A0still think like an\u00A0artist. I\u00A0just don\u2019t stop there. Art has meaning and\u00A0doesn\u2019t need a\u00A0purpose. Design has a\u00A0purpose, and\u00A0you can measure whether it\u2019s working. So I\u00A0push designers to\u00A0find the\u00A0concept in\u00A0their own life and\u00A0values, and\u00A0to\u00A0go as\u00A0far with it\u00A0as\u00A0they like, as\u00A0long as\u00A0people understand it,\u00A0relate to\u00A0it\u00A0and\u00A0it\u00A0does its\u00A0job."}
+              {tp("I still think like an artist. I just don’t stop there. Art can mean something without a purpose. Design has a purpose, and you can measure whether it works. I push designers to find the idea in their own life and values and take it as far as they like, provided people understand it and it does its job.")}
             </p>
             <p>
-              {"I\u00A0work in\u00A0Arabic and\u00A0English, as\u00A0a\u00A0typographer and\u00A0calligrapher in\u00A0both, and\u00A0I\u2019ve built identities for\u00A0brands that carry two scripts and\u00A0still need to\u00A0sound like one voice. AI sits in\u00A0the\u00A0same toolbox as\u00A0the\u00A0brush and\u00A0the\u00A0pen tool. It takes the\u00A0repetitive work and\u00A0the\u00A0research, never the\u00A0idea. I\u00A0give it\u00A0my\u00A0thinking, it\u00A0gives the\u00A0team more ways to\u00A0execute it,\u00A0and\u00A0we\u00A0test several directions instead of\u00A0one before finishing the\u00A0best by\u00A0hand."}
+              {tp("I work as a typographer and calligrapher in Arabic and English, and I’ve built identities that carry both scripts and still sound like one brand. AI sits in the same toolbox as the brush and the pen tool. It handles the repetitive work and the research, never the idea, and it lets the team test several directions before we finish the best one by hand.")}
             </p>
             <p>
-              {"What I\u2019m proudest of\u00A0doesn\u2019t fit in\u00A0a\u00A0portfolio. I\u2019ve hired more than fifty people, and\u00A0some of\u00A0the\u00A0designers I\u00A0hired now run teams of\u00A0their own. I\u00A0hire for\u00A0integrity first and\u00A0the\u00A0will to\u00A0learn second. Skills can be\u00A0sharpened. Anything else can be\u00A0fixed."}
+              {tp("What I’m proudest of doesn’t fit in a portfolio. I’ve hired more than fifty people, for integrity first and the will to learn second, and some of the designers I hired now run teams of their own. Skills can be sharpened. Anything else can be fixed.")}
             </p>
             <p className="font-medium text-foreground">
-              {"Today I\u00A0run a\u00A025-person team across design, product, video, support and\u00A0PR, with five or\u00A0six projects live at\u00A0once and\u00A0the\u00A0numbers on\u00A0the\u00A0table every quarter. The next team I\u00A0build will be\u00A0in\u00A0Europe."}
+              {tp("Today I lead a 25-person team across design, product, video, support and PR, with five or six projects live at once and the numbers reviewed every quarter. The next team I build will be in Europe.")}
             </p>
           </FadeIn>
 
