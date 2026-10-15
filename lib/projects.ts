@@ -127,6 +127,9 @@ export const caseStudies: CaseStudy[] = [
           tp("Inside the studio, day-to-day coordination happened in WhatsApp groups, so tasks, owners and workloads were hard to see across disciplines. There was no shared asset library, hiring process, outreach plan or review routine."),
           tp("The agency already had a team, clients and work to build on. The next step was to make the positioning, the way the team worked and the way the agency presented itself tell the same story."),
         ],
+        figures: [
+          { images: [{ src: "/images/op-fig-02-v3.webp", alt: tp("Positioning before and after: from digital dominance for anyone to more than ordinary for small and mid-sized businesses, three services, one process") }], caption: tp("Positioning, before and after.") },
+        ],
       },
       {
         label: "The turning point",
@@ -144,7 +147,6 @@ export const caseStudies: CaseStudy[] = [
           tp("Product work needed a different conversation. A CTO evaluating a digital product has different priorities from a marketing lead commissioning a campaign, so we developed OP Labs as a separate offer for product work, with its own positioning and pitch."),
         ],
         figures: [
-          { images: [{ src: "/images/op-fig-02-v3.webp", alt: tp("Positioning before and after: from digital dominance for anyone to more than ordinary for small and mid-sized businesses, three services, one process") }], caption: tp("Positioning, before and after.") },
           { images: [{ src: "/images/op-fig-03-v3.webp", alt: tp("Two offers: OP for founders and marketing leads, OP Labs for CTOs and product owners") }], caption: tp("One agency, two offers.") },
         ],
       },
@@ -811,7 +813,7 @@ export const projectHighlights: ProjectHighlight[] = [
       { src: "/images/alienor-pumpkin-v3.webp", alt: "Alienor Superfood AHA Glow Cleansing Butter resting on a small pumpkin in warm autumn light" },
     ],
     figures: [
-      { images: [{ src: "/images/alienor-brand-v3.webp", alt: tp("Alienor brand system: the logotype on plum, a palette of plum, berry, rose, pink, light grey and white, Century Schoolbook and Montserrat, the ring pattern and the favicon"), ratio: "16 / 9" }], caption: tp("The brand system: plum and rose, a classic serif and a light sans.") },
+      { images: [{ src: "/images/alienor-brand-v4.webp", alt: tp("Alienor brand system: the vector logotype on plum, a palette of plum, berry, rose, pink, light grey and white, Century Schoolbook and Montserrat, the ribbon pattern and a rose-gold O favicon"), ratio: "16 / 9" }], caption: tp("The brand system: plum and rose, a classic serif and a light sans.") },
     ],
   },
   {

@@ -92,7 +92,7 @@ export default function HighlightLayout({
         return (
           <FadeIn as="div" className="wrap-wide mb-24">
             <dl
-              className="mx-auto grid grid-cols-2 gap-x-8 gap-y-8 border-t border-border pt-8 md:grid-cols-3 lg:w-[80%] lg:gap-x-10 lg:[grid-template-columns:repeat(var(--n),minmax(0,1fr))]"
+              className="grid grid-cols-2 gap-x-8 gap-y-8 border-t border-border pt-8 md:grid-cols-3 lg:flex lg:justify-center lg:gap-x-20"
               style={{ "--n": facts.length } as React.CSSProperties}
             >
               {facts.map((item) => (
