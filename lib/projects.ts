@@ -38,6 +38,8 @@ export interface CaseStudy {
   /** Full-width 16:9 showcase. A muted looping video, with a poster for first paint. */
   showcaseVideo?: { mp4: string; webm?: string; poster: string; alt: string }
   featureVideo?: { mp4: string; webm?: string; poster: string; alt: string }
+  /** Rows of figures shown between the strategy and the process; each row 1–3 images with an optional caption. */
+  storyFigures?: { images: { src: string; alt: string; ratio?: string }[]; caption?: string }[]
   /** Optional external link, e.g. where to buy a published book. */
   buyLink?: { href: string; label: string }
 }
@@ -102,6 +104,23 @@ export const caseStudies: CaseStudy[] = [
     reflection: tp("I was hired as a creative director and spent half my time on the business around the creative work. That’s the part I’d want any agency owner to see. The work only gets good once the agency knows who it’s for, how it finds them and what standard it holds itself to."),
     credits: tp("Creative Direction & Agency Strategy: Amr Abu-Talleb · Art Direction & Design: the Overpowered team"),
     featured: true,
+    featureImage: "/images/op-hero-v1.webp",
+    featureImageAlt: tp("The OP logomark as a giant glass sculpture floating above a hill, a lone figure looking up at it"),
+    storyFigures: [
+      { images: [{ src: "/images/op-fig-01-v1.webp", alt: tp("The old Overpowered site, December 2024: a keycap hero claiming ten years of product development, then empty service cards") }], caption: tp("The site as I found it, December 2024 (Wayback Machine). A strong hero, then a promise with nothing behind it.") },
+      { images: [{ src: "/images/op-fig-02-v1.webp", alt: tp("Positioning before and after: from digital dominance for anyone to more than ordinary for small and mid-sized businesses, three services, one process") }], caption: tp("From a menu of everything to one buyer, three services and one process.") },
+      { images: [{ src: "/images/op-fig-03-v1.webp", alt: tp("Two offers: OP for founders and marketing leads, OP Labs for CTOs and product owners") }], caption: tp("Two offers, two buyers, two pitches.") },
+      { images: [{ src: "/images/op-fig-04-v1.webp", alt: tp("The two-stage go-to-market plan, from the owner’s network to a measurable pipeline") }], caption: tp("The two-stage plan, from the owner’s network to a pipeline the agency could measure.") },
+      { images: [{ src: "/images/op-fig-05-v1.webp", alt: tp("The outreach sequence: three-day warm-up, A/B first message, five follow-ups, closing call") }], caption: tp("The outreach sequence the team ran for every lead.") },
+      { images: [{ src: "/images/op-fig-06-v1.webp", alt: tp("Org chart: owner, Creative Director, art directors over graphic, video, 3D and copy, and UX/UI run directly") }], caption: tp("25 people in five disciplines. Roles only.") },
+      { images: [{ src: "/images/op-fig-07-v1.webp", alt: tp("Hiring test brief: a premium olive-oil brand built on Arabic calligraphy") }, { src: "/images/op-fig-08-v1.webp", alt: tp("Review notes on a team case study: reasoning, personas, wireframes, testing, type, no lorem ipsum, contrast") }], caption: tp("The hiring test, and the kind of notes every case study came back with.") },
+      { images: [{ src: "/images/op-fig-09-v1.webp", alt: tp("Pages from the January 2025 brand guidelines: logomark, logo variations, OP Labs lock-up, colour, type and pattern") }], caption: tp("Pages from the January 2025 brand guidelines.") },
+      { images: [{ src: "/images/op-billboard-v1.webp", alt: tp("Billboard: Transforming ideas into impactful designs, over a grainy black-and-white crowd with yellow value tags"), ratio: "1296 / 768" }] },
+      { images: [{ src: "/images/op-merch-v1.webp", alt: tp("Merch: a grey hoodie with the Overpowered signature and a black tote with the circular badge"), ratio: "1296 / 768" }, { src: "/images/op-sign-v1.webp", alt: tp("Hanging sign: your brand deserves more than ordinary, it deserves Overpowered"), ratio: "1296 / 768" }] },
+      { images: [{ src: "/images/op-social-1-v1.webp", alt: tp("Social post: When science and design collaborate"), ratio: "4 / 5" }, { src: "/images/op-social-2-v1.webp", alt: tp("Social post: Pushing boundaries"), ratio: "4 / 5" }, { src: "/images/op-social-3-v1.webp", alt: tp("Social post: Top notch design solutions"), ratio: "4 / 5" }] },
+      { images: [{ src: "/images/op-colours-v1.webp", alt: tp("The Overpowered signature on white, black, yellow, sand, orange and blue"), ratio: "1386 / 868" }], caption: tp("The identity in use: outdoor, merch, signage, social, and the signature on every brand colour.") },
+      { images: [{ src: "/images/op-fig-10-v1.webp", alt: tp("Five website concepts and the four-act cinematic story developed further") }], caption: tp("Five website concepts, and the one we developed.") },
+    ],
   },
   {
     slug: "bay-area-trips",

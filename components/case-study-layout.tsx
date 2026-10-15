@@ -245,6 +245,44 @@ export default function CaseStudyLayout({
       </FadeIn>
       )}
 
+      {/* Story figures: rows of diagrams and work shown between the strategy and the process */}
+      {project.storyFigures && project.storyFigures.length > 0 && (
+        <div className="mx-auto mb-28 flex max-w-[1400px] flex-col gap-14 px-6">
+          {project.storyFigures.map((row, r) => (
+            <FadeIn as="div" key={row.images[0].src}>
+              <figure className="m-0">
+                <div className={`grid grid-cols-1 gap-4 ${row.images.length === 2 ? "md:grid-cols-2" : row.images.length >= 3 ? "md:grid-cols-3" : ""}`}>
+                  {row.images.map((img, i) => (
+                    <div
+                      key={img.src}
+                      className="project-img-wrap overflow-hidden rounded-2xl bg-primary"
+                      onClick={() => setLightbox(img.src)}
+                      role="button"
+                      tabIndex={0}
+                      aria-label={`View figure ${r + 1}${row.images.length > 1 ? `, image ${i + 1}` : ""} full size`}
+                      onKeyDown={(e) => { if (e.key === "Enter") setLightbox(img.src) }}
+                    >
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        width={1400}
+                        height={788}
+                        sizes={row.images.length > 1 ? "(max-width: 768px) 100vw, 50vw" : "100vw"}
+                        className="project-img h-auto w-full object-cover"
+                        style={{ aspectRatio: img.ratio ?? "16 / 9" }}
+                      />
+                    </div>
+                  ))}
+                </div>
+                {row.caption && (
+                  <figcaption className="mt-3 max-w-[70ch] text-sm leading-relaxed text-muted-foreground">{row.caption}</figcaption>
+                )}
+              </figure>
+            </FadeIn>
+          ))}
+        </div>
+      )}
+
       {/* Process & Evolution */}
       <div className="mx-auto mb-28 max-w-[1280px] px-6">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
