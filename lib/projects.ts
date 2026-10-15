@@ -71,7 +71,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "overpowered",
     title: "Overpowered",
     subtitle: tp("Turning a design studio into an agency that knew who it was for"),
-    impactStatement: tp("Repositioned for small and mid-sized businesses · Built a 25-person team across five disciplines · Won SPLT by rewriting its quotation"),
+    impactStatement: tp("Repositioned for small and mid-sized businesses · Built a 25-person team across five disciplines · Won SPLT, a four-sided fitness platform, and led its product design"),
     client: tp("Overpowered\nCreative & digital agency, London"),
     role: tp("Creative Director\nReported to the CEO · Team of 25"),
     teamSize: tp("Art directors plus graphic, video, 3D, copy and UX/UI teams"),
@@ -99,7 +99,7 @@ export const caseStudies: CaseStudy[] = [
       tp("An outreach system the team ran without me, from the first LinkedIn message to the closing call"),
       tp("A 25-person team with a hiring test, a review rhythm every two or three days and a designer promoted to Art Director"),
       tp("A new identity without the gun imagery, used across the agency for about a year"),
-      tp("Won SPLT by rewriting its development quotation, then led the product design"),
+      tp("Won SPLT, a four-sided fitness marketplace, with a rebuilt scope and cost, then led its product design across 330+ screens"),
       tp("Turned a mis-priced $8k proposal into a two-phase $10k engagement, and won both phases"),
       tp("Rebuilt Alfy’s campaigns for the architects who buy marble, and social engagement rose 70%"),
     ],
@@ -124,11 +124,11 @@ export const caseStudies: CaseStudy[] = [
       {
         label: "The audit",
         paragraphs: [
-          tp("I started by reading the agency the way a buyer would. The website promised ten years of design-driven product development and backed it with empty service cards. The copy could have belonged to any studio. The brand relied on gun imagery across the logo and every social channel, which closed off paid advertising in the EU and worked against the corporate clients the agency wanted in Dubai."),
-          tp("Underneath, nothing was systemised. There was no asset library and no logo system, so every designer rebuilt the brand by hand. There was no outreach plan, no hiring process and no agreed standard for good work. Growth depended entirely on the CEO’s personal network."),
+          tp("I started by reading the agency the way a buyer would, and the gaps were commercial before they were visual. The homepage claimed ten years of design-driven product development, then showed empty service cards where the case studies should have been. Six services, from branding to AI data analysis, were offered to anyone, under a headline about digital dominance that could have belonged to any studio. Claims such as saving clients 40% of their time had nothing behind them."),
+          tp("The brand made it harder still. Gun imagery ran from the logo to every social post, which ruled out paid advertising in the EU and worked against the corporate clients the agency wanted in Dubai. Behind the brand there was no asset library, no logo system, no outreach plan, no hiring process and no agreed standard for good work. Growth depended entirely on the CEO’s personal network."),
         ],
         figures: [
-          { images: [{ src: "/images/op-fig-01-v3.webp", alt: tp("The old Overpowered site, December 2024: a glass-cube hero claiming ten years of product development, then empty service cards") }], caption: tp("The site as I found it, December 2024.") },
+          { images: [{ src: "/images/op-fig-01-v4.webp", alt: tp("The audit: six findings beside the old Overpowered homepage and its empty service cards, December 2024") }], caption: tp("The site as I found it, December 2024.") },
         ],
       },
       {
@@ -194,7 +194,8 @@ export const caseStudies: CaseStudy[] = [
           tp("I led the team through five concepts, each a different way into the same story of services, team and results. Power Up stages the site like a game powering on. Interactive Blueprint maps the brand as modules to explore. Origami Fold unfolds a single sheet into each service. Forge & Conquer is raw and industrial, and Command Center frames the agency as mission control for its clients’ brands. The strongest direction became a cinematic story in four acts, paced after David Fincher’s storytelling. I wrote the briefs for the UI/UX, graphic, motion and 3D teams and reviewed the design section by section with the art directors."),
         ],
         figures: [
-          { images: [{ src: "/images/op-fig-10-v3.webp", alt: tp("Five website hero concepts for Overpowered: Power Up, Interactive Blueprint, Origami Fold, Forge and Conquer, Command Center, and the four-act story taken forward") }], caption: tp("Five website concepts, and the four-act story we took forward.") },
+          { images: [{ src: "/images/op-concept-1-v1.webp", alt: tp("Concept 01, Power Up: Power up your brand, with a charging bar that unlocks branding, web, video, the squad and results"), ratio: "16 / 10" }, { src: "/images/op-concept-4-v1.webp", alt: tp("Concept 04, Forge and Conquer: Forged to conquer, over the logomark glowing on an anvil"), ratio: "16 / 10" }] },
+          { images: [{ src: "/images/op-concept-2-v1.webp", alt: tp("Concept 02, Interactive Blueprint: the blueprint behind big brands, with branding, web and video modules"), ratio: "16 / 10" }, { src: "/images/op-concept-3-v1.webp", alt: tp("Concept 03, Origami Fold: unfold what your brand can be, with folded paper service cards"), ratio: "16 / 10" }, { src: "/images/op-concept-5-v1.webp", alt: tp("Concept 05, Command Center: your brand, under control, with live module panels and a data globe"), ratio: "16 / 10" }], caption: tp("The five website concepts.") },
         ],
       },
     ],
@@ -240,7 +241,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "split",
     title: "SPLT",
     subtitle: "Turning a\u00A0marketplace brief into a\u00A0four-sided fitness\u00A0platform",
-    impactStatement: "Won the contract by\u00A0rewriting a\u00A0flawed quotation \u00B7 330+\u00A0screens across one app and three dashboards \u00B7 Trainer subscriptions and paid video added as\u00A0new revenue\u00A0lines",
+    impactStatement: "Won the contract with a\u00A0rebuilt scope and\u00A0cost \u00B7 330+\u00A0screens across one app and three dashboards \u00B7 Trainer subscriptions and paid video added as\u00A0new revenue\u00A0lines",
     client: "SPLT\nFitness Social App & Marketplace, Egypt",
     role: "Creative Director & UX Lead\nLed 2\u00A0designers and the\u00A0client relationship",
     teamSize: "1 Senior + 1 Junior Designer",
@@ -263,7 +264,7 @@ export const caseStudies: CaseStudy[] = [
       { title: "System, Team & UI", description: "Built a\u00A0dark mobile system and a\u00A0shared dashboard shell around one purple accent, then directed the team through 330+\u00A0screens with weekly\u00A0reviews." },
     ],
     results: [
-      "Won the contract by\u00A0rewriting a\u00A0flawed quotation with a\u00A0credible scope and\u00A0cost",
+      "Won the contract by\u00A0rebuilding a\u00A0flawed quotation into a\u00A0credible scope and\u00A0cost",
       "Designed 330+\u00A0screens: about 126 in\u00A0the mobile app, 82 in\u00A0the admin dashboard, 80 in\u00A0the trainer dashboard and 50 in\u00A0the vendor\u00A0dashboard",
       "Added a\u00A0full trainer role (profile, paid video and three subscription plans) that the original brief didn\u2019t\u00A0include",
       "Added retention features beyond the store: workout builder, personal records, groups, goals, achievements and loyalty\u00A0points",
