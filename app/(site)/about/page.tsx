@@ -18,13 +18,13 @@ export const metadata: Metadata = pageMeta({
 export default function AboutPage() {
   return (
     <main className="px-8 pt-32 pb-24 lg:px-16 lg:pt-40 lg:pb-32">
-      <div className="mx-auto max-w-6xl flex flex-col gap-16 lg:flex-row lg:gap-20">
+      <div className="flex flex-col gap-16 lg:flex-row lg:gap-20">
 
         {/* ── Left column: ALL content ── */}
         <div className="order-2 min-w-0 lg:order-none lg:w-[55%]">
 
           <FadeIn>
-            <h1 className="mb-10 font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
+            <h1 className="mb-6 font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
               <span className="block">{tp("Work worth signing.")}</span>
               <span className="block">{tp("Teams built to outgrow me.")}</span>
             </h1>
@@ -51,7 +51,7 @@ export default function AboutPage() {
             </h2>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {capabilities.map((cap) => (
-                <div key={cap.title} className="capability-card rounded-sm border border-border bg-background p-6 lg:p-8">
+                <div key={cap.title} className="capability-card rounded-sm bg-surface p-6 lg:p-8">
                   <h3 className="mb-3 font-medium text-foreground">{cap.title}</h3>
                   <p className="text-sm leading-relaxed text-muted-foreground">{cap.desc}</p>
                 </div>

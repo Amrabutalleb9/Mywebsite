@@ -93,7 +93,6 @@ export default function HighlightLayout({
           <FadeIn as="div" className="wrap-wide mb-24">
             <dl
               className="grid grid-cols-2 gap-x-8 gap-y-8 border-t border-border pt-8 md:grid-cols-3 lg:justify-center lg:gap-x-16 lg:[grid-template-columns:repeat(var(--n),auto)]"
-              style={{ "--n": facts.length } as React.CSSProperties}
             >
               {facts.map((item) => (
                 <div key={item.label} className="flex flex-col gap-1.5">
