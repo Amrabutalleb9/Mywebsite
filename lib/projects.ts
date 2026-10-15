@@ -239,8 +239,8 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "split",
     title: "SPLT",
-    subtitle: tp("Product strategy and UX for a fitness platform built around its trainers"),
-    impactStatement: tp("Engagement restructured into stages, with $8,000 agreed for the first two · 338 screens across one app and three dashboards · Trainer subscriptions added as a new revenue line"),
+    subtitle: tp("Turning an online shop brief into a fitness platform built around its trainers"),
+    impactStatement: tp("338 screens across one app and three dashboards · Trainer subscriptions added as a new revenue line"),
     role: tp("Creative Director & UX Lead at Overpowered\nLed 2 designers and the client relationship"),
     scope: tp("Quotation and scope, competitive research, information architecture, mobile app, three dashboards, design system"),
     intro: [
@@ -376,7 +376,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "agfin",
     title: "Agfin",
-    subtitle: tp("Website strategy, sales funnel and copywriting"),
+    subtitle: tp("Rebuilding a brochure website as a sales funnel, words first"),
     impactStatement: tp("Sales up 12% in the first month · No paid advertising · A brochure site rebuilt as a story-led sales funnel"),
     role: tp("Website strategy, UX, copywriting and build\nSolo project"),
     scope: tp("Website architecture, video sales letter, copywriting, UX/UI, interaction design and build"),
@@ -477,7 +477,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "taptools",
     title: "TapTools",
-    subtitle: tp("Product design for a live token and NFT analytics platform"),
+    subtitle: tp("Helping users of a live analytics platform find the number they came for"),
     impactStatement: tp("User-reported issues down 23% within 60 days · Core flows redesigned and shipped to a live product · Light and dark themes on one colour library"),
     role: tp("Senior Product Designer\nWith a product and engineering team of about ten"),
     scope: tp("Research, testing, core-flow redesign, production UI, light and dark themes"),
@@ -540,7 +540,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "zikabi",
     title: "Zikabi",
-    subtitle: tp("Brand architecture and app design for a multi-service marketplace"),
+    subtitle: tp("Splitting one overloaded app into a parent brand and two products"),
     impactStatement: tp("One concept separated into a parent brand and two products · Business model changed by user interviews · End-user, vendor and driver apps designed"),
     scope: tp("Parent brand and sub-brands, identity manual, end-user, vendor and driver apps"),
     intro: [
@@ -602,7 +602,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "dipa",
     title: "Dipa Visionary Art School",
-    subtitle: tp("Website recovery and a new direction for the school’s digital experience"),
+    subtitle: tp("Getting an art school’s website working again, then turning it into a walk through the studio"),
     impactStatement: tp("70% more website views after the recovered site went live · Back online after four failed attempts · Immersive 360° concept in development"),
     role: tp("Creative direction, content strategy and UX\nUI design with a small team"),
     scope: tp("Website recovery, content rewrite, immersive 360° concept and interactive biography"),
@@ -679,7 +679,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "steve-hodel",
     title: "As Within, So\u00A0Without",
-    subtitle: tp("Editorial design for a decades-long investigation"),
+    subtitle: tp("Designing a 212-page illustrated book for a decades-long investigation"),
     client: tp("Steve Hodel\nNYT bestselling author, retired LAPD homicide detective"),
     intro: [
       tp("Steve Hodel is a retired LAPD homicide detective and New York Times bestselling author. After retiring, he spent decades investigating his father, Dr. George Hodel, whom he believes was behind the Black Dahlia murder. As Within, So Without follows that investigation into the surrealist art world his father moved in."),
@@ -766,7 +766,7 @@ export const projectHighlights: ProjectHighlight[] = [
   {
     slug: "alfy",
     title: "Alfy",
-    subtitle: tp("B2B campaign direction for a premium marble manufacturer"),
+    subtitle: tp("Refocusing a marble brand’s campaigns on the architects who specify it"),
     role: tp("Creative Director, Overpowered"),
     scope: tp("Campaign strategy, art direction, social creative direction and website redesign exploration"),
     description: tp("Alfy is a major marble manufacturer selling across Egypt, the EU and Dubai. The agency was publishing social posts every week, but the content was aimed at consumers, although Alfy sells mainly to businesses.\n\nAs Creative Director at Overpowered, I redirected the campaign toward the architects and designers who specify marble for their projects. We moved away from generic AI-generated renders and used real product photography to show the stone in finished interiors, with more emphasis on its range, finish and application. A website redesign was also explored as part of the wider work."),
@@ -784,7 +784,7 @@ export const projectHighlights: ProjectHighlight[] = [
   {
     slug: "nexus",
     title: "Nexus",
-    subtitle: tp("Brand identity and website for a recruitment company"),
+    subtitle: tp("Three brand personalities, written before anything was drawn"),
     role: tp("Brand Designer & Webflow Developer\nFreelance"),
     scope: tp("Brand direction, visual identity, website design and build"),
     description: tp("Nexus is a recruitment company serving the Middle East and Africa. The work began with exploring how the company could present itself before settling on a visual identity.\n\nI helped shape three brand directions, each a different personality with its own voice, mission, strengths, weaknesses and moodboard. Three visual routes followed, giving the client distinct options before choosing the direction for the brand.\n\nI then developed the selected identity and designed and built the website in Webflow, carrying the chosen direction through to the digital experience."),
@@ -795,7 +795,7 @@ export const projectHighlights: ProjectHighlight[] = [
   {
     slug: "alienor",
     title: "Alienor",
-    subtitle: tp("Brand identity and packaging for a physician-founded skincare line"),
+    subtitle: tp("Placing a physician’s skincare line beside clinical brands, not organic ones"),
     role: tp("Brand Designer\nContract"),
     scope: tp("Brand identity, packaging and visual direction"),
     description: tp("Dr Noor, a physician, developed Alienor around medical expertise and premium ingredients, including Moroccan botanicals. The challenge was to communicate science-backed skincare without placing the brand in the crowded visual territory of organic beauty.\n\nI explored two directions, one built around natural ingredients and one around clinical credibility. The clinical direction fitted the product’s medical foundation better and placed the brand closer to premium clinical skincare.\n\nI developed the identity and packaging around that decision, using clean typography and a precise visual system to communicate a considered, science-led product."),
@@ -812,7 +812,7 @@ export const projectHighlights: ProjectHighlight[] = [
   {
     slug: "hickey",
     title: "Hickey",
-    subtitle: tp("Investor presentation design for a US makeup start-up"),
+    subtitle: tp("An investor deck for a US makeup start-up’s $2M raise"),
     description: tp("Hickey was raising investment and needed a deck that would communicate the business clearly to potential investors.\n\nI designed every slide and worked on the order in which the story unfolded, so the presentation moved through the information in a way investors could follow."),
     keyResult: tp("The company went on to raise $2 million; the founder credited the deck as part of that effort."),
     client: tp("Hickey\nMakeup start-up, USA"),
@@ -824,7 +824,7 @@ export const projectHighlights: ProjectHighlight[] = [
   {
     slug: "salel",
     title: "Salel",
-    subtitle: tp("Arabic calligraphy and identity design for a Qatari ghutra brand"),
+    subtitle: tp("A hand-drawn Arabic wordmark for a ghutra brand in Qatar"),
     description: tp("Salel sells ghutra, the traditional men’s headdress, in Qatar. The identity needed to feel connected to the region’s own visual language.\n\nI drew the Arabic wordmark by hand, then developed the supporting identity around it: a colour system, a seal and a stationery set. The calligraphy gives the brand its own character, while the supporting elements make the identity usable across everyday applications."),
     client: tp("Salel\nGhutra brand, Qatar"),
     role: tp("Brand Designer & Calligrapher\nFreelance"),
@@ -835,7 +835,7 @@ export const projectHighlights: ProjectHighlight[] = [
   {
     slug: "shavery",
     title: "Shavery & Co",
-    subtitle: tp("Identity and signage for a luxury barbershop in Saudi Arabia"),
+    subtitle: tp("A luxury barbershop identity that holds up from the street sign to the cup"),
     description: tp("The identity for Shavery & Co needed to communicate a premium experience across both the storefront and the smaller details customers meet inside.\n\nI built the system around a badge that works on the exterior sign, a cup, a business card and other brand applications, keeping the same character and quality across different materials and scales."),
     client: tp("Shavery & Co\nLuxury barbershop, Saudi Arabia"),
     role: tp("Brand Designer\nFreelance"),

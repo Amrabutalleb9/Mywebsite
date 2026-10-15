@@ -88,13 +88,6 @@ export default function CaseStudyLayout({
             {project.subtitle}
           </p>
         </FadeIn>
-        {project.intro && project.intro.length > 0 && (
-          <FadeIn delay={0.12} as="div" className="mb-10 flex max-w-[62ch] flex-col gap-4">
-            {project.intro.map((para, i) => (
-              <p key={i} className="text-lg leading-relaxed text-foreground/80">{para}</p>
-            ))}
-          </FadeIn>
-        )}
       </div>
 
       {/* Hero image */}
@@ -140,6 +133,17 @@ export default function CaseStudyLayout({
           </div>
         )}
       </FadeIn>
+
+      {/* Intro , after the hero */}
+      {project.intro && project.intro.length > 0 && (
+        <FadeIn as="div" className="mx-auto mt-16 mb-20 max-w-[1280px] px-6">
+          <div className="flex max-w-[62ch] flex-col gap-4">
+            {project.intro.map((para, i) => (
+              <p key={i} className="text-lg leading-relaxed text-foreground/80">{para}</p>
+            ))}
+          </div>
+        </FadeIn>
+      )}
 
       {/* Impact Statement , with label */}
       <FadeIn className="mx-auto mb-20 max-w-[1280px] px-6">
