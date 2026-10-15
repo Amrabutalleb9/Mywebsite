@@ -813,7 +813,7 @@ export const projectHighlights: ProjectHighlight[] = [
       { src: "/images/alienor-pumpkin-v3.webp", alt: "Alienor Superfood AHA Glow Cleansing Butter resting on a small pumpkin in warm autumn light" },
     ],
     figures: [
-      { images: [{ src: "/images/alienor-brand-v4.webp", alt: tp("Alienor brand system: the vector logotype on plum, a palette of plum, berry, rose, pink, light grey and white, Century Schoolbook and Montserrat, the ribbon pattern and a rose-gold O favicon"), ratio: "16 / 9" }], caption: tp("The brand system: plum and rose, a classic serif and a light sans.") },
+      { images: [{ src: "/images/alienor-brand-v5.webp", alt: tp("Alienor brand system: the vector logotype on plum, a palette of plum, berry, rose, pink, light grey and white, Century Schoolbook and Montserrat, the ribbon pattern and a rose-gold O favicon"), ratio: "16 / 9" }], caption: tp("The brand system: plum and rose, a classic serif and a light sans.") },
     ],
   },
   {
