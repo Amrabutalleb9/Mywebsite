@@ -376,6 +376,13 @@ export const caseStudies: CaseStudy[] = [
     reflection: tp("My job was to make a big idea buildable. The product has evolved since launch, as products should. The structure underneath is the part I’d defend in any room."),
     credits: tp("Product Strategy & Design: Amr Abu-Talleb · Client: Jared, Bay Area Trips"),
     featured: true,
+    featureImage: "/images/bay-hero-v1.webp",
+    featureImageAlt: tp("Bay Area Trips app screens over the bay in the afternoon light, with the sun beginning to set"),
+    featureVideo: {
+      mp4: "/videos/bay-hero-loop-v1.mp4",
+      poster: "/images/bay-hero-loop-poster-v1.webp",
+      alt: tp("Bay Area Trips app screens drifting past as the afternoon turns to golden hour and then night: the business dashboard, a hotel listing, the traveller home, the member card, the sea lion hunt, the kids’ view, the travel club and event tickets"),
+    },
   },
   {
     slug: "agfin",
