@@ -184,8 +184,7 @@ export const caseStudies: CaseStudy[] = [
         ],
         figures: [
           { images: [{ src: "/images/op-solvix-hero-v2.webp", video: "/videos/op-solvix-hero-v2.mp4", alt: tp("Website concept, opening: Solvix, a stone figure with an amber core, kneeling in a forge hall beside the headline Your brand deserves more than ordinary") }], caption: tp("The opening. Solvix follows the visitor’s cursor.") },
-          { images: [{ src: "/images/op-solvix-video-v2.webp", alt: tp("Website concept: a close-up of Solvix’s hand holding glowing film frames, labelled 03 Video") }, { src: "/images/op-solvix-core-v2.webp", alt: tp("Website concept: Solvix standing in the forge hall with its chest core opened and glowing") }], caption: tp("A service close-up, then the core opens.") },
-          { images: [{ src: "/images/op-solvix-team-v2.webp", alt: tp("Website concept: inside the core, a warm workshop of people designing, filming and building") }], caption: tp("Inside the core, the team behind the work.") },
+          { images: [{ src: "/images/op-solvix-video-v3.webp", alt: tp("Website concept: a close-up of Solvix’s hand holding glowing film frames, beside the Video Production service") }, { src: "/images/op-solvix-core-v3.webp", alt: tp("Website concept: Solvix standing in the forge hall with its core opened, beside the headline We’re Overpowered, and so is our work") }], caption: tp("A service close-up, then the core opens.") },
         ],
       },
     ],
