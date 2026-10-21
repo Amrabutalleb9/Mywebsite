@@ -1,14 +1,14 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowUpRight, ArrowRight } from "lucide-react"
-import { testimonialProof, leadershipPrinciples } from "@/lib/shared-data"
+import { publishedTestimonials, leadershipPrinciples } from "@/lib/shared-data"
 import { publishedCaseStudies, projectHighlights } from "@/lib/projects"
 import { tp } from "@/lib/typeset"
 
 import HeroSection from "@/components/homepage/hero-section"
 import ClientTicker from "@/components/homepage/client-ticker"
 import ServicesMarquee from "@/components/homepage/services-marquee"
-import TestimonialsProof from "@/components/homepage/testimonials-proof"
+import TestimonialsWithStats from "@/components/homepage/testimonials-with-stats"
 import ScrollReveal from "@/components/homepage/scroll-reveal"
 import { SpltReel, HodelProof } from "@/components/homepage/card-motion"
 
@@ -313,7 +313,7 @@ export default function Home() {
       <About />
       <ServicesMarquee />
       <LeadSection />
-      <TestimonialsProof groups={testimonialProof} stats={stats} />
+      <TestimonialsWithStats testimonials={publishedTestimonials} stats={stats} />
       <div className="mx-auto max-w-3xl px-8 pt-16 pb-24 text-center lg:pt-20 lg:pb-32">
         <p className="mb-5 text-base text-muted-foreground lg:text-lg">{"Hiring a\u00A0Creative Director?"}</p>
         <a
