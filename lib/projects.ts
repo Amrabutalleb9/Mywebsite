@@ -102,10 +102,10 @@ export const caseStudies: CaseStudy[] = [
       tp("Clear ownership: designers reported to their art directors, with daily reviews and a weekly review across disciplines"),
       tp("One working system in Slack, Trello and Google Workspace, so ownership, deadlines and capacity were visible"),
       tp("A focused offer: branding, web and app, and video for small and mid-sized businesses, with OP Labs for product clients"),
-      tp("A new identity developed under my direction and used by the agency for about a year"),
+      tp("A new identity built with the branding team, used by the agency for about a year"),
       tp("An immersive website direction, briefed to the 3D, motion and UX/UI teams"),
     ],
-    reflection: tp("Good work rarely comes from talent alone. It comes when people know who they are working for, who owns each decision and what good looks like. Most of my time at Overpowered went into building those conditions, so the team could do its best work without waiting for me."),
+    reflection: tp("Good work rarely comes from talent alone. It comes when a team shares a clear direction, a way of working and a standard to hold itself to. Most of my time at Overpowered went into building those, so the team could do its best work without waiting for me."),
     credits: tp("Creative Direction: Amr Abu-Talleb · Art Direction & Design: the Overpowered team"),
     chapters: [
       {
