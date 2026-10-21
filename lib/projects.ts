@@ -388,10 +388,6 @@ export const caseStudies: CaseStudy[] = [
         images: [{ src: "/images/bay-fig-membership-v1.webp", alt: tp("The membership page on the website beside the member card and the travel club in the app") }],
         caption: tp("Membership as a card the whole family carries, with members-only travel club nights."),
       },
-      {
-        images: [{ src: "/images/bay-fig-icons-v1.webp", alt: tp("The Bay Area Trips icon set: 29 line icons with the sun as the one filled shape") }],
-        caption: tp("An icon set drawn for the product, with the sun as the one filled shape."),
-      },
     ],
   },
   {
