@@ -183,7 +183,7 @@ export const caseStudies: CaseStudy[] = [
           tp("I wrote the briefs for the 3D, motion and UX/UI teams and developed the direction with the art directors, section by section."),
         ],
         figures: [
-          { images: [{ src: "/images/op-solvix-hero-v2.webp", video: "/videos/op-solvix-hero-v2.mp4", alt: tp("Website concept, opening: Solvix, a stone figure with an amber core, kneeling in a forge hall beside the headline Your brand deserves more than ordinary") }], caption: tp("The opening. Solvix follows the visitor’s cursor.") },
+          { images: [{ src: "/images/op-solvix-hero-v3.webp", video: "/videos/op-solvix-hero-v3.mp4", alt: tp("Website concept, opening: Solvix, a stone figure with an amber core, kneeling in a forge hall beside the headline Your brand deserves more than ordinary") }], caption: tp("The opening. Solvix follows the visitor’s cursor.") },
           { images: [{ src: "/images/op-solvix-video-v3.webp", alt: tp("Website concept: a close-up of Solvix’s hand holding glowing film frames, beside the Video Production service") }, { src: "/images/op-solvix-core-v4.webp", alt: tp("Website concept: a close-up of Solvix’s head with glowing eyes and amber crystals, beside the headline We’re Overpowered, and so is our work") }], caption: tp("A service close-up, then who the agency is.") },
         ],
       },
@@ -210,7 +210,7 @@ export const caseStudies: CaseStudy[] = [
     featureImage: "/images/op-hero-v1.webp",
     featureImageAlt: tp("The OP logomark as a giant glass sculpture floating above a hill, a lone figure looking up at it"),
     featureVideo: {
-      mp4: "/videos/op-hero-loop-v1.mp4",
+      mp4: "/videos/op-hero-loop-v2.mp4",
       poster: "/images/op-hero-loop-poster-v1.webp",
       alt: tp("The OP logomark as a giant glass sculpture above a hill, cut fast with close-ups of the glass and a man looking up, looping back to where it starts"),
     },
@@ -857,6 +857,7 @@ const allProjectHighlights: ProjectHighlight[] = [
   },
   {
     slug: "shavery",
+    hidden: true,
     title: "Shavery & Co",
     subtitle: tp("A luxury barbershop identity that holds up from the street sign to the cup"),
     description: tp("The identity for Shavery & Co needed to communicate a premium experience across both the storefront and the smaller details customers meet inside.\n\nI built the system around a badge that works on the exterior sign, a cup, a business card and other brand applications, keeping the same character and quality across different materials and scales."),
