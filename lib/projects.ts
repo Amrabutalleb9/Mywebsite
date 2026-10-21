@@ -182,7 +182,11 @@ export const caseStudies: CaseStudy[] = [
           tp("Solvix changes form as you move: it tracks the cursor in the opening, becomes a ball of energy beside the problems the agency solves, turns to show each service, and opens its core to reveal the team behind the work."),
           tp("I wrote the briefs for the 3D, motion and UX/UI teams and developed the direction with the art directors, section by section."),
         ],
-        figures: [],
+        figures: [
+          { images: [{ src: "/images/op-solvix-hero-v2.webp", video: "/videos/op-solvix-hero-v2.mp4", alt: tp("Website concept, opening: Solvix, a stone figure with an amber core, kneeling in a forge hall beside the headline Your brand deserves more than ordinary") }], caption: tp("The opening. Solvix follows the visitor’s cursor.") },
+          { images: [{ src: "/images/op-solvix-video-v2.webp", alt: tp("Website concept: a close-up of Solvix’s hand holding glowing film frames, labelled 03 Video") }, { src: "/images/op-solvix-core-v2.webp", alt: tp("Website concept: Solvix standing in the forge hall with its chest core opened and glowing") }], caption: tp("A service close-up, then the core opens.") },
+          { images: [{ src: "/images/op-solvix-team-v2.webp", alt: tp("Website concept: inside the core, a warm workshop of people designing, filming and building") }], caption: tp("Inside the core, the team behind the work.") },
+        ],
       },
     ],
     client: tp("Overpowered\nCreative & digital agency, London"),
