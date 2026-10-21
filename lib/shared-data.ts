@@ -53,40 +53,33 @@ export interface ProofGroup {
 }
 
 export const testimonialProof: ProofGroup[] = [
+  // One original testimonial per question, wording as first published (Git: lib/shared-data.ts at be3f574, the carousel before e7e0c96).
   {
     title: "Strategy",
     question: "Will they think, or just\u00A0execute?",
     quotes: [
-      { quote: "His strategic thinking elevated the entire\u00A0project.", name: "Overpowered", credential: "Agency leadership \u00B7 UK" },
-      { quote: "Amr provided lots of\u00A0new UX ideas and put them to\u00A0me in\u00A0a\u00A0detailed\u00A0explanation.", name: "Robert, founder of\u00A0Agfin", credential: "Melbourne, Australia" },
-      { quote: "His continual ongoing communications and proffered insights were\u00A0invaluable.", name: "Steve Hodel", credential: "NYT bestselling author \u00B7 US" },
+      { quote: "Amr delivered beyond expectations. The\u00A0brand identity he created captured our vision perfectly and translated seamlessly across every touchpoint. His strategic thinking elevated the entire\u00A0project.", name: "Overpowered Agency", credential: "Brand Identity \u00B7 UK" },
     ],
   },
   {
     title: "Craft",
     question: "Is the work actually\u00A0good?",
     quotes: [
-      { quote: "The brand identity he created captured our vision perfectly and translated seamlessly across every\u00A0touchpoint.", name: "Overpowered", credential: "Agency leadership \u00B7 UK" },
-      { quote: "Great UI/UX designer, quick delivery and clear\u00A0communication.", name: "Head of\u00A0UX, Freelancer.com", credential: "Sydney, Australia" },
-      { quote: "Way beyond anything I\u00A0expected.", name: "Augustina", credential: "Website design \u00B7 Denmark" },
+      { quote: "Amr provided lots of\u00A0new UX ideas and put them to\u00A0me in a\u00A0detailed explanation. He\u00A0went above and beyond the project scope to\u00A0deliver a\u00A0renewed website and sales funnel.", name: "Robert", credential: "Funnel Copywriting & Design \u00B7 Melbourne, Australia" },
     ],
   },
   {
     title: "Communication",
     question: "Can they work with our team\u00A0remotely?",
     quotes: [
-      { quote: "Communication was smooth, he was always available, and paid great attention to\u00A0detail.", name: "Stefano", credential: "Website design \u00B7 Valencia, Spain" },
-      { quote: "Communication in\u00A0English is\u00A0excellent. Prompt to\u00A0resolve any\u00A0issues.", name: "Augustina", credential: "Website design \u00B7 Denmark" },
-      { quote: "Very professional work and his continual ongoing communications\u2026 were\u00A0invaluable.", name: "Steve Hodel", credential: "NYT bestselling author \u00B7 US" },
+      { quote: "Amr assisted me in a\u00A0very challenging Art/Crime book project I authored. Very\u00A0professional work and his continual ongoing communications and proferred insights were invaluable. I\u00A0highly recommend him.", name: "Steven Hodel", credential: "Book Design \u00B7 Blaine, United States" },
     ],
   },
   {
     title: "Ownership",
     question: "Will they deliver without being\u00A0chased?",
     quotes: [
-      { quote: "We have been through hell with 4\u00A0previous freelancers\u2026 All\u00A04 were unable to\u00A0complete the work. Enter\u00A0Amr.", name: "Dipa, founder", credential: "Dipa Visionary Art School \u00B7 Singapore" },
-      { quote: "He quickly understood the project requirements and delivered flawless work on\u00A0time.", name: "Stefano", credential: "Website design \u00B7 Valencia, Spain" },
-      { quote: "He went above and beyond the project\u00A0scope.", name: "Robert, founder of\u00A0Agfin", credential: "Melbourne, Australia" },
+      { quote: "So professional, on time, high level of\u00A0skills and capabilities\u2026 don\u2019t waste your time and\u00A0assign him your work, I didn\u2019t see anything with his level of\u00A0accountability.", name: "Ahmed", credential: "Branding \u00B7 Khobar, KSA" },
     ],
   },
 ]
@@ -95,7 +88,7 @@ export const testimonialProof: ProofGroup[] = [
 
 export const leadershipPrinciples: { title: string; desc: string }[] = [
   { title: "Standards", desc: "I\u00A0set the\u00A0direction and\u00A0the\u00A0bar, then make the\u00A0bar reachable. Work is\u00A0judged against the\u00A0brand and\u00A0the\u00A0people using it,\u00A0not against my\u00A0taste. In reviews I\u00A0speak last, so\u00A0the\u00A0team says what it\u00A0sees before it\u00A0hears what I\u00A0think." },
-  { title: "People", desc: "I\u00A0match each brief to\u00A0the\u00A0designer with the\u00A0capacity and\u00A0the\u00A0strengths for\u00A0it,\u00A0and\u00A0I\u00A0learn how many rounds each person needs to\u00A0reach their best idea. That\u2019s how designers on\u00A0my\u00A0teams grow into art\u00A0directors." },
+  { title: "People", desc: "I\u00A0match each brief to\u00A0the\u00A0designer with the\u00A0capacity and\u00A0the\u00A0strengths for\u00A0it. I\u2019ve hired more than fifty people, and\u00A0some now lead teams of\u00A0their own. A\u00A0team should be able to\u00A0make a\u00A0considered call without waiting for\u00A0me." },
   { title: "The business", desc: "Product, marketing and\u00A0the\u00A0founders are in\u00A0the\u00A0room early, so\u00A0creative decisions get made with the\u00A0business at\u00A0the\u00A0table. Big ideas get tested small first, and\u00A0the\u00A0budget follows what\u00A0works." },
-  { title: "Delivery", desc: "I\u00A0weigh ambition against budget, time and\u00A0risk before the\u00A0work starts, agree the\u00A0scope up\u00A0front and\u00A0raise problems early. Every quarter the\u00A0owners and\u00A0the\u00A0board see the\u00A0numbers in\u00A0their terms, not\u00A0mine." },
+  { title: "Delivery", desc: "I\u00A0weigh ambition against budget, time and\u00A0risk before the\u00A0work starts, agree the\u00A0scope up\u00A0front and\u00A0raise problems early." },
 ]

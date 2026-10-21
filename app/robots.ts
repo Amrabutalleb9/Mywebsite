@@ -1,10 +1,14 @@
 import type { MetadataRoute } from "next"
-import { getHiddenCaseStudySlugs } from "@/lib/projects"
+import { getHiddenCaseStudySlugs, getHiddenHighlightSlugs } from "@/lib/projects"
 
 export const dynamic = "force-static"
 
 export default function robots(): MetadataRoute.Robots {
-  const hiddenWorkPaths = getHiddenCaseStudySlugs().map((slug) => `/work/${slug}`)
+  const hiddenWorkPaths = [
+    ...getHiddenCaseStudySlugs().map((slug) => `/work/${slug}`),
+    ...getHiddenHighlightSlugs().map((slug) => `/highlights/${slug}`),
+    "/leadership",
+  ]
 
   return {
     rules: {

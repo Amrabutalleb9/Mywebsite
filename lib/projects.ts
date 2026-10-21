@@ -39,7 +39,7 @@ export interface CaseStudy {
   showcaseVideo?: { mp4: string; webm?: string; poster: string; alt: string }
   featureVideo?: { mp4: string; webm?: string; poster: string; alt: string }
   /** Rows of figures shown between the strategy and the process; each row 1–3 images with an optional caption. */
-  storyFigures?: { images: { src: string; alt: string; ratio?: string }[]; caption?: string }[]
+  storyFigures?: { images: { src: string; alt: string; ratio?: string; video?: string }[]; caption?: string }[]
   /** Short opening paragraphs shown under the subtitle. */
   intro?: string[]
   /** Scannable list of what the author personally led, shown in place of the impact line. */
@@ -47,7 +47,7 @@ export interface CaseStudy {
   /** Heading for the results list (defaults to "What Changed"). */
   resultsTitle?: string
   /** Optional story told in chapters; each chapter is followed by its own figures. Replaces the brief/turn/work blocks when present. */
-  chapters?: { label: string; summary?: string; lead?: string; paragraphs: string[]; figures?: { images: { src: string; alt: string; ratio?: string }[]; caption?: string }[] }[]
+  chapters?: { label: string; summary?: string; lead?: string; paragraphs: string[]; figures?: { images: { src: string; alt: string; ratio?: string; /** Optional looping mp4; src becomes its poster. */ video?: string }[]; caption?: string }[] }[]
   /** Optional external link, e.g. where to buy a published book. */
   buyLink?: { href: string; label: string }
 }
@@ -68,6 +68,8 @@ export interface ProjectHighlight {
   featureImage?: string
   featureImageAlt?: string
   keyVisuals?: { src: string; alt: string }[]
+  /** When true, excluded from listings, sitemap and robots, and the page returns 404. */
+  hidden?: boolean
   /** Extra rows of figures shown after the key visuals; each row 1–3 images with an optional caption. */
   figures?: { images: { src: string; alt: string; ratio?: string }[]; caption?: string }[]
 }
@@ -78,97 +80,62 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "overpowered",
     title: "Overpowered",
-    subtitle: tp("From a studio that served everyone to an agency that knew exactly who it was for"),
-    impactStatement: tp("Positioning and growth plan developed with the CEO · Team grown from six to twenty-five · SPLT secured at $8,000 for its first two stages"),
+    subtitle: tp("From a studio trying to serve everyone to an agency that knew who it was for"),
+    impactStatement: tp("Team grown from six to about twenty-five in seven months · Positioning set with the CEO · New identity used for about a year"),
     role: tp("Creative Director\nWorked directly with the CEO"),
     teamSize: tp("About 25 across branding, 2D, 3D, video, copy and UX/UI"),
-    scope: tp("Agency strategy, positioning, outreach planning, team structure, creative direction, identity and website direction"),
+    scope: tp("Team structure and creative standards, positioning, service structure, brand identity, creative direction and website direction"),
     intro: [
-      tp("Overpowered wanted to become a global creative agency. The challenge was to bring its positioning, services, team and creative direction into line with that ambition."),
-      tp("I joined as Creative Director, working directly with the CEO on agency strategy, how the team operated, and how we presented the business to prospective clients."),
+      tp("Overpowered wanted to grow into a global creative and digital agency. Its offer, its identity and the way the team worked hadn’t caught up with that ambition."),
+      tp("I joined as Creative Director, working directly with the CEO. My job was to build a team that could do the work, give it a clear standard, and give the agency a direction its work could live up to."),
     ],
     contributions: [
-      { label: "Agency strategy", text: tp("Developed the positioning, service structure and two-stage growth plan with the CEO.") },
-      { label: "Creative leadership", text: tp("Directed a multidisciplinary team as the agency grew from six people to twenty-five.") },
-      { label: "Commercial contribution", text: tp("Restructured SPLT’s proposal into stages and secured $8,000 for the first two.") },
-      { label: "Brand direction", text: tp("Directed the new identity and contributed hands-on to selected elements.") },
-      { label: "Team operations", text: tp("Introduced one working system, a review rhythm and a hiring test.") },
-      { label: "Digital experience", text: tp("Led five website concepts and briefed the teams on the chosen direction.") },
+      { label: "Team", text: tp("Built the creative team from six people to about twenty-five, with two art directors and a hiring test.") },
+      { label: "Standards", text: tp("Set clear reporting lines, a review rhythm and one shared way of working.") },
+      { label: "Positioning", text: tp("Focused the offer with the CEO on three services for small and mid-sized businesses, plus OP Labs for product work.") },
+      { label: "Identity", text: tp("Directed the new identity with the team and contributed hands-on to selected elements.") },
+      { label: "Website", text: tp("Led the immersive website direction and briefed the 3D, motion and UX/UI teams.") },
     ],
     resultsTitle: "Where Things Stood in June 2025",
     results: [
-      tp("A clearer position: a focused offer for small and mid-sized businesses, with OP Labs for digital product clients"),
-      tp("A defined service structure: branding, web and app, and video as the core offers"),
-      tp("A team of twenty-five: grown from six in seven months, with two art directors and a hiring process"),
-      tp("A shared working system: Google Workspace, Slack, Trello and regular creative reviews across disciplines"),
-      tp("A commercial agreement for SPLT: $8,000 for the first two stages, with the third to be scoped later"),
-      tp("A new identity: developed under my creative direction and used by the agency for about a year"),
-      tp("A new website direction: five concepts and a chosen route, still in design in June 2025"),
-      tp("Alfy: campaigns redirected toward the architects who specify marble, with social engagement up 70%"),
+      tp("A team of about twenty-five, grown from six in seven months, led by two art directors"),
+      tp("Clear ownership: designers reported to their art directors, with daily reviews and a weekly review across disciplines"),
+      tp("One working system in Slack, Trello and Google Workspace, so ownership, deadlines and capacity were visible"),
+      tp("A focused offer: branding, web and app, and video for small and mid-sized businesses, with OP Labs for product clients"),
+      tp("A new identity developed under my direction and used by the agency for about a year"),
+      tp("An immersive website direction, briefed to the 3D, motion and UX/UI teams"),
     ],
-    reflection: tp("I joined to lead the creative work and spent half my time on the business around it: which clients to chase, what to sell, how the team worked, what a client’s product really needed. I wouldn’t change that. Good work rarely comes from talent alone. It comes when an agency knows who it serves and gives its people room to rise to the standard."),
-    credits: tp("Creative Direction & Agency Strategy: Amr Abu-Talleb · Art Direction & Design: the Overpowered team"),
+    reflection: tp("Good work rarely comes from talent alone. It comes when people know who they are working for, who owns each decision and what good looks like. Most of my time at Overpowered went into building those conditions, so the team could do its best work without waiting for me."),
+    credits: tp("Creative Direction: Amr Abu-Talleb · Art Direction & Design: the Overpowered team"),
     chapters: [
       {
         label: "The brief",
         paragraphs: [
-          tp("The CEO and I had been discussing the agency’s future for two years before I joined. He wanted to build a global agency with a team of more than forty people. We worked through the financial and operational requirements, including the investment needed for the first six to twelve months and how the team could grow as the business developed."),
-          tp("When he was ready to move forward, he invited me to join as Creative Director. I worked alongside him to put the plan into practice while the studio kept serving its existing clients."),
+          tp("The CEO and I had talked about the agency’s future for two years before I joined, including how it could grow in stages rather than all at once."),
+          tp("When he was ready, he invited me to join as Creative Director. The studio had to keep serving its clients while the team, the offer and the identity changed around it."),
         ],
         figures: [
-          { images: [{ src: "/images/op-fig-01-v5.webp", alt: tp("The audit: six findings beside the old Overpowered homepage and its empty service cards, December 2024") }], caption: tp("The website as I found it, December 2024.") },
+          { images: [{ src: "/images/op-fig-01-v5.webp", alt: tp("The audit: six findings beside the old Overpowered homepage and its empty service cards, December 2024") }], caption: tp("The website in December 2024.") },
         ],
       },
       {
-        label: "What I found",
+        label: "Where we started",
         paragraphs: [
-          tp("I started with what a prospective client would see."),
-          tp("The website offered six services, from branding to AI data analysis, under a headline about digital dominance. Some service cards were empty, and the portfolio didn’t consistently show the breadth of the offer. The identity relied on gun imagery, which limited where we could advertise and made it a harder sell to the corporate clients the agency wanted in Dubai."),
-          tp("Inside the studio, day-to-day coordination happened in WhatsApp groups, so tasks, owners and workloads were hard to see across disciplines. There was no shared asset library, hiring process, outreach plan or review routine."),
-          tp("The agency already had a team, clients and work to build on. The next step was to make the positioning, the way the team worked and the way the agency presented itself tell the same story."),
+          tp("I started with what a prospective client would see. The website offered six services, from branding to AI data analysis, under a headline about digital dominance. The identity used gun and gaming imagery, which limited where the agency could advertise and suited the established businesses it wanted to reach less well."),
+          tp("Inside the studio, designers could receive tasks from several people, and most coordination happened in WhatsApp groups. It wasn’t always easy to see who owned a task, when it was due or who had room for more."),
+          tp("The agency already had talented people, clients and good work. It needed a clearer offer and a better way for the team to work."),
         ],
         figures: [
           { images: [{ src: "/images/op-fig-02-v3.webp", alt: tp("Positioning before and after: from digital dominance for anyone to more than ordinary for small and mid-sized businesses, three services, one process") }], caption: tp("Positioning, before and after.") },
         ],
       },
       {
-        label: "The turning point",
-        lead: tp("The problem wasn’t the logo. Overpowered was trying to be everything to everyone."),
-        paragraphs: [
-          tp("A new identity would have been the most visible change, but it wouldn’t answer the bigger questions. Who was the agency best placed to serve? Which services should lead the offer? How would we reach those clients?"),
-          tp("I worked through those questions with the CEO. Each proposal set out the costs, the people required and the priorities for the next three months, which gave us a shared basis for deciding what to tackle first. The identity and website would take their direction from those decisions."),
-        ],
-      },
-      {
-        label: "Positioning",
-        paragraphs: [
-          tp("We focused on small and mid-sized businesses, where the agency already had strong relationships and relevant work. Word of mouth and the CEO’s network gave us a natural starting point, while our strongest projects showed what the team could do."),
-          tp("The long service menu became three core offers: branding, web and app, and video. We moved website projects to Webflow and Framer, giving clients a more practical route to launching and maintaining their sites."),
-          tp("Product work needed a different conversation. A CTO evaluating a digital product has different priorities from a marketing lead commissioning a campaign, so we developed OP Labs as a separate offer for product work, with its own positioning and pitch."),
-        ],
-        figures: [
-          { images: [{ src: "/images/op-fig-03-v3.webp", alt: tp("Two offers: OP for founders and marketing leads, OP Labs for CTOs and product owners") }], caption: tp("One agency, two offers.") },
-        ],
-      },
-      {
-        label: "Winning clients",
-        paragraphs: [
-          tp("I developed an outreach plan in two stages."),
-          tp("The first made better use of the opportunities the agency already had: the CEO’s network, regular publishing across LinkedIn, Instagram and Facebook, collaborative projects on Behance and Dribbble, and daily proposals on Freelancer."),
-          tp("The second was designed to build a more measurable pipeline, through research into target clients, small paid campaigns and a CRM to follow leads through to signed contracts. I defined the target audience, the messaging and the approach, then delegated execution to the team."),
-          tp("SPLT came through the CEO’s network. The client wanted to build a fitness app for around $4,000, the development estimates on the table priced a one-line code change at about $500, and no one had scoped the product strategy or the design. I stepped into the client meeting, explained what the product needed and split the work into stages. The client agreed to $8,000 for the first two, and I led the product design."),
-        ],
-        figures: [
-          { images: [{ src: "/images/op-fig-04-v5.webp", alt: tp("The two-stage go-to-market plan: the CEO’s network, social posts, Behance and Dribbble projects and Freelancer bids first, then paid ads and a CRM-tracked pipeline") }], caption: tp("Two stages, from proof to pipeline.") },
-        ],
-      },
-      {
         label: "The team",
+        lead: tp("A new logo would have been the most visible change. The bigger change was the team."),
         paragraphs: [
-          tp("Over seven months the studio grew from six people to twenty-five, across graphic design, video, 3D, copy and UX/UI. Two art directors led the creative disciplines, while I managed UX/UI directly."),
-          tp("I helped formalise the leadership structure, including promoting one of our designers to Art Director, a role he was already doing without the title."),
-          tp("I also wrote a hiring exercise around a premium olive-oil brand built on Arabic calligraphy. It gave candidates a concrete brief to interpret and gave us a basis for discussing their thinking, their craft and how they took feedback."),
-          tp("I wanted the structure to give people room to develop their judgement and take ownership of their work."),
+          tp("Over seven months the studio grew from six people to about twenty-five, across graphic design, video, 3D, copy and UX/UI. Two art directors led the creative disciplines and reported to me; I managed UX/UI directly."),
+          tp("One designer was already doing an art director’s job without the title. I formalised his promotion and worked with him on how to review and direct other people’s work."),
+          tp("I wrote a hiring exercise around a premium olive-oil brand built on Arabic calligraphy. It gave candidates a real brief to interpret and gave us something concrete to discuss: their thinking, their craft and how they took feedback."),
         ],
         figures: [
           { images: [{ src: "/images/op-fig-06-v5.webp", alt: tp("Org chart: CEO, Creative Director, an art director for branding over graphic, an art director for video over video and 3D, and UX/UI and copy reporting directly") }], caption: tp("Team structure. Roles only.") },
@@ -177,21 +144,30 @@ export const caseStudies: CaseStudy[] = [
       {
         label: "How we worked",
         paragraphs: [
-          tp("A team of twenty-five needs a shared view of the work."),
-          tp("I introduced Google Workspace, Slack and Trello as the working structure. Each discipline and client had its own Slack channel, and weekly Trello boards made tasks, owners, deadlines and workloads visible."),
-          tp("The team met weekly, I met the art directors every two days, and we shared work for review every few days. Designers presented their decisions, took feedback from peers and leads, and refined the work against the brief."),
-          tp("It became easier to see where projects stood, who owned the next step and who had room to take on more."),
+          tp("Designers reported to their art directors, and the art directors reported to me. Work moved into Slack, with a channel for each discipline and client, and weekly Trello boards showed tasks, owners, deadlines and workloads."),
+          tp("Designers reviewed work with their art directors every day or two, and I reviewed it with the art directors each week. In reviews, designers explained their decisions before anyone else weighed in. When notes weren’t enough, I sat with the designer, opened the file and worked through the options together."),
+          tp("I wanted the team to understand why a solution worked, not change things because I had asked."),
         ],
         figures: [
           { images: [{ src: "/images/op-fig-07-v2.webp", alt: tp("How we worked: from tasks in WhatsApp groups to Slack, weekly Trello boards and Google Workspace, with a weekly meeting, art director check-ins every two days and team reviews every two to three days") }], caption: tp("From group chats to one working system.") },
         ],
       },
       {
+        label: "A clearer offer",
+        paragraphs: [
+          tp("With the CEO, I focused the agency on small and mid-sized businesses, where it already had relationships and relevant work. Six service areas became three: branding, web and app, and video. Website projects moved to Webflow and Framer, so clients could launch and maintain their sites more easily."),
+          tp("Product work needed its own conversation. A CTO buying a digital product has different priorities from a marketing lead commissioning a campaign, so we set up OP Labs as a separate offer. When SPLT came to us, I reshaped its brief into a staged product engagement and led the product design."),
+        ],
+        figures: [
+          { images: [{ src: "/images/op-fig-03-v3.webp", alt: tp("Two offers: OP for founders and marketing leads, OP Labs for CTOs and product owners") }], caption: tp("One agency, two offers.") },
+        ],
+      },
+      {
         label: "Identity",
         paragraphs: [
-          tp("Once the positioning began to take shape, we could give the agency a more coherent visual expression."),
-          tp("I directed the identity work with the branding art director and the team, contributing hands-on to selected elements. We moved away from the gun imagery and developed a connected O and P mark, a family of logo variations, an OP Labs lock-up, a defined palette and type scale, and a graphic pattern drawn from the logo’s geometry."),
-          tp("We tested elements of the identity in small Instagram campaigns in the UAE, the UK and Egypt before committing to the direction. The agency went on to use it for about a year."),
+          tp("Once the positioning took shape, the agency needed an identity that matched it."),
+          tp("I directed the identity with the branding art director and the team, contributing hands-on to selected elements. We moved away from the gun imagery and built the system around a connected O and P mark, with logo variations, an OP Labs lock-up, a defined palette and type scale, and a pattern drawn from the mark."),
+          tp("We tested elements in small Instagram campaigns in the UAE, the UK and Egypt before committing. The agency went on to use the identity for about a year."),
         ],
         figures: [
           { images: [{ src: "/images/op-fig-09-v2.webp", alt: tp("Pages from the January 2025 brand guidelines: logomark, logo variations, OP Labs lock-up, colour, type and pattern") }], caption: tp("From the January 2025 brand guidelines.") },
@@ -202,34 +178,34 @@ export const caseStudies: CaseStudy[] = [
       {
         label: "The website",
         paragraphs: [
-          tp("The agency’s website needed to communicate its new direction, not simply list its services."),
-          tp("I explored five creative directions with the team. Each approached the same challenge differently, from a site that powered up like a game to a command center for a client’s brand."),
-          tp("The preferred direction developed into a cinematic experience in four acts. I wrote the briefs for the UI/UX, graphic, motion and 3D teams, then shaped the concept with the art directors, section by section."),
+          tp("The website had to show the new direction, not just list services. We chose an immersive route built around Solvix, a crystal figure that guides visitors through the site."),
+          tp("Solvix changes form as you move: it tracks the cursor in the opening, becomes a ball of energy beside the problems the agency solves, turns to show each service, and opens its core to reveal the team behind the work."),
+          tp("I wrote the briefs for the 3D, motion and UX/UI teams and developed the direction with the art directors, section by section."),
         ],
         figures: [
-          { images: [{ src: "/images/op-concept-1-v1.webp", alt: tp("Concept 01, Power Up: Power up your brand, with a charging bar that unlocks branding, web, video, the squad and results"), ratio: "16 / 10" }, { src: "/images/op-concept-4-v1.webp", alt: tp("Concept 04, Forge and Conquer: Forged to conquer, over the logomark glowing on an anvil"), ratio: "16 / 10" }] },
-          { images: [{ src: "/images/op-concept-2-v2.webp", alt: tp("Concept 02, Interactive Blueprint: the logomark drawn as a technical construction, with branding, web and video modules called out"), ratio: "16 / 10" }, { src: "/images/op-concept-3-v1.webp", alt: tp("Concept 03, Origami Fold: unfold what your brand can be, with folded paper service cards"), ratio: "16 / 10" }, { src: "/images/op-concept-5-v2.webp", alt: tp("Concept 05, Command Center: your brand, under control, above a glowing globe with London, Brussels, Cairo and Dubai marked"), ratio: "16 / 10" }], caption: tp("The five website concepts.") },
+          { images: [{ src: "/images/op-solvix-hero-v1.webp", video: "/videos/op-solvix-hero-v1.mp4", alt: tp("Website concept, opening: Solvix, a crystal figure with an amber core, beside the headline More than ordinary") }], caption: tp("The opening. Solvix follows the visitor’s cursor.") },
+          { images: [{ src: "/images/op-solvix-problem-v1.webp", alt: tp("Website concept: Solvix turns into a ball of energy beside the headline Your business has grown. Your brand hasn’t.") }, { src: "/images/op-solvix-services-v1.webp", alt: tp("Website concept: the camera moves in on Solvix’s head and shoulder beside the three services, branding, web and app, and video") }], caption: tp("The problem, then the three services.") },
+          { images: [{ src: "/images/op-solvix-team-v1.webp", alt: tp("Website concept: Solvix’s chest opens to reveal a workshop of people inside, under the headline The people behind the work") }], caption: tp("The core opens to show the team. Concept frames from the website direction.") },
         ],
       },
     ],
     client: tp("Overpowered\nCreative & digital agency, London"),
-    timeline: "Dec 2024 – Jun 2025",
+    timeline: "Dec 2024 – Jun 2025",
     industry: tp("Creative agency\nBranding, digital and video"),
     markets: tp("UK, UAE, Egypt and the EU"),
     year: "2024–2025",
-    businessContext: tp("The CEO first came to me about two years before I joined. He wanted a global agency with more than forty people from the first day. I rebuilt the plan around a much smaller start, worked out what the first six to twelve months would cost before the agency broke even, and advised him to grow into the bigger version. When he was ready to start, he brought me in as Creative Director, reporting only to him."),
-    clientProblem: tp("My first weeks were an audit. The website promised ten years of design-driven product development above service cards with nothing in them. The copy could have belonged to any agency, and it spoke to everyone at once. The brand leaned on gun imagery everywhere, from the logo to the social posts, which ruled out paid ads in the EU and put off the corporate clients the agency wanted in Dubai. The identity had no system behind it. There was no reusable library, no pattern system and no logo variations, so every designer drew the brand again from scratch. There was no outreach plan, no hiring process and no shared idea of what good work looked like."),
-    constraints: tp("The agency had to keep winning and delivering client work while everything around it changed. Budgets and resourcing stayed with the CEO, so every change I proposed came as a plan he could approve, with what it would cost, who would do it and what the next three months would look like."),
-    insight: tp("The problem wasn’t the logo. Overpowered was trying to be everything to everyone. It needed a clear buyer, a short list of services it could deliver well, and a way of finding clients that didn’t depend on the CEO’s network alone."),
-    creativeStrategy: tp("I repositioned the agency for small and mid-sized businesses. Three service lines replaced the long menu: branding, web and app, and video. Websites were built on Webflow and Framer so clients got them faster and for less, and every project followed the same four steps from discovery to launch. Product and technology buyers got their own offer, OP Labs, so a CTO and a marketing lead no longer read the same pitch. Then I wrote the go-to-market plan in two stages. The first used the network, social channels and a stronger portfolio. The second added client research, paid ads, content and a CRM to track every lead."),
-    keyDecisions: tp("I turned outreach into a system the team could run without me. It had a three-day LinkedIn warm-up before the first message, two versions of every opening message to see which one landed, and five follow-ups after it, with separate scripts for OP and OP Labs buyers and research into niche markets abroad. Around it, the agency posted twice a week on LinkedIn, Instagram and Facebook, put out Behance and Dribbble projects made with collaborators and bid on Freelancer every day, with paid ads on Instagram and Facebook as the next stage. I wrote the plan, the copy and the targeting, the team ran it, and I joined the closing calls with the CEO. We held the new website back until the case studies behind it were ready, because a new site with nothing to show would have repeated the old problem."),
-    leadershipRole: tp("I organised the team into five disciplines: graphic, video, 3D, copy and UX/UI. Two art directors led the creative teams, one on branding and one on video, 2D and 3D. I ran UX/UI and copy directly, and copy also worked with the CEO on outreach. The team was a mix of full-time, part-time and consultant roles. I wrote the hiring test, a brief for a premium olive-oil brand built on Arabic calligraphy, and reviewed every candidate. I promoted one of the designers to Art Director. Every case study the team produced came back with written notes from me about the reasoning, the personas, the wireframes and the testing behind it, the typography, real copy instead of lorem ipsum, and contrast that passes accessibility checks. Staffing, promotions and reviews were mine. The budget was the CEO’s."),
+    businessContext: tp("Overpowered wanted to grow into a global creative and digital agency. I joined as Creative Director, working directly with the CEO, while the studio kept serving its clients."),
+    clientProblem: tp("The website offered six services under a headline about digital dominance, the identity relied on gun imagery, and day-to-day work ran through WhatsApp groups, so ownership and workloads were hard to see."),
+    constraints: tp("The agency had to keep delivering client work while the team, the offer and the identity changed around it. Budgets stayed with the CEO, so each change came as a plan with its people and priorities."),
+    insight: tp("A new logo would have been the most visible change. The bigger change was the team: who owned each decision, how work was reviewed and what good looked like."),
+    creativeStrategy: tp("I built the team around two art directors, a review rhythm and one working system, then focused the offer with the CEO on three services for small and mid-sized businesses, with OP Labs for product work."),
+    keyDecisions: tp("Designers explained their decisions before anyone else weighed in, and the identity and website took their direction from the positioning rather than leading it."),
+    leadershipRole: tp("I led the creative team of about twenty-five through two art directors and managed UX/UI directly. Staffing, promotions and reviews were mine; budgets were the CEO’s."),
     processPhases: [
-      { title: "Audit", description: tp("Reviewed the website, the identity, the offer and the client list, and wrote up what had to change first.") },
-      { title: "Positioning", description: tp("Defined the buyer, the three service lines and the four-step process, and split the offer into OP and OP Labs.") },
-      { title: "Go-to-market", description: tp("Wrote the two-stage plan and the outreach system, from the LinkedIn warm-up to the CRM that tracked every lead.") },
-      { title: "Team & standards", description: tp("Organised five disciplines, wrote the hiring test, ran the critiques and promoted from within.") },
-      { title: "Identity & website direction", description: tp("Directed the new identity, dropped the gun imagery and tested visual elements in small Instagram campaigns in the UAE, the UK and Egypt. Then directed five website concepts with the team.") },
+      { title: "Starting point", description: tp("Looked at the agency as a client would: the website, the identity, the offer and how work moved through the studio.") },
+      { title: "Team & standards", description: tp("Set reporting lines through two art directors, wrote the hiring test, promoted from within and ran the reviews.") },
+      { title: "Positioning", description: tp("Focused the offer with the CEO on three services for small and mid-sized businesses, plus OP Labs.") },
+      { title: "Identity & website", description: tp("Directed the new identity and the immersive website direction with the team.") },
     ],
     featured: true,
     featureImage: "/images/op-hero-v1.webp",
@@ -244,9 +220,9 @@ export const caseStudies: CaseStudy[] = [
     slug: "split",
     title: "SPLT",
     subtitle: tp("Turning an online shop brief into a fitness platform built around its trainers"),
-    impactStatement: tp("338 screens across one app and three dashboards · Trainer subscriptions added as a new revenue line"),
+    impactStatement: tp("One app and three dashboards for four roles · A trainer subscription model proposed as a new revenue line"),
     role: tp("Creative Director & UX Lead at Overpowered\nLed 2 designers and the client relationship"),
-    scope: tp("Quotation and scope, competitive research, information architecture, mobile app, three dashboards, design system"),
+    scope: tp("Product scope, competitive research, information architecture, mobile app, three dashboards, design system"),
     intro: [
       tp("SPLT wanted to be more than a workout logger. The ambition was a fitness community where members could track training, follow one another, buy products from several sellers and connect with trainers."),
       tp("That meant designing for four groups at once: members, trainers, vendors and the SPLT team. Each needed a clear reason to use the product, and the platform needed a business model that could support them all."),
@@ -256,8 +232,8 @@ export const caseStudies: CaseStudy[] = [
         label: "The brief",
         paragraphs: [
           tp("The initial brief focused on commerce: products, orders, stock, promo codes and payouts for admins and vendors. It didn’t give trainers a meaningful role or members a compelling reason to pay."),
-          tp("The proposed development costs also needed scrutiny. The client was working to a budget of around $4,000, while the estimates included roughly $500 for a one-line code change. Product strategy and design hadn’t been scoped at all."),
-          tp("I took the lead in the client meeting and proposed dividing the engagement into three stages. The client agreed to $8,000 for the first two combined, covering strategy, feature definition and UX/UI design, with the third stage’s terms left until development was ready to begin."),
+          tp("The development estimate the client had been given didn’t hold up line by line, and product strategy and design hadn’t been scoped at all."),
+          tp("I proposed splitting the work into stages: strategy, feature definition and UX/UI design first, development once the product was defined. The client agreed, and I led the product direction with two designers."),
         ],
       },
       {
@@ -272,7 +248,7 @@ export const caseStudies: CaseStudy[] = [
         label: "Designing for four roles",
         paragraphs: [
           tp("Members got the workout and community features: a workout builder, personal and volume records, groups, goals, achievements, streaks and loyalty points."),
-          tp("Trainers became a role of their own. Their profiles led with their track record and subscription plans. Free content let members judge a coach before paid videos unlocked the rest, and monthly, quarterly and yearly plans created a new recurring revenue line."),
+          tp("Trainers became a role of their own. Their profiles led with their track record and subscription plans. Free content let members judge a coach before paid videos unlocked the rest, and monthly, quarterly and yearly plans were proposed as a new recurring revenue line."),
           tp("A dedicated trainer dashboard handled clients, goals, workout plans, an exercise library and video content, while vendor and admin dashboards ran the operational side of the marketplace."),
           tp("The challenge was to give each role the right experience without building four disconnected products."),
         ],
@@ -285,20 +261,18 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           tp("I set the information architecture and the visual direction, then worked with a senior and a junior designer to build the screens and the shared system. Neither had designed multi-role admin systems before, so I took the team through the user journeys and the logic behind each role before they took on the full UI."),
           tp("Each dashboard had its own navigation, but all three shared one shell, one set of tables and one set of reporting patterns. The mobile app and the dashboards used the same visual language."),
-          tp("The work covered 338 screens: about 126 for the mobile app, 82 for admin, 80 for trainers and 50 for vendors."),
         ],
       },
     ],
     results: [
-      tp("Restructured the engagement and secured $8,000 for the first two stages"),
-      tp("Added a dedicated trainer role with profiles, paid video and three subscription plans"),
+      tp("Reshaped a commerce-only brief into a staged product engagement"),
+      tp("Added a dedicated trainer role with profiles, paid video and three proposed subscription plans"),
       tp("Designed workout, progress, group, achievement and loyalty features for members"),
       tp("Created one shared system for the mobile app and three dashboards"),
       tp("Planned delivery in three phases: commerce, subscriptions and loyalty first; the trainer platform second; integrations and gamification third"),
-      tp("Weighed Firebase against AWS for the roadmap and hosting costs"),
       tp("Fixed eight bugs in the existing app before new feature work began"),
     ],
-    reflection: tp("The brief asked for a shop. Competitive research showed that the trainer relationship could give the platform another reason to exist and another way to earn. The most valuable work wasn’t the number of screens. It was defining a product in which four different roles had a purpose, then designing a system a small team could deliver. The build continued after my involvement; I scoped and designed the first phases."),
+    reflection: tp("The brief asked for a shop. Competitive research showed that the trainer relationship could give the platform another reason to exist and another way to earn. The most valuable work was defining a product in which four different roles had a purpose, then designing a system a small team could deliver. The build continued after my involvement; I scoped and designed the first phases."),
     credits: tp("Creative Direction & UX Strategy: Amr Abu-Talleb · UI Design: Overpowered design team"),
     client: "SPLT\nFitness Social App & Marketplace, Egypt",
     teamSize: "1 Senior + 1 Junior Designer",
@@ -312,12 +286,12 @@ export const caseStudies: CaseStudy[] = [
     insight: tp("Before any wireframes, we subscribed to the major fitness apps and their betas and read their reviews side by side. The same complaint kept surfacing. Coaches looked exactly like members and had no way to earn inside the app. That gap became the product."),
     creativeStrategy: "I\u00A0kept the marketplace the client asked for and built a\u00A0training layer on\u00A0top of\u00A0it. Trainers became a\u00A0role of\u00A0their own. In the app, their profile leads with a\u00A0track record and a\u00A0Subscribe button, keeps premium videos locked until you pay, and offers three plans (monthly, quarterly, yearly). Behind it\u00A0sits a\u00A0trainer dashboard to\u00A0manage clients, goals, workout plans, an\u00A0exercise library and video sections. Around that, members got the parts that keep people opening the app every day: a\u00A0workout builder, personal and volume records, groups, goals and achievements, streaks and loyalty\u00A0points.",
     keyDecisions: tp("Trainers come across as professionals first. A trainer’s profile opens on proof and plans, and the social feed sits in its own tab. Free content lets members judge a coach before paid subscriptions unlock the rest, a revenue line the original scope never had. Each role has its own sidebar, but all three dashboards share one shell, one set of tables and one set of reports, so a small team could ship three products from one system."),
-    leadershipRole: tp("I took the development quotation apart line by line and rebuilt it with a credible scope and cost, and that won the contract. I then set the information architecture and the visual direction, and trained a team new to admin systems in multi-role journeys before they took on the full UI."),
+    leadershipRole: tp("I took the development quotation apart line by line and rebuilt it as a credible, staged scope the client could agree to. I then set the information architecture and the visual direction, and trained a team new to admin systems in multi-role journeys before they took on the full UI."),
     processPhases: [
-      { title: "Quotation & Scope", description: "Rewrote the development quotation line by\u00A0line: cut the inflated items, defined what each role needs, and turned a\u00A0loose brief into a\u00A0scope SPLT could\u00A0sign." },
+      { title: "Scope", description: "Reviewed the development estimate line by\u00A0line, defined what each role needs, and turned a\u00A0loose brief into a\u00A0staged\u00A0scope." },
       { title: "Competitive Deep Dive", description: "Subscribed to\u00A0the major fitness apps and their betas, mapped their features and read user reviews to\u00A0find what nobody was solving: trainers who look and earn like\u00A0professionals." },
       { title: "Architecture for Four Roles", description: "Mapped member, trainer, vendor and admin journeys before any visual design, then grouped the app into modules: home feed, workouts, track, groups, shop, trainers and\u00A0account." },
-      { title: "System, Team & UI", description: "Built a\u00A0dark mobile system and a\u00A0shared dashboard shell around one purple accent, then directed the team through 330+\u00A0screens with weekly\u00A0reviews." },
+      { title: "System, Team & UI", description: "Built a\u00A0dark mobile system and a\u00A0shared dashboard shell around one purple accent, then directed the team through the app and dashboards with weekly\u00A0reviews." },
     ],
     featured: true,
     featureImage: "/images/split-feature-v2.webp",
@@ -353,7 +327,7 @@ export const caseStudies: CaseStudy[] = [
     industry: tp("Travel & local discovery\nMembership platform"),
     markets: tp("San Francisco Bay Area, USA"),
     year: "2023–2025",
-    businessContext: tp("Bay Area Trips set out to be the single guide to the San Francisco Bay Area, for the people exploring it and the businesses and creators who serve them. Restaurants, hotels, events, EV charging, scavenger hunts and a travel club all had to live under one roof, on the web and in an app."),
+    businessContext: tp("Bay Area Trips set out to be the single guide to the San Francisco Bay Area, for the people exploring it and the businesses and creators who serve them. The existing product offered a scavenger hunt, a store and basic navigation. Restaurants, hotels, events, EV charging, hunts and a travel club now had to live under one roof, on the web and in an app."),
     clientProblem: tp("The idea had no edges. Every audience and every feature carried equal weight, and nothing defined how the website, the mobile web and the app connected, or which page should lead where."),
     constraints: tp("The deadline and the budget were fixed, and a team of about thirty was building in parallel. The structure had to be clear enough for everyone to work from and lean enough to ship on time."),
     insight: tp("The product only worked as a system. Each audience needed its own account, and all of them had to share one directory, one events calendar and one membership."),
@@ -425,7 +399,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "agfin",
     title: "Agfin",
     subtitle: tp("Rebuilding a brochure website as a sales funnel, words first"),
-    impactStatement: tp("Sales up 12% in the first month · No paid advertising · A brochure site rebuilt as a story-led sales funnel"),
+    impactStatement: tp("12% more client wins in the first month · No paid advertising · A brochure site rebuilt as a story-led sales funnel"),
     role: tp("Website strategy, UX, copywriting and build\nSolo project"),
     scope: tp("Website architecture, video sales letter, copywriting, UX/UI, interaction design and build"),
     timeline: tp("About three weeks"),
@@ -469,13 +443,13 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     results: [
-      tp("Sales rose 12% in the first month, against the same month last year and the months before"),
+      tp("Robert reported 12% more client wins in the first month after launch, compared with the same month the year before"),
       tp("The increase came with no paid advertising"),
       tp("A brochure website became a story-led sales funnel"),
       tp("Robert’s experience told through real examples and photographs from his own region"),
       tp("A funnel sized to the business, not built to bring in more leads than Robert could take on"),
     ],
-    reflection: tp("Robert’s feedback made the work better. The first script tried too hard to persuade; the final version respected its audience and sounded more like the person behind the business. The result was a clearer website and a measurable rise in sales, without a paid advertising budget."),
+    reflection: tp("Robert’s feedback made the work better. The first script tried too hard to persuade; the final version respected its audience and sounded more like the person behind the business. The result was a clearer website and more client wins, without a paid advertising budget."),
     credits: tp("Strategy, Copywriting, UX/UI & Build: Amr Abu-Talleb"),
     client: "Agfin\nRobert, Financial Consultant, Australia",
     industry: "Agricultural Finance\nConsulting",
@@ -587,6 +561,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "zikabi",
+    hidden: true,
     title: "Zikabi",
     subtitle: tp("Splitting one overloaded app into a parent brand and two products"),
     impactStatement: tp("One concept separated into a parent brand and two products · Business model changed by user interviews · End-user, vendor and driver apps designed"),
@@ -649,6 +624,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "dipa",
+    hidden: true,
     title: "Dipa Visionary Art School",
     subtitle: tp("Getting an art school’s website working again, then turning it into a walk through the studio"),
     impactStatement: tp("70% more website views after the recovered site went live · Back online after four failed attempts · Immersive 360° concept in development"),
@@ -810,9 +786,10 @@ export const caseStudies: CaseStudy[] = [
 
 /* ─── Project Highlights ─────────────────────────── */
 
-export const projectHighlights: ProjectHighlight[] = [
+const allProjectHighlights: ProjectHighlight[] = [
   {
     slug: "alfy",
+    hidden: true,
     title: "Alfy",
     subtitle: tp("Refocusing a marble brand’s campaigns on the architects who specify it"),
     role: tp("Creative Director, Overpowered"),
@@ -863,9 +840,9 @@ export const projectHighlights: ProjectHighlight[] = [
   {
     slug: "hickey",
     title: "Hickey",
-    subtitle: tp("An investor deck for a US makeup start-up’s $2M raise"),
+    subtitle: tp("An investor deck for a US makeup start-up that went on to raise $2M"),
     description: tp("Hickey was raising investment and needed a deck that would communicate the business clearly to potential investors.\n\nI designed every slide and worked on the order in which the story unfolded, so the presentation moved through the information in a way investors could follow."),
-    keyResult: tp("The company went on to raise $2 million; the founder credited the deck as part of that effort."),
+    keyResult: tp("The deck was one part of a raise that reached $2 million."),
     client: tp("Hickey\nMakeup start-up, USA"),
     role: tp("Deck Designer\nFreelance"),
     scope: tp("Investor deck design"),
@@ -895,6 +872,13 @@ export const projectHighlights: ProjectHighlight[] = [
     year: "2025",
   },
 ]
+
+/** Published highlights only; hidden ones drop out everywhere. */
+export const projectHighlights = allProjectHighlights.filter((h) => !h.hidden)
+
+export function getHiddenHighlightSlugs(): string[] {
+  return allProjectHighlights.filter((h) => h.hidden).map((h) => h.slug)
+}
 
 /* ─── Helpers ────────────────────────────────────── */
 

@@ -35,6 +35,23 @@ export default function CaseStudyLayout({
               aria-label={`View figure ${key}${row.images.length > 1 ? `, image ${i + 1}` : ""} full size`}
               onKeyDown={(e) => { if (e.key === "Enter") setLightbox(img.src) }}
             >
+              {img.video ? (
+                <video
+                  className="h-auto w-full object-cover"
+                  style={{ aspectRatio: img.ratio ?? "16 / 9" }}
+                  poster={img.src}
+                  aria-label={img.alt}
+                  autoPlay={!reducedMotion}
+                  controls={!!reducedMotion}
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <source src={img.video} type="video/mp4" />
+                </video>
+              ) : (
               <Image
                 src={img.src}
                 alt={img.alt}
@@ -44,6 +61,7 @@ export default function CaseStudyLayout({
                 className="project-img h-auto w-full object-cover"
                 style={{ aspectRatio: img.ratio ?? "16 / 9" }}
               />
+              )}
             </div>
           ))}
         </div>

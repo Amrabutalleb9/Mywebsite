@@ -14,31 +14,21 @@ export const metadata: Metadata = pageMeta({
 })
 
 const ways = [
-  { title: tp("Creative direction and rebranding"), desc: tp("Setting the direction for a project, developing concepts with the team, and guiding the work through design reviews and delivery. This covers brand repositioning, identity systems, campaigns and art direction.") },
-  { title: tp("Brand strategy and identity"), desc: tp("Working through audience, positioning, brand personality and visual direction before moving into identity design. I can lead the process or work alongside an existing strategy and design team.") },
-  { title: tp("Digital product and UX/UI"), desc: tp("Defining product structure, mapping user roles and journeys, prioritising features and designing interfaces. I can work with a team before development starts, or join an existing product to improve its experience and direction.") },
-  { title: tp("Agency positioning and operations"), desc: tp("Helping agencies clarify what they offer, who they serve and how they deliver. This can cover service structure, team responsibilities, project workflows, review processes and outreach planning.") },
-  { title: tp("Arabic and English typography"), desc: tp("Developing identities and creative work across both scripts, with attention to lettering, typography, visual consistency and the character of the brand across markets.") },
-  { title: tp("Prototyping and creative technology"), desc: tp("Using code and AI-assisted tools to explore ideas, test interactions and build prototypes before committing to full development.") },
+  { title: tp("Creative direction and rebranding"), desc: tp("When a brand, campaign or creative project needs a clearer point of view, I set the direction and guide the work through execution: developing concepts, setting the visual standard, directing identity and campaign work, and helping the team carry the idea across digital and physical touchpoints.") },
+  { title: tp("Brand and agency positioning"), desc: tp("I help businesses and agencies clarify what they offer, who they serve and what makes their work distinct. The work can run from positioning and service structure into identity, messaging and creative direction, so the promise to the market matches what the team can deliver.") },
+  { title: tp("Digital product and UX"), desc: tp("For a new product, I help define its structure, user roles, journeys, priorities and interface direction before development begins. For an existing one, I work with the team to find the friction and decide what needs attention first. I can lead alongside product and engineering, direct a design team, or work hands-on through to production-ready screens.") },
+  { title: tp("Interim creative leadership"), desc: tp("Sometimes a team needs experienced leadership for a set period: a transition, a phase of growth, or while responsibilities are reorganised. I work with the existing team to clarify priorities and who owns each decision, support art directors and designers, and set up reviews that move the work forward without adding approval layers.") },
 ]
 
 const steps = [
-  { title: tp("Conversation and scope"), desc: tp("We start with a conversation about the problem, the context and what needs to change. Before the work begins, I put the scope in writing, so the deliverables, responsibilities, decision-making and constraints are clear.") },
-  { title: tp("Review while it’s developing"), desc: tp("I prefer to review work while it’s still taking shape, rather than wait until a finished design needs to be reconsidered. That gives us room to challenge decisions, explore alternatives and refine the direction before too much time has been invested.") },
-  { title: tp("Handover"), desc: tp("At handover, I provide the agreed deliverables and documentation, along with the working files the team needs to carry on.") },
-]
-
-const facts = [
-  { label: "Based in", value: tp("Cairo, relocating to Europe") },
-  { label: "Available", value: tp("Within 30 days") },
-  { label: "Remote", value: tp("As a contractor or through an employer of record") },
-  { label: "On-site, UK or EU", value: tp("Needs sponsorship") },
+  { title: tp("Start with the problem"), desc: tp("We start with the situation, what needs to change and what a useful outcome looks like. Before the work begins, I put the scope in writing, so we agree on objectives, responsibilities, decision-making and constraints.") },
+  { title: tp("Review the work while it’s developing"), desc: tp("I prefer to discuss work while there’s still room to explore and change direction. That way the important questions are settled early, not in rounds of revisions at the end.") },
+  { title: tp("Leave the work ready to continue"), desc: tp("At handover, I provide the agreed deliverables, documentation and working files, with decisions, open issues and next steps written down, so the work doesn’t depend on me to keep moving.") },
 ]
 
 const parts = [
   { id: "what-i-work-on", title: "What I work on" },
   { id: "how-i-work", title: "How I work" },
-  { id: "practical-details", title: "Practical details" },
 ]
 
 const PartLabel = ({ n, children }: { n: number; children: React.ReactNode }) => (
@@ -89,8 +79,8 @@ export default function WorkingTogetherPage() {
         {/* Right: intro and the three parts */}
         <div className="min-w-0">
           <FadeIn delay={0.1} as="div" className="mb-16 flex max-w-[60ch] flex-col gap-6">
-            <p className="text-xl leading-relaxed text-foreground">{tp("I take on selected contract and interim engagements across creative direction, brand and digital product. That can mean joining an existing team to guide a rebrand, helping an agency clarify its positioning and services, or defining a digital product before development begins.")}</p>
-            <p className="text-[1.0625rem] leading-[var(--leading-longform)] text-muted-foreground">{tp("My involvement depends on the project. I can lead the direction and reviews, work directly on strategy and design, or help the team through decisions that have stalled progress. Either way, I stay close to the execution, whether that means guiding the work or getting hands-on myself.")}</p>
+            <p className="text-xl leading-relaxed text-foreground">{tp("I take on selected contract and interim engagements across creative direction, brand and digital product. That might mean repositioning a brand, clarifying an agency’s offer, defining a product before development, or helping an existing team get a difficult project moving.")}</p>
+            <p className="text-[1.0625rem] leading-[var(--leading-longform)] text-muted-foreground">{tp("I can lead the direction, work directly on the design, or combine both. My involvement depends on the problem, the scope and the people already working on it.")}</p>
           </FadeIn>
 
           <section id="what-i-work-on" className="scroll-mt-32">
@@ -116,15 +106,6 @@ export default function WorkingTogetherPage() {
             ))}
           </section>
 
-          <section id="practical-details" className="mt-20 scroll-mt-32 border-b border-border">
-            <FadeIn><PartLabel n={3}>Practical details</PartLabel></FadeIn>
-            {facts.map((f) => (
-              <FadeIn key={f.label} as="div" className="grid grid-cols-1 gap-1 border-t border-border py-5 sm:grid-cols-[1fr_1.4fr] sm:gap-8">
-                <span className="text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-sublabel)] text-accent uppercase">{f.label}</span>
-                <span className="text-[0.9375rem] text-foreground">{f.value}</span>
-              </FadeIn>
-            ))}
-          </section>
         </div>
       </div>
 

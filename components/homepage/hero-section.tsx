@@ -12,7 +12,7 @@ import CountUp from "@/components/count-up"
 const heroLines = ["I\u00A0lead the team, build the\u00A0system,", "and make sure it\u00A0ships."]
 
 const stats = [
-  { n: "13", label: "years leading creative\u00A0teams" },
+  { n: "13", label: "years in design and creative\u00A0work" },
   { n: "25", label: "people in my largest\u00A0team" },
   { n: "8", label: "markets on five\u00A0continents" },
 ]
@@ -27,7 +27,7 @@ export default function HeroSection() {
             className="hero-line mb-[clamp(1rem,3svh,2rem)] text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase"
             style={{ "--i": 0 } as React.CSSProperties}
           >
-            Creative Director
+            Creative Director · Brand &amp; Product Design
           </p>
           <h1 className="mx-auto max-w-[18ch] font-serif text-[length:var(--text-hero)] leading-[1.02] font-normal tracking-[var(--tracking-display)] text-balance text-foreground lg:max-w-none">
             {heroLines.map((line, i) => (
@@ -57,10 +57,7 @@ export default function HeroSection() {
             ))}
           </dl>
           <p className="mx-auto mt-[clamp(1rem,3svh,2rem)] max-w-[60ch] text-base leading-relaxed text-muted-foreground lg:text-lg">
-            From brief to&nbsp;a&nbsp;live staging build in&nbsp;days, not&nbsp;sprints.
-          </p>
-          <p className="mx-auto mt-[clamp(0.75rem,2svh,1.25rem)] max-w-[65ch] text-sm font-medium tracking-wide text-foreground lg:text-base">
-            Open to&nbsp;Creative Director roles in&nbsp;Europe, on‑site or&nbsp;remote.
+            From brand positioning to&nbsp;digital products, I&nbsp;set the&nbsp;direction and stay close to&nbsp;the&nbsp;work.
           </p>
           <div className="mt-[clamp(1.25rem,3svh,2rem)] flex flex-col items-center gap-4 sm:flex-row">
             <a
@@ -80,7 +77,7 @@ export default function HeroSection() {
             </a>
           </div>
           <p className="mt-[clamp(1.25rem,5svh,4rem)] text-xs tracking-wide text-muted-foreground lg:text-sm">
-            {"Trusted by\u00A0brands in\u00A0eight markets"}
+            {"Selected clients, teams and\u00A0collaborators"}
           </p>
         </div>
       </InfiniteGrid>

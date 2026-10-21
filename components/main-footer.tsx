@@ -152,7 +152,7 @@ export default function MainFooter() {
       <div className="border-t border-primary-foreground/10 px-8 py-6 lg:px-16">
         <div className="flex flex-col items-start justify-between gap-3 text-xs text-primary-foreground/50 sm:flex-row sm:items-center">
           <p>&copy; 2026 Amr Abu-Talleb &middot; Designed and built by&nbsp;me</p>
-          <p>Based in Cairo &middot; Relocating to&nbsp;Europe</p>
+          <p>Based in&nbsp;Cairo</p>
         </div>
       </div>
     </footer>

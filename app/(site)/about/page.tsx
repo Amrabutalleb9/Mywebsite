@@ -25,7 +25,7 @@ export default function AboutPage() {
 
           <FadeIn>
             <h1 className="mb-6 font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
-              <span className="block">{tp("Work worth signing.")}</span>
+              <span className="block">{tp("Work worth putting your name to.")}</span>
               <span className="block">{tp("Teams built to outgrow me.")}</span>
             </h1>
           </FadeIn>
@@ -35,12 +35,12 @@ export default function AboutPage() {
 
           {/* Full Bio */}
           <FadeIn delay={0.15} as="div" className="flex max-w-[62ch] flex-col gap-6 text-[1.0625rem] leading-[1.75] text-muted-foreground">
-            <p>{tp("Over thirteen years, I’ve moved from hands-on design into creative direction, leading multidisciplinary teams of up to twenty-five across brand, digital product, campaigns and creative production. My work spans identity systems, digital experiences, creative strategy and the business decisions behind them, with clients in Egypt, the Gulf area, the UK, the US, Australia and Singapore. Most recently, I helped grow an agency from six people to twenty-five in seven months, and reshaped what it sold and who it sold to.")}</p>
+            <p>{tp("Over thirteen years, I’ve moved from hands-on design into creative direction, leading multidisciplinary teams of up to twenty-five across brand, digital product, campaigns and creative production. My work spans identity systems, digital experiences, creative strategy and the business decisions behind them, with clients in Egypt, the Gulf area, the UK, the US, Australia and Singapore. At The Line, I led an in-house brand and marketing team of about eleven. At Overpowered, I built a creative team that grew from six people to about twenty-five in seven months, with two art directors leading their disciplines while I managed UX/UI directly.")}</p>
             <p>{tp("One project stays with me: As Within, So Without, a 212-page book I designed and typeset for Steve Hodel, the retired LAPD homicide detective and New York Times bestselling author. It holds decades of investigation and more than 130 images, from crime-scene photographs to paintings. The design had to give that material structure without getting in the way of the evidence.")}</p>
-            <p>{tp("I’ve always moved between art and design. Art can have a character of its own; design also has to make sense to the people who meet it and the business behind it. Working in Arabic and English sharpens that balance: an identity has to feel native in both scripts and still be recognisably itself.")}</p>
+            <p>{tp("I’ve always moved between art and design. Art can have a character of its own; design also has to make sense to the people who meet it and the business behind it. Working in Arabic and English sharpens that balance: an identity has to feel native in both scripts and still be recognisably itself. Lettering, typography and spacing aren’t finishing touches. They shape how a brand is understood.")}</p>
             <p>{tp("AI gives the team more ways into an idea and takes the repetitive work off our desks. The thinking still starts with the brief, and the judgement about which direction is worth pursuing stays with us.")}</p>
             <p>{tp("When I lead a team, I want everyone to understand what we’re trying to achieve and to have room to bring their own perspective. In reviews, I usually let the designer walk us through the work before I weigh in. We talk about what’s working, what isn’t and what needs another look. I’ll help resolve a difficult decision or bring the work back to the brief when it drifts, but I don’t want every choice to wait for me. A good team can make a considered call on its own, and knows when to ask for a second pair of eyes.")}</p>
-            <p>{tp("Some of the people I’ve hired now lead teams of their own. ")}<strong className="font-medium text-foreground">{tp("That’s what I’m proudest of.")}</strong>{tp(" It won’t show up in a portfolio, but it’s the part of the job I’d least want to give up.")}</p>
+            <p>{tp("I’ve hired more than fifty people over the years, and some now lead teams of their own. ")}<strong className="font-medium text-foreground">{tp("That’s what I’m proudest of.")}</strong>{tp(" The aim isn’t to make everyone work the way I do. It’s to give people the standard, the context and the responsibility to make good decisions and grow into their own way of working.")}</p>
             <p className="font-medium text-foreground">{tp("I’m interested in creative leadership roles in Europe where strategy, craft and team development belong together. I want to shape the direction of the work, stay close to the details that make it good, and build teams that become more capable over time.")}</p>
           </FadeIn>
 

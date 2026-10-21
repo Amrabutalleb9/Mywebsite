@@ -52,7 +52,7 @@ export default function ContactPage() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <p className="mb-10 max-w-[50ch] text-lg leading-relaxed text-muted-foreground">
-              {"Tell me about the\u00A0role or\u00A0what you\u2019d like to\u00A0build together. I\u00A0reply within 24\u00A0hours."}{" "}
+              {"I\u2019m looking for creative leadership roles in\u00A0Europe, alongside selected projects across brand, digital experience and\u00A0product. Tell me about the\u00A0role or\u00A0what you\u2019d like to\u00A0build together. I\u00A0reply within 24\u00A0hours."}{" "}
               <a href="/working-together" className="text-foreground underline underline-offset-4 transition-colors hover:text-accent">{"How collaborations\u00A0work"}</a>
             </p>
           </FadeIn>
@@ -106,7 +106,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <label htmlFor="message" className="mb-2 block text-sm font-medium text-foreground">Message</label>
-                <textarea id="message" rows={5} required value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full resize-none rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent" />
+                <textarea id="message" rows={5} required placeholder="A little context about the role, the project or what you’d like to discuss." value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full resize-none rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent" />
               </div>
               {error && (
                 <p className="text-sm text-red-500" aria-live="polite">
