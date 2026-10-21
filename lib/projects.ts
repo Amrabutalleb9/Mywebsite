@@ -376,13 +376,50 @@ export const caseStudies: CaseStudy[] = [
     reflection: tp("My job was to make a big idea buildable. The product has evolved since launch, as products should. The structure underneath is the part I’d defend in any room."),
     credits: tp("Product Strategy & Design: Amr Abu-Talleb · Client: Jared, Bay Area Trips"),
     featured: true,
-    featureImage: "/images/bay-hero-v1.webp",
-    featureImageAlt: tp("Bay Area Trips app screens over the bay in the afternoon light, with the sun beginning to set"),
+    featureImage: "/images/bay-hero-v2.webp",
+    featureImageAlt: tp("The Bay Area Trips website and two app screens on a cream studio set in late-afternoon light"),
     featureVideo: {
-      mp4: "/videos/bay-hero-loop-v1.mp4",
-      poster: "/images/bay-hero-loop-poster-v1.webp",
-      alt: tp("Bay Area Trips app screens drifting past as the afternoon turns to golden hour and then night: the business dashboard, a hotel listing, the traveller home, the member card, the sea lion hunt, the kids’ view, the travel club and event tickets"),
+      mp4: "/videos/bay-hero-loop-v2.mp4",
+      poster: "/images/bay-hero-loop-poster-v2.webp",
+      alt: tp("The Bay Area Trips website and app on a studio set in late-afternoon light, the screens moving through the homepage, the directory, a listing, membership, the traveller home, the scavenger hunt, the kids’ view and the business dashboard"),
     },
+    storyFigures: [
+      {
+        images: [{ src: "/images/bay-fig-platforms-v1.webp", alt: tp("The website home beside the mobile website and the traveller home in the app") }],
+        caption: tp("One product on three platforms. The website, the mobile website and the app share one design system, and each hands people to the next."),
+      },
+      {
+        images: [{ src: "/images/bay-fig-accounts-v1.webp", alt: tp("Four app screens: the traveller home, the business dashboard, the kids’ view and the parent controls") }],
+        caption: tp("Four accounts on one system: travellers, businesses, kids, and the parents who set up their view."),
+      },
+      {
+        images: [
+          { src: "/images/bay-fig-web-directory-v1.webp", alt: tp("The website directory of stays, with a card showing tonight’s sunset"), ratio: "16 / 10" },
+          { src: "/images/bay-fig-web-listing-v1.webp", alt: tp("A hotel listing on the website with its booking card"), ratio: "16 / 10" },
+        ],
+        caption: tp("On the website, the directory leads straight to a listing you can book."),
+      },
+      {
+        images: [{ src: "/images/bay-fig-app-path-v1.webp", alt: tp("Four app screens: the directory, a hotel listing, what’s on, and event tickets") }],
+        caption: tp("The same paths in the app, from the directory to a listing and from what’s on to tickets."),
+      },
+      {
+        images: [{ src: "/images/bay-fig-hunt-v1.webp", alt: tp("Four app screens: the kids’ home, picking a hunt, the hunt map and the finished hunt") }],
+        caption: tp("The scavenger hunt: pick a hunt, follow the route clue by clue, and light the whole sun at the end."),
+      },
+      {
+        images: [{ src: "/images/bay-fig-creators-v1.webp", alt: tp("Three Creator Connect screens: joining as a creator, finding a creator, and a paid gig with offers") }],
+        caption: tp("Creator Connect: creators join, and local businesses find them and post paid gigs."),
+      },
+      {
+        images: [{ src: "/images/bay-fig-membership-v1.webp", alt: tp("The membership page on the website beside the member card and the travel club in the app") }],
+        caption: tp("Membership as a card the whole family carries, with members-only travel club nights."),
+      },
+      {
+        images: [{ src: "/images/bay-fig-icons-v1.webp", alt: tp("The Bay Area Trips icon set: 29 line icons with the sun as the one filled shape") }],
+        caption: tp("An icon set drawn for the product, with the sun as the one filled shape."),
+      },
+    ],
   },
   {
     slug: "agfin",
