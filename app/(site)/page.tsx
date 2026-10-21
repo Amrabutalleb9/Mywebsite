@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowUpRight, ArrowRight } from "lucide-react"
-import { publishedTestimonials, leadershipPrinciples } from "@/lib/shared-data"
+import { publishedTestimonials } from "@/lib/shared-data"
 import { publishedCaseStudies, projectHighlights } from "@/lib/projects"
 import { tp } from "@/lib/typeset"
 
@@ -22,14 +22,14 @@ const stats = [
 ]
 
 const caseStudyCards = [
-  { slug: "overpowered", num: "01", title: "Overpowered", subtitle: tp("From a studio trying to serve everyone to an agency that knew who it was for"), impact: tp("Team grown from six to about twenty-five in seven months · Positioning set with the CEO"), category: "Agency Leadership & Strategy", year: "2024\u20132025", role: "Creative Director \u00B7 Team of\u00A025", featureImage: "/images/op-hero-loop-poster-v1.webp", featureImageAlt: "The OP logomark as a giant glass sculpture floating above a hill", featureVideo: "/videos/op-hero-loop-v2.mp4" },
+  { slug: "overpowered", num: "01", title: "Overpowered", subtitle: tp("From a broad studio offer to an agency built around the clients it served best"), impact: tp("Team grown from six to about twenty-five in seven months · Positioning set with the CEO"), category: "Agency Leadership & Strategy", year: "2024\u20132025", role: "Creative Director \u00B7 Team of\u00A025", featureImage: "/images/op-hero-loop-poster-v1.webp", featureImageAlt: "The OP logomark as a giant glass sculpture floating above a hill", featureVideo: "/videos/op-hero-loop-v2.mp4" },
   { slug: "split", motion: "splt-reel", num: "02", title: "SPLT", subtitle: tp("Turning an online shop brief into a fitness platform built around its trainers"), impact: tp("One app and three dashboards for four roles · A proposed trainer subscription model"), category: "Product Strategy & UX", year: "2025", role: "Creative Director & UX Lead \u00B7 Led 2\u00A0designers", featureImage: "/images/split-card-v2.webp", featureImageAlt: "SPLT trainer dashboard beside the trainer profile and subscription plans in the app" },
   { slug: "bay-area-trips", num: "02", title: "Bay Area Trips", subtitle: tp("Turning a sprawling travel idea into one product for four audiences"), impact: tp("Web, mobile web and app as one system · Four account types · Live product"), category: "Product Strategy & UX", year: "2023\u20132025", role: tp("Product Strategist & Designer · Team of about 30"), featureImage: "/images/bay-hero-loop-poster-v2.webp", featureImageAlt: "The Bay Area Trips website and two app screens on a cream studio set in late-afternoon light", featureVideo: "/videos/bay-hero-loop-v2.mp4" },
-  { slug: "agfin", num: "03", title: "Agfin", subtitle: tp("Rebuilding a brochure website as a sales funnel, words first"), impact: tp("12% more client wins in the first month · No paid advertising"), category: "Website Strategy & Sales Funnel", year: "2024", role: "Creative Director, UX & Copywriter \u00B7 Solo\u00A0project", featureImage: "/images/agfin-feature-v3.webp", featureImageAlt: "Agfin homepage hero: morning cloud clearing over a Wimmera paddock", featureVideo: "/videos/agfin-hero.mp4" },
+  { slug: "agfin", num: "03", title: "Agfin", subtitle: tp("Rebuilding a farm adviser’s website around the families he helps"), impact: tp("12% more client wins in the first month · No paid advertising"), category: "Website Strategy & Sales Funnel", year: "2024", role: "Creative Director, UX & Copywriter \u00B7 Solo\u00A0project", featureImage: "/images/agfin-feature-v3.webp", featureImageAlt: "Agfin homepage hero: morning cloud clearing over a Wimmera paddock", featureVideo: "/videos/agfin-hero.mp4" },
   { slug: "taptools", num: "04", title: "TapTools", subtitle: tp("Helping users of a live analytics platform find the number they came for"), impact: tp("User-reported issues down 23% within 60 days · Shipped to a live product"), category: "Product Design for Analytics", year: "2022\u20132023", role: "Senior Product Designer", featureImage: "", featureImageAlt: "" },
   { slug: "zikabi", num: "05", title: "Zikabi", subtitle: tp("Splitting one overloaded app into a parent brand and two products"), impact: tp("One concept became a parent brand and two products · End-user, vendor and driver apps"), category: "Brand Architecture & App Design", year: "2020\u20132021", role: tp("UI/UX Designer, then Product Designer"), featureImage: "", featureImageAlt: "" },
   { slug: "dipa", num: "04", title: "Dipa Visionary Art School", subtitle: tp("Getting an art school’s website working again, then turning it into a walk through the studio"), impact: tp("70% more website views after recovery · Back online after four failed attempts"), category: "Website Recovery & Experience Design", year: "2022\u20132026", role: "Creative Director & UX/UI \u00B7 Led small\u00A0team", featureImage: "/images/dipa-showcase.webp", featureImageAlt: "Dipa Visionary Art School immersive website design" },
-  { slug: "steve-hodel", motion: "hodel-proof", num: "04", title: "As Within, So\u00A0Without", subtitle: tp("Designing a 212-page illustrated book for a decades-long investigation"), impact: tp("212 pages · 130+ archival images · On sale on Amazon for a NYT bestselling author"), category: "Editorial & Book Design", year: "2025\u20132026", role: "Book Designer \u00B7 Sole\u00A0designer", featureImage: "/images/steve-hodel-feature.webp", featureImageAlt: "As Within, So Without by Steve Hodel, hardcover book on a wooden desk" },
+  { slug: "steve-hodel", motion: "hodel-proof", num: "04", title: "As Within, So\u00A0Without", subtitle: tp("Designing a 212-page book around a decades-long investigation"), impact: tp("212 pages · 130+ archival images · On sale on Amazon for a NYT bestselling author"), category: "Editorial & Book Design", year: "2025\u20132026", role: "Book Designer \u00B7 Sole\u00A0designer", featureImage: "/images/steve-hodel-feature.webp", featureImageAlt: "As Within, So Without by Steve Hodel, hardcover book on a wooden desk" },
 ]
   // Cards for hidden case studies (hidden: true in lib/projects.ts) drop out automatically.
   .filter((card) => publishedCaseStudies.some((p) => p.slug === card.slug))
@@ -38,7 +38,7 @@ const caseStudyCards = [
 const highlightCards = [
   { slug: "alfy", num: "05", title: "Alfy", subtitle: tp("Refocusing a marble brand’s campaigns on the architects who specify it"), result: tp("70% lift in social engagement"), year: "2025", category: "B2B Campaign Direction", role: "Creative Director at\u00A0Overpowered", featureImage: "/images/alfy-feature.webp", featureImageAlt: "El Alfy Saraya luxury marble brand website hero" },
   { slug: "nexus", num: "", title: "Nexus", subtitle: tp("Three brand personalities, written before anything was drawn"), result: tp("Identity and Webflow website"), year: "2024", category: "Brand Identity & Website", role: "Brand Strategist & Designer", featureImage: "", featureImageAlt: "" },
-  { slug: "alienor", num: "07", title: "Alienor", subtitle: tp("Placing a physician’s skincare line beside clinical brands, not organic ones"), result: "Full brand identity\u00A0system", year: "2022", category: "Brand Identity & Packaging", role: tp("Brand Designer"), featureImage: "/images/alienor-hero-v3.webp", featureImageAlt: "Alienor skincare brand identity with elegant serif logotype" },
+  { slug: "alienor", num: "07", title: "Alienor", subtitle: tp("A physician’s skincare line, as soothing as moonlight"), result: "Full brand identity\u00A0system", year: "2022", category: "Brand Identity & Packaging", role: tp("Brand Designer"), featureImage: "/images/alienor-hero-v3.webp", featureImageAlt: "Alienor skincare brand identity with elegant serif logotype" },
   { slug: "hickey", num: "", title: "Hickey", subtitle: tp("An investor deck for a US makeup start-up that went on to raise $2M"), result: tp("Company raised $2M"), year: "", category: "Investor Presentation", role: "Deck Designer", featureImage: "", featureImageAlt: "" },
   { slug: "salel", num: "", title: "Salel", subtitle: tp("A hand-drawn Arabic wordmark for a ghutra brand in Qatar"), result: "", year: "2025", category: "Calligraphy & Identity", role: "Brand Designer", featureImage: "", featureImageAlt: "" },
   { slug: "shavery", num: "", title: "Shavery & Co", subtitle: tp("A luxury barbershop identity that holds up from the street sign to the cup"), result: "", year: "2025", category: "Identity & Signage", role: "Brand Designer", featureImage: "", featureImageAlt: "" },
@@ -226,33 +226,6 @@ function WorkSection() {
   )
 }
 
-/* ─── How I Lead ─────────────────────────────────── */
-
-function LeadSection() {
-  return (
-    <section id="leadership" className="px-8 pt-32 lg:px-16 lg:pt-48">
-      <div className="mx-auto max-w-6xl">
-        <ScrollReveal>
-          <SubHeader label="Leadership" />
-          <h2 className="mb-12 max-w-[22ch] font-serif text-[length:var(--text-section)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground">
-            {"Clear direction. Useful feedback. Room to\u00A0own the\u00A0work."}
-          </h2>
-        </ScrollReveal>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {leadershipPrinciples.map((item, i) => (
-            <ScrollReveal key={item.title} delay={0.05 + i * 0.06}>
-              <div className="capability-card h-full rounded-sm border border-border bg-background p-6 lg:p-8">
-                <h3 className="mb-3 font-medium text-foreground">{item.title}</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
 /* ─── About ───────────────────────────────────────── */
 
 function About() {
@@ -281,7 +254,7 @@ function About() {
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <p className="mb-6 text-[1.0625rem] leading-relaxed text-muted-foreground">
-                {"I\u00A0started with a\u00A0pen: illustration, calligraphy, Arabic and\u00A0Latin letters drawn by\u00A0hand until they looked right. Thirteen years later I\u00A0run brand, campaign and\u00A0product teams, and\u00A0most of\u00A0my\u00A0job is\u00A0building the\u00A0system the\u00A0work runs\u00A0through."}
+                {tp("I started with a pen, drawing Arabic and Latin letters by hand until every curve sat right. Thirteen years on, I bring the same attention to bigger things: the brand, campaign and product teams I lead, and the way they work together.")}
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.15}>
@@ -312,7 +285,6 @@ export default function Home() {
       <WorkSection />
       <About />
       <ServicesMarquee />
-      <LeadSection />
       <TestimonialsWithStats testimonials={publishedTestimonials} stats={stats} />
       <div className="mx-auto max-w-3xl px-8 pt-16 pb-24 text-center lg:pt-20 lg:pb-32">
         <p className="mb-5 text-base text-muted-foreground lg:text-lg">{"Hiring a\u00A0Creative Director?"}</p>

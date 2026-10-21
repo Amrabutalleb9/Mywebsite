@@ -80,13 +80,13 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "overpowered",
     title: "Overpowered",
-    subtitle: tp("From a studio trying to serve everyone to an agency that knew who it was for"),
+    subtitle: tp("From a broad studio offer to an agency built around the clients it served best"),
     impactStatement: tp("Team grown from six to about twenty-five in seven months · Positioning set with the CEO · New identity used for about a year"),
     role: tp("Creative Director\nWorked directly with the CEO"),
     teamSize: tp("About 25 across branding, 2D, 3D, video, copy and UX/UI"),
     scope: tp("Team structure and creative standards, positioning, service structure, brand identity, creative direction and website direction"),
     intro: [
-      tp("Overpowered wanted to grow into a global creative and digital agency. Its offer, its identity and the way the team worked hadn’t caught up with that ambition."),
+      tp("Overpowered wanted to grow into a global creative and digital agency. Getting there meant growing the team and sharpening the offer and the identity to match."),
       tp("I joined as Creative Director, working directly with the CEO. My job was to build a team that could do the work, give it a clear standard, and give the agency a direction its work could live up to."),
     ],
     contributions: [
@@ -178,8 +178,9 @@ export const caseStudies: CaseStudy[] = [
       {
         label: "The website",
         paragraphs: [
-          tp("The website had to show the new direction, not just list services. We chose an immersive route built around Solvix, a crystal figure that guides visitors through the site."),
-          tp("Solvix changes form as you move: it tracks the cursor in the opening, becomes a ball of energy beside the problems the agency solves, turns to show each service, and opens its core to reveal the team behind the work."),
+          tp("The website had to make people feel the new direction before they read a word of it. Instead of a showcase of services, we built it around a character."),
+          tp("In our story, Solvix was made by an order of craftspeople in a near future where brands had grown loud and interchangeable, to strip a brand back to what is true about it and connect it with the people it serves. It is a guardian of stone and crystal with a glowing core: calm, precise and powerful without being loud. That was the agency we wanted clients to meet."),
+          tp("As visitors scroll, Solvix changes form with the story. It follows the cursor as they arrive, gathers into a ball of energy beside the problems clients face, turns to show each service, and finally opens its core to reveal the people inside: the team behind the work."),
           tp("I wrote the briefs for the 3D, motion and UX/UI teams and developed the direction with the art directors, section by section."),
         ],
         figures: [
@@ -196,7 +197,7 @@ export const caseStudies: CaseStudy[] = [
     businessContext: tp("Overpowered wanted to grow into a global creative and digital agency. I joined as Creative Director, working directly with the CEO, while the studio kept serving its clients."),
     clientProblem: tp("The website offered six services under a headline about digital dominance, the identity relied on gun imagery, and day-to-day work ran through WhatsApp groups, so ownership and workloads were hard to see."),
     constraints: tp("The agency had to keep delivering client work while the team, the offer and the identity changed around it. Budgets stayed with the CEO, so each change came as a plan with its people and priorities."),
-    insight: tp("A new logo would have been the most visible change. The bigger change was the team: who owned each decision, how work was reviewed and what good looked like."),
+    insight: tp("A new logo would have been the most visible change. The bigger change was the team: a clear structure, a steady review rhythm and a shared standard for the work."),
     creativeStrategy: tp("I built the team around two art directors, a review rhythm and one working system, then focused the offer with the CEO on three services for small and mid-sized businesses, with OP Labs for product work."),
     keyDecisions: tp("Designers explained their decisions before anyone else weighed in, and the identity and website took their direction from the positioning rather than leading it."),
     leadershipRole: tp("I led the creative team of about twenty-five through two art directors and managed UX/UI directly. Staffing, promotions and reviews were mine; budgets were the CEO’s."),
@@ -230,7 +231,7 @@ export const caseStudies: CaseStudy[] = [
       {
         label: "The brief",
         paragraphs: [
-          tp("The initial brief focused on commerce: products, orders, stock, promo codes and payouts for admins and vendors. It didn’t give trainers a meaningful role or members a compelling reason to pay."),
+          tp("The initial brief focused on commerce: products, orders, stock, promo codes and payouts for admins and vendors. It was built around selling; trainers and members didn’t yet have a role of their own."),
           tp("The development estimate the client had been given didn’t hold up line by line, and product strategy and design hadn’t been scoped at all."),
           tp("I proposed splitting the work into stages: strategy, feature definition and UX/UI design first, development once the product was defined. The client agreed, and I led the product direction with two designers."),
         ],
@@ -258,7 +259,7 @@ export const caseStudies: CaseStudy[] = [
       {
         label: "The design system",
         paragraphs: [
-          tp("I set the information architecture and the visual direction, then worked with a senior and a junior designer to build the screens and the shared system. Neither had designed multi-role admin systems before, so I took the team through the user journeys and the logic behind each role before they took on the full UI."),
+          tp("I set the information architecture and the visual direction, then worked with a senior and a junior designer to build the screens and the shared system. Multi-role admin systems were new territory for the team, so we mapped the user journeys and the logic behind each role together before building the full UI."),
           tp("Each dashboard had its own navigation, but all three shared one shell, one set of tables and one set of reporting patterns. The mobile app and the dashboards used the same visual language."),
         ],
       },
@@ -280,14 +281,14 @@ export const caseStudies: CaseStudy[] = [
     markets: "Egypt (EGP pricing)",
     year: "2025",
     businessContext: tp("SPLT set out to be a gym community rather than a workout logger, where people track training, follow each other and buy kit from several sellers in one app. To make money it had to work for four groups at once. Members, trainers, vendors and the SPLT team each needed a reason to stay."),
-    clientProblem: tp("The brief described a store, with orders, stock, promo codes and payouts for an admin and a vendor. The development quotation SPLT had been given was inflated, its line items didn’t hold up technically and the scope was loose. Nothing in it gave trainers a reason to join or members a reason to pay."),
-    constraints: "The client needed to\u00A0relaunch fast. I\u00A0had a\u00A0small team, one senior and one junior designer, neither of\u00A0whom had designed multi-role admin systems before. Every role also had to\u00A0share one visual language, so\u00A0a\u00A0component built for the app couldn\u2019t drift once it\u00A0reached\u00A0a\u00A0dashboard.",
+    clientProblem: tp("The brief described a store, with orders, stock, promo codes and payouts for an admin and a vendor. The development quotation SPLT had received was hard to match to the work it described, and the scope was still open. The brief didn’t yet give trainers a reason to join or members a reason to pay."),
+    constraints: "The client needed to\u00A0relaunch fast. I\u00A0had a\u00A0small team, one senior and one junior designer, both taking on their first multi-role admin\u00A0system. Every role also had to\u00A0share one visual language, so\u00A0a\u00A0component built for the app couldn\u2019t drift once it\u00A0reached\u00A0a\u00A0dashboard.",
     insight: tp("Before any wireframes, we subscribed to the major fitness apps and their betas and read their reviews side by side. The same complaint kept surfacing. Coaches looked exactly like members and had no way to earn inside the app. That gap became the product."),
     creativeStrategy: "I\u00A0kept the marketplace the client asked for and built a\u00A0training layer on\u00A0top of\u00A0it. Trainers became a\u00A0role of\u00A0their own. In the app, their profile leads with a\u00A0track record and a\u00A0Subscribe button, keeps premium videos locked until you pay, and offers three plans (monthly, quarterly, yearly). Behind it\u00A0sits a\u00A0trainer dashboard to\u00A0manage clients, goals, workout plans, an\u00A0exercise library and video sections. Around that, members got the parts that keep people opening the app every day: a\u00A0workout builder, personal and volume records, groups, goals and achievements, streaks and loyalty\u00A0points.",
     keyDecisions: tp("Trainers come across as professionals first. A trainer’s profile opens on proof and plans, and the social feed sits in its own tab. Free content lets members judge a coach before paid subscriptions unlock the rest, a revenue line the original scope never had. Each role has its own sidebar, but all three dashboards share one shell, one set of tables and one set of reports, so a small team could ship three products from one system."),
-    leadershipRole: tp("I took the development quotation apart line by line and rebuilt it as a credible, staged scope the client could agree to. I then set the information architecture and the visual direction, and trained a team new to admin systems in multi-role journeys before they took on the full UI."),
+    leadershipRole: tp("I reviewed the development quotation line by line and rebuilt it as a staged scope the client could agree to. I then set the information architecture and the visual direction, and worked through the multi-role journeys with the team before they took on the full UI."),
     processPhases: [
-      { title: "Scope", description: "Reviewed the development estimate line by\u00A0line, defined what each role needs, and turned a\u00A0loose brief into a\u00A0staged\u00A0scope." },
+      { title: "Scope", description: "Reviewed the development estimate line by\u00A0line, defined what each role needs, and turned the\u00A0brief into a\u00A0staged\u00A0scope." },
       { title: "Competitive Deep Dive", description: "Subscribed to\u00A0the major fitness apps and their betas, mapped their features and read user reviews to\u00A0find what nobody was solving: trainers who look and earn like\u00A0professionals." },
       { title: "Architecture for Four Roles", description: "Mapped member, trainer, vendor and admin journeys before any visual design, then grouped the app into modules: home feed, workouts, track, groups, shop, trainers and\u00A0account." },
       { title: "System, Team & UI", description: "Built a\u00A0dark mobile system and a\u00A0shared dashboard shell around one purple accent, then directed the team through the app and dashboards with weekly\u00A0reviews." },
@@ -327,11 +328,11 @@ export const caseStudies: CaseStudy[] = [
     markets: tp("San Francisco Bay Area, USA"),
     year: "2023–2025",
     businessContext: tp("Bay Area Trips set out to be the single guide to the San Francisco Bay Area, for the people exploring it and the businesses and creators who serve them. The existing product offered a scavenger hunt, a store and basic navigation. Restaurants, hotels, events, EV charging, hunts and a travel club now had to live under one roof, on the web and in an app."),
-    clientProblem: tp("The idea had no edges. Every audience and every feature carried equal weight, and nothing defined how the website, the mobile web and the app connected, or which page should lead where."),
+    clientProblem: tp("The idea was big and still open-ended. Every audience and every feature carried equal weight, and nothing defined how the website, the mobile web and the app connected, or which page should lead where."),
     constraints: tp("The deadline and the budget were fixed, and a team of about thirty was building in parallel. The structure had to be clear enough for everyone to work from and lean enough to ship on time."),
     insight: tp("The product only worked as a system. Each audience needed its own account, and all of them had to share one directory, one events calendar and one membership."),
     creativeStrategy: tp("I mapped the product before designing a screen, defining what each account was for, what it could do and how the three platforms handed people to each other. Travellers and families got discovery, trips, hunts and the travel club. Businesses got listings, orders and a dashboard. Creators got Creator Connect, and membership tied it all together."),
-    keyDecisions: tp("I decided what got built, how the platforms linked and which page led where. Every feature had to serve one of the four accounts, which is how an idea without edges fitted inside a fixed deadline and budget."),
+    keyDecisions: tp("I decided what got built, how the platforms linked and which page led where. Every feature had to serve one of the four accounts, which is how a big idea fitted inside a fixed deadline and budget."),
     leadershipRole: tp("I was the product strategist and designer, and the person who connected the work. The team of about thirty reported to me or to the founder, and the two of us shaped the product together."),
     processPhases: [
       { title: "Map the system", description: tp("Four audiences, three platforms and the paths between them, before any screen.") },
@@ -393,7 +394,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "agfin",
     title: "Agfin",
-    subtitle: tp("Rebuilding a brochure website as a sales funnel, words first"),
+    subtitle: tp("Rebuilding a farm adviser’s website around the families he helps"),
     impactStatement: tp("12% more client wins in the first month · No paid advertising · A brochure site rebuilt as a story-led sales funnel"),
     role: tp("Website strategy, UX, copywriting and build\nSolo project"),
     scope: tp("Website architecture, video sales letter, copywriting, UX/UI, interaction design and build"),
@@ -406,7 +407,7 @@ export const caseStudies: CaseStudy[] = [
       {
         label: "The problem",
         paragraphs: [
-          tp("The site read like a brochure from the early days of the web, with little narrative, limited proof and no clear next step. For a consultant whose business depends on trust, the website was working against him."),
+          tp("The site described Robert’s services but not the stories behind them: there was little proof of his work and no clear next step. For a consultant whose business depends on trust, that was a missed opportunity."),
           tp("There were practical constraints too. Robert was semi-retired, had a modest budget and could only take on a limited number of new clients. There was no budget for a photo shoot."),
         ],
       },
@@ -423,10 +424,10 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           tp("My first VSL script was too intense for Robert’s audience. He told me plainly that it felt like too much of a push."),
           tp("He was right. I rewrote it to sound warmer and more trustworthy, then replaced the stock imagery with real photographs from Robert’s own region."),
-          tp("That brought the story closer to the people he worked with. The design could support the message because the message finally sounded like the business."),
+          tp("That brought the story closer to the people he worked with. The design could support the message because the message now sounded like the business."),
         ],
         figures: [
-          { images: [{ src: "/images/agfin-process-1-v2.jpg", alt: tp("Noon: the Does This Sound Familiar checklist, each ticked worry fading into heat haze"), ratio: "4 / 3" }, { src: "/images/agfin-process-2-v2.jpg", alt: tp("Golden hour: the case study as one photo print, stamped Loan Declined before the plan turns it around"), ratio: "4 / 3" }] },
+          { images: [{ src: "/images/agfin-process-1-v2.jpg", alt: tp("Noon: the Does This Sound Familiar checklist, each ticked worry fading into heat haze"), ratio: "4 / 3" }, { src: "/images/agfin-result-v1.jpg", alt: tp("Sunset: the case study’s result, a farmer at the gate of a canola field on a photo print stamped Approved in one week"), ratio: "4 / 3" }] },
         ],
       },
       {
@@ -451,7 +452,7 @@ export const caseStudies: CaseStudy[] = [
     markets: "Regional Australia",
     year: "2024\u20132025",
     businessContext: "Robert runs Agfin, advising Australian farming families on\u00A0the\u00A0money side of\u00A0the\u00A0farm. His work changes how those families get through a\u00A0bad season, but his website said none of\u00A0that.",
-    clientProblem: tp("He hired me for small fixes. I found a brochure from the early web, with no story, no proof and no clear next step. For a consultant who lives on trust, the site was working against him."),
+    clientProblem: tp("He hired me for small fixes. The site listed his services but didn’t yet tell his story, show proof or offer a clear next step. For a consultant who lives on trust, that was a missed opportunity."),
     constraints: "Robert is\u00A0semi-retired, with a\u00A0modest budget and\u00A0a\u00A0limit on\u00A0how many new clients he can take. There was no\u00A0budget for\u00A0a\u00A0photo shoot. And halfway through, my\u00A0first draft of\u00A0the\u00A0copy proved too intense for\u00A0his audience and\u00A0had to\u00A0be\u00A0rewritten.",
     insight: tp("The site didn’t need to look better. It needed to say something. Robert had real stories of families he’d helped, with real outcomes, and none of them were on the page. The job was to rebuild the whole site as a sales funnel built on those stories."),
     creativeStrategy: "I\u00A0interviewed Robert at\u00A0length, wrote a\u00A0VSL script and\u00A0rebuilt the\u00A0site as\u00A0a\u00A0funnel. The video opens on\u00A0a\u00A0farming family\u2019s struggle, brings Robert in\u00A0as\u00A0the\u00A0guide and\u00A0shows what changed for\u00A0them. The rest of\u00A0the\u00A0site backs that story with proof and\u00A0one clear next\u00A0step.",
@@ -478,7 +479,7 @@ export const caseStudies: CaseStudy[] = [
     },
     processImages: [
       { src: "/images/agfin-process-1-v2.jpg", alt: "Noon: the Does This Sound Familiar checklist, each ticked worry fading into heat haze" },
-      { src: "/images/agfin-process-2-v2.jpg", alt: "Golden hour: the case study as one photo print, stamped Loan Declined before the plan turns it around" },
+      { src: "/images/agfin-result-v1.jpg", alt: "Sunset: the case study’s result, a farmer at the gate of a canola field on a photo print stamped Approved in one week" },
     ],
     showcaseVideo: {
       mp4: "/videos/agfin-showcase.mp4",
@@ -486,7 +487,7 @@ export const caseStudies: CaseStudy[] = [
       alt: "Scroll-through of the Agfin homepage, told as one day on the farm from dawn to the next morning",
     },
     galleryImages: [
-      { src: "/images/agfin-detail-1-v2.jpg", alt: "About page introducing Agfin and founder Robert Barnes" },
+      { src: "/images/agfin-roadmap-v1.jpg", alt: "The Farm Profit Roadmap: step three, the plan to get there, with the roadmap’s value adding up as you scroll" },
       { src: "/images/agfin-detail-2-v2.jpg", alt: "Services page with the farm financial fitness assessment and service list" },
       { src: "/images/agfin-detail-3-v2.jpg", alt: "Contact page with the Get In Touch headline set behind the Grampians ranges" },
     ],
@@ -698,11 +699,11 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "steve-hodel",
     title: "As Within, So\u00A0Without",
-    subtitle: tp("Designing a 212-page illustrated book for a decades-long investigation"),
+    subtitle: tp("Designing a 212-page book around a decades-long investigation"),
     client: tp("Steve Hodel\nNYT bestselling author, retired LAPD homicide detective"),
     intro: [
       tp("Steve Hodel is a retired LAPD homicide detective and New York Times bestselling author. After retiring, he spent decades investigating his father, Dr. George Hodel, whom he believes was behind the Black Dahlia murder. As Within, So Without follows that investigation into the surrealist art world his father moved in."),
-      tp("I designed and typeset the 212-page illustrated book, working with more than 130 images, historical material and a manuscript that kept changing throughout production."),
+      tp("I designed and typeset the 212-page book, placing more than 130 photographs, documents and artworks from a manuscript that kept changing throughout production."),
     ],
     chapters: [
       {
@@ -815,10 +816,10 @@ const allProjectHighlights: ProjectHighlight[] = [
   {
     slug: "alienor",
     title: "Alienor",
-    subtitle: tp("Placing a physician’s skincare line beside clinical brands, not organic ones"),
+    subtitle: tp("A physician’s skincare line, as soothing as moonlight"),
     role: tp("Brand Designer\nContract"),
     scope: tp("Brand identity, packaging and visual direction"),
-    description: tp("Dr Noor, a physician, developed Alienor around medical expertise and premium ingredients, including Moroccan botanicals. The challenge was to communicate science-backed skincare without placing the brand in the crowded visual territory of organic beauty.\n\nI explored two directions, one built around natural ingredients and one around clinical credibility. The clinical direction fitted the product’s medical foundation better and placed the brand closer to premium clinical skincare.\n\nI developed the identity and packaging around that decision, using clean typography and a precise visual system to communicate a considered, science-led product."),
+    description: tp("Dr Noor, a physician, created Alienor around effective ingredients and a calm daily ritual. The brand needed to feel premium and trustworthy without looking cold or clinical.\n\nI built the identity around its line, “As soothing as moonlight”: a classic serif wordmark whose O echoes the moon, a plum and rose palette, and a soft ribbon pattern that carries across the jars, cartons and brand touchpoints."),
     client: "Dr.\u00a0Noor\nAlienor Skincare",
     industry: "Luxury Skincare / Beauty",
     year: "2022",
