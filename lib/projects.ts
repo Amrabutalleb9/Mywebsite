@@ -578,7 +578,7 @@ export const caseStudies: CaseStudy[] = [
           tp("Swap closes the loop. When a swap finishes, it sends you back to your portfolio, where the result shows."),
         ],
         figures: [
-          { images: [{ src: "/images/tt-fig-arch-v3-poster.webp", alt: tp("Product structure: search and sidebar lead to the market overview hub, then the token page, wallet preview, wallet profiler, portfolio and swap"), ratio: "1312 / 760", video: "/videos/tt-fig-arch-v3.mp4" }] },
+          { images: [{ src: "/images/tt-fig-arch-v6-poster.webp", alt: tp("Product structure: search and sidebar lead to the market overview hub, then the token page, wallet preview, wallet profiler, portfolio and swap"), ratio: "1312 / 760", video: "/videos/tt-fig-arch-v6.mp4" }] },
         ],
       },
       {
