@@ -7,12 +7,12 @@ const services = [
   "Integrated Campaigns", "Product & UX Design", "Prototyping", "Team Leadership",
 ]
 
-/* White counterpart to the black client band: what I do, between About and Leadership. */
+/* What I do, as a white band straight after the hero. */
 export default function ServicesMarquee() {
   const { trackRef, pause, resume } = useMarquee(55)
   return (
     <div
-      className="relative mt-32 overflow-hidden border-y border-border bg-background py-6 lg:mt-48 lg:py-8"
+      className="relative overflow-hidden border-y border-border bg-background py-6 lg:mt-48 lg:py-8"
       onMouseEnter={pause}
       onMouseLeave={resume}
     >

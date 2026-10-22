@@ -6,7 +6,7 @@ import { publishedCaseStudies, projectHighlights } from "@/lib/projects"
 import { tp } from "@/lib/typeset"
 
 import HeroSection from "@/components/homepage/hero-section"
-import ClientTicker from "@/components/homepage/client-ticker"
+import ServicesMarquee from "@/components/homepage/services-marquee"
 import TestimonialsWithStats from "@/components/homepage/testimonials-with-stats"
 import ScrollReveal from "@/components/homepage/scroll-reveal"
 import { SpltReel, HodelProof } from "@/components/homepage/card-motion"
@@ -282,7 +282,7 @@ export default function Home() {
   return (
     <main>
       <HeroSection />
-      <ClientTicker />
+      <ServicesMarquee />
       <WorkSection />
       <About />
       <TestimonialsWithStats testimonials={publishedTestimonials} stats={stats} />
