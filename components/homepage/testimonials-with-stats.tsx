@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react"
 import { motion, AnimatePresence, useInView, useReducedMotion } from "motion/react"
-import { ArrowLeft, ArrowRight } from "lucide-react"
+import { ArrowLeft, ArrowRight, Pause, Play } from "lucide-react"
 import ScrollReveal from "./scroll-reveal"
 import { type Testimonial } from "@/lib/shared-data"
 
@@ -22,7 +22,11 @@ function AnimatedCounter({ end, suffix, start, delay = 0, duration = 1800 }: { e
   const reduced = useReducedMotion()
 
   useEffect(() => {
-    if (!start) return
+    // Out of view: reset, so the count runs again every time the strip comes back into view.
+    if (!start) {
+      setCount(0)
+      return
+    }
     if (reduced) {
       setCount(end)
       return
@@ -49,7 +53,7 @@ function AnimatedCounter({ end, suffix, start, delay = 0, duration = 1800 }: { e
 
 function StatsStrip({ stats }: { stats: Stat[] }) {
   const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, amount: 0.5 })
+  const inView = useInView(ref, { amount: 0.5 })
   return (
     <div ref={ref} className="mt-24 grid grid-cols-2 border-t border-border lg:mt-32 lg:grid-cols-4">
       {stats.map((s, i) => (
@@ -80,6 +84,24 @@ export default function TestimonialsWithStats({
 
   const go = useCallback((i: number) => setActive(((i % count) + count) % count), [count])
 
+  // Autoplay, paced for reading: about 4 words a second, never under 8 s. It pauses on hover or
+  // keyboard focus, while the section is off screen, when the visitor presses pause, and never runs
+  // for people who turn motion off.
+  const regionRef = useRef<HTMLDivElement>(null)
+  const regionInView = useInView(regionRef, { amount: 0.4 })
+  const [hovered, setHovered] = useState(false)
+  const [focused, setFocused] = useState(false)
+  const [paused, setPaused] = useState(false)
+  const playing = !reduced && !paused && !hovered && !focused && regionInView && count > 1
+  const words = count ? testimonials[active].text.split(/\s+/).length : 0
+  const dwell = Math.max(8000, words * 250 + 3000)
+
+  useEffect(() => {
+    if (!playing) return
+    const t = window.setTimeout(() => go(active + 1), dwell)
+    return () => window.clearTimeout(t)
+  }, [playing, active, dwell, go])
+
   if (count === 0) return null
   const current = testimonials[active]
 
@@ -96,10 +118,17 @@ export default function TestimonialsWithStats({
       </ScrollReveal>
 
       <div
+        ref={regionRef}
         className="mt-16 lg:mt-24"
         role="region"
         aria-roledescription="carousel"
         aria-label="Testimonials"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        onFocus={() => setFocused(true)}
+        onBlur={(e) => {
+          if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setFocused(false)
+        }}
         onKeyDown={(e) => {
           if (e.key === "ArrowRight") { e.preventDefault(); go(active + 1) }
           if (e.key === "ArrowLeft") { e.preventDefault(); go(active - 1) }
@@ -124,7 +153,7 @@ export default function TestimonialsWithStats({
               initial={reduced ? { opacity: 0 } : { opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE_OUT } }}
               exit={{ opacity: 0, transition: { duration: 0.2 } }}
-              aria-live="polite"
+              aria-live={playing ? "off" : "polite"}
             >
               {current.text}
             </motion.blockquote>
@@ -146,7 +175,17 @@ export default function TestimonialsWithStats({
               </p>
             </motion.div>
           </AnimatePresence>
-          <div className="flex shrink-0 gap-3">
+          <div className="flex shrink-0 items-center gap-3">
+            {!reduced && count > 1 && (
+              <button
+                type="button"
+                onClick={() => setPaused((p) => !p)}
+                aria-label={paused ? "Play testimonials" : "Pause testimonials"}
+                className="mr-1 flex h-12 w-12 items-center justify-center rounded-full text-muted-foreground transition-colors duration-300 hover:text-foreground"
+              >
+                {paused ? <Play size={16} /> : <Pause size={16} />}
+              </button>
+            )}
             <button
               type="button"
               onClick={() => go(active - 1)}
@@ -173,10 +212,22 @@ export default function TestimonialsWithStats({
               const on = i === active
               return (
                 <li key={i} className="relative w-44 shrink-0 lg:w-auto">
-                  <span
-                    aria-hidden="true"
-                    className={`absolute -top-px left-0 h-[3px] bg-accent transition-[width] duration-500 ease-out motion-reduce:transition-none ${on ? "w-full" : "w-0"}`}
-                  />
+                  {on && playing ? (
+                    /* While playing, the gold line fills across the active name as a timer. */
+                    <motion.span
+                      key={`fill-${active}`}
+                      aria-hidden="true"
+                      className="absolute -top-px left-0 h-[3px] bg-accent"
+                      initial={{ width: "0%" }}
+                      animate={{ width: "100%" }}
+                      transition={{ duration: dwell / 1000, ease: "linear" }}
+                    />
+                  ) : (
+                    <span
+                      aria-hidden="true"
+                      className={`absolute -top-px left-0 h-[3px] bg-accent transition-[width] duration-500 ease-out motion-reduce:transition-none ${on ? "w-full" : "w-0"}`}
+                    />
+                  )}
                   <button
                     type="button"
                     onClick={() => go(i)}

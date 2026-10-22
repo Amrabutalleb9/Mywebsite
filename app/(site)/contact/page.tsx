@@ -2,7 +2,6 @@
 
 import React, { useState } from "react"
 import { Linkedin, ArrowUpRight } from "lucide-react"
-import CalendlyButton from "@/components/calendly-button"
 import { submitContactForm } from "@/lib/contact"
 import FadeIn from "@/components/fade-in"
 
@@ -50,7 +49,7 @@ export default function ContactPage() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <p className="max-w-[50ch] text-lg leading-relaxed text-muted-foreground">
-              {"I\u2019m looking for a\u00A0full-time creative leadership role in\u00A0Europe, on-site or\u00A0remote. Tell me about the\u00A0role and\u00A0the\u00A0team. I\u00A0reply within 24\u00A0hours."}
+              {"I\u2019m open to\u00A0Creative Director roles in\u00A0Europe, remote or\u00A0on-site. Tell me about the\u00A0role and\u00A0the\u00A0team. I\u00A0reply within 24\u00A0hours."}
             </p>
             <p className="mt-4 mb-10 max-w-[50ch] text-sm leading-relaxed text-muted-foreground">
               {"I\u00A0also take on a\u00A0small number of\u00A0contract and\u00A0interim engagements, from repositioning a\u00A0brand to\u00A0leading a\u00A0team through a\u00A0set\u00A0period."}
@@ -67,10 +66,6 @@ export default function ContactPage() {
                   {"Message me on\u00A0LinkedIn"}
                   <ArrowUpRight size={14} className="cta-arrow" />
                 </a>
-                <p className="mt-2 text-xs text-muted-foreground">{"Usually the\u00A0fastest way to\u00A0reach\u00A0me."}</p>
-              </div>
-              <div className="mt-6">
-                <CalendlyButton />
               </div>
             </div>
           </FadeIn>

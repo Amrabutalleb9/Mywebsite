@@ -10,7 +10,7 @@ import { tp } from "@/lib/typeset"
 export const metadata: Metadata = pageMeta({
   title: "About Amr Abu-Talleb · Creative Director & Design Leader",
   description:
-    "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets. 50+ people hired. Open to roles in Europe or remote.",
+    "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets. 50+ people hired. Open to Creative Director roles in Europe, remote or on-site.",
   path: "/about",
   type: "profile",
 })
@@ -39,7 +39,7 @@ export default function AboutPage() {
             <p>{tp("Working in Arabic and English keeps that balance honest. An identity has to feel native in both scripts and still be recognisably itself, so I treat lettering, typography and spacing as part of the idea, not as finishing touches. Art can have a character of its own; design also has to make sense to the people who meet it and to the business behind it.")}</p>
             <p>{tp("The same care now goes into how a team works. I want everyone to understand what we’re trying to achieve and to have room to bring their own perspective. In reviews, the designer walks us through the work before I weigh in, and we talk about what’s working and what needs another look. I step in when a decision is difficult or the work drifts from the brief, but a good team shouldn’t have to wait for me to make a considered call. AI has become part of that process too: it gives us more ways into an idea and takes repetitive work off our desks, while the judgement about which direction is worth pursuing stays with us.")}</p>
             <p>{tp("Over the years I’ve hired more than fifty people, and some now lead teams of their own. ")}<strong className="font-medium text-foreground">{tp("That’s what I’m proudest of.")}</strong>{tp(" I’ve never wanted everyone to work the way I do. I’d rather give people the standard, the context and the responsibility to find their own way of doing it well.")}</p>
-            <p className="font-medium text-foreground">{tp("That’s the role I’m looking for next: creative leadership in Europe, where strategy, craft and team development belong together. Close enough to the details to keep the work good, and far enough back to help the team grow.")}</p>
+            <p className="font-medium text-foreground">{tp("That’s the role I’m looking for next: creative leadership in Europe, remote or on-site, where strategy, craft and team development belong together. Close enough to the details to keep the work good, and far enough back to help the team grow.")}</p>
           </FadeIn>
 
           {/* ── What I Do ── */}

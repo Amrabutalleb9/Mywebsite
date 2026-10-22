@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     template: "%s \u00B7 Amr Abu-Talleb",
   },
   description:
-    "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets, and 50+ people hired. Open to roles in Europe, on-site or remote.",
+    "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets, and 50+ people hired. Open to Creative Director roles in Europe, remote or on-site.",
   metadataBase: new URL("https://amrabutalleb.com"),
   alternates: {
     canonical: "/",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     siteName: "Amr Abu-Talleb",
     title: "Amr Abu-Talleb · Creative Director",
     description:
-      "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets, and 50+ people hired. Open to roles in Europe, on-site or remote.",
+      "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets, and 50+ people hired. Open to Creative Director roles in Europe, remote or on-site.",
     images: [
       {
         url: "/images/og-image-v3.png",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Amr Abu-Talleb · Creative Director",
     description:
-      "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets, and 50+ people hired. Open to roles in Europe, on-site or remote.",
+      "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets, and 50+ people hired. Open to Creative Director roles in Europe, remote or on-site.",
     images: ["/images/og-image-v3.png"],
   },
   robots: {
@@ -124,21 +124,10 @@ export default function RootLayout({
               sameAs: ["https://www.linkedin.com/in/abutalleb/"],
               image: "https://amrabutalleb.com/images/amr-portrait-v3.webp",
               description:
-                "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets, and 50+ people hired. Open to roles in Europe, on-site or remote.",
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Cairo",
-                addressCountry: "EG",
-              },
+                "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets, and 50+ people hired. Open to Creative Director roles in Europe, remote or on-site.",
               workLocation: [
-                {
-                  "@type": "Place",
-                  name: "Cairo, Egypt",
-                },
-                {
-                  "@type": "Place",
-                  name: "Europe (relocating) or remote",
-                },
+                { "@type": "Place", name: "Europe" },
+                { "@type": "VirtualLocation", name: "Remote" },
               ],
               knowsAbout: [
                 "Creative Direction",
