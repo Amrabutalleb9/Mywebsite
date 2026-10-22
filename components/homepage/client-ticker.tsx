@@ -3,9 +3,9 @@
 import { useMarquee } from "@/hooks/use-marquee"
 
 const clientNames = [
-  "The Line Real Estate", "Overpowered Agency", "Steve Hodel", "Dipa Visionary Art School", "SPLT Fitness",
-  "Alfy Marble", "Alienor Skincare", "Agfin", "TapTools", "ADRAW",
-  "Freelancer.com", "Like a Nerd", "Edge Holdings", "Gwelly Law Firm", "Ezz Law Firm",
+  "The Line Real Estate", "Overpowered", "Bay Area Trips", "TapTools", "SPLT", "Steve Hodel",
+  "Freelancer.com", "Hickey", "Agfin", "Nexus", "Dipa Visionary Art School", "Salel",
+  "Alfy Marble", "Alienor Skincare", "Like a Nerd", "Edge Holdings", "ADRAW", "Gwelly Law Firm", "Ezz Law Firm",
 ]
 
 export default function ClientTicker() {

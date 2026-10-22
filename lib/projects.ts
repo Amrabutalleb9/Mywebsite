@@ -917,6 +917,7 @@ const allProjectHighlights: ProjectHighlight[] = [
   },
   {
     slug: "nexus",
+    hidden: true,
     title: "Nexus",
     subtitle: tp("Three brand personalities, written before anything was drawn"),
     role: tp("Brand Designer & Webflow Developer\nFreelance"),
@@ -928,6 +929,7 @@ const allProjectHighlights: ProjectHighlight[] = [
   },
   {
     slug: "alienor",
+    hidden: true,
     title: "Alienor",
     subtitle: tp("A physician’s skincare line, as soothing as moonlight"),
     role: tp("Brand Designer\nContract"),
@@ -948,6 +950,7 @@ const allProjectHighlights: ProjectHighlight[] = [
   },
   {
     slug: "hickey",
+    hidden: true,
     title: "Hickey",
     subtitle: tp("An investor deck for a US makeup start-up that went on to raise $2M"),
     description: tp("Hickey was raising investment and needed a deck that would communicate the business clearly to potential investors.\n\nI designed every slide and worked on the order in which the story unfolded, so the presentation moved through the information in a way investors could follow."),
@@ -960,6 +963,7 @@ const allProjectHighlights: ProjectHighlight[] = [
   },
   {
     slug: "salel",
+    hidden: true,
     title: "Salel",
     subtitle: tp("A hand-drawn Arabic wordmark for a ghutra brand in Qatar"),
     description: tp("Salel sells ghutra, the traditional men’s headdress, in Qatar. The identity needed to feel connected to the region’s own visual language.\n\nI drew the Arabic wordmark by hand, then developed the supporting identity around it: a colour system, a seal and a stationery set. The calligraphy gives the brand its own character, while the supporting elements make the identity usable across everyday applications."),

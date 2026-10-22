@@ -7,7 +7,6 @@ import { tp } from "@/lib/typeset"
 
 import HeroSection from "@/components/homepage/hero-section"
 import ClientTicker from "@/components/homepage/client-ticker"
-import ServicesMarquee from "@/components/homepage/services-marquee"
 import TestimonialsWithStats from "@/components/homepage/testimonials-with-stats"
 import ScrollReveal from "@/components/homepage/scroll-reveal"
 import { SpltReel, HodelProof } from "@/components/homepage/card-motion"
@@ -157,7 +156,8 @@ function WorkSection() {
         })}
       </div>
 
-      {/* ── Project Highlights ── */}
+      {/* ── Project Highlights (shown only while some are published) ── */}
+      {highlightCards.length > 0 && (
       <div className="mt-28 lg:mt-40">
         <ScrollReveal>
           <p className="mb-10 text-xs font-medium tracking-[var(--tracking-label)] text-muted-foreground uppercase">Project Highlights</p>
@@ -213,6 +213,7 @@ function WorkSection() {
           ))}
         </div>
       </div>
+      )}
 
       <ScrollReveal>
         <div className="mt-12 flex justify-center border-b border-border pb-8">
@@ -284,7 +285,6 @@ export default function Home() {
       <ClientTicker />
       <WorkSection />
       <About />
-      <ServicesMarquee />
       <TestimonialsWithStats testimonials={publishedTestimonials} stats={stats} />
       <div className="mx-auto max-w-3xl px-8 pt-16 pb-24 text-center lg:pt-20 lg:pb-32">
         <p className="mb-5 text-base text-muted-foreground lg:text-lg">{"Hiring a\u00A0Creative Director?"}</p>
