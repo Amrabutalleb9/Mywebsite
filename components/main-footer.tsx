@@ -56,7 +56,7 @@ export default function MainFooter() {
         <a href={`mailto:${EMAIL}`} className="text-primary-foreground underline decoration-accent underline-offset-4">{EMAIL}</a>.
       </p>
       <div className="mt-10 flex flex-wrap gap-x-6 gap-y-2">
-        <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className={darkLink}>LinkedIn&nbsp;↗</a>
+        <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className={`${darkLink} inline-flex items-center gap-1.5`}>LinkedIn<ArrowUpRight size={14} className="cta-arrow" aria-hidden="true" /></a>
         <a href={CV} download className={darkLink}>Download&nbsp;CV</a>
       </div>
     </>
@@ -99,7 +99,7 @@ export default function MainFooter() {
                     </label>
                   </div>
                   <fieldset>
-                    <legend className="text-sm text-muted-foreground">{"What’s it about?"}</legend>
+                    <legend className="text-sm text-muted-foreground">{"Topic"}</legend>
                     <div className="mt-3 flex flex-wrap gap-2">
                       {topics.map((t) => (
                         <button

@@ -194,18 +194,27 @@ h1, h2, h3, h4, h5, h6 {
 .btn .cta-arrow, .btn svg { transition: transform var(--duration-normal) var(--ease-out-expo); }
 
 .btn-primary { background-color: var(--primary); border-color: var(--primary); color: var(--primary-foreground); }
+/* Hover stays filled, so it never reads as the secondary button: the ink lifts a step,
+   a gold hairline appears and the arrow turns gold. */
 .btn-primary:hover:not(:disabled) {
-  background-color: transparent; border-color: var(--foreground); color: var(--foreground);
+  background-color: color-mix(in srgb, var(--primary) 84%, #ffffff);
+  border-color: var(--accent);
+  color: var(--primary-foreground);
   transform: translateY(-2px);
-  box-shadow: 0 16px 40px -12px rgba(13, 13, 26, 0.25);
+  box-shadow: 0 16px 40px -12px rgba(13, 13, 26, 0.35);
 }
-.btn-primary:active:not(:disabled) { background-color: rgba(13, 13, 26, 0.08); transform: translateY(0) scale(0.98); box-shadow: none; }
+.btn-primary:hover:not(:disabled) svg { color: var(--accent); }
+.btn-primary:active:not(:disabled) { background-color: var(--primary); transform: translateY(0) scale(0.98); box-shadow: none; }
 
 .btn-secondary { background-color: transparent; border-color: var(--foreground); color: var(--foreground); }
 .btn-secondary:hover:not(:disabled) { background-color: rgba(13, 13, 26, 0.06); transform: translateY(-2px); }
 .btn-secondary:active:not(:disabled) { background-color: rgba(13, 13, 26, 0.12); transform: translateY(0) scale(0.98); }
 
 .btn:hover:not(:disabled) .cta-arrow { transform: translate(2px, -2px); }
+/* Text links with the same arrow (nav, footer) nudge it the same way. */
+a:not(.btn) .cta-arrow { transition: transform var(--duration-normal) var(--ease-out-expo); }
+a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
+@media (prefers-reduced-motion: reduce) { a:not(.btn):hover .cta-arrow { transform: none; } }
 
 @media (prefers-reduced-motion: reduce) {
   .btn, .btn .cta-arrow, .btn svg { transition: background-color 0s, border-color 0s, color 0s; }
@@ -403,9 +412,10 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 16px 40px -12px rgba(13, 13, 26, 0.15);
 }
 
-/* ─── Custom cursor: hide default on desktop (only when JS cursor is active) ─── */
+/* ─── Custom cursor: only over links, buttons and project cards. Everywhere else the system cursor shows. ─── */
 @media (pointer: fine) {
-  .cursor-active * { cursor: none !important; }
+  .cursor-active :is(a, button, [role="button"], [data-cursor-label], select, label[for]),
+  .cursor-active :is(a, button, [role="button"], [data-cursor-label]) * { cursor: none !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -70,10 +70,10 @@ export default function MainNav() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {item.label}
-                  <ArrowUpRight size={13} aria-hidden="true" />
+                  <ArrowUpRight size={14} className="cta-arrow" aria-hidden="true" />
                 </a>
               ) : (
                 <Link
@@ -130,9 +130,10 @@ export default function MainNav() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileOpen(false)}
-                className="font-serif text-3xl text-foreground"
+                className="inline-flex items-center gap-2 font-serif text-3xl text-foreground"
               >
-                {item.label}&nbsp;↗
+                {item.label}
+                <ArrowUpRight size={22} className="cta-arrow" aria-hidden="true" />
               </a>
             ) : (
               <Link

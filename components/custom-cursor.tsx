@@ -5,6 +5,8 @@ import { useEffect, useRef, useState, useCallback } from "react"
 const DOT_EASE = 0.5
 const RING_EASE = 0.14
 const IDLE_THRESHOLD = 0.4
+/* The custom cursor only appears over these. Everywhere else the system cursor is used. */
+const INTERACTIVE = 'a, button, [role="button"], [data-cursor-label], select, label[for]'
 
 function canUseCustomCursor() {
   if (typeof window === "undefined") return false
@@ -179,6 +181,11 @@ export default function CustomCursor() {
       posRef.current.x = e.clientX
       posRef.current.y = e.clientY
 
+      if (!(e.target as Element)?.closest?.(INTERACTIVE)) {
+        if (visibleRef.current) onLeave()
+        lastTarget = null
+        return
+      }
       if (!visibleRef.current) showCursor(e.clientX, e.clientY)
       else startAnimation()
 
@@ -202,6 +209,7 @@ export default function CustomCursor() {
     }
 
     const onEnter = (e: MouseEvent) => {
+      if (!(e.target as Element)?.closest?.(INTERACTIVE)) return
       showCursor(e.clientX, e.clientY)
       setLabel(findCursorLabel(e.target as HTMLElement))
     }

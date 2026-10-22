@@ -70,7 +70,6 @@ export default function ContactPage() {
                 <p className="mt-2 text-xs text-muted-foreground">{"Usually the\u00A0fastest way to\u00A0reach\u00A0me."}</p>
               </div>
               <div className="mt-6">
-                <p className="mb-3 text-sm text-muted-foreground">Prefer a&nbsp;live conversation?</p>
                 <CalendlyButton />
               </div>
             </div>
@@ -96,7 +95,7 @@ export default function ContactPage() {
                 <input id="email" type="email" autoComplete="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent" />
               </div>
               <div>
-                <label htmlFor="budget" className="mb-2 block text-sm font-medium text-foreground">What&rsquo;s it&nbsp;about?</label>
+                <label htmlFor="budget" className="mb-2 block text-sm font-medium text-foreground">Topic</label>
                 <select id="budget" value={form.budget} onChange={(e) => setForm({ ...form, budget: e.target.value })} className="w-full rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent">
                   <option value="">Select&nbsp;one</option>
                   <option value="fulltime">Full-time role</option>
