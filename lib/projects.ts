@@ -553,35 +553,89 @@ export const caseStudies: CaseStudy[] = [
     role: tp("Senior Product Designer\nWith a product and engineering team of about ten"),
     scope: tp("Research, testing, core-flow redesign, production UI"),
     intro: [
-      tp("TapTools gives users token and NFT market data through market overviews, token pages, portfolios, swaps, watchlists and a wallet profiler. The platform was rich in information, but users were getting lost in the core flows."),
-      tp("I led user research and testing, redesigned those flows and took the interface from early layouts to production-ready screens."),
+      tp("TapTools gave Cardano traders token and NFT market data through market overviews, token pages, portfolios, swaps, watchlists and a wallet profiler. The data was rich. People were getting lost in it."),
+      tp("I led user research and testing, redesigned the core flows and took the interface from early layouts to production-ready screens with a product and engineering team of about ten."),
     ],
     chapters: [
       {
-        label: "Where users got stuck",
+        label: "The problem",
+        lead: tp("Everything at the same volume"),
         paragraphs: [
-          tp("TapTools was already live, with active users. The redesign had to improve the experience without disrupting the way people used the product."),
-          tp("Research and testing showed the bottlenecks in the core flows: the points where users struggled to find what they needed or stopped before finishing a task."),
-          tp("The problem wasn’t a lack of data. Users needed a clearer hierarchy to find the right information."),
+          tp("TapTools was live and busy. A token page held a chart, pool data, a watchlist, top movers and every recent trade, all at the same weight. Research and testing showed people stalling in the core flows, scanning for the number they came for and leaving before they finished."),
+          tp("The redesign had to land on a product people used every day. It had to fix the order of things without moving where people expected to find them."),
+          tp("I treated it as a hierarchy problem. Users didn’t need more data. They needed to see the right number first."),
+        ],
+        figures: [
+          { images: [{ src: "/images/tt-fig-token-v3-poster.webp", alt: tp("The redesigned token page: price and chart first, pool info and watchlist in a side column, and a wallet-size tag on every trade"), ratio: "1312 / 760", video: "/videos/tt-fig-token-v3.mp4" }] },
         ],
       },
       {
-        label: "Reworking the core flows",
+        label: "The structure",
+        lead: tp("One hub, and one structure for every wallet"),
         paragraphs: [
-          tp("I redesigned the flows the research had flagged before touching the visual layer. Every screen was judged on one practical question: could a user find what they came for without hunting through the interface?"),
-          tp("I then rebuilt the UI around clearer typography, spacing and hierarchy. One type set and a shared set of components gave every part of the platform the same foundation."),
+          tp("I mapped every feature against how people moved between them. The market overview became the hub, and every other area sits one click from it."),
+          tp("The biggest call was to give your own wallets and anyone else’s the same structure. The portfolio and the wallet profiler share one set of tabs, so learning one teaches the other, and engineering builds one set of components."),
+          tp("Swap closes the loop. When a swap finishes, it sends you back to your portfolio, where the result shows."),
+        ],
+        figures: [
+          { images: [{ src: "/images/tt-fig-arch-v3-poster.webp", alt: tp("Product structure: search and sidebar lead to the market overview hub, then the token page, wallet preview, wallet profiler, portfolio and swap"), ratio: "1312 / 760", video: "/videos/tt-fig-arch-v3.mp4" }] },
         ],
       },
       {
-        label: "From research to production",
+        label: "From a number to a wallet",
+        lead: tp("Every trade has a wallet behind it"),
         paragraphs: [
-          tp("I took the designs from early layouts to production-ready UI, covering market overviews, token pages, portfolios, swaps, watchlists and the wallet profiler."),
-          tp("Working with the product and engineering team, I helped move the redesign into the live product rather than stopping at concepts or polished mockups."),
+          tp("Cardano traders want to know who is buying, and following that trail shouldn’t mean leaving the page."),
+          tp("I tagged every trade with the size of the wallet behind it, from shrimp to whale, and made the tag open a preview beside the chart. The token stays in view while you check the trader. The full profile is one more click."),
+          tp("The profiler reads a wallet like a person. It shows what the wallet holds, when it trades and who funded it."),
+        ],
+        figures: [
+          { images: [{ src: "/images/tt-fig-journey-v3-poster.webp", alt: tp("Five screens one click apart: market overview, token page, wallet preview, wallet profiler and associated wallets"), ratio: "1312 / 470", video: "/videos/tt-fig-journey-v3.mp4" }] },
+          { images: [{ src: "/images/tt-fig-profiler-v3-poster.webp", alt: tp("The wallet profiler: balance, holdings, activity over time, day-of-week and hour-of-day habits, with associated wallets"), ratio: "1312 / 760", video: "/videos/tt-fig-profiler-v3.mp4" }] },
+        ],
+      },
+      {
+        label: "The portfolio",
+        lead: tp("Answer ‘how am I doing?’ first"),
+        paragraphs: [
+          tp("Early versions gave the list of wallets as much room as the money. Over three passes the list became a switcher in the header, and the value and the chart took the width."),
+          tp("Above the chart sit the answers a holder wants first: all-time profit, the best and worst performer, and staking income. The tables come after."),
+          tp("Tracking a wallet shouldn’t need a wallet connection. You can add any address, stake address or ADA Handle, check that it resolves and give it a name."),
+        ],
+        figures: [
+          { images: [{ src: "/images/tt-fig-portfolio-v3-poster.webp", alt: tp("Three passes at the portfolio beside the final screen with all-time profit, best and worst performer and whale tier"), ratio: "1312 / 720", video: "/videos/tt-fig-portfolio-v3.mp4" }] },
+          { images: [{ src: "/images/tt-fig-addwallet-v3.webp", alt: tp("Adding a wallet by pasting an address or ADA Handle, resolved before it is added"), ratio: "1312 / 640" }] },
+        ],
+      },
+      {
+        label: "The swap",
+        lead: tp("Swap without surprises"),
+        paragraphs: [
+          tp("TapSwap routes trades across Cardano exchanges for two kinds of trader. Simple mode is one card. Nerd mode adds the chart, the route, slippage, price impact and fees."),
+          tp("Anyone can mint a token with any name, so unlisted tokens stop you once. Going back is the main button, and the policy ID is there to check. Regular traders can switch the warning off for a token they know."),
+          tp("Every state has a screen, from picking a token to a failed swap that says why it failed and how to fix it."),
+        ],
+        figures: [
+          { images: [{ src: "/images/tt-fig-swap-v3-poster.webp", alt: tp("Every swap state, from picking a token to a failed swap with its reason, beside Simple and Nerd modes"), ratio: "1312 / 800", video: "/videos/tt-fig-swap-v3.mp4" }] },
+        ],
+      },
+      {
+        label: "Shipping it",
+        lead: tp("One dark system for dense data"),
+        paragraphs: [
+          tp("I designed one dark system for dense data. One typeface with tabular numbers, one accent for actions, and green and red kept for price change."),
+          tp("I worked with a product and engineering team of about ten to move the redesign into the live product. The new homepage and chart interface went live on 21 January 2023, followed by the portfolio and the wallet profiler."),
+        ],
+        figures: [
+          { images: [{ src: "/images/tt-fig-system-v3.webp", alt: tp("The colour system: neutral ramp, cyan accent, gain, loss and caution with their tints, beside the type"), ratio: "1312 / 700" }] },
+          { images: [{ src: "/images/tt-fig-ship-v3-poster.webp", alt: tp("The early homepage layout with three promotional modules, then the shipped homepage with a market summary, movers and one table"), ratio: "1312 / 720", video: "/videos/tt-fig-ship-v3.mp4" }] },
+          { images: [{ src: "/images/tt-fig-release-v3.webp", alt: tp("Launch graphics from January 2023: the new homepage and the portfolio running on taptools.io"), ratio: "1312 / 520" }] },
         ],
       },
     ],
     results: [
       tp("User-reported issues fell by 23% within 60 days of launch, measured through support tickets and reports from the community on Discord and X"),
+      tp("New homepage and chart interface live from 21 January 2023"),
       tp("Core analytics flows redesigned around a clearer hierarchy"),
       tp("Part of the wider product work that preceded the company’s next funding round"),
     ],
@@ -605,6 +659,13 @@ export const caseStudies: CaseStudy[] = [
       { title: "Hierarchy", description: tp("Rebuilt typography, spacing and colour so the most important number on each screen reads first.") },
       { title: "Production UI", description: tp("Took the screens from early layouts to production-ready files.") },
     ],
+    featureImage: "/images/taptools-hero-loop-poster-v3.webp",
+    featureImageAlt: tp("The TapTools market overview with a swap card and wallet profiler beside it, on a dark grid lit in cyan and green"),
+    featureVideo: {
+      mp4: "/videos/taptools-hero-loop-v3.mp4",
+      poster: "/images/taptools-hero-loop-poster-v3.webp",
+      alt: tp("TapTools on a dark grid lit in cyan and green, moving from the market overview to a token page, the wallet preview, the wallet profiler and a finished swap"),
+    },
     featured: true,
   },
   {
