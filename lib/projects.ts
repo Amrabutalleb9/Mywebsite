@@ -549,12 +549,12 @@ export const caseStudies: CaseStudy[] = [
     slug: "taptools",
     title: "TapTools",
     subtitle: tp("Helping users of a live analytics platform find the number they came for"),
-    impactStatement: tp("User-reported issues down 23% within 60 days · Core flows redesigned and shipped to a live product · Light and dark themes on one colour library"),
+    impactStatement: tp("User-reported issues down 23% within 60 days · Core flows redesigned and shipped to a live product"),
     role: tp("Senior Product Designer\nWith a product and engineering team of about ten"),
-    scope: tp("Research, testing, core-flow redesign, production UI, light and dark themes"),
+    scope: tp("Research, testing, core-flow redesign, production UI"),
     intro: [
       tp("TapTools gives users token and NFT market data through market overviews, token pages, portfolios, swaps, watchlists and a wallet profiler. The platform was rich in information, but users were getting lost in the core flows."),
-      tp("I led user research and testing, redesigned those flows and took the interface from wireframes to production-ready screens."),
+      tp("I led user research and testing, redesigned those flows and took the interface from early layouts to production-ready screens."),
     ],
     chapters: [
       {
@@ -569,21 +569,20 @@ export const caseStudies: CaseStudy[] = [
         label: "Reworking the core flows",
         paragraphs: [
           tp("I redesigned the flows the research had flagged before touching the visual layer. Every screen was judged on one practical question: could a user find what they came for without hunting through the interface?"),
-          tp("I then rebuilt the UI around clearer typography, spacing and hierarchy. A shared type system and colour library supported both light and dark themes, giving every part of the platform a more consistent foundation."),
+          tp("I then rebuilt the UI around clearer typography, spacing and hierarchy. One type set and a shared set of components gave every part of the platform the same foundation."),
         ],
       },
       {
         label: "From research to production",
         paragraphs: [
-          tp("I took the designs from wireframes to production-ready UI, covering market overviews, token pages, portfolios, swaps, lists and the wallet profiler."),
+          tp("I took the designs from early layouts to production-ready UI, covering market overviews, token pages, portfolios, swaps, watchlists and the wallet profiler."),
           tp("Working with the product and engineering team, I helped move the redesign into the live product rather than stopping at concepts or polished mockups."),
         ],
       },
     ],
     results: [
-      tp("User-reported issues fell 23% within 60 days of launch, measured through support tickets and community reports on Discord and X"),
+      tp("User-reported issues fell by 23% within 60 days of launch, measured through support tickets and reports from the community on Discord and X"),
       tp("Core analytics flows redesigned around a clearer hierarchy"),
-      tp("Light and dark themes built on one shared colour library"),
       tp("Part of the wider product work that preceded the company’s next funding round"),
     ],
     reflection: tp("In an analytics product, more information doesn’t help if people can’t find the number they need. The work began with understanding where users were getting stuck, then carried that understanding through the interface and into production."),
@@ -597,14 +596,14 @@ export const caseStudies: CaseStudy[] = [
     clientProblem: tp("The platform carried a lot of data and users were getting lost in it. Research pointed to bottlenecks in the core flows, the places where people stopped before doing what they came to do."),
     constraints: tp("It was a live product with active users, so the redesign had to ship without breaking the way people already worked."),
     insight: tp("In a data product, hierarchy is the feature. Users didn’t need more data on screen. They needed to see the right number first."),
-    creativeStrategy: tp("I ran user research and testing to find where people dropped off, then redesigned the core flows around them. The interface was rebuilt on clearer typography, spacing and hierarchy, with one type set, one colour library and light and dark themes."),
+    creativeStrategy: tp("I ran user research and testing to find where people dropped off, then redesigned the core flows around them. The interface was rebuilt on clearer typography, spacing and hierarchy, with one type set across every screen."),
     keyDecisions: tp("I treated it as a data problem before a design problem. Every screen was judged on a single test, whether a user could find the number they came for without hunting for it."),
     leadershipRole: tp("I owned the design from research to production-ready screens, working with a product and engineering team of about ten to ship it without disrupting live users."),
     processPhases: [
       { title: "Research & testing", description: tp("Watched how users moved through the platform and where they gave up.") },
       { title: "Core flows", description: tp("Redesigned the flows behind the bottlenecks before touching the visual layer.") },
       { title: "Hierarchy", description: tp("Rebuilt typography, spacing and colour so the most important number on each screen reads first.") },
-      { title: "Production UI", description: tp("Took the screens from wireframes to production-ready files in light and dark themes.") },
+      { title: "Production UI", description: tp("Took the screens from early layouts to production-ready files.") },
     ],
     featured: true,
   },
