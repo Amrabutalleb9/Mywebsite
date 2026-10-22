@@ -1,14 +1,12 @@
 "use client"
 
 import React, { useState } from "react"
-import { Linkedin } from "lucide-react"
+import { Linkedin, ArrowUpRight } from "lucide-react"
 import CalendlyButton from "@/components/calendly-button"
 import { submitContactForm } from "@/lib/contact"
 import FadeIn from "@/components/fade-in"
 
-const socialLinks = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/abutalleb/", icon: Linkedin },
-]
+const LINKEDIN = "https://www.linkedin.com/in/abutalleb/"
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", budget: "", message: "" })
@@ -47,13 +45,15 @@ export default function ContactPage() {
           <FadeIn>
             <p className="mb-4 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">{"Let\u2019s talk"}</p>
             <h1 className="mb-8 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
-              {"Hiring, or want to\u00A0collaborate?"}
+              {"Hiring a\u00A0creative\u00A0director?"}
             </h1>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <p className="mb-10 max-w-[50ch] text-lg leading-relaxed text-muted-foreground">
-              {"I\u2019m looking for creative leadership roles in\u00A0Europe, alongside selected projects across brand, digital experience and\u00A0product. Tell me about the\u00A0role or\u00A0what you\u2019d like to\u00A0build together. I\u00A0reply within 24\u00A0hours."}{" "}
-              <a href="/working-together" className="text-foreground underline underline-offset-4 transition-colors hover:text-accent">{"How collaborations\u00A0work"}</a>
+            <p className="max-w-[50ch] text-lg leading-relaxed text-muted-foreground">
+              {"I\u2019m looking for a\u00A0full-time creative leadership role in\u00A0Europe, on-site or\u00A0remote. Tell me about the\u00A0role and\u00A0the\u00A0team. I\u00A0reply within 24\u00A0hours."}
+            </p>
+            <p className="mt-4 mb-10 max-w-[50ch] text-sm leading-relaxed text-muted-foreground">
+              {"I\u00A0also take on a\u00A0small number of\u00A0contract and\u00A0interim engagements, from repositioning a\u00A0brand to\u00A0leading a\u00A0team through a\u00A0set\u00A0period."}
             </p>
           </FadeIn>
           <FadeIn delay={0.15}>
@@ -61,12 +61,13 @@ export default function ContactPage() {
               <a href="mailto:hello@amrabutalleb.com" className="text-lg text-accent underline underline-offset-4 hover:text-accent/80">
                 hello@amrabutalleb.com
               </a>
-              <div className="mt-4 flex gap-5">
-                {socialLinks.map((link) => (
-                  <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground" aria-label={link.label}>
-                    <link.icon size={22} />
-                  </a>
-                ))}
+              <div className="mt-2">
+                <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+                  <Linkedin size={16} aria-hidden="true" />
+                  {"Message me on\u00A0LinkedIn"}
+                  <ArrowUpRight size={14} className="cta-arrow" />
+                </a>
+                <p className="mt-2 text-xs text-muted-foreground">{"Usually the\u00A0fastest way to\u00A0reach\u00A0me."}</p>
               </div>
               <div className="mt-6">
                 <p className="mb-3 text-sm text-muted-foreground">Prefer a&nbsp;live conversation?</p>

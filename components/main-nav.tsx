@@ -2,13 +2,13 @@
 
 import { useState, useEffect, useRef, useCallback } from "react"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ArrowUpRight } from "lucide-react"
 
 const navItems = [
   { label: "Projects", href: "/projects" },
   { label: "About", href: "/about" },
-  { label: "Working Together", href: "/working-together" },
-]
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/abutalleb/", external: true },
+] as { label: string; href: string; external?: boolean }[]
 
 export default function MainNav() {
   const [scrolled, setScrolled] = useState(false)
@@ -63,15 +63,28 @@ export default function MainNav() {
             Amr Abu-Talleb
           </Link>
           <div className="hidden items-center gap-10 md:flex">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) =>
+              item.external ? (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {item.label}
+                  <ArrowUpRight size={13} aria-hidden="true" />
+                </a>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {item.label}
+                </Link>
+              ),
+            )}
             <Link
               href="/contact"
               className="rounded-full border border-accent px-5 py-2 text-sm font-medium text-accent transition-all duration-300 hover:bg-accent hover:text-accent-foreground"
@@ -109,16 +122,29 @@ export default function MainNav() {
           >
             <X size={24} />
           </button>
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setMobileOpen(false)}
-              className="font-serif text-3xl text-foreground"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) =>
+            item.external ? (
+              <a
+                key={item.href}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileOpen(false)}
+                className="font-serif text-3xl text-foreground"
+              >
+                {item.label}&nbsp;↗
+              </a>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setMobileOpen(false)}
+                className="font-serif text-3xl text-foreground"
+              >
+                {item.label}
+              </Link>
+            ),
+          )}
           <Link
             href="/contact"
             onClick={() => setMobileOpen(false)}

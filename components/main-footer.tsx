@@ -56,8 +56,7 @@ export default function MainFooter() {
         <a href={`mailto:${EMAIL}`} className="text-primary-foreground underline decoration-accent underline-offset-4">{EMAIL}</a>.
       </p>
       <div className="mt-10 flex flex-wrap gap-x-6 gap-y-2">
-        <a href="/working-together" className={darkLink}>Working together</a>
-        <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className={darkLink}>LinkedIn</a>
+        <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className={darkLink}>LinkedIn&nbsp;↗</a>
         <a href={CV} download className={darkLink}>Download&nbsp;CV</a>
       </div>
     </>

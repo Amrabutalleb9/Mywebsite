@@ -77,7 +77,7 @@ export default function HeroSection() {
             </a>
           </div>
           <p className="mt-[clamp(1.25rem,5svh,4rem)] text-xs tracking-wide text-muted-foreground lg:text-sm">
-            {"Selected clients, teams and\u00A0collaborators"}
+            {"What I\u00A0bring to\u00A0a\u00A0team"}
           </p>
         </div>
       </InfiniteGrid>

@@ -263,8 +263,8 @@ export default function HighlightLayout({
           {"Let\u2019s Talk"}
         </a>
         <p className="mt-4 text-sm text-muted-foreground">
-          {"Looking for a\u00A0creative partner? "}
-          <a href="/working-together" className="text-foreground underline underline-offset-4 transition-colors hover:text-accent">See how I&nbsp;work with&nbsp;teams</a>
+          {"Or reach me fastest on\u00A0"}
+          <a href="https://www.linkedin.com/in/abutalleb/" target="_blank" rel="noopener noreferrer" className="text-foreground underline underline-offset-4 transition-colors hover:text-accent">LinkedIn</a>
         </p>
       </div>
 
