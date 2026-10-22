@@ -1,14 +1,13 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
-import dynamic from "next/dynamic"
-import { motion, useInView, useReducedMotion } from "motion/react"
+import { useState, useEffect, useRef, useCallback } from "react"
+import { motion, AnimatePresence, useInView, useReducedMotion } from "motion/react"
+import { ArrowLeft, ArrowRight } from "lucide-react"
 import ScrollReveal from "./scroll-reveal"
 import { type Testimonial } from "@/lib/shared-data"
 
-const CleanTestimonial = dynamic(
-  () => import("@/components/ui/clean-testimonial").then((m) => ({ default: m.CleanTestimonial })),
-)
+/* Editorial pull quote (concept 01, Oct 2026): one quote at magazine scale, a typographic index of
+   names as the navigation, and the numbers in their own strip below. No initials or avatars. */
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const
 
@@ -48,24 +47,23 @@ function AnimatedCounter({ end, suffix, start, delay = 0, duration = 1800 }: { e
   )
 }
 
-function StatCard({ stat, index }: { stat: Stat; index: number }) {
+function StatsStrip({ stats }: { stats: Stat[] }) {
   const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, amount: 0.6 })
-  const reduced = useReducedMotion()
-
+  const inView = useInView(ref, { once: true, amount: 0.5 })
   return (
-    <motion.div
-      ref={ref}
-      className="rounded-sm bg-surface p-6 lg:p-8"
-      initial={reduced ? false : { opacity: 0, scale: 0.96, y: 12 }}
-      animate={inView || reduced ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.96, y: 12 }}
-      transition={{ duration: 0.55, delay: index * 0.08, ease: EASE_OUT }}
-    >
-      <p className="font-serif text-3xl tracking-tight text-accent lg:text-4xl">
-        <AnimatedCounter end={stat.end} suffix={stat.suffix} start={inView} delay={200 + index * 120} />
-      </p>
-      <p className="mt-2 text-xs text-muted-foreground lg:text-sm">{stat.label}</p>
-    </motion.div>
+    <div ref={ref} className="mt-24 grid grid-cols-2 border-t border-border lg:mt-32 lg:grid-cols-4">
+      {stats.map((s, i) => (
+        <div
+          key={s.label}
+          className={`pt-8 pr-6 ${i % 2 === 1 ? "border-l border-border pl-6" : ""} ${i === 2 ? "lg:border-l lg:border-border" : ""} ${i > 0 ? "lg:pl-8" : ""} ${i >= 2 ? "mt-8 lg:mt-0" : ""}`}
+        >
+          <p className="font-serif text-[length:var(--text-section)] leading-none tracking-tight text-accent">
+            <AnimatedCounter end={s.end} suffix={s.suffix} start={inView} delay={150 + i * 120} />
+          </p>
+          <p className="mt-3 text-sm text-muted-foreground">{s.label}</p>
+        </div>
+      ))}
+    </div>
   )
 }
 
@@ -76,31 +74,126 @@ export default function TestimonialsWithStats({
   testimonials: Testimonial[]
   stats: Stat[]
 }) {
-  return (
-    <section className="px-8 pt-24 pb-16 lg:px-16 lg:pt-32 lg:pb-20">
-      <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
-        <ScrollReveal className="lg:w-[55%]">
-          <div className="mb-4 flex items-center gap-3">
-            <div className="h-px w-8 bg-accent" />
-            <span className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">
-              Testimonials
-            </span>
-          </div>
-          <div className="mb-4 flex items-start gap-4">
-            <div className="mt-1 h-12 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true" />
-            <h2 className="font-serif text-[length:var(--text-sub)] font-normal tracking-tight text-foreground">
-              What Clients&nbsp;Say
-            </h2>
-          </div>
-          <CleanTestimonial testimonials={testimonials} />
-        </ScrollReveal>
+  const [active, setActive] = useState(0)
+  const reduced = useReducedMotion()
+  const count = testimonials.length
 
-        <div className="grid grid-cols-2 gap-4 self-center lg:w-[45%]">
-          {stats.map((s, i) => (
-            <StatCard key={s.label} stat={s} index={i} />
+  const go = useCallback((i: number) => setActive(((i % count) + count) % count), [count])
+
+  if (count === 0) return null
+  const current = testimonials[active]
+
+  return (
+    <section className="px-8 pt-32 pb-16 lg:px-16 lg:pt-48 lg:pb-24" aria-labelledby="testimonials-heading">
+      <ScrollReveal>
+        <div className="mb-4 flex items-center gap-3">
+          <div className="h-px w-8 bg-accent" />
+          <span className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Testimonials</span>
+        </div>
+        <h2 id="testimonials-heading" className="font-serif text-[length:var(--text-section)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground">
+          {"What clients and partners say"}
+        </h2>
+      </ScrollReveal>
+
+      <div
+        className="mt-16 lg:mt-24"
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Testimonials"
+        onKeyDown={(e) => {
+          if (e.key === "ArrowRight") { e.preventDefault(); go(active + 1) }
+          if (e.key === "ArrowLeft") { e.preventDefault(); go(active - 1) }
+        }}
+      >
+        <span aria-hidden="true" className="block h-10 font-serif text-[7rem] leading-[0.75] text-accent lg:h-14 lg:text-[10rem]">
+          {"“"}
+        </span>
+
+        {/* Every quote is laid out invisibly in the same cell, so the block is as tall as the longest
+            one and the page never jumps when the quote changes. */}
+        <div className="mt-6 grid max-w-[60rem]">
+          {testimonials.map((t, i) => (
+            <p key={i} aria-hidden="true" className="invisible col-start-1 row-start-1 font-serif text-[clamp(1.625rem,3vw,3rem)] leading-[1.22] tracking-tight">
+              {t.text}
+            </p>
           ))}
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.blockquote
+              key={active}
+              className="col-start-1 row-start-1 font-serif text-[clamp(1.625rem,3vw,3rem)] leading-[1.22] tracking-tight text-foreground"
+              initial={reduced ? { opacity: 0 } : { opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE_OUT } }}
+              exit={{ opacity: 0, transition: { duration: 0.2 } }}
+              aria-live="polite"
+            >
+              {current.text}
+            </motion.blockquote>
+          </AnimatePresence>
+        </div>
+
+        <div className="mt-12 flex items-end justify-between gap-6 border-t border-border pt-7 lg:mt-14">
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={active}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { duration: 0.4, delay: 0.1 } }}
+              exit={{ opacity: 0, transition: { duration: 0.15 } }}
+            >
+              <p className="text-base font-medium text-foreground">{current.author}</p>
+              <p className="mt-1.5 text-xs tracking-widest text-muted-foreground uppercase">
+                {current.role}
+                {current.location && ` · ${current.location}`}
+              </p>
+            </motion.div>
+          </AnimatePresence>
+          <div className="flex shrink-0 gap-3">
+            <button
+              type="button"
+              onClick={() => go(active - 1)}
+              aria-label="Previous testimonial"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-foreground text-foreground transition-colors duration-300 hover:bg-foreground/5"
+            >
+              <ArrowLeft size={18} />
+            </button>
+            <button
+              type="button"
+              onClick={() => go(active + 1)}
+              aria-label="Next testimonial"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-foreground bg-foreground text-background transition-colors duration-300 hover:border-accent hover:bg-[color-mix(in_srgb,var(--primary)_84%,#ffffff)]"
+            >
+              <ArrowRight size={18} />
+            </button>
+          </div>
+        </div>
+
+        {/* Index of names: the navigation */}
+        <div className="-mx-8 mt-16 overflow-x-auto px-8 lg:mx-0 lg:mt-24 lg:overflow-visible lg:px-0">
+          <ol className="flex min-w-max border-t border-foreground lg:grid lg:min-w-0" style={{ gridTemplateColumns: `repeat(${count}, minmax(0, 1fr))` }}>
+            {testimonials.map((t, i) => {
+              const on = i === active
+              return (
+                <li key={i} className="relative w-44 shrink-0 lg:w-auto">
+                  <span
+                    aria-hidden="true"
+                    className={`absolute -top-px left-0 h-[3px] bg-accent transition-[width] duration-500 ease-out motion-reduce:transition-none ${on ? "w-full" : "w-0"}`}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => go(i)}
+                    aria-current={on ? "true" : undefined}
+                    className={`block w-full pt-5 pr-4 text-left text-sm leading-snug transition-colors duration-300 ${on ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`}
+                  >
+                    <span className="mb-1.5 block text-[length:var(--text-micro)] tracking-[var(--tracking-sublabel)]">{String(i + 1).padStart(2, "0")}</span>
+                    {t.author}
+                  </button>
+                </li>
+              )
+            })}
+          </ol>
         </div>
       </div>
+
+      <StatsStrip stats={stats} />
     </section>
   )
 }
