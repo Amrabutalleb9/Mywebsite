@@ -317,38 +317,124 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "bay-area-trips",
     title: "Bay Area Trips",
-    subtitle: tp("Turning a sprawling travel idea into one product for four audiences"),
-    impactStatement: tp("Taken from idea to a live product · Web, mobile web and app planned as one system · Reworked with feedback from the first 200 users"),
+    subtitle: tp("Turning a sprawling local-travel idea into one product that members, businesses and families share"),
+    impactStatement: tp("Three account types on one shared directory · Website, mobile web and app built on one structure · Taken from idea to a live product"),
     client: tp("Bay Area Trips\nTravel and local discovery platform, USA"),
-    role: tp("Product Strategist & Designer\nLed a team of about 30 with the client"),
-    teamSize: tp("Project team of about 30"),
-    scope: tp("Product strategy, information architecture, web and app UX/UI, design system"),
-    timeline: "Sep 2023 – Jan 2025",
+    role: tp("Product Strategist & Designer\nLed the product with the founder"),
+    teamSize: tp("Build team of about 30"),
+    scope: tp("Product strategy, information architecture, account model, web and app UX/UI"),
+    timeline: "Sep 2023 – Jan 2025",
     industry: tp("Travel & local discovery\nMembership platform"),
     markets: tp("San Francisco Bay Area, USA"),
     year: "2023–2025",
-    businessContext: tp("Bay Area Trips set out to be the single guide to the San Francisco Bay Area, for the people exploring it and the businesses and creators who serve them. The existing product offered a scavenger hunt, a store and basic navigation. Restaurants, hotels, events, EV charging, hunts and a travel club now had to live under one roof, on the web and in an app."),
-    clientProblem: tp("The idea was big and still open-ended. Every audience and every feature carried equal weight, and nothing defined how the website, the mobile web and the app connected, or which page should lead where."),
-    constraints: tp("The deadline and the budget were fixed, and a team of about thirty was building in parallel. The structure had to be clear enough for everyone to work from and lean enough to ship on time."),
-    insight: tp("The product only worked as a system. Each audience needed its own account, and all of them had to share one directory, one events calendar and one membership."),
-    creativeStrategy: tp("I mapped the product before designing a screen, defining what each account was for, what it could do and how the three platforms handed people to each other. Travellers and families got discovery, trips, hunts and the travel club. Businesses got listings, orders and a dashboard. Creators got Creator Connect, and membership tied it all together."),
-    keyDecisions: tp("I decided what got built, how the platforms linked and which page led where. Every feature had to serve one of the four accounts, which is how a big idea fitted inside a fixed deadline and budget."),
-    leadershipRole: tp("I was the product strategist and designer, and the person who connected the work. The team of about thirty reported to me or to the founder, and the two of us shaped the product together."),
-    processPhases: [
-      { title: "Map the system", description: tp("Four audiences, three platforms and the paths between them, before any screen.") },
-      { title: "Structure", description: tp("Grouped the directory, events, trips, hunts, shopping and membership into one navigation that works on the web and in the app.") },
-      { title: "Key flows", description: tp("Directory to listing, the business dashboard, Creator Connect, the kids’ view, membership and the scavenger hunt.") },
-      { title: "Design system", description: tp("One set of colours, type and components shared by the website, the mobile web and the app.") },
+    businessContext: tp("Bay Area Trips set out to be the one guide to the San Francisco Bay Area, for the people exploring it and the businesses and creators who serve them."),
+    clientProblem: tp("The brief was a long list of ideas with equal weight and nothing that said how they connected."),
+    constraints: tp("A fixed deadline and budget, with a build team of about thirty working in parallel."),
+    insight: tp("Most of the ideas were the same thing: a place someone can find, read about and act on."),
+    creativeStrategy: tp("One directory, one calendar and one membership, shared by three account types."),
+    keyDecisions: tp("Three accounts, each earned; both sides of every feature designed together; membership deciding who can do what."),
+    leadershipRole: tp("I led the product with the founder and connected the work of the build team."),
+    processPhases: [],
+    intro: [
+      tp("Bay Area Trips wanted to be the one guide to the San Francisco Bay Area: where to stay, eat and go out, what’s on tonight, scavenger hunts across the city, and a travel club for members. Businesses would list themselves, sell tickets and hire local creators. Parents would bring their kids along."),
+      tp("The founder had the ideas. My job was to turn them into a product a team could build on a fixed budget: decide what the product was and who it was for, what each person could do, and how the website and the app fitted together."),
+    ],
+    contributions: [
+      { label: "The structure", text: tp("One directory, one events calendar and one membership, shared by everyone, instead of a separate product for each idea.") },
+      { label: "The account model", text: tp("Three account types, for members, businesses and kids, each with its own menu and limits, and a clear path from one to another.") },
+      { label: "Both sides of the market", text: tp("Everything a member uses, a business creates: listings, events and tickets, hunts, products and paid gigs.") },
+      { label: "One structure, every platform", text: tp("The website, the mobile web and the app follow the same map, so nobody has to learn the product twice.") },
+    ],
+    chapters: [
+      {
+        label: "The brief",
+        lead: tp("Thirty ideas, all at the same volume."),
+        paragraphs: [
+          tp("The brief arrived as a list: hotels, restaurants, nightlife, wineries, writers’ lounges and remote-work spaces; events, trips and scavenger hunts; a shop, a travel club, a concierge and EV charging; creator partnerships and kids’ accounts. Each one mattered to someone, and nothing said how they related."),
+          tp("Built as listed, it would have been a dozen small apps under one logo, each with its own rules, and more than the deadline and the budget allowed."),
+        ],
+        figures: [
+          { images: [{ src: "/images/bay-cs-brief-v1.webp", alt: tp("Thirty features from the brief scattered as equal tags, from hotels and wineries to kids’ accounts and EV charging") }], caption: tp("The brief, as features. Nothing in it said which idea led, or how one connected to another.") },
+        ],
+      },
+      {
+        label: "The structure",
+        lead: tp("One directory, one calendar, one membership."),
+        paragraphs: [
+          tp("Before designing any screen, I mapped who the product served and what they would do in it. Most of the ideas turned out to be the same thing: a place someone can find, read about and act on. So stays, food, nightlife, wineries, wellness and remote work became categories of one directory, built on one listing template."),
+          tp("Events, trips and hunts sit beside the directory, because they happen at those places. Membership sits underneath everything, because it decides what each person can do. The website, the mobile web and the app follow the same structure, so a member or a business never has to learn the product twice."),
+        ],
+        figures: [
+          { images: [{ src: "/images/bay-cs-architecture-v1.webp", alt: tp("Diagram: members, kids, businesses and creators use the app and the website, which share one product of directory, events, trips, hunts, shop and reviews; membership and business packages decide access") }], caption: tp("Three accounts, one shared product. Membership and business packages decide what each account can do.") },
+          { images: [{ src: "/images/bay-cs-template-v1.webp", alt: tp("Diagram: one listing template whose middle block changes for ten kinds of place, from stays and food to wellness and attractions") }], caption: tp("One listing for ten kinds of place. Only the middle block changes.") },
+          { images: [{ src: "/images/bay-fig-platforms-v1.webp", alt: tp("The website home beside the mobile website and the traveller home in the app") }], caption: tp("The same structure on the website, the mobile website and the app.") },
+          {
+            images: [
+              { src: "/images/bay-cs-web-directory-v1.webp", alt: tp("The website directory of stays, with a card showing tonight’s sunset"), ratio: "16 / 10" },
+              { src: "/images/bay-cs-web-listing-v1.webp", alt: tp("A hotel listing on the website with Call and Website buttons and a prompt to claim the business"), ratio: "16 / 10" },
+            ],
+            caption: tp("From the directory to a listing. “Claim this business” is where a visitor can become a business."),
+          },
+        ],
+      },
+      {
+        label: "The accounts",
+        lead: tp("Three accounts, each with its own job."),
+        paragraphs: [
+          tp("Members explore and book. Businesses run their place. Kids get their own view, set up by a parent. Each account has its own menu, so nobody sees tools that aren’t theirs."),
+          tp("Becoming a business is a step, not a setting. A member applies, the team checks the business, and only then do the business tools switch on. That keeps fake listings away from members and holds every business on the platform to the same standard."),
+        ],
+        figures: [
+          { images: [{ src: "/images/bay-cs-menus-v1.webp", alt: tp("Three app menus side by side: the member menu, the business menu with its tools, and the kid menu with four large tiles") }], caption: tp("Three menus, three jobs.") },
+          { images: [{ src: "/images/bay-cs-become-business-v1.webp", alt: tp("Three app screens: applying as a business, the application under review, and the business approved") }], caption: tp("A member becomes a business in three steps, and is checked before any tools switch on.") },
+        ],
+      },
+      {
+        label: "Both sides of the market",
+        lead: tp("Everything a member uses, a business makes."),
+        paragraphs: [
+          tp("A café creates an event and sets the ticket types; a member picks a ticket. A business builds a scavenger hunt, with missions, a prize and teams, and families play it across the city. Businesses post paid gigs, and local creators take them."),
+          tp("Designing both sides together kept them consistent: every field a business fills in becomes something a member sees or uses."),
+        ],
+        figures: [
+          { images: [{ src: "/images/bay-cs-hunt-sides-v1.webp", alt: tp("A business building a sea lion hunt with three missions and a prize, then the same hunt on the map and the finished hunt") }], caption: tp("The same hunt from both sides: built by a café, played by a family.") },
+          { images: [{ src: "/images/bay-cs-ticket-sides-v1.webp", alt: tp("A business setting member and general ticket types for an acoustic night, then a member choosing tickets for it") }], caption: tp("Ticket types set by the business, chosen by the member.") },
+          { images: [{ src: "/images/bay-fig-creators-v1.webp", alt: tp("Three Creator Connect screens: joining as a creator, finding a creator, and a paid gig with offers") }], caption: tp("Creator Connect: businesses post paid gigs and choose local creators.") },
+        ],
+      },
+      {
+        label: "Families",
+        lead: tp("Kids explore. Parents stay in charge."),
+        paragraphs: [
+          tp("Kids get a simpler, brighter view with hunts, kids’ events and trips. They can’t pay in the app; they ask a parent instead. Parents see where a hunt has taken their child and what they’ve joined, and can book for them."),
+          tp("Family accounts come with the Gold membership, so the family side pays for itself."),
+        ],
+        figures: [
+          { images: [{ src: "/images/bay-cs-family-v1.webp", alt: tp("The kid’s hunt progress and an event with an Ask Sam to buy it button, beside the parent’s view with the child’s live hunt route and plans") }], caption: tp("The kid asks; the parent sees and books.") },
+        ],
+      },
+      {
+        label: "Membership",
+        lead: tp("What you pay for decides what you can do."),
+        paragraphs: [
+          tp("There are two memberships. Businesses choose a package on the website, from a free listing to Pro and Elite with their own app, IT support, team travel and trip credits. Members choose Silver or Gold in the app."),
+          tp("The tiers aren’t just discounts. Gold adds accounts for kids, more hunts to create and bigger teams, so membership is also how the product decides who can do what."),
+        ],
+        figures: [
+          { images: [{ src: "/images/bay-cs-membership-v1.webp", alt: tp("Table of what each tier unlocks: Silver and Gold for members, Free, Pro and Elite for businesses") }], caption: tp("Two memberships, one rule.") },
+          { images: [{ src: "/images/bay-cs-membership-screens-v1.webp", alt: tp("The business packages page on the website beside the Gold membership screen in the app") }], caption: tp("Packages for businesses on the website, tiers for members in the app.") },
+        ],
+      },
     ],
     results: [
-      tp("Took the idea from concept to a live product across the web, mobile web and an app"),
-      tp("Four account types, for travellers, families, businesses and creators, on one shared system"),
-      tp("About 60 app sections and the full website designed on one design system"),
-      tp("Reworked features and structure using feedback from the first 200 users"),
-      tp("The client’s team has kept building on the structure since launch"),
+      tp("Took the idea from concept to a live product on the web, mobile web and an app"),
+      tp("Three account types, for members, businesses and kids, on one shared directory, with Creator Connect for businesses and creators"),
+      tp("One listing template serving ten kinds of place"),
+      tp("More than 240 app screens across 19 areas, and the website at desktop and mobile"),
+      tp("Refined after launch with feedback from the first 200 users"),
     ],
-    reflection: tp("My job was to make a big idea buildable. The product has evolved since launch, as products should. The structure underneath is the part I’d defend in any room."),
-    credits: tp("Product Strategy & Design: Amr Abu-Talleb · Client: Jared, Bay Area Trips"),
+    reflection: tp("My job was to make a big idea buildable. The product has changed since launch, as products should. The structure underneath is the part I’d defend in any room: one directory, three accounts and one membership deciding who can do what."),
+    credits: tp("Product Strategy & Design: Amr Abu-Talleb · Client: Jared, Bay Area Trips · Screens redrawn in a new visual style for this case study, using the original flows"),
     featured: true,
     featureImage: "/images/bay-hero-v2.webp",
     featureImageAlt: tp("The Bay Area Trips website and two app screens on a cream studio set in late-afternoon light"),
@@ -357,39 +443,6 @@ export const caseStudies: CaseStudy[] = [
       poster: "/images/bay-hero-loop-poster-v2.webp",
       alt: tp("The Bay Area Trips website and app on a studio set in late-afternoon light, the screens moving through the homepage, the directory, a listing, membership, the traveller home, the scavenger hunt, the kids’ view and the business dashboard"),
     },
-    storyFigures: [
-      {
-        images: [{ src: "/images/bay-fig-platforms-v1.webp", alt: tp("The website home beside the mobile website and the traveller home in the app") }],
-        caption: tp("One product on three platforms. The website, the mobile website and the app share one design system, and each hands people to the next."),
-      },
-      {
-        images: [{ src: "/images/bay-fig-accounts-v1.webp", alt: tp("Four app screens: the traveller home, the business dashboard, the kids’ view and the parent controls") }],
-        caption: tp("Four accounts on one system: travellers, businesses, kids, and the parents who set up their view."),
-      },
-      {
-        images: [
-          { src: "/images/bay-fig-web-directory-v1.webp", alt: tp("The website directory of stays, with a card showing tonight’s sunset"), ratio: "16 / 10" },
-          { src: "/images/bay-fig-web-listing-v1.webp", alt: tp("A hotel listing on the website with its booking card"), ratio: "16 / 10" },
-        ],
-        caption: tp("On the website, the directory leads straight to a listing you can book."),
-      },
-      {
-        images: [{ src: "/images/bay-fig-app-path-v1.webp", alt: tp("Four app screens: the directory, a hotel listing, what’s on, and event tickets") }],
-        caption: tp("The same paths in the app, from the directory to a listing and from what’s on to tickets."),
-      },
-      {
-        images: [{ src: "/images/bay-fig-hunt-v1.webp", alt: tp("Four app screens: the kids’ home, picking a hunt, the hunt map and the finished hunt") }],
-        caption: tp("The scavenger hunt: pick a hunt, follow the route clue by clue, and light the whole sun at the end."),
-      },
-      {
-        images: [{ src: "/images/bay-fig-creators-v1.webp", alt: tp("Three Creator Connect screens: joining as a creator, finding a creator, and a paid gig with offers") }],
-        caption: tp("Creator Connect: creators join, and local businesses find them and post paid gigs."),
-      },
-      {
-        images: [{ src: "/images/bay-fig-membership-v1.webp", alt: tp("The membership page on the website beside the member card and the travel club in the app") }],
-        caption: tp("Membership as a card the whole family carries, with members-only travel club nights."),
-      },
-    ],
   },
   {
     slug: "agfin",
