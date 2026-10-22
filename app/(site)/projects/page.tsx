@@ -60,7 +60,8 @@ export default function ProjectsPage() {
         <ProjectShowcase projects={caseStudyItems} />
       </div>
 
-      {/* ── Project Highlights ── */}
+      {/* ── Project Highlights (shown only while some are published) ── */}
+      {highlightItems.length > 0 && (<>
       <FadeIn>
         <div className="mb-4 flex items-center gap-3">
           <div className="h-px w-8 bg-accent" />
@@ -75,6 +76,7 @@ export default function ProjectsPage() {
         projects={highlightItems}
         startIndex={publishedCaseStudies.length}
       />
+      </>)}
       </div>
     </main>
   )

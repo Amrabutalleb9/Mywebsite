@@ -1,11 +1,12 @@
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
-import { projectHighlights, getHighlightBySlug, getAdjacentHighlights } from "@/lib/projects"
+import { getHighlightBySlug, getAdjacentHighlights, projectHighlights, getHiddenHighlightSlugs } from "@/lib/projects"
 import HighlightLayout from "@/components/highlight-layout"
 import { pageMeta } from "@/lib/seo"
 
 export function generateStaticParams() {
-  return projectHighlights.map((p) => ({ slug: p.slug }))
+  // Include hidden slugs so static export can emit a 404 page instead of failing when every highlight is hidden.
+  return [...projectHighlights.map((p) => p.slug), ...getHiddenHighlightSlugs()].map((slug) => ({ slug }))
 }
 
 export async function generateMetadata({
