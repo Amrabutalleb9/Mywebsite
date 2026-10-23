@@ -138,7 +138,7 @@ export const caseStudies: CaseStudy[] = [
           tp("I wrote a hiring exercise around a premium olive-oil brand built on Arabic calligraphy. It gave candidates a real brief to interpret and gave us something concrete to discuss: their thinking, their craft and how they took feedback."),
         ],
         figures: [
-          { images: [{ src: "/images/op-fig-06-v6.webp", alt: tp("Team: 25 people across five disciplines, with the Creative Director under the CEO, two art directors, UX/UI run directly and copy shared with the CEO") }], caption: tp("Team structure. Roles only.") },
+          { images: [{ src: "/images/op-fig-06-v6.webp", alt: tp("Team: 25 people across five disciplines. Under the CEO and the Creative Director, an art director for branding, an art director for video, 2D and 3D, and UX/UI run directly, with copy shared with the CEO") }], caption: tp("Team structure. Roles only.") },
         ],
       },
       {
@@ -148,9 +148,6 @@ export const caseStudies: CaseStudy[] = [
           tp("Designers reviewed work with their art directors every day or two, and I reviewed it with the art directors each week. In reviews, designers explained their decisions before anyone else weighed in. When notes weren’t enough, I sat with the designer, opened the file and worked through the options together."),
           tp("I wanted the team to understand why a solution worked, not change things because I had asked."),
         ],
-        figures: [
-          { images: [{ src: "/images/op-fig-reviews-v1.webp", alt: tp("Four review notes: every typeface has to earn its place, no lorem ipsum or placeholder names, design for the business not the mockup library, and show the two routes the client turned down") }], caption: tp("Notes from my review of the agency’s case studies.") },
-        ],
       },
       {
         label: "A clearer offer",
@@ -159,7 +156,7 @@ export const caseStudies: CaseStudy[] = [
           tp("Product work needed its own conversation. A CTO buying a digital product has different priorities from a marketing lead commissioning a campaign, so we set up OP Labs as a separate offer. When SPLT came to us, I reshaped its brief into a staged product engagement and led the product design."),
         ],
         figures: [
-          { images: [{ src: "/images/op-fig-03-v4.webp", alt: tp("Two offers: the Overpowered lock-up over a street billboard for founders and marketing leads, and the OP Labs lock-up over a technical grid for CTOs and product owners") }], caption: tp("One agency, two offers.") },
+          { images: [{ src: "/images/op-fig-03-v4.webp", alt: tp("Two offers: OP, over a black-and-white portrait, for founders and marketing leads, and OP Labs, over a server rack lit by one amber line, for CTOs and product owners") }], caption: tp("One agency, two offers.") },
         ],
       },
       {
@@ -170,9 +167,9 @@ export const caseStudies: CaseStudy[] = [
           tp("We tested elements in small Instagram campaigns in the UAE, the UK and Egypt before committing. The agency went on to use the identity for about a year."),
         ],
         figures: [
-          { images: [{ src: "/images/op-fig-09-v3.webp", alt: tp("Pages from the January 2025 brand guidelines: logomark, logo variations, OP Labs lock-up, colour, type and pattern") }], caption: tp("From the January 2025 brand guidelines.") },
+          { images: [{ src: "/images/op-fig-09-v3.webp", alt: tp("The identity system from the January 2025 guidelines: the primary and OP Labs lock-ups, six logo variations, the mark, Druk Wide Bold and the palette") }], caption: tp("From the January 2025 brand guidelines.") },
           { images: [{ src: "/images/op-billboard-v1.webp", alt: tp("Billboard: Transforming ideas into impactful designs, over a grainy black-and-white crowd with yellow value tags"), ratio: "1296 / 768" }] },
-          { images: [{ src: "/images/op-social-1-v1.webp", alt: tp("Social post: When science and design collaborate"), ratio: "4 / 5" }, { src: "/images/op-social-2-v1.webp", alt: tp("Social post: Pushing boundaries"), ratio: "4 / 5" }, { src: "/images/op-social-3-v1.webp", alt: tp("Social post: Top notch design solutions"), ratio: "4 / 5" }], caption: tp("The identity in use, outdoors and on social media.") },
+          { images: [{ src: "/images/op-social-1-v2.webp", alt: tp("Social post: When science and design collaborate"), ratio: "4 / 5" }, { src: "/images/op-social-2-v2.webp", alt: tp("Social post: Pushing boundaries"), ratio: "4 / 5" }, { src: "/images/op-social-3-v2.webp", alt: tp("Social post: Top notch design solutions"), ratio: "4 / 5" }], caption: tp("The identity in use, outdoors and on social media.") },
         ],
       },
       {
