@@ -4,14 +4,15 @@ import { useEffect, useRef, type ReactNode } from "react"
 
 /* Drives the About section's gold line from the scroll position.
    The line's tip sits at TIP of the viewport height. As the tip moves down, the opener
-   stroke finishes, the spine fills, and each story step is revealed once the tip reaches
-   it. Scrolling up runs everything backwards. Without JavaScript (no data-ink-ready),
+   stroke finishes, the spine fills, and each story step fades and rises in step with the tip.
+   Scrolling up runs everything backwards. Without JavaScript (no data-ink-ready),
    the line and content render complete. Reduced motion shows everything at once. */
 
 const TIP = 0.62
 const LOAD_SHARE = 0.72 // how much of the opener stroke draws on load; the rest follows the scroll
 const LOAD_MS = 2200
-const REVEAL_OFFSET = 48
+const REVEAL_OFFSET = 40
+const REVEAL_RANGE = 280
 
 const easeOut = (t: number) => 1 - Math.pow(1 - t, 3)
 const clamp = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v))
@@ -81,11 +82,12 @@ export default function InkScroll({ children }: { children: ReactNode }) {
         if (fill) fill.style.height = `${reduced ? r.height : clamp(tip - r.top, 0, r.height)}px`
       }
 
+      // Each step is scrubbed by the line: 0 until the tip reaches it, 1 once the tip is
+      // REVEAL_RANGE past it, and back down again when the tip retreats.
       for (const s of steps) {
         const r = s.getBoundingClientRect()
-        const on = reduced || tip > r.top + REVEAL_OFFSET
-        if (on) s.dataset.inked = "true"
-        else delete s.dataset.inked
+        const p = reduced ? 1 : clamp((tip - r.top + REVEAL_OFFSET) / REVEAL_RANGE)
+        s.style.setProperty("--p", p.toFixed(3))
       }
 
       if (turn && turnPath && drop) {

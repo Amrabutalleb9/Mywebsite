@@ -572,14 +572,16 @@ a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
   height: 0;
   background: var(--accent);
 }
+/* Steps are scrubbed by --p (0 to 1) from ink-scroll.tsx. The second and third child
+   start a little later than the first, so a picture leads its text. */
 [data-ink-ready] .ink-step > * {
-  opacity: 0;
-  translate: 0 28px;
-  transition: opacity 0.5s ease, translate 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  --q: clamp(0, calc(var(--p, 0) * 1.5), 1);
+  opacity: var(--q);
+  translate: 0 calc((1 - var(--q)) * 36px);
+  transition: opacity 0.18s linear, translate 0.18s linear;
 }
-[data-ink-ready] .ink-step > *:nth-child(2) { transition-delay: 0.12s; }
-[data-ink-ready] .ink-step > *:nth-child(3) { transition-delay: 0.24s; }
-[data-ink-ready] .ink-step[data-inked] > * { opacity: 1; translate: 0 0; }
+[data-ink-ready] .ink-step > *:nth-child(2) { --q: clamp(0, calc(var(--p, 0) * 1.5 - 0.35), 1); }
+[data-ink-ready] .ink-step > *:nth-child(3) { --q: clamp(0, calc(var(--p, 0) * 1.5 - 0.5), 1); }
 .ink-turn-svg { display: none; position: absolute; top: 0; left: 0; width: 100%; overflow: visible; }
 .ink-turn-svg path[data-ink-turn-path] { stroke-dasharray: 1; }
 [data-ink-ready] .ink-turn-svg { display: block; }
@@ -587,5 +589,5 @@ a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
 [data-ink-ready] .ink-turn-b,
 [data-ink-ready] .ink-turn-drop { display: none; }
 @media (prefers-reduced-motion: reduce) {
-  [data-ink-ready] .ink-step > * { transition: none; }
+  [data-ink-ready] .ink-step > * { transition: none; opacity: 1; translate: none; }
 }

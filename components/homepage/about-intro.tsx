@@ -50,7 +50,17 @@ const story = [
   },
 ]
 
-const headingWords = ["Close", "to", "the", "craft.", "Closer", "to", "the people."]
+/* tp() loosens bound runs longer than 18 characters so big headings can't overflow.
+   In these body paragraphs that loosening let a widow or a short word slip to a line end,
+   so the few runs below are bound again by hand, and the paragraphs opt out of the DOM pass. */
+const NB = "\u00A0"
+const fixRuns = (t: string) =>
+  tp(t)
+    .replace(/creative[ \u00A0]direction\./, `creative${NB}direction.`)
+    .replace(/and[ \u00A0]to[ \u00A0]the[ \u00A0]business/, `and${NB}to${NB}the${NB}business`)
+    .replace(/and[ \u00A0]the[ \u00A0]responsibility/, `and${NB}the${NB}responsibility`)
+
+const headingLines = [["Close", "to", "the", "craft."], ["Closer", "to", "the", "people."]]
 
 /* The story spine: one gold rule per grid row, so it runs unbroken down the section.
    With JavaScript, InkScroll hides the rule and grows the fill span as you scroll. */
@@ -77,13 +87,22 @@ function Buttons() {
   )
 }
 
+/* Two sentences, two lines: the break always falls between them, never inside one. */
 function Heading({ className }: { className: string }) {
+  let n = 0
   return (
     <h1 id="about-heading" className={className}>
-      {headingWords.map((w, i) => (
-        <span key={i} className="hero-line inline-block" style={{ "--i": i + 1 } as React.CSSProperties}>
-          {w === "Closer" ? <em className="text-accent-text italic">Closer</em> : w}
-          {i < headingWords.length - 1 ? " " : null}
+      {headingLines.map((line, li) => (
+        <span key={li} className="block sm:whitespace-nowrap">
+          {line.map((w, wi) => {
+            n += 1
+            return (
+              <span key={wi} className="hero-line inline-block" style={{ "--i": n } as React.CSSProperties}>
+                {w === "Closer" ? <em className="text-accent-text italic">Closer</em> : w}
+                {wi < line.length - 1 ? "\u00A0" : li === 0 ? " " : null}
+              </span>
+            )
+          })}
         </span>
       ))}
     </h1>
@@ -129,10 +148,10 @@ export default function AboutIntro() {
           </svg>
         </div>
 
-        <div className="mx-auto mt-2 max-w-2xl px-5 sm:px-8 xl:absolute xl:top-[150px] xl:left-[calc(50%+80px)] xl:mt-0 xl:w-[min(560px,calc(50%-120px))] xl:max-w-none xl:px-0">
+        <div className="mx-auto mt-2 max-w-2xl px-5 sm:px-8 xl:absolute xl:top-[150px] xl:left-[calc(50%+40px)] xl:mt-0 xl:w-[min(640px,calc(50%-88px))] xl:max-w-none xl:px-0">
           <Label />
-          <Heading className="mt-4 font-serif text-[length:var(--text-page)] leading-[var(--leading-tight)] font-normal tracking-tight text-foreground xl:mt-6" />
-          <p className="hero-line mt-5 text-[1.0625rem] leading-relaxed text-foreground xl:mt-7 xl:text-[1.1875rem]" style={{ "--i": 8 } as React.CSSProperties}>{lead}</p>
+          <Heading className="mt-4 font-serif text-[length:min(var(--text-page),10.4vw)] xl:text-[length:min(var(--text-page),4.6vw)] leading-[var(--leading-tight)] font-normal tracking-tight text-foreground xl:mt-6" />
+          <p className="hero-line mt-5 max-w-[60ch] text-[1.0625rem] leading-relaxed text-foreground xl:mt-7 xl:max-w-[34rem] xl:text-[1.1875rem]" style={{ "--i": 8 } as React.CSSProperties}>{lead}</p>
           <div className="hero-line mt-6 xl:mt-8" style={{ "--i": 9 } as React.CSSProperties}><Buttons /></div>
         </div>
       </div>
@@ -164,13 +183,14 @@ export default function AboutIntro() {
                     style={{ transform: `rotate(${s.rot}deg)` }}
                   />
                   <p
+                    data-no-typeset
                     className={
                       s.lead
                         ? "max-w-[54ch] font-serif text-[1.625rem] leading-[1.3] tracking-[-0.015em] text-foreground xl:flex-1 xl:text-[2.125rem]"
                         : "max-w-[54ch] text-base leading-[var(--leading-longform)] text-muted-foreground xl:flex-1 xl:text-[length:var(--text-article)]"
                     }
                   >
-                    {tp(s.text)}
+                    {fixRuns(s.text)}
                   </p>
                 </div>
               </div>
@@ -192,8 +212,8 @@ export default function AboutIntro() {
               <p className="font-serif text-[2.125rem] leading-[1.1] tracking-[-0.025em] text-foreground xl:flex-[1_1_420px] xl:text-5xl">
                 {tp("Some of the people I hired now lead teams of their own.")} <em className="text-accent-text">{tp("That’s what I’m proudest of.")}</em>
               </p>
-              <p className="text-base leading-[var(--leading-longform)] text-muted-foreground xl:flex-[1_1_320px]">
-                {tp("Over the years I’ve hired more than fifty people. I’ve never wanted everyone to work the way I do. I’d rather give people the standard, the context and the responsibility to find their own way of doing it well.")}
+              <p data-no-typeset className="text-base leading-[var(--leading-longform)] text-muted-foreground xl:flex-[1_1_320px]">
+                {fixRuns("Over the years I’ve hired more than fifty people. I’ve never wanted everyone to work the way I do. I’d rather give people the standard, the context and the responsibility to find their own way of doing it well.")}
               </p>
             </div>
           </div>
