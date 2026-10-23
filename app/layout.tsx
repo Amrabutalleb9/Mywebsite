@@ -78,7 +78,7 @@ export const metadata: Metadata = {
       { url: "/icon.svg", type: "image/svg+xml" },
       { url: "/favicon.ico", sizes: "48x48" },
     ],
-    apple: "/apple-touch-icon-v2.png",
+    apple: "/apple-touch-icon.png",
   },
   keywords: [
     "creative director",
