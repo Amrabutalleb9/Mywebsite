@@ -190,10 +190,10 @@ export default function AboutIntro() {
             />
             <div className="flex flex-col gap-4 xl:flex-row xl:flex-wrap xl:items-baseline xl:gap-x-14 xl:gap-y-6">
               <p className="font-serif text-[2.125rem] leading-[1.1] tracking-[-0.025em] text-foreground xl:flex-[1_1_420px] xl:text-5xl">
-                More than fifty people hired. <em className="text-accent-text">{tp("That’s what I’m proudest of.")}</em>
+                {tp("Some of the people I hired now lead teams of their own.")} <em className="text-accent-text">{tp("That’s what I’m proudest of.")}</em>
               </p>
               <p className="text-base leading-[var(--leading-longform)] text-muted-foreground xl:flex-[1_1_320px]">
-                {tp("Some now lead teams of their own. I’ve never wanted everyone to work the way I do. I’d rather give people the standard, the context and the responsibility to find their own way of doing it well.")}
+                {tp("Over the years I’ve hired more than fifty people. I’ve never wanted everyone to work the way I do. I’d rather give people the standard, the context and the responsibility to find their own way of doing it well.")}
               </p>
             </div>
           </ScrollReveal>
