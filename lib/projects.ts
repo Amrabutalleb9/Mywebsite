@@ -277,7 +277,7 @@ export const caseStudies: CaseStudy[] = [
           tp("The trainer and admin dashboards each had their own navigation, and all three shared one shell, one set of tables and one set of reporting patterns. The mobile app and the dashboards used the same visual language."),
         ],
         figures: [
-          { images: [{ src: "/images/split-fig-file-to-page-v3.webp", alt: tp("From the file to the page: the UX of the trainer profile, subscription plans and trainer dashboard from the 2025 files, beside the final UI") }], caption: tp("Screens re-presented in 2026 from the original files.") },
+          { images: [{ src: "/images/split-fig-file-to-page-v3.webp", alt: tp("From the file to the page: the UX of the trainer profile, subscription plans and trainer dashboard from the 2025 files, beside the final UI") }] },
           { images: [{ src: "/images/split-process-1-v2.webp", alt: tp("Admin shop overview with sales, revenue, escrow, latest orders, top sellers and categories"), ratio: "4 / 3" }, { src: "/images/split-gallery-5-v2.webp", alt: tp("Trainer dashboard with clients, achievements, goals, live activity and weekly active clients"), ratio: "4 / 3" }, { src: "/images/split-gallery-4-v2.webp", alt: tp("Vendor wallet: the transactions and withdrawals table"), ratio: "4 / 3" }], caption: tp("One shell, three dashboards: admin, trainer and vendor.") },
         ],
       },
