@@ -161,7 +161,7 @@ Copy is written in Amr's voice, built from his own words. Rules:
 
 ## Footer (Oct 2026)
 
-Option B from the footer lab (`footer-options` branch, /footer-lab): a white form card hanging from the top edge (7 of 12 columns) beside the "Let’s talk" words. Name and email side by side, topic as one-tap pills, focus is a gold underline (never a box or ring), inputs carry `autoComplete`. Messages go through Web3Forms (`lib/contact.ts`) with the topic in the subject and the sender as reply-to. On /contact the card is dropped because the page has its own form.
+Option B from the footer lab (`footer-options` branch, /footer-lab): a white form card hanging from the top edge (7 of 12 columns) beside the "Let’s talk" words. Name and email side by side, topic as one-tap pills, focus is a gold underline (never a box or ring), inputs carry `autoComplete`. Messages go through Web3Forms (`lib/contact.ts`) with the topic in the subject and the sender as reply-to. On /contact the card is dropped because the page has its own form, and the homepage uses the same card-free footer (Oct 2026, staging).
 
 ## Buttons (Oct 2026)
 

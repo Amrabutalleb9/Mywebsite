@@ -22,10 +22,11 @@ const field =
 
 /* Footer: a white card hanging from the top edge holds the form; the words sit beside it.
    Messages go through Web3Forms (lib/contact.ts) to the inbox tied to the access key.
-   On /contact the page has its own form, so the footer drops the card. */
+   On /contact the page has its own form, so the footer drops the card. The homepage uses the
+   same card-free footer (Oct 2026, staging). */
 export default function MainFooter() {
   const pathname = usePathname()
-  const onContact = pathname === "/contact"
+  const onContact = pathname === "/contact" || pathname === "/"
   const [form, setForm] = useState({ name: "", email: "", topic: "", message: "", botcheck: false })
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle")
 
