@@ -25,7 +25,7 @@ const caseStudyCards = [
   { slug: "split", motion: "splt-reel", num: "02", title: "SPLT", subtitle: tp("Turning an online shop brief into a fitness platform built around its trainers"), impact: tp("One app and three dashboards for four roles · A proposed trainer subscription model"), category: "Product Strategy & UX", year: "2025", role: "Creative Director & UX Lead \u00B7 Led 2\u00A0designers", featureImage: "/images/split-card-v2.webp", featureImageAlt: "SPLT trainer dashboard beside the trainer profile and subscription plans in the app" },
   { slug: "bay-area-trips", num: "02", title: "Bay Area Trips", subtitle: tp("Turning a sprawling travel idea into one product for four audiences"), impact: tp("Web, mobile web and app as one system · Four account types · Live product"), category: "Product Strategy & UX", year: "2023\u20132025", role: tp("Product Strategist & Designer · Team of about 30"), featureImage: "/images/bay-hero-loop-poster-v2.webp", featureImageAlt: "The Bay Area Trips website and two app screens on a cream studio set in late-afternoon light", featureVideo: "/videos/bay-hero-loop-v2-c1.mp4" },
   { slug: "agfin", num: "03", title: "Agfin", subtitle: tp("Rebuilding a farm adviser’s website around the families he helps"), impact: tp("12% more client wins in the first month · No paid advertising"), category: "Website Strategy & Sales Funnel", year: "2024", role: "Creative Director, UX & Copywriter \u00B7 Solo\u00A0project", featureImage: "/images/agfin-feature-v3.webp", featureImageAlt: "Agfin homepage hero: morning cloud clearing over a Wimmera paddock", featureVideo: "/videos/agfin-hero-c1.mp4" },
-  { slug: "taptools", num: "04", title: "TapTools", subtitle: tp("Helping users of a live analytics platform find the number they came for"), impact: tp("User-reported issues down 23% within 60 days · Shipped to a live product"), category: "Product Design for Analytics", year: "2022\u20132023", role: "Senior Product Designer", featureImage: "/images/taptools-card-poster-v5.webp", featureImageAlt: "TapTools screens in glowing cyan frames gliding past the brand eclipse: market, portfolio, token, swap, wallet profiler and add wallet", featureVideo: "/videos/taptools-card-v5.mp4" },
+  { slug: "taptools", num: "04", title: "TapTools", subtitle: tp("Helping users of a live analytics platform find the number they came for"), impact: tp("User-reported issues down 23% within 60 days · Shipped to a live product"), category: "Product Design for Analytics", year: "2022\u20132023", role: "Senior Product Designer", featureImage: "/images/taptools-card-poster-v6.webp", featureImageAlt: "TapTools market, portfolio and wallet profiler screens turning slowly in depth, with the swap card floating in front and the brand eclipse behind", featureVideo: "/videos/taptools-card-v6.mp4" },
   { slug: "zikabi", num: "05", title: "Zikabi", subtitle: tp("Splitting one overloaded app into a parent brand and two products"), impact: tp("One concept became a parent brand and two products · End-user, vendor and driver apps"), category: "Brand Architecture & App Design", year: "2020\u20132021", role: tp("UI/UX Designer, then Product Designer"), featureImage: "", featureImageAlt: "" },
   { slug: "dipa", num: "04", title: "Dipa Visionary Art School", subtitle: tp("Getting an art school’s website working again, then turning it into a walk through the studio"), impact: tp("70% more website views after recovery · Back online after four failed attempts"), category: "Website Recovery & Experience Design", year: "2022\u20132026", role: "Creative Director & UX/UI \u00B7 Led small\u00A0team", featureImage: "/images/dipa-showcase.webp", featureImageAlt: "Dipa Visionary Art School immersive website design" },
   { slug: "steve-hodel", motion: "hodel-proof", num: "04", title: "As Within, So\u00A0Without", subtitle: tp("Designing a 212-page book around a decades-long investigation"), impact: tp("212 pages · 130+ archival images · On sale on Amazon for a NYT bestselling author"), category: "Editorial & Book Design", year: "2025\u20132026", role: "Book Designer \u00B7 Sole\u00A0designer", featureImage: "/images/steve-hodel-feature-v2.webp", featureImageAlt: "Chapter Ten spread of As Within, So Without with Man Ray\u2019s portrait of George Hodel" },
@@ -286,16 +286,6 @@ export default function Home() {
       <WorkSection />
       <About />
       <TestimonialsWithStats testimonials={publishedTestimonials} stats={stats} />
-      <div className="mx-auto max-w-3xl px-8 pt-16 pb-24 text-center lg:pt-20 lg:pb-32">
-        <p className="mb-5 text-base text-muted-foreground lg:text-lg">{"Hiring a\u00A0Creative Director?"}</p>
-        <a
-          href="/contact"
-          className="btn btn-primary"
-        >
-          {"Let\u2019s Talk"}
-          <ArrowUpRight size={14} className="cta-arrow" />
-        </a>
-      </div>
     </main>
   )
 }

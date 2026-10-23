@@ -106,7 +106,7 @@ export default function TestimonialsWithStats({
   const current = testimonials[active]
 
   return (
-    <section className="px-8 pt-32 pb-16 lg:px-16 lg:pt-48 lg:pb-24" aria-labelledby="testimonials-heading">
+    <section className="px-8 pt-32 pb-24 lg:px-16 lg:pt-48 lg:pb-32" aria-labelledby="testimonials-heading">
       <div
         ref={regionRef}
         className="grid gap-12 lg:grid-cols-[4fr_7fr] lg:gap-24"

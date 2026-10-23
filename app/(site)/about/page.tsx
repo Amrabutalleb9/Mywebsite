@@ -65,11 +65,6 @@ export default function AboutPage() {
             </div>
           </FadeIn>
 
-          {/* Tools */}
-          <FadeIn as="p" className="mt-10 text-sm text-muted-foreground">
-            {tp("Tools: Figma, Adobe Creative Suite, Webflow, Framer, Cursor, Next.js, and AI-assisted image, video and voice tools.")}
-          </FadeIn>
-
         </div>
 
         {/* ── Right column: sticky photo + CTAs + links ── */}
