@@ -24,9 +24,9 @@ const story = [
     text: "That eye took me from the drawing desk into design, and over thirteen years into creative direction.",
   },
   {
-    img: "/images/about-ink-juggle-v1.webp",
-    alt: "Brush-and-ink drawing of two hands juggling a phone, a poster and a badge",
-    w: 644, h: 760, rot: 3,
+    img: "/images/about-ink-juggle-v2.webp",
+    alt: "Halftone collage of two hands juggling a phone, a poster and a badge",
+    w: 729, h: 760, rot: 3,
     text: "The work grew from single pieces into whole systems: identities, digital products, campaigns and the business decisions behind them, for clients in Egypt, the Gulf, the UK, the US, Australia and Singapore. At The Line, I led an in-house brand and marketing team of about eleven. At Overpowered, I built a creative team that grew from six people to about twenty-five in seven months.",
   },
   {
