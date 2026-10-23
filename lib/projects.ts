@@ -236,9 +236,13 @@ export const caseStudies: CaseStudy[] = [
       {
         label: "The brief",
         paragraphs: [
-          tp("The initial brief focused on commerce: products, orders, stock, promo codes and payouts for admins and vendors. It was built around selling; trainers and members didn’t yet have a role of their own."),
+          tp("The initial brief focused on commerce: products, orders, stock, promo codes and payouts for admins and vendors, with loyalty points and subscriptions on the shop side. It was built around selling; trainers and members didn’t yet have a role of their own."),
           tp("The development estimate the client had been given didn’t hold up line by line, and product strategy and design hadn’t been scoped at all."),
           tp("I proposed splitting the work into stages: strategy, feature definition and UX/UI design first, development once the product was defined. The client agreed, and I led the product direction with two designers."),
+        ],
+        figures: [
+          { images: [{ src: "/images/split-fig-brief-v1.webp", alt: tp("A shop brief and the layer we added: the client’s marketplace and shop requirements on the left, the trainer role and member training features on the right; trainers are not mentioned in the brief") }], caption: tp("What the brief asked for, and what we added.") },
+          { images: [{ src: "/images/split-fig-phases-v1.webp", alt: tp("Delivery in three phases: eight bugs fixed in the existing app, then commerce, subscriptions and loyalty, then the trainer platform, then integrations and gamification; phases one and two scoped and designed February to June 2025") }], caption: tp("The staged scope: my team’s part, and what continued after.") },
         ],
       },
       {
@@ -252,25 +256,31 @@ export const caseStudies: CaseStudy[] = [
       {
         label: "Designing for four roles",
         paragraphs: [
-          tp("Members got the workout and community features: a workout builder, personal and volume records, groups, goals, achievements, streaks and loyalty points."),
+          tp("Members got the workout and community features: a workout builder, personal and volume records, groups, goals, achievements and streaks, alongside the loyalty points the brief asked for."),
           tp("Trainers became a role of their own. Their profiles led with their track record and subscription plans. Free content let members judge a coach before paid videos unlocked the rest, and monthly, quarterly and yearly plans were proposed as a new recurring revenue line."),
           tp("A dedicated trainer dashboard handled clients, goals, workout plans, an exercise library and video content, while vendor and admin dashboards ran the operational side of the marketplace."),
           tp("The challenge was to give each role the right experience without building four disconnected products."),
         ],
         figures: [
-          { images: [{ src: "/images/split-process-1-v2.webp", alt: tp("The brief: SPLT admin shop overview with sales, revenue, escrow, latest orders, top sellers and categories"), ratio: "4 / 3" }, { src: "/images/split-process-2-v2.webp", alt: tp("The addition: trainer video management in the dashboard, beside the trainer profile members subscribe from"), ratio: "4 / 3" }], caption: tp("What the brief asked for, and the trainer layer we added.") },
+          { images: [{ src: "/images/split-fig-roles-v1.webp", alt: tp("Four roles, one platform: members in the mobile app, trainers in the app and their own dashboard, vendors in the vendor dashboard and the SPLT team in the admin dashboard, with subscriptions, plans, products and payouts flowing between them") }], caption: tp("Four roles, one platform.") },
+          { images: [{ src: "/images/split-process-2-v2.webp", alt: tp("Trainer video management in the dashboard, beside the trainer profile members subscribe from"), ratio: "4 / 3" }, { src: "/images/split-gallery-6-v2.webp", alt: tp("Achievements with Spark, Iron, Surge and Titan level badges, beside the three subscription plans"), ratio: "4 / 3" }], caption: tp("The trainer layer: videos a trainer manages, the profile members find them on, and the plans they subscribe to.") },
+          { images: [{ src: "/images/split-gallery-1-v2.webp", alt: tp("Personal records and the goals and achievements screen with level badges"), ratio: "4 / 3" }, { src: "/images/split-gallery-2-v2.webp", alt: tp("A live workout with sets, reps and rest timer, and the groups screen with monthly stats"), ratio: "4 / 3" }, { src: "/images/split-gallery-3-v2.webp", alt: tp("Workout discovery with programs, muscle groups and new coaches, and the SPLT shop"), ratio: "4 / 3" }], caption: tp("For members: records and goals, live workouts and groups, discovery and the shop.") },
         ],
       },
       {
         label: "The design system",
         paragraphs: [
           tp("I set the information architecture and the visual direction, then worked with a senior and a junior designer to build the screens and the shared system. Multi-role admin systems were new territory for the team, so we mapped the user journeys and the logic behind each role together before building the full UI."),
-          tp("Each dashboard had its own navigation, but all three shared one shell, one set of tables and one set of reporting patterns. The mobile app and the dashboards used the same visual language."),
+          tp("The trainer and admin dashboards each had their own navigation, and all three shared one shell, one set of tables and one set of reporting patterns. The mobile app and the dashboards used the same visual language."),
+        ],
+        figures: [
+          { images: [{ src: "/images/split-fig-file-to-page-v1.webp", alt: tp("From the file to the page: the trainer profile, subscription plans and trainer dashboard as designed in 2025, beside the same screens re-presented for this case study") }], caption: tp("Screens re-presented in 2026 from the original files.") },
+          { images: [{ src: "/images/split-process-1-v2.webp", alt: tp("Admin shop overview with sales, revenue, escrow, latest orders, top sellers and categories"), ratio: "4 / 3" }, { src: "/images/split-gallery-5-v2.webp", alt: tp("Trainer dashboard with clients, achievements, goals, live activity and weekly active clients"), ratio: "4 / 3" }, { src: "/images/split-gallery-4-v2.webp", alt: tp("Vendor wallet: the transactions and withdrawals table"), ratio: "4 / 3" }], caption: tp("One shell, three dashboards: admin, trainer and vendor.") },
         ],
       },
     ],
     results: [
-      tp("Reshaped a commerce-only brief into a staged product engagement"),
+      tp("Reshaped a commerce-first brief into a staged product engagement"),
       tp("Added a dedicated trainer role with profiles, paid video and three proposed subscription plans"),
       tp("Designed workout, progress, group, achievement and loyalty features for members"),
       tp("Created one shared system for the mobile app and three dashboards"),
@@ -289,8 +299,8 @@ export const caseStudies: CaseStudy[] = [
     clientProblem: tp("The brief described a store, with orders, stock, promo codes and payouts for an admin and a vendor. The development quotation SPLT had received was hard to match to the work it described, and the scope was still open. The brief didn’t yet give trainers a reason to join or members a reason to pay."),
     constraints: "The client needed to\u00A0relaunch fast. I\u00A0had a\u00A0small team, one senior and one junior designer, both taking on their first multi-role admin\u00A0system. Every role also had to\u00A0share one visual language, so\u00A0a\u00A0component built for the app couldn\u2019t drift once it\u00A0reached\u00A0a\u00A0dashboard.",
     insight: tp("Before any wireframes, we subscribed to the major fitness apps and their betas and read their reviews side by side. The same complaint kept surfacing. Coaches looked exactly like members and had no way to earn inside the app. That gap became the product."),
-    creativeStrategy: "I\u00A0kept the marketplace the client asked for and built a\u00A0training layer on\u00A0top of\u00A0it. Trainers became a\u00A0role of\u00A0their own. In the app, their profile leads with a\u00A0track record and a\u00A0Subscribe button, keeps premium videos locked until you pay, and offers three plans (monthly, quarterly, yearly). Behind it\u00A0sits a\u00A0trainer dashboard to\u00A0manage clients, goals, workout plans, an\u00A0exercise library and video sections. Around that, members got the parts that keep people opening the app every day: a\u00A0workout builder, personal and volume records, groups, goals and achievements, streaks and loyalty\u00A0points.",
-    keyDecisions: tp("Trainers come across as professionals first. A trainer’s profile opens on proof and plans, and the social feed sits in its own tab. Free content lets members judge a coach before paid subscriptions unlock the rest, a revenue line the original scope never had. Each role has its own sidebar, but all three dashboards share one shell, one set of tables and one set of reports, so a small team could ship three products from one system."),
+    creativeStrategy: "I\u00A0kept the marketplace the client asked for and built a\u00A0training layer on\u00A0top of\u00A0it. Trainers became a\u00A0role of\u00A0their own. In the app, their profile leads with a\u00A0track record and a\u00A0Subscribe button, keeps premium videos locked until you pay, and offers three plans (monthly, quarterly, yearly). Behind it\u00A0sits a\u00A0trainer dashboard to\u00A0manage clients, goals, workout plans, an\u00A0exercise library and video sections. Around that, members got the parts that keep people opening the app every day: a\u00A0workout builder, personal and volume records, groups, goals and achievements and streaks, next to the loyalty points the brief already asked\u00A0for.",
+    keyDecisions: tp("Trainers come across as professionals first. A trainer’s profile opens on proof and plans, and the social feed sits in its own tab. Free content lets members judge a coach before paid subscriptions unlock the rest, a revenue line built around trainers rather than products. Trainers and admins each have their own sidebar, and all three dashboards share one shell, one set of tables and one set of reports, so a small team could ship three products from one system."),
     leadershipRole: tp("I reviewed the development quotation line by line and rebuilt it as a staged scope the client could agree to. I then set the information architecture and the visual direction, and worked through the multi-role journeys with the team before they took on the full UI."),
     processPhases: [
       { title: "Scope", description: "Reviewed the development estimate line by\u00A0line, defined what each role needs, and turned the\u00A0brief into a\u00A0staged\u00A0scope." },
@@ -310,14 +320,6 @@ export const caseStudies: CaseStudy[] = [
       poster: "/images/split-showcase-poster-v2.webp",
       alt: "Three SPLT screens in motion: workout discovery scrolling, a trainer profile, and goals and achievements with level badges",
     },
-    galleryImages: [
-      { src: "/images/split-gallery-1-v2.webp", alt: "Personal records and the goals and achievements screen with level badges" },
-      { src: "/images/split-gallery-2-v2.webp", alt: "A live workout with sets, reps and rest timer, and the groups screen with monthly stats" },
-      { src: "/images/split-gallery-3-v2.webp", alt: "Workout discovery with programs, muscle groups and new coaches, and the SPLT shop" },
-      { src: "/images/split-gallery-4-v2.webp", alt: "Vendor wallet: the transactions and withdrawals table" },
-      { src: "/images/split-gallery-5-v2.webp", alt: "Trainer dashboard with clients, achievements, goals, live activity and weekly active clients" },
-      { src: "/images/split-gallery-6-v2.webp", alt: "Achievements up close, with Spark, Iron, Surge and Titan level badges, beside the subscription plans" },
-    ],
   },
   {
     slug: "bay-area-trips",
