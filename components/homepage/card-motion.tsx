@@ -38,30 +38,3 @@ export function HodelProof({ label }: { label: string }) {
     </div>
   )
 }
-
-/* TapTools: the real screens in two windows framed the way TapTools framed its own launch graphics,
-   over its eclipse: black, with the green-to-cyan-to-blue rim of the logo. The large window steps
-   through market, token and wallet profiler; the small one through portfolio and swap. Slow
-   cross-fades and a slow breath in the eclipse; every screen is shown whole. */
-const ttMain = ["market", "token", "profiler"]
-const ttSide = ["portfolio", "swap"]
-
-export function TapToolsDeck({ label }: { label: string }) {
-  return (
-    <div role="img" aria-label={label} className="card-img tt-deck relative aspect-[16/10] w-full overflow-hidden bg-black">
-      <img src="/images/tt-card-bg-v1.webp" alt="" aria-hidden="true" decoding="async" className="tt-bg" />
-      <div className="tt-drift absolute inset-0" aria-hidden="true">
-        <div className="tt-win tt-win-main">
-          {ttMain.map((k, i) => (
-            <img key={k} src={`/images/tt-card-${k}-v1.webp`} alt="" loading="lazy" decoding="async" className={`tt-shot tt-shot-3 ${i === 0 ? "tt-first" : ""}`} style={{ animationDelay: `${i === 0 ? 0 : -(ttMain.length - i) * 6}s` }} />
-          ))}
-        </div>
-        <div className="tt-win tt-win-side">
-          {ttSide.map((k, i) => (
-            <img key={k} src={`/images/tt-card-${k}-v1.webp`} alt="" loading="lazy" decoding="async" className={`tt-shot tt-shot-2 ${i === 0 ? "tt-first" : ""}`} style={{ animationDelay: `${i === 0 ? -3 : -10}s` }} />
-          ))}
-        </div>
-      </div>
-    </div>
-  )
-}

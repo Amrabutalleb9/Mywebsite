@@ -892,6 +892,7 @@ export const caseStudies: CaseStudy[] = [
       { src: "/images/steve-hodel-spread-exhibits.webp", alt: "Architecture exhibits: black-and-white photographs of the Hodel house and studio in Los Angeles, each with a figure number and caption" },
       { src: "/images/steve-hodel-spread-colour.webp", alt: "Full-colour spread: Fred Sexton\u2019s 1955 painting Monalita beside the text that examines it" },
       { src: "/images/steve-hodel-spread-appendix.webp", alt: "Appendix spread: Hodel family photographs from the 1940s arranged as numbered figures" },
+      { src: "/images/steve-hodel-jacket-v1.webp", alt: "The full jacket laid flat: praise from Michael Connelly and others on the back, the spine, and the front cover with the title set over a gridded window onto a courtyard" },
     ],
     buyLink: { href: "https://www.amazon.com/AS-WITHIN-SO-WITHOUT-Surrealism/dp/B0GMQSVHQP", label: "See the book on Amazon" },
   },
