@@ -167,7 +167,7 @@ export const caseStudies: CaseStudy[] = [
           tp("We tested elements in small Instagram campaigns in the UAE, the UK and Egypt before committing. The agency went on to use the identity for about a year."),
         ],
         figures: [
-          { images: [{ src: "/images/op-fig-09-v3.webp", alt: tp("The identity system from the January 2025 guidelines: the primary and OP Labs lock-ups, six logo variations, the mark, Druk Wide Bold and the palette") }], caption: tp("From the January 2025 brand guidelines.") },
+          { images: [{ src: "/images/op-fig-09-v3.webp", alt: tp("The identity system: the primary and OP Labs lock-ups on yellow, six logo variations on colours from the palette, the mark, the typefaces and the palette") }], caption: tp("From the January 2025 brand guidelines.") },
           { images: [{ src: "/images/op-billboard-v1.webp", alt: tp("Billboard: Transforming ideas into impactful designs, over a grainy black-and-white crowd with yellow value tags"), ratio: "1296 / 768" }] },
           { images: [{ src: "/images/op-social-1-v2.webp", alt: tp("Social post: When science and design collaborate"), ratio: "4 / 5" }, { src: "/images/op-social-2-v2.webp", alt: tp("Social post: Pushing boundaries"), ratio: "4 / 5" }, { src: "/images/op-social-3-v2.webp", alt: tp("Social post: Top notch design solutions"), ratio: "4 / 5" }], caption: tp("The identity in use, outdoors and on social media.") },
         ],
