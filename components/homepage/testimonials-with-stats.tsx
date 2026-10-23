@@ -134,13 +134,13 @@ export default function TestimonialsWithStats({
           if (e.key === "ArrowLeft") { e.preventDefault(); go(active - 1) }
         }}
       >
-        <span aria-hidden="true" className="block h-10 font-serif text-[7rem] leading-[0.75] text-accent lg:ml-[20%] lg:h-14 lg:text-[10rem]">
+        <span aria-hidden="true" className="block h-10 font-serif text-[7rem] leading-[0.75] text-accent lg:ml-[10%] lg:h-14 lg:text-[10rem]">
           {"“"}
         </span>
 
         {/* Every quote is laid out invisibly in the same cell, so the block is as tall as the longest
             one and the page never jumps when the quote changes. */}
-        <div className="mt-6 grid max-w-[60rem] lg:ml-[20%]">
+        <div className="mt-6 grid max-w-[60rem] lg:ml-[10%]">
           {testimonials.map((t, i) => (
             <p key={i} aria-hidden="true" className="invisible col-start-1 row-start-1 font-serif text-[clamp(1.625rem,3vw,3rem)] italic leading-[1.22] tracking-tight">
               {t.text}
@@ -160,7 +160,7 @@ export default function TestimonialsWithStats({
           </AnimatePresence>
         </div>
 
-        <div className="mt-12 flex items-end justify-between gap-6 border-t border-border pt-7 lg:mt-14 lg:ml-[20%]">
+        <div className="mt-12 flex items-end justify-between gap-6 border-t border-border pt-7 lg:mt-14">
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={active}
