@@ -15,15 +15,6 @@ export const metadata: Metadata = pageMeta({
   type: "profile",
 })
 
-/* Short answers for search and AI answer engines. Shown on the page as well, as Google requires. */
-const faq = [
-  { q: "What roles is Amr Abu-Talleb open to?", a: "Creative Director roles in Europe, remote or on-site. He also considers Head of Design and Design Director roles where brand and product sit together." },
-  { q: "How much experience does he have?", a: "Thirteen years across brand, campaigns and digital products. He has led teams of up to 25 people across 8 markets and hired more than 50." },
-  { q: "What does he lead?", a: "Brand positioning and identity, campaigns and digital products, from the first idea to launch. He also prototypes in code with AI, from brief to a live staging build in days, not sprints." },
-  { q: "Which languages does he work in?", a: "English and Arabic. He trained in calligraphy and typography, and designs identities that work in both scripts." },
-  { q: "How do I reach him?", a: "Email hello@amrabutalleb.com or message him on LinkedIn. He replies within 24 hours." },
-]
-
 const profileLd = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
@@ -31,21 +22,10 @@ const profileLd = {
   mainEntity: { "@id": "https://amrabutalleb.com/#person" },
 }
 
-const faqLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faq.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
-}
-
 export default function AboutPage() {
   return (
     <main className="px-8 pt-32 pb-24 lg:px-16 lg:pt-40 lg:pb-32">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(profileLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <div className="flex flex-col gap-16 lg:flex-row lg:gap-20">
 
         {/* ── Left column: ALL content ── */}
@@ -88,19 +68,6 @@ export default function AboutPage() {
           {/* Tools */}
           <FadeIn as="p" className="mt-10 text-sm text-muted-foreground">
             {tp("Tools: Figma, Adobe Creative Suite, Webflow, Framer, Cursor, Next.js, and AI-assisted image, video and voice tools.")}
-          </FadeIn>
-
-          {/* Quick answers */}
-          <FadeIn as="section" className="mt-20 border-t border-border pt-10" aria-labelledby="faq-heading">
-            <h2 id="faq-heading" className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Quick answers</h2>
-            <dl className="mt-8 flex flex-col gap-8">
-              {faq.map((f) => (
-                <div key={f.q}>
-                  <dt className="text-base font-medium text-foreground">{tp(f.q)}</dt>
-                  <dd className="mt-2 text-base leading-relaxed text-muted-foreground">{tp(f.a)}</dd>
-                </div>
-              ))}
-            </dl>
           </FadeIn>
 
         </div>
