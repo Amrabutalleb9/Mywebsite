@@ -184,7 +184,7 @@ export const caseStudies: CaseStudy[] = [
           tp("I wrote the briefs for the 3D, motion and UX/UI teams and developed the direction with the art directors, section by section."),
         ],
         figures: [
-          { images: [{ src: "/images/op-solvix-hero-v3.webp", video: "/videos/op-solvix-hero-v3.mp4", alt: tp("Website concept, opening: Solvix, a stone figure with an amber core, kneeling in a forge hall beside the headline Your brand deserves more than ordinary") }], caption: tp("The opening. Solvix follows the visitor’s cursor.") },
+          { images: [{ src: "/images/op-solvix-hero-v3.webp", video: "/videos/op-solvix-hero-v3-c1.mp4", alt: tp("Website concept, opening: Solvix, a stone figure with an amber core, kneeling in a forge hall beside the headline Your brand deserves more than ordinary") }], caption: tp("The opening. Solvix follows the visitor’s cursor.") },
           { images: [{ src: "/images/op-solvix-video-v3.webp", alt: tp("Website concept: a close-up of Solvix’s hand holding glowing film frames, beside the Video Production service") }, { src: "/images/op-solvix-core-v4.webp", alt: tp("Website concept: a close-up of Solvix’s head with glowing eyes and amber crystals, beside the headline We’re Overpowered, and so is our work") }], caption: tp("A service close-up, then who the agency is.") },
         ],
       },
@@ -211,7 +211,7 @@ export const caseStudies: CaseStudy[] = [
     featureImage: "/images/op-hero-v1.webp",
     featureImageAlt: tp("The OP logomark as a giant glass sculpture floating above a hill, a lone figure looking up at it"),
     featureVideo: {
-      mp4: "/videos/op-hero-loop-v2.mp4",
+      mp4: "/videos/op-hero-loop-v2-c1.mp4",
       poster: "/images/op-hero-loop-poster-v1.webp",
       alt: tp("The OP logomark as a giant glass sculpture above a hill, cut fast with close-ups of the glass and a man looking up, looping back to where it starts"),
     },
@@ -301,7 +301,7 @@ export const caseStudies: CaseStudy[] = [
       { src: "/images/split-process-2-v2.webp", alt: "The addition: trainer video management in the dashboard, beside the trainer profile members subscribe from" },
     ],
     showcaseVideo: {
-      mp4: "/videos/split-showcase-v2.mp4",
+      mp4: "/videos/split-showcase-v2-c1.mp4",
       poster: "/images/split-showcase-poster-v2.webp",
       alt: "Three SPLT screens in motion: workout discovery scrolling, a trainer profile, and goals and achievements with level badges",
     },
@@ -439,7 +439,7 @@ export const caseStudies: CaseStudy[] = [
     featureImage: "/images/bay-hero-v2.webp",
     featureImageAlt: tp("The Bay Area Trips website and two app screens on a cream studio set in late-afternoon light"),
     featureVideo: {
-      mp4: "/videos/bay-hero-loop-v2.mp4",
+      mp4: "/videos/bay-hero-loop-v2-c1.mp4",
       poster: "/images/bay-hero-loop-poster-v2.webp",
       alt: tp("The Bay Area Trips website and app on a studio set in late-afternoon light, the screens moving through the homepage, the directory, a listing, membership, the traveller home, the scavenger hunt, the kids’ view and the business dashboard"),
     },
@@ -480,7 +480,7 @@ export const caseStudies: CaseStudy[] = [
           tp("That brought the story closer to the people he worked with. The design could support the message because the message now sounded like the business."),
         ],
         figures: [
-          { images: [{ src: "/images/agfin-process-1-v2.jpg", alt: tp("Noon: the Does This Sound Familiar checklist, each ticked worry fading into heat haze"), ratio: "4 / 3" }, { src: "/images/agfin-result-v1.jpg", alt: tp("Sunset: the case study’s result, a farmer at the gate of a canola field on a photo print stamped Approved in one week"), ratio: "4 / 3" }] },
+          { images: [{ src: "/images/agfin-process-1-w1.webp", alt: tp("Noon: the Does This Sound Familiar checklist, each ticked worry fading into heat haze"), ratio: "4 / 3" }, { src: "/images/agfin-result-w1.webp", alt: tp("Sunset: the case study’s result, a farmer at the gate of a canola field on a photo print stamped Approved in one week"), ratio: "4 / 3" }] },
         ],
       },
       {
@@ -526,23 +526,23 @@ export const caseStudies: CaseStudy[] = [
     featureImage: "/images/agfin-feature-v3.webp",
     featureImageAlt: "Agfin homepage hero: the farm profit road map headline settling in as the morning clouds clear over a Wimmera paddock",
     featureVideo: {
-      mp4: "/videos/agfin-hero.mp4",
+      mp4: "/videos/agfin-hero-c1.mp4",
       poster: "/images/agfin-feature-v3.webp",
       alt: "The Agfin hero animation: a fly-through of morning cloud that clears to reveal the headline over a Wimmera paddock",
     },
     processImages: [
-      { src: "/images/agfin-process-1-v2.jpg", alt: "Noon: the Does This Sound Familiar checklist, each ticked worry fading into heat haze" },
-      { src: "/images/agfin-result-v1.jpg", alt: "Sunset: the case study’s result, a farmer at the gate of a canola field on a photo print stamped Approved in one week" },
+      { src: "/images/agfin-process-1-w1.webp", alt: "Noon: the Does This Sound Familiar checklist, each ticked worry fading into heat haze" },
+      { src: "/images/agfin-result-w1.webp", alt: "Sunset: the case study’s result, a farmer at the gate of a canola field on a photo print stamped Approved in one week" },
     ],
     showcaseVideo: {
-      mp4: "/videos/agfin-showcase.mp4",
-      poster: "/images/agfin-showcase-poster-v2.jpg",
+      mp4: "/videos/agfin-showcase-c1.mp4",
+      poster: "/images/agfin-showcase-poster-w1.webp",
       alt: "Scroll-through of the Agfin homepage, told as one day on the farm from dawn to the next morning",
     },
     galleryImages: [
-      { src: "/images/agfin-roadmap-v1.jpg", alt: "The Farm Profit Roadmap: step three, the plan to get there, with the roadmap’s value adding up as you scroll" },
-      { src: "/images/agfin-detail-2-v2.jpg", alt: "Services page with the farm financial fitness assessment and service list" },
-      { src: "/images/agfin-detail-3-v2.jpg", alt: "Contact page with the Get In Touch headline set behind the Grampians ranges" },
+      { src: "/images/agfin-roadmap-w1.webp", alt: "The Farm Profit Roadmap: step three, the plan to get there, with the roadmap’s value adding up as you scroll" },
+      { src: "/images/agfin-detail-2-w1.webp", alt: "Services page with the farm financial fitness assessment and service list" },
+      { src: "/images/agfin-detail-3-w1.webp", alt: "Contact page with the Get In Touch headline set behind the Grampians ranges" },
     ],
   },
   {
@@ -566,7 +566,7 @@ export const caseStudies: CaseStudy[] = [
           tp("I treated it as a hierarchy problem. Users didn’t need more data. They needed to see the right number first."),
         ],
         figures: [
-          { images: [{ src: "/images/tt-fig-token-v3-poster.webp", alt: tp("The redesigned token page: price and chart first, pool info and watchlist in a side column, and a wallet-size tag on every trade"), ratio: "1312 / 760", video: "/videos/tt-fig-token-v3.mp4" }] },
+          { images: [{ src: "/images/tt-fig-token-v3-poster.webp", alt: tp("The redesigned token page: price and chart first, pool info and watchlist in a side column, and a wallet-size tag on every trade"), ratio: "1312 / 760", video: "/videos/tt-fig-token-v3-c1.mp4" }] },
         ],
       },
       {
@@ -578,7 +578,7 @@ export const caseStudies: CaseStudy[] = [
           tp("Swap closes the loop. When a swap finishes, it sends you back to your portfolio, where the result shows."),
         ],
         figures: [
-          { images: [{ src: "/images/tt-fig-arch-v6-poster.webp", alt: tp("Product structure: search and sidebar lead to the market overview hub, then the token page, wallet preview, wallet profiler, portfolio and swap"), ratio: "1312 / 760", video: "/videos/tt-fig-arch-v6.mp4" }] },
+          { images: [{ src: "/images/tt-fig-arch-v6-poster.webp", alt: tp("Product structure: search and sidebar lead to the market overview hub, then the token page, wallet preview, wallet profiler, portfolio and swap"), ratio: "1312 / 760", video: "/videos/tt-fig-arch-v6-c1.mp4" }] },
         ],
       },
       {
@@ -590,8 +590,8 @@ export const caseStudies: CaseStudy[] = [
           tp("The profiler reads a wallet like a person. It shows what the wallet holds, when it trades and who funded it."),
         ],
         figures: [
-          { images: [{ src: "/images/tt-fig-journey-v3-poster.webp", alt: tp("Five screens one click apart: market overview, token page, wallet preview, wallet profiler and associated wallets"), ratio: "1312 / 470", video: "/videos/tt-fig-journey-v3.mp4" }] },
-          { images: [{ src: "/images/tt-fig-profiler-v3-poster.webp", alt: tp("The wallet profiler: balance, holdings, activity over time, day-of-week and hour-of-day habits, with associated wallets"), ratio: "1312 / 760", video: "/videos/tt-fig-profiler-v3.mp4" }] },
+          { images: [{ src: "/images/tt-fig-journey-v3-poster.webp", alt: tp("Five screens one click apart: market overview, token page, wallet preview, wallet profiler and associated wallets"), ratio: "1312 / 470", video: "/videos/tt-fig-journey-v3-c1.mp4" }] },
+          { images: [{ src: "/images/tt-fig-profiler-v3-poster.webp", alt: tp("The wallet profiler: balance, holdings, activity over time, day-of-week and hour-of-day habits, with associated wallets"), ratio: "1312 / 760", video: "/videos/tt-fig-profiler-v3-c1.mp4" }] },
         ],
       },
       {
@@ -603,7 +603,7 @@ export const caseStudies: CaseStudy[] = [
           tp("Tracking a wallet shouldn’t need a wallet connection. You can add any address, stake address or ADA Handle, check that it resolves and give it a name."),
         ],
         figures: [
-          { images: [{ src: "/images/tt-fig-portfolio-v3-poster.webp", alt: tp("Three passes at the portfolio beside the final screen with all-time profit, best and worst performer and whale tier"), ratio: "1312 / 720", video: "/videos/tt-fig-portfolio-v3.mp4" }] },
+          { images: [{ src: "/images/tt-fig-portfolio-v3-poster.webp", alt: tp("Three passes at the portfolio beside the final screen with all-time profit, best and worst performer and whale tier"), ratio: "1312 / 720", video: "/videos/tt-fig-portfolio-v3-c1.mp4" }] },
           { images: [{ src: "/images/tt-fig-addwallet-v3.webp", alt: tp("Adding a wallet by pasting an address or ADA Handle, resolved before it is added"), ratio: "1312 / 640" }] },
         ],
       },
@@ -616,7 +616,7 @@ export const caseStudies: CaseStudy[] = [
           tp("Every state has a screen, from picking a token to a failed swap that says why it failed and how to fix it."),
         ],
         figures: [
-          { images: [{ src: "/images/tt-fig-swap-v3-poster.webp", alt: tp("Every swap state, from picking a token to a failed swap with its reason, beside Simple and Nerd modes"), ratio: "1312 / 800", video: "/videos/tt-fig-swap-v3.mp4" }] },
+          { images: [{ src: "/images/tt-fig-swap-v3-poster.webp", alt: tp("Every swap state, from picking a token to a failed swap with its reason, beside Simple and Nerd modes"), ratio: "1312 / 800", video: "/videos/tt-fig-swap-v3-c1.mp4" }] },
         ],
       },
       {
@@ -628,7 +628,7 @@ export const caseStudies: CaseStudy[] = [
         ],
         figures: [
           { images: [{ src: "/images/tt-fig-system-v3.webp", alt: tp("The colour system: neutral ramp, cyan accent, gain, loss and caution with their tints, beside the type"), ratio: "1312 / 700" }] },
-          { images: [{ src: "/images/tt-fig-ship-v3-poster.webp", alt: tp("The early homepage layout with three promotional modules, then the shipped homepage with a market summary, movers and one table"), ratio: "1312 / 720", video: "/videos/tt-fig-ship-v3.mp4" }] },
+          { images: [{ src: "/images/tt-fig-ship-v3-poster.webp", alt: tp("The early homepage layout with three promotional modules, then the shipped homepage with a market summary, movers and one table"), ratio: "1312 / 720", video: "/videos/tt-fig-ship-v3-c1.mp4" }] },
           { images: [{ src: "/images/tt-fig-release-v3.webp", alt: tp("Launch graphics from January 2023: the new homepage and the portfolio running on taptools.io"), ratio: "1312 / 520" }] },
         ],
       },
@@ -662,7 +662,7 @@ export const caseStudies: CaseStudy[] = [
     featureImage: "/images/taptools-hero-loop-poster-v3.webp",
     featureImageAlt: tp("The TapTools market overview with a swap card and wallet profiler beside it, on a dark grid lit in cyan and green"),
     featureVideo: {
-      mp4: "/videos/taptools-hero-loop-v3.mp4",
+      mp4: "/videos/taptools-hero-loop-v3-c1.mp4",
       poster: "/images/taptools-hero-loop-poster-v3.webp",
       alt: tp("TapTools on a dark grid lit in cyan and green, moving from the market overview to a token page, the wallet preview, the wallet profiler and a finished swap"),
     },

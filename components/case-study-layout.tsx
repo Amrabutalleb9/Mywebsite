@@ -41,12 +41,12 @@ export default function CaseStudyLayout({
                   style={{ aspectRatio: img.ratio ?? "16 / 9" }}
                   poster={img.src}
                   aria-label={img.alt}
-                  autoPlay={!reducedMotion}
+                  data-autoplay
                   controls={!!reducedMotion}
                   muted
                   loop
                   playsInline
-                  preload="metadata"
+                  preload="none"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <source src={img.video} type="video/mp4" />
@@ -116,12 +116,12 @@ export default function CaseStudyLayout({
               className="aspect-video w-full object-cover"
               poster={project.featureVideo.poster}
               aria-label={project.featureVideo.alt}
-              autoPlay={!reducedMotion}
+              data-autoplay
               controls={!!reducedMotion}
               muted
               loop
               playsInline
-              preload="auto"
+              preload="metadata"
             >
               {project.featureVideo.webm && <source src={project.featureVideo.webm} type="video/webm" />}
               <source src={project.featureVideo.mp4} type="video/mp4" />
@@ -259,12 +259,12 @@ export default function CaseStudyLayout({
                 className="aspect-video w-full object-cover"
                 poster={project.showcaseVideo.poster}
                 aria-label={project.showcaseVideo.alt}
-                autoPlay={!reducedMotion}
+                data-autoplay
                 controls={!!reducedMotion}
                 muted
                 loop
                 playsInline
-                preload="metadata"
+                preload="none"
               >
                 {project.showcaseVideo.webm && <source src={project.showcaseVideo.webm} type="video/webm" />}
                 <source src={project.showcaseVideo.mp4} type="video/mp4" />
@@ -377,12 +377,12 @@ export default function CaseStudyLayout({
               className="aspect-video w-full object-cover"
               poster={project.showcaseVideo.poster}
               aria-label={project.showcaseVideo.alt}
-              autoPlay={!reducedMotion}
+              data-autoplay
               controls={!!reducedMotion}
               muted
               loop
               playsInline
-              preload="metadata"
+              preload="none"
             >
               {project.showcaseVideo.webm && <source src={project.showcaseVideo.webm} type="video/webm" />}
               <source src={project.showcaseVideo.mp4} type="video/mp4" />
