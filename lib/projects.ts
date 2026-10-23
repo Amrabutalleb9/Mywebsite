@@ -100,7 +100,7 @@ export const caseStudies: CaseStudy[] = [
     results: [
       tp("A team of about twenty-five, grown from six in seven months, led by two art directors"),
       tp("Clear ownership: designers reported to their art directors, with daily reviews and a weekly review across disciplines"),
-      tp("One working system in Slack, Trello and Google Workspace, so ownership, deadlines and capacity were visible"),
+      tp("One shared way of working, so ownership, deadlines and capacity were visible to everyone"),
       tp("A focused offer: branding, web and app, and video for small and mid-sized businesses, with OP Labs for product clients"),
       tp("A new identity built with the branding team, used by the agency for about a year"),
       tp("An immersive website direction, briefed to the 3D, motion and UX/UI teams"),
@@ -115,7 +115,7 @@ export const caseStudies: CaseStudy[] = [
           tp("When he was ready, he invited me to join as Creative Director. The studio had to keep serving its clients while the team, the offer and the identity changed around it."),
         ],
         figures: [
-          { images: [{ src: "/images/op-fig-01-v5.webp", alt: tp("The audit: six findings beside the old Overpowered homepage and its empty service cards, December 2024") }], caption: tp("The website in December 2024.") },
+          { images: [{ src: "/images/op-fig-01-v6.webp", alt: tp("The audit: six findings beside the old Overpowered homepage and its empty service cards, December 2024") }], caption: tp("The website in December 2024.") },
         ],
       },
       {
@@ -126,7 +126,7 @@ export const caseStudies: CaseStudy[] = [
           tp("The agency already had talented people, clients and good work. It needed a clearer offer and a better way for the team to work."),
         ],
         figures: [
-          { images: [{ src: "/images/op-fig-02-v3.webp", alt: tp("Positioning before and after: from digital dominance for anyone to more than ordinary for small and mid-sized businesses, three services, one process") }], caption: tp("Positioning, before and after.") },
+          { images: [{ src: "/images/op-fig-02-v4.webp", alt: tp("Positioning before and after: Empowering brands for digital dominance, struck through, above Your brand deserves more than ordinary, with who, what and how compared below") }], caption: tp("Positioning, before and after.") },
         ],
       },
       {
@@ -138,18 +138,18 @@ export const caseStudies: CaseStudy[] = [
           tp("I wrote a hiring exercise around a premium olive-oil brand built on Arabic calligraphy. It gave candidates a real brief to interpret and gave us something concrete to discuss: their thinking, their craft and how they took feedback."),
         ],
         figures: [
-          { images: [{ src: "/images/op-fig-06-v5.webp", alt: tp("Org chart: CEO, Creative Director, an art director for branding over graphic, an art director for video over video and 3D, and UX/UI and copy reporting directly") }], caption: tp("Team structure. Roles only.") },
+          { images: [{ src: "/images/op-fig-06-v6.webp", alt: tp("Team: 25 people across five disciplines, with the Creative Director under the CEO, two art directors, UX/UI run directly and copy shared with the CEO") }], caption: tp("Team structure. Roles only.") },
         ],
       },
       {
         label: "How we worked",
         paragraphs: [
-          tp("Designers reported to their art directors, and the art directors reported to me. Work moved into Slack, with a channel for each discipline and client, and weekly Trello boards showed tasks, owners, deadlines and workloads."),
+          tp("Designers reported to their art directors, and the art directors reported to me. Every task had one owner and a deadline the whole team could see."),
           tp("Designers reviewed work with their art directors every day or two, and I reviewed it with the art directors each week. In reviews, designers explained their decisions before anyone else weighed in. When notes weren’t enough, I sat with the designer, opened the file and worked through the options together."),
           tp("I wanted the team to understand why a solution worked, not change things because I had asked."),
         ],
         figures: [
-          { images: [{ src: "/images/op-fig-07-v2.webp", alt: tp("How we worked: from tasks in WhatsApp groups to Slack, weekly Trello boards and Google Workspace, with a weekly meeting, art director check-ins every two days and team reviews every two to three days") }], caption: tp("From group chats to one working system.") },
+          { images: [{ src: "/images/op-fig-reviews-v1.webp", alt: tp("Four review notes: every typeface has to earn its place, no lorem ipsum or placeholder names, design for the business not the mockup library, and show the two routes the client turned down") }], caption: tp("Notes from my review of the agency’s case studies.") },
         ],
       },
       {
@@ -159,7 +159,7 @@ export const caseStudies: CaseStudy[] = [
           tp("Product work needed its own conversation. A CTO buying a digital product has different priorities from a marketing lead commissioning a campaign, so we set up OP Labs as a separate offer. When SPLT came to us, I reshaped its brief into a staged product engagement and led the product design."),
         ],
         figures: [
-          { images: [{ src: "/images/op-fig-03-v3.webp", alt: tp("Two offers: OP for founders and marketing leads, OP Labs for CTOs and product owners") }], caption: tp("One agency, two offers.") },
+          { images: [{ src: "/images/op-fig-03-v4.webp", alt: tp("Two offers: the Overpowered lock-up over a street billboard for founders and marketing leads, and the OP Labs lock-up over a technical grid for CTOs and product owners") }], caption: tp("One agency, two offers.") },
         ],
       },
       {
@@ -170,7 +170,7 @@ export const caseStudies: CaseStudy[] = [
           tp("We tested elements in small Instagram campaigns in the UAE, the UK and Egypt before committing. The agency went on to use the identity for about a year."),
         ],
         figures: [
-          { images: [{ src: "/images/op-fig-09-v2.webp", alt: tp("Pages from the January 2025 brand guidelines: logomark, logo variations, OP Labs lock-up, colour, type and pattern") }], caption: tp("From the January 2025 brand guidelines.") },
+          { images: [{ src: "/images/op-fig-09-v3.webp", alt: tp("Pages from the January 2025 brand guidelines: logomark, logo variations, OP Labs lock-up, colour, type and pattern") }], caption: tp("From the January 2025 brand guidelines.") },
           { images: [{ src: "/images/op-billboard-v1.webp", alt: tp("Billboard: Transforming ideas into impactful designs, over a grainy black-and-white crowd with yellow value tags"), ratio: "1296 / 768" }] },
           { images: [{ src: "/images/op-social-1-v1.webp", alt: tp("Social post: When science and design collaborate"), ratio: "4 / 5" }, { src: "/images/op-social-2-v1.webp", alt: tp("Social post: Pushing boundaries"), ratio: "4 / 5" }, { src: "/images/op-social-3-v1.webp", alt: tp("Social post: Top notch design solutions"), ratio: "4 / 5" }], caption: tp("The identity in use, outdoors and on social media.") },
         ],
