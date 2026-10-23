@@ -44,10 +44,12 @@ export interface CaseStudy {
   intro?: string[]
   /** Scannable list of what the author personally led, shown in place of the impact line. */
   contributions?: { label: string; text: string }[]
+  /** Show "What I led" after this chapter instead of before the story. */
+  contributionsAfterChapter?: string
   /** Heading for the results list (defaults to "What Changed"). */
   resultsTitle?: string
   /** Optional story told in chapters; each chapter is followed by its own figures. Replaces the brief/turn/work blocks when present. */
-  chapters?: { label: string; summary?: string; lead?: string; paragraphs: string[]; figures?: { images: { src: string; alt: string; ratio?: string; /** Optional looping mp4; src becomes its poster. */ video?: string }[]; caption?: string }[] }[]
+  chapters?: { label: string; summary?: string; lead?: string; paragraphs: string[]; /** Show the figures above the chapter text. */ figuresFirst?: boolean; figures?: { images: { src: string; alt: string; ratio?: string; /** Optional looping mp4; src becomes its poster. */ video?: string }[]; caption?: string }[] }[]
   /** Optional external link, e.g. where to buy a published book. */
   buyLink?: { href: string; label: string }
 }
@@ -96,6 +98,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "Identity", text: tp("Directed the new identity with the team and contributed hands-on to selected elements.") },
       { label: "Website", text: tp("Led the immersive website direction and briefed the 3D, motion and UX/UI teams.") },
     ],
+    contributionsAfterChapter: "The team",
     resultsTitle: "Where Things Stood in June 2025",
     results: [
       tp("A team of about twenty-five, grown from six in seven months, led by two art directors"),
@@ -151,6 +154,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         label: "A clearer offer",
+        figuresFirst: true,
         paragraphs: [
           tp("With the CEO, I focused the agency on small and mid-sized businesses, where it already had relationships and relevant work. Six service areas became three: branding, web and app, and video. Website projects moved to Webflow and Framer, so clients could launch and maintain their sites more easily."),
           tp("Product work needed its own conversation. A CTO buying a digital product has different priorities from a marketing lead commissioning a campaign, so we set up OP Labs as a separate offer. When SPLT came to us, I reshaped its brief into a staged product engagement and led the product design."),

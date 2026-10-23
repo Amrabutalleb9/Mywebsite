@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { Fragment, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react"
@@ -71,6 +71,28 @@ export default function CaseStudyLayout({
       </figure>
     </FadeIn>
   )
+
+  const hasContributions = !!(project.contributions && project.contributions.length > 0)
+  const whatILed = hasContributions ? (
+      
+        <section className="wrap mb-28">
+          <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+            <FadeIn>
+              <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">What I led</h2>
+            </FadeIn>
+            <FadeIn as="div">
+              <ul className="grid grid-cols-1 gap-x-12 gap-y-10 sm:grid-cols-2">
+                {(project.contributions ?? []).map((item) => (
+                  <li key={item.label} className="border-t border-border pt-5">
+                    <h3 className="mb-2 font-serif text-2xl font-normal leading-snug tracking-tight text-foreground">{item.label}</h3>
+                    <p className="text-[0.9375rem] leading-relaxed text-muted-foreground">{item.text}</p>
+                  </li>
+                ))}
+              </ul>
+            </FadeIn>
+          </div>
+        </section>
+  ) : null
 
   return (
     <>
@@ -195,32 +217,20 @@ export default function CaseStudyLayout({
         </div>
       </section>
 
-      {/* What I led: the author's own contribution, before the story */}
-      {project.contributions && project.contributions.length > 0 && (
-        <section className="wrap mb-28">
-          <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
-            <FadeIn>
-              <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">What I led</h2>
-            </FadeIn>
-            <FadeIn as="div">
-              <ul className="grid grid-cols-1 gap-x-12 gap-y-10 sm:grid-cols-2">
-                {project.contributions.map((item) => (
-                  <li key={item.label} className="border-t border-border pt-5">
-                    <h3 className="mb-2 font-serif text-2xl font-normal leading-snug tracking-tight text-foreground">{item.label}</h3>
-                    <p className="text-[0.9375rem] leading-relaxed text-muted-foreground">{item.text}</p>
-                  </li>
-                ))}
-              </ul>
-            </FadeIn>
-          </div>
-        </section>
-      )}
+      {/* What I led: the author's own contribution. Before the story by default, or after a named chapter. */}
+      {hasContributions && !project.contributionsAfterChapter && whatILed}
 
       {project.chapters && project.chapters.length > 0 ? (
         /* Chapters: each part of the story followed by its own figures */
         <>
         {project.chapters.map((chapter, c) => (
-          <section key={chapter.label} className="mb-28">
+          <Fragment key={chapter.label}>
+          <section className="mb-28">
+            {chapter.figuresFirst && chapter.figures && chapter.figures.length > 0 && (
+              <div className="wrap-wide mb-16 flex flex-col gap-6">
+                {chapter.figures.map((row, r) => renderFigureRow(row, `${c + 1}.${r + 1}`))}
+              </div>
+            )}
             <div className="wrap">
               <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
                 <FadeIn>
@@ -245,12 +255,14 @@ export default function CaseStudyLayout({
                 </div>
               </div>
             </div>
-            {chapter.figures && chapter.figures.length > 0 && (
+            {!chapter.figuresFirst && chapter.figures && chapter.figures.length > 0 && (
               <div className="wrap-wide mt-16 flex flex-col gap-6">
                 {chapter.figures.map((row, r) => renderFigureRow(row, `${c + 1}.${r + 1}`))}
               </div>
             )}
           </section>
+          {hasContributions && project.contributionsAfterChapter === chapter.label && whatILed}
+          </Fragment>
         ))}
         {project.showcaseVideo && (
           <FadeIn className="wrap-wide mb-28">
