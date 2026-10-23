@@ -145,11 +145,14 @@ export const caseStudies: CaseStudy[] = [
         ],
         figures: [
           { images: [{ src: "/images/op-fig-06-v6.webp", alt: tp("Team: 25 people across five disciplines. Under the CEO and the Creative Director, an art director for branding, an art director for video, 2D and 3D, and UX/UI run directly, with copy shared with the CEO") }], caption: tp("Team structure. Roles only.") },
-          { images: [{ src: "/images/op-fig-review-v3.webp", alt: tp("The review: a Rocknest social post as first sent at 1:02 am on a dark background with a small product photo, beside the revision sent at 2:29 am on a light background with the table filling the frame, with three review notes and a sign-off at 3:29 am") }], caption: tp("My notes on a team post, and the revision that came back the same night.") },
         ],
       },
       {
         label: "How we worked",
+        figuresFirst: true,
+        figures: [
+          { images: [{ src: "/images/op-fig-review-v3.webp", alt: tp("The review: a Rocknest social post as first sent at 1:02 am on a dark background with a small product photo, beside the revision sent at 2:29 am on a light background with the table filling the frame, with three review notes and a sign-off at 3:29 am") }], caption: tp("My notes on a team post, and the revision that came back the same night.") },
+        ],
         paragraphs: [
           tp("Designers reported to their art directors, and the art directors reported to me. Every task had one owner and a deadline the whole team could see."),
           tp("Designers reviewed work with their art directors every day or two, and I reviewed it with the art directors each week. In reviews, designers explained their decisions before anyone else weighed in. When notes weren’t enough, I sat with the designer, opened the file and worked through the options together."),
