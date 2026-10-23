@@ -532,7 +532,7 @@ export default function CaseStudyLayout({
 
       {/* Prev / Next, before the CTA */}
       <div className="wrap">
-        <div className="flex items-stretch justify-between gap-4 border-b border-border pb-10">
+        <div className="flex items-stretch justify-between gap-4 pb-10">
           {prev ? (
             <Link href={`/work/${prev.slug}`} className="group flex flex-col gap-1 text-left">
               <span className="flex items-center gap-2 text-xs text-muted-foreground transition-colors group-hover:text-accent">
