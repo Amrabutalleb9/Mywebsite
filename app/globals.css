@@ -497,3 +497,67 @@ a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
   border-radius: 4px;
 }
 :is(.bg-primary, .bg-foreground, footer) :where(a, button, [role="button"], input, textarea):focus-visible { outline-color: var(--accent); }
+
+/* ── About, above the hero (Oct 2026, staging) ── */
+.about-dots {
+  background-image: radial-gradient(rgb(13 13 26 / 0.13) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+@media (min-width: 1280px) {
+  .about-dots { background-size: 32px 32px; }
+}
+/* The gold line draws itself once on load. */
+.ink-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: ink-draw 2.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+@keyframes ink-draw { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .ink-draw { animation: none; stroke-dashoffset: 0; }
+}
+/* The spine leaves the story column, crosses to the centre and drops into the hero.
+   --spine-x is the spine's left edge: the story column's padding plus its 4px inset. */
+.ink-turn {
+  --turn-r: 60px;
+  --w: 4px;
+  --spine-x: calc(max(0px, (100% - 672px) / 2) + 24px);
+  position: relative;
+  height: 150px;
+}
+@media (min-width: 640px) {
+  .ink-turn { --spine-x: calc(max(0px, (100% - 672px) / 2) + 36px); }
+}
+@media (min-width: 1280px) {
+  .ink-turn { --turn-r: 120px; --w: 5px; --spine-x: calc(max(0px, (100% - 1152px) / 2) + 54px); height: 300px; }
+}
+.ink-turn-a, .ink-turn-b { position: absolute; border: 0 solid var(--accent); box-sizing: border-box; }
+.ink-turn-a {
+  top: 0;
+  left: var(--spine-x);
+  width: calc(50% - var(--spine-x) - var(--turn-r) + var(--w) / 2);
+  height: calc(var(--turn-r) + 10px);
+  border-left-width: var(--w);
+  border-bottom-width: var(--w);
+  border-bottom-left-radius: var(--turn-r);
+}
+.ink-turn-b {
+  top: calc(var(--turn-r) + 10px - var(--w));
+  left: calc(50% - var(--turn-r) + var(--w) / 2);
+  width: var(--turn-r);
+  height: var(--turn-r);
+  border-top-width: var(--w);
+  border-right-width: var(--w);
+  border-top-right-radius: var(--turn-r);
+}
+.ink-turn-drop {
+  position: absolute;
+  top: calc(2 * var(--turn-r) + 10px - var(--w) - 6px);
+  left: 50%;
+  width: 21px;
+  height: 30px;
+  transform: translateX(-50%);
+}
+@media (min-width: 1280px) {
+  .ink-turn-drop { width: 26px; height: 38px; }
+}

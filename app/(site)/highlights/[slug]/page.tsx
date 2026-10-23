@@ -55,7 +55,7 @@ export default async function HighlightPage({
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://amrabutalleb.com" },
-      { "@type": "ListItem", position: 2, name: "Projects", item: "https://amrabutalleb.com/projects" },
+      { "@type": "ListItem", position: 2, name: "Work", item: "https://amrabutalleb.com/#work" },
       { "@type": "ListItem", position: 3, name: project.title, item: `https://amrabutalleb.com/highlights/${slug}` },
     ],
   }

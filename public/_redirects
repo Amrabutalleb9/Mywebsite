@@ -20,12 +20,18 @@
 /working-together/ /contact 301
 
 # Articles were retired (Oct 2026)
-/articles /about 301
-/articles/ /about 301
-/articles/* /about 301
+/articles / 301
+/articles/ / 301
+/articles/* / 301
 
 # Old CV filename
 /Amr_AbuTalleb_Resume.pdf /Amr_AbuTalleb_CV_Creative_Director.pdf 301
 
 # Hodel book became a full case study (Oct 2026)
 /highlights/steve-hodel /work/steve-hodel 301
+
+# About moved above the homepage hero, and the Projects page is hidden (Oct 2026, staging)
+/about /#about 301
+/about/ /#about 301
+/projects /#work 301
+/projects/ /#work 301

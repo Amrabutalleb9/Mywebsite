@@ -1,10 +1,11 @@
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowUpRight, ArrowRight } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 import { publishedTestimonials } from "@/lib/shared-data"
 import { publishedCaseStudies, projectHighlights } from "@/lib/projects"
 import { tp } from "@/lib/typeset"
 
+import AboutIntro from "@/components/homepage/about-intro"
 import HeroSection from "@/components/homepage/hero-section"
 import ServicesMarquee from "@/components/homepage/services-marquee"
 import TestimonialsWithStats from "@/components/homepage/testimonials-with-stats"
@@ -215,63 +216,8 @@ function WorkSection() {
       </div>
       )}
 
-      <ScrollReveal>
-        <div className="mt-12 flex justify-center border-b border-border pb-8">
-          <Link href="/projects" className="text-link inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase">
-            All&nbsp;Projects
-            <ArrowUpRight size={14} />
-          </Link>
-        </div>
-      </ScrollReveal>
-    </section>
-  )
-}
-
-/* ─── About ───────────────────────────────────────── */
-
-function About() {
-  return (
-    <section id="about" className="px-8 pt-32 lg:px-16 lg:pt-48">
-      <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-center lg:gap-24">
-          <ScrollReveal className="w-full max-w-[420px] lg:w-[38%] lg:shrink-0">
-            <div className="portrait-wrap overflow-hidden rounded-full">
-              <Image
-                src="/images/amr-portrait-v3.webp"
-                alt="Amr Abu-Talleb portrait"
-                width={600}
-                height={600}
-                className="aspect-square w-full object-cover grayscale"
-              />
-            </div>
-          </ScrollReveal>
-
-          <div className="lg:w-[50%] lg:max-w-[36rem]">
-            <ScrollReveal>
-              <SubHeader label="About" />
-              <h2 className="mb-8 font-serif text-[length:var(--text-section)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground">
-                {"I\u2019m Amr Abu-Talleb."}
-              </h2>
-            </ScrollReveal>
-            <ScrollReveal delay={0.1}>
-              <p className="mb-6 text-[1.0625rem] leading-relaxed text-muted-foreground">
-                {tp("I started with a pen, drawing Arabic and Latin letters by hand until every curve sat right. Thirteen years on, I bring the same attention to bigger things: the brand, campaign and product teams I lead, and the way they work together.")}
-              </p>
-            </ScrollReveal>
-            <ScrollReveal delay={0.15}>
-              <p className="mb-8 text-[1.0625rem] leading-relaxed text-muted-foreground">
-                {"Today that\u2019s a\u00A025-person team across design, product, video, support and\u00A0PR, with five or\u00A0six projects live at\u00A0once."}
-              </p>
-              <Link href="/about" className="text-link inline-flex items-center gap-2 text-sm font-medium text-foreground">
-                About Amr Abu-Talleb
-                <ArrowRight size={14} />
-              </Link>
-            </ScrollReveal>
-
-          </div>
-        </div>
-
-      </div>
+      {/* The Projects page is hidden on staging (Oct 2026), so the section closes on its divider. */}
+      <div className="mt-12 border-b border-border" />
     </section>
   )
 }
@@ -281,10 +227,10 @@ function About() {
 export default function Home() {
   return (
     <main>
+      <AboutIntro />
       <HeroSection />
       <ServicesMarquee />
       <WorkSection />
-      <About />
       <TestimonialsWithStats testimonials={publishedTestimonials} stats={stats} />
     </main>
   )

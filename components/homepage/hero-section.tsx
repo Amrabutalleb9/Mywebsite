@@ -23,8 +23,8 @@ export default function HeroSection() {
     <>
       <InfiniteGrid className="flex min-h-[calc(100svh-4.5rem)] flex-col items-center justify-center bg-background px-8 pb-[clamp(1.25rem,3svh,3rem)] pt-[clamp(6rem,14svh,8.75rem)] lg:px-16">
         <div className="w-full text-center">
-          <h1 className="mx-auto max-w-[18ch] font-serif text-[length:var(--text-hero)] leading-[1.02] font-normal tracking-[var(--tracking-display)] text-balance text-foreground lg:max-w-none">
-            {/* The name sits in the h1 (as the eyebrow) so search engines and screen readers get it first. */}
+          <h2 className="mx-auto max-w-[18ch] font-serif text-[length:var(--text-hero)] leading-[1.02] font-normal tracking-[var(--tracking-display)] text-balance text-foreground lg:max-w-none">
+            {/* About now opens the page with the h1, so the hero headline is an h2. */}
             <span
               className="hero-line mb-[clamp(1rem,3svh,2rem)] block font-sans text-xs leading-normal font-medium tracking-[var(--tracking-label)] text-accent uppercase"
               style={{ "--i": 0 } as React.CSSProperties}
@@ -42,7 +42,7 @@ export default function HeroSection() {
                 {i < heroLines.length - 1 ? " " : null}
               </span>
             ))}
-          </h1>
+          </h2>
         </div>
 
         <div

@@ -119,7 +119,7 @@ export default function RootLayout({
                 credentialCategory: "certificate",
                 recognizedBy: { "@type": "Organization", name: "Google" },
               },
-              mainEntityOfPage: "https://amrabutalleb.com/about",
+              mainEntityOfPage: "https://amrabutalleb.com/",
               url: "https://amrabutalleb.com",
               email: "hello@amrabutalleb.com",
               sameAs: ["https://www.linkedin.com/in/abutalleb/"],
