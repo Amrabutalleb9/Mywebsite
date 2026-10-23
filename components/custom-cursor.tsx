@@ -1,264 +1,125 @@
 "use client"
 
-import { useEffect, useRef, useState, useCallback } from "react"
+import { useEffect, useRef, useState } from "react"
 
-const DOT_EASE = 0.5
-const RING_EASE = 0.14
-const IDLE_THRESHOLD = 0.4
-/* The custom cursor only appears over these. Everywhere else the system cursor is used. */
-const INTERACTIVE = 'a, button, [role="button"], [data-cursor-label], select, label[for]'
+/* A label tooltip that follows the pointer over elements with data-cursor-label (project cards and
+   media). Everywhere else, links included, the normal system cursor is used and nothing is drawn. */
+const LABELLED = "[data-cursor-label]"
+const EASE = 0.35
 
-function canUseCustomCursor() {
+function canUseCursorLabel() {
   if (typeof window === "undefined") return false
   const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0
-  return finePointer && !reducedMotion && !isTouch
+  return finePointer && !reducedMotion
 }
 
 export default function CustomCursor() {
   const [enabled, setEnabled] = useState(false)
-  const dotWrapperRef = useRef<HTMLDivElement>(null)
-  const ringRef = useRef<HTMLDivElement>(null)
-  const dotRef = useRef<HTMLDivElement>(null)
-  const labelSpanRef = useRef<HTMLSpanElement>(null)
-  const posRef = useRef({ x: -100, y: -100 })
-  const dotSmoothRef = useRef({ x: -100, y: -100 })
-  const ringSmoothRef = useRef({ x: -100, y: -100 })
-  const labelRef = useRef("")
-  const visibleRef = useRef(false)
-  const animatingRef = useRef(false)
-  const rafRef = useRef<number>(0)
-
-  const findCursorLabel = useCallback((el: HTMLElement | null): string => {
-    while (el && el instanceof Element) {
-      const val = el.getAttribute("data-cursor-label")
-      if (val) return val
-      if (el.getAttribute("data-cursor-none") !== null) return ""
-      el = el.parentElement
-    }
-    return ""
-  }, [])
-
-  const snapTo = useCallback((x: number, y: number) => {
-    posRef.current.x = x
-    posRef.current.y = y
-    dotSmoothRef.current.x = x
-    dotSmoothRef.current.y = y
-    ringSmoothRef.current.x = x
-    ringSmoothRef.current.y = y
-  }, [])
+  const tipRef = useRef<HTMLDivElement>(null)
+  const textRef = useRef<HTMLSpanElement>(null)
 
   useEffect(() => {
-    const updateEnabled = () => setEnabled(canUseCustomCursor())
-    updateEnabled()
-
-    const finePointerMq = window.matchMedia("(hover: hover) and (pointer: fine)")
-    const reducedMotionMq = window.matchMedia("(prefers-reduced-motion: reduce)")
-    finePointerMq.addEventListener("change", updateEnabled)
-    reducedMotionMq.addEventListener("change", updateEnabled)
-
+    const update = () => setEnabled(canUseCursorLabel())
+    update()
+    const a = window.matchMedia("(hover: hover) and (pointer: fine)")
+    const b = window.matchMedia("(prefers-reduced-motion: reduce)")
+    a.addEventListener("change", update)
+    b.addEventListener("change", update)
     return () => {
-      finePointerMq.removeEventListener("change", updateEnabled)
-      reducedMotionMq.removeEventListener("change", updateEnabled)
+      a.removeEventListener("change", update)
+      b.removeEventListener("change", update)
     }
   }, [])
 
   useEffect(() => {
     if (!enabled) return
-
     document.documentElement.classList.add("cursor-active")
 
-    const lerp = (a: number, b: number, t: number) => a + (b - a) * t
+    const target = { x: -200, y: -200 }
+    const pos = { x: -200, y: -200 }
+    let raf = 0
+    let running = false
+    let label = ""
 
-    const applyTransforms = () => {
-      const dot = dotSmoothRef.current
-      const ring = ringSmoothRef.current
-
-      if (dotWrapperRef.current) {
-        dotWrapperRef.current.style.transform = `translate3d(${dot.x}px, ${dot.y}px, 0) translate(-50%, -50%)`
-      }
-      if (ringRef.current) {
-        ringRef.current.style.transform = `translate3d(${ring.x}px, ${ring.y}px, 0) translate(-50%, -50%)`
-      }
+    const place = () => {
+      if (tipRef.current) tipRef.current.style.transform = `translate3d(${pos.x}px, ${pos.y}px, 0) translate(-50%, -50%)`
     }
-
-    const animate = () => {
-      const target = posRef.current
-      const dot = dotSmoothRef.current
-      const ring = ringSmoothRef.current
-
-      dot.x = lerp(dot.x, target.x, DOT_EASE)
-      dot.y = lerp(dot.y, target.y, DOT_EASE)
-      ring.x = lerp(ring.x, target.x, RING_EASE)
-      ring.y = lerp(ring.y, target.y, RING_EASE)
-
-      applyTransforms()
-
-      const dotDelta = Math.abs(dot.x - target.x) + Math.abs(dot.y - target.y)
-      const ringDelta = Math.abs(ring.x - target.x) + Math.abs(ring.y - target.y)
-
-      if (dotDelta < IDLE_THRESHOLD && ringDelta < IDLE_THRESHOLD) {
-        animatingRef.current = false
+    const tick = () => {
+      pos.x += (target.x - pos.x) * EASE
+      pos.y += (target.y - pos.y) * EASE
+      place()
+      if (Math.abs(target.x - pos.x) + Math.abs(target.y - pos.y) < 0.3) {
+        running = false
         return
       }
-
-      rafRef.current = requestAnimationFrame(animate)
+      raf = requestAnimationFrame(tick)
     }
-
-    const startAnimation = () => {
-      if (animatingRef.current) return
-      animatingRef.current = true
-      rafRef.current = requestAnimationFrame(animate)
+    const run = () => {
+      if (running) return
+      running = true
+      raf = requestAnimationFrame(tick)
     }
-
-    const showCursor = (x: number, y: number) => {
-      snapTo(x, y)
-      applyTransforms()
-      visibleRef.current = true
-      if (dotWrapperRef.current) dotWrapperRef.current.style.opacity = "1"
-      if (ringRef.current) ringRef.current.style.opacity = labelRef.current ? "0" : "1"
-      if (dotRef.current) {
-        dotRef.current.style.width = "12px"
-        dotRef.current.style.height = "12px"
+    const show = (text: string, x: number, y: number) => {
+      if (!label) {
+        // Appear where the pointer is, not where it was last seen.
+        pos.x = target.x = x
+        pos.y = target.y = y
+        place()
       }
-      startAnimation()
-    }
-
-    const setLabel = (newLabel: string) => {
-      if (newLabel === labelRef.current) return
-      labelRef.current = newLabel
-      const hasLabel = newLabel.length > 0
-
-      if (ringRef.current) {
-        ringRef.current.style.opacity = hasLabel ? "0" : visibleRef.current ? "1" : "0"
-      }
-      if (dotRef.current) {
-        if (hasLabel) {
-          dotRef.current.style.width = "auto"
-          dotRef.current.style.height = "auto"
-          dotRef.current.style.padding = "14px 22px"
-        } else {
-          dotRef.current.style.width = "12px"
-          dotRef.current.style.height = "12px"
-          dotRef.current.style.padding = "0"
-        }
-      }
-      if (labelSpanRef.current) {
-        labelSpanRef.current.textContent = newLabel
-        labelSpanRef.current.style.opacity = hasLabel ? "1" : "0"
-        labelSpanRef.current.style.transform = hasLabel ? "scale(1)" : "scale(0.8)"
+      if (text !== label && textRef.current) textRef.current.textContent = text
+      label = text
+      if (tipRef.current) {
+        tipRef.current.style.opacity = "1"
+        tipRef.current.dataset.on = "true"
       }
     }
-
-    /* Invert the cursor over dark surfaces (footer, filled buttons, dark cards) so it never disappears. */
-    let lastTarget: Element | null = null
-    let onDark = false
-    const isDarkSurface = (el: Element | null): boolean => {
-      while (el && el instanceof Element && el !== document.documentElement) {
-        if ((el as HTMLElement).dataset?.cursorInvert !== undefined) return true
-        const bg = getComputedStyle(el).backgroundColor
-        const m = bg.match(/rgba?\(([\d.]+),\s*([\d.]+),\s*([\d.]+)(?:,\s*([\d.]+))?\)/)
-        if (m && (m[4] === undefined || parseFloat(m[4]) > 0.5)) {
-          const [r, g, b] = [m[1], m[2], m[3]].map(Number)
-          return 0.2126 * r + 0.7152 * g + 0.0722 * b < 110
-        }
-        el = el.parentElement
+    const hide = () => {
+      label = ""
+      if (tipRef.current) {
+        tipRef.current.style.opacity = "0"
+        tipRef.current.dataset.on = "false"
       }
-      return false
-    }
-    const setTone = (dark: boolean) => {
-      if (dark === onDark) return
-      onDark = dark
-      const fg = dark ? "var(--background)" : "var(--foreground)"
-      const bg = dark ? "var(--foreground)" : "var(--background)"
-      if (ringRef.current) ringRef.current.style.borderColor = fg
-      if (dotRef.current) dotRef.current.style.backgroundColor = fg
-      if (labelSpanRef.current) labelSpanRef.current.style.color = bg
     }
 
     const onMove = (e: MouseEvent) => {
-      posRef.current.x = e.clientX
-      posRef.current.y = e.clientY
-
-      if (!(e.target as Element)?.closest?.(INTERACTIVE)) {
-        if (visibleRef.current) onLeave()
-        lastTarget = null
-        return
+      target.x = e.clientX
+      target.y = e.clientY
+      const el = (e.target as Element | null)?.closest?.(LABELLED) as HTMLElement | null
+      const text = el?.getAttribute("data-cursor-label") ?? ""
+      if (text) {
+        show(text, e.clientX, e.clientY)
+        run()
+      } else if (label) {
+        hide()
       }
-      if (!visibleRef.current) showCursor(e.clientX, e.clientY)
-      else startAnimation()
-
-      setLabel(findCursorLabel(e.target as HTMLElement))
-      if (e.target !== lastTarget) {
-        lastTarget = e.target as Element
-        setTone(isDarkSurface(lastTarget))
-      }
-    }
-
-    const onLeave = () => {
-      visibleRef.current = false
-      animatingRef.current = false
-      cancelAnimationFrame(rafRef.current)
-      if (dotWrapperRef.current) dotWrapperRef.current.style.opacity = "0"
-      if (ringRef.current) ringRef.current.style.opacity = "0"
-      if (dotRef.current) {
-        dotRef.current.style.width = "0"
-        dotRef.current.style.height = "0"
-      }
-    }
-
-    const onEnter = (e: MouseEvent) => {
-      if (!(e.target as Element)?.closest?.(INTERACTIVE)) return
-      showCursor(e.clientX, e.clientY)
-      setLabel(findCursorLabel(e.target as HTMLElement))
     }
 
     document.addEventListener("mousemove", onMove, { passive: true })
-    document.addEventListener("mouseleave", onLeave)
-    document.addEventListener("mouseenter", onEnter)
-
+    document.addEventListener("mouseleave", hide)
+    window.addEventListener("scroll", hide, { passive: true })
     return () => {
       document.documentElement.classList.remove("cursor-active")
-      animatingRef.current = false
-      cancelAnimationFrame(rafRef.current)
+      cancelAnimationFrame(raf)
       document.removeEventListener("mousemove", onMove)
-      document.removeEventListener("mouseleave", onLeave)
-      document.removeEventListener("mouseenter", onEnter)
+      document.removeEventListener("mouseleave", hide)
+      window.removeEventListener("scroll", hide)
     }
-  }, [enabled, findCursorLabel, snapTo])
+  }, [enabled])
 
   if (!enabled) return null
 
-  const morphTransition =
-    "width 0.2s cubic-bezier(0.23, 1, 0.32, 1), height 0.2s cubic-bezier(0.23, 1, 0.32, 1), padding 0.2s cubic-bezier(0.23, 1, 0.32, 1), background-color 0.2s ease"
-
   return (
-    <>
-      <div
-        ref={ringRef}
-        aria-hidden="true"
-        className="pointer-events-none fixed top-0 left-0 z-[9998] hidden size-9 rounded-full border border-foreground md:block"
-        style={{ opacity: 0, willChange: "transform, opacity", transition: "opacity 0.15s ease, border-color 0.2s ease" }}
+    <div
+      ref={tipRef}
+      aria-hidden="true"
+      className="cursor-tip pointer-events-none fixed top-0 left-0 z-[9999] hidden md:block"
+      style={{ opacity: 0, willChange: "transform, opacity", transition: "opacity 0.18s ease" }}
+    >
+      <span
+        ref={textRef}
+        className="block whitespace-nowrap rounded-full bg-foreground px-5 py-3 text-[11px] font-medium tracking-[var(--tracking-label)] text-background uppercase shadow-[0_10px_30px_-10px_rgba(13,13,26,0.45)]"
       />
-      <div
-        ref={dotWrapperRef}
-        aria-hidden="true"
-        className="pointer-events-none fixed top-0 left-0 z-[9999] hidden md:block"
-        style={{ opacity: 0, willChange: "transform", transition: "opacity 0.15s ease" }}
-      >
-        <div
-          ref={dotRef}
-          className="flex items-center justify-center rounded-full bg-foreground"
-          style={{ width: 0, height: 0, padding: 0, transition: morphTransition }}
-        >
-          <span
-            ref={labelSpanRef}
-            className="whitespace-nowrap text-center text-[10px] font-medium tracking-[var(--tracking-label)] text-background uppercase"
-            style={{ opacity: 0, transform: "scale(0.8)", transition: "opacity 0.12s ease, transform 0.12s ease" }}
-          />
-        </div>
-      </div>
-    </>
+    </div>
   )
 }

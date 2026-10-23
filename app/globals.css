@@ -412,10 +412,11 @@ a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
   box-shadow: 0 16px 40px -12px rgba(13, 13, 26, 0.15);
 }
 
-/* ─── Custom cursor: only over links, buttons and project cards. Everywhere else the system cursor shows. ─── */
+/* ─── Cursor label: only over elements with data-cursor-label (project cards and media), where the label
+   tooltip replaces the pointer. Links and everything else keep the system cursor. ─── */
 @media (pointer: fine) {
-  .cursor-active :is(a, button, [role="button"], [data-cursor-label], select, label[for]),
-  .cursor-active :is(a, button, [role="button"], [data-cursor-label]) * { cursor: none !important; }
+  .cursor-active [data-cursor-label],
+  .cursor-active [data-cursor-label] * { cursor: none !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {

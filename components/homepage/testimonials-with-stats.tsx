@@ -55,7 +55,7 @@ function StatsStrip({ stats }: { stats: Stat[] }) {
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { amount: 0.5 })
   return (
-    <div ref={ref} className="mt-24 grid grid-cols-2 border-t border-border lg:mt-32 lg:grid-cols-4">
+    <div ref={ref} className="mt-16 grid grid-cols-2 border-t border-border lg:mt-20 lg:grid-cols-4">
       {stats.map((s, i) => (
         <div
           key={s.label}
@@ -106,9 +106,10 @@ export default function TestimonialsWithStats({
   const current = testimonials[active]
 
   return (
-    <section className="px-8 pt-32 pb-16 lg:px-16 lg:pt-48 lg:pb-24" aria-labelledby="testimonials-heading">
-      <ScrollReveal>
-        <div className="mb-4 flex items-center gap-3">
+    <section className="px-8 pt-20 pb-16 lg:px-16 lg:pt-28 lg:pb-24" aria-labelledby="testimonials-heading">
+      {/* Heading sits on the right so the eye runs from it down into the quote on the left. */}
+      <ScrollReveal className="flex flex-col items-start lg:items-end lg:text-right">
+        <div className="mb-4 flex items-center gap-3 lg:flex-row-reverse">
           <div className="h-px w-8 bg-accent" />
           <span className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Testimonials</span>
         </div>
@@ -119,7 +120,7 @@ export default function TestimonialsWithStats({
 
       <div
         ref={regionRef}
-        className="mt-16 lg:mt-24"
+        className="mt-8 lg:-mt-6"
         role="region"
         aria-roledescription="carousel"
         aria-label="Testimonials"
@@ -134,22 +135,22 @@ export default function TestimonialsWithStats({
           if (e.key === "ArrowLeft") { e.preventDefault(); go(active - 1) }
         }}
       >
-        <span aria-hidden="true" className="block h-10 font-serif text-[7rem] leading-[0.75] text-accent lg:h-14 lg:text-[10rem]">
+        <span aria-hidden="true" className="block h-8 font-serif text-[5.5rem] leading-[0.75] text-accent lg:h-11 lg:text-[7.5rem]">
           {"“"}
         </span>
 
         {/* Every quote is laid out invisibly in the same cell, so the block is as tall as the longest
             one and the page never jumps when the quote changes. */}
-        <div className="mt-6 grid max-w-[60rem]">
+        <div className="mt-4 grid max-w-[56rem]">
           {testimonials.map((t, i) => (
-            <p key={i} aria-hidden="true" className="invisible col-start-1 row-start-1 font-serif text-[clamp(1.625rem,3vw,3rem)] leading-[1.22] tracking-tight">
+            <p key={i} aria-hidden="true" className="invisible col-start-1 row-start-1 font-serif text-[clamp(1.5rem,2.6vw,2.625rem)] leading-[1.22] tracking-tight">
               {t.text}
             </p>
           ))}
           <AnimatePresence mode="wait" initial={false}>
             <motion.blockquote
               key={active}
-              className="col-start-1 row-start-1 font-serif text-[clamp(1.625rem,3vw,3rem)] leading-[1.22] tracking-tight text-foreground"
+              className="col-start-1 row-start-1 font-serif text-[clamp(1.5rem,2.6vw,2.625rem)] leading-[1.22] tracking-tight text-foreground"
               initial={reduced ? { opacity: 0 } : { opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE_OUT } }}
               exit={{ opacity: 0, transition: { duration: 0.2 } }}
@@ -160,7 +161,7 @@ export default function TestimonialsWithStats({
           </AnimatePresence>
         </div>
 
-        <div className="mt-12 flex items-end justify-between gap-6 border-t border-border pt-7 lg:mt-14">
+        <div className="mt-8 flex items-end justify-between gap-6 border-t border-border pt-6 lg:mt-10">
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={active}
@@ -206,7 +207,7 @@ export default function TestimonialsWithStats({
         </div>
 
         {/* Index of names: the navigation */}
-        <div className="-mx-8 mt-16 overflow-x-auto px-8 lg:mx-0 lg:mt-24 lg:overflow-visible lg:px-0">
+        <div className="-mx-8 mt-10 overflow-x-auto px-8 lg:mx-0 lg:mt-14 lg:overflow-visible lg:px-0">
           <ol className="flex min-w-max border-t border-foreground lg:grid lg:min-w-0" style={{ gridTemplateColumns: `repeat(${count}, minmax(0, 1fr))` }}>
             {testimonials.map((t, i) => {
               const on = i === active
