@@ -3,7 +3,7 @@ import Image from "next/image"
 import { ArrowDown, ArrowRight } from "lucide-react"
 import { capabilities } from "@/lib/shared-data"
 import { tp } from "@/lib/typeset"
-import ScrollReveal from "@/components/homepage/scroll-reveal"
+import InkScroll from "@/components/homepage/ink-scroll"
 import { InfiniteGrid } from "@/components/ui/infinite-grid"
 
 /* About, above the hero (Oct 2026, staging). The /about page was folded in here.
@@ -52,13 +52,12 @@ const story = [
 
 const headingWords = ["Close", "to", "the", "craft.", "Closer", "to", "the people."]
 
-/* The story spine: one gold rule per grid row, so it runs unbroken down the section. */
-function Spine({ dot, dotTop = "" }: { dot?: boolean; dotTop?: string }) {
+/* The story spine: one gold rule per grid row, so it runs unbroken down the section.
+   With JavaScript, InkScroll hides the rule and grows the fill span as you scroll. */
+function Spine() {
   return (
-    <div aria-hidden="true" className="relative ml-1 border-l-4 border-accent xl:ml-[54px] xl:border-l-[5px]">
-      {dot && (
-        <span className={`absolute -left-[10px] h-4 w-4 rounded-full bg-accent xl:-left-[14px] xl:h-[23px] xl:w-[23px] ${dotTop}`} />
-      )}
+    <div aria-hidden="true" data-ink-cell className="ink-cell relative ml-1 border-l-4 border-accent xl:ml-[54px] xl:border-l-[5px]">
+      <span className="ink-fill" />
     </div>
   )
 }
@@ -105,6 +104,7 @@ export default function AboutIntro() {
     <section id="about" className="scroll-mt-20 bg-background" aria-labelledby="about-heading">
       {/* Same moving grid as the hero, so About and the hero read as one surface. */}
       <InfiniteGrid className="bg-background pt-[4.5rem]">
+      <InkScroll>
       {/* ── Opener: one heading for every width. From xl the text sits beside the portrait. ── */}
       <div className="relative mx-auto max-w-[1440px] xl:h-[880px] xl:overflow-hidden">
         <svg role="img" aria-label="Amr Abu-Talleb portrait" viewBox="0 0 1440 880" preserveAspectRatio="xMidYMin slice" className="pointer-events-none absolute inset-0 hidden h-full w-full xl:block">
@@ -115,7 +115,7 @@ export default function AboutIntro() {
           <circle cx="450" cy="445" r="262" fill="none" stroke="var(--accent)" strokeOpacity="0.6" strokeWidth="1.2" />
         </svg>
         <svg aria-hidden="true" viewBox="0 0 1440 880" preserveAspectRatio="xMidYMin slice" className="pointer-events-none absolute inset-0 hidden h-full w-full xl:block">
-          <path className="ink-draw" pathLength={1} d="M -40 140 C 340 60, 760 220, 712 470 C 676 660, 420 735, 290 690 C 205 660, 200 760, 200 880" fill="none" stroke="var(--accent)" strokeWidth="5" strokeLinecap="round" />
+          <path data-ink-opener className="ink-opener" pathLength={1} d="M -40 140 C 340 60, 760 220, 712 470 C 676 660, 420 735, 290 690 C 205 660, 200 760, 200 880" fill="none" stroke="var(--accent)" strokeWidth="5" strokeLinecap="round" />
         </svg>
 
         <div className="mx-auto max-w-2xl px-5 pt-8 sm:px-8 xl:hidden">
@@ -149,9 +149,10 @@ export default function AboutIntro() {
             const reverse = i % 2 === 1
             return (
               <div key={s.img} className="contents">
-                <Spine dot={i === 0} dotTop="top-7 xl:top-[140px]" />
-                <ScrollReveal
-                  className={`flex flex-col gap-4 py-6 pl-4 xl:items-center xl:gap-x-[72px] xl:gap-y-8 xl:py-10 xl:pl-8 ${reverse ? "items-end xl:flex-row-reverse" : "items-start xl:flex-row"}`}
+                <Spine />
+                <div
+                  data-ink-step
+                  className={`ink-step flex flex-col gap-4 py-6 pl-4 xl:items-center xl:gap-x-[72px] xl:gap-y-8 xl:py-10 xl:pl-8 ${reverse ? "items-end xl:flex-row-reverse" : "items-start xl:flex-row"}`}
                 >
                   <Image
                     src={s.img}
@@ -171,14 +172,14 @@ export default function AboutIntro() {
                   >
                     {tp(s.text)}
                   </p>
-                </ScrollReveal>
+                </div>
               </div>
             )
           })}
 
           {/* Proudest */}
-          <Spine dot dotTop="top-6 xl:top-[60px]" />
-          <ScrollReveal className="pt-6 pb-10 pl-4 xl:pt-12 xl:pb-[88px] xl:pl-8">
+          <Spine />
+          <div data-ink-step className="ink-step pt-6 pb-10 pl-4 xl:pt-12 xl:pb-[88px] xl:pl-8">
             <Image
               src="/images/about-ink-crowd-v1.webp"
               alt="Brush-and-ink drawing of a row of people, a few out front with megaphones leading their own groups"
@@ -195,27 +196,27 @@ export default function AboutIntro() {
                 {tp("Over the years I’ve hired more than fifty people. I’ve never wanted everyone to work the way I do. I’d rather give people the standard, the context and the responsibility to find their own way of doing it well.")}
               </p>
             </div>
-          </ScrollReveal>
+          </div>
 
           {/* What I do */}
           <Spine />
           <div className="pb-10 pl-4 xl:pb-[72px] xl:pl-8">
-            <ScrollReveal>
+            <div data-ink-step className="ink-step">
               <p className="mb-4 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/50 uppercase xl:mb-6">What I do</p>
-            </ScrollReveal>
+            </div>
             <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3 xl:gap-4">
-              {capabilities.map((cap, i) => (
-                <ScrollReveal key={cap.title} delay={(i % 3) * 0.08} className="rounded-sm border border-border bg-background p-5 xl:p-[26px]">
+              {capabilities.map((cap) => (
+                <div key={cap.title} data-ink-step className="ink-step rounded-sm border border-border bg-background p-5 xl:p-[26px]">
                   <h3 className="mb-2 font-serif text-[1.375rem] leading-[1.2] font-normal text-foreground xl:mb-2.5 xl:text-2xl">{cap.title}</h3>
                   <p className="text-sm leading-relaxed text-muted-foreground">{cap.desc}</p>
-                </ScrollReveal>
+                </div>
               ))}
             </div>
           </div>
 
           {/* Closing */}
           <Spine />
-          <ScrollReveal className="flex flex-col gap-4 pb-6 pl-4 xl:flex-row xl:flex-wrap xl:items-end xl:justify-between xl:gap-x-16 xl:gap-y-6 xl:pb-12 xl:pl-8">
+          <div data-ink-step className="ink-step flex flex-col gap-4 pb-6 pl-4 xl:flex-row xl:flex-wrap xl:items-end xl:justify-between xl:gap-x-16 xl:gap-y-6 xl:pb-12 xl:pl-8">
             <p className="max-w-[34ch] font-serif text-2xl leading-[1.3] tracking-[-0.02em] text-foreground xl:flex-[999_1_520px] xl:text-[2rem]">
               {tp("That’s the role I’m looking for next: creative leadership in Europe, remote or on-site, where strategy, craft and team development belong together.")}
             </p>
@@ -226,18 +227,25 @@ export default function AboutIntro() {
                 <a href={`mailto:${EMAIL}`} className="inline-flex min-h-11 items-center border-b border-accent text-foreground">Email</a>
               </div>
             </div>
-          </ScrollReveal>
+          </div>
         </div>
       </div>
 
       {/* ── The spine turns towards the hero and ends in an ink drop ── */}
-      <div aria-hidden="true" className="ink-turn">
+      <div aria-hidden="true" data-ink-turn className="ink-turn">
+        <svg data-ink-turn-svg className="ink-turn-svg" preserveAspectRatio="none">
+          <path data-ink-turn-path pathLength={1} d="M 0 0" fill="none" stroke="var(--accent)" strokeWidth="4" strokeLinecap="round" />
+          <g data-ink-drop style={{ opacity: 0, transition: "opacity 0.3s" }}>
+            <path d="M 13 0 C 19.6 11, 26 17.6, 26 25.3 A 13 13 0 1 1 0 25.3 C 0 17.6, 6.4 11, 13 0 Z" fill="var(--accent)" />
+          </g>
+        </svg>
         <span className="ink-turn-a" />
         <span className="ink-turn-b" />
         <svg viewBox="0 0 26 38" className="ink-turn-drop">
           <path d="M 13 0 C 19.6 11, 26 17.6, 26 25.3 A 13 13 0 1 1 0 25.3 C 0 17.6, 6.4 11, 13 0 Z" fill="var(--accent)" />
         </svg>
       </div>
+      </InkScroll>
       </InfiniteGrid>
     </section>
   )
