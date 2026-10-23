@@ -301,8 +301,8 @@ export const caseStudies: CaseStudy[] = [
       { src: "/images/split-process-2-v2.webp", alt: "The addition: trainer video management in the dashboard, beside the trainer profile members subscribe from" },
     ],
     showcaseVideo: {
-      mp4: "/videos/split-showcase-v3.mp4",
-      poster: "/images/split-showcase-poster-v3.webp",
+      mp4: "/videos/split-showcase-v2-c1.mp4",
+      poster: "/images/split-showcase-poster-v2.webp",
       alt: "Three SPLT screens in motion: workout discovery scrolling, a trainer profile, and goals and achievements with level badges",
     },
     galleryImages: [
