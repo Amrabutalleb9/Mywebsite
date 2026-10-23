@@ -499,13 +499,6 @@ a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
 :is(.bg-primary, .bg-foreground, footer) :where(a, button, [role="button"], input, textarea):focus-visible { outline-color: var(--accent); }
 
 /* ── About, above the hero (Oct 2026, staging) ── */
-.about-dots {
-  background-image: radial-gradient(rgb(13 13 26 / 0.13) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-@media (min-width: 1280px) {
-  .about-dots { background-size: 32px 32px; }
-}
 /* The gold line draws itself once on load. */
 .ink-draw {
   stroke-dasharray: 1;

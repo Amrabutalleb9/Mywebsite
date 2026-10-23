@@ -4,6 +4,7 @@ import { ArrowDown, ArrowRight } from "lucide-react"
 import { capabilities } from "@/lib/shared-data"
 import { tp } from "@/lib/typeset"
 import ScrollReveal from "@/components/homepage/scroll-reveal"
+import { InfiniteGrid } from "@/components/ui/infinite-grid"
 
 /* About, above the hero (Oct 2026, staging). The /about page was folded in here.
    Desktop (xl+): the gold line sweeps across the portrait and lands on the story spine.
@@ -101,11 +102,9 @@ const lead = tp("I’m Amr Abu-Talleb. Before I directed teams, I drew Arabic ca
 
 export default function AboutIntro() {
   return (
-    <section
-      id="about"
-      className="about-dots scroll-mt-20 bg-background pt-[4.5rem]"
-      aria-labelledby="about-heading"
-    >
+    <section id="about" className="scroll-mt-20 bg-background" aria-labelledby="about-heading">
+      {/* Same moving grid as the hero, so About and the hero read as one surface. */}
+      <InfiniteGrid className="bg-background pt-[4.5rem]">
       {/* ── Opener: one heading for every width. From xl the text sits beside the portrait. ── */}
       <div className="relative mx-auto max-w-[1440px] xl:h-[880px] xl:overflow-hidden">
         <svg role="img" aria-label="Amr Abu-Talleb portrait" viewBox="0 0 1440 880" preserveAspectRatio="xMidYMin slice" className="pointer-events-none absolute inset-0 hidden h-full w-full xl:block">
@@ -239,6 +238,7 @@ export default function AboutIntro() {
           <path d="M 13 0 C 19.6 11, 26 17.6, 26 25.3 A 13 13 0 1 1 0 25.3 C 0 17.6, 6.4 11, 13 0 Z" fill="var(--accent)" />
         </svg>
       </div>
+      </InfiniteGrid>
     </section>
   )
 }
