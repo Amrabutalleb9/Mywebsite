@@ -161,7 +161,7 @@ export default function TestimonialsWithStats({
                       aria-current={on ? "true" : undefined}
                       className={`flex w-full items-baseline gap-4 rounded-full border px-4 py-2 text-left text-sm whitespace-nowrap transition-colors duration-300 lg:rounded-none lg:border-0 lg:py-3.5 lg:pr-0 lg:pl-5 lg:text-[0.9375rem] ${on ? "border-foreground text-foreground lg:font-medium" : "border-border text-muted-foreground hover:text-foreground"}`}
                     >
-                      <span className={`hidden w-5 shrink-0 text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-sublabel)] lg:inline ${on ? "text-accent" : "text-muted-foreground/50"}`}>{String(i + 1).padStart(2, "0")}</span>
+                      <span className={`hidden w-5 shrink-0 text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-sublabel)] lg:inline ${on ? "text-accent-text" : "text-muted-foreground"}`}>{String(i + 1).padStart(2, "0")}</span>
                       {t.author}
                     </button>
                   </li>

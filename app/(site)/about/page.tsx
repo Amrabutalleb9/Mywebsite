@@ -82,7 +82,7 @@ export default function AboutPage() {
             </div>
 
             {/* CTA buttons */}
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3">
               <a
                 href="/Amr_AbuTalleb_CV_Creative_Director.pdf"
                 download

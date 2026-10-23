@@ -109,7 +109,7 @@ function WorkSection() {
                         <>
                           <video
                             className="card-img aspect-[16/10] w-full object-cover motion-reduce:hidden"
-                            poster={project.featureImage}
+                            data-poster={project.featureImage}
                             aria-label={project.featureImageAlt || project.title}
                             data-autoplay
                             muted

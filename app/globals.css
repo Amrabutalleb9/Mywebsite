@@ -14,7 +14,7 @@
   --muted-foreground: #6b6b6b;
   --accent: #c9a96e;
   --accent-foreground: #0d0d1a;
-  --accent-text: #86683a;
+  --accent-text: #8c6929;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
   --border: #e5e5e5;
@@ -474,7 +474,7 @@ a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
 
 /* ─── Accessibility: gold text ─────────────────────────
    Gold (#c9a96e) is 2.2:1 on white, below WCAG AA. Lines, fills, borders and focus rings keep it,
-   but gold *text* on light surfaces uses the deeper --accent-text (5.2:1 on white, 4.75:1 on the
+   but gold *text* on light surfaces uses the deeper --accent-text #8c6929 (5.0:1 on white, 4.6:1 on the
    surface grey). On dark surfaces (footer, ink bands, filled buttons) text keeps the bright gold.
    Unlayered, so it wins over the Tailwind utilities. */
 .text-accent, .text-accent\/70, .text-accent\/80, .text-accent\/90,

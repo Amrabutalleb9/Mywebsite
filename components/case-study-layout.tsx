@@ -1,6 +1,7 @@
 "use client"
 
 import React, { Fragment, useState } from "react"
+import { preload } from "react-dom"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react"
@@ -20,6 +21,8 @@ export default function CaseStudyLayout({
 }) {
   const [lightbox, setLightbox] = useState<string | null>(null)
   const reducedMotion = useReducedMotion()
+  // The hero video's poster is the page's largest paint: fetch it first.
+  if (project.featureVideo?.poster) preload(project.featureVideo.poster, { as: "image", fetchPriority: "high" })
 
   const renderFigureRow = (row: NonNullable<CaseStudy["storyFigures"]>[number], key: string) => (
     <FadeIn as="div" key={row.images[0].src}>
@@ -39,7 +42,7 @@ export default function CaseStudyLayout({
                 <video
                   className="h-auto w-full object-cover"
                   style={{ aspectRatio: img.ratio ?? "16 / 9" }}
-                  poster={img.src}
+                  data-poster={img.src}
                   aria-label={img.alt}
                   data-autoplay
                   controls={!!reducedMotion}
@@ -269,7 +272,7 @@ export default function CaseStudyLayout({
             <div className="overflow-hidden rounded-2xl bg-primary">
               <video
                 className="aspect-video w-full object-cover"
-                poster={project.showcaseVideo.poster}
+                data-poster={project.showcaseVideo.poster}
                 aria-label={project.showcaseVideo.alt}
                 data-autoplay
                 controls={!!reducedMotion}
@@ -387,7 +390,7 @@ export default function CaseStudyLayout({
           <div className="overflow-hidden rounded-2xl bg-primary">
             <video
               className="aspect-video w-full object-cover"
-              poster={project.showcaseVideo.poster}
+              data-poster={project.showcaseVideo.poster}
               aria-label={project.showcaseVideo.alt}
               data-autoplay
               controls={!!reducedMotion}

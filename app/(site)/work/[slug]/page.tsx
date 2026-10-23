@@ -23,9 +23,8 @@ export async function generateMetadata({
     description,
     path: `/work/${slug}`,
     type: "article",
-    image: project.featureImage
-      ? { url: project.featureImage, alt: project.featureImageAlt || project.title }
-      : undefined,
+    // Share cards use a 1200x630 JPG: LinkedIn, WhatsApp and Facebook don't reliably show WebP.
+    image: project.hidden ? undefined : { url: `/images/og/${slug}-v1.jpg`, width: 1200, height: 630, alt: project.featureImageAlt || project.title },
   })
 }
 
@@ -48,7 +47,7 @@ export default async function CaseStudyPage({
     dateCreated: project.year,
     about: project.industry,
     url: `https://amrabutalleb.com/work/${slug}`,
-    image: project.featureImage ? `https://amrabutalleb.com${project.featureImage}` : undefined,
+    image: project.hidden ? undefined : `https://amrabutalleb.com/images/og/${slug}-v1.jpg`,
   }
 
   const breadcrumbLd = {
