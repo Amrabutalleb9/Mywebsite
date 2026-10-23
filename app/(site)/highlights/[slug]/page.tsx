@@ -44,7 +44,7 @@ export default async function HighlightPage({
     "@type": "CreativeWork",
     name: project.title,
     description: project.subtitle,
-    author: { "@type": "Person", name: "Amr Abu-Talleb" },
+    author: { "@type": "Person", "@id": "https://amrabutalleb.com/#person", name: "Amr Abu-Talleb" },
     about: project.industry,
     url: `https://amrabutalleb.com/highlights/${slug}`,
     image: project.featureImage ? `https://amrabutalleb.com${project.featureImage}` : undefined,

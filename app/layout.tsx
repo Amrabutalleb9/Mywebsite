@@ -117,8 +117,20 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
+              "@id": "https://amrabutalleb.com/#person",
               name: "Amr Abu-Talleb",
+              givenName: "Amr",
+              familyName: "Abu-Talleb",
+              alternateName: ["Amr Abutalleb", "Amr Abu Talleb"],
               jobTitle: "Creative Director",
+              knowsLanguage: ["English", "Arabic"],
+              hasCredential: {
+                "@type": "EducationalOccupationalCredential",
+                name: "Google UX Design Professional Certificate",
+                credentialCategory: "certificate",
+                recognizedBy: { "@type": "Organization", name: "Google" },
+              },
+              mainEntityOfPage: "https://amrabutalleb.com/about",
               url: "https://amrabutalleb.com",
               email: "hello@amrabutalleb.com",
               sameAs: ["https://www.linkedin.com/in/abutalleb/"],
@@ -161,12 +173,14 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
+              "@id": "https://amrabutalleb.com/#website",
               name: "Amr Abu-Talleb",
               url: "https://amrabutalleb.com",
               description:
                 "Creative Director with 13 years leading brand and product teams across 8 markets.",
               inLanguage: "en",
-              author: { "@type": "Person", name: "Amr Abu-Talleb" },
+              author: { "@id": "https://amrabutalleb.com/#person" },
+              publisher: { "@id": "https://amrabutalleb.com/#person" },
             }),
           }}
         />

@@ -44,7 +44,7 @@ export default async function CaseStudyPage({
     "@type": "CreativeWork",
     name: project.title,
     description: project.subtitle,
-    author: { "@type": "Person", name: "Amr Abu-Talleb" },
+    author: { "@type": "Person", "@id": "https://amrabutalleb.com/#person", name: "Amr Abu-Talleb" },
     dateCreated: project.year,
     about: project.industry,
     url: `https://amrabutalleb.com/work/${slug}`,
