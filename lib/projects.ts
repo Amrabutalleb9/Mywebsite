@@ -48,6 +48,8 @@ export interface CaseStudy {
   contributionsAfterChapter?: string
   /** Heading for the results list (defaults to "What Changed"). */
   resultsTitle?: string
+  /** One closing line shown above the results list. */
+  resultsLead?: string
   /** Optional story told in chapters; each chapter is followed by its own figures. Replaces the brief/turn/work blocks when present. */
   chapters?: { label: string; summary?: string; lead?: string; paragraphs: string[]; /** Show the figures above the chapter text. */ figuresFirst?: boolean; figures?: { images: { src: string; alt: string; ratio?: string; /** Optional looping mp4; src becomes its poster. */ video?: string }[]; caption?: string }[] }[]
   /** Optional external link, e.g. where to buy a published book. */
@@ -100,6 +102,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     contributionsAfterChapter: "The team",
     resultsTitle: "Where Things Stood in June 2025",
+    resultsLead: tp("In seven months, a studio of six became an agency of twenty-five, with a clearer offer and an identity it would use for about a year."),
     results: [
       tp("A team of about twenty-five, grown from six in seven months, led by two art directors"),
       tp("Clear ownership: designers reported to their art directors, with daily reviews and a weekly review across disciplines"),
@@ -172,6 +175,7 @@ export const caseStudies: CaseStudy[] = [
         ],
         figures: [
           { images: [{ src: "/images/op-fig-09-v3.webp", alt: tp("The identity system: the primary and OP Labs lock-ups on yellow, six logo variations on colours from the palette, the mark, the typefaces and the palette") }], caption: tp("From the January 2025 brand guidelines.") },
+          { images: [{ src: "/images/op-fig-review-v1.webp", alt: tp("The review: three Overpowered Instagram posts from November and December 2024 above three from March and April 2025, with four numbered review notes: one argument per post, the image carries the idea, yellow marks the words that matter, keep what already works") }], caption: tp("Instagram posts by the team, before and after. Dates as published.") },
           { images: [{ src: "/images/op-billboard-v1.webp", alt: tp("Billboard: Transforming ideas into impactful designs, over a grainy black-and-white crowd with yellow value tags"), ratio: "1296 / 768" }] },
           { images: [{ src: "/images/op-social-1-v2.webp", alt: tp("Social post: When science and design collaborate"), ratio: "4 / 5" }, { src: "/images/op-social-2-v2.webp", alt: tp("Social post: Pushing boundaries"), ratio: "4 / 5" }, { src: "/images/op-social-3-v2.webp", alt: tp("Social post: Top notch design solutions"), ratio: "4 / 5" }], caption: tp("The identity in use, outdoors and on social media.") },
         ],

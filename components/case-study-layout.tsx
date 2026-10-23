@@ -476,6 +476,11 @@ export default function CaseStudyLayout({
             <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">{project.resultsTitle ?? "What Changed"}</h2>
           </FadeIn>
           <div className="flex flex-col gap-6">
+            {project.resultsLead && (
+              <FadeIn>
+                <p className="mb-4 max-w-[30ch] font-serif text-[length:var(--text-sub)] leading-[var(--leading-heading)] tracking-tight text-foreground">{project.resultsLead}</p>
+              </FadeIn>
+            )}
             <FadeIn>
               <ul className="flex flex-col gap-4">
                 {project.results.map((result) => (
