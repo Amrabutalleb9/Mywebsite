@@ -12,7 +12,7 @@ import { tp } from "@/lib/typeset"
  * normal spaces for non-breaking ones, so the text itself never changes, and
  * it reruns when the page or a component updates its text.
  */
-const SKIP = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA", "INPUT", "SELECT", "OPTION", "CODE", "PRE", "SVG"])
+const SKIP = new Set(["TITLE", "META", "SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA", "INPUT", "SELECT", "OPTION", "CODE", "PRE", "SVG"])
 
 function typesetTree(root: Node) {
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {

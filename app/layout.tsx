@@ -29,11 +29,11 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: "Amr Abu-Talleb · Creative Director",
+    default: "Amr Abu-Talleb · Creative Director, Brand and Digital Product",
     template: "%s \u00B7 Amr Abu-Talleb",
   },
   description:
-    "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets, and 50+ people hired. Open to Creative Director roles in Europe, remote or on-site.",
+    "Amr Abu-Talleb is a Creative Director who leads brand, campaign and digital product teams. 13 years, teams of up to 25 across 8 markets, 50+ people hired.",
   metadataBase: new URL("https://amrabutalleb.com"),
   alternates: {
     canonical: "/",
@@ -43,24 +43,24 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://amrabutalleb.com",
     siteName: "Amr Abu-Talleb",
-    title: "Amr Abu-Talleb · Creative Director",
+    title: "Amr Abu-Talleb · Creative Director, Brand and Digital Product",
     description:
-      "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets, and 50+ people hired. Open to Creative Director roles in Europe, remote or on-site.",
+      "Amr Abu-Talleb is a Creative Director who leads brand, campaign and digital product teams. 13 years, teams of up to 25 across 8 markets, 50+ people hired.",
     images: [
       {
-        url: "/images/og-image-v3.png",
+        url: "/images/og-image-v4.png",
         width: 1200,
         height: 630,
-        alt: "Amr Abu-Talleb, Creative Director, open to roles in Europe: portrait with 13 years, 25-person team, 8 markets, 50+ hired",
+        alt: "Amr Abu-Talleb, Creative Director. Brand, campaigns and digital products: 13 years, largest team of 25, 8 markets, 50+ people hired",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amr Abu-Talleb · Creative Director",
+    title: "Amr Abu-Talleb · Creative Director, Brand and Digital Product",
     description:
-      "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets, and 50+ people hired. Open to Creative Director roles in Europe, remote or on-site.",
-    images: ["/images/og-image-v3.png"],
+      "Amr Abu-Talleb is a Creative Director who leads brand, campaign and digital product teams. 13 years, teams of up to 25 across 8 markets, 50+ people hired.",
+    images: ["/images/og-image-v4.png"],
   },
   robots: {
     index: true,
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
       { url: "/icon.svg", type: "image/svg+xml" },
       { url: "/favicon.ico", sizes: "48x48" },
     ],
-    apple: "/apple-touch-icon.png",
+    apple: "/apple-touch-icon-v2.png",
   },
   keywords: [
     "creative director",
@@ -136,7 +136,7 @@ export default function RootLayout({
               sameAs: ["https://www.linkedin.com/in/abutalleb/"],
               image: "https://amrabutalleb.com/images/amr-portrait-v3.webp",
               description:
-                "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets, and 50+ people hired. Open to Creative Director roles in Europe, remote or on-site.",
+                "Amr Abu-Talleb is a Creative Director who leads brand, campaign and digital product teams. 13 years, teams of up to 25 across 8 markets, 50+ people hired.",
               workLocation: [
                 { "@type": "Place", name: "Europe" },
                 { "@type": "VirtualLocation", name: "Remote" },
@@ -177,7 +177,7 @@ export default function RootLayout({
               name: "Amr Abu-Talleb",
               url: "https://amrabutalleb.com",
               description:
-                "Creative Director with 13 years leading brand and product teams across 8 markets.",
+                "Portfolio of Amr Abu-Talleb, Creative Director for brand, campaigns and digital products.",
               inLanguage: "en",
               author: { "@id": "https://amrabutalleb.com/#person" },
               publisher: { "@id": "https://amrabutalleb.com/#person" },

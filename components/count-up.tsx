@@ -50,7 +50,8 @@ export default function CountUp({ value, duration = 1600, className }: { value: 
   const shown = p >= 1 ? value : value.replace(/\d+/g, (d) => String(Math.round(Number(d) * p)))
 
   return (
-    <span ref={ref} className={`tabular-nums ${className ?? ""}`} aria-label={value}>
+    <span ref={ref} className={`tabular-nums ${className ?? ""}`}>
+      <span className="sr-only">{value}</span>
       <span aria-hidden="true">{shown}</span>
     </span>
   )

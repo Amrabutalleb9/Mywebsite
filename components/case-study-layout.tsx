@@ -526,7 +526,7 @@ export default function CaseStudyLayout({
       {/* Credits */}
       <FadeIn className="wrap mb-24">
         <div className="border-t border-border pt-6">
-          <p className="text-xs leading-relaxed text-muted-foreground/50">{project.credits}</p>
+          <p className="text-xs leading-relaxed text-muted-foreground">{project.credits}</p>
         </div>
       </FadeIn>
 

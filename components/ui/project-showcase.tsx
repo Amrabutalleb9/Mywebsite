@@ -131,7 +131,7 @@ export function ProjectShowcase({
             {...(project.dataCursorLabel && { "data-cursor-label": project.dataCursorLabel })}
           >
             <div className="flex items-start gap-5 sm:items-center">
-              <span className="font-serif text-2xl leading-none text-accent/30 select-none">
+              <span aria-hidden="true" className="font-serif text-2xl leading-none text-[#a8894f] select-none">
                 {String(startIndex + i + 1).padStart(2, "0")}
               </span>
               <div className="flex flex-col gap-1">

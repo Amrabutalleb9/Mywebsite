@@ -45,8 +45,8 @@ function AnimatedCounter({ end, suffix, start, delay = 0, duration = 1800 }: { e
 
   return (
     <span className="tabular-nums">
-      {count}
-      {suffix}
+      <span className="sr-only">{end}{suffix}</span>
+      <span aria-hidden="true">{count}{suffix}</span>
     </span>
   )
 }
