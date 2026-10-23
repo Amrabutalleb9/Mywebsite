@@ -127,7 +127,7 @@ export const caseStudies: CaseStudy[] = [
       {
         label: "Where we started",
         paragraphs: [
-          tp("I started with what a prospective client would see. The website offered six services, from branding to AI data analysis, under a headline about digital dominance. The identity used gun and gaming imagery, which limited where the agency could advertise and suited the established businesses it wanted to reach less well."),
+          tp("I started with what a prospective client would see. The website offered six services, from branding to AI data analysis, under a headline about digital dominance. The identity used military and gaming imagery, which limited where the agency could advertise and suited the established businesses it wanted to reach less well."),
           tp("Inside the studio, designers could receive tasks from several people, and most coordination happened in WhatsApp groups. It wasn’t always easy to see who owned a task, when it was due or who had room for more."),
           tp("The agency already had talented people, clients and good work. It needed a clearer offer and a better way for the team to work."),
         ],
@@ -170,7 +170,7 @@ export const caseStudies: CaseStudy[] = [
         label: "Identity",
         paragraphs: [
           tp("Once the positioning took shape, the agency needed an identity that matched it."),
-          tp("I directed the identity with the branding art director and the team, contributing hands-on to selected elements. We moved away from the gun imagery and built the system around a connected O and P mark, with logo variations, an OP Labs lock-up, a defined palette and type scale, and a pattern drawn from the mark."),
+          tp("I directed the identity with the branding art director and the team, contributing hands-on to selected elements. We moved away from the military imagery and brought back the connected O and P mark from an earlier version of the identity, building the system around it, with logo variations, an OP Labs lock-up, a defined palette and type scale, and a pattern drawn from the mark."),
           tp("We tested elements in small Instagram campaigns in the UAE, the UK and Egypt before committing. The agency went on to use the identity for about a year."),
         ],
         figures: [
@@ -200,7 +200,7 @@ export const caseStudies: CaseStudy[] = [
     markets: tp("UK, UAE, Egypt and the EU"),
     year: "2024–2025",
     businessContext: tp("Overpowered wanted to grow into a global creative and digital agency. I joined as Creative Director, working directly with the CEO, while the studio kept serving its clients."),
-    clientProblem: tp("The website offered six services under a headline about digital dominance, the identity relied on gun imagery, and day-to-day work ran through WhatsApp groups, so ownership and workloads were hard to see."),
+    clientProblem: tp("The website offered six services under a headline about digital dominance, the identity relied on military imagery, and day-to-day work ran through WhatsApp groups, so ownership and workloads were hard to see."),
     constraints: tp("The agency had to keep delivering client work while the team, the offer and the identity changed around it. Budgets stayed with the CEO, so each change came as a plan with its people and priorities."),
     insight: tp("A new logo would have been the most visible change. The bigger change was the team: a clear structure, a steady review rhythm and a shared standard for the work."),
     creativeStrategy: tp("I built the team around two art directors, a review rhythm and one working system, then focused the offer with the CEO on three services for small and mid-sized businesses, with OP Labs for product work."),
