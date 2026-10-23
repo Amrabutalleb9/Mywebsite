@@ -90,11 +90,11 @@ export const caseStudies: CaseStudy[] = [
       tp("I joined as Creative Director, working directly with the CEO. My job was to build a team that could do the work, give it a clear standard, and give the agency a direction its work could live up to."),
     ],
     contributions: [
-      { label: "Team", text: tp("Built the creative team from six people to about twenty-five, with two art directors and a hiring test.") },
+      { label: "Team", text: tp("Grew the creative team with the CEO from six people to about twenty-five, with two art directors and a hiring test.") },
       { label: "Standards", text: tp("Set clear reporting lines, a review rhythm and one shared way of working.") },
-      { label: "Positioning", text: tp("Focused the offer with the CEO on three services for small and mid-sized businesses, plus OP Labs for product work.") },
-      { label: "Identity", text: tp("Directed the new identity with the team and contributed hands-on to selected elements.") },
-      { label: "Website", text: tp("Led the immersive website direction and briefed the 3D, motion and UX/UI teams.") },
+      { label: "Positioning", text: tp("Focused the offer with the CEO on three services for small and mid-sized businesses, plus OP Labs for software and digital products.") },
+      { label: "Identity", text: tp("Directed the identity system with the team, building it around the existing mark, and contributed hands-on to selected elements.") },
+      { label: "Website", text: tp("Led the immersive website direction and briefed the 3D, motion and UX/UI teams. The site stayed in design and did not launch while I was there.") },
     ],
     resultsTitle: "Where Things Stood in June 2025",
     results: [
@@ -102,8 +102,8 @@ export const caseStudies: CaseStudy[] = [
       tp("Clear ownership: designers reported to their art directors, with daily reviews and a weekly review across disciplines"),
       tp("One working system in Slack, Trello and Google Workspace, so ownership, deadlines and capacity were visible"),
       tp("A focused offer: branding, web and app, and video for small and mid-sized businesses, with OP Labs for product clients"),
-      tp("A new identity built with the branding team, used by the agency for about a year"),
-      tp("An immersive website direction, briefed to the 3D, motion and UX/UI teams"),
+      tp("An identity system built with the branding team, used by the agency for about a year"),
+      tp("An immersive website direction, briefed to the 3D, motion and UX/UI teams. It was still in design and had not launched"),
     ],
     reflection: tp("Good work rarely comes from talent alone. It comes when a team shares a clear direction, a way of working and a standard to hold itself to. Most of my time at Overpowered went into building those, so the team could do its best work without waiting for me."),
     credits: tp("Creative Direction: Amr Abu-Talleb · Art Direction & Design: the Overpowered team"),
@@ -115,18 +115,15 @@ export const caseStudies: CaseStudy[] = [
           tp("When he was ready, he invited me to join as Creative Director. The studio had to keep serving its clients while the team, the offer and the identity changed around it."),
         ],
         figures: [
-          { images: [{ src: "/images/op-fig-01-v5.webp", alt: tp("The audit: six findings beside the old Overpowered homepage and its empty service cards, December 2024") }], caption: tp("The website in December 2024.") },
+          { images: [{ src: "/images/op-fig-01-v6.webp", alt: tp("The audit: six findings beside the old Overpowered homepage and its empty service cards, December 2024") }], caption: tp("The website in December 2024.") },
         ],
       },
       {
         label: "Where we started",
         paragraphs: [
-          tp("I started with what a prospective client would see. The website offered six services, from branding to AI data analysis, under a headline about digital dominance. The identity used gun and gaming imagery, which limited where the agency could advertise and suited the established businesses it wanted to reach less well."),
+          tp("I started with what a prospective client would see. The website offered six services, from branding to AI data analysis, under a headline about digital dominance. The identity had a mark but no system around it, with no logo variations, no pattern and no type scale."),
           tp("Inside the studio, designers could receive tasks from several people, and most coordination happened in WhatsApp groups. It wasn’t always easy to see who owned a task, when it was due or who had room for more."),
           tp("The agency already had talented people, clients and good work. It needed a clearer offer and a better way for the team to work."),
-        ],
-        figures: [
-          { images: [{ src: "/images/op-fig-02-v3.webp", alt: tp("Positioning before and after: from digital dominance for anyone to more than ordinary for small and mid-sized businesses, three services, one process") }], caption: tp("Positioning, before and after.") },
         ],
       },
       {
@@ -138,7 +135,7 @@ export const caseStudies: CaseStudy[] = [
           tp("I wrote a hiring exercise around a premium olive-oil brand built on Arabic calligraphy. It gave candidates a real brief to interpret and gave us something concrete to discuss: their thinking, their craft and how they took feedback."),
         ],
         figures: [
-          { images: [{ src: "/images/op-fig-06-v5.webp", alt: tp("Org chart: CEO, Creative Director, an art director for branding over graphic, an art director for video over video and 3D, and UX/UI and copy reporting directly") }], caption: tp("Team structure. Roles only.") },
+          { images: [{ src: "/images/op-fig-06-v6.webp", alt: tp("Team structure: CEO, Creative Director, an art director for branding and graphic, an art director for video, 2D and 3D, UX/UI run directly by me and copy shared with the CEO, above a five-step review loop from brief to weekly review") }], caption: tp("Team structure and review loop. Roles only.") },
         ],
       },
       {
@@ -149,43 +146,43 @@ export const caseStudies: CaseStudy[] = [
           tp("I wanted the team to understand why a solution worked, not change things because I had asked."),
         ],
         figures: [
-          { images: [{ src: "/images/op-fig-07-v2.webp", alt: tp("How we worked: from tasks in WhatsApp groups to Slack, weekly Trello boards and Google Workspace, with a weekly meeting, art director check-ins every two days and team reviews every two to three days") }], caption: tp("From group chats to one working system.") },
         ],
       },
       {
         label: "A clearer offer",
         paragraphs: [
           tp("With the CEO, I focused the agency on small and mid-sized businesses, where it already had relationships and relevant work. Six service areas became three: branding, web and app, and video. Website projects moved to Webflow and Framer, so clients could launch and maintain their sites more easily."),
-          tp("Product work needed its own conversation. A CTO buying a digital product has different priorities from a marketing lead commissioning a campaign, so we set up OP Labs as a separate offer. When SPLT came to us, I reshaped its brief into a staged product engagement and led the product design."),
+          tp("Software work needed its own conversation. A CTO buying a custom platform has different priorities from a marketing lead commissioning a campaign, so we set up OP Labs as a separate offer with its own lock-up. When SPLT came to us, I reshaped its brief into a staged product engagement and led the product design."),
         ],
         figures: [
-          { images: [{ src: "/images/op-fig-03-v3.webp", alt: tp("Two offers: OP for founders and marketing leads, OP Labs for CTOs and product owners") }], caption: tp("One agency, two offers.") },
+          { images: [{ src: "/images/op-fig-02-v4.webp", alt: tp("Positioning before and after: six services under digital dominance for anyone, then three services for small and mid-sized businesses under more than ordinary, with OP Labs as a separate offer for custom software") }], caption: tp("Six services became three, with OP Labs alongside.") },
         ],
       },
       {
         label: "Identity",
         paragraphs: [
-          tp("Once the positioning took shape, the agency needed an identity that matched it."),
-          tp("I directed the identity with the branding art director and the team, contributing hands-on to selected elements. We moved away from the gun imagery and built the system around a connected O and P mark, with logo variations, an OP Labs lock-up, a defined palette and type scale, and a pattern drawn from the mark."),
-          tp("We tested elements in small Instagram campaigns in the UAE, the UK and Egypt before committing. The agency went on to use the identity for about a year."),
+          tp("We developed the identity alongside the positioning, so each could sharpen the other."),
+          tp("I directed the identity with the branding art director and the team, contributing hands-on to selected elements. The agency already had a connected O and P mark, but nothing around it. We refined the mark and built the system it lacked, with logo variations, an OP Labs lock-up, a defined palette and type scale, and a checker pattern."),
+          tp("The agency went on to use the identity for about a year."),
         ],
         figures: [
-          { images: [{ src: "/images/op-fig-09-v2.webp", alt: tp("Pages from the January 2025 brand guidelines: logomark, logo variations, OP Labs lock-up, colour, type and pattern") }], caption: tp("From the January 2025 brand guidelines.") },
+          { images: [{ src: "/images/op-fig-identity-map-v1.webp", alt: tp("Strategy to identity: four positioning decisions, each linked to a principle from the guidelines, an identity element and the mockups where it appears") }], caption: tp("Each element answers a decision.") },
+          { images: [{ src: "/images/op-fig-09-v3.webp", alt: tp("Pages from the January 2025 brand guidelines: logomark, logo variations, OP Labs lock-up, colour, type and pattern") }], caption: tp("From the January 2025 brand guidelines.") },
           { images: [{ src: "/images/op-billboard-v1.webp", alt: tp("Billboard: Transforming ideas into impactful designs, over a grainy black-and-white crowd with yellow value tags"), ratio: "1296 / 768" }] },
-          { images: [{ src: "/images/op-social-1-v1.webp", alt: tp("Social post: When science and design collaborate"), ratio: "4 / 5" }, { src: "/images/op-social-2-v1.webp", alt: tp("Social post: Pushing boundaries"), ratio: "4 / 5" }, { src: "/images/op-social-3-v1.webp", alt: tp("Social post: Top notch design solutions"), ratio: "4 / 5" }], caption: tp("The identity in use, outdoors and on social media.") },
+          { images: [{ src: "/images/op-social-1-v1.webp", alt: tp("Social post: When science and design collaborate"), ratio: "4 / 5" }, { src: "/images/op-social-2-v1.webp", alt: tp("Social post: Pushing boundaries"), ratio: "4 / 5" }, { src: "/images/op-social-3-v1.webp", alt: tp("Social post: Top notch design solutions"), ratio: "4 / 5" }], caption: tp("The identity applied, outdoors and on social media.") },
         ],
       },
       {
         label: "The website",
         paragraphs: [
-          tp("The website had to make people feel the new direction before they read a word of it. Instead of a showcase of services, we built it around a character."),
+          tp("The website had to make people feel the new direction before they read a word of it. Instead of a showcase of services, we developed it around a character."),
           tp("In our story, Solvix was made by an order of craftspeople in a near future where brands had grown loud and interchangeable, to strip a brand back to what is true about it and connect it with the people it serves. It is a guardian of stone and crystal with a glowing core: calm, precise and powerful without being loud. That was the agency we wanted clients to meet."),
-          tp("As visitors scroll, Solvix changes form with the story. It follows the cursor as they arrive, gathers into a ball of energy beside the problems clients face, turns to show each service, and finally opens its core to reveal the people inside: the team behind the work."),
-          tp("I wrote the briefs for the 3D, motion and UX/UI teams and developed the direction with the art directors, section by section."),
+          tp("Solvix was designed to change form as visitors scrolled. It follows the cursor as they arrive, gathers into a ball of energy beside the problems clients face, turns to show each service, and finally opens its core to reveal the team behind the work."),
+          tp("I wrote the briefs for the 3D, motion and UX/UI teams and developed the direction with the art directors, section by section. The website was still in design when I left and did not launch during my time there."),
         ],
         figures: [
           { images: [{ src: "/images/op-solvix-hero-v3.webp", video: "/videos/op-solvix-hero-v3-c1.mp4", alt: tp("Website concept, opening: Solvix, a stone figure with an amber core, kneeling in a forge hall beside the headline Your brand deserves more than ordinary") }], caption: tp("The opening. Solvix follows the visitor’s cursor.") },
-          { images: [{ src: "/images/op-solvix-video-v3.webp", alt: tp("Website concept: a close-up of Solvix’s hand holding glowing film frames, beside the Video Production service") }, { src: "/images/op-solvix-core-v4.webp", alt: tp("Website concept: a close-up of Solvix’s head with glowing eyes and amber crystals, beside the headline We’re Overpowered, and so is our work") }], caption: tp("A service close-up, then who the agency is.") },
+          { images: [{ src: "/images/op-fig-website-v1.webp", alt: tp("The Solvix direction in four beats: arrival, the problem, the services and who we are, with the character, my part and the status: in design, not launched") }], caption: tp("The scroll in four beats. Recreated from the 2025 brief.") },
         ],
       },
     ],
@@ -195,11 +192,11 @@ export const caseStudies: CaseStudy[] = [
     markets: tp("UK, UAE, Egypt and the EU"),
     year: "2024–2025",
     businessContext: tp("Overpowered wanted to grow into a global creative and digital agency. I joined as Creative Director, working directly with the CEO, while the studio kept serving its clients."),
-    clientProblem: tp("The website offered six services under a headline about digital dominance, the identity relied on gun imagery, and day-to-day work ran through WhatsApp groups, so ownership and workloads were hard to see."),
+    clientProblem: tp("The website offered six services under a headline about digital dominance, the identity had a mark but no system, and day-to-day work ran through WhatsApp groups, so ownership and workloads were hard to see."),
     constraints: tp("The agency had to keep delivering client work while the team, the offer and the identity changed around it. Budgets stayed with the CEO, so each change came as a plan with its people and priorities."),
     insight: tp("A new logo would have been the most visible change. The bigger change was the team: a clear structure, a steady review rhythm and a shared standard for the work."),
     creativeStrategy: tp("I built the team around two art directors, a review rhythm and one working system, then focused the offer with the CEO on three services for small and mid-sized businesses, with OP Labs for product work."),
-    keyDecisions: tp("Designers explained their decisions before anyone else weighed in, and the identity and website took their direction from the positioning rather than leading it."),
+    keyDecisions: tp("Designers explained their decisions before anyone else weighed in, and the identity and the website were shaped alongside the positioning rather than ahead of it."),
     leadershipRole: tp("I led the creative team of about twenty-five through two art directors and managed UX/UI directly. Staffing, promotions and reviews were mine; budgets were the CEO’s."),
     processPhases: [
       { title: "Starting point", description: tp("Looked at the agency as a client would: the website, the identity, the offer and how work moved through the studio.") },
