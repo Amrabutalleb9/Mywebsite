@@ -9,7 +9,7 @@ import HeroSection from "@/components/homepage/hero-section"
 import ServicesMarquee from "@/components/homepage/services-marquee"
 import TestimonialsWithStats from "@/components/homepage/testimonials-with-stats"
 import ScrollReveal from "@/components/homepage/scroll-reveal"
-import { SpltReel, HodelProof } from "@/components/homepage/card-motion"
+import { SpltReel, HodelProof, TapToolsDeck } from "@/components/homepage/card-motion"
 
 /* ─── Data ─────────────────────────────────────────── */
 
@@ -25,10 +25,10 @@ const caseStudyCards = [
   { slug: "split", motion: "splt-reel", num: "02", title: "SPLT", subtitle: tp("Turning an online shop brief into a fitness platform built around its trainers"), impact: tp("One app and three dashboards for four roles · A proposed trainer subscription model"), category: "Product Strategy & UX", year: "2025", role: "Creative Director & UX Lead \u00B7 Led 2\u00A0designers", featureImage: "/images/split-card-v2.webp", featureImageAlt: "SPLT trainer dashboard beside the trainer profile and subscription plans in the app" },
   { slug: "bay-area-trips", num: "02", title: "Bay Area Trips", subtitle: tp("Turning a sprawling travel idea into one product for four audiences"), impact: tp("Web, mobile web and app as one system · Four account types · Live product"), category: "Product Strategy & UX", year: "2023\u20132025", role: tp("Product Strategist & Designer · Team of about 30"), featureImage: "/images/bay-hero-loop-poster-v2.webp", featureImageAlt: "The Bay Area Trips website and two app screens on a cream studio set in late-afternoon light", featureVideo: "/videos/bay-hero-loop-v2-c1.mp4" },
   { slug: "agfin", num: "03", title: "Agfin", subtitle: tp("Rebuilding a farm adviser’s website around the families he helps"), impact: tp("12% more client wins in the first month · No paid advertising"), category: "Website Strategy & Sales Funnel", year: "2024", role: "Creative Director, UX & Copywriter \u00B7 Solo\u00A0project", featureImage: "/images/agfin-feature-v3.webp", featureImageAlt: "Agfin homepage hero: morning cloud clearing over a Wimmera paddock", featureVideo: "/videos/agfin-hero-c1.mp4" },
-  { slug: "taptools", num: "04", title: "TapTools", subtitle: tp("Helping users of a live analytics platform find the number they came for"), impact: tp("User-reported issues down 23% within 60 days · Shipped to a live product"), category: "Product Design for Analytics", year: "2022\u20132023", role: "Senior Product Designer", featureImage: "/images/taptools-hero-loop-poster-v4.webp", featureImageAlt: "The TapTools market overview with a swap card and wallet profiler beside it, on a dark grid lit in cyan and green", featureVideo: "/videos/taptools-hero-loop-v4.mp4" },
+  { slug: "taptools", motion: "taptools-deck", num: "04", title: "TapTools", subtitle: tp("Helping users of a live analytics platform find the number they came for"), impact: tp("User-reported issues down 23% within 60 days · Shipped to a live product"), category: "Product Design for Analytics", year: "2022\u20132023", role: "Senior Product Designer", featureImage: "/images/taptools-hero-loop-poster-v4.webp", featureImageAlt: "The TapTools market overview with a swap card and wallet profiler beside it, on a dark grid lit in cyan and green", featureVideo: "/videos/taptools-hero-loop-v4.mp4" },
   { slug: "zikabi", num: "05", title: "Zikabi", subtitle: tp("Splitting one overloaded app into a parent brand and two products"), impact: tp("One concept became a parent brand and two products · End-user, vendor and driver apps"), category: "Brand Architecture & App Design", year: "2020\u20132021", role: tp("UI/UX Designer, then Product Designer"), featureImage: "", featureImageAlt: "" },
   { slug: "dipa", num: "04", title: "Dipa Visionary Art School", subtitle: tp("Getting an art school’s website working again, then turning it into a walk through the studio"), impact: tp("70% more website views after recovery · Back online after four failed attempts"), category: "Website Recovery & Experience Design", year: "2022\u20132026", role: "Creative Director & UX/UI \u00B7 Led small\u00A0team", featureImage: "/images/dipa-showcase.webp", featureImageAlt: "Dipa Visionary Art School immersive website design" },
-  { slug: "steve-hodel", motion: "hodel-proof", num: "04", title: "As Within, So\u00A0Without", subtitle: tp("Designing a 212-page book around a decades-long investigation"), impact: tp("212 pages · 130+ archival images · On sale on Amazon for a NYT bestselling author"), category: "Editorial & Book Design", year: "2025\u20132026", role: "Book Designer \u00B7 Sole\u00A0designer", featureImage: "/images/steve-hodel-feature.webp", featureImageAlt: "As Within, So Without by Steve Hodel, hardcover book on a wooden desk" },
+  { slug: "steve-hodel", motion: "hodel-proof", num: "04", title: "As Within, So\u00A0Without", subtitle: tp("Designing a 212-page book around a decades-long investigation"), impact: tp("212 pages · 130+ archival images · On sale on Amazon for a NYT bestselling author"), category: "Editorial & Book Design", year: "2025\u20132026", role: "Book Designer \u00B7 Sole\u00A0designer", featureImage: "/images/steve-hodel-feature-v2.webp", featureImageAlt: "Chapter Ten spread of As Within, So Without with Man Ray\u2019s portrait of George Hodel" },
 ]
   // Cards for hidden case studies (hidden: true in lib/projects.ts) drop out automatically.
   .filter((card) => publishedCaseStudies.some((p) => p.slug === card.slug))
@@ -103,6 +103,8 @@ function WorkSection() {
                     <div className="work-media relative overflow-hidden rounded-2xl bg-primary">
                       {"motion" in project && project.motion === "splt-reel" ? (
                         <SpltReel label="SPLT screens and dashboards: trainer profile, subscription plans, goals, shop, live workout, and the trainer, admin, vendor and video dashboards" />
+                      ) : "motion" in project && project.motion === "taptools-deck" ? (
+                        <TapToolsDeck label="TapTools screens: the market overview, a token page and the wallet profiler, beside the portfolio and the swap card" />
                       ) : "motion" in project && project.motion === "hodel-proof" ? (
                         <HodelProof label="Printer's proof of As Within, So Without: the jacket and eleven interior spreads with crop marks and colour bars" />
                       ) : "featureVideo" in project && project.featureVideo ? (
@@ -143,7 +145,7 @@ function WorkSection() {
                         </div>
                       )}
                       <div className="absolute right-6 bottom-6">
-                        <div className={`card-arrow flex h-10 w-10 items-center justify-center rounded-full border ${"motion" in project && project.motion === "hodel-proof" ? "border-foreground/25 bg-background/70 text-foreground/60" : "border-primary-foreground/20 text-primary-foreground/40"}`}>
+                        <div className={`card-arrow flex h-10 w-10 items-center justify-center rounded-full border ${"motion" in project && (project.motion === "hodel-proof" || project.motion === "taptools-deck") ? "border-foreground/25 bg-background/70 text-foreground/60" : "border-primary-foreground/20 text-primary-foreground/40"}`}>
                           <ArrowUpRight size={18} />
                         </div>
                       </div>

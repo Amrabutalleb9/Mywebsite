@@ -38,3 +38,28 @@ export function HodelProof({ label }: { label: string }) {
     </div>
   )
 }
+
+/* TapTools: the real screens as two flat windows on the site's warm grey. The large window steps
+   through market, token and wallet profiler; the small one through portfolio and swap. Slow
+   cross-fades only, every screen shown whole. */
+const ttMain = ["market", "token", "profiler"]
+const ttSide = ["portfolio", "swap"]
+
+export function TapToolsDeck({ label }: { label: string }) {
+  return (
+    <div role="img" aria-label={label} className="card-img tt-deck relative aspect-[16/10] w-full overflow-hidden bg-[#e9e7e2]">
+      <div className="tt-drift absolute inset-0" aria-hidden="true">
+        <div className="tt-win tt-win-main">
+          {ttMain.map((k, i) => (
+            <img key={k} src={`/images/tt-card-${k}-v1.webp`} alt="" loading="lazy" decoding="async" className={`tt-shot tt-shot-3 ${i === 0 ? "tt-first" : ""}`} style={{ animationDelay: `${i === 0 ? 0 : -(ttMain.length - i) * 6}s` }} />
+          ))}
+        </div>
+        <div className="tt-win tt-win-side">
+          {ttSide.map((k, i) => (
+            <img key={k} src={`/images/tt-card-${k}-v1.webp`} alt="" loading="lazy" decoding="async" className={`tt-shot tt-shot-2 ${i === 0 ? "tt-first" : ""}`} style={{ animationDelay: `${i === 0 ? -3 : -10}s` }} />
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
