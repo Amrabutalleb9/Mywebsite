@@ -471,10 +471,14 @@ a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
 @media (prefers-reduced-motion: reduce) {
   .reel-row, .proof-sheet { animation: none; }
 }
-/* TapTools card: two windows on warm grey, slow cross-fades (homepage) */
-.tt-win { position: absolute; overflow: hidden; border-radius: 1.4% / 2.2%; background: #05080d; box-shadow: 0 1px 0 rgb(13 13 26 / 0.06), 0 28px 56px -24px rgb(13 13 26 / 0.45); }
-.tt-win-main { left: 5%; top: 7%; width: 70%; aspect-ratio: 16 / 10; }
-.tt-win-side { right: 6%; top: 46%; width: 38%; aspect-ratio: 16 / 10; border-radius: 2.4% / 3.8%; box-shadow: 0 0 0 1px rgb(255 255 255 / 0.06), 0 24px 48px -18px rgb(13 13 26 / 0.55); }
+/* TapTools card: launch-graphic windows over the brand eclipse, slow cross-fades (homepage) */
+.tt-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% 50%; transform-origin: 85% 50%; animation: tt-breathe 20s ease-in-out infinite alternate; }
+@keyframes tt-breathe { from { transform: scale(1); filter: brightness(0.92); } to { transform: scale(1.05); filter: brightness(1.08); } }
+.tt-win { position: absolute; overflow: hidden; padding: 2px; border-radius: 1.4% / 2.2%; background: linear-gradient(135deg, #2bd97c 0%, #38c5fc 45%, #2f6bff 100%); box-shadow: 0 0 40px -6px rgb(56 197 252 / 0.35), 0 30px 60px -20px rgb(0 0 0 / 0.8); }
+.tt-win::before { content: ""; position: absolute; inset: 2px; border-radius: inherit; background: #05080d; }
+.tt-win > .tt-shot { inset: 2px; width: calc(100% - 4px); height: calc(100% - 4px); border-radius: inherit; }
+.tt-win-main { left: 5%; top: 10%; width: 64%; aspect-ratio: 16 / 10; }
+.tt-win-side { right: 5%; top: 45%; width: 36%; aspect-ratio: 16 / 10; border-radius: 2.4% / 3.8%; }
 .tt-shot { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; }
 .tt-shot-3 { animation: tt-fade-3 18s ease-in-out infinite both; }
 .tt-shot-2 { animation: tt-fade-2 14s ease-in-out infinite both; }
@@ -483,7 +487,7 @@ a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
 .tt-drift { animation: tt-drift 16s ease-in-out infinite alternate; }
 @keyframes tt-drift { from { transform: translateY(0.6%); } to { transform: translateY(-0.6%); } }
 @media (prefers-reduced-motion: reduce) {
-  .tt-shot, .tt-drift { animation: none; }
+  .tt-shot, .tt-drift, .tt-bg { animation: none; }
   .tt-first { opacity: 1; }
 }
 

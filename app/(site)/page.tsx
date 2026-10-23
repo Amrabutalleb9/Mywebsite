@@ -145,7 +145,7 @@ function WorkSection() {
                         </div>
                       )}
                       <div className="absolute right-6 bottom-6">
-                        <div className={`card-arrow flex h-10 w-10 items-center justify-center rounded-full border ${"motion" in project && (project.motion === "hodel-proof" || project.motion === "taptools-deck") ? "border-foreground/25 bg-background/70 text-foreground/60" : "border-primary-foreground/20 text-primary-foreground/40"}`}>
+                        <div className={`card-arrow flex h-10 w-10 items-center justify-center rounded-full border ${"motion" in project && project.motion === "hodel-proof" ? "border-foreground/25 bg-background/70 text-foreground/60" : "border-primary-foreground/20 text-primary-foreground/40"}`}>
                           <ArrowUpRight size={18} />
                         </div>
                       </div>
