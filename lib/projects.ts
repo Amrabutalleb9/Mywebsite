@@ -175,9 +175,9 @@ export const caseStudies: CaseStudy[] = [
         ],
         figures: [
           { images: [{ src: "/images/op-fig-09-v3.webp", alt: tp("The identity system: the primary and OP Labs lock-ups on yellow, six logo variations on colours from the palette, the mark, the typefaces and the palette") }], caption: tp("From the January 2025 brand guidelines.") },
-          { images: [{ src: "/images/op-fig-review-v1.webp", alt: tp("The review: three Overpowered Instagram posts from November and December 2024 above three from March and April 2025, with four numbered review notes: one argument per post, the image carries the idea, yellow marks the words that matter, keep what already works") }], caption: tp("Instagram posts by the team, before and after. Dates as published.") },
+          { images: [{ src: "/images/op-fig-review-v2.webp", alt: tp("The review: a Rocknest social post as first sent at 1:02 am on a dark background with a small product photo, beside the revision sent at 2:29 am on a light background with the table filling the frame, with three review notes and a sign-off at 3:29 am") }], caption: tp("My notes on a team post, and the revision that came back the same night.") },
           { images: [{ src: "/images/op-billboard-v1.webp", alt: tp("Billboard: Transforming ideas into impactful designs, over a grainy black-and-white crowd with yellow value tags"), ratio: "1296 / 768" }] },
-          { images: [{ src: "/images/op-social-1-v2.webp", alt: tp("Social post: When science and design collaborate"), ratio: "4 / 5" }, { src: "/images/op-social-2-v2.webp", alt: tp("Social post: Pushing boundaries"), ratio: "4 / 5" }, { src: "/images/op-social-3-v2.webp", alt: tp("Social post: Top notch design solutions"), ratio: "4 / 5" }], caption: tp("The identity in use, outdoors and on social media.") },
+          { images: [{ src: "/images/op-ig-2025-03-09-v1.webp", alt: tp("Instagram post, 9 March 2025: Money talk, we translate"), ratio: "4 / 5" }, { src: "/images/op-ig-2025-03-18-v1.webp", alt: tp("Instagram post, 18 March 2025: Don’t trust the algorithm"), ratio: "4 / 5" }, { src: "/images/op-ig-2025-04-05-v1.webp", alt: tp("Instagram post, 5 April 2025: Your brand’s voice isn’t just what you say, it’s how you say it"), ratio: "4 / 5" }], caption: tp("On Instagram, March–April 2025.") },
         ],
       },
       {
