@@ -121,7 +121,7 @@ export const caseStudies: CaseStudy[] = [
           tp("When he was ready, he invited me to join as Creative Director. The studio had to keep serving its clients while the team, the offer and the identity changed around it."),
         ],
         figures: [
-          { images: [{ src: "/images/op-fig-01-v6.webp", alt: tp("The audit: six findings beside the old Overpowered homepage and its empty service cards, December 2024") }], caption: tp("The website in December 2024.") },
+          { images: [{ src: "/images/op-fig-01-v7.webp", alt: tp("The audit: six findings beside the old Overpowered homepage and its empty service cards, December 2024") }], caption: tp("The website in December 2024.") },
         ],
       },
       {
@@ -145,6 +145,7 @@ export const caseStudies: CaseStudy[] = [
         ],
         figures: [
           { images: [{ src: "/images/op-fig-06-v6.webp", alt: tp("Team: 25 people across five disciplines. Under the CEO and the Creative Director, an art director for branding, an art director for video, 2D and 3D, and UX/UI run directly, with copy shared with the CEO") }], caption: tp("Team structure. Roles only.") },
+          { images: [{ src: "/images/op-fig-review-v3.webp", alt: tp("The review: a Rocknest social post as first sent at 1:02 am on a dark background with a small product photo, beside the revision sent at 2:29 am on a light background with the table filling the frame, with three review notes and a sign-off at 3:29 am") }], caption: tp("My notes on a team post, and the revision that came back the same night.") },
         ],
       },
       {
@@ -163,7 +164,7 @@ export const caseStudies: CaseStudy[] = [
           tp("Product work needed its own conversation. A CTO buying a digital product has different priorities from a marketing lead commissioning a campaign, so we set up OP Labs as a separate offer. When SPLT came to us, I reshaped its brief into a staged product engagement and led the product design."),
         ],
         figures: [
-          { images: [{ src: "/images/op-fig-03-v4.webp", alt: tp("Two offers: OP, over a black-and-white portrait, for founders and marketing leads, and OP Labs, over a server rack lit by one amber line, for CTOs and product owners") }], caption: tp("One agency, two offers.") },
+          { images: [{ src: "/images/op-fig-03-v5.webp", alt: tp("Two offers: OP, over a black-and-white portrait, for founders and marketing leads, and OP Labs, over a server rack lit by one amber line, for CTOs and product owners") }], caption: tp("One agency, two offers.") },
         ],
       },
       {
@@ -174,8 +175,7 @@ export const caseStudies: CaseStudy[] = [
           tp("We tested elements in small Instagram campaigns in the UAE, the UK and Egypt before committing. The agency went on to use the identity for about a year."),
         ],
         figures: [
-          { images: [{ src: "/images/op-fig-09-v3.webp", alt: tp("The identity system: the primary and OP Labs lock-ups on yellow, six logo variations on colours from the palette, the mark, the typefaces and the palette") }], caption: tp("From the January 2025 brand guidelines.") },
-          { images: [{ src: "/images/op-fig-review-v2.webp", alt: tp("The review: a Rocknest social post as first sent at 1:02 am on a dark background with a small product photo, beside the revision sent at 2:29 am on a light background with the table filling the frame, with three review notes and a sign-off at 3:29 am") }], caption: tp("My notes on a team post, and the revision that came back the same night.") },
+          { images: [{ src: "/images/op-fig-09-v4.webp", alt: tp("The identity system: the primary and OP Labs lock-ups on yellow, six logo variations on colours from the palette, the mark, the typefaces and the palette") }], caption: tp("From the January 2025 brand guidelines.") },
           { images: [{ src: "/images/op-billboard-v1.webp", alt: tp("Billboard: Transforming ideas into impactful designs, over a grainy black-and-white crowd with yellow value tags"), ratio: "1296 / 768" }] },
           { images: [{ src: "/images/op-ig-2025-03-09-v1.webp", alt: tp("Instagram post, 9 March 2025: Money talk, we translate"), ratio: "4 / 5" }, { src: "/images/op-ig-2025-03-18-v1.webp", alt: tp("Instagram post, 18 March 2025: Don’t trust the algorithm"), ratio: "4 / 5" }, { src: "/images/op-ig-2025-04-05-v1.webp", alt: tp("Instagram post, 5 April 2025: Your brand’s voice isn’t just what you say, it’s how you say it"), ratio: "4 / 5" }], caption: tp("On Instagram, March–April 2025.") },
         ],
@@ -370,7 +370,7 @@ export const caseStudies: CaseStudy[] = [
           tp("Events, trips and hunts sit beside the directory, because they happen at those places. Membership sits underneath everything, because it decides what each person can do. The website, the mobile web and the app follow the same structure, so a member or a business never has to learn the product twice."),
         ],
         figures: [
-          { images: [{ src: "/images/bay-cs-architecture-v1.webp", alt: tp("Diagram: members, kids, businesses and creators use the app and the website, which share one product of directory, events, trips, hunts, shop and reviews; membership and business packages decide access") }], caption: tp("Three accounts, one shared product. Membership and business packages decide what each account can do.") },
+          { images: [{ src: "/images/bay-cs-architecture-v2.webp", alt: tp("Diagram: members, kids, businesses and creators use the app and the website, which share one product of directory, events, trips, hunts, shop and reviews; membership and business packages decide access") }], caption: tp("Three accounts, one shared product. Membership and business packages decide what each account can do.") },
           { images: [{ src: "/images/bay-cs-template-v1.webp", alt: tp("Diagram: one listing template whose middle block changes for ten kinds of place, from stays and food to wellness and attractions") }], caption: tp("One listing for ten kinds of place. Only the middle block changes.") },
           { images: [{ src: "/images/bay-fig-platforms-v1.webp", alt: tp("The website home beside the mobile website and the traveller home in the app") }], caption: tp("The same structure on the website, the mobile website and the app.") },
           {
@@ -880,8 +880,8 @@ export const caseStudies: CaseStudy[] = [
     ],
     testimonial: { quote: "Very professional work and his continual ongoing communications and proffered insights were invaluable. I\u00A0highly recommend\u00A0him.", author: "Steve Hodel", role: "NYT Bestselling Author" },
     featured: true,
-    featureImage: "/images/steve-hodel-feature-v2.webp",
-    featureImageAlt: "Chapter Ten spread of As Within, So Without: Man Ray\u2019s 1946 portrait of George Hodel on a black plate facing the chapter As Within So Without, set in Caslon",
+    featureImage: "/images/steve-hodel-jacket-v1.webp",
+    featureImageAlt: "The full jacket of As Within, So Without laid flat: praise from Michael Connelly and others on the back, the spine, and the front cover with the title set over a gridded window onto a courtyard",
     processImages: [
       { src: "/images/steve-hodel-key-1-v2.webp", alt: "Exhibit spread: George Hodel\u2019s 1920s school essays, yearbook pages and portrait, each figure numbered and captioned in the margin" },
       { src: "/images/steve-hodel-key-2.webp", alt: "Chapter opener set in Adobe Caslon beside a full-bleed archival photograph" },
@@ -892,7 +892,7 @@ export const caseStudies: CaseStudy[] = [
       { src: "/images/steve-hodel-spread-exhibits.webp", alt: "Architecture exhibits: black-and-white photographs of the Hodel house and studio in Los Angeles, each with a figure number and caption" },
       { src: "/images/steve-hodel-spread-colour.webp", alt: "Full-colour spread: Fred Sexton\u2019s 1955 painting Monalita beside the text that examines it" },
       { src: "/images/steve-hodel-spread-appendix.webp", alt: "Appendix spread: Hodel family photographs from the 1940s arranged as numbered figures" },
-      { src: "/images/steve-hodel-jacket-v1.webp", alt: "The full jacket laid flat: praise from Michael Connelly and others on the back, the spine, and the front cover with the title set over a gridded window onto a courtyard" },
+      { src: "/images/steve-hodel-feature-v2.webp", alt: "Chapter Ten spread: Man Ray\u2019s 1946 portrait of George Hodel on a black plate facing the chapter As Within So Without, set in Caslon" },
     ],
     buyLink: { href: "https://www.amazon.com/AS-WITHIN-SO-WITHOUT-Surrealism/dp/B0GMQSVHQP", label: "See the book on Amazon" },
   },
