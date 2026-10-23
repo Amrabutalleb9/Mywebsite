@@ -532,7 +532,7 @@ export default function CaseStudyLayout({
 
       {/* Prev / Next, before the CTA */}
       <div className="wrap">
-        <div className="flex items-stretch justify-between gap-4 pb-10">
+        <div className="flex items-stretch justify-between gap-4 pb-24 lg:pb-32">
           {prev ? (
             <Link href={`/work/${prev.slug}`} className="group flex flex-col gap-1 text-left">
               <span className="flex items-center gap-2 text-xs text-muted-foreground transition-colors group-hover:text-accent">
@@ -550,20 +550,6 @@ export default function CaseStudyLayout({
             </Link>
           ) : <span />}
         </div>
-      </div>
-      {/* CTA */}
-      <div className="mx-auto mt-20 max-w-[1000px] pt-12 text-center">
-        <p className="mb-4 text-lg text-muted-foreground">{"Hiring a\u00A0Creative Director?"}</p>
-        <a
-          href="/contact"
-          className="btn btn-primary"
-        >
-          {"Let\u2019s Talk"}
-        </a>
-        <p className="mt-4 text-sm text-muted-foreground">
-          {"Or reach me fastest on\u00A0"}
-          <a href="https://www.linkedin.com/in/abutalleb/" target="_blank" rel="noopener noreferrer" className="text-foreground underline underline-offset-4 transition-colors hover:text-accent">LinkedIn</a>
-        </p>
       </div>
 
     </article>
