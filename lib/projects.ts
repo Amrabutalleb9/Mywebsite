@@ -369,7 +369,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         label: "The structure",
-        lead: tp("One directory, one calendar, one membership."),
+        lead: tp("Most of the ideas were the same idea."),
         paragraphs: [
           tp("Before designing any screen, I mapped who the product served and what they would do in it. Most of the ideas turned out to be the same thing: a place someone can find, read about and act on. So stays, food, nightlife, wineries, wellness and remote work became categories of one directory, built on one listing template."),
           tp("Events, trips and hunts sit beside the directory, because they happen at those places. Membership sits underneath everything, because it decides what each person can do. The website, the mobile web and the app follow the same structure, so a member or a business never has to learn the product twice."),
