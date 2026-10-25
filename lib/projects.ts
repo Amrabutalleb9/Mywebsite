@@ -111,7 +111,7 @@ export const caseStudies: CaseStudy[] = [
       tp("A new identity built with the branding team, used by the agency for about a year"),
       tp("An immersive website direction, briefed to the 3D, motion and UX/UI teams"),
     ],
-    reflection: tp("Good work rarely comes from talent alone. It comes when a team shares a clear direction, a way of working and a standard to hold itself to. Most of my time at Overpowered went into building those, so the team could do its best work without waiting for me."),
+    reflection: tp("A 25-person studio cannot run on individual talent or WhatsApp groups. It requires a shared standard and a rigorous operational structure. Most of my time at Overpowered went into building those, so the team could do its best work without waiting for me."),
     credits: tp("Creative Direction: Amr Abu-Talleb · Art Direction & Design: the Overpowered team"),
     chapters: [
       {
@@ -129,7 +129,7 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           tp("I started with what a prospective client would see. The website offered six services, from branding to AI data analysis, under a headline about digital dominance. The identity used military and gaming imagery, which limited where the agency could advertise and suited the established businesses it wanted to reach less well."),
           tp("Inside the studio, designers could receive tasks from several people, and most coordination happened in WhatsApp groups. It wasn’t always easy to see who owned a task, when it was due or who had room for more."),
-          tp("The agency already had talented people, clients and good work. It needed a clearer offer and a better way for the team to work."),
+          tp("The talent and the client base were already there. The immediate mandate was to replace the operational chaos with a scalable structure, and to mature the brand to match the business they were actually winning."),
         ],
         figures: [
           { images: [{ src: "/images/op-fig-02-v4.webp", alt: tp("Positioning before and after: Empowering brands for digital dominance, struck through, above Your brand deserves more than ordinary, with who, what and how compared below") }], caption: tp("Positioning, before and after.") },
@@ -137,7 +137,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         label: "The team",
-        lead: tp("A new logo would have been the most visible change. The bigger change was the team."),
+        lead: tp("Redesigning the identity was only half the assignment; the priority was building an organization capable of delivering it."),
         paragraphs: [
           tp("Over seven months the studio grew from six people to about twenty-five, across graphic design, video, 3D, copy and UX/UI. Two art directors led the creative disciplines and reported to me; I managed UX/UI directly."),
           tp("One designer was already doing an art director’s job without the title. I formalised his promotion and worked with him on how to review and direct other people’s work."),
