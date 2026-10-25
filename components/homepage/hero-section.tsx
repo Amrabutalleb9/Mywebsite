@@ -59,7 +59,7 @@ export default function HeroSection() {
             ))}
           </dl>
           <p className="mx-auto mt-[clamp(1rem,3svh,2rem)] max-w-[60ch] text-base leading-relaxed text-muted-foreground lg:text-lg">
-            From brand positioning to&nbsp;digital products, I&nbsp;set the&nbsp;direction and stay close to&nbsp;the&nbsp;work.
+            From brand positioning to&nbsp;digital product architecture, I&nbsp;establish the&nbsp;standard and design alongside the&nbsp;team.
           </p>
           <div className="mt-[clamp(1.25rem,3svh,2rem)] flex flex-col items-center gap-4 sm:flex-row">
             <a
