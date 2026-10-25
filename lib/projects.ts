@@ -227,8 +227,8 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "split",
     title: "SPLT",
-    subtitle: tp("Turning an online shop brief into a fitness platform built around its trainers"),
-    impactStatement: tp("One app and three dashboards for four roles · A trainer subscription model proposed as a new revenue line"),
+    subtitle: tp("Restructured an e-commerce brief to construct a community-driven fitness platform"),
+    impactStatement: tp("Designed a unified platform accommodating four distinct user ecosystems · A trainer subscription model proposed as a new revenue line"),
     role: tp("Creative Director & UX Lead at Overpowered\nLed 2 designers and the client relationship"),
     scope: tp("Product scope, competitive research, information architecture, mobile app, three dashboards, design system"),
     intro: [
@@ -259,7 +259,7 @@ export const caseStudies: CaseStudy[] = [
       {
         label: "Designing for four roles",
         paragraphs: [
-          tp("Members got the workout and community features: a workout builder, personal and volume records, groups, goals, achievements and streaks, alongside the loyalty points the brief asked for."),
+          tp("We expanded the scope to include a comprehensive community and workout architecture, shifting the business model from a transactional shop to a trainer-driven platform."),
           tp("Trainers became a role of their own. Their profiles led with their track record and subscription plans. Free content let members judge a coach before paid videos unlocked the rest, and monthly, quarterly and yearly plans were proposed as a new recurring revenue line."),
           tp("A dedicated trainer dashboard handled clients, goals, workout plans, an exercise library and video content, while vendor and admin dashboards ran the operational side of the marketplace."),
           tp("The challenge was to give each role the right experience without building four disconnected products."),
@@ -350,7 +350,7 @@ export const caseStudies: CaseStudy[] = [
       tp("The founder had the ideas. My job was to turn them into a product a team could build on a fixed budget: decide what the product was and who it was for, what each person could do, and how the website and the app fitted together."),
     ],
     contributions: [
-      { label: "The structure", text: tp("One directory, one events calendar and one membership, shared by everyone, instead of a separate product for each idea.") },
+      { label: "The structure", text: tp("We consolidated the disparate features into a single directory governed by a universal membership.") },
       { label: "The account model", text: tp("Three account types, for members, businesses and kids, each with its own menu and limits, and a clear path from one to another.") },
       { label: "Both sides of the market", text: tp("Everything a member uses, a business creates: listings, events and tickets, hunts, products and paid gigs.") },
       { label: "One structure, every platform", text: tp("The website, the mobile web and the app follow the same map, so nobody has to learn the product twice.") },
@@ -569,7 +569,7 @@ export const caseStudies: CaseStudy[] = [
     chapters: [
       {
         label: "The problem",
-        lead: tp("Everything at the same volume"),
+        lead: tp("Data density without hierarchy"),
         paragraphs: [
           tp("TapTools was live and busy. A token page held a chart, pool data, a watchlist, top movers and every recent trade, all at the same weight. Research and testing showed people stalling in the core flows, scanning for the number they came for and leaving before they finished."),
           tp("The redesign had to land on a product people used every day. It had to fix the order of things without moving where people expected to find them."),
@@ -581,7 +581,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         label: "The structure",
-        lead: tp("One hub, and one structure for every wallet"),
+        lead: tp("A unified structural model for all wallet types"),
         paragraphs: [
           tp("I mapped every feature against how people moved between them. The market overview became the hub, and every other area sits one click from it."),
           tp("The biggest call was to give your own wallets and anyone else’s the same structure. The portfolio and the wallet profiler share one set of tabs, so learning one teaches the other, and engineering builds one set of components."),
