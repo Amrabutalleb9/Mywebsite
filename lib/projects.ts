@@ -46,6 +46,8 @@ export interface CaseStudy {
   contributions?: { label: string; text: string }[]
   /** Show "What I led" after this chapter instead of before the story. */
   contributionsAfterChapter?: string
+  /** Label above the contributions list. Defaults to "What I led". */
+  contributionsHeading?: string
   /** Heading for the results list (defaults to "What Changed"). */
   resultsTitle?: string
   /** One closing line shown above the results list. */
@@ -101,8 +103,9 @@ export const caseStudies: CaseStudy[] = [
       { label: "Website", text: tp("Led the immersive website direction and briefed the 3D, motion and UX/UI teams.") },
     ],
     contributionsAfterChapter: "The team",
+    contributionsHeading: "The work",
     resultsTitle: "Where Things Stood in June 2025",
-    resultsLead: tp("In seven months, a studio of six became an agency of twenty-five, with a clearer offer and an identity it would use for about a year."),
+    resultsLead: tp("In seven months the team grew from six people to about twenty-five, with a clearer offer and an identity the agency used for about a year."),
     results: [
       tp("A team of about twenty-five, grown from six in seven months, led by two art directors"),
       tp("Clear ownership: designers reported to their art directors, with daily reviews and a weekly review across disciplines"),
@@ -111,7 +114,7 @@ export const caseStudies: CaseStudy[] = [
       tp("A new identity built with the branding team, used by the agency for about a year"),
       tp("An immersive website direction, briefed to the 3D, motion and UX/UI teams"),
     ],
-    reflection: tp("A 25-person studio cannot run on individual talent or WhatsApp groups. It requires a shared standard and a rigorous operational structure. Most of my time at Overpowered went into building those, so the team could do its best work without waiting for me."),
+    reflection: tp("Most of my time at Overpowered went into giving a team of about twenty-five a shared standard and clear priorities, so they could do their best work without waiting for me."),
     credits: tp("Creative Direction: Amr Abu-Talleb · Art Direction & Design: the Overpowered team"),
     chapters: [
       {
@@ -129,7 +132,7 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           tp("I started with what a prospective client would see. The website offered six services, from branding to AI data analysis, under a headline about digital dominance. The identity used military and gaming imagery, which limited where the agency could advertise and suited the established businesses it wanted to reach less well."),
           tp("Inside the studio, designers could receive tasks from several people, and most coordination happened in WhatsApp groups. It wasn’t always easy to see who owned a task, when it was due or who had room for more."),
-          tp("The talent and the client base were already there. The immediate mandate was to replace the operational chaos with a scalable structure, and to mature the brand to match the business they were actually winning."),
+          tp("The talent and the client base were already there. The CEO asked me to build the structure that would let the team grow, and to bring the brand up to the business they were already winning."),
         ],
         figures: [
           { images: [{ src: "/images/op-fig-02-v4.webp", alt: tp("Positioning before and after: Empowering brands for digital dominance, struck through, above Your brand deserves more than ordinary, with who, what and how compared below") }], caption: tp("Positioning, before and after.") },
@@ -163,8 +166,8 @@ export const caseStudies: CaseStudy[] = [
         label: "A clearer offer",
         figuresFirst: true,
         paragraphs: [
-          tp("With the CEO, I focused the agency on small and mid-sized businesses, where it already had relationships and relevant work. Six service areas became three: branding, web and app, and video. Website projects moved to Webflow and Framer, so clients could launch and maintain their sites more easily."),
-          tp("Product work needed its own conversation. A CTO buying a digital product has different priorities from a marketing lead commissioning a campaign, so we set up OP Labs as a separate offer. When SPLT came to us, I reshaped its brief into a staged product engagement and led the product design."),
+          tp("With the CEO, I focused the agency on small and mid-sized businesses, where it already had relationships and relevant work. Six service areas became three: branding, web and app, and video. Website projects moved to platforms clients could launch and maintain themselves."),
+          tp("Product work needed its own conversation. A CTO buying a digital product has different priorities from a marketing lead commissioning a campaign, so we set up OP Labs as a separate offer."),
         ],
         figures: [
           { images: [{ src: "/images/op-fig-03-v5.webp", alt: tp("Two offers: OP, over a black-and-white portrait, for founders and marketing leads, and OP Labs, over a server rack lit by one amber line, for CTOs and product owners") }], caption: tp("One agency, two offers.") },
@@ -227,8 +230,8 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "split",
     title: "SPLT",
-    subtitle: tp("Restructured an e-commerce brief to construct a community-driven fitness platform"),
-    impactStatement: tp("Designed a unified platform accommodating four distinct user ecosystems · A trainer subscription model proposed as a new revenue line"),
+    subtitle: tp("The brief asked for a shop. I proposed a platform built around trainers and their members."),
+    impactStatement: tp("One platform for members, trainers, gyms and the team running it · A trainer subscription model proposed as a new revenue line"),
     role: tp("Creative Director & UX Lead at Overpowered\nLed 2 designers and the client relationship"),
     scope: tp("Product scope, competitive research, information architecture, mobile app, three dashboards, design system"),
     intro: [
@@ -327,8 +330,8 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "bay-area-trips",
     title: "Bay Area Trips",
-    subtitle: tp("Turning a sprawling local-travel idea into one product that members, businesses and families share"),
-    impactStatement: tp("Three account types on one shared directory · Website, mobile web and app built on one structure · Taken from idea to a live product"),
+    subtitle: tp("One product for members, businesses and families across the Bay Area."),
+    impactStatement: tp("Members, businesses and families on one shared directory · Website, mobile web and app built on one structure · Taken from idea to a live product"),
     client: tp("Bay Area Trips\nTravel and local discovery platform, USA"),
     role: tp("Product Strategist & Designer\nLed the product with the founder"),
     teamSize: tp("Build team of about 30"),
@@ -351,14 +354,14 @@ export const caseStudies: CaseStudy[] = [
     ],
     contributions: [
       { label: "The structure", text: tp("We consolidated the disparate features into a single directory governed by a universal membership.") },
-      { label: "The account model", text: tp("Three account types, for members, businesses and kids, each with its own menu and limits, and a clear path from one to another.") },
+      { label: "The account model", text: tp("Members, businesses and families each got their own way in, on one shared directory.") },
       { label: "Both sides of the market", text: tp("Everything a member uses, a business creates: listings, events and tickets, hunts, products and paid gigs.") },
       { label: "One structure, every platform", text: tp("The website, the mobile web and the app follow the same map, so nobody has to learn the product twice.") },
     ],
     chapters: [
       {
         label: "The brief",
-        lead: tp("Thirty ideas, all at the same volume."),
+        lead: tp("Most of the ideas were the same idea."),
         paragraphs: [
           tp("The brief arrived as a list: hotels, restaurants, nightlife, wineries, writers’ lounges and remote-work spaces; events, trips and scavenger hunts; a shop, a travel club, a concierge and EV charging; creator partnerships and kids’ accounts. Each one mattered to someone, and nothing said how they related."),
           tp("Built as listed, it would have been a dozen small apps under one logo, each with its own rules, and more than the deadline and the budget allowed."),
@@ -428,7 +431,7 @@ export const caseStudies: CaseStudy[] = [
         lead: tp("What you pay for decides what you can do."),
         paragraphs: [
           tp("There are two memberships. Businesses choose a package on the website, from a free listing to Pro and Elite with their own app, IT support, team travel and trip credits. Members choose Silver or Gold in the app."),
-          tp("The tiers aren’t just discounts. Gold adds accounts for kids, more hunts to create and bigger teams, so membership is also how the product decides who can do what."),
+          tp("Gold also adds accounts for kids, more hunts and bigger teams, so membership is also how the product decides who can do what."),
         ],
         figures: [
           { images: [{ src: "/images/bay-cs-membership-v1.webp", alt: tp("Table of what each tier unlocks: Silver and Gold for members, Free, Pro and Elite for businesses") }], caption: tp("Two memberships, one rule.") },
@@ -438,13 +441,13 @@ export const caseStudies: CaseStudy[] = [
     ],
     results: [
       tp("Took the idea from concept to a live product on the web, mobile web and an app"),
-      tp("Three account types, for members, businesses and kids, on one shared directory, with Creator Connect for businesses and creators"),
+      tp("Members, businesses and families each got their own way in, on one shared directory."),
       tp("One listing template serving ten kinds of place"),
-      tp("More than 240 app screens across 19 areas, and the website at desktop and mobile"),
-      tp("Refined after launch with feedback from the first 200 users"),
+      tp("Website, mobile web and app built on one structure."),
+      tp("Taken from idea to a live product."),
     ],
     reflection: tp("My job was to make a big idea buildable. The product has changed since launch, as products should. The structure underneath is the part I’d defend in any room: one directory, three accounts and one membership deciding who can do what."),
-    credits: tp("Product Strategy & Design: Amr Abu-Talleb · Client: Jared, Bay Area Trips · Screens redrawn in a new visual style for this case study, using the original flows"),
+    credits: tp("Product Strategy & Design: Amr Abu-Talleb · Client: the founder, Bay Area Trips."),
     featured: true,
     featureImage: "/images/bay-hero-v2.webp",
     featureImageAlt: tp("The Bay Area Trips website and two app screens on a cream studio set in late-afternoon light"),
@@ -461,7 +464,7 @@ export const caseStudies: CaseStudy[] = [
     impactStatement: tp("12% more client wins in the first month · No paid advertising · A brochure site rebuilt as a story-led sales funnel"),
     role: tp("Website strategy, UX, copywriting and build\nSolo project"),
     scope: tp("Website architecture, video sales letter, copywriting, UX/UI, interaction design and build"),
-    timeline: tp("About three weeks"),
+    timeline: tp("2024"),
     intro: [
       tp("Robert runs Agfin, advising Australian farming families on the financial side of their businesses. His work can change how a family gets through a difficult season, but his website didn’t communicate that."),
       tp("He first came to me for a few website fixes. After reviewing the site, I recommended a full redesign built around the stories of the families he had helped, with a clearer path from first visit to enquiry."),
@@ -470,7 +473,7 @@ export const caseStudies: CaseStudy[] = [
       {
         label: "The problem",
         paragraphs: [
-          tp("The site described Robert’s services but not the stories behind them: there was little proof of his work and no clear next step. For a consultant whose business depends on trust, that was a missed opportunity."),
+          tp("The site described Robert’s services but not the stories behind them: there was little proof of his work and no clear next step. For a consultant whose business depends on trust, the site needed to show the families he had helped."),
           tp("There were practical constraints too. Robert was semi-retired, had a modest budget and could only take on a limited number of new clients. There was no budget for a photo shoot."),
         ],
       },
@@ -502,7 +505,7 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     results: [
-      tp("Robert reported 12% more client wins in the first month after launch, compared with the same month the year before"),
+      tp("Robert reported 12% more client wins in the first month after launch in 2024, with no paid advertising."),
       tp("The increase came with no paid advertising"),
       tp("A brochure website became a story-led sales funnel"),
       tp("Robert’s experience told through real examples and photographs from his own region"),
@@ -513,9 +516,9 @@ export const caseStudies: CaseStudy[] = [
     client: "Agfin\nRobert, Financial Consultant, Australia",
     industry: "Agricultural Finance\nConsulting",
     markets: "Regional Australia",
-    year: "2024\u20132025",
+    year: "2024",
     businessContext: "Robert runs Agfin, advising Australian farming families on\u00A0the\u00A0money side of\u00A0the\u00A0farm. His work changes how those families get through a\u00A0bad season, but his website said none of\u00A0that.",
-    clientProblem: tp("He hired me for small fixes. The site listed his services but didn’t yet tell his story, show proof or offer a clear next step. For a consultant who lives on trust, that was a missed opportunity."),
+    clientProblem: tp("He hired me for small fixes. The site listed his services but didn’t yet tell his story, show proof or offer a clear next step. For a consultant whose business depends on trust, the site needed to show the families he had helped."),
     constraints: "Robert is\u00A0semi-retired, with a\u00A0modest budget and\u00A0a\u00A0limit on\u00A0how many new clients he can take. There was no\u00A0budget for\u00A0a\u00A0photo shoot. And halfway through, my\u00A0first draft of\u00A0the\u00A0copy proved too intense for\u00A0his audience and\u00A0had to\u00A0be\u00A0rewritten.",
     insight: tp("The site didn’t need to look better. It needed to say something. Robert had real stories of families he’d helped, with real outcomes, and none of them were on the page. The job was to rebuild the whole site as a sales funnel built on those stories."),
     creativeStrategy: "I\u00A0interviewed Robert at\u00A0length, wrote a\u00A0VSL script and\u00A0rebuilt the\u00A0site as\u00A0a\u00A0funnel. The video opens on\u00A0a\u00A0farming family\u2019s struggle, brings Robert in\u00A0as\u00A0the\u00A0guide and\u00A0shows what changed for\u00A0them. The rest of\u00A0the\u00A0site backs that story with proof and\u00A0one clear next\u00A0step.",
@@ -840,7 +843,7 @@ export const caseStudies: CaseStudy[] = [
         label: "Research and visual direction",
         paragraphs: [
           tp("I read the manuscript and Steve’s earlier books, then studied printed material from the art world of the 1930s and 1940s: catalogues, magazines, typefaces and the way pages were built around images."),
-          tp("I chose Adobe Caslon for its period character and its readability across a long book. A consistent grid and generous margins gave the material room without making each page feel like a separate exhibit."),
+          tp("I chose Adobe Caslon for its period character and its readability across a long book. It matched the editorial feel of the books and magazines that handled this work back then, and still felt modern next to the book’s layout. A consistent grid and generous margins gave the material room without making each page feel like a separate exhibit."),
         ],
         figures: [
           { images: [{ src: "/images/steve-hodel-key-2.webp", alt: tp("Chapter opener set in Adobe Caslon beside a full-bleed archival photograph"), ratio: "4 / 3" }, { src: "/images/steve-hodel-key-1-v2.webp", alt: tp("Exhibit spread: George Hodel’s 1920s school essays, yearbook pages and portrait, each figure numbered and captioned in the margin"), ratio: "4 / 3" }] },
@@ -863,9 +866,9 @@ export const caseStudies: CaseStudy[] = [
     ],
     reflection: tp("It’s one of the projects I’m proudest of. The material represented decades of investigation, and the design had to make that record easier to follow without pretending the evidence was simpler than it was. My job was to give the book a structure that respected the research and its historical context, while keeping the finished volume clear and readable."),
     credits: tp("Book Design & Typesetting: Amr Abu-Talleb"),
-    impactStatement: "212\u00A0pages · 130+\u00A0archival images placed and\u00A0captioned · Print-ready for\u00A0paperback and\u00A0hardcover on\u00A0Amazon",
+    impactStatement: tp("A 212-page book, designed, typeset and prepared for print"),
     role: "Book Designer\nSole designer: typography, layout, production",
-    scope: "Interior design, typesetting, image placement and\u00A0captions, restoration coordination, print\u00A0production",
+    scope: tp("Book design and layout, back cover, typesetting, image placement and captions, restoration coordination, print production"),
     timeline: "December 2025 \u2013 February\u00A02026",
     industry: "Publishing\nInvestigative nonfiction",
     markets: "United States\u00A0(Amazon)",
@@ -883,7 +886,7 @@ export const caseStudies: CaseStudy[] = [
       { title: "Exhibits & Images", description: "Placed more than 130\u00A0images as\u00A0anchored figures with consistent captions, and\u00A0coordinated restoration of\u00A0the\u00A0weakest\u00A0scans." },
       { title: "Production", description: "Prepared print-ready files for\u00A0paperback and\u00A0hardcover in\u00A0full colour, through several rounds of\u00A0structural\u00A0edits." },
     ],
-    testimonial: { quote: "Very professional work and his continual ongoing communications and proffered insights were invaluable. I\u00A0highly recommend\u00A0him.", author: "Steve Hodel", role: "NYT Bestselling Author" },
+    testimonial: { quote: tp("Amr assisted me in a very challenging Art/Crime book project I authored. Very professional work and his continual ongoing communications and proferred insights were invaluable. I highly recommend him."), author: "Steve Hodel", role: "NYT Bestselling Author" },
     featured: true,
     featureImage: "/images/steve-hodel-jacket-v1.webp",
     featureImageAlt: "The full jacket of As Within, So Without laid flat: praise from Michael Connelly and others on the back, the spine, and the front cover with the title set over a gridded window onto a courtyard",
