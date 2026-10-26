@@ -8,6 +8,7 @@ export default function robots(): MetadataRoute.Robots {
     ...getHiddenCaseStudySlugs().map((slug) => `/work/${slug}`),
     ...getHiddenHighlightSlugs().map((slug) => `/highlights/${slug}`),
     "/leadership",
+    "/services",
   ]
 
   const disallow = hiddenWorkPaths.length > 0 ? { disallow: hiddenWorkPaths } : {}
