@@ -93,10 +93,10 @@ export default function ContactPage() {
                 <label htmlFor="budget" className="mb-2 block text-sm font-medium text-foreground">Topic</label>
                 <select id="budget" value={form.budget} onChange={(e) => setForm({ ...form, budget: e.target.value })} className="w-full rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent">
                   <option value="">Select&nbsp;one</option>
-                  <option value="fulltime">Full-time role</option>
-                  <option value="contract">Contract or interim role</option>
-                  <option value="collaboration">Collaboration or partnership</option>
-                  <option value="other">Something else</option>
+                  <option value="A full-time role">A full-time role</option>
+                  <option value="A contract or interim role">A contract or interim role</option>
+                  <option value="A collaboration">A collaboration</option>
+                  <option value="Something else">Something else</option>
                 </select>
               </div>
               <div>
@@ -110,10 +110,10 @@ export default function ContactPage() {
                 </p>
               )}
               <button type="submit" disabled={sending} className="btn btn-primary">
-                {sending ? "Sending\u2026" : "Send\u00A0Message"}
+                {sending ? "Sending\u2026" : "Send message"}
               </button>
               <p className="text-center text-xs text-muted-foreground">
-                I respond within 24&nbsp;hours.
+                I reply within 24&nbsp;hours.
               </p>
             </form>
           )}

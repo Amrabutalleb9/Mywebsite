@@ -81,7 +81,7 @@ export default function CaseStudyLayout({
         <section className="wrap mb-28">
           <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
             <FadeIn>
-              <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">What I led</h2>
+              <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">{project.contributionsHeading ?? "What I led"}</h2>
             </FadeIn>
             <FadeIn as="div">
               <ul className="grid grid-cols-1 gap-x-12 gap-y-10 sm:grid-cols-2">
