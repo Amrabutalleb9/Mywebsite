@@ -84,7 +84,7 @@ export default function AboutPage() {
             {/* CTA buttons */}
             <div className="flex flex-wrap gap-3">
               <a
-                href="/Amr_AbuTalleb_CV_Creative_Director.pdf"
+                href="/cv/Amr_AbuTalleb_CV_Creative_Director_2026-10.pdf"
                 download
                 className="btn btn-primary"
               >

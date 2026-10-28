@@ -7,7 +7,7 @@ import { submitContactForm } from "@/lib/contact"
 
 const EMAIL = "hello@amrabutalleb.com"
 const LINKEDIN = "https://www.linkedin.com/in/abutalleb/"
-const CV = "/Amr_AbuTalleb_CV_Creative_Director.pdf"
+const CV = "/cv/Amr_AbuTalleb_CV_Creative_Director_2026-10.pdf"
 
 const topics = [
   { value: "A full-time role", label: "A full-time role" },

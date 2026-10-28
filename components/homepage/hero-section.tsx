@@ -70,7 +70,7 @@ export default function HeroSection() {
               <ArrowUpRight size={14} className="cta-arrow" />
             </a>
             <a
-              href="/Amr_AbuTalleb_CV_Creative_Director.pdf"
+              href="/cv/Amr_AbuTalleb_CV_Creative_Director_2026-10.pdf"
               download
               className="btn btn-secondary"
             >
