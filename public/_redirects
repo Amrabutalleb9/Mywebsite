@@ -24,6 +24,10 @@
 /articles/ /about 301
 /articles/* /about 301
 
+# Short CV link used in outreach emails (Oct 2026). 302 so it can point at a newer CV later.
+/cv /cv/Amr_AbuTalleb_CV_Creative_Director_2026-10.pdf 302
+/cv/ /cv/Amr_AbuTalleb_CV_Creative_Director_2026-10.pdf 302
+
 # Old CV filename
 /Amr_AbuTalleb_Resume.pdf /cv/Amr_AbuTalleb_CV_Creative_Director_2026-10.pdf 301
 /Amr_AbuTalleb_CV_Creative_Director.pdf /cv/Amr_AbuTalleb_CV_Creative_Director_2026-10.pdf 301
