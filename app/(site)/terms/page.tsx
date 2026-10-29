@@ -2,7 +2,7 @@ import Link from "next/link"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Terms of Service",
+  title: "Terms of service",
   description: "Terms governing use of amrabutalleb.com and purchase of digital products from Amr Abu-Talleb.",
   alternates: { canonical: "/terms" },
   robots: { index: true, follow: true },
@@ -10,24 +10,24 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <main className="px-8 pt-32 pb-24 lg:px-16 lg:pt-40 lg:pb-32">
+    <main className="px-8 pt-32 pb-24 lg:px-16 lg:pt-32 lg:pb-32">
       <div className="mx-auto max-w-[65ch]">
         <p className="mb-4 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">
           Legal
         </p>
         <h1 className="mb-8 font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
-          Terms of Service
+          Terms of service
         </h1>
-        <p className="mb-10 text-sm text-muted-foreground">
-          Last updated: March 31, 2026. These terms govern your use of{" "}
+        <p className="mb-12 text-sm text-muted-foreground">
+          Last updated: 31 March 2026. These terms govern your use of{" "}
           <strong className="text-foreground">amrabutalleb.com</strong> (the &quot;Site&quot;) and any digital products
           or services offered by <strong className="text-foreground">Amr Abu-Talleb</strong> (&quot;we&quot;,
           &quot;us&quot;). By using the Site or purchasing from us, you agree to these terms.
         </p>
 
-        <div className="flex flex-col gap-8 text-[15px] leading-[var(--leading-longform)] text-muted-foreground">
+        <div className="flex flex-col gap-8 text-base leading-[var(--leading-longform)] text-muted-foreground">
           <section>
-            <h2 className="mb-3 font-serif text-2xl text-foreground">1. Use of the Site</h2>
+            <h2 className="mb-3 font-serif text-2xl text-foreground">1. Use of the site</h2>
             <p>
               You may use the Site for lawful purposes only. You agree not to misuse the Site, attempt unauthorized
               access, interfere with security, scrape content in violation of these terms, or use the Site in a way
@@ -41,7 +41,7 @@ export default function TermsPage() {
               All content on the Site — including text, graphics, logos, layouts, and downloadable materials — is
               owned by Amr Abu-Talleb or licensed to us and is protected by copyright and other laws. You may not copy,
               redistribute, or create derivative works from our content without prior written permission, except as
-              allowed by law or expressly stated for a specific product (e.g., a personal-use license for a purchased
+              allowed by law or expressly stated for a specific product (e.g., a personal-use licence for a purchased
               digital file).
             </p>
           </section>
@@ -50,8 +50,8 @@ export default function TermsPage() {
             <h2 className="mb-3 font-serif text-2xl text-foreground">3. Digital products</h2>
             <p className="mb-3">
               When you purchase a digital product (such as guides or templates), you receive a limited, non-exclusive,
-              non-transferable license to use the materials for your personal or internal business use, unless a
-              separate license is provided at purchase. You may not resell, share, or publicly republish the files
+              non-transferable licence to use the materials for your personal or internal business use, unless a
+              separate licence is provided at purchase. You may not resell, share, or publicly republish the files
               except as permitted in writing.
             </p>
             <p>
@@ -66,7 +66,7 @@ export default function TermsPage() {
               Unless stated otherwise on the product page at the time of purchase, digital products may be eligible for
               a refund within the period and under the conditions stated there (for example, a 30-day satisfaction
               guarantee where offered). Refund requests should be sent to{" "}
-              <a href="mailto:hello@amrabutalleb.com" className="text-accent underline underline-offset-2">
+              <a href="mailto:hello@amrabutalleb.com" className="link-inline">
                 hello@amrabutalleb.com
               </a>{" "}
               with your purchase details. We do not guarantee results; outcomes depend on your effort and market
@@ -130,7 +130,7 @@ export default function TermsPage() {
             <h2 className="mb-3 font-serif text-2xl text-foreground">10. Contact</h2>
             <p>
               Questions about these terms:{" "}
-              <a href="mailto:hello@amrabutalleb.com" className="text-accent underline underline-offset-2">
+              <a href="mailto:hello@amrabutalleb.com" className="link-inline">
                 hello@amrabutalleb.com
               </a>
               .
@@ -139,11 +139,11 @@ export default function TermsPage() {
         </div>
 
         <p className="mt-12 text-sm text-muted-foreground">
-          <Link href="/privacy" className="text-accent underline underline-offset-2">
-            Privacy Policy
+          <Link href="/privacy" className="link-inline">
+            Privacy policy
           </Link>
           {" · "}
-          <Link href="/" className="text-accent underline underline-offset-2">
+          <Link href="/" className="link-inline">
             Back to home
           </Link>
         </p>

@@ -74,7 +74,7 @@ export function InfiniteGrid({ children, className = "" }: InfiniteGridProps) {
         <svg className="h-full w-full">
           <defs>
             <pattern ref={bgPatternRef} id={bgPatternId} width={GRID_SIZE} height={GRID_SIZE} patternUnits="userSpaceOnUse">
-              <path d={pathD} fill="none" stroke="currentColor" strokeWidth="1" className="text-foreground/20" />
+              <path d={pathD} fill="none" stroke="currentColor" strokeWidth="1" className="text-foreground/10" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill={`url(#${bgPatternId})`} />
@@ -85,7 +85,7 @@ export function InfiniteGrid({ children, className = "" }: InfiniteGridProps) {
         <svg className="h-full w-full">
           <defs>
             <pattern ref={fgPatternRef} id={fgPatternId} width={GRID_SIZE} height={GRID_SIZE} patternUnits="userSpaceOnUse">
-              <path d={pathD} fill="none" stroke="currentColor" strokeWidth="1" className="text-foreground/20" />
+              <path d={pathD} fill="none" stroke="currentColor" strokeWidth="1" className="text-foreground/10" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill={`url(#${fgPatternId})`} />

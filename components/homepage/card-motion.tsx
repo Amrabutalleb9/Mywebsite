@@ -33,7 +33,7 @@ export function SpltReel({ label }: { label: string }) {
 
 export function HodelProof({ label }: { label: string }) {
   return (
-    <div role="img" aria-label={label} className="card-img proof relative aspect-[16/10] w-full overflow-hidden bg-[#e9e7e2]">
+    <div role="img" aria-label={label} className="card-img proof relative aspect-[16/10] w-full overflow-hidden bg-proof-paper">
       <img src="/images/hodel-proof-sheet-v2.webp" alt="" loading="lazy" decoding="async" className="proof-sheet" aria-hidden="true" />
     </div>
   )

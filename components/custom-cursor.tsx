@@ -113,12 +113,12 @@ export default function CustomCursor() {
     <div
       ref={tipRef}
       aria-hidden="true"
-      className="cursor-tip pointer-events-none fixed top-0 left-0 z-[9999] hidden md:block"
+      className="cursor-tip pointer-events-none fixed top-0 left-0 z-200 hidden md:block"
       style={{ opacity: 0, willChange: "transform, opacity", transition: "opacity 0.18s ease" }}
     >
       <span
         ref={textRef}
-        className="block whitespace-nowrap rounded-full bg-foreground px-5 py-3 text-[11px] font-medium tracking-[var(--tracking-label)] text-background uppercase shadow-[0_10px_30px_-10px_rgba(13,13,26,0.45)]"
+        className="block whitespace-nowrap rounded-full bg-foreground px-4 py-3 text-xs font-medium tracking-[var(--tracking-label)] text-background uppercase shadow-[var(--shadow-md)]"
       />
     </div>
   )

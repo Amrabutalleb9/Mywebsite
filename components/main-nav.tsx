@@ -58,11 +58,11 @@ export default function MainNav() {
           scrolled ? "border-b border-border bg-background/90 backdrop-blur-md" : "bg-transparent"
         }`}
       >
-        <nav className="flex items-center justify-between px-8 py-5 lg:px-16">
+        <nav className="flex items-center justify-between px-8 py-4 lg:px-16">
           <Link href="/" className="text-lg font-bold tracking-tight text-foreground lg:text-xl">
             Amr Abu-Talleb
           </Link>
-          <div className="hidden items-center gap-10 md:flex">
+          <div className="hidden items-center gap-12 lg:flex">
             {navItems.map((item) =>
               item.external ? (
                 <a
@@ -70,7 +70,7 @@ export default function MainNav() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {item.label}
                   <ArrowUpRight size={14} className="cta-arrow" aria-hidden="true" />
@@ -87,14 +87,14 @@ export default function MainNav() {
             )}
             <Link
               href="/contact"
-              className="rounded-full border border-accent px-5 py-2 text-sm font-medium text-accent transition-all duration-300 hover:bg-accent hover:text-accent-foreground"
+              className="btn btn-secondary btn-sm"
             >
-              {"Let\u2019s Talk"}
+              {"Let\u2019s talk"}
             </Link>
           </div>
           <button
             type="button"
-            className="text-foreground md:hidden"
+            className="text-foreground lg:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
@@ -110,7 +110,7 @@ export default function MainNav() {
           role="dialog"
           aria-modal="true"
           aria-label="Navigation menu"
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-8 bg-background md:hidden"
+          className="fixed inset-0 z-100 flex flex-col items-center justify-center gap-8 bg-background lg:hidden"
           onKeyDown={handleTrapFocus}
         >
           <button
@@ -133,7 +133,7 @@ export default function MainNav() {
                 className="inline-flex items-center gap-2 font-serif text-3xl text-foreground"
               >
                 {item.label}
-                <ArrowUpRight size={22} className="cta-arrow" aria-hidden="true" />
+                <ArrowUpRight size={24} className="cta-arrow" aria-hidden="true" />
               </a>
             ) : (
               <Link

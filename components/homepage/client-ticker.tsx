@@ -27,13 +27,13 @@ export default function ClientTicker() {
       <span className="sr-only">{clientNames.join(", ")}</span>
       <div
         ref={trackRef}
-        style={{ display: "flex", gap: "1.25rem", width: "max-content", willChange: "transform" }}
+        style={{ display: "flex", gap: "1.5rem", width: "max-content", willChange: "transform" }}
         aria-hidden="true"
       >
         {[...clientNames, ...clientNames, ...clientNames].map((name, i) => (
           <span
             key={`${name}-${i}`}
-            style={{ display: "flex", alignItems: "center", gap: "1.25rem", flexShrink: 0, whiteSpace: "nowrap" }}
+            style={{ display: "flex", alignItems: "center", gap: "1.5rem", flexShrink: 0, whiteSpace: "nowrap" }}
             className="font-serif text-[length:var(--text-section)] font-normal text-primary-foreground"
           >
             {name}

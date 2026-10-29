@@ -1,24 +1,27 @@
 ---
-description: Design system tokens — type scale, fonts, labels, colors, spacing, containers. All values reference CSS custom properties in globals.css.
+description: Design system: type scale, fonts, labels, colours, spacing scale, radius, shadows, z-index, breakpoints, motion, icons, images, copy style (case, numbers, dates, money, units). All values reference CSS custom properties in globals.css.
 globs: "{app,components}/**/*.tsx"
 alwaysApply: false
 ---
 
 # Design System
 
-All typography values are stored as CSS custom properties in `app/globals.css` `@theme inline`. Reference them with `var()` — never hardcode clamp, tracking, or leading values.
+Every value is a CSS custom property in `app/globals.css` (`:root` and `@theme inline`). Reference it with `var()` or the matching utility. Never hard-code a clamp, colour, tracking, leading, shadow or z-index. The published reference is the "Amr Abu-Talleb" Design System artifact.
 
 ## Type Scale
 
-Custom optical scale (~Major Third body, ~Perfect Fourth headings). Defined in `--text-*` variables.
+A custom optical scale: roughly a Major Third for body sizes, a Perfect Fourth for headings.
 
-| Token | Variable | Computed | Tailwind Usage |
-|-------|----------|----------|----------------|
-| **Display** | `--text-display` | 44.8→120px | `text-[length:var(--text-display)]` |
-| **Page Title** | `--text-page` | 40→72px | `text-[length:var(--text-page)]` |
-| **Section Heading** | `--text-section` | 32→56px | `text-[length:var(--text-section)]` |
-| **Sub Heading** | `--text-sub` | 24→40px | `text-[length:var(--text-sub)]` |
-| **Service Title** | — | 24→30px | `text-2xl lg:text-3xl` |
+| Token | Variable | Computed | Usage |
+|-------|----------|----------|-------|
+| **Hero** | `--text-hero` | 38→92px (height-aware) | Homepage h1 only |
+| **Display** | `--text-display` | 44.8→120px | 404 |
+| **Page Title** | `--text-page` | 40→72px | Page h1 |
+| **Section Heading** | `--text-section` | 32→56px | h2, marquee names, footer words |
+| **Sub Heading** | `--text-sub` | 24→40px | h3, stat numbers, case-study card titles |
+| **Quote** | `--text-quote` | 24→40px | Testimonial quote (Playfair italic) |
+| **Quote mark** | `--text-quote-mark` | 112→128px | The opening “ above a testimonial |
+| **Service Title** | `--text-service-sm` / `--text-service-lg` | 24 / 30px | `text-2xl lg:text-3xl` |
 | **Body XL** | `--text-body-xl` | 20px | `text-xl` |
 | **Body Large** | `--text-body-lg` | 18px | `text-lg` |
 | **Article** | `--text-article` | 17px | `text-[length:var(--text-article)]` |
@@ -27,118 +30,319 @@ Custom optical scale (~Major Third body, ~Perfect Fourth headings). Defined in `
 | **Caption** | `--text-caption` | 12px | `text-xs` |
 | **Micro** | `--text-micro` | 10px | `text-[length:var(--text-micro)]` |
 
-Minimum font size: **10px**. Never go below `--text-micro`.
+No other sizes: no `text-[15px]`, `text-[11px]` or raw clamps. The minimum is 10px.
 
 ## Font Families
 
-### Inter (sans-serif) — `font-sans`
-- Body text, UI, labels, navigation
-- **Body (14–16px):** No extra tracking; Inter's defaults are tuned for this range
-- **Small text (10–12px):** Positive tracking (`--tracking-sublabel` or `--tracking-label`) improves legibility
-- **Uppercase:** Always add `tracking-[var(--tracking-label)]` or `tracking-[var(--tracking-sublabel)]`
-- **Weight:** 400 (normal), 500 (medium), 600 (semibold). Avoid 700+ for body.
-- **Min size:** 10px
+### Inter (sans-serif): `font-sans`
+- Body text, UI, labels, navigation.
+- **Body (14–16px):** no extra tracking.
+- **Small text (10–12px) and uppercase:** always `--tracking-label` or `--tracking-sublabel`.
+- **Weight:** 400 body, 500 labels and buttons, 600 sub-labels. 700 only for the nav wordmark "Amr Abu-Talleb".
 
-### Playfair Display (serif) — `font-serif`
-- Headings, display, blockquotes, large decorative numbers
-- **Display (72px+):** `tracking-[var(--tracking-display)]` (-0.03em)
-- **Headings (24–72px):** `tracking-tight` (-0.025em)
-- **Weight:** 400 (normal) only. High stroke contrast makes bold unnecessary.
-- **Line height:** 0.92–1.15 depending on size
-- **Min size:** 24px (1.5rem). Below this, thin strokes become illegible.
+### Playfair Display (serif): `font-serif`
+- Every heading, display number, marquee name and quote. Headings are never set in Inter.
+- **Weight:** 400 only. Never bold.
+- **Styles loaded:** roman and italic (`style: ["normal", "italic"]` in `app/layout.tsx`). Italic is for quotes only.
+- **Tracking:** `--tracking-display` (-0.03em) for hero and display, `tracking-tight` (-0.025em) for the rest.
+- **Minimum size:** 24px (`text-2xl`). Below that the hairlines break up.
 
 ## Leading
 
 | Variable | Value | Usage |
 |----------|-------|-------|
-| `--leading-display` | 0.92 | Hero display heading only |
-| `--leading-tight` | 1.05 | Page titles, footer heading |
-| `--leading-heading` | 1.1 | Section headings, article h1 |
-| `leading-snug` | 1.375 | Key/value snapshot items |
-| `--leading-body` / `leading-relaxed` | 1.625 | Default body text |
-| `--leading-longform` | 1.75 | Case study / highlight / article body |
+| `--leading-mark` | 0.75 | Quote mark only |
+| `--leading-display` | 0.92 | Display only |
+| `--leading-tight` | 1.05 | Hero, page titles, footer heading |
+| `--leading-heading` | 1.1 | Section and sub headings |
+| `--leading-quote` | 1.2 | Testimonial quote |
+| `leading-snug` | 1.375 | Key/value items, stat labels |
+| `--leading-body` / `leading-relaxed` | 1.625 | Default body |
+| `--leading-longform` | 1.75 | Case study, highlight and About body |
 | `leading-none` | 1 | Decorative numbers |
 
 ## Tracking
 
 | Variable | Value | Usage |
 |----------|-------|-------|
-| `--tracking-display` | -0.03em | Display heading only |
-| `tracking-tight` | -0.025em | All other serif headings |
-| `--tracking-sublabel` | 0.12em | Sub-section labels, meta labels |
-| `--tracking-label` | 0.15em | Section labels, CTA buttons |
-| `tracking-wide` | 0.025em | Service meta, "View all" links |
-| `tracking-widest` | 0.1em | Client marquee |
+| `--tracking-display` | -0.03em | Hero and display only |
+| `tracking-tight` | -0.025em | Every other serif heading |
+| `tracking-wide` | 0.025em | View-all links |
+| `--tracking-sublabel` | 0.12em | Sub-section labels, meta labels, testimonial roles |
+| `--tracking-label` | 0.15em | Section labels, buttons, cursor label |
+
+`tracking-wider` and `tracking-widest` are retired.
 
 ## Label Patterns
 
 | Token | Classes |
 |-------|---------|
-| **Section Label** | `text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase` |
-| **Sub-section Label** | `text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/50 uppercase` |
+| **Section Label** | `text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase` (after a `h-px w-8 bg-accent` rule) |
+| **Sub-section Label** | `text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/70 uppercase` |
 | **Meta Label** | `text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-sublabel)] text-accent uppercase` |
-| **CTA Button** | `text-xs font-medium tracking-[var(--tracking-label)] uppercase` |
+| **CTA Button** | `.btn` (see Buttons) |
 
-## Text Colors
+## Colours
+
+| Token | Value | Role |
+|-------|-------|------|
+| `--background` | #ffffff | Page ground |
+| `--foreground` | #0d0d1a | Ink text (18.9:1) |
+| `--muted-foreground` | #6b6b6b | Body, descriptions, form labels (5.3:1) |
+| `--surface` / `--muted` | #f5f5f5 | Quiet panels |
+| `--primary` | #0d0d1a | Ink surfaces: footer, bands, filled buttons |
+| `--primary-foreground` | #ffffff | Text on ink |
+| `--accent` | #c9a96e | Gold lines, fills, borders, middots, and text on ink only (2.2:1 on white) |
+| `--accent-text` | #8c6929 | Gold text on light grounds, focus ring (5.0:1). `.text-accent` remaps to it automatically |
+| `--accent-numeral` | #a8894f | Case-study numbers, serif 24px+ only (3.3:1, large text) |
+| `--border` / `--input` | #e5e5e5 | Decorative hairlines only |
+| `--input-strong` | #8c8c8c | Form field underline at rest (3.4:1) |
+| `--destructive` | #b42318 | Error text (6.6:1) |
+| `--proof-paper` | #e9e7e2 | Paper behind the Hodel proof card |
+
+### Text colours
 
 | Role | Class | When |
 |------|-------|------|
-| Primary | `text-foreground` | Headings, author names, emphasis |
-| Secondary | `text-muted-foreground` | Body paragraphs, descriptions |
-| Tertiary | `text-muted-foreground/50` | Meta info, sub-labels, timestamps |
+| Primary | `text-foreground` | Headings, names, emphasis |
+| Secondary | `text-muted-foreground` | Body, descriptions |
+| Label | `text-foreground/70` | Sub-section labels |
 | Accent | `text-accent` | Section labels, active states, hover |
-| Decorative | `text-accent/30` | Large row numbers (01, 02…) |
-| On-dark | `text-primary-foreground` | Text on `bg-primary` surfaces |
+| On ink | `text-primary-foreground`, `/70` secondary, `/50` legal line | Text on `bg-primary` |
 
-Allowed opacity levels: `/30`, `/50`, `/70` only.
+### Opacity steps
+
+- **Text and marks:** `/30` (decorative only), `/50`, `/70`.
+- **Hairlines and washes:** `/10` (`border-primary-foreground/10`, `bg-foreground/10`, `bg-accent/10`).
+- **Scrims behind overlays:** `/90` (`bg-background/90` nav, `bg-primary/90` lightbox).
+- Nothing else.
+
+### Theme
+
+Light only, by choice. Ink bands (client band, services band, footer) carry the contrast. There is no dark mode. Only the favicon follows the OS theme.
+
+## Spacing Scale
+
+One scale for everything: 4, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192px. It is a 4px base that doubles, with a ×1.5 step between each doubling. In Tailwind: `1 2 3 4 6 8 12 16 24 32 48`. No other steps (no `5`, `7`, `10`, `14`, `20`, `28`, `36`, `40`, `1.5`).
+
+| Role | Value | Classes |
+|------|-------|---------|
+| Tight pairs (icon to text, label to value) | 4–8 | `gap-1`, `gap-2`, `mt-1`, `mt-2` |
+| Inside a component | 12–16 | `gap-3`, `gap-4`, `p-4` |
+| Label to heading | 16 | `mb-4` |
+| Heading to body | 24 | `mt-6` |
+| Body to CTA, between paragraphs in a group | 32 | `mt-8` |
+| Between blocks in a section, card padding (lg) | 48 / 64 | `mt-12`, `gap-12`, `lg:gap-16`, `lg:p-16` |
+| Between groups in a section | 96 | `mt-24` |
+| Between sections (mobile / desktop) | 128 / 192 | `pt-32 lg:pt-48`, `mb-32 lg:mb-48` |
+
+The hero's svh-clamped spacing is the one exception: it moves fluidly between scale steps so the client band always peeks into the first screen.
+
+### Section Spacing
+
+| Token | Classes |
+|-------|---------|
+| Page padding | `px-8 pt-32 pb-24 lg:px-16 lg:pb-32` |
+| Section gap | `mt-32` (case-study chapters `mb-32`) |
+| Inner section | `mt-24` |
+| Content gap | `gap-12 lg:gap-16` |
+| Case-study cards (homepage) | `gap-24 lg:gap-32` |
+| Detail page | `pt-32` top, `pb-24 lg:pb-32` bottom |
+
+## Radius
+
+| Class | Round / superellipse | Role |
+|-------|----------------------|------|
+| `rounded-sm` | 10 / 12px | Chips, skip link |
+| `rounded-lg` (= `--radius`) | 18 / 22px | Cards, small media, callouts, the footer card, lightbox |
+| `rounded-2xl` | 24 / 30px | Large media: case-study and highlight images and video, work cards, dialogs |
+| `rounded-full` | pill | Buttons, topic pills, cursor label |
+
+`rounded-xl`, `rounded-md` and `rounded-3xl` are retired.
+
+## Shadows
+
+Shadows appear only on hover, as lift. Nothing has a resting shadow.
+
+| Variable | Use |
+|----------|-----|
+| `--shadow-sm` | Small cards (capability cards) |
+| `--shadow-md` | Buttons, cursor label |
+| `--shadow-lg` | Media (work cards, detail images, hover previews) |
+
+## Layers (z-index)
+
+| Variable | Value | Use |
+|----------|-------|-----|
+| `--z-raised` | 10 | Marquee bands and their edge fades |
+| `--z-nav` | 50 | Fixed nav, hover previews |
+| `--z-overlay` | 100 | Mobile menu, skip link, lightbox |
+| `--z-cursor` | 200 | Custom cursor label |
+
+In classes: `z-10`, `z-50`, `z-100`, `z-200`. Never `z-[9999]`.
+
+## Breakpoints
+
+Tailwind defaults: `sm` 640, `md` 768, `lg` 1024, `xl` 1280.
+- **`lg` is the one layout switch:** gutters 32→64, section rhythm 128→192, two-column grids, desktop nav.
+- **`sm`** is only for small rearrangements: button rows go horizontal, form fields sit side by side, label sizes step up.
+- **`md`** is not used for layout.
+
+## Motion
+
+| Pattern | Values |
+|---------|--------|
+| Default transition | `--duration-normal` (320ms), `--ease-out-expo` |
+| Colour-only change | `--duration-fast` (200ms) |
+| Image zoom, media shadow | `--duration-slow` (550ms), `--ease-out-quart`, scale 1.04 |
+| Reveal on scroll (`FadeIn`, `ScrollReveal`) | 24px rise and fade, 600ms, `--ease-out-expo`, once |
+| Stagger | 80ms steps (`delay={0.08}`, `0.16`). Max 3 steps, inside a list only |
+| Hero lines | CSS-only, 100ms steps, so the LCP text never waits for JS |
+| Hover lift | Buttons 2px up and press to 98%, arrows 2px up-right, cards 3px up |
+| Marquees | 70px per second, all bands. Ease to a stop on hover |
+| Count-ups | Start 160ms after entering view, 80ms between numbers |
+
+No bounce or elastic. Every animation has a `prefers-reduced-motion` path: movement off, colour changes kept, count-ups show the final value.
+
+## Icons
+
+lucide-react only, outline at the default stroke.
+
+| Size | Use |
+|------|-----|
+| 14px | Inside text links and buttons (`cta-arrow`) |
+| 18px | UI controls (testimonial arrows, close buttons inline) |
+| 24px | Touch-first controls: mobile menu, lightbox |
+
+`ArrowUpRight` means go somewhere. `ArrowDown` means download. Decorative icons get `aria-hidden="true"`. No emoji.
+
+## Images
+
+| Ratio | Class | Use |
+|-------|-------|-----|
+| 16:10 | `aspect-[16/10]` | Work cards, case-study grid images, card motion |
+| 16:9 | `aspect-video` | Hero media and video |
+| 4:3 | `aspect-[4/3]` | Detail figures and diagrams |
+| 21:9 | `aspect-[21/9]` | Wide banners and placeholder panels |
+| 1:1 | `aspect-square` | Portrait |
+
+- Media sits on `bg-primary` while loading. Large media uses `rounded-2xl`, small media uses `rounded-lg`.
+- Videos are muted, have a poster, and are hidden under reduced motion.
+- A replaced image gets a new filename (`-v2`), because `/images/*` is cached for a year.
+
+**Alt text** says what the image shows and why it matters for the case, in sentence case and under 125 characters:
+- Name the thing: "SPLT trainer profile and subscription screens".
+- Never start with "Image of" or "Picture of".
+- No filenames, and no full stop unless there are two sentences.
+- Decorative images get `alt=""`.
+- Diagrams start with "Diagram:".
+
+## Copy style
+
+### Capitalisation
+**Sentence case everywhere:** headings, labels, buttons, nav, categories, service names, page titles and metadata ("Case studies", "What was broken", "Let’s talk", "Brand strategy & identity").
+
+Capitals stay only for:
+- proper nouns, brands, places and products (SPLT, Bay Area Trips, Webflow, Amazon);
+- **job titles** naming a person’s role (Creative Director, Senior Product Designer, Head of Creative);
+- acronyms (UX, UI, CEO);
+- the first word after a colon in a credit only when it is a name.
+
+A discipline is lower case ("creative direction"). A title is capped ("Creative Director"). Labels are typed in sentence case and uppercased by CSS, never typed in capitals.
+
+### Numbers
+Numbers are proof, so they read as figures.
+
+- **Figures (`8`, `25`, `13`):**
+  - every number 10 and over;
+  - every number in a stat, fact strip, impact line, card meta, label or table;
+  - anything with a unit, %, money, age, page count or date;
+  - every number in a sentence that already contains a figure ("from 6 to about 25 in 7 months").
+- **Words (one to nine):** only in running prose with no other figure nearby ("Three brand personalities", "two products").
+- **"One" meaning "a single"** stays a word ("One listing template"). So do idioms ("a dozen").
+- **Sentence starts:** never start a sentence with a figure. Spell the number out or recast the sentence.
+- **Approximate and plus:** "about 25", "50+" (no space before +), never "~25".
+- **Ranges:** en dash, no spaces: "2–3", "10–12 weeks", "2019–2023".
+- **Thousands:** a comma from 1,000 ("4,000"). The decimal mark is a full stop.
+
+### Dates and times (UK)
+- **Full date:** "29 October 2026". Day month year, no ordinal, no comma.
+- **Meta lines and fact strips:** "Oct 2026". Ranges: "Dec 2024 – Jun 2025" (spaced en dash, because each side has a space). Open-ended: "2024 – present".
+- **Years alone:** "2025". Decades: "the 1940s".
+- **Time:** 24-hour with a colon, city or zone named for an international reader: "10:00 Cairo time", "15:00 CET". Durations: "24 hours", "7 months".
+
+### Money
+- Symbol before the figure, no space: "£8,000", "€500", "$2M".
+- Large amounts: `k` and `M`, capital M, no space ("$500k", "$2M").
+- Name the currency when the symbol is ambiguous ("A$", "EGP 500", "US$100").
+
+### Units and symbols
+- Metric first: "4,000 km", "212 pages", "1,200px". There is a space between the number and the unit, except for `%`, `px`, `°` and `k`/`M`. The number is always bound with `\u00A0` (Tier 6).
+- Percent: "12%", "down 23%". Never "percent".
+- Use "&" only in labels, categories, service names and credits. Use "and" in sentences.
+- Middot `·` with spaces separates meta items and title parts.
+
+### Language
+UK English everywhere: colour, organisation, licence (noun), analyse, centre, programme, kilometres. `locale: "en_GB"`, `<html lang="en-GB">`.
+
+## Links
+
+| Type | Classes |
+|------|---------|
+| Inline link in text | `link-inline`: ink text, 1px gold underline at offset 4, hover to `accent-text`. On ink: white text, gold underline, hover to gold |
+| Nav link | `text-sm text-muted-foreground hover:text-foreground` |
+| View-all link | `text-link inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase` |
 
 ## Container Widths
 
 | Token | Class | Usage |
 |-------|-------|-------|
-| Body text | `max-w-[60ch]` | Standard paragraphs (55-75 chars/line) |
+| Body text | `max-w-[60ch]` | Standard paragraphs (55–75 characters a line) |
 | Article body | `max-w-[65ch]` | Long-form article reading only |
 | Narrow | `max-w-[50ch]` | Intros, step descriptions |
-| Title | `max-w-[20ch]` | Page titles to force wrapping |
-
-## Section Spacing
-
-| Token | Classes |
-|-------|---------|
-| Page padding | `px-8 pt-32 pb-24 lg:px-16 lg:pt-40 lg:pb-32` |
-| Section gap | `mt-32` |
-| Inner section | `mt-24` |
-| Content gap | `gap-12 lg:gap-16` |
-| Detail page | `pb-[clamp(80px,10vw,140px)] pt-28` |
+| Title | `max-w-[20ch]` | Page titles, to force wrapping |
 
 ## Section Endings
 
-Every homepage section that ends with a "view all" link (All Projects, Read More, All Articles) follows one pattern, so the link reads as part of the section above it:
+Every homepage section that ends with a "view all" link (All projects) follows one pattern, so the link reads as part of the section above it:
 
 | Element | Classes |
 |---------|---------|
 | Link wrapper | `mt-12 flex justify-center border-b border-border pb-8` |
 | Link | `text-link inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase` |
 
-The link sits directly under the content and the divider line **closes** the section. Never put the divider above the link.
+The link sits directly under the content, and the divider line **closes** the section. Never put the divider above the link.
 
 ## Homepage Order
 
-Hero (eyebrow label, two-line headline, three number stats with hairline dividers; `min-h-[calc(100svh-4.5rem)]` with svh-clamped spacing so the top of the client band always peeks into the first screen) → black client band (serif client names, the retired skills marquee’s style) → Case Studies (+ Project Highlights, All Projects) → About (ends on its inline “About Amr Abu-Talleb” link) → white services marquee (serif, gold middots, `mt-24 lg:mt-32`, bordered) → Testimonials + Stats, which is the last section before the footer and keeps the bottom padding (`pb-24 lg:pb-32`). The separate homepage CTA was removed in Oct 2026; the footer carries the contact prompt. The skills marquee was retired in Oct 2026. Articles were retired in Oct 2026 (/articles 301s to /about); the refreshed drafts are parked on the `articles-refresh-draft` branch. Page metadata goes through `pageMeta()` in `lib/seo.ts`.
+1. Hero: eyebrow label, two-line headline, three number stats with hairline dividers. It uses `min-h-[calc(100svh-4rem)]` with svh-clamped spacing, so the top of the client band always peeks into the first screen.
+2. Black client band.
+3. Case studies, then Project highlights and All projects.
+4. About, ending on its inline "About Amr Abu-Talleb" link.
+5. White services marquee.
+6. Testimonials and stats: the last section before the footer, and the only one that keeps bottom padding (`pb-24 lg:pb-32`).
 
+Page metadata goes through `pageMeta()` in `lib/seo.ts`.
 
 ## Homepage Section Rhythm
 
-Each homepage section owns its **top** spacing only (`pt-32 lg:pt-48`, the services marquee `mt-32 lg:mt-48`). It ends at its divider line or CTA with no bottom padding, so the gap between any two sections is the same: 128px on mobile, 192px on desktop. Only the last section before the footer keeps bottom padding.
+Each homepage section owns its **top** spacing only: `pt-32 lg:pt-48`, and the services marquee uses `mt-32 lg:mt-48`. It ends at its divider line or CTA with no bottom padding, so the gap between any two sections is the same: 128px on mobile, 192px on desktop. Only the last section before the footer keeps bottom padding.
 
 ## CSS Baseline (globals.css)
 
-These are applied globally and must not be overridden:
-- `font-kerning: normal` — optical pair kerning
-- `font-feature-settings: 'liga' 1, 'calt' 1` — ligatures and contextual alternates
-- `text-wrap: pretty` on body, p, li, blockquote
-- `text-wrap: balance` on h1–h6
+These apply globally and must not be overridden:
+- `font-kerning: normal`: optical pair kerning.
+- `font-feature-settings: 'liga' 1, 'calt' 1`: ligatures and contextual alternates.
+- `text-wrap: pretty` on body, p, li, blockquote, td, th, figcaption.
+- `text-wrap: balance` and `overflow-wrap: break-word` on h1–h6.
+- `hyphens: manual` on body: words are never split. Line breaks come from the typesetting rules.
 
+## Accessibility floor
+
+- Text is at least 4.5:1 on its ground (3:1 at 24px and up).
+- Control boundaries and focus indicators are at least 3:1.
+- The focus ring is 2px in `--accent-text`, offset 3px, on light grounds (including the white footer card), and `--accent` on ink.
+- Form fields: an `--input-strong` underline at rest, and a 2px `--accent-text` underline on focus.
 
 ## Positioning (Oct 2026)
 
@@ -161,14 +365,15 @@ Copy is written in Amr's voice, built from his own words. Rules:
 
 ## Footer (Oct 2026)
 
-Option B from the footer lab (`footer-options` branch, /footer-lab): a white form card hanging from the top edge (7 of 12 columns) beside the "Let’s talk" words. Name and email side by side, topic as one-tap pills, focus is a gold underline (never a box or ring), inputs carry `autoComplete`. Messages go through Web3Forms (`lib/contact.ts`) with the topic in the subject and the sender as reply-to. On /contact the card is dropped because the page has its own form.
+Option B from the footer lab (`footer-options` branch, /footer-lab): a white form card hanging from the top edge (7 of 12 columns) beside the "Let’s talk" words. Name and email side by side, topic as one-tap pills, focus is a 2px `--accent-text` underline over an `--input-strong` resting underline (never a box or ring), inputs carry `autoComplete`. Messages go through Web3Forms (`lib/contact.ts`) with the topic in the subject and the sender as reply-to. On /contact the card is dropped because the page has its own form.
 
 ## Buttons (Oct 2026)
 
 Every CTA uses one of two classes from `globals.css`, never hand-built pill classes:
 - `btn btn-primary`: filled ink (`--primary`, the same colour as the footer). One per view, for the main action.
 - `btn btn-secondary`: outlined ink. For the alternative action next to a primary (e.g. "Book a 30-min call" beside "Send message").
-States are built in: hover lifts 2px (primary lightens, secondary gets a 6% ink wash), active presses to 98%, focus-visible shows a gold ring, disabled fades to 50%. Reduced motion removes the movement. Add `cta-arrow` to an arrow icon to nudge it on hover.
+States are built in: hover lifts 2px (primary lightens, secondary gets a 6% ink wash), active presses to 98%, focus-visible shows a 2px `--accent-text` ring (`--accent` on ink), disabled fades to 50%. Buttons are at least 44px tall. Reduced motion removes the movement. Add `cta-arrow` to an arrow icon to nudge it on hover.
+- `btn-sm`: add to either class for the compact nav size (40px tall). The nav "Let’s talk" is `btn btn-secondary btn-sm`.
 
 ## Typesetting safety net (Oct 2026)
 
