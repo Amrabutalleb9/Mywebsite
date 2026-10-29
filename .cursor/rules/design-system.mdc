@@ -184,7 +184,7 @@ In classes: `z-10`, `z-50`, `z-100`, `z-200`. Never `z-[9999]`.
 ## Breakpoints
 
 Tailwind defaults: `sm` 640, `md` 768, `lg` 1024, `xl` 1280.
-- **`lg` is the one layout switch** (the staging About intro still uses `xl` for its two-column story; move it to `lg` when that section is finalised): gutters 32→64, section rhythm 128→192, two-column grids, desktop nav.
+- **`lg` is the one layout switch**: gutters 32→64, section rhythm 128→192, two-column grids, desktop nav.
 - **`sm`** is only for small rearrangements: button rows go horizontal, form fields sit side by side, label sizes step up.
 - **`md`** is not used for layout.
 
