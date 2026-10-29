@@ -9,7 +9,7 @@ export default function ScrollReveal({
   children,
   className = "",
   delay = 0,
-  y = 28,
+  y = 24,
 }: {
   children: ReactNode
   className?: string
@@ -27,7 +27,7 @@ export default function ScrollReveal({
       initial={{ opacity: 0, y }}
       // Reduced motion: show at once (see fade-in.tsx for why the element isn't swapped).
       animate={reduced || inView ? { opacity: 1, y: 0 } : { opacity: 0, y }}
-      transition={reduced ? { duration: 0 } : { duration: 0.65, delay, ease: EASE_OUT }}
+      transition={reduced ? { duration: 0 } : { duration: 0.6, delay, ease: EASE_OUT }}
     >
       {children}
     </motion.div>

@@ -78,17 +78,17 @@ export default function CaseStudyLayout({
   const hasContributions = !!(project.contributions && project.contributions.length > 0)
   const whatILed = hasContributions ? (
       
-        <section className="wrap mb-28">
-          <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+        <section className="wrap mb-32">
+          <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
             <FadeIn>
               <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">What I led</h2>
             </FadeIn>
             <FadeIn as="div">
               <ul className="grid grid-cols-1 gap-x-12 gap-y-10 sm:grid-cols-2">
                 {(project.contributions ?? []).map((item) => (
-                  <li key={item.label} className="border-t border-border pt-5">
+                  <li key={item.label} className="border-t border-border pt-4">
                     <h3 className="mb-2 font-serif text-2xl font-normal leading-snug tracking-tight text-foreground">{item.label}</h3>
-                    <p className="text-[0.9375rem] leading-relaxed text-muted-foreground">{item.text}</p>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{item.text}</p>
                   </li>
                 ))}
               </ul>
@@ -103,7 +103,7 @@ export default function CaseStudyLayout({
     {lightbox && <Lightbox src={lightbox} onClose={() => setLightbox(null)} />}
 
     <main>
-    <article className="pb-[clamp(80px,10vw,140px)] pt-32 lg:pt-40">
+    <article className="pb-24 lg:pb-32 pt-32 lg:pt-32">
 
       {/* Back link */}
       <div className="wrap">
@@ -112,7 +112,7 @@ export default function CaseStudyLayout({
             href="/#work"
             className="mb-12 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
-            <ArrowLeft size={16} />
+            <ArrowLeft size={18} />
             Back to Work
           </Link>
         </FadeIn>
@@ -121,12 +121,12 @@ export default function CaseStudyLayout({
       {/* Hero , label + title + subtitle */}
       <div className="wrap">
         <FadeIn>
-          <p className="mb-4 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Case Study</p>
+          <p className="mb-4 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Case study</p>
         </FadeIn>
-        <FadeIn as="h1" delay={0.05} className="mb-4 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
+        <FadeIn as="h1" delay={0.08} className="mb-4 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
           {project.title}
         </FadeIn>
-        <FadeIn delay={0.1} className="mb-8 max-w-[50ch]">
+        <FadeIn delay={0.08} className="mb-8 max-w-[50ch]">
           <p className="font-serif text-2xl leading-snug tracking-tight text-muted-foreground">
             {project.subtitle}
           </p>
@@ -134,7 +134,7 @@ export default function CaseStudyLayout({
       </div>
 
       {/* Hero image */}
-      <FadeIn delay={0.15} className="wrap-wide">
+      <FadeIn delay={0.16} className="wrap-wide">
         {project.featureVideo ? (
           <div className="overflow-hidden rounded-2xl">
             <video
@@ -172,7 +172,7 @@ export default function CaseStudyLayout({
           </div>
         ) : (
           <div className="flex aspect-[21/9] w-full items-center justify-center rounded-2xl bg-primary">
-            <span className="font-serif text-lg text-primary-foreground/15">{project.title}</span>
+            <span className="font-serif text-2xl text-primary-foreground/30">{project.title}</span>
           </div>
         )}
       </FadeIn>
@@ -188,7 +188,7 @@ export default function CaseStudyLayout({
             { label: "Industry", value: project.industry },
             { label: "Markets", value: project.markets },
           ].map((item) => (
-            <div key={item.label} className="flex flex-col gap-1.5">
+            <div key={item.label} className="flex flex-col gap-2">
               <dt className="text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-label)] text-accent uppercase">{item.label}</dt>
               <dd className="max-w-[30ch] text-sm leading-snug text-muted-foreground whitespace-pre-line">{item.value}</dd>
             </div>
@@ -197,21 +197,21 @@ export default function CaseStudyLayout({
       </FadeIn>
 
       {/* Overview: the intro, on the same grid as the chapters */}
-      <section className="wrap mt-20 mb-28 lg:mt-24">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+      <section className="wrap mt-24 mb-32 lg:mt-24">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
           <FadeIn>
             <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Overview</h2>
           </FadeIn>
           <FadeIn as="div" className="flex max-w-[60ch] flex-col gap-6">
             {project.intro && project.intro.length > 0 ? (
               project.intro.map((para, i) => (
-                <p key={i} className={i === 0 ? "text-xl leading-relaxed text-foreground" : "text-[1.0625rem] leading-[var(--leading-longform)] text-muted-foreground"}>{para}</p>
+                <p key={i} className={i === 0 ? "text-xl leading-relaxed text-foreground" : "text-[length:var(--text-article)] leading-[var(--leading-longform)] text-muted-foreground"}>{para}</p>
               ))
             ) : (
               <p className="text-xl leading-relaxed text-foreground">{project.impactStatement}</p>
             )}
             {project.intro && project.intro.length > 0 && !(project.contributions && project.contributions.length > 0) && (
-              <div className="mt-4 border-l-2 border-accent pl-5">
+              <div className="mt-4 border-l-2 border-accent pl-4">
                 <p className="mb-2 text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-label)] text-accent uppercase">Key impact</p>
                 <p className="text-base font-medium leading-relaxed text-foreground">{project.impactStatement}</p>
               </div>
@@ -228,14 +228,14 @@ export default function CaseStudyLayout({
         <>
         {project.chapters.map((chapter, c) => (
           <Fragment key={chapter.label}>
-          <section className="mb-28">
+          <section className="mb-32">
             {chapter.figuresFirst && chapter.figures && chapter.figures.length > 0 && (
               <div className="wrap-wide mb-16 flex flex-col gap-6">
                 {chapter.figures.map((row, r) => renderFigureRow(row, `${c + 1}.${r + 1}`))}
               </div>
             )}
             <div className="wrap">
-              <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+              <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
                 <FadeIn>
                   <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">{chapter.label}</h2>
                 </FadeIn>
@@ -268,7 +268,7 @@ export default function CaseStudyLayout({
           </Fragment>
         ))}
         {project.showcaseVideo && (
-          <FadeIn className="wrap-wide mb-28">
+          <FadeIn className="wrap-wide mb-32">
             <div className="overflow-hidden rounded-2xl bg-primary">
               <video
                 className="aspect-video w-full object-cover"
@@ -291,26 +291,26 @@ export default function CaseStudyLayout({
       ) : (
       <>
       {/* The Challenge */}
-      <div className="wrap mb-28">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+      <div className="wrap mb-32">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
           <FadeIn>
-            <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">The Brief</h2>
+            <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">The brief</h2>
           </FadeIn>
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-12">
             <FadeIn>
-              <h3 className="mb-3 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/50 uppercase">Where They Were</h3>
+              <h3 className="mb-3 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/70 uppercase">Where they were</h3>
               <p className="max-w-[60ch] leading-[var(--leading-longform)] text-muted-foreground">
                 {project.businessContext}
               </p>
             </FadeIn>
             <FadeIn>
-              <h3 className="mb-3 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/50 uppercase">What Was Broken</h3>
+              <h3 className="mb-3 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/70 uppercase">What was broken</h3>
               <p className="max-w-[60ch] leading-[var(--leading-longform)] text-muted-foreground">
                 {project.clientProblem}
               </p>
             </FadeIn>
             <FadeIn>
-              <h3 className="mb-3 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/50 uppercase">What We Had to Work With</h3>
+              <h3 className="mb-3 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/70 uppercase">What we had to work with</h3>
               <p className="max-w-[60ch] leading-[var(--leading-longform)] text-muted-foreground">
                 {project.constraints}
               </p>
@@ -321,13 +321,13 @@ export default function CaseStudyLayout({
 
       {/* Image break */}
       {project.processImages && project.processImages.length > 0 && (
-      <FadeIn className="wrap-wide mb-28">
+      <FadeIn className="wrap-wide mb-32">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {project.processImages && project.processImages.length > 0
             ? project.processImages.slice(0, 2).map((img, i) => (
                 <div
                   key={img.src}
-                  className="project-img-wrap overflow-hidden rounded-xl"
+                  className="project-img-wrap overflow-hidden rounded-lg"
                   onClick={() => setLightbox(img.src)}
                   role="button"
                   tabIndex={0}
@@ -349,32 +349,32 @@ export default function CaseStudyLayout({
       )}
 
       {/* Strategic Approach */}
-      <div className="wrap mb-28">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+      <div className="wrap mb-32">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
           <FadeIn>
-            <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">The Turn</h2>
+            <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">The turn</h2>
           </FadeIn>
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-12">
             <FadeIn>
-              <h3 className="mb-3 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/50 uppercase">What I Saw</h3>
+              <h3 className="mb-3 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/70 uppercase">What I saw</h3>
               <p className="max-w-[60ch] leading-[var(--leading-longform)] text-muted-foreground">
                 {project.insight}
               </p>
             </FadeIn>
             <FadeIn>
-              <h3 className="mb-3 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/50 uppercase">The Idea</h3>
+              <h3 className="mb-3 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/70 uppercase">The idea</h3>
               <p className="max-w-[60ch] leading-[var(--leading-longform)] text-muted-foreground">
                 {project.creativeStrategy}
               </p>
             </FadeIn>
             <FadeIn>
-              <h3 className="mb-3 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/50 uppercase">The Calls I Made</h3>
+              <h3 className="mb-3 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/70 uppercase">The calls I made</h3>
               <p className="max-w-[60ch] leading-[var(--leading-longform)] text-muted-foreground">
                 {project.keyDecisions}
               </p>
             </FadeIn>
             <FadeIn>
-              <h3 className="mb-3 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/50 uppercase">How I Led It</h3>
+              <h3 className="mb-3 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/70 uppercase">How I led it</h3>
               <p className="max-w-[60ch] leading-[var(--leading-longform)] text-muted-foreground">
                 {project.leadershipRole}
               </p>
@@ -385,7 +385,7 @@ export default function CaseStudyLayout({
 
       {/* Full-width showcase */}
       {project.showcaseVideo && (
-      <FadeIn className="wrap-wide mb-28">
+      <FadeIn className="wrap-wide mb-32">
         {project.showcaseVideo ? (
           <div className="overflow-hidden rounded-2xl bg-primary">
             <video
@@ -409,21 +409,21 @@ export default function CaseStudyLayout({
 
       {/* Story figures: rows of diagrams and work shown between the strategy and the process */}
       {project.storyFigures && project.storyFigures.length > 0 && (
-        <div className="wrap-wide mb-28 flex flex-col gap-14">
+        <div className="wrap-wide mb-32 flex flex-col gap-16">
           {project.storyFigures.map((row, r) => renderFigureRow(row, String(r + 1)))}
         </div>
       )}
 
       {/* Process & Evolution */}
-      <div className="wrap mb-28">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+      <div className="wrap mb-32">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
           <FadeIn>
-            <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">The Work</h2>
+            <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">The work</h2>
           </FadeIn>
           <div className="flex flex-col gap-8">
             {project.processPhases.map((phase, i) => (
               <FadeIn key={phase.title}>
-                <div className="flex gap-5">
+                <div className="flex gap-4">
                   <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-accent/30 text-xs font-semibold text-accent">
                     {String(i + 1).padStart(2, "0")}
                   </div>
@@ -445,13 +445,13 @@ export default function CaseStudyLayout({
 
       {/* Image gallery */}
       {project.galleryImages && project.galleryImages.length > 0 && (
-      <FadeIn className="wrap-wide mb-28">
+      <FadeIn className="wrap-wide mb-32">
         {project.galleryImages && project.galleryImages.length > 0 ? (
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {project.galleryImages.map((img, i) => (
               <div
                 key={i}
-                className="project-img-wrap overflow-hidden rounded-xl"
+                className="project-img-wrap overflow-hidden rounded-lg"
                 onClick={() => setLightbox(img.src)}
                 role="button"
                 tabIndex={0}
@@ -473,10 +473,10 @@ export default function CaseStudyLayout({
       )}
 
       {/* Results & Impact */}
-      <div className="wrap mb-28">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+      <div className="wrap mb-32">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
           <FadeIn>
-            <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">{project.resultsTitle ?? "What Changed"}</h2>
+            <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">{project.resultsTitle ?? "What changed"}</h2>
           </FadeIn>
           <div className="flex flex-col gap-6">
             {project.resultsLead && (
@@ -530,10 +530,10 @@ export default function CaseStudyLayout({
       </div>
 
       {/* Reflection */}
-      <div className="wrap mb-28">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+      <div className="wrap mb-32">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
           <FadeIn>
-            <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Looking Back</h2>
+            <h2 className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Looking back</h2>
           </FadeIn>
           <FadeIn>
             <p className="max-w-[60ch] leading-[var(--leading-longform)] text-muted-foreground">
@@ -556,7 +556,7 @@ export default function CaseStudyLayout({
           {prev ? (
             <Link href={`/work/${prev.slug}`} className="group flex flex-col gap-1 text-left">
               <span className="flex items-center gap-2 text-xs text-muted-foreground transition-colors group-hover:text-accent">
-                <ArrowLeft size={14} /> Previous Case Study
+                <ArrowLeft size={14} /> Previous Case study
               </span>
               <span className="font-serif text-2xl leading-snug tracking-tight text-foreground transition-colors group-hover:text-accent">{prev.title}</span>
             </Link>
@@ -564,7 +564,7 @@ export default function CaseStudyLayout({
           {next ? (
             <Link href={`/work/${next.slug}`} className="group flex flex-col items-end gap-1 text-right">
               <span className="flex items-center gap-2 text-xs text-muted-foreground transition-colors group-hover:text-accent">
-                Next Case Study <ArrowRight size={14} />
+                Next Case study <ArrowRight size={14} />
               </span>
               <span className="font-serif text-2xl leading-snug tracking-tight text-foreground transition-colors group-hover:text-accent">{next.title}</span>
             </Link>

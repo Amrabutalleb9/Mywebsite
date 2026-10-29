@@ -14,16 +14,16 @@ const heroLines = ["I\u00A0lead the team, build the\u00A0system,", "and make sur
 const stats = [
   { n: "13", label: "years in design and creative\u00A0work" },
   { n: "25", label: "people in my largest\u00A0team" },
-  { n: "8", label: "markets on five\u00A0continents" },
+  { n: "8", label: "markets on 5\u00A0continents" },
 ]
 
 export default function HeroSection() {
 
   return (
     <>
-      <InfiniteGrid className="flex min-h-[calc(100svh-4.5rem)] flex-col items-center justify-center bg-background px-8 pb-[clamp(1.25rem,3svh,3rem)] pt-[clamp(6rem,14svh,8.75rem)] lg:px-16">
+      <InfiniteGrid className="flex min-h-[calc(100svh-4rem)] flex-col items-center justify-center bg-background px-8 pb-[clamp(1.25rem,3svh,3rem)] pt-[clamp(6rem,14svh,8.75rem)] lg:px-16">
         <div className="w-full text-center">
-          <h2 className="mx-auto max-w-[18ch] font-serif text-[length:var(--text-hero)] leading-[1.02] font-normal tracking-[var(--tracking-display)] text-balance text-foreground lg:max-w-none">
+          <h2 className="mx-auto max-w-[18ch] font-serif text-[length:var(--text-hero)] leading-[var(--leading-tight)] font-normal tracking-[var(--tracking-display)] text-balance text-foreground lg:max-w-none">
             {/* About now opens the page with the h1, so the hero headline is an h2. */}
             <span
               className="hero-line mb-[clamp(1rem,3svh,2rem)] block font-sans text-xs leading-normal font-medium tracking-[var(--tracking-label)] text-accent uppercase"
@@ -66,7 +66,7 @@ export default function HeroSection() {
               href="#work"
               className="btn btn-primary"
             >
-              See the&nbsp;Work
+              See the&nbsp;work
               <ArrowUpRight size={14} className="cta-arrow" />
             </a>
             <a
