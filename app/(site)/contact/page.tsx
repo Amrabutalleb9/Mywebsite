@@ -110,7 +110,7 @@ export default function ContactPage() {
                 </p>
               )}
               <button type="submit" disabled={sending} className="btn btn-primary">
-                {sending ? "Sending\u2026" : "Send\u00A0Message"}
+                {sending ? "Sending\u2026" : "Send\u00A0message"}
               </button>
               <p className="text-center text-xs text-muted-foreground">
                 I respond within 24&nbsp;hours.

@@ -444,8 +444,11 @@ a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
 @media (min-width: 640px) {
   .ink-turn { --spine-x: calc(max(0px, (100% - 672px) / 2) + 36px); }
 }
+@media (min-width: 1024px) {
+  .ink-turn { --turn-r: 120px; --w: 5px; --spine-x: calc(13.889vw - 2.5px - max(0px, (100vw - 1152px) / 2)); height: 300px; }
+}
 @media (min-width: 1280px) {
-  .ink-turn { --turn-r: 120px; --w: 5px; --spine-x: calc(max(0px, (100% - 1152px) / 2) + 54px); height: 300px; }
+  .ink-turn { --spine-x: calc(max(0px, (100% - 1152px) / 2) + 54px); }
 }
 .ink-turn-a, .ink-turn-b { position: absolute; border: 0 solid var(--accent); box-sizing: border-box; }
 .ink-turn-a {
@@ -474,7 +477,7 @@ a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
   height: 30px;
   transform: translateX(-50%);
 }
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   .ink-turn-drop { width: 26px; height: 38px; }
 }
 
@@ -483,7 +486,7 @@ a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
    JavaScript the line and the story render complete. */
 .ink-opener { stroke-dasharray: 1; }
 .ink-cell { --bw: 4px; }
-@media (min-width: 1280px) { .ink-cell { --bw: 5px; } }
+@media (min-width: 1024px) { .ink-cell { --bw: 5px; } }
 .ink-fill { display: none; }
 [data-ink-ready] .ink-cell { border-left-color: transparent; }
 [data-ink-ready] .ink-fill {

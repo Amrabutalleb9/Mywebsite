@@ -45,7 +45,7 @@ export default function InkScroll({ children }: { children: ReactNode }) {
       const w = tr.width
       const h = tr.height
       const cx = w / 2
-      const dropH = w >= 1280 ? 38 : 30
+      const dropH = window.innerWidth >= 1024 ? 38 : 30
       const end = h - dropH + 4
       turnSvg.setAttribute("viewBox", `0 0 ${w} ${h}`)
       turnSvg.style.height = `${h}px`
