@@ -15,3 +15,11 @@
 
 /_next/static/*
   Cache-Control: public, max-age=31536000, immutable
+
+# The services page is shared by link. It stays out of search results.
+/services
+  X-Robots-Tag: noindex, nofollow
+/services/
+  X-Robots-Tag: noindex, nofollow
+/services.html
+  X-Robots-Tag: noindex, nofollow

@@ -29,7 +29,7 @@ const story = [
     img: "/images/about-ink-juggle-v2.webp",
     alt: "Halftone collage of two hands juggling a phone, a poster and a badge",
     w: 729, h: 760, rot: 3,
-    text: "The work grew from single pieces into whole systems: identities, digital products, campaigns and the business decisions behind them, for clients in Egypt, the Gulf, the UK, the US, Australia and Singapore. At The Line, I led an in-house brand and marketing team of about 11. At Overpowered, I built a creative team that grew from 6 people to about 25 in 7 months.",
+    text: "The work grew from single pieces into whole systems: identities, digital products, campaigns and the business decisions behind them, for clients in Egypt, the Gulf, the UK, the US, Australia and Singapore. At The Line, I led an in-house brand and marketing team of about 11. At Overpowered, I grew the creative team from 6 people to about 25 in 7 months.",
   },
   {
     img: "/images/about-ink-book-v1.webp",
@@ -47,7 +47,7 @@ const story = [
     img: "/images/about-ink-team-v1.webp",
     alt: "Brush-and-ink drawing of a team’s hands around printed layouts and a coffee cup",
     w: 760, h: 613, rot: -3,
-    text: "The same care now goes into how a team works. In reviews, the designer walks us through the work before I weigh in, and we talk about what’s working and what needs another look. I step in when a decision is difficult or the work drifts from the brief, but a good team shouldn’t have to wait for me to make a considered call. AI has become part of that process too: it gives us more ways into an idea and takes repetitive work off our desks, while the judgement about which direction is worth pursuing stays with us.",
+    text: "The same care now goes into how a team works. In reviews, the designer walks us through the work first. I will tell my opinion last. We talk about what’s working and what needs another look. I step in when a decision is difficult or the work drifts from the brief, but a good team shouldn’t have to wait for me to make a considered call.",
   },
 ]
 
