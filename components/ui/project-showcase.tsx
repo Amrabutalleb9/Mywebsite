@@ -89,7 +89,7 @@ export function ProjectShowcase({
       {hasAnyImage && (
         <div
           ref={previewRef}
-          className="pointer-events-none fixed top-0 left-0 z-50 hidden overflow-hidden rounded-xl shadow-2xl lg:block"
+          className="pointer-events-none fixed top-0 left-0 z-50 hidden overflow-hidden rounded-lg shadow-[var(--shadow-lg)] lg:block"
           style={{
             opacity: isImageVisible ? 1 : 0,
             scale: isImageVisible ? 1 : 0.85,
@@ -97,7 +97,7 @@ export function ProjectShowcase({
               "opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), scale 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
           }}
         >
-          <div className="relative h-[180px] w-[288px] overflow-hidden rounded-xl bg-primary">
+          <div className="relative h-[180px] w-[288px] overflow-hidden rounded-lg bg-primary">
             {projects.map((project, index) =>
               project.featureImage ? (
                 <Image
@@ -115,7 +115,7 @@ export function ProjectShowcase({
                 />
               ) : null,
             )}
-            <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent" />
           </div>
         </div>
       )}
@@ -125,13 +125,13 @@ export function ProjectShowcase({
           <Link
             key={project.href}
             href={project.href}
-            className="group flex flex-col gap-3 border-b border-border py-8 transition-colors hover:border-accent/40 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
+            className="group flex flex-col gap-3 border-b border-border py-8 transition-colors hover:border-accent/50 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
             onMouseEnter={() => handleMouseEnter(i)}
             onMouseLeave={handleMouseLeave}
             {...(project.dataCursorLabel && { "data-cursor-label": project.dataCursorLabel })}
           >
-            <div className="flex items-start gap-5 sm:items-center">
-              <span aria-hidden="true" className="font-serif text-2xl leading-none text-[#a8894f] select-none">
+            <div className="flex items-start gap-4 sm:items-center">
+              <span aria-hidden="true" className="font-serif text-2xl leading-none text-accent-numeral select-none">
                 {String(startIndex + i + 1).padStart(2, "0")}
               </span>
               <div className="flex flex-col gap-1">
@@ -147,8 +147,8 @@ export function ProjectShowcase({
               <span className="text-sm text-muted-foreground">
                 {project.year}
               </span>
-              <span className="inline-flex items-center gap-1.5 text-xs font-medium tracking-wide text-muted-foreground uppercase transition-colors group-hover:text-accent">
-                Read <ArrowRight size={13} />
+              <span className="inline-flex items-center gap-2 text-xs font-medium tracking-wide text-muted-foreground uppercase transition-colors group-hover:text-accent">
+                Read <ArrowRight size={14} />
               </span>
             </div>
           </Link>

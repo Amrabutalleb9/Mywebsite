@@ -119,7 +119,7 @@ export function CleanTestimonial({
           }}
         >
           <span
-            className="text-xs font-medium tracking-wider text-white uppercase"
+            className="text-xs font-medium tracking-[var(--tracking-sublabel)] text-white uppercase"
             style={{ opacity: isHovered ? 1 : 0, transition: "opacity 0.15s 0.1s" }}
           >
             Next
@@ -191,7 +191,7 @@ export function CleanTestimonial({
             <p
               key={i}
               aria-hidden="true"
-              className="invisible col-start-1 row-start-1 font-serif text-xl md:text-2xl font-normal leading-relaxed tracking-tight italic"
+              className="invisible col-start-1 row-start-1 font-serif text-2xl font-normal leading-relaxed tracking-tight italic"
             >
               {"\u201C"}{t.text}{"\u201D"}
             </p>
@@ -202,7 +202,7 @@ export function CleanTestimonial({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, transition: { duration: 0.2 } }}
-              className="col-start-1 row-start-1 font-serif text-xl md:text-2xl font-normal leading-relaxed tracking-tight text-foreground italic"
+              className="col-start-1 row-start-1 font-serif text-2xl font-normal leading-relaxed tracking-tight text-foreground italic"
             >
               {"\u201C"}
               <SplitText text={current.text} />
@@ -212,11 +212,11 @@ export function CleanTestimonial({
         </div>
 
         {/* Author */}
-        <div className="mt-10 relative">
+        <div className="mt-12 relative">
           <div className="flex items-center gap-4">
             <div className="relative w-11 h-11">
               <motion.div
-                className="absolute -inset-1.5 rounded-full border border-accent/40"
+                className="absolute -inset-1.5 rounded-full border border-accent/50"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
@@ -238,7 +238,7 @@ export function CleanTestimonial({
                 ) : (
                   <motion.div
                     key={i}
-                    className="absolute inset-0 w-11 h-11 rounded-full bg-accent/15 flex items-center justify-center"
+                    className="absolute inset-0 w-11 h-11 rounded-full bg-accent/10 flex items-center justify-center"
                     animate={{
                       opacity: i === activeIndex ? 1 : 0,
                       zIndex: i === activeIndex ? 1 : 0,
@@ -276,7 +276,7 @@ export function CleanTestimonial({
                 <span className="block text-sm font-medium text-foreground tracking-wide">
                   {current.author}
                 </span>
-                <span className="block text-xs text-muted-foreground mt-0.5 uppercase tracking-widest">
+                <span className="block text-xs text-muted-foreground mt-1 uppercase tracking-[var(--tracking-sublabel)]">
                   {current.role}
                   {current.location && ` \u00B7 ${current.location}`}
                 </span>
@@ -286,7 +286,7 @@ export function CleanTestimonial({
         </div>
 
         {/* Progress bar */}
-        <div className="mt-14 h-px bg-border relative overflow-hidden">
+        <div className="mt-16 h-px bg-border relative overflow-hidden">
           <motion.div
             className="absolute inset-y-0 left-0 bg-accent"
             initial={{ width: "0%" }}
@@ -300,7 +300,7 @@ export function CleanTestimonial({
 
       {/* Hint */}
       <motion.p
-        className="mt-8 text-[length:var(--text-micro)] text-muted-foreground uppercase tracking-widest"
+        className="mt-8 text-[length:var(--text-micro)] text-muted-foreground uppercase tracking-[var(--tracking-sublabel)]"
         initial={{ opacity: 0 }}
         animate={{ opacity: isHovered ? 0.4 : 0.15 }}
         transition={{ duration: 0.3 }}

@@ -38,8 +38,8 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="px-8 pt-32 pb-24 lg:px-16 lg:pt-40 lg:pb-32">
-      <div className="mx-auto max-w-6xl flex flex-col gap-16 lg:flex-row lg:gap-20">
+    <main className="px-8 pt-32 pb-24 lg:px-16 lg:pt-32 lg:pb-32">
+      <div className="mx-auto max-w-6xl flex flex-col gap-16 lg:flex-row lg:gap-16">
         <div className="lg:w-1/2">
           <FadeIn>
             <p className="mb-4 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">{"Let\u2019s talk"}</p>
@@ -47,22 +47,22 @@ export default function ContactPage() {
               {"Hiring a\u00A0creative\u00A0director?"}
             </h1>
           </FadeIn>
-          <FadeIn delay={0.1}>
+          <FadeIn delay={0.08}>
             <p className="max-w-[50ch] text-lg leading-relaxed text-muted-foreground">
               {"I\u2019m open to\u00A0Creative Director roles in\u00A0Europe, remote or\u00A0on-site. Tell me about the\u00A0role and\u00A0the\u00A0team. I\u00A0reply within 24\u00A0hours."}
             </p>
-            <p className="mt-4 mb-10 max-w-[50ch] text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-4 mb-12 max-w-[50ch] text-sm leading-relaxed text-muted-foreground">
               {"I\u00A0also take on a\u00A0small number of\u00A0contract and\u00A0interim engagements, from repositioning a\u00A0brand to\u00A0leading a\u00A0team through a\u00A0set\u00A0period."}
             </p>
           </FadeIn>
-          <FadeIn delay={0.15}>
+          <FadeIn delay={0.16}>
             <div className="flex flex-col gap-4">
-              <a href="mailto:hello@amrabutalleb.com" className="text-lg text-accent underline underline-offset-4 hover:text-accent/80">
+              <a href="mailto:hello@amrabutalleb.com" className="link-inline text-lg">
                 hello@amrabutalleb.com
               </a>
               <div className="mt-2">
                 <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-                  <Linkedin size={16} aria-hidden="true" />
+                  <Linkedin size={18} aria-hidden="true" />
                   {"Message me on\u00A0LinkedIn"}
                   <ArrowUpRight size={14} className="cta-arrow" />
                 </a>
@@ -71,7 +71,7 @@ export default function ContactPage() {
           </FadeIn>
         </div>
 
-        <FadeIn delay={0.2} as="div" className="lg:w-1/2">
+        <FadeIn delay={0.16} as="div" className="lg:w-1/2">
           {submitted ? (
             <div className="flex h-full min-h-[400px] items-center justify-center rounded-sm border border-border bg-background p-12 text-center" aria-live="polite">
               <div>
@@ -80,18 +80,18 @@ export default function ContactPage() {
               </div>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <div>
                 <label htmlFor="name" className="mb-2 block text-sm font-medium text-foreground">Name</label>
-                <input id="name" type="text" autoComplete="name" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent" />
+                <input id="name" type="text" autoComplete="name" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent-text focus:ring-1 focus:ring-accent" />
               </div>
               <div>
                 <label htmlFor="email" className="mb-2 block text-sm font-medium text-foreground">Email</label>
-                <input id="email" type="email" autoComplete="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent" />
+                <input id="email" type="email" autoComplete="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent-text focus:ring-1 focus:ring-accent" />
               </div>
               <div>
                 <label htmlFor="budget" className="mb-2 block text-sm font-medium text-foreground">Topic</label>
-                <select id="budget" value={form.budget} onChange={(e) => setForm({ ...form, budget: e.target.value })} className="w-full rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent">
+                <select id="budget" value={form.budget} onChange={(e) => setForm({ ...form, budget: e.target.value })} className="w-full rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent-text focus:ring-1 focus:ring-accent">
                   <option value="">Select&nbsp;one</option>
                   <option value="A full-time role">A full-time role</option>
                   <option value="A contract or interim role">A contract or interim role</option>
@@ -101,7 +101,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <label htmlFor="message" className="mb-2 block text-sm font-medium text-foreground">Message</label>
-                <textarea id="message" rows={5} required placeholder="A little context about the role, the project or what you’d like to discuss." value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full resize-none rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent" />
+                <textarea id="message" rows={5} required placeholder="A little context about the role, the project or what you’d like to discuss." value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full resize-none rounded-sm border border-border bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent-text focus:ring-1 focus:ring-accent" />
               </div>
               {error && (
                 <p className="text-sm text-red-500" aria-live="polite">

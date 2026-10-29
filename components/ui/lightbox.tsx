@@ -11,7 +11,7 @@ interface LightboxProps {
 export function Lightbox({ src, onClose }: LightboxProps) {
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-primary/90 p-4 backdrop-blur-sm"
       onClick={onClose}
       onKeyDown={(e) => { if (e.key === "Escape") onClose() }}
       role="dialog"
@@ -20,11 +20,11 @@ export function Lightbox({ src, onClose }: LightboxProps) {
     >
       <button
         onClick={onClose}
-        className="absolute top-6 right-6 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+        className="absolute top-6 right-6 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/30"
         aria-label="Close"
         autoFocus
       >
-        <X size={20} />
+        <X size={18} />
       </button>
       <Image
         src={src}

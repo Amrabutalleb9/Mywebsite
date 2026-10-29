@@ -18,7 +18,7 @@ const topics = [
 
 const darkLink = "text-sm text-primary-foreground/70 transition-colors hover:text-primary-foreground"
 const field =
-  "mt-2 w-full border-0 border-b border-border bg-transparent py-3 text-base text-foreground outline-none transition-colors duration-300 focus:border-accent"
+  "mt-2 w-full border-0 border-b border-input-strong bg-transparent py-3 text-base text-foreground outline-none transition-[border-color,box-shadow] duration-300 focus:border-accent-text focus:shadow-[0_1px_0_var(--accent-text)]"
 
 /* Footer: a white card hanging from the top edge holds the form; the words sit beside it.
    Messages go through Web3Forms (lib/contact.ts) to the inbox tied to the access key.
@@ -54,10 +54,10 @@ export default function MainFooter() {
       </h2>
       <p className="mt-6 max-w-[40ch] text-base leading-relaxed text-primary-foreground/70">
         {onContact ? "Write to me directly at" : "Write to me here, or directly at"}{" "}
-        <a href={`mailto:${EMAIL}`} className="text-primary-foreground underline decoration-accent underline-offset-4">{EMAIL}</a>.
+        <a href={`mailto:${EMAIL}`} className="link-inline">{EMAIL}</a>.
       </p>
-      <div className="mt-10 flex flex-wrap gap-x-6 gap-y-2">
-        <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className={`${darkLink} inline-flex items-center gap-1.5`}>LinkedIn<ArrowUpRight size={14} className="cta-arrow" aria-hidden="true" /></a>
+      <div className="mt-12 flex flex-wrap gap-x-6 gap-y-2">
+        <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className={`${darkLink} inline-flex items-center gap-2`}>LinkedIn<ArrowUpRight size={14} className="cta-arrow" aria-hidden="true" /></a>
         <a href={CV} download className={darkLink}>Download&nbsp;CV</a>
       </div>
     </>
@@ -71,7 +71,7 @@ export default function MainFooter() {
         <div className="grid gap-12 px-8 lg:grid-cols-12 lg:gap-16 lg:px-16">
           {/* Card */}
           <div className="order-2 pb-16 lg:order-1 lg:col-span-7 lg:pb-24">
-            <div className="rounded-b-[var(--radius)] bg-background p-8 text-foreground sm:p-10 lg:p-14">
+            <div className="rounded-b-[var(--radius)] bg-background p-8 text-foreground sm:p-12 lg:p-16">
               {status === "sent" ? (
                 <div className="flex min-h-[420px] flex-col justify-center" aria-live="polite">
                   <p className="font-serif text-[length:var(--text-sub)] tracking-tight">Message&nbsp;sent.</p>
@@ -126,7 +126,7 @@ export default function MainFooter() {
                   {status === "error" && (
                     <p className="text-sm text-destructive" aria-live="polite">
                       {"That didn’t go through. Please email me at"}{" "}
-                      <a href={`mailto:${EMAIL}`} className="underline">{EMAIL}</a>.
+                      <a href={`mailto:${EMAIL}`} className="link-inline">{EMAIL}</a>.
                     </p>
                   )}
                   <div className="flex flex-col-reverse items-start justify-between gap-4 sm:flex-row sm:items-center">

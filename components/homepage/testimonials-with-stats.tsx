@@ -62,7 +62,7 @@ function StatsStrip({ stats }: { stats: Stat[] }) {
           className={`pt-8 pr-6 ${i % 2 === 1 ? "border-l border-border pl-6" : ""} ${i === 2 ? "lg:border-l lg:border-border" : ""} ${i > 0 ? "lg:pl-8" : ""} ${i >= 2 ? "mt-8 lg:mt-0" : ""}`}
         >
           <p className="font-serif text-[length:var(--text-section)] leading-none tracking-tight text-accent">
-            <AnimatedCounter end={s.end} suffix={s.suffix} start={inView} delay={150 + i * 120} />
+            <AnimatedCounter end={s.end} suffix={s.suffix} start={inView} delay={160 + i * 80} />
           </p>
           <p className="mt-3 text-sm text-muted-foreground">{s.label}</p>
         </div>
@@ -136,7 +136,7 @@ export default function TestimonialsWithStats({
             </h2>
           </ScrollReveal>
 
-          <div className="-mx-8 mt-10 overflow-x-auto px-8 lg:mx-0 lg:mt-14 lg:overflow-visible lg:px-0">
+          <div className="-mx-8 mt-12 overflow-x-auto px-8 lg:mx-0 lg:mt-16 lg:overflow-visible lg:px-0">
             <ol className="flex min-w-max gap-2 lg:block lg:min-w-0 lg:border-b lg:border-border">
               {testimonials.map((t, i) => {
                 const on = i === active
@@ -159,7 +159,7 @@ export default function TestimonialsWithStats({
                       type="button"
                       onClick={() => go(i)}
                       aria-current={on ? "true" : undefined}
-                      className={`flex w-full items-baseline gap-4 rounded-full border px-4 py-2 text-left text-sm whitespace-nowrap transition-colors duration-300 lg:rounded-none lg:border-0 lg:py-3.5 lg:pr-0 lg:pl-5 lg:text-[0.9375rem] ${on ? "border-foreground text-foreground lg:font-medium" : "border-border text-muted-foreground hover:text-foreground"}`}
+                      className={`flex w-full items-baseline gap-4 rounded-full border px-4 py-2 text-left text-sm whitespace-nowrap transition-colors duration-300 lg:rounded-none lg:border-0 lg:py-4 lg:pr-0 lg:pl-4 lg:text-sm ${on ? "border-foreground text-foreground lg:font-medium" : "border-border text-muted-foreground hover:text-foreground"}`}
                     >
                       <span className={`hidden w-5 shrink-0 text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-sublabel)] lg:inline ${on ? "text-accent-text" : "text-muted-foreground"}`}>{String(i + 1).padStart(2, "0")}</span>
                       {t.author}
@@ -173,7 +173,7 @@ export default function TestimonialsWithStats({
 
         {/* Right: the quote */}
         <div className="min-w-0 lg:pt-2">
-          <span aria-hidden="true" className="block h-10 font-serif text-[7rem] leading-[0.75] text-accent lg:h-14 lg:text-[8rem]">
+          <span aria-hidden="true" className="block h-10 font-serif text-[length:var(--text-quote-mark)] leading-[var(--leading-mark)] text-accent lg:h-14">
             {"\u201C"}
           </span>
 
@@ -181,14 +181,14 @@ export default function TestimonialsWithStats({
               one and the page never jumps when the quote changes. */}
           <div className="mt-6 grid">
             {testimonials.map((t, i) => (
-              <p key={i} aria-hidden="true" className="invisible col-start-1 row-start-1 font-serif text-[clamp(1.5rem,2.6vw,2.5rem)] italic leading-[1.22] tracking-tight">
+              <p key={i} aria-hidden="true" className="invisible col-start-1 row-start-1 font-serif text-[length:var(--text-quote)] italic leading-[var(--leading-quote)] tracking-tight">
                 {t.text}
               </p>
             ))}
             <AnimatePresence mode="wait" initial={false}>
               <motion.blockquote
                 key={active}
-                className="col-start-1 row-start-1 font-serif text-[clamp(1.5rem,2.6vw,2.5rem)] italic leading-[1.22] tracking-tight text-foreground"
+                className="col-start-1 row-start-1 font-serif text-[length:var(--text-quote)] italic leading-[var(--leading-quote)] tracking-tight text-foreground"
                 initial={reduced ? { opacity: 0 } : { opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE_OUT } }}
                 exit={{ opacity: 0, transition: { duration: 0.2 } }}
@@ -199,7 +199,7 @@ export default function TestimonialsWithStats({
             </AnimatePresence>
           </div>
 
-          <div className="mt-10 flex items-end justify-between gap-6 border-t border-border pt-6 lg:mt-12">
+          <div className="mt-12 flex items-end justify-between gap-6 border-t border-border pt-6 lg:mt-12">
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={active}
@@ -208,7 +208,7 @@ export default function TestimonialsWithStats({
                 exit={{ opacity: 0, transition: { duration: 0.15 } }}
               >
                 <p className="text-base font-medium text-foreground">{current.author}</p>
-                <p className="mt-1.5 text-xs tracking-widest text-muted-foreground uppercase">
+                <p className="mt-2 text-xs tracking-[var(--tracking-sublabel)] text-muted-foreground uppercase">
                   {current.role}
                   {current.location && ` · ${current.location}`}
                 </p>
@@ -225,14 +225,14 @@ export default function TestimonialsWithStats({
                   aria-label={paused ? "Play testimonials" : "Pause testimonials"}
                   className="flex h-12 w-12 items-center justify-center rounded-full text-muted-foreground transition-colors duration-300 hover:text-foreground"
                 >
-                  {paused ? <Play size={16} /> : <Pause size={16} />}
+                  {paused ? <Play size={18} /> : <Pause size={18} />}
                 </button>
               )}
               <button
                 type="button"
                 onClick={() => go(active - 1)}
                 aria-label="Previous testimonial"
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-foreground text-foreground transition-colors duration-300 hover:bg-foreground/5"
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-foreground text-foreground transition-colors duration-300 hover:bg-foreground/10"
               >
                 <ArrowLeft size={18} />
               </button>
