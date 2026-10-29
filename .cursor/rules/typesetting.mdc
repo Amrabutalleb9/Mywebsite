@@ -30,7 +30,7 @@ Bind `a` and `I` to the **following** word.
 // BAD
 {"drove a number."}
 // GOOD
-{"drove a number."}
+{"drove a\u00A0number."}
 ```
 
 ## Tier 2: short function words
@@ -43,7 +43,7 @@ These never sit alone at the end of a line. Bind each to the **following** word.
 // BAD: "of" or "in" can dangle at line end
 the head of creative at a global agency in Dubai
 // GOOD
-the head of creative at a global agency in Dubai
+the head of\u00A0creative at\u00A0a\u00A0global agency in\u00A0Dubai
 ```
 
 ## Tier 3: sentence-start protection
@@ -54,7 +54,7 @@ After `.` `?` `!` (and a closing quote, if there is one), if the **next word is 
 // BAD
 {"Several times, actually. We tested."}
 // GOOD
-{"Several times, actually. We tested."}
+{"Several times, actually. We\u00A0tested."}
 ```
 
 ## Tier 4: clause connectors
@@ -67,9 +67,9 @@ The last line of every paragraph contains **at least two words**: bind the final
 
 ## Tier 6: number binding
 
-Bind a number to its unit or noun: `13 years`, `60 days`, `4,000 kilometres`, `$8,000 month`, `12% increase`, `50+ people`.
+Bind a number to its unit or noun: `13\u00A0years`, `60\u00A0days`, `4,000\u00A0kilometres`, `$8,000\u00A0month`, `12%\u00A0increase`, `50+\u00A0people`.
 
-In code, a number is digits with optional `,` `.` and a trailing `%`, `+` or `k`. A number-word compound keeps its hyphen unbreakable: `25-person` becomes `25‑person`.
+In code, a number is digits with optional `,` `.` and a trailing `%`, `+` or `k`. A number-word compound keeps its hyphen unbreakable: `25-person` becomes `25\u2011person`.
 
 ## The overflow guard
 
@@ -79,15 +79,15 @@ A chain of bound words can't wrap, so a long chain would overflow a narrow colum
 
 | Context | Syntax | Example |
 |---------|--------|---------|
-| Inside a JS string `{"..."}` | ` ` | `{"drove a number."}` |
+| Inside a JS string `{"..."}` | `\u00A0` | `{"drove a\u00A0number."}` |
 | Plain JSX text | `&nbsp;` | `See the&nbsp;work` |
-| Data objects (`.ts` arrays) | ` `, or wrap in `tp()` | `desc: tp("Built to last.")` |
+| Data objects (`.ts` arrays) | `\u00A0`, or wrap in `tp()` | `desc: tp("Built to last.")` |
 
 ## Punctuation
 
 - **Ranges:** en dash with no spaces, `2–3`, `2019–2023`. Use a spaced en dash only between two spaced items: `Dec 2024 – Jun 2025`.
 - **Separators:** middot with spaces, `2024 · Creative Director`.
-- **Quotes and apostrophes:** always curly (`“ ” ‘ ’`, `’` in strings).
+- **Quotes and apostrophes:** always curly (`“ ” ‘ ’`, `\u2019` in strings).
 - **Ellipsis:** `…`, one character.
 - **Uppercase:** only through CSS (`uppercase`) with `--tracking-label` or `--tracking-sublabel`. Never type copy in capitals.
 - Case, numbers, dates, money and units: see "Copy style" in `design-system.mdc`.

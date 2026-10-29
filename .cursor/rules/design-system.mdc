@@ -277,7 +277,7 @@ Numbers are proof, so they read as figures.
 - Name the currency when the symbol is ambiguous ("A$", "EGP 500", "US$100").
 
 ### Units and symbols
-- Metric first: "4,000 km", "212 pages", "1,200px". There is a space between the number and the unit, except for `%`, `px`, `°` and `k`/`M`. The number is always bound with ` ` (Tier 6).
+- Metric first: "4,000 km", "212 pages", "1,200px". There is a space between the number and the unit, except for `%`, `px`, `°` and `k`/`M`. The number is always bound with `\u00A0` (Tier 6).
 - Percent: "12%", "down 23%". Never "percent".
 - Use "&" only in labels, categories, service names and credits. Use "and" in sentences.
 - Middot `·` with spaces separates meta items and title parts.
