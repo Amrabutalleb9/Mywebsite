@@ -2,7 +2,7 @@ import Link from "next/link"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Privacy Policy",
+  title: "Privacy policy",
   description: "How Amr Abu-Talleb collects, uses, and protects your personal information on amrabutalleb.com.",
   alternates: { canonical: "/privacy" },
   robots: { index: true, follow: true },
@@ -10,27 +10,27 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <main className="px-8 pt-32 pb-24 lg:px-16 lg:pt-40 lg:pb-32">
+    <main className="px-8 pt-32 pb-24 lg:px-16 lg:pt-32 lg:pb-32">
       <div className="mx-auto max-w-[65ch]">
         <p className="mb-4 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">
           Legal
         </p>
         <h1 className="mb-8 font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
-          Privacy Policy
+          Privacy policy
         </h1>
-        <p className="mb-10 text-sm text-muted-foreground">
-          Last updated: March 31, 2026. This policy describes how{" "}
+        <p className="mb-12 text-sm text-muted-foreground">
+          Last updated: 31 March 2026. This policy describes how{" "}
           <strong className="text-foreground">Amr Abu-Talleb</strong> (&quot;we&quot;, &quot;us&quot;) handles
           information when you use <strong className="text-foreground">amrabutalleb.com</strong> (the
           &quot;Site&quot;).
         </p>
 
-        <div className="flex flex-col gap-8 text-[15px] leading-[var(--leading-longform)] text-muted-foreground">
+        <div className="flex flex-col gap-8 text-base leading-[var(--leading-longform)] text-muted-foreground">
           <section>
             <h2 className="mb-3 font-serif text-2xl text-foreground">1. Who we are</h2>
             <p>
               The Site is operated by Amr Abu-Talleb. For privacy-related questions, contact{" "}
-              <a href="mailto:hello@amrabutalleb.com" className="text-accent underline underline-offset-2">
+              <a href="mailto:hello@amrabutalleb.com" className="link-inline">
                 hello@amrabutalleb.com
               </a>
               .
@@ -53,7 +53,7 @@ export default function PrivacyPage() {
               <li>
                 <strong className="text-foreground">Cookies and similar technologies</strong> — if we or embedded
                 third-party services set cookies or use local storage, they are used to operate the Site, remember
-                preferences, or analyze traffic as described by those services.
+                preferences, or analyse traffic as described by those services.
               </li>
             </ul>
           </section>
@@ -121,11 +121,11 @@ export default function PrivacyPage() {
         </div>
 
         <p className="mt-12 text-sm text-muted-foreground">
-          <Link href="/terms" className="text-accent underline underline-offset-2">
-            Terms of Service
+          <Link href="/terms" className="link-inline">
+            Terms of service
           </Link>
           {" · "}
-          <Link href="/" className="text-accent underline underline-offset-2">
+          <Link href="/" className="link-inline">
             Back to home
           </Link>
         </p>

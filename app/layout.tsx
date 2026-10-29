@@ -12,13 +12,14 @@ const inter = Inter({
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
+  style: ["normal", "italic"],
   display: "swap",
   variable: "--font-playfair",
 })
 
 export const metadata: Metadata = {
   title: {
-    default: "Amr Abu-Talleb · Creative Director, Brand and Digital Product",
+    default: "Amr Abu-Talleb · Creative Director, brand and digital product",
     template: "%s \u00B7 Amr Abu-Talleb",
   },
   description:
@@ -29,10 +30,10 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "en_GB",
     url: "https://amrabutalleb.com",
     siteName: "Amr Abu-Talleb",
-    title: "Amr Abu-Talleb · Creative Director, Brand and Digital Product",
+    title: "Amr Abu-Talleb · Creative Director, brand and digital product",
     description:
       "Amr Abu-Talleb is a Creative Director who leads brand, campaign and digital product teams. 13 years, teams of up to 25 across 8 markets, 50+ people hired.",
     images: [
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amr Abu-Talleb · Creative Director, Brand and Digital Product",
+    title: "Amr Abu-Talleb · Creative Director, brand and digital product",
     description:
       "Amr Abu-Talleb is a Creative Director who leads brand, campaign and digital product teams. 13 years, teams of up to 25 across 8 markets, 50+ people hired.",
     images: ["/images/og-image-v4.png"],
@@ -97,7 +98,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
+    <html lang="en-GB" className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
       <head>
         <link rel="manifest" href="/manifest.json" />
       </head>

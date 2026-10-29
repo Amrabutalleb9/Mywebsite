@@ -19,7 +19,7 @@ export async function generateMetadata({
   if (!project) return { robots: { index: false, follow: false } }
   const description = `${project.subtitle}. ${project.impactStatement}`
   return pageMeta({
-    title: `${project.title} Case Study · Amr Abu-Talleb`,
+    title: `${project.title} Case study · Amr Abu-Talleb`,
     description,
     path: `/work/${slug}`,
     type: "article",

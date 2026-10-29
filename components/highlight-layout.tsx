@@ -25,7 +25,7 @@ export default function HighlightLayout({
     {lightbox && <Lightbox src={lightbox} onClose={() => setLightbox(null)} />}
 
     <main>
-    <article className="pb-[clamp(80px,10vw,140px)] pt-32 lg:pt-40">
+    <article className="pb-24 lg:pb-32 pt-32 lg:pt-32">
       <div className="wrap">
 
         {/* Back link */}
@@ -34,19 +34,19 @@ export default function HighlightLayout({
             href="/#work"
             className="mb-12 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
-            <ArrowLeft size={16} />
+            <ArrowLeft size={18} />
             Back to Work
           </Link>
         </FadeIn>
 
         {/* Title , smaller than case studies, different label */}
         <FadeIn>
-          <p className="mb-4 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Project Highlight</p>
+          <p className="mb-4 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Project highlight</p>
         </FadeIn>
-        <FadeIn as="h1" delay={0.05} className="mb-3 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
+        <FadeIn as="h1" delay={0.08} className="mb-3 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
           {project.title}
         </FadeIn>
-        <FadeIn delay={0.1} className="mb-10 max-w-[50ch]">
+        <FadeIn delay={0.08} className="mb-12 max-w-[50ch]">
           <p className="font-serif text-2xl leading-snug tracking-tight text-muted-foreground">
             {project.subtitle}
           </p>
@@ -54,10 +54,10 @@ export default function HighlightLayout({
       </div>
 
       {/* Hero image */}
-      <FadeIn delay={0.15} className="wrap-wide mb-12 lg:mb-16">
+      <FadeIn delay={0.16} className="wrap-wide mb-12 lg:mb-16">
         {project.featureImage ? (
           <div
-            className="project-img-wrap overflow-hidden rounded-xl"
+            className="project-img-wrap overflow-hidden rounded-lg"
             onClick={() => setLightbox(project.featureImage!)}
             role="button"
             tabIndex={0}
@@ -74,8 +74,8 @@ export default function HighlightLayout({
             />
           </div>
         ) : (
-          <div className="flex aspect-[21/9] w-full items-center justify-center rounded-xl bg-primary">
-            <span className="font-serif text-lg text-primary-foreground/15">{project.title}</span>
+          <div className="flex aspect-[21/9] w-full items-center justify-center rounded-lg bg-primary">
+            <span className="font-serif text-2xl text-primary-foreground/30">{project.title}</span>
           </div>
         )}
       </FadeIn>
@@ -93,7 +93,7 @@ export default function HighlightLayout({
           <FadeIn as="div" className="wrap-wide mb-24">
             <dl className="grid grid-cols-2 gap-x-8 gap-y-8 border-t border-border pt-8 md:grid-cols-3 lg:flex lg:justify-between lg:gap-x-12">
               {facts.map((item) => (
-                <div key={item.label} className="flex flex-col gap-1.5">
+                <div key={item.label} className="flex flex-col gap-2">
                   <dt className="text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-label)] text-accent uppercase">{item.label}</dt>
                   <dd className="max-w-[30ch] text-sm leading-snug text-muted-foreground whitespace-pre-line">{item.value}</dd>
                 </div>
@@ -109,12 +109,12 @@ export default function HighlightLayout({
         const [lead, ...rest] = paras
         return (
           <section className="wrap mb-24">
-            <div className="grid gap-10 lg:grid-cols-2 lg:gap-20">
+            <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
               <FadeIn as="div">
                 <p className="mb-6 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Overview</p>
                 <p className="max-w-[36ch] font-serif text-2xl leading-snug tracking-tight text-foreground">{lead}</p>
               </FadeIn>
-              <FadeIn as="div" className="flex max-w-[60ch] flex-col gap-5 lg:pt-10">
+              <FadeIn as="div" className="flex max-w-[60ch] flex-col gap-4 lg:pt-12">
                 {rest.map((p) => (
                   <p key={p.slice(0, 30)} className="leading-[var(--leading-longform)] text-muted-foreground">{p}</p>
                 ))}
@@ -126,7 +126,7 @@ export default function HighlightLayout({
 
       {/* Brand figures first, then the product visuals */}
       {project.figures && project.figures.length > 0 && (
-        <div className="wrap-wide mb-16 flex flex-col gap-10">
+        <div className="wrap-wide mb-16 flex flex-col gap-12">
           {project.figures.map((row, r) => (
             <FadeIn as="div" key={row.images[0].src}>
               <figure className="m-0">
@@ -159,7 +159,7 @@ export default function HighlightLayout({
             project.keyVisuals.map((visual, i) => (
               <div
                 key={i}
-                className="project-img-wrap overflow-hidden rounded-xl"
+                className="project-img-wrap overflow-hidden rounded-lg"
                 onClick={() => setLightbox(visual.src)}
                 role="button"
                 tabIndex={0}
@@ -177,11 +177,11 @@ export default function HighlightLayout({
             ))
           ) : (
             <>
-              <div className="flex aspect-[4/3] items-center justify-center rounded-xl bg-primary">
-                <span className="text-sm text-primary-foreground/15">Key Visual 1</span>
+              <div className="flex aspect-[4/3] items-center justify-center rounded-lg bg-primary">
+                <span className="text-sm text-primary-foreground/30">Key visual 1</span>
               </div>
-              <div className="flex aspect-[4/3] items-center justify-center rounded-xl bg-primary">
-                <span className="text-sm text-primary-foreground/15">Key Visual 2</span>
+              <div className="flex aspect-[4/3] items-center justify-center rounded-lg bg-primary">
+                <span className="text-sm text-primary-foreground/30">Key visual 2</span>
               </div>
             </>
           )}
@@ -194,7 +194,7 @@ export default function HighlightLayout({
           <div className="flex flex-col gap-6">
             {project.keyResult && (
               <FadeIn>
-                <div className="rounded-lg border border-border bg-background px-6 py-5">
+                <div className="rounded-lg border border-border bg-background px-6 py-4">
                   <p className="mb-1 text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-sublabel)] text-accent uppercase">Result</p>
                   <p className="text-lg font-medium leading-relaxed text-foreground">
                     {project.keyResult}
@@ -204,7 +204,7 @@ export default function HighlightLayout({
             )}
             {project.testimonial && (
               <FadeIn>
-                <blockquote className="rounded-lg border border-border bg-card px-6 py-5 sm:px-8">
+                <blockquote className="rounded-lg border border-border bg-card px-6 py-4 sm:px-8">
                   <p className="mb-3 font-serif text-2xl leading-snug tracking-tight text-foreground italic">
                     &ldquo;{project.testimonial.quote}&rdquo;
                   </p>

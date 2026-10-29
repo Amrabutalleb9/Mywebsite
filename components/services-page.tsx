@@ -12,7 +12,7 @@ const CALENDLY = "https://calendly.com/amrabutalleb/one-on-one"
 const EMAIL = "hello@amrabutalleb.com"
 
 const field =
-  "mt-2 w-full border-0 border-b border-border bg-transparent py-3 text-base text-foreground outline-none transition-colors duration-300 focus:border-accent"
+  "mt-2 w-full border-0 border-b border-input-strong bg-transparent py-3 text-base text-foreground outline-none transition-[border-color,box-shadow] duration-300 focus:border-accent-text focus:shadow-[0_1px_0_var(--accent-text)]"
 
 const questions = [
   {
@@ -58,12 +58,12 @@ const who = [
 
 const reviewTiers = [
   {
-    name: "Review + Plan",
+    name: "Review + plan",
     price: "$2,500",
-    detail: "The Full Review, plus a 90-day creative plan and two follow-up reviews within 30 days",
+    detail: "The Full review, plus a 90-day creative plan and two follow-up reviews within 30 days",
   },
   {
-    name: "Full Review",
+    name: "Full review",
     price: "$1,200",
     detail: "Brand, site and deck (or app flow) reviewed together, a prioritised fix list, and one key slide or screen redesigned as an example. 5 business days",
   },
@@ -76,7 +76,7 @@ const reviewTiers = [
 
 const sprintTiers = [
   {
-    name: "Launch + Product",
+    name: "Launch + product",
     price: "$8,000",
     detail: "Everything in Launch, plus UI direction for up to about 12 key app or dashboard screens and 30 days of reviews after launch",
   },
@@ -101,10 +101,10 @@ const seatTiers = [
   {
     name: "Creative Lead",
     price: "$3,500 a month",
-    detail: "About 6 hours a week. Everything in the Review Seat, plus direction for one launch or campaign at a time, a monthly creative plan, design-system decisions and briefs for vendors and freelancers",
+    detail: "About 6 hours a week. Everything in the Review seat, plus direction for one launch or campaign at a time, a monthly creative plan, design-system decisions and briefs for vendors and freelancers",
   },
   {
-    name: "Review Seat",
+    name: "Review seat",
     price: "$2,500 a month",
     detail: "About 4 hours a week. A weekly review of everything going out, written feedback within one business day, and a one-page list of priorities each month",
   },
@@ -216,7 +216,7 @@ function FitCall({ primary = true }: { primary?: boolean }) {
 
 function ReviewButton({
   primary = true,
-  label = "Start a Review",
+  label = "Start a review",
   onClick,
 }: {
   primary?: boolean
@@ -233,14 +233,14 @@ function ReviewButton({
 
 function TierList({ tiers }: { tiers: { name: string; price: string; detail: string }[] }) {
   return (
-    <ul className="mt-10 border-b border-border">
+    <ul className="mt-12 border-b border-border">
       {tiers.map((tier) => (
-        <li key={tier.name} className="grid grid-cols-1 gap-3 border-t border-border py-7 sm:grid-cols-[minmax(14rem,0.7fr)_1.4fr] sm:gap-10">
+        <li key={tier.name} className="grid grid-cols-1 gap-3 border-t border-border py-8 sm:grid-cols-[minmax(14rem,0.7fr)_1.4fr] sm:gap-12">
           <div>
             <h4 className="font-serif text-2xl font-normal leading-snug tracking-tight text-foreground">{tp(tier.name)}</h4>
             <p className="mt-2 text-sm tracking-wide text-muted-foreground">{tp(tier.price)}</p>
           </div>
-          <p className="max-w-[60ch] text-[0.9375rem] leading-relaxed text-muted-foreground">{tp(tier.detail)}</p>
+          <p className="max-w-[60ch] text-sm leading-relaxed text-muted-foreground">{tp(tier.detail)}</p>
         </li>
       ))}
     </ul>
@@ -293,12 +293,12 @@ export default function ServicesPage() {
   return (
     <>
       <header className="fixed top-0 right-0 left-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">
-        <div className="flex items-center px-8 py-5 lg:px-16">
+        <div className="flex items-center px-8 py-4 lg:px-16">
           <p className="text-lg font-bold tracking-tight text-foreground lg:text-xl">Amr Abu-Talleb</p>
         </div>
       </header>
 
-      <main id="main-content" className="pt-28 pb-8 lg:pt-36">
+      <main id="main-content" className="pt-32 pb-8 lg:pt-32">
         <section className="wrap">
           <FadeIn>
             <h1 className="max-w-[16ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
@@ -310,8 +310,8 @@ export default function ServicesPage() {
               {tp("I’m Amr Abu-Talleb, a Fractional Creative Director in Cairo. I’ve spent 13 years in brand, campaigns and digital product, leading teams of up to 25 across 8 markets. I work with startups and agencies who need the brand, the deck, the site and the product to look like one company.")}
             </p>
           </FadeIn>
-          <FadeIn delay={0.12}>
-            <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
+          <FadeIn delay={0.08}>
+            <div className="mt-12 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
               <ReviewButton onClick={startReview} />
               <FitCall primary={false} />
             </div>
@@ -326,7 +326,7 @@ export default function ServicesPage() {
           </FadeIn>
           <ol className="mt-12 max-w-3xl">
             {who.map((item, i) => (
-              <FadeIn key={item} as="li" className="flex gap-6 border-t border-border py-7 sm:gap-8">
+              <FadeIn key={item} as="li" className="flex gap-6 border-t border-border py-8 sm:gap-8">
                 <span aria-hidden="true" className="font-serif text-3xl leading-none text-accent/30 lg:text-4xl">
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -343,9 +343,9 @@ export default function ServicesPage() {
             </h2>
           </FadeIn>
 
-          <article className="mt-16 border-t border-border pt-10">
+          <article className="mt-16 border-t border-border pt-12">
             <FadeIn>
-              <p className="mb-3 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Design Review</p>
+              <p className="mb-3 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Design review</p>
               <h3 className="max-w-[22ch] font-serif text-2xl font-normal leading-snug tracking-tight text-foreground lg:text-3xl">
                 {tp("Find out what’s holding the work back before you redesign it")}
               </h3>
@@ -358,16 +358,16 @@ export default function ServicesPage() {
               {tp("Intro prices for the first two clients; planned $3,000 / $1,500 / $600.")}
             </p>
             <p className="mt-3 max-w-[60ch] text-sm leading-relaxed text-muted-foreground">
-              {tp("If you start a Launch Sprint or a Seat within 30 days, the full review fee comes off it.")}
+              {tp("If you start a Launch sprint or a Seat within 30 days, the full review fee comes off it.")}
             </p>
-            <div className="mt-10">
+            <div className="mt-12">
               <ReviewButton onClick={startReview} />
             </div>
           </article>
 
-          <article className="mt-20 border-t border-border pt-10">
+          <article className="mt-24 border-t border-border pt-12">
             <FadeIn>
-              <p className="mb-3 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Launch Sprint</p>
+              <p className="mb-3 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Launch sprint</p>
               <h3 className="max-w-[22ch] font-serif text-2xl font-normal leading-snug tracking-tight text-foreground lg:text-3xl">
                 {tp("The brand, the deck and the site from one system, before your date")}
               </h3>
@@ -382,14 +382,14 @@ export default function ServicesPage() {
             <p className="mt-3 max-w-[60ch] text-sm leading-relaxed text-muted-foreground">
               {tp("You see two directions at the first review. If neither works for you, I do a third at no charge. Design only; development is quoted separately. Two rounds of changes per item, and anything outside scope is quoted at a fixed price.")}
             </p>
-            <div className="mt-10">
+            <div className="mt-12">
               <FitCall />
             </div>
           </article>
 
-          <article className="mt-20 border-t border-border pt-10">
+          <article className="mt-24 border-t border-border pt-12">
             <FadeIn>
-              <p className="mb-3 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Fractional CD Seat</p>
+              <p className="mb-3 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Fractional CD seat</p>
               <h3 className="max-w-[20ch] font-serif text-2xl font-normal leading-snug tracking-tight text-foreground lg:text-3xl">
                 {tp("A creative lead for your team, a few hours a week")}
               </h3>
@@ -404,7 +404,7 @@ export default function ServicesPage() {
             <p className="mt-3 max-w-[60ch] text-sm leading-relaxed text-muted-foreground">
               {tp("Three-month minimum, paid monthly in advance, and hours don’t roll over. After the first month you can stop with no further commitment and keep everything delivered. I take two seats at a time.")}
             </p>
-            <div className="mt-10">
+            <div className="mt-12">
               <FitCall />
             </div>
           </article>
@@ -417,13 +417,13 @@ export default function ServicesPage() {
             </h2>
             <div className="mt-8 flex max-w-[60ch] flex-col gap-6 leading-relaxed text-muted-foreground">
               <p>
-                {tp("For pitches, a big account, or when your CD is stretched. I work under your agency’s name on a Review Seat or a Creative Lead Seat, or take on a Launch Sprint as a subcontract. Your client sees your agency. I don’t show the work, post about it or put it in a portfolio without your OK.")}
+                {tp("For pitches, a big account, or when your CD is stretched. I work under your agency’s name on a Review seat or a Creative Lead Seat, or take on a Launch sprint as a subcontract. Your client sees your agency. I don’t show the work, post about it or put it in a portfolio without your OK.")}
               </p>
               <p>
                 {tp("Most recently I was Creative Director at Overpowered, a London agency, where the team grew from 6 to about 25 people in 7 months and I led the identity. I work in English and Arabic, which helps on Gulf accounts.")}
               </p>
             </div>
-            <div className="mt-10">
+            <div className="mt-12">
               <FitCall />
             </div>
           </FadeIn>
@@ -437,13 +437,13 @@ export default function ServicesPage() {
           </FadeIn>
           <div className="mt-12 max-w-3xl">
             {pieces.map((piece) => (
-              <FadeIn key={piece.title} className="border-t border-border py-7">
+              <FadeIn key={piece.title} className="border-t border-border py-8">
                 <h3 className="font-serif text-2xl font-normal leading-snug tracking-tight text-foreground">{tp(piece.title)}</h3>
                 <p className="mt-3 max-w-[60ch] leading-relaxed text-muted-foreground">{tp(piece.text)}</p>
               </FadeIn>
             ))}
           </div>
-          <div className="mt-10">
+          <div className="mt-12">
             <ReviewButton label="Send me what you have" onClick={startReview} />
           </div>
         </section>
@@ -474,7 +474,7 @@ export default function ServicesPage() {
                       <p aria-hidden="true" className="font-serif text-2xl tracking-tight text-foreground/30">{item.title}</p>
                     </div>
                   )}
-                  <h3 className="mt-5 font-serif text-2xl font-normal leading-snug tracking-tight text-foreground">{item.title}</h3>
+                  <h3 className="mt-4 font-serif text-2xl font-normal leading-snug tracking-tight text-foreground">{item.title}</h3>
                   <p className="mt-2 max-w-[48ch] text-sm leading-relaxed text-muted-foreground">{tp(item.line)}</p>
                   <p className="mt-2 max-w-[48ch] text-sm font-medium leading-relaxed text-foreground">{tp(item.result)}</p>
                 </>
@@ -501,17 +501,17 @@ export default function ServicesPage() {
             </h2>
           </FadeIn>
           <div className="mt-12 flex max-w-3xl flex-col">
-            <FadeIn className="border-t border-border py-7">
+            <FadeIn className="border-t border-border py-8">
               <h3 className="text-lg font-medium text-foreground">Calls</h3>
               <p className="mt-3 max-w-[60ch] leading-relaxed text-muted-foreground">{tp(calls[0])}</p>
             </FadeIn>
-            <FadeIn className="border-t border-border py-7">
+            <FadeIn className="border-t border-border py-8">
               <h3 className="text-lg font-medium text-foreground">Written feedback</h3>
               <p className="mt-3 max-w-[60ch] leading-relaxed text-muted-foreground">
                 {tp("Written feedback comes back within one business day. Reviews are always written, so nothing waits on a call.")}
               </p>
             </FadeIn>
-            <FadeIn className="border-t border-border py-7">
+            <FadeIn className="border-t border-border py-8">
               <h3 className="text-lg font-medium text-foreground">Payment</h3>
               <ul className="mt-3 flex max-w-[60ch] flex-col gap-2">
                 {payment.map((line) => (
@@ -528,7 +528,7 @@ export default function ServicesPage() {
           </FadeIn>
           <div className="max-w-3xl">
             {faq.map((item) => (
-              <FadeIn key={item.q} className="border-t border-border py-7">
+              <FadeIn key={item.q} className="border-t border-border py-8">
                 <h3 className="font-serif text-2xl font-normal leading-snug tracking-tight text-foreground">{tp(item.q)}</h3>
                 <p className="mt-3 max-w-[60ch] leading-relaxed text-muted-foreground">{tp(item.a)}</p>
               </FadeIn>
@@ -544,7 +544,7 @@ export default function ServicesPage() {
             <p className="mt-6 max-w-[50ch] leading-relaxed text-muted-foreground">
               {tp("If you have a date, book a fit call. If you’d rather start in writing, send me what you have and I’ll tell you which option fits.")}
             </p>
-            <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
+            <div className="mt-12 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
               <FitCall />
               <ReviewButton primary={false} onClick={startReview} />
             </div>
@@ -552,7 +552,7 @@ export default function ServicesPage() {
         </section>
       </main>
 
-      <footer className="wrap border-t border-border py-10">
+      <footer className="wrap border-t border-border py-12">
         <p className="text-sm text-muted-foreground">
           <a href={`mailto:${EMAIL}`} className="text-foreground underline underline-offset-4 transition-colors hover:text-accent">
             {EMAIL}
@@ -566,7 +566,7 @@ export default function ServicesPage() {
       <dialog
         ref={dialogRef}
         aria-labelledby={titleId}
-        className="w-[min(100%-2rem,40rem)] max-h-[min(100%-2rem,44rem)] overflow-y-auto rounded-2xl border border-border bg-background p-8 text-foreground backdrop:bg-primary/50 sm:p-10"
+        className="w-[min(100%-2rem,40rem)] max-h-[min(100%-2rem,44rem)] overflow-y-auto rounded-2xl border border-border bg-background p-8 text-foreground backdrop:bg-primary/50 sm:p-12"
         onClose={() => setStatus("idle")}
       >
         <div className="mb-8 flex items-start justify-between gap-6">
@@ -574,7 +574,7 @@ export default function ServicesPage() {
             {tp("Start a review")}
           </h2>
           <button type="button" onClick={closeReview} className="text-foreground" aria-label="Close">
-            <X size={22} />
+            <X size={24} />
           </button>
         </div>
         {status === "sent" ? (
@@ -611,7 +611,7 @@ export default function ServicesPage() {
             {status === "error" && (
               <p className="text-sm text-destructive" aria-live="polite">
                 {error}{" "}
-                <a href={`mailto:${EMAIL}`} className="underline">{EMAIL}</a>
+                <a href={`mailto:${EMAIL}`} className="link-inline">{EMAIL}</a>
               </p>
             )}
             <div>

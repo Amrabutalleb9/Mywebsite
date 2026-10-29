@@ -231,7 +231,7 @@ export function GLSLHills({
     >
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 z-[1] h-full w-full touch-none"
+        className="absolute inset-0 z-1 h-full w-full touch-none"
         style={{ display: "block" }}
         aria-hidden
       />

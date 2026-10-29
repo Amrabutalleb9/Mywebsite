@@ -8,17 +8,17 @@
   --card-foreground: #0d0d1a;
   --primary: #0d0d1a;
   --primary-foreground: #ffffff;
-  --secondary: #1a1a2e;
-  --secondary-foreground: #ffffff;
   --muted: #f5f5f5;
   --muted-foreground: #6b6b6b;
   --accent: #c9a96e;
   --accent-foreground: #0d0d1a;
   --accent-text: #8c6929;
-  --destructive: #ef4444;
-  --destructive-foreground: #ffffff;
+  --accent-numeral: #a8894f;
+  --proof-paper: #e9e7e2;
+  --destructive: #b42318;
   --border: #e5e5e5;
   --input: #e5e5e5;
+  --input-strong: #8c8c8c;
   --ring: #c9a96e;
   --radius: 18px;
   --surface: #f5f5f5;
@@ -27,6 +27,18 @@
   --duration-fast: 200ms;
   --duration-normal: 320ms;
   --duration-slow: 550ms;
+  --duration-reveal: 600ms;
+
+  /* Elevation: shadows appear only on hover, as lift. */
+  --shadow-sm: 0 12px 32px -16px rgba(13, 13, 26, 0.15);
+  --shadow-md: 0 16px 40px -12px rgba(13, 13, 26, 0.35);
+  --shadow-lg: 0 28px 56px -16px rgba(13, 13, 26, 0.35);
+
+  /* Layering: nothing else. */
+  --z-raised: 10;
+  --z-nav: 50;
+  --z-overlay: 100;
+  --z-cursor: 200;
 }
 
 @theme inline {
@@ -48,11 +60,15 @@
   --text-page: clamp(2.5rem, 5vw, 4.5rem);
   --text-display: clamp(2.8rem, 6vw, 7.5rem);
   --text-hero: clamp(2.4rem, min(5.2vw, 9svh), 5.75rem);
+  --text-quote: clamp(1.5rem, 2.6vw, 2.5rem);
+  --text-quote-mark: clamp(7rem, 9vw, 8rem);
 
   /* ── Leading ── */
   --leading-display: 0.92;
   --leading-tight: 1.05;
   --leading-heading: 1.1;
+  --leading-quote: 1.2;
+  --leading-mark: 0.75;
   --leading-snug: 1.375;
   --leading-body: 1.625;
   --leading-longform: 1.75;
@@ -68,17 +84,17 @@
   --color-card-foreground: var(--card-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent-text: var(--accent-text);
+  --color-accent-numeral: var(--accent-numeral);
+  --color-proof-paper: var(--proof-paper);
   --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
+  --color-input-strong: var(--input-strong);
   --color-ring: var(--ring);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -124,13 +140,15 @@ p, li, blockquote, td, th, figcaption {
 }
 h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
+  overflow-wrap: break-word;
 }
+/* Hyphenation stays off: line breaks come from the typesetting rules, never from split words. */
+body { hyphens: manual; }
 
-/* iOS-style smooth border-radius overrides */
-.rounded-xl  { border-radius: 18px !important; }
+/* Radius roles: rounded-sm chips and the skip link, rounded-lg cards, small media, callouts and
+   the footer card (same as --radius), rounded-2xl large media, rounded-full buttons and pills. */
 .rounded-2xl { border-radius: 24px !important; }
-.rounded-3xl { border-radius: 32px !important; }
-.rounded-lg  { border-radius: 14px !important; }
+.rounded-lg  { border-radius: 18px !important; }
 .rounded-sm  { border-radius: 10px !important; }
 
 /* Apple-style continuous corners. A superellipse curve eases into the
@@ -138,15 +156,13 @@ h1, h2, h3, h4, h5, h6 {
    Radii grow a little so the visual size matches the plain round corner.
    Browsers without corner-shape keep the round corners above. */
 @supports (corner-shape: superellipse(1.5)) {
-  .rounded-sm, .rounded, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl, .rounded-3xl,
+  .rounded-sm, .rounded, .rounded-lg, .rounded-2xl,
   .reel-tile-phone, .reel-tile-dash {
     corner-shape: superellipse(1.5);
   }
   .rounded-sm  { border-radius: 12px !important; }
-  .rounded-lg  { border-radius: 17px !important; }
-  .rounded-xl  { border-radius: 22px !important; }
+  .rounded-lg  { border-radius: 22px !important; }
   .rounded-2xl { border-radius: 30px !important; }
-  .rounded-3xl { border-radius: 40px !important; }
 }
 
 
@@ -174,7 +190,8 @@ h1, h2, h3, h4, h5, h6 {
   gap: 0.5rem;
   border: 1px solid transparent;
   border-radius: 9999px;
-  padding: 0.875rem 2rem;
+  min-height: 2.75rem;
+  padding: 0.75rem 2rem;
   font-size: 0.75rem;
   line-height: 1rem;
   font-weight: 500;
@@ -189,7 +206,10 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow var(--duration-normal) var(--ease-out-expo),
     transform var(--duration-normal) var(--ease-out-expo);
 }
-.btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.btn:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 3px; }
+:is(.bg-primary, .bg-foreground, footer, .on-dark) .btn:focus-visible { outline-color: var(--accent); }
+/* Compact size for the nav. Same type, smaller box. */
+.btn-sm { min-height: 2.5rem; padding: 0.5rem 1.5rem; }
 .btn:disabled, .btn[aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; }
 .btn .cta-arrow, .btn svg { transition: transform var(--duration-normal) var(--ease-out-expo); }
 
@@ -201,7 +221,7 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--accent);
   color: var(--primary-foreground);
   transform: translateY(-2px);
-  box-shadow: 0 16px 40px -12px rgba(13, 13, 26, 0.35);
+  box-shadow: var(--shadow-md);
 }
 .btn-primary:hover:not(:disabled) svg { color: var(--accent); }
 .btn-primary:active:not(:disabled) { background-color: var(--primary); transform: translateY(0) scale(0.98); box-shadow: none; }
@@ -237,69 +257,7 @@ a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
   to { transform: translateX(-50%); }
 }
 
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes hero-enter {
-  from {
-    opacity: 0;
-    transform: translateY(32px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-hero-1 {
-  animation: hero-enter 0.8s ease both;
-}
-.animate-hero-2 {
-  animation: hero-enter 0.8s ease 0.15s both;
-}
-.animate-hero-3 {
-  animation: hero-enter 0.8s ease 0.3s both;
-}
-.animate-hero-4 {
-  animation: hero-enter 0.8s ease 0.45s both;
-}
-
 /* Marquee animation is applied via inline styles; pause handled by JS onMouseEnter/Leave */
-
-/* ─── Motion & interaction polish ─── */
-.cta-btn {
-  transition:
-    transform var(--duration-normal) var(--ease-out-expo),
-    background-color var(--duration-normal) var(--ease-out-expo),
-    color var(--duration-normal) var(--ease-out-expo),
-    border-color var(--duration-normal) var(--ease-out-expo),
-    box-shadow var(--duration-normal) var(--ease-out-expo);
-}
-.cta-btn-filled:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 40px -12px rgba(13, 13, 26, 0.25);
-  background-color: transparent;
-  color: var(--foreground);
-}
-.cta-btn-outline:hover {
-  background-color: var(--foreground);
-  color: var(--background);
-  transform: translateY(-2px);
-}
-.cta-btn .cta-arrow {
-  transition: transform var(--duration-normal) var(--ease-out-expo);
-}
-.cta-btn:hover .cta-arrow {
-  transform: translate(2px, -2px);
-}
 
 .text-link {
   transition: color var(--duration-fast) var(--ease-out-expo);
@@ -307,31 +265,34 @@ a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
 .text-link:hover {
   color: var(--accent-text);
 }
-.text-link:hover .inline-arrow {
-  transform: translateX(4px);
+
+/* Inline links inside text: ink with a gold underline; on ink, white with a gold underline. */
+.link-inline {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: color var(--duration-fast) var(--ease-out-expo);
 }
-.inline-arrow,
-.article-arrow {
-  transition: transform var(--duration-normal) var(--ease-out-expo);
-}
-.group:hover .article-arrow,
-.article-card:hover .inline-arrow {
-  transform: translateX(4px);
-}
+.link-inline:hover { color: var(--accent-text); }
+:is(.bg-primary, footer, .on-dark) .link-inline { color: var(--primary-foreground); }
+:is(.bg-primary, footer, .on-dark) .link-inline:hover { color: var(--accent); }
+:is(.bg-primary, footer, .on-dark) .bg-background .link-inline { color: var(--foreground); }
+:is(.bg-primary, footer, .on-dark) .bg-background .link-inline:hover { color: var(--accent-text); }
 
 .card-img {
   transition: transform var(--duration-slow) var(--ease-out-quart);
 }
 .work-card:hover .card-img,
-.highlight-card:hover .card-img,
-.article-card:hover .card-img {
+.highlight-card:hover .card-img {
   transform: scale(1.04);
 }
 .work-media {
   transition: box-shadow var(--duration-slow) var(--ease-out-expo);
 }
 .work-card:hover .work-media {
-  box-shadow: 0 28px 56px -16px rgba(13, 13, 26, 0.35);
+  box-shadow: var(--shadow-lg);
 }
 .card-arrow {
   transition:
@@ -362,54 +323,22 @@ a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
 }
 .capability-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 32px -16px rgba(13, 13, 26, 0.15);
+  box-shadow: var(--shadow-sm);
 }
-
-/* Legacy aliases */
-.cs-card-img { transition: transform var(--duration-slow) var(--ease-out-quart); }
-.group:hover .cs-card-img { transform: scale(1.04); }
-.cs-card-arrow { transition: transform var(--duration-normal) var(--ease-out-expo), border-color var(--duration-normal) var(--ease-out-expo), color var(--duration-normal) var(--ease-out-expo); }
-.group:hover .cs-card-arrow { border-color: var(--primary-foreground); color: var(--primary-foreground); transform: translate(2px, -2px); }
-.hl-card-img { transition: transform var(--duration-slow) var(--ease-out-quart); }
-.group:hover .hl-card-img { transform: scale(1.04); }
-.hl-card-arrow { opacity: 0; transition: opacity var(--duration-normal) var(--ease-out-expo); }
-.group:hover .hl-card-arrow { opacity: 1; }
 
 /* ─── Project detail image hover (lightbox trigger) ─── */
 .project-img {
-  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform var(--duration-slow) var(--ease-out-quart);
 }
 .project-img-wrap {
-  transition: box-shadow 0.5s ease;
+  transition: box-shadow var(--duration-slow) var(--ease-out-expo);
   cursor: pointer;
 }
 .project-img-wrap:hover {
-  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+  box-shadow: var(--shadow-lg);
 }
 .project-img-wrap:hover .project-img {
   transform: scale(1.03);
-}
-
-/* ─── Testimonial crossfade ─── */
-.testimonial-content {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.35s ease, transform 0.35s ease;
-}
-.testimonial-content.is-fading {
-  opacity: 0;
-  transform: translateY(8px);
-}
-
-/* ─── Footer Get Started button ─── */
-.footer-submit-btn {
-  transition:
-    transform var(--duration-normal) var(--ease-out-expo),
-    box-shadow var(--duration-normal) var(--ease-out-expo);
-}
-.footer-submit-btn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 40px -12px rgba(13, 13, 26, 0.15);
 }
 
 /* ─── Cursor label: only over elements with data-cursor-label (project cards and media), where the label
@@ -420,23 +349,16 @@ a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cta-btn-filled:hover,
-  .cta-btn-outline:hover,
-  .capability-card:hover,
-  .footer-submit-btn:hover:not(:disabled) {
+  .capability-card:hover {
     transform: none;
   }
   .card-img,
-  .portrait-wrap img,
-  .cs-card-img,
-  .hl-card-img {
+  .portrait-wrap img {
     transition: none;
   }
   .work-card:hover .card-img,
   .highlight-card:hover .card-img,
-  .article-card:hover .card-img,
-  .group:hover .cs-card-img,
-  .group:hover .hl-card-img {
+  .project-img-wrap:hover .project-img {
     transform: none;
   }
 }
@@ -497,3 +419,4 @@ a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
   border-radius: 4px;
 }
 :is(.bg-primary, .bg-foreground, footer) :where(a, button, [role="button"], input, textarea):focus-visible { outline-color: var(--accent); }
+:is(.bg-primary, .bg-foreground, footer) .bg-background :where(a, button, [role="button"], input, textarea):focus-visible { outline-color: var(--accent-text); }

@@ -33,7 +33,7 @@ export function pageMeta({ title, description, path, image, type = "website", ke
     alternates: { canonical: path },
     openGraph: {
       type,
-      locale: "en_US",
+      locale: "en_GB",
       siteName: "Amr Abu-Talleb",
       title,
       description,

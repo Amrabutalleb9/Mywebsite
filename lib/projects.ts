@@ -33,7 +33,7 @@ export interface CaseStudy {
   featureImage?: string
   featureImageAlt?: string
   galleryImages?: { src: string; alt: string }[]
-  /** Two images for the "Process Detail" row under The Challenge (4:3). */
+  /** Two images for the "Process detail" row under The Challenge (4:3). */
   processImages?: { src: string; alt: string }[]
   /** Full-width 16:9 showcase. A muted looping video, with a poster for first paint. */
   showcaseVideo?: { mp4: string; webm?: string; poster: string; alt: string }
@@ -48,7 +48,7 @@ export interface CaseStudy {
   contributionsAfterChapter?: string
   /** Label above the contributions list. Defaults to "What I led". */
   contributionsHeading?: string
-  /** Heading for the results list (defaults to "What Changed"). */
+  /** Heading for the results list (defaults to "What changed"). */
   resultsTitle?: string
   /** One closing line shown above the results list. */
   resultsLead?: string
@@ -80,14 +80,14 @@ export interface ProjectHighlight {
   figures?: { images: { src: string; alt: string; ratio?: string }[]; caption?: string }[]
 }
 
-/* ─── Full Case Studies ──────────────────────────── */
+/* ─── Full Case studies ──────────────────────────── */
 
 export const caseStudies: CaseStudy[] = [
   {
     slug: "overpowered",
     title: "Overpowered",
     subtitle: tp("From a broad studio offer to an agency built around the clients it served best"),
-    impactStatement: tp("Team grown from six to about twenty-five in seven months · Positioning set with the CEO · New identity used for about a year"),
+    impactStatement: tp("Team grown from 6 to about 25 in 7 months · Positioning set with the CEO · New identity used for about a year"),
     role: tp("Creative Director\nWorked directly with the CEO"),
     teamSize: tp("About 25 across branding, 2D, 3D, video, copy and UX/UI"),
     scope: tp("Team structure and creative standards, positioning, service structure, brand identity, creative direction and website direction"),
@@ -96,7 +96,7 @@ export const caseStudies: CaseStudy[] = [
       tp("I joined as Creative Director, working directly with the CEO. My job was to build a team that could do the work, give it a clear standard, and give the agency a direction its work could live up to."),
     ],
     contributions: [
-      { label: "Team", text: tp("Built the creative team from six people to about twenty-five, with two art directors and a hiring test.") },
+      { label: "Team", text: tp("Built the creative team from 6 people to about 25, with 2 art directors and a hiring test.") },
       { label: "Standards", text: tp("Set clear reporting lines, a review rhythm and one shared way of working.") },
       { label: "Positioning", text: tp("Focused the offer with the CEO on three services for small and mid-sized businesses, plus OP Labs for product work.") },
       { label: "Identity", text: tp("Directed the new identity with the team and contributed hands-on to selected elements.") },
@@ -104,18 +104,18 @@ export const caseStudies: CaseStudy[] = [
     ],
     contributionsAfterChapter: "The team",
     contributionsHeading: "The work",
-    resultsTitle: "Where Things Stood in June 2025",
-    resultsLead: tp("In seven months the team grew from six people to about twenty-five, with a clearer offer and an identity the agency used for about a year."),
+    resultsTitle: "Where things stood in June 2025",
+    resultsLead: tp("In 7 months the team grew from 6 people to about 25, with a clearer offer and an identity the agency used for about a year."),
     results: [
-      tp("A team of about twenty-five, grown from six in seven months, led by two art directors"),
+      tp("A team of about 25, grown from 6 in 7 months, led by 2 art directors"),
       tp("Clear ownership: designers reported to their art directors, with daily reviews and a weekly review across disciplines"),
       tp("One shared way of working, so ownership, deadlines and capacity were visible to everyone"),
       tp("A focused offer: branding, web and app, and video for small and mid-sized businesses, with OP Labs for product clients"),
       tp("A new identity built with the branding team, used by the agency for about a year"),
       tp("An immersive website direction, briefed to the 3D, motion and UX/UI teams"),
     ],
-    reflection: tp("Most of my time at Overpowered went into giving a team of about twenty-five a shared standard and clear priorities, so they could do their best work without waiting for me."),
-    credits: tp("Creative Direction: Amr Abu-Talleb · Art Direction & Design: the Overpowered team"),
+    reflection: tp("Most of my time at Overpowered went into giving a team of about 25 a shared standard and clear priorities, so they could do their best work without waiting for me."),
+    credits: tp("Creative direction: Amr Abu-Talleb · Art direction & design: the Overpowered team"),
     chapters: [
       {
         label: "The brief",
@@ -142,7 +142,7 @@ export const caseStudies: CaseStudy[] = [
         label: "The team",
         lead: tp("Redesigning the identity was only half the assignment; the priority was building an organization capable of delivering it."),
         paragraphs: [
-          tp("Over seven months the studio grew from six people to about twenty-five, across graphic design, video, 3D, copy and UX/UI. Two art directors led the creative disciplines and reported to me; I managed UX/UI directly."),
+          tp("Over 7 months the studio grew from 6 people to about 25, across graphic design, video, 3D, copy and UX/UI. Two art directors led the creative disciplines and reported to me; I managed UX/UI directly."),
           tp("One designer was already doing an art director’s job without the title. I formalised his promotion and worked with him on how to review and direct other people’s work."),
           tp("I wrote a hiring exercise around a premium olive-oil brand built on Arabic calligraphy. It gave candidates a real brief to interpret and gave us something concrete to discuss: their thinking, their craft and how they took feedback."),
         ],
@@ -211,7 +211,7 @@ export const caseStudies: CaseStudy[] = [
     insight: tp("A new logo would have been the most visible change. The bigger change was the team: a clear structure, a steady review rhythm and a shared standard for the work."),
     creativeStrategy: tp("I built the team around two art directors, a review rhythm and one working system, then focused the offer with the CEO on three services for small and mid-sized businesses, with OP Labs for product work."),
     keyDecisions: tp("Designers explained their decisions before anyone else weighed in, and the identity and website took their direction from the positioning rather than leading it."),
-    leadershipRole: tp("I led the creative team of about twenty-five through two art directors and managed UX/UI directly. Staffing, promotions and reviews were mine; budgets were the CEO’s."),
+    leadershipRole: tp("I led the creative team of about 25 through 2 art directors and managed UX/UI directly. Staffing, promotions and reviews were mine; budgets were the CEO’s."),
     processPhases: [
       { title: "Starting point", description: tp("Looked at the agency as a client would: the website, the identity, the offer and how work moved through the studio.") },
       { title: "Team & standards", description: tp("Set reporting lines through two art directors, wrote the hiring test, promoted from within and ran the reviews.") },
@@ -295,10 +295,10 @@ export const caseStudies: CaseStudy[] = [
     ],
     reflection: tp("The brief asked for a shop. Competitive research showed that the trainer relationship could give the platform another reason to exist and another way to earn. The most valuable work was defining a product in which four different roles had a purpose, then designing a system a small team could deliver. The build continued after my involvement; I scoped and designed the first phases."),
     credits: tp("Creative Direction & UX Strategy: Amr Abu-Talleb · UI Design: Overpowered design team"),
-    client: "SPLT\nFitness Social App & Marketplace, Egypt",
-    teamSize: "1 Senior + 1 Junior Designer",
+    client: "SPLT\nFitness social app & marketplace, Egypt",
+    teamSize: "1 senior and 1 junior designer",
     timeline: "Feb \u2013 Jun\u00A02025",
-    industry: "Health & Fitness\nMarketplace",
+    industry: "Health & fitness\nMarketplace",
     markets: "Egypt (EGP pricing)",
     year: "2025",
     businessContext: tp("SPLT set out to be a gym community rather than a workout logger, where people track training, follow each other and buy kit from several sellers in one app. To make money it had to work for four groups at once. Members, trainers, vendors and the SPLT team each needed a reason to stay."),
@@ -310,9 +310,9 @@ export const caseStudies: CaseStudy[] = [
     leadershipRole: tp("I reviewed the development quotation line by line and rebuilt it as a staged scope the client could agree to. I then set the information architecture and the visual direction, and worked through the multi-role journeys with the team before they took on the full UI."),
     processPhases: [
       { title: "Scope", description: "Reviewed the development estimate line by\u00A0line, defined what each role needs, and turned the\u00A0brief into a\u00A0staged\u00A0scope." },
-      { title: "Competitive Deep Dive", description: "Subscribed to\u00A0the major fitness apps and their betas, mapped their features and read user reviews to\u00A0find what nobody was solving: trainers who look and earn like\u00A0professionals." },
-      { title: "Architecture for Four Roles", description: "Mapped member, trainer, vendor and admin journeys before any visual design, then grouped the app into modules: home feed, workouts, track, groups, shop, trainers and\u00A0account." },
-      { title: "System, Team & UI", description: "Built a\u00A0dark mobile system and a\u00A0shared dashboard shell around one purple accent, then directed the team through the app and dashboards with weekly\u00A0reviews." },
+      { title: "Competitive deep dive", description: "Subscribed to\u00A0the major fitness apps and their betas, mapped their features and read user reviews to\u00A0find what nobody was solving: trainers who look and earn like\u00A0professionals." },
+      { title: "Architecture for four roles", description: "Mapped member, trainer, vendor and admin journeys before any visual design, then grouped the app into modules: home feed, workouts, track, groups, shop, trainers and\u00A0account." },
+      { title: "System, team & UI", description: "Built a\u00A0dark mobile system and a\u00A0shared dashboard shell around one purple accent, then directed the team through the app and dashboards with weekly\u00A0reviews." },
     ],
     featured: true,
     featureImage: "/images/split-feature-v2.webp",
@@ -342,7 +342,7 @@ export const caseStudies: CaseStudy[] = [
     year: "2023–2025",
     businessContext: tp("Bay Area Trips set out to be the one guide to the San Francisco Bay Area, for the people exploring it and the businesses and creators who serve them."),
     clientProblem: tp("The brief was a long list of ideas with equal weight and nothing that said how they connected."),
-    constraints: tp("A fixed deadline and budget, with a build team of about thirty working in parallel."),
+    constraints: tp("A fixed deadline and budget, with a build team of about 30 working in parallel."),
     insight: tp("Most of the ideas were the same thing: a place someone can find, read about and act on."),
     creativeStrategy: tp("One directory, one calendar and one membership, shared by three account types."),
     keyDecisions: tp("Three accounts, each earned; both sides of every feature designed together; membership deciding who can do what."),
@@ -379,7 +379,7 @@ export const caseStudies: CaseStudy[] = [
         ],
         figures: [
           { images: [{ src: "/images/bay-cs-architecture-v2.webp", alt: tp("Diagram: members, kids, businesses and creators use the app and the website, which share one product of directory, events, trips, hunts, shop and reviews; membership and business packages decide access") }], caption: tp("Three accounts, one shared product. Membership and business packages decide what each account can do.") },
-          { images: [{ src: "/images/bay-cs-template-v1.webp", alt: tp("Diagram: one listing template whose middle block changes for ten kinds of place, from stays and food to wellness and attractions") }], caption: tp("One listing for ten kinds of place. Only the middle block changes.") },
+          { images: [{ src: "/images/bay-cs-template-v1.webp", alt: tp("Diagram: one listing template whose middle block changes for 10 kinds of place, from stays and food to wellness and attractions") }], caption: tp("One listing for 10 kinds of place. Only the middle block changes.") },
           { images: [{ src: "/images/bay-fig-platforms-v1.webp", alt: tp("The website home beside the mobile website and the traveller home in the app") }], caption: tp("The same structure on the website, the mobile website and the app.") },
           {
             images: [
@@ -442,7 +442,7 @@ export const caseStudies: CaseStudy[] = [
     results: [
       tp("Took the idea from concept to a live product on the web, mobile web and an app"),
       tp("Members, businesses and families each got their own way in, on one shared directory."),
-      tp("One listing template serving ten kinds of place"),
+      tp("One listing template serving 10 kinds of place"),
       tp("Website, mobile web and app built on one structure."),
       tp("Taken from idea to a live product."),
     ],
@@ -514,7 +514,7 @@ export const caseStudies: CaseStudy[] = [
     reflection: tp("Robert’s feedback made the work better. The first script tried too hard to persuade; the final version respected its audience and sounded more like the person behind the business. The result was a clearer website and more client wins, without a paid advertising budget."),
     credits: tp("Strategy, Copywriting, UX/UI & Build: Amr Abu-Talleb"),
     client: "Agfin\nRobert, Financial Consultant, Australia",
-    industry: "Agricultural Finance\nConsulting",
+    industry: "Agricultural finance\nConsulting",
     markets: "Regional Australia",
     year: "2024",
     businessContext: "Robert runs Agfin, advising Australian farming families on\u00A0the\u00A0money side of\u00A0the\u00A0farm. His work changes how those families get through a\u00A0bad season, but his website said none of\u00A0that.",
@@ -525,10 +525,10 @@ export const caseStudies: CaseStudy[] = [
     keyDecisions: "Halfway through, Robert told me my\u00A0first script was too emotional. He was right. I\u00A0rewrote it\u00A0to\u00A0sound warm and\u00A0trustworthy instead of\u00A0pushy. I\u00A0also replaced every stock photo with real images from his own region, and\u00A0the\u00A0site felt honest straight\u00A0away.",
     leadershipRole: tp("A solo engagement. I owned the strategy, the copy, the VSL script, the UX and the visual and interaction design, and ran the project end to end."),
     processPhases: [
-      { title: "Audit & Proposal", description: "Hired for\u00A0small fixes, I\u00A0audited the\u00A0whole site and\u00A0showed Robert what it\u00A0could\u00A0become." },
-      { title: "Copy First", description: "Wrote the\u00A0VSL script and\u00A0every line of\u00A0the\u00A0site before any design, built as\u00A0a\u00A0funnel: the\u00A0problem, the\u00A0guide, the\u00A0change, the\u00A0next\u00A0step." },
-      { title: "The Pivot", description: "Robert flagged the\u00A0first draft as\u00A0too intense. I\u00A0rewrote the\u00A0key sections and\u00A0swapped stock images for\u00A0local\u00A0photographs." },
-      { title: "Design & Build", description: "Built the\u00A0site with small animations that serve the\u00A0story and\u00A0never compete with\u00A0it." },
+      { title: "Audit & proposal", description: "Hired for\u00A0small fixes, I\u00A0audited the\u00A0whole site and\u00A0showed Robert what it\u00A0could\u00A0become." },
+      { title: "Copy first", description: "Wrote the\u00A0VSL script and\u00A0every line of\u00A0the\u00A0site before any design, built as\u00A0a\u00A0funnel: the\u00A0problem, the\u00A0guide, the\u00A0change, the\u00A0next\u00A0step." },
+      { title: "The pivot", description: "Robert flagged the\u00A0first draft as\u00A0too intense. I\u00A0rewrote the\u00A0key sections and\u00A0swapped stock images for\u00A0local\u00A0photographs." },
+      { title: "Design & build", description: "Built the\u00A0site with small animations that serve the\u00A0story and\u00A0never compete with\u00A0it." },
     ],
     testimonial: {
       quote: "Amr provided lots of\u00A0new UX ideas and put them to\u00A0me in\u00A0a\u00A0detailed explanation. He went above and beyond the project scope to\u00A0deliver a\u00A0renewed website and sales\u00A0funnel.",
@@ -563,11 +563,11 @@ export const caseStudies: CaseStudy[] = [
     title: "TapTools",
     subtitle: tp("Helping users of a live analytics platform find the number they came for"),
     impactStatement: tp("User-reported issues down 23% within 60 days · Core flows redesigned and shipped to a live product"),
-    role: tp("Senior Product Designer\nWith a product and engineering team of about ten"),
+    role: tp("Senior Product Designer\nWith a product and engineering team of about 10"),
     scope: tp("Research, testing, core-flow redesign, production UI"),
     intro: [
       tp("TapTools gave Cardano traders token and NFT market data through market overviews, token pages, portfolios, swaps, watchlists and a wallet profiler. The data was rich. People were getting lost in it."),
-      tp("I led user research and testing, redesigned the core flows and took the interface from early layouts to production-ready screens with a product and engineering team of about ten."),
+      tp("I led user research and testing, redesigned the core flows and took the interface from early layouts to production-ready screens with a product and engineering team of about 10."),
     ],
     chapters: [
       {
@@ -637,7 +637,7 @@ export const caseStudies: CaseStudy[] = [
         lead: tp("One dark system for dense data"),
         paragraphs: [
           tp("I designed one dark system for dense data. One typeface with tabular numbers, one accent for actions, and green and red kept for price change."),
-          tp("I worked with a product and engineering team of about ten to move the redesign into the live product. The new homepage and chart interface went live on 21 January 2023, followed by the portfolio and the wallet profiler."),
+          tp("I worked with a product and engineering team of about 10 to move the redesign into the live product. The new homepage and chart interface went live on 21 January 2023, followed by the portfolio and the wallet profiler."),
         ],
         figures: [
           { images: [{ src: "/images/tt-fig-system-v3.webp", alt: tp("The colour system: neutral ramp, cyan accent, gain, loss and caution with their tints, beside the type"), ratio: "1312 / 700" }] },
@@ -653,7 +653,7 @@ export const caseStudies: CaseStudy[] = [
       tp("Part of the wider product work that preceded the company’s next funding round"),
     ],
     reflection: tp("In an analytics product, more information doesn’t help if people can’t find the number they need. The work began with understanding where users were getting stuck, then carried that understanding through the interface and into production."),
-    credits: tp("UX Research & Product Design: Amr Abu-Talleb"),
+    credits: tp("UX research & product design: Amr Abu-Talleb"),
     client: tp("TapTools\nToken and NFT analytics platform, USA"),
     timeline: "Dec 2022 – Jun 2023",
     industry: tp("Fintech analytics\nWeb dashboard"),
@@ -665,7 +665,7 @@ export const caseStudies: CaseStudy[] = [
     insight: tp("In a data product, hierarchy is the feature. Users didn’t need more data on screen. They needed to see the right number first."),
     creativeStrategy: tp("I ran user research and testing to find where people dropped off, then redesigned the core flows around them. The interface was rebuilt on clearer typography, spacing and hierarchy, with one type set across every screen."),
     keyDecisions: tp("I treated it as a data problem before a design problem. Every screen was judged on a single test, whether a user could find the number they came for without hunting for it."),
-    leadershipRole: tp("I owned the design from research to production-ready screens, working with a product and engineering team of about ten to ship it without disrupting live users."),
+    leadershipRole: tp("I owned the design from research to production-ready screens, working with a product and engineering team of about 10 to ship it without disrupting live users."),
     processPhases: [
       { title: "Research & testing", description: tp("Watched how users moved through the platform and where they gave up.") },
       { title: "Core flows", description: tp("Redesigned the flows behind the bottlenecks before touching the visual layer.") },
@@ -722,7 +722,7 @@ export const caseStudies: CaseStudy[] = [
       tp("End-user, vendor and driver apps designed as distinct experiences"),
     ],
     reflection: tp("The most consequential decision was made before the interface work. Separating the products gave each business a clearer purpose and made the brand and app design that followed more coherent."),
-    credits: tp("Product Definition, Brand Architecture, Identity & App Design: Amr Abu-Talleb"),
+    credits: tp("Product definition, brand architecture, identity & app design: Amr Abu-Talleb"),
     client: tp("Zikabi\nMarketplace start-up"),
     role: tp("UI/UX Designer, then Product Designer\nFreelance"),
     timeline: "Oct 2020 – 2021",
@@ -749,7 +749,7 @@ export const caseStudies: CaseStudy[] = [
     hidden: true,
     title: "Dipa Visionary Art School",
     subtitle: tp("Getting an art school’s website working again, then turning it into a walk through the studio"),
-    impactStatement: tp("70% more website views after the recovered site went live · Back online after four failed attempts · Immersive 360° concept in development"),
+    impactStatement: tp("70% more website views after the recovered site went live · Back online after 4 failed attempts · Immersive 360° concept in development"),
     role: tp("Creative direction, content strategy and UX\nUI design with a small team"),
     scope: tp("Website recovery, content rewrite, immersive 360° concept and interactive biography"),
     timeline: tp("Phase 1: about 3–4 months · Phase 2: ongoing"),
@@ -794,7 +794,7 @@ export const caseStudies: CaseStudy[] = [
     credits: tp("Creative Direction, Content Strategy & UX: Amr Abu-Talleb · UI Design: UX/UI design team"),
     client: "Dipa\nVisionary Art School, Singapore",
     teamSize: "Small team of UX & UI designers",
-    industry: "Art Education\nCreative Workshops",
+    industry: "Art education\nCreative workshops",
     markets: "Singapore",
     year: "2022\u20132026",
     businessContext: tp("Dipa runs a visionary art school from a converted part of her home in Singapore. Students enter through a garden, and each corner of the studio holds a different creative discipline."),
@@ -865,11 +865,11 @@ export const caseStudies: CaseStudy[] = [
       tp("Print-ready files for paperback and hardcover, with the book on sale on Amazon"),
     ],
     reflection: tp("It’s one of the projects I’m proudest of. The material represented decades of investigation, and the design had to make that record easier to follow without pretending the evidence was simpler than it was. My job was to give the book a structure that respected the research and its historical context, while keeping the finished volume clear and readable."),
-    credits: tp("Book Design & Typesetting: Amr Abu-Talleb"),
+    credits: tp("Book design & typesetting: Amr Abu-Talleb"),
     impactStatement: tp("A 212-page book, designed, typeset and prepared for print"),
     role: "Book Designer\nSole designer: typography, layout, production",
     scope: tp("Book design and layout, back cover, typesetting, image placement and captions, restoration coordination, print production"),
-    timeline: "December 2025 \u2013 February\u00A02026",
+    timeline: "Dec 2025 \u2013 Feb\u00A02026",
     industry: "Publishing\nInvestigative nonfiction",
     markets: "United States\u00A0(Amazon)",
     year: "2025–2026",
@@ -881,9 +881,9 @@ export const caseStudies: CaseStudy[] = [
     keyDecisions: "Images are treated as\u00A0exhibits. Each one is\u00A0anchored to\u00A0its paragraph, captioned the\u00A0same way and\u00A0given the\u00A0same frame, so\u00A0a\u00A0reader can check a\u00A0claim against the\u00A0picture without flipping pages. The type stays quiet: one serif family, a\u00A0strict grid and\u00A0generous margins, so\u00A0the\u00A0material does the\u00A0talking.",
     leadershipRole: "I\u00A0was the\u00A0only designer, so\u00A0the\u00A0leadership here was with the\u00A0author. I\u00A0kept Steve involved at\u00A0every stage, explained each decision in\u00A0terms of\u00A0how a\u00A0reader follows the\u00A0evidence, and\u00A0coordinated image restoration and\u00A0structural changes across rounds without breaking the\u00A0layout.",
     processPhases: [
-      { title: "Reading & Research", description: "Read the\u00A0manuscript and\u00A0Steve's earlier books, then studied the\u00A0printed matter of\u00A0the\u00A0period the\u00A0story moves\u00A0through." },
-      { title: "Type & Grid", description: "Chose Adobe Caslon for\u00A0its period character and\u00A0readability, and\u00A0built a\u00A0strict grid with master pages for\u00A0chapters, exhibits and\u00A0notes." },
-      { title: "Exhibits & Images", description: "Placed more than 130\u00A0images as\u00A0anchored figures with consistent captions, and\u00A0coordinated restoration of\u00A0the\u00A0weakest\u00A0scans." },
+      { title: "Reading & research", description: "Read the\u00A0manuscript and\u00A0Steve's earlier books, then studied the\u00A0printed matter of\u00A0the\u00A0period the\u00A0story moves\u00A0through." },
+      { title: "Type & grid", description: "Chose Adobe Caslon for\u00A0its period character and\u00A0readability, and\u00A0built a\u00A0strict grid with master pages for\u00A0chapters, exhibits and\u00A0notes." },
+      { title: "Exhibits & images", description: "Placed more than 130\u00A0images as\u00A0anchored figures with consistent captions, and\u00A0coordinated restoration of\u00A0the\u00A0weakest\u00A0scans." },
       { title: "Production", description: "Prepared print-ready files for\u00A0paperback and\u00A0hardcover in\u00A0full colour, through several rounds of\u00A0structural\u00A0edits." },
     ],
     testimonial: { quote: tp("Amr assisted me in a very challenging Art/Crime book project I authored. Very professional work and his continual ongoing communications and proferred insights were invaluable. I highly recommend him."), author: "Steve Hodel", role: "NYT Bestselling Author" },
@@ -906,7 +906,7 @@ export const caseStudies: CaseStudy[] = [
   },
 ]
 
-/* ─── Project Highlights ─────────────────────────── */
+/* ─── Project highlights ─────────────────────────── */
 
 const allProjectHighlights: ProjectHighlight[] = [
   {
@@ -918,8 +918,8 @@ const allProjectHighlights: ProjectHighlight[] = [
     scope: tp("Campaign strategy, art direction, social creative direction and website redesign exploration"),
     description: tp("Alfy is a major marble manufacturer selling across Egypt, the EU and Dubai. The agency was publishing social posts every week, but the content was aimed at consumers, although Alfy sells mainly to businesses.\n\nAs Creative Director at Overpowered, I redirected the campaign toward the architects and designers who specify marble for their projects. We moved away from generic AI-generated renders and used real product photography to show the stone in finished interiors, with more emphasis on its range, finish and application. A website redesign was also explored as part of the wider work."),
     keyResult: tp("Social engagement rose 70%."),
-    client: "Alfy\nPremium Marble Manufacturer",
-    industry: "Luxury Marble / Architecture",
+    client: "Alfy\nPremium marble manufacturer",
+    industry: "Luxury marble / architecture",
     year: "2025",
     featureImage: "/images/alfy-feature.webp",
     featureImageAlt: "El Alfy Saraya website hero section showcasing natural stone, wood working, and metal fabrication with luxury interior photography",
@@ -949,7 +949,7 @@ const allProjectHighlights: ProjectHighlight[] = [
     scope: tp("Brand identity, packaging and visual direction"),
     description: tp("Dr Noor, a physician, created Alienor around effective ingredients and a calm daily ritual. The brand needed to feel premium and trustworthy without looking cold or clinical.\n\nI built the identity around its line, “As soothing as moonlight”: a classic serif wordmark whose O echoes the moon, a plum and rose palette, and a soft ribbon pattern that carries across the jars, cartons and brand touchpoints."),
     client: "Dr.\u00a0Noor\nAlienor Skincare",
-    industry: "Luxury Skincare / Beauty",
+    industry: "Luxury skincare / beauty",
     year: "2022",
     featureImage: "/images/alienor-hero-v3.webp",
     featureImageAlt: "Alienor day cream jar and carton on a travertine plinth under cool moonlight, a ring of light behind echoing the O of the logotype",
@@ -967,7 +967,7 @@ const allProjectHighlights: ProjectHighlight[] = [
     title: "Hickey",
     subtitle: tp("An investor deck for a US makeup start-up that went on to raise $2M"),
     description: tp("Hickey was raising investment and needed a deck that would communicate the business clearly to potential investors.\n\nI designed every slide and worked on the order in which the story unfolded, so the presentation moved through the information in a way investors could follow."),
-    keyResult: tp("The deck was one part of a raise that reached $2 million."),
+    keyResult: tp("The deck was one part of a raise that reached $2M."),
     client: tp("Hickey\nMakeup start-up, USA"),
     role: tp("Deck Designer\nFreelance"),
     scope: tp("Investor deck design"),
