@@ -215,7 +215,7 @@ function WorkSection() {
       <ScrollReveal>
         <div className="mt-12 flex justify-center border-b border-border pb-8">
           <Link href="/projects" className="text-link inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase">
-            All&nbsp;Projects
+            All&nbsp;projects
             <ArrowUpRight size={14} />
           </Link>
         </div>

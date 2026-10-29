@@ -95,7 +95,7 @@ export default function AboutPage() {
                 href="/#work"
                 className="btn btn-secondary"
               >
-                View My&nbsp;Work
+                View my&nbsp;work
                 <ArrowRight size={14} />
               </Link>
             </div>
