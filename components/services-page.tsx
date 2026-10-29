@@ -60,7 +60,7 @@ const reviewTiers = [
   {
     name: "Review + plan",
     price: "$2,500",
-    detail: "The Full review, plus a 90-day creative plan and two follow-up reviews within 30 days",
+    detail: "The Full review, plus a 90-day creative plan and 2 follow-up reviews within 30 days",
   },
   {
     name: "Full review",
@@ -128,7 +128,7 @@ const pieces = [
 const work = [
   {
     title: "Overpowered",
-    line: "A London agency. With the CEO we narrowed six service areas to three, and I directed the new identity.",
+    line: "A London agency. With the CEO we narrowed 6 service areas to 3, and I directed the new identity.",
     result: "The team grew from 6 to about 25 in 7 months.",
     href: "/work/overpowered",
     image: "/images/op-hero-loop-poster-v1.webp",
