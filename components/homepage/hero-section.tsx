@@ -9,7 +9,7 @@ const InfiniteGrid = dynamic(
 )
 import CountUp from "@/components/count-up"
 
-const heroLines = ["I\u00A0lead the team, build the\u00A0system,", "and make sure it\u00A0ships."]
+const heroLines = ["I\u00A0build the brand, the\u00A0product,", "and the team that ships\u00A0them."]
 
 const stats = [
   { n: "13", label: "years in design and creative\u00A0work" },
@@ -29,7 +29,7 @@ export default function HeroSection() {
               className="hero-line mb-[clamp(1rem,3svh,2rem)] block font-sans text-xs leading-normal font-medium tracking-[var(--tracking-label)] text-accent uppercase"
               style={{ "--i": 0 } as React.CSSProperties}
             >
-              {"Amr Abu-Talleb \u00B7 Creative Director"}
+              {"Amr Abu-Talleb \u00B7 Designer and creative director"}
               <span className="sr-only">{": "}</span>
             </span>
             {heroLines.map((line, i) => (
@@ -59,7 +59,7 @@ export default function HeroSection() {
             ))}
           </dl>
           <p className="mx-auto mt-[clamp(1rem,3svh,2rem)] max-w-[60ch] text-base leading-relaxed text-muted-foreground lg:text-lg">
-            From brand positioning to&nbsp;digital product architecture, I&nbsp;establish the&nbsp;standard and design alongside the&nbsp;team.
+            From the first sketch to the live product, and the people who keep it&nbsp;going.
           </p>
           <div className="mt-[clamp(1.25rem,3svh,2rem)] flex flex-col items-center gap-4 sm:flex-row">
             <a

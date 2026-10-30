@@ -9,7 +9,7 @@ export interface Testimonial {
 
 // Homepage carousel: seven original quotes, wording as first published. Hidden ones stay for reference.
 export const testimonials: Testimonial[] = [
-  { text: "Amr delivered beyond expectations. The\u00A0brand identity he created captured our vision perfectly and translated seamlessly across every touchpoint. His strategic thinking elevated the entire\u00A0project.", author: "Overpowered Agency", location: "UK", role: "Creative Director" },
+  { text: "Amr delivered beyond expectations. The\u00A0brand identity he created captured our vision perfectly and translated seamlessly across every touchpoint. His strategic thinking elevated the entire\u00A0project.", author: "CEO, Overpowered", location: "UK", role: "Creative direction" },
   { text: "Amr provided lots of\u00A0new UX ideas and put them to\u00A0me in a\u00A0detailed explanation. He\u00A0went above and beyond the project scope to\u00A0deliver a\u00A0renewed website and sales funnel.", author: "Robert", location: "Melbourne, Australia", role: "Funnel copywriting & design" },
   { text: "Great UI/UX designer, quick delivery and\u00A0clear communication. Highly\u00A0recommend working with him!", author: "Head of UX, Freelancer.com", location: "Sydney, Australia", role: "Contract engagement" },
   { text: "Amr assisted me in a\u00A0very challenging Art/Crime book project I authored. Very\u00A0professional work and his continual ongoing communications and proferred insights were invaluable. I\u00A0highly recommend him.", author: "Steve Hodel", location: "Blaine, United States", role: "Book Design" },

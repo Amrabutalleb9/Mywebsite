@@ -3,8 +3,8 @@
 import { useMarquee } from "@/hooks/use-marquee"
 
 const services = [
-  "Creative direction", "Art direction", "Brand strategy & identity", "Arabic & Latin typography",
-  "Integrated campaigns", "Product & UX design", "Prototyping", "Team leadership",
+  "Brand identity", "Product & UX design", "Prototyping & build", "Campaigns & funnels",
+  "Art direction", "Arabic & Latin typography", "AI-assisted workflows", "Team leadership",
 ]
 
 /* What I do, as a dark band straight after the hero (same treatment as the old client band). */

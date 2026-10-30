@@ -346,7 +346,7 @@ These apply globally and must not be overridden:
 
 ## Positioning (Oct 2026)
 
-The site is written for hiring managers first: one fact sheet everywhere (13 years, teams of up to 25, 8 markets, 50+ people hired), UK English, no named current employer. Consulting and Working Together were retired in Oct 2026 (/consulting, /work-with-me and /working-together redirect to /contact). Contract and interim work is one short note on /contact, so the site reads as a hire, not a freelance offer. LinkedIn sits in the main nav as the fast contact route. Case-study CTAs lead with “Hiring a Creative Director?”.
+Updated 30 Oct 2026. The site introduces Amr as a **designer and creative director**: lead with what he makes (brand, product, the team that ships them), keep the team as proof, and put remote first. Readers are founders, heads of product and design leads at remote startups, scale-ups, product companies and small agencies, then roles in Europe. "Creative Director" stays as a fact (titles, role lines), never the pitch. Hero: "I build the brand, the product, and the team that ships them." Case studies open with Bay Area Trips, then Agfin, then Overpowered. Contact asks about the work ("Let’s talk about the work."), never "Hiring a creative director?". Copy never begs to lead a team. The 13 years are design experience, and leading teams came in the last few. Contract and interim work stays one short note on /contact. One fact sheet everywhere: 13 years, teams of up to 25, 8 markets, 50+ people hired. UK English, no named current employer.
 
 ## Voice (Oct 2026)
 
@@ -357,7 +357,7 @@ Copy is written in Amr's voice, built from his own words. Rules:
 - Write for the hiring manager: their problem first, then the proof he solved it before.
 - Use his phrases verbatim where they fit: "Skills can be sharpened. Anything else can be fixed." "From brief to a live staging build in days, not sprints."
 - Banned: arrow lists (→), "in practice", colon reveals, labels-as-sentences ("How I lead:"), runs of three-item lists, "not just X but Y", semicolons, filler verbs (leverage, drive, elevate).
-- The "Open to roles in Europe" line appears only in the hero, the About close and the contact page.
+- Where-and-when lines ("Open to remote roles and roles in Europe", "30 days’ notice") appear only on About and Contact and in page descriptions, never under the hero buttons.
 - Test: would he say this sentence out loud in an interview?
 - Register is a senior creative director's, read by boards, CEOs and other CDs at large agencies and companies, not only hiring managers. Decision first, then the evidence. Judgement and outcomes over activity. No chatty openers ("X came to me...").
 - Every strategic call states its why (e.g. SMB positioning: existing reach through word of mouth and the CEO's network, plus existing work and case studies for that market).

@@ -6,9 +6,9 @@ import FadeIn from "@/components/fade-in"
 import { pageMeta } from "@/lib/seo"
 
 export const metadata: Metadata = pageMeta({
-  title: "Creative Director portfolio · Amr Abu-Talleb",
+  title: "Work · Amr Abu-Talleb",
   description:
-    "Case studies in brand identity, product design and campaigns: the strategy, the team I led and the results. Creative Director open to roles in Europe, remote or on-site.",
+    "Case studies in brand identity, product design and campaigns. What I designed, what I built, how the team worked and what changed.",
   path: "/projects",
 })
 

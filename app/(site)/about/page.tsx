@@ -8,9 +8,9 @@ import { pageMeta } from "@/lib/seo"
 import { tp } from "@/lib/typeset"
 
 export const metadata: Metadata = pageMeta({
-  title: "About Amr Abu-Talleb · Creative Director and design leader",
+  title: "About Amr Abu-Talleb · Designer and creative director",
   description:
-    "Creative Director with 13 years leading brand and product teams of up to 25 across 8 markets. 50+ people hired. Open to Creative Director roles in Europe, remote or on-site.",
+    "13 years designing brands, campaigns and digital products, and leading teams of up to 25. Open to remote roles and roles in Europe, available on 30 days’ notice.",
   path: "/about",
   type: "profile",
 })
@@ -37,17 +37,18 @@ export default function AboutPage() {
             </h1>
           </FadeIn>
           <FadeIn delay={0.08}>
-            <p className="mb-12 max-w-[60ch] text-xl leading-relaxed text-foreground">{tp("I’m Amr Abu-Talleb. Before I directed teams, I drew Arabic calligraphy and English lettering by hand. It taught me how much the weight of a stroke or the space around a curve can change the character of a whole word, and I still look at brands, campaigns and products that way.")}</p>
+            <p className="mb-12 max-w-[60ch] text-xl leading-relaxed text-foreground">{tp("I’m Amr Abu-Talleb. Before I led teams, I drew Arabic calligraphy and English lettering by hand. It taught me how much the weight of a stroke or the space around a curve can change the character of a whole word, and I still look at brands, campaigns and products that way.")}</p>
           </FadeIn>
 
           {/* Full Bio */}
           <FadeIn delay={0.16} as="div" className="flex max-w-[62ch] flex-col gap-6 text-[length:var(--text-article)] leading-[var(--leading-longform)] text-muted-foreground">
-            <p>{tp("That eye took me from the drawing desk into design, and over 13 years into creative direction. The work grew from single pieces into whole systems: identities, digital products, campaigns and the business decisions behind them, for clients in Egypt, the Gulf, the UK, the US, Australia and Singapore. At The Line, I led an in-house brand and marketing team of about 11. At Overpowered, I grew the creative team from 6 people to about 25 in 7 months.")}</p>
+            <p>{tp("That eye took me from the drawing desk into design, and it has shaped 13 years of work since, the last few of them leading teams. The work grew from single pieces into whole systems: identities, digital products, campaigns and the business decisions behind them, for clients in Egypt, the Gulf, the UK, the US, Australia and Singapore. At The Line, I led an in-house brand and marketing team of about 11. At Overpowered, I grew the creative team from 6 people to about 25 in 7 months.")}</p>
             <p>{tp("The details never stopped mattering as the projects grew. When I designed As Within, So Without, a 212-page book for Steve Hodel, the retired LAPD homicide detective and New York Times bestselling author, the job was the one I learned at the drawing desk: give decades of evidence and more than 130 images a structure clear enough that the reader never has to fight the page.")}</p>
-            <p>{tp("Working in Arabic and English keeps that balance honest. An identity has to feel native in both scripts and still be recognisably itself, so I treat lettering, typography and spacing as part of the idea, not as finishing touches. Art can have a character of its own; design also has to make sense to the people who meet it and to the business behind it.")}</p>
-            <p>{tp("The same care now goes into how a team works. In reviews, the designer walks us through the work first. I will tell my opinion last. We talk about what’s working and what needs another look. I step in when a decision is difficult or the work drifts from the brief, but a good team shouldn’t have to wait for me to make a considered call.")}</p>
+            <p>{tp("Working in Arabic and English keeps that balance honest. An identity has to feel native in both scripts and still be recognisably itself, so I treat lettering, typography and spacing as part of the idea, not as finishing touches. Art can have a character of its own. Design also has to make sense to the people who meet it and to the business behind it.")}</p>
+            <p>{tp("The same care now goes into how a team works. In reviews, the designer walks us through the work first, and I give my view last. We talk about what’s working and what needs another look. I step in when a decision is difficult or the work drifts from the brief, but a good team shouldn’t have to wait for me to make a considered call.")}</p>
             <p>{tp("Over the years I’ve hired more than 50 people, and some now lead teams of their own. ")}<strong className="font-medium text-foreground">{tp("That’s what I’m proudest of.")}</strong>{tp(" I’ve never wanted everyone to work the way I do. I’d rather give people the standard, the context and the responsibility to find their own way of doing it well.")}</p>
-            <p className="font-medium text-foreground">{tp("That’s the role I’m looking for next: creative leadership in Europe, remote or on-site, where strategy, craft and team development belong together. Close enough to the details to keep the work good, and far enough back to help the team grow.")}</p>
+            <p>{tp("Remote has been normal for me for years, with teams and clients in the UK, the US, Australia, the Gulf and Singapore. I work on European hours, write things down so nobody waits for a meeting, and review work in the open. AI is part of the process, for exploring ideas and clearing repetitive work, while the judgement stays with us. I can start on 30 days’ notice.")}</p>
+            <p className="font-medium text-foreground">{tp("Next, I’m looking for a role where I still design and build, and lead the team doing it with me. Remote, or on-site in Europe. Close enough to the details to keep the work good, and far enough back to help the team grow.")}</p>
           </FadeIn>
 
           {/* ── What I Do ── */}
