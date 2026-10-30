@@ -13,7 +13,7 @@ import { InfiniteGrid } from "@/components/ui/infinite-grid"
    scales with the width (no side crop) and the spine sits at 13.889vw (x = 200 of 1440).
    Below lg the portrait stacks above the text and the spine runs down the left edge. */
 
-const CV = "/Amr_AbuTalleb_CV_Creative_Director.pdf"
+const CV = "/cv/Amr_AbuTalleb_CV_Designer_Creative_Director_2026-10-30.pdf"
 const LINKEDIN = "https://www.linkedin.com/in/abutalleb/"
 const EMAIL = "hello@amrabutalleb.com"
 const PORTRAIT = "/images/amr-portrait-v3.webp"
