@@ -42,7 +42,7 @@ export default function ContactPage() {
       <div className="mx-auto max-w-6xl flex flex-col gap-16 lg:flex-row lg:gap-16">
         <div className="lg:w-1/2">
           <FadeIn>
-            <p className="mb-4 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">{"Let\u2019s talk"}</p>
+            <p className="mb-4 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">{"Contact"}</p>
             <h1 className="mb-8 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
               {"Let\u2019s talk about the\u00A0work."}
             </h1>
