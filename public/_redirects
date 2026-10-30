@@ -25,12 +25,16 @@
 /articles/* /about 301
 
 # Short CV link used in outreach emails (Oct 2026). 302 so it can point at a newer CV later.
-/cv /cv/Amr_AbuTalleb_CV_Creative_Director_2026-10.pdf 302
-/cv/ /cv/Amr_AbuTalleb_CV_Creative_Director_2026-10.pdf 302
+/cv /cv/Amr_AbuTalleb_CV_Designer_Creative_Director_2026-10-30.pdf 302
+/cv/ /cv/Amr_AbuTalleb_CV_Designer_Creative_Director_2026-10-30.pdf 302
 
-# Old CV filename
-/Amr_AbuTalleb_Resume.pdf /cv/Amr_AbuTalleb_CV_Creative_Director_2026-10.pdf 301
-/Amr_AbuTalleb_CV_Creative_Director.pdf /cv/Amr_AbuTalleb_CV_Creative_Director_2026-10.pdf 301
+# Old CV filenames
+/cv/Amr_AbuTalleb_CV_Creative_Director_2026-10.pdf /cv/Amr_AbuTalleb_CV_Designer_Creative_Director_2026-10-30.pdf 301
+/cv/Amr_AbuTalleb_CV_Head_of_Design_2026-10.pdf /cv/Amr_AbuTalleb_CV_Head_of_Design_2026-10-30.pdf 301
+/cv/Amr_AbuTalleb_CV_Design_Director_2026-10.pdf /cv/Amr_AbuTalleb_CV_Design_Director_2026-10-30.pdf 301
+/cv/Amr_AbuTalleb_CV_Brand_Creative_Director_2026-10.pdf /cv/Amr_AbuTalleb_CV_Brand_Creative_Director_2026-10-30.pdf 301
+/Amr_AbuTalleb_Resume.pdf /cv/Amr_AbuTalleb_CV_Designer_Creative_Director_2026-10-30.pdf 301
+/Amr_AbuTalleb_CV_Creative_Director.pdf /cv/Amr_AbuTalleb_CV_Designer_Creative_Director_2026-10-30.pdf 301
 
 # Hodel book became a full case study (Oct 2026)
 /highlights/steve-hodel /work/steve-hodel 301
