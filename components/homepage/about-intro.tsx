@@ -23,7 +23,7 @@ const story = [
     img: "/images/about-ink-pen-v1.webp",
     alt: "Brush-and-ink drawing of a hand flicking ink from a calligraphy pen",
     w: 760, h: 729, rot: -4, lead: true,
-    text: "That eye took me from the drawing desk into design, and over 13 years into creative direction.",
+    text: "That eye took me from the drawing desk into design, and it has shaped 13 years of work since, the last few of them leading teams.",
   },
   {
     img: "/images/about-ink-juggle-v2.webp",
@@ -41,13 +41,13 @@ const story = [
     img: "/images/about-ink-reed-pen-v1.webp",
     alt: "Brush-and-ink drawing of a hand dipping a reed pen into an ink pot",
     w: 687, h: 760, rot: 4,
-    text: "Working in Arabic and English keeps that balance honest. An identity has to feel native in both scripts and still be recognisably itself, so I treat lettering, typography and spacing as part of the idea, not as finishing touches. Art can have a character of its own; design also has to make sense to the people who meet it and to the business behind it.",
+    text: "Working in Arabic and English keeps that balance honest. An identity has to feel native in both scripts and still be recognisably itself, so I treat lettering, typography and spacing as part of the idea, not as finishing touches. Art can have a character of its own. Design also has to make sense to the people who meet it and to the business behind it.",
   },
   {
     img: "/images/about-ink-team-v1.webp",
     alt: "Brush-and-ink drawing of a team’s hands around printed layouts and a coffee cup",
     w: 760, h: 613, rot: -3,
-    text: "The same care now goes into how a team works. In reviews, the designer walks us through the work first. I will tell my opinion last. We talk about what’s working and what needs another look. I step in when a decision is difficult or the work drifts from the brief, but a good team shouldn’t have to wait for me to make a considered call.",
+    text: "The same care now goes into how a team works. In reviews, the designer walks us through the work first, and I give my view last. We talk about what’s working and what needs another look. I step in when a decision is difficult or the work drifts from the brief, but a good team shouldn’t have to wait for me to make a considered call.",
   },
 ]
 
@@ -117,7 +117,7 @@ const Label = () => (
   </div>
 )
 
-const lead = tp("I’m Amr Abu-Talleb. Before I directed teams, I drew Arabic calligraphy and English lettering by hand. It taught me how much the weight of a stroke or the space around a curve can change the character of a whole word, and I still look at brands, campaigns and products that way.")
+const lead = tp("I’m Amr Abu-Talleb. Before I led teams, I drew Arabic calligraphy and English lettering by hand. It taught me how much the weight of a stroke or the space around a curve can change the character of a whole word, and I still look at brands, campaigns and products that way.")
 
 export default function AboutIntro() {
   return (
@@ -239,9 +239,10 @@ export default function AboutIntro() {
           <Spine />
           <div data-ink-step className="ink-step flex flex-col gap-4 pb-6 pl-4 lg:flex-row lg:flex-wrap lg:items-end lg:justify-between lg:gap-x-16 lg:gap-y-6 lg:pb-12 lg:pl-8">
             <p className="max-w-[34ch] font-serif text-2xl leading-[var(--leading-quote)] tracking-tight text-foreground lg:flex-[999_1_520px] lg:text-3xl">
-              {tp("That’s the role I’m looking for next: creative leadership in Europe, remote or on-site, where strategy, craft and team development belong together.")}
+              {tp("Next, I’m looking for a role where I still design and build, and lead the team doing it with me. Remote, or on-site in Europe.")}
             </p>
             <div className="flex flex-col gap-4 lg:flex-[1_1_260px]">
+              <p className="text-sm leading-relaxed text-muted-foreground">{tp("Remote has been normal for me for years, with teams and clients in the UK, the US, Australia, the Gulf and Singapore. I work on European hours, write things down so nobody waits for a meeting, and review work in the open. AI is part of the process, for exploring ideas and clearing repetitive work, while the judgement stays with us. I can start on 30 days’ notice.")}</p>
               <p className="text-sm leading-relaxed text-muted-foreground">{tp("Close enough to the details to keep the work good, and far enough back to help the team grow.")}</p>
               <div className="flex gap-8 text-sm font-medium">
                 <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center border-b border-accent text-foreground">LinkedIn</a>

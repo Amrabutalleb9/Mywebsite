@@ -22,7 +22,7 @@ const personLd = {
   sameAs: ["https://www.linkedin.com/in/abutalleb/"],
   image: "https://amrabutalleb.com/images/amr-portrait-v3.webp",
   description:
-    "Amr Abu-Talleb is a Creative Director who leads brand, campaign and digital product teams. 13 years, teams of up to 25 across 8 markets, 50+ people hired.",
+    "Designer and creative director. 13 years in brand, campaigns and digital products. I design and build the work, and lead the people shipping it with me.",
   workLocation: [
     { "@type": "Place", name: "Europe" },
     { "@type": "VirtualLocation", name: "Remote" },

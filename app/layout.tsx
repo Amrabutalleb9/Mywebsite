@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s \u00B7 Amr Abu-Talleb",
   },
   description:
-    "Amr Abu-Talleb is a Creative Director who leads brand, campaign and digital product teams. 13 years, teams of up to 25 across 8 markets, 50+ people hired.",
+    "Designer and creative director. 13 years in brand, campaigns and digital products. I design and build the work, and lead the people shipping it with me.",
   metadataBase: new URL("https://amrabutalleb.com"),
   alternates: {
     canonical: "/",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     siteName: "Amr Abu-Talleb",
     title: "Amr Abu-Talleb · Creative Director, brand and digital product",
     description:
-      "Amr Abu-Talleb is a Creative Director who leads brand, campaign and digital product teams. 13 years, teams of up to 25 across 8 markets, 50+ people hired.",
+      "Designer and creative director. 13 years in brand, campaigns and digital products. I design and build the work, and lead the people shipping it with me.",
     images: [
       {
         url: "/images/og-image-v4.png",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Amr Abu-Talleb · Creative Director, brand and digital product",
     description:
-      "Amr Abu-Talleb is a Creative Director who leads brand, campaign and digital product teams. 13 years, teams of up to 25 across 8 markets, 50+ people hired.",
+      "Designer and creative director. 13 years in brand, campaigns and digital products. I design and build the work, and lead the people shipping it with me.",
     images: ["/images/og-image-v4.png"],
   },
   robots: {
