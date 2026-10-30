@@ -44,12 +44,12 @@ export default function ContactPage() {
           <FadeIn>
             <p className="mb-4 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">{"Let\u2019s talk"}</p>
             <h1 className="mb-8 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
-              {"Hiring a\u00A0creative\u00A0director?"}
+              {"Let\u2019s talk about the\u00A0work."}
             </h1>
           </FadeIn>
           <FadeIn delay={0.08}>
             <p className="max-w-[50ch] text-lg leading-relaxed text-muted-foreground">
-              {"I\u2019m open to\u00A0Creative Director roles in\u00A0Europe, remote or\u00A0on-site. Tell me about the\u00A0role and\u00A0the\u00A0team. I\u00A0reply within 24\u00A0hours."}
+              {"I\u2019m open to\u00A0full-time roles, remote or in\u00A0Europe. Tell me what you\u2019re building and where it\u2019s stuck. I\u00A0reply within 24\u00A0hours."}
             </p>
             <p className="mt-4 mb-12 max-w-[50ch] text-sm leading-relaxed text-muted-foreground">
               {"I\u00A0also take on a\u00A0small number of\u00A0contract and\u00A0interim engagements, from repositioning a\u00A0brand to\u00A0leading a\u00A0team through a\u00A0set\u00A0period."}
