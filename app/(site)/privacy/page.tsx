@@ -1,12 +1,12 @@
 import Link from "next/link"
 import type { Metadata } from "next"
+import { pageMeta } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Privacy policy",
+export const metadata: Metadata = pageMeta({
+  title: "Privacy policy · Amr Abu-Talleb",
   description: "How Amr Abu-Talleb collects, uses, and protects your personal information on amrabutalleb.com.",
-  alternates: { canonical: "/privacy" },
-  robots: { index: true, follow: true },
-}
+  path: "/privacy",
+})
 
 export default function PrivacyPage() {
   return (

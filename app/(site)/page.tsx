@@ -1,5 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
+import { imageVariant } from "@/lib/image-loader"
 import { ArrowUpRight, ArrowRight } from "lucide-react"
 import { publishedTestimonials } from "@/lib/shared-data"
 import { publishedCaseStudies, projectHighlights } from "@/lib/projects"
@@ -106,7 +107,7 @@ function WorkSection() {
                         <>
                           <video
                             className="card-img aspect-[16/10] w-full object-cover motion-reduce:hidden"
-                            data-poster={project.featureImage}
+                            data-poster={imageVariant(project.featureImage, 960)}
                             aria-label={project.featureImageAlt || project.title}
                             data-autoplay
                             muted

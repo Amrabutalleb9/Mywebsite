@@ -16,7 +16,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params
   const project = getHighlightBySlug(slug)
-  if (!project) return { robots: { index: false, follow: false } }
+  if (!project) return { title: { absolute: "Page not found · Amr Abu-Talleb" }, robots: { index: false, follow: false }, alternates: { canonical: null } }
   const description = `${project.subtitle}. My role: ${project.role}.`
   return pageMeta({
     title: `${project.title} · ${project.industry.split(/\n| \/ /)[0]} · Amr Abu-Talleb`,

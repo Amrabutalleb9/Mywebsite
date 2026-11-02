@@ -31,6 +31,7 @@ export function Lightbox({ src, onClose }: LightboxProps) {
         alt="Enlarged project image"
         width={1400}
         height={900}
+        sizes="100vw"
         className="max-h-[90vh] max-w-[95vw] rounded-lg object-contain"
         onClick={(e) => e.stopPropagation()}
       />

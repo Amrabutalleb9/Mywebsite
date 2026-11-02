@@ -1,11 +1,14 @@
 import type { Metadata } from "next"
 
 export const SITE_URL = "https://amrabutalleb.com"
+export const PERSON_ID = `${SITE_URL}/#person`
+export const LINKEDIN_URL = "https://www.linkedin.com/in/abutalleb/"
+export const BEHANCE_URL = "https://www.behance.net/amrabutallebdesign"
 export const DEFAULT_OG_IMAGE = {
-  url: "/images/og-image-v4.png",
+  url: "/images/og-image-v5.png",
   width: 1200,
   height: 630,
-  alt: "Amr Abu-Talleb, Creative Director. Brand, campaigns and digital products: 13 years, largest team of 25, 8 markets, 50+ people hired",
+  alt: "Amr Abu-Talleb, designer and creative director. Brand, campaigns and digital products: 13 years, largest team of 25, 8 markets, 50+ people hired",
 }
 
 type PageMetaInput = {
@@ -44,7 +47,7 @@ export function pageMeta({ title, description, path, image, type = "website", ke
       card: "summary_large_image",
       title,
       description,
-      images: [img.url],
+      images: [{ url: img.url, alt: img.alt }],
     },
   }
 }
