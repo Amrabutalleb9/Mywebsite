@@ -7,12 +7,13 @@ import { ArrowUpRight, X } from "lucide-react"
 import FadeIn from "@/components/fade-in"
 import { submitContactForm } from "@/lib/contact"
 import { tp } from "@/lib/typeset"
+import { publishedCaseStudies } from "@/lib/projects"
 
 const CALENDLY = "https://calendly.com/amrabutalleb/one-on-one"
 const EMAIL = "hello@amrabutalleb.com"
 
 const field =
-  "mt-2 w-full border-0 border-b border-input-strong bg-transparent py-3 text-base text-foreground outline-none transition-[border-color,box-shadow] duration-300 focus:border-accent-text focus:shadow-[0_1px_0_var(--accent-text)]"
+  "mt-2 w-full border-0 border-b border-input-strong bg-transparent py-3 text-base text-foreground outline-none transition-[border-color,box-shadow] duration-[var(--duration-fast)] focus:border-accent-text focus:shadow-[0_1px_0_var(--accent-text)]"
 
 const questions = [
   {
@@ -125,45 +126,60 @@ const pieces = [
   },
 ]
 
+// Proof order: Bay Area Trips, Agfin, Overpowered, SPLT, TapTools, the Hodel book.
+// Every line is taken from the case study in lib/projects.ts. Images are the homepage card images.
 const work = [
   {
+    slug: "bay-area-trips",
     title: "Bay Area Trips",
-    line: "Most of the ideas were the same idea, so they became one directory across web, mobile web and app.",
-    result: "A US travel platform, built with a team of about 30.",
-    href: "/work/bay-area-trips",
+    line: "One directory for members, businesses and families, built once for the website, mobile web and app.",
+    result: "Taken from idea to a live product with a build team of about 30.",
     image: "/images/bay-hero-loop-poster-v2.webp",
     alt: "The Bay Area Trips website and two app screens on a cream studio set in late-afternoon light",
   },
   {
+    slug: "agfin",
     title: "Agfin",
-    line: "A website and sales funnel for farming families in regional Australia.",
-    result: "+12% client wins in the first month (2024), with no paid advertising.",
-    href: "/work/agfin",
+    line: "A farm adviser’s website in regional Australia, rebuilt as a story-led sales funnel.",
+    result: "12% more client wins in the first month, with no paid advertising.",
     image: "/images/agfin-feature-v3.webp",
     alt: "Agfin homepage hero: morning cloud clearing over a Wimmera paddock",
   },
   {
-    title: "As Within, So Without",
-    line: "A 212-page book for Steve Hodel, with more than 130 archival images.",
-    result: "On sale on Amazon.",
-    href: "/work/steve-hodel",
-    image: "/images/steve-hodel-feature-v2.webp",
-    alt: "Chapter Ten spread of As Within, So Without, with an archival portrait facing the chapter title",
-  },
-  {
-    title: "The Line Real Estate",
-    line: "A rebrand for high-value buyers.",
-    result: "Client engagement rose 57%, with an in-house team of about 11.",
-  },
-  {
+    slug: "overpowered",
     title: "Overpowered",
-    line: "A London agency. With the CEO we narrowed 6 service areas to 3, and I directed the new identity.",
-    result: "The team grew from 6 to about 25 in 7 months.",
-    href: "/work/overpowered",
+    line: "A London creative and digital agency, refocused with the CEO on the clients it served best.",
+    result: "I directed the new identity while its creative team grew from 6 people to about 25.",
     image: "/images/op-hero-loop-poster-v1.webp",
     alt: "The OP logomark as a giant glass sculpture floating above a hill",
   },
+  {
+    slug: "split",
+    title: "SPLT",
+    line: "The brief asked for a shop. I proposed a platform built around trainers and their members.",
+    result: "One platform for members, trainers, gyms and the team running it.",
+    image: "/images/split-card-v2.webp",
+    alt: "SPLT trainer dashboard beside the trainer profile and subscription plans in the app",
+  },
+  {
+    slug: "taptools",
+    title: "TapTools",
+    line: "The core flows of a live analytics platform, redesigned so the number people came for reads first.",
+    result: "User-reported issues down 23% within 60 days.",
+    image: "/images/taptools-card-poster-v6.webp",
+    alt: "TapTools market, portfolio and wallet profiler screens, with the swap card in front",
+  },
+  {
+    slug: "steve-hodel",
+    title: "As Within, So Without",
+    line: "A 212-page book for Steve Hodel, with more than 130 archival images.",
+    result: "On sale on Amazon.",
+    image: "/images/steve-hodel-feature-v2.webp",
+    alt: "Chapter Ten spread of As Within, So Without, with an archival portrait facing the chapter title",
+  },
 ]
+  // Hidden case studies (hidden: true in lib/projects.ts) drop out automatically.
+  .filter((item) => publishedCaseStudies.some((p) => p.slug === item.slug))
 
 const calls = [
   "Monday to Friday, 8:00–10:30 and 19:00–22:00 Cairo time. That’s mornings in the Gulf, early mornings and early evenings in Europe, midday on the US East Coast and mornings on the West Coast. Calendly shows it in your own time.",
@@ -198,6 +214,21 @@ const faq = [
     a: "No. The Snapshot at $450 is the smallest way to see how I think about your work.",
   },
 ]
+
+function SectionLabel({ label }: { label: string }) {
+  return (
+    <div className="mb-4 flex items-center gap-3">
+      <div aria-hidden="true" className="h-px w-8 bg-accent" />
+      <span className="text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">{label}</span>
+    </div>
+  )
+}
+
+const h2Class =
+  "font-serif text-[length:var(--text-section)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground"
+const h3ServiceClass =
+  "max-w-[22ch] font-serif text-2xl font-normal leading-[var(--leading-heading)] tracking-tight text-foreground lg:text-3xl"
+const smallNote = "max-w-[60ch] text-sm leading-relaxed text-muted-foreground"
 
 function FitCall({ primary = true }: { primary?: boolean }) {
   return (
@@ -235,10 +266,10 @@ function TierList({ tiers }: { tiers: { name: string; price: string; detail: str
   return (
     <ul className="mt-12 border-b border-border">
       {tiers.map((tier) => (
-        <li key={tier.name} className="grid grid-cols-1 gap-3 border-t border-border py-8 sm:grid-cols-[minmax(14rem,0.7fr)_1.4fr] sm:gap-12">
+        <li key={tier.name} className="grid grid-cols-1 gap-3 border-t border-border py-8 lg:grid-cols-[minmax(14rem,0.7fr)_1.4fr] lg:gap-12">
           <div>
-            <h4 className="font-serif text-2xl font-normal leading-snug tracking-tight text-foreground">{tp(tier.name)}</h4>
-            <p className="mt-2 text-sm tracking-wide text-muted-foreground">{tp(tier.price)}</p>
+            <h4 className="font-serif text-2xl font-normal leading-[var(--leading-heading)] tracking-tight text-foreground">{tp(tier.name)}</h4>
+            <p className="mt-2 text-sm font-medium text-foreground">{tp(tier.price)}</p>
           </div>
           <p className="max-w-[60ch] text-sm leading-relaxed text-muted-foreground">{tp(tier.detail)}</p>
         </li>
@@ -292,42 +323,55 @@ export default function ServicesPage() {
 
   return (
     <>
+      {/* The site nav's bar and wordmark, without its links: this page is shared by link and stays out of the nav. */}
       <header className="fixed top-0 right-0 left-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">
-        <div className="flex items-center px-8 py-4 lg:px-16">
-          <p className="text-lg font-bold tracking-tight text-foreground lg:text-xl">Amr Abu-Talleb</p>
+        <div className="flex items-center justify-between px-8 py-4 lg:px-16">
+          <Link href="/" className="text-lg font-bold tracking-tight text-foreground lg:text-xl">
+            Amr Abu-Talleb
+          </Link>
+          {/* Wrapped because .btn sets its own display, which would override `hidden`. Desktop only, like the nav's links. */}
+          <div className="hidden lg:block">
+            <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">
+              {tp("Book a fit call")}
+              <ArrowUpRight size={14} className="cta-arrow" aria-hidden="true" />
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </div>
         </div>
       </header>
 
-      <main id="main-content" className="pt-32 pb-8 lg:pt-32">
+      <main id="main-content" className="pt-32 pb-24 lg:pb-32">
         <section className="wrap">
           <FadeIn>
-            <h1 className="max-w-[16ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
+            <p className="mb-4 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Services</p>
+            <h1 className="max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
               {tp("I design the brand, the deck and the product")}
             </h1>
           </FadeIn>
           <FadeIn delay={0.08}>
-            <p className="mt-8 max-w-[60ch] text-lg leading-relaxed text-muted-foreground">
-              {tp("I’m Amr Abu-Talleb. I design the brand, the deck, the site and the product so they read as one company. I’ve done that for 13 years, and I’ve led teams of up to 25 when the work needed it.")}
+            <p className="mt-6 max-w-[50ch] text-lg leading-relaxed text-muted-foreground">
+              {tp("I’m Amr Abu-Talleb, a designer and creative director. For 13 years I’ve designed brands, decks, sites and products so they read as one company, and I’ve led teams of up to 25 when the work needed it.")}
             </p>
           </FadeIn>
-          <FadeIn delay={0.08}>
-            <div className="mt-12 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
+          <FadeIn delay={0.16}>
+            <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap">
               <ReviewButton onClick={startReview} />
               <FitCall primary={false} />
             </div>
           </FadeIn>
         </section>
 
-        <section className="wrap mt-32" aria-labelledby="who-heading">
+        <section className="wrap mt-32 lg:mt-48" aria-labelledby="who-heading">
           <FadeIn>
-            <h2 id="who-heading" className="max-w-[16ch] font-serif text-[length:var(--text-section)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground">
+            <SectionLabel label="Who it’s for" />
+            <h2 id="who-heading" className={`max-w-[20ch] ${h2Class}`}>
               {tp("Usually, one of these is true")}
             </h2>
           </FadeIn>
-          <ol className="mt-12 max-w-3xl">
+          <ol className="mt-12 max-w-3xl border-b border-border">
             {who.map((item, i) => (
-              <FadeIn key={item} as="li" className="flex gap-6 border-t border-border py-8 sm:gap-8">
-                <span aria-hidden="true" className="font-serif text-3xl leading-none text-accent/30 lg:text-4xl">
+              <FadeIn key={item} as="li" className="flex gap-6 border-t border-border py-8">
+                <span aria-hidden="true" className="font-serif text-2xl leading-none text-accent-numeral select-none">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <p className="max-w-[60ch] leading-relaxed text-muted-foreground">{tp(item)}</p>
@@ -336,17 +380,18 @@ export default function ServicesPage() {
           </ol>
         </section>
 
-        <section className="wrap mt-32" aria-labelledby="offers-heading">
+        <section className="wrap mt-32 lg:mt-48" aria-labelledby="offers-heading">
           <FadeIn>
-            <h2 id="offers-heading" className="max-w-[16ch] font-serif text-[length:var(--text-section)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground">
+            <SectionLabel label="Services" />
+            <h2 id="offers-heading" className={`max-w-[20ch] ${h2Class}`}>
               {tp("Three ways to work with me")}
             </h2>
           </FadeIn>
 
-          <article className="mt-16 border-t border-border pt-12">
+          <article className="mt-12 border-t border-border pt-12">
             <FadeIn>
-              <p className="mb-3 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Design review</p>
-              <h3 className="max-w-[22ch] font-serif text-2xl font-normal leading-snug tracking-tight text-foreground lg:text-3xl">
+              <p className="mb-4 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/70 uppercase">Design review</p>
+              <h3 className={h3ServiceClass}>
                 {tp("Find out what’s holding the work back before you redesign it")}
               </h3>
               <p className="mt-6 max-w-[60ch] leading-relaxed text-muted-foreground">
@@ -354,21 +399,21 @@ export default function ServicesPage() {
               </p>
             </FadeIn>
             <TierList tiers={reviewTiers} />
-            <p className="mt-8 max-w-[60ch] text-sm leading-relaxed text-muted-foreground">
-              {tp("Intro prices for the first two clients; planned $3,000 / $1,500 / $600.")}
+            <p className={`mt-8 ${smallNote}`}>
+              {tp("Intro prices for the first two clients. After that, $3,000, $1,500 and $600.")}
             </p>
-            <p className="mt-3 max-w-[60ch] text-sm leading-relaxed text-muted-foreground">
+            <p className={`mt-2 ${smallNote}`}>
               {tp("If you start a Launch sprint or a Seat within 30 days, the full review fee comes off it.")}
             </p>
-            <div className="mt-12">
+            <div className="mt-8">
               <ReviewButton onClick={startReview} />
             </div>
           </article>
 
           <article className="mt-24 border-t border-border pt-12">
             <FadeIn>
-              <p className="mb-3 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Launch sprint</p>
-              <h3 className="max-w-[22ch] font-serif text-2xl font-normal leading-snug tracking-tight text-foreground lg:text-3xl">
+              <p className="mb-4 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/70 uppercase">Launch sprint</p>
+              <h3 className={h3ServiceClass}>
                 {tp("The brand, the deck and the site from one system, before your date")}
               </h3>
               <p className="mt-6 max-w-[60ch] leading-relaxed text-muted-foreground">
@@ -376,21 +421,21 @@ export default function ServicesPage() {
               </p>
             </FadeIn>
             <TierList tiers={sprintTiers} />
-            <p className="mt-8 max-w-[60ch] text-sm leading-relaxed text-muted-foreground">
-              {tp("Intro prices for the first two clients; planned $10,000 / $6,000 / $3,000.")}
+            <p className={`mt-8 ${smallNote}`}>
+              {tp("Intro prices for the first two clients. After that, $10,000, $6,000 and $3,000.")}
             </p>
-            <p className="mt-3 max-w-[60ch] text-sm leading-relaxed text-muted-foreground">
-              {tp("You see two directions at the first review. If neither works for you, I do a third at no charge. Design only; development is quoted separately. Two rounds of changes per item, and anything outside scope is quoted at a fixed price.")}
+            <p className={`mt-2 ${smallNote}`}>
+              {tp("You see two directions at the first review. If neither works for you, I do a third at no charge. Design only, and development is quoted separately. Two rounds of changes per item, and anything outside scope is quoted at a fixed price.")}
             </p>
-            <div className="mt-12">
+            <div className="mt-8">
               <FitCall />
             </div>
           </article>
 
           <article className="mt-24 border-t border-border pt-12">
             <FadeIn>
-              <p className="mb-3 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Fractional CD seat</p>
-              <h3 className="max-w-[20ch] font-serif text-2xl font-normal leading-snug tracking-tight text-foreground lg:text-3xl">
+              <p className="mb-4 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/70 uppercase">Fractional seat</p>
+              <h3 className={h3ServiceClass}>
                 {tp("A creative lead for your team, a few hours a week")}
               </h3>
               <p className="mt-6 max-w-[60ch] leading-relaxed text-muted-foreground">
@@ -398,48 +443,50 @@ export default function ServicesPage() {
               </p>
             </FadeIn>
             <TierList tiers={seatTiers} />
-            <p className="mt-8 max-w-[60ch] text-sm leading-relaxed text-muted-foreground">
-              {tp("Intro prices for the first two clients; planned $7,500 / $4,500 / $3,000.")}
+            <p className={`mt-8 ${smallNote}`}>
+              {tp("Intro prices for the first two clients. After that, $7,500, $4,500 and $3,000 a month.")}
             </p>
-            <p className="mt-3 max-w-[60ch] text-sm leading-relaxed text-muted-foreground">
+            <p className={`mt-2 ${smallNote}`}>
               {tp("Three-month minimum, paid monthly in advance, and hours don’t roll over. After the first month you can stop with no further commitment and keep everything delivered. I take two seats at a time.")}
             </p>
-            <div className="mt-12">
+            <div className="mt-8">
               <FitCall />
             </div>
           </article>
         </section>
 
-        <section className="wrap mt-32" aria-labelledby="agencies-heading">
+        <section className="wrap mt-32 lg:mt-48" aria-labelledby="agencies-heading">
           <FadeIn>
-            <h2 id="agencies-heading" className="max-w-[18ch] font-serif text-[length:var(--text-section)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground">
+            <SectionLabel label="For agencies" />
+            <h2 id="agencies-heading" className={`max-w-[20ch] ${h2Class}`}>
               {tp("The work, under your agency’s name")}
             </h2>
-            <div className="mt-8 flex max-w-[60ch] flex-col gap-6 leading-relaxed text-muted-foreground">
+            <div className="mt-6 flex max-w-[60ch] flex-col gap-6 leading-relaxed text-muted-foreground">
               <p>
                 {tp("For a pitch, a big account, or when your CD is stretched. I design under your agency’s name on a Review seat or a Creative Lead seat, or take on a Launch sprint as a subcontract. Your client sees your agency. I don’t show the work, post about it or put it in a portfolio without your OK.")}
               </p>
               <p>
-                {tp("Most recently, at Overpowered in London, I directed the new identity with the CEO. The team grew from 6 to about 25 in 7 months. I work in English and Arabic, which helps on Gulf accounts.")}
+                {tp("At Overpowered, a London agency, I directed the new identity while its creative team grew from 6 people to about 25. I work in English and Arabic, which helps on Gulf accounts.")}
               </p>
             </div>
-            <div className="mt-12">
+            <div className="mt-8">
               <FitCall />
             </div>
           </FadeIn>
         </section>
 
-        <section className="wrap mt-32" aria-labelledby="pieces-heading">
+        <section className="wrap mt-32 lg:mt-48" aria-labelledby="pieces-heading">
           <FadeIn>
-            <h2 id="pieces-heading" className="max-w-[16ch] font-serif text-[length:var(--text-section)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground">
+            <SectionLabel label="Single pieces" />
+            <h2 id="pieces-heading" className={`max-w-[20ch] ${h2Class}`}>
               {tp("Single pieces, done properly")}
             </h2>
           </FadeIn>
-          <div className="mt-12 max-w-3xl">
+          <div className="mt-12 max-w-3xl border-b border-border">
             {pieces.map((piece) => (
               <FadeIn key={piece.title} className="border-t border-border py-8">
-                <h3 className="font-serif text-2xl font-normal leading-snug tracking-tight text-foreground">{tp(piece.title)}</h3>
-                <p className="mt-3 max-w-[60ch] leading-relaxed text-muted-foreground">{tp(piece.text)}</p>
+                <h3 className="font-serif text-2xl font-normal leading-[var(--leading-heading)] tracking-tight text-foreground">{tp(piece.title)}</h3>
+                <p className="mt-4 max-w-[60ch] leading-relaxed text-muted-foreground">{tp(piece.text)}</p>
               </FadeIn>
             ))}
           </div>
@@ -448,72 +495,59 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section className="wrap mt-32" aria-labelledby="work-heading">
+        <section className="wrap mt-32 lg:mt-48" aria-labelledby="work-heading">
           <FadeIn>
-            <h2 id="work-heading" className="font-serif text-[length:var(--text-section)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground">
+            <SectionLabel label="Work" />
+            <h2 id="work-heading" className={h2Class}>
               {tp("Some of the work")}
             </h2>
           </FadeIn>
-          <ul className="mt-12 grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2">
-            {work.map((item) => {
-              const body = (
-                <>
-                  {item.image ? (
-                    <div className="overflow-hidden rounded-2xl bg-primary">
-                      <Image
-                        src={item.image}
-                        alt={item.alt ?? ""}
-                        width={900}
-                        height={562}
-                        sizes="(max-width: 768px) 100vw, 40vw"
-                        className="aspect-[16/10] w-full object-cover"
-                      />
-                    </div>
-                  ) : (
-                    <div className="flex aspect-[16/10] items-center rounded-2xl bg-surface px-8">
-                      <p aria-hidden="true" className="font-serif text-2xl tracking-tight text-foreground/30">{item.title}</p>
-                    </div>
-                  )}
-                  <h3 className="mt-4 font-serif text-2xl font-normal leading-snug tracking-tight text-foreground">{item.title}</h3>
+          <ul className="mt-12 grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-x-12">
+            {work.map((item, i) => (
+              <FadeIn key={item.slug} as="li" delay={i % 2 ? 0.08 : 0}>
+                <Link href={`/work/${item.slug}`} className="work-card group block" data-cursor-label={`Explore ${item.title}`}>
+                  <div className="work-media relative overflow-hidden rounded-2xl bg-primary">
+                    <Image
+                      src={item.image}
+                      alt={item.alt}
+                      width={900}
+                      height={562}
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="card-img aspect-[16/10] w-full object-cover"
+                    />
+                  </div>
+                  <h3 className="mt-6 font-serif text-[length:var(--text-sub)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground transition-colors duration-300 group-hover:text-accent">
+                    {tp(item.title)}
+                  </h3>
                   <p className="mt-2 max-w-[48ch] text-sm leading-relaxed text-muted-foreground">{tp(item.line)}</p>
-                  <p className="mt-2 max-w-[48ch] text-sm font-medium leading-relaxed text-foreground">{tp(item.result)}</p>
-                </>
-              )
-              return (
-                <li key={item.title}>
-                  {item.href ? (
-                    <Link href={item.href} className="group block" data-cursor-label={`Explore ${item.title}`}>
-                      <div className="[&_h3]:transition-colors group-hover:[&_h3]:text-accent">{body}</div>
-                    </Link>
-                  ) : (
-                    <article>{body}</article>
-                  )}
-                </li>
-              )
-            })}
+                  <p className="mt-4 max-w-[48ch] text-xs leading-relaxed text-accent">{tp(item.result)}</p>
+                </Link>
+              </FadeIn>
+            ))}
           </ul>
         </section>
 
-        <section className="wrap mt-32" aria-labelledby="how-heading">
+        <section className="wrap mt-32 lg:mt-48" aria-labelledby="how-heading">
           <FadeIn>
-            <h2 id="how-heading" className="max-w-[16ch] font-serif text-[length:var(--text-section)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground">
+            <SectionLabel label="How it works" />
+            <h2 id="how-heading" className={`max-w-[20ch] ${h2Class}`}>
               {tp("Time, calls and payment")}
             </h2>
           </FadeIn>
-          <div className="mt-12 flex max-w-3xl flex-col">
+          <div className="mt-12 flex max-w-3xl flex-col border-b border-border">
             <FadeIn className="border-t border-border py-8">
               <h3 className="text-lg font-medium text-foreground">Calls</h3>
-              <p className="mt-3 max-w-[60ch] leading-relaxed text-muted-foreground">{tp(calls[0])}</p>
+              <p className="mt-4 max-w-[60ch] leading-relaxed text-muted-foreground">{tp(calls[0])}</p>
             </FadeIn>
             <FadeIn className="border-t border-border py-8">
-              <h3 className="text-lg font-medium text-foreground">Written feedback</h3>
-              <p className="mt-3 max-w-[60ch] leading-relaxed text-muted-foreground">
+              <h3 className="text-lg font-medium text-foreground">{tp("Written feedback")}</h3>
+              <p className="mt-4 max-w-[60ch] leading-relaxed text-muted-foreground">
                 {tp("Written feedback comes back within one business day. Reviews are always written, so nothing waits on a call.")}
               </p>
             </FadeIn>
             <FadeIn className="border-t border-border py-8">
               <h3 className="text-lg font-medium text-foreground">Payment</h3>
-              <ul className="mt-3 flex max-w-[60ch] flex-col gap-2">
+              <ul className="mt-4 flex max-w-[60ch] flex-col gap-2">
                 {payment.map((line) => (
                   <li key={line} className="leading-relaxed text-muted-foreground">{tp(line)}</li>
                 ))}
@@ -522,29 +556,33 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section className="wrap mt-32" aria-labelledby="questions-heading">
+        <section className="wrap mt-32 lg:mt-48" aria-labelledby="questions-heading">
           <FadeIn>
-            <h2 id="questions-heading" className="sr-only">Questions</h2>
+            <SectionLabel label="Questions" />
+            <h2 id="questions-heading" className={`max-w-[20ch] ${h2Class}`}>
+              {tp("Before you book")}
+            </h2>
           </FadeIn>
-          <div className="max-w-3xl">
+          <div className="mt-12 max-w-3xl border-b border-border">
             {faq.map((item) => (
               <FadeIn key={item.q} className="border-t border-border py-8">
-                <h3 className="font-serif text-2xl font-normal leading-snug tracking-tight text-foreground">{tp(item.q)}</h3>
-                <p className="mt-3 max-w-[60ch] leading-relaxed text-muted-foreground">{tp(item.a)}</p>
+                <h3 className="font-serif text-2xl font-normal leading-[var(--leading-heading)] tracking-tight text-foreground">{tp(item.q)}</h3>
+                <p className="mt-4 max-w-[60ch] leading-relaxed text-muted-foreground">{tp(item.a)}</p>
               </FadeIn>
             ))}
           </div>
         </section>
 
-        <section className="wrap mt-32 border-t border-border pt-16" aria-labelledby="close-heading">
+        <section className="wrap mt-32 lg:mt-48" aria-labelledby="close-heading">
           <FadeIn>
-            <h2 id="close-heading" className="max-w-[14ch] font-serif text-[length:var(--text-section)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground">
+            <SectionLabel label="Next step" />
+            <h2 id="close-heading" className={`max-w-[20ch] ${h2Class}`}>
               {tp("Tell me what’s coming up")}
             </h2>
-            <p className="mt-6 max-w-[50ch] leading-relaxed text-muted-foreground">
+            <p className="mt-6 max-w-[50ch] text-lg leading-relaxed text-muted-foreground">
               {tp("If you have a date, book a fit call. If you’d rather start in writing, send me what you have and I’ll tell you which option fits.")}
             </p>
-            <div className="mt-12 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
+            <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap">
               <FitCall />
               <ReviewButton primary={false} onClick={startReview} />
             </div>
@@ -552,35 +590,38 @@ export default function ServicesPage() {
         </section>
       </main>
 
-      <footer className="wrap border-t border-border py-12">
-        <p className="text-sm text-muted-foreground">
-          <a href={`mailto:${EMAIL}`} className="text-foreground underline underline-offset-4 transition-colors hover:text-accent">
-            {EMAIL}
-          </a>
-          <span aria-hidden="true">{" · "}</span>
-          <span className="sr-only">, </span>
-          Cairo, Egypt
-        </p>
+      <footer>
+        {/* bg-background keeps the focus ring in --accent-text. The global footer rule switches it to light gold, which is for the ink footer. */}
+        <div className="wrap border-t border-border bg-background py-12">
+          <p className="text-sm text-muted-foreground">
+            <a href={`mailto:${EMAIL}`} className="link-inline">
+              {EMAIL}
+            </a>
+            <span aria-hidden="true">{" · "}</span>
+            <span className="sr-only">, </span>
+            Cairo, Egypt
+          </p>
+        </div>
       </footer>
 
       <dialog
         ref={dialogRef}
         aria-labelledby={titleId}
-        className="w-[min(100%-2rem,40rem)] max-h-[min(100%-2rem,44rem)] overflow-y-auto rounded-2xl border border-border bg-background p-8 text-foreground backdrop:bg-primary/50 sm:p-12"
+        className="m-auto w-[min(100%-2rem,40rem)] max-h-[min(100%-2rem,44rem)] overflow-y-auto rounded-2xl border border-border bg-background p-8 text-foreground backdrop:bg-primary/90 sm:p-12"
         onClose={() => setStatus("idle")}
       >
         <div className="mb-8 flex items-start justify-between gap-6">
-          <h2 id={titleId} className="font-serif text-2xl font-normal tracking-tight text-foreground lg:text-3xl">
+          <h2 id={titleId} className="font-serif text-2xl font-normal leading-[var(--leading-heading)] tracking-tight text-foreground lg:text-3xl">
             {tp("Start a review")}
           </h2>
-          <button type="button" onClick={closeReview} className="text-foreground" aria-label="Close">
-            <X size={24} />
+          <button type="button" onClick={closeReview} className="-m-3 p-3 text-foreground" aria-label="Close">
+            <X size={24} aria-hidden="true" />
           </button>
         </div>
         {status === "sent" ? (
-          <div aria-live="polite">
-            <p className="font-serif text-2xl text-foreground">Message sent.</p>
-            <p className="mt-3 max-w-[46ch] leading-relaxed text-muted-foreground">
+          <div role="status">
+            <p className="font-serif text-2xl text-foreground">{tp("Message sent.")}</p>
+            <p className="mt-4 max-w-[46ch] leading-relaxed text-muted-foreground">
               {tp("I’ll reply in writing within one business day.")}
             </p>
             <button type="button" onClick={closeReview} className="btn btn-primary mt-8">
@@ -591,25 +632,27 @@ export default function ServicesPage() {
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
             <p className="max-w-[52ch] text-sm leading-relaxed text-muted-foreground">
               {tp("Five questions. No call. Or email me at")}{" "}
-              <a href={`mailto:${EMAIL}`} className="text-foreground underline underline-offset-4 hover:text-accent">{EMAIL}</a>.
+              <a href={`mailto:${EMAIL}`} className="link-inline">{EMAIL}</a>.
             </p>
-            <label className="block">
-              <span className="text-sm text-muted-foreground">Your name</span>
-              <input name="name" autoComplete="name" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className={field} />
-            </label>
-            <label className="block">
-              <span className="text-sm text-muted-foreground">Email</span>
-              <input name="email" type="email" autoComplete="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className={field} />
-            </label>
+            <div className="flex flex-col gap-6 sm:flex-row sm:gap-8">
+              <label className="block sm:flex-1">
+                <span className="text-sm font-medium text-foreground">Your name</span>
+                <input name="name" autoComplete="name" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className={field} />
+              </label>
+              <label className="block sm:flex-1">
+                <span className="text-sm font-medium text-foreground">Email</span>
+                <input name="email" type="email" autoComplete="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className={field} />
+              </label>
+            </div>
             {questions.map((q) => (
               <label key={q.name} className="block">
-                <span className="text-sm text-foreground">{q.label}</span>
-                {"hint" in q && q.hint ? <span className="mt-1 block text-sm text-muted-foreground">{q.hint}</span> : null}
+                <span className="text-sm font-medium text-foreground">{tp(q.label)}</span>
+                {"hint" in q && q.hint ? <span className="mt-1 block text-sm text-muted-foreground">{tp(q.hint)}</span> : null}
                 <textarea name={q.name} required rows={3} value={form[q.name]} onChange={(e) => setForm({ ...form, [q.name]: e.target.value })} className={`${field} resize-y`} />
               </label>
             ))}
             {status === "error" && (
-              <p className="text-sm text-destructive" aria-live="polite">
+              <p className="text-sm text-destructive" role="alert">
                 {error}{" "}
                 <a href={`mailto:${EMAIL}`} className="link-inline">{EMAIL}</a>
               </p>
@@ -624,7 +667,7 @@ export default function ServicesPage() {
       </dialog>
       <noscript>
         <p className="wrap pb-16 text-sm text-muted-foreground">
-          Email the five review questions to <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.
+          Email the five review questions to <a href={`mailto:${EMAIL}`} className="link-inline">{EMAIL}</a>.
         </p>
       </noscript>
     </>

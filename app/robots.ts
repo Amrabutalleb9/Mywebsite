@@ -8,7 +8,8 @@ export default function robots(): MetadataRoute.Robots {
     ...getHiddenCaseStudySlugs().map((slug) => `/work/${slug}`),
     ...getHiddenHighlightSlugs().map((slug) => `/highlights/${slug}`),
     "/leadership",
-    "/services",
+    // /services is not listed: a disallow would advertise the URL here and stop crawlers
+    // from reading its noindex (meta tag and X-Robots-Tag in public/_headers).
   ]
 
   const disallow = hiddenWorkPaths.length > 0 ? { disallow: hiddenWorkPaths } : {}
