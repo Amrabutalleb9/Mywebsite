@@ -454,3 +454,31 @@ a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
 }
 :is(.bg-primary, .bg-foreground, footer) :where(a, button, [role="button"], input, textarea):focus-visible { outline-color: var(--accent); }
 :is(.bg-primary, .bg-foreground, footer) .bg-background :where(a, button, [role="button"], input, textarea):focus-visible { outline-color: var(--accent-text); }
+
+/* ── Homepage motion without the motion library (Nov 2026) ── */
+/* ScrollReveal: fade and rise into place once, on the site's ease-out curve. */
+.reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-y, 24px));
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0s),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0s);
+}
+.reveal.is-in { opacity: 1; transform: none; }
+
+/* Testimonials: the gold timer bar, and the quote and byline swapping out, then in. */
+.testimonial-fill { animation: testimonial-fill linear both; }
+@keyframes testimonial-fill { from { height: 0%; } to { height: 100%; } }
+.swap-in-quote { animation: swap-in-quote 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.swap-out-quote { animation: swap-out 0.2s ease-out both; }
+.swap-in-byline { animation: swap-in 0.4s ease-out 0.1s both; }
+.swap-out-byline { animation: swap-out 0.15s ease-out both; }
+@keyframes swap-in-quote { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes swap-in { from { opacity: 0; } }
+@keyframes swap-out { to { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  /* The quote still crossfades (no movement), as before. */
+  .swap-in-quote { animation-name: swap-in; }
+}
