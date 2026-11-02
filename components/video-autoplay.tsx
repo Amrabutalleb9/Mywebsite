@@ -16,9 +16,13 @@ export default function VideoAutoplay() {
       (entries) => {
         for (const e of entries) {
           if (!e.isIntersecting) continue
-          const el = e.target as HTMLVideoElement | HTMLImageElement
+          const el = e.target as HTMLElement
           if (el instanceof HTMLVideoElement && el.dataset.poster) el.poster = el.dataset.poster
-          if (el instanceof HTMLImageElement && el.dataset.src) el.src = el.dataset.src
+          // Images are watched through their card (they have no size until they load): load them all.
+          el.querySelectorAll<HTMLImageElement>("img[data-src]").forEach((img) => {
+            img.src = img.dataset.src!
+            img.removeAttribute("data-src")
+          })
           posters.unobserve(el)
         }
       },
@@ -27,9 +31,10 @@ export default function VideoAutoplay() {
     const seenPoster = new WeakSet<Element>()
     const scanPosters = () => {
       document.querySelectorAll("video[data-poster], img[data-src]").forEach((v) => {
-        if (seenPoster.has(v)) return
-        seenPoster.add(v)
-        posters.observe(v)
+        const target = v instanceof HTMLImageElement ? (v.closest(".card-img") ?? v.parentElement!) : v
+        if (seenPoster.has(target)) return
+        seenPoster.add(target)
+        posters.observe(target)
       })
     }
     scanPosters()
