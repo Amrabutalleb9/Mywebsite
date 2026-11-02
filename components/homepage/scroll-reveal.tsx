@@ -1,10 +1,11 @@
 "use client"
 
-import { useRef, type ReactNode } from "react"
-import { motion, useInView, useReducedMotion } from "motion/react"
+import { useRef, type CSSProperties, type ReactNode } from "react"
+import { useInView } from "@/hooks/use-in-view"
 
-const EASE_OUT = [0.16, 1, 0.3, 1] as const
-
+/* Fades and rises into place once, the first time it is scrolled into view. The movement is a CSS
+   transition (.reveal in globals.css): 0.6s on the site's ease-out curve, starting after `delay`.
+   Reduced motion shows it at once, before any JavaScript runs. */
 export default function ScrollReveal({
   children,
   className = "",
@@ -18,18 +19,14 @@ export default function ScrollReveal({
 }) {
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: "-8% 0px -5% 0px", amount: 0.12 })
-  const reduced = useReducedMotion()
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      className={className}
-      initial={{ opacity: 0, y }}
-      // Reduced motion: show at once (see fade-in.tsx for why the element isn't swapped).
-      animate={reduced || inView ? { opacity: 1, y: 0 } : { opacity: 0, y }}
-      transition={reduced ? { duration: 0 } : { duration: 0.6, delay, ease: EASE_OUT }}
+      className={`reveal ${inView ? "is-in" : ""} ${className}`}
+      style={{ "--reveal-y": `${y}px`, "--reveal-delay": `${delay}s` } as CSSProperties}
     >
       {children}
-    </motion.div>
+    </div>
   )
 }

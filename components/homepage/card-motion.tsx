@@ -1,5 +1,6 @@
 /* Live card media for the homepage case-study cards: real artefacts, moving slowly.
-   Pure CSS animation; prefers-reduced-motion freezes both (see globals.css). */
+   Pure CSS animation; prefers-reduced-motion freezes both (see globals.css).
+   The images load from data-src about a screen before they are seen (components/video-autoplay.tsx). */
 
 const rowA = ["p-profile", "d-dashboard", "p-plans", "p-goals", "d-admin", "p-shop"]
 const rowB = ["p-workout", "d-videos", "p-records", "p-explore", "d-vendor", "p-groups"]
@@ -11,9 +12,8 @@ function ReelRow({ items, reverse }: { items: string[]; reverse?: boolean }) {
       {set.map((k, i) => (
         <img
           key={`${k}-${i}`}
-          src={`/images/splt-reel-${k}.webp`}
+          data-src={`/images/splt-reel-${k}.webp`}
           alt=""
-          loading="lazy"
           decoding="async"
           className={`reel-tile ${k.startsWith("p-") ? "reel-tile-phone" : "reel-tile-dash"}`}
         />
@@ -34,7 +34,7 @@ export function SpltReel({ label }: { label: string }) {
 export function HodelProof({ label }: { label: string }) {
   return (
     <div role="img" aria-label={label} className="card-img proof relative aspect-[16/10] w-full overflow-hidden bg-proof-paper">
-      <img src="/images/hodel-proof-sheet-v2.webp" alt="" loading="lazy" decoding="async" className="proof-sheet" aria-hidden="true" />
+      <img data-src="/images/hodel-proof-sheet-v2.webp" alt="" decoding="async" className="proof-sheet" aria-hidden="true" />
     </div>
   )
 }
