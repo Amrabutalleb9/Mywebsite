@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { useInView, useReducedMotion } from "motion/react"
+import { useInView, useReducedMotion } from "@/hooks/use-in-view"
 
 /**
  * Counts every number inside `value` up from zero ("50+", "2–3", "25").
@@ -19,7 +19,11 @@ export default function CountUp({ value, duration = 1600, className }: { value: 
 
   // Arm on mount, so it also counts the first time it is seen.
   useEffect(() => {
-    if (reduced) return
+    if (reduced) {
+      armed.current = false
+      setP(1)
+      return
+    }
     armed.current = true
     setP(0)
   }, [reduced])

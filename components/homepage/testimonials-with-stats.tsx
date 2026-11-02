@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef, useCallback } from "react"
-import { motion, AnimatePresence, useInView, useReducedMotion } from "motion/react"
+import { useInView, useReducedMotion } from "@/hooks/use-in-view"
 import { ArrowLeft, ArrowRight, Pause, Play } from "lucide-react"
 import ScrollReveal from "./scroll-reveal"
 import { type Testimonial } from "@/lib/shared-data"
@@ -9,7 +9,27 @@ import { type Testimonial } from "@/lib/shared-data"
 /* Index beside the quote (Oct 2026): the heading and every name on the left as the navigation, the
    quote and its controls on the right, so the whole section reads in one screen. Numbers below. */
 
-const EASE_OUT = [0.16, 1, 0.3, 1] as const
+/* Swaps a value with an exit first, then an entrance (what AnimatePresence mode="wait" did):
+   for `exitMs` the old value stays on screen with the leaving class, then the new one mounts.
+   The first value never animates in, like initial={false}. The keyframes are in globals.css. */
+function useSwap<T>(value: T, exitMs: number) {
+  const [shown, setShown] = useState(value)
+  const [leaving, setLeaving] = useState(false)
+  const [entered, setEntered] = useState(false)
+
+  useEffect(() => {
+    if (value === shown) return
+    setLeaving(true)
+    const t = window.setTimeout(() => {
+      setShown(value)
+      setLeaving(false)
+      setEntered(true)
+    }, exitMs)
+    return () => window.clearTimeout(t)
+  }, [value, shown, exitMs])
+
+  return { shown, leaving, entered }
+}
 
 interface Stat {
   end: number
@@ -102,8 +122,12 @@ export default function TestimonialsWithStats({
     return () => window.clearTimeout(t)
   }, [playing, active, dwell, go])
 
+  const quote = useSwap(active, 200)
+  const byline = useSwap(active, 150)
+
   if (count === 0) return null
-  const current = testimonials[active]
+  const current = testimonials[quote.shown]
+  const credit = testimonials[byline.shown]
 
   return (
     <section className="px-8 pt-32 pb-24 lg:px-16 lg:pt-48 lg:pb-32" aria-labelledby="testimonials-heading">
@@ -144,13 +168,11 @@ export default function TestimonialsWithStats({
                   <li key={i} className="relative lg:border-t lg:border-border">
                     {/* The gold bar marks the open quote. While playing it fills as a timer. */}
                     {on && playing ? (
-                      <motion.span
+                      <span
                         key={`fill-${active}`}
                         aria-hidden="true"
-                        className="absolute top-0 left-0 hidden w-[2px] bg-accent lg:block"
-                        initial={{ height: "0%" }}
-                        animate={{ height: "100%" }}
-                        transition={{ duration: dwell / 1000, ease: "linear" }}
+                        className="testimonial-fill absolute top-0 left-0 hidden w-[2px] bg-accent lg:block"
+                        style={{ animationDuration: `${dwell}ms` }}
                       />
                     ) : (
                       <span aria-hidden="true" className={`absolute top-0 left-0 hidden w-[2px] bg-accent lg:block ${on ? "h-full" : "h-0"}`} />
@@ -185,35 +207,23 @@ export default function TestimonialsWithStats({
                 {t.text}
               </p>
             ))}
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.blockquote
-                key={active}
-                className="col-start-1 row-start-1 font-serif text-[length:var(--text-quote)] italic leading-[var(--leading-quote)] tracking-tight text-foreground"
-                initial={reduced ? { opacity: 0 } : { opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE_OUT } }}
-                exit={{ opacity: 0, transition: { duration: 0.2 } }}
-                aria-live={playing ? "off" : "polite"}
-              >
-                {current.text}
-              </motion.blockquote>
-            </AnimatePresence>
+            <blockquote
+              key={quote.shown}
+              className={`col-start-1 row-start-1 font-serif text-[length:var(--text-quote)] italic leading-[var(--leading-quote)] tracking-tight text-foreground ${quote.leaving ? "swap-out-quote" : quote.entered ? "swap-in-quote" : ""}`}
+              aria-live={playing ? "off" : "polite"}
+            >
+              {current.text}
+            </blockquote>
           </div>
 
           <div className="mt-12 flex items-end justify-between gap-6 border-t border-border pt-6 lg:mt-12">
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.div
-                key={active}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1, transition: { duration: 0.4, delay: 0.1 } }}
-                exit={{ opacity: 0, transition: { duration: 0.15 } }}
-              >
-                <p className="text-base font-medium text-foreground">{current.author}</p>
-                <p className="mt-2 text-xs tracking-[var(--tracking-sublabel)] text-muted-foreground uppercase">
-                  {current.role}
-                  {current.location && ` · ${current.location}`}
-                </p>
-              </motion.div>
-            </AnimatePresence>
+            <div key={byline.shown} className={byline.leaving ? "swap-out-byline" : byline.entered ? "swap-in-byline" : ""}>
+              <p className="text-base font-medium text-foreground">{credit.author}</p>
+              <p className="mt-2 text-xs tracking-[var(--tracking-sublabel)] text-muted-foreground uppercase">
+                {credit.role}
+                {credit.location && ` · ${credit.location}`}
+              </p>
+            </div>
             <div className="flex shrink-0 items-center gap-3">
               <span className="mr-2 hidden text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-sublabel)] text-muted-foreground tabular-nums sm:inline">
                 {String(active + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}

@@ -7,23 +7,26 @@ import { useEffect } from "react"
    into view and pauses it when it leaves. With reduced motion turned on, nothing plays on its own
    (the case-study videos show their controls instead).
    Below-the-fold videos carry their poster as data-poster: a poster attribute downloads at once,
-   whatever preload says, so it is only set once the video is within about a screen of view. */
+   whatever preload says, so it is only set once the video is within about a screen of view.
+   Decorative card images below the fold (the SPLT reel, the Hodel proof sheet) carry data-src the
+   same way: native lazy loading starts them up to 3000px early, during the page's first load. */
 export default function VideoAutoplay() {
   useEffect(() => {
     const posters = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
           if (!e.isIntersecting) continue
-          const v = e.target as HTMLVideoElement
-          if (v.dataset.poster) v.poster = v.dataset.poster
-          posters.unobserve(v)
+          const el = e.target as HTMLVideoElement | HTMLImageElement
+          if (el instanceof HTMLVideoElement && el.dataset.poster) el.poster = el.dataset.poster
+          if (el instanceof HTMLImageElement && el.dataset.src) el.src = el.dataset.src
+          posters.unobserve(el)
         }
       },
       { rootMargin: "800px 0px" },
     )
     const seenPoster = new WeakSet<Element>()
     const scanPosters = () => {
-      document.querySelectorAll("video[data-poster]").forEach((v) => {
+      document.querySelectorAll("video[data-poster], img[data-src]").forEach((v) => {
         if (seenPoster.has(v)) return
         seenPoster.add(v)
         posters.observe(v)
