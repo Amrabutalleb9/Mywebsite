@@ -368,8 +368,10 @@ a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
   animation: hero-line-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: calc(0.12s + var(--i, 0) * 0.1s);
 }
+/* Starts at 1% opacity, not 0: it looks the same, but the browser counts the headline as painted
+   from the first frame, so Largest Contentful Paint no longer waits for the fade (Amr, 2 Nov). */
 @keyframes hero-line-in {
-  from { opacity: 0; transform: translateY(36px); filter: blur(6px); }
+  from { opacity: 0.01; transform: translateY(36px); filter: blur(6px); }
   to { opacity: 1; transform: none; filter: none; }
 }
 @media (prefers-reduced-motion: reduce) {
