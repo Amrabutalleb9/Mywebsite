@@ -30,3 +30,9 @@
 
 # Hodel book became a full case study (Oct 2026)
 /highlights/steve-hodel /work/steve-hodel 301
+
+# About moved above the homepage hero, and the Projects page is hidden (Oct 2026, staging)
+/about /#about 301
+/about/ /#about 301
+/projects /#work 301
+/projects/ /#work 301
