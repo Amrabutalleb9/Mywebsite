@@ -8,6 +8,8 @@ export default function robots(): MetadataRoute.Robots {
     ...getHiddenCaseStudySlugs().map((slug) => `/work/${slug}`),
     ...getHiddenHighlightSlugs().map((slug) => `/highlights/${slug}`),
     "/leadership",
+    // /services is disallowed for every user agent, including the AI crawlers below.
+    // The page stays noindex as well: the meta robots tag, and X-Robots-Tag in public/_headers.
     "/services",
   ]
 

@@ -16,7 +16,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params
   const project = getHighlightBySlug(slug)
-  if (!project) return { robots: { index: false, follow: false } }
+  if (!project) return { title: { absolute: "Page not found · Amr Abu-Talleb" }, robots: { index: false, follow: false }, alternates: { canonical: null } }
   const description = `${project.subtitle}. My role: ${project.role}.`
   return pageMeta({
     title: `${project.title} · ${project.industry.split(/\n| \/ /)[0]} · Amr Abu-Talleb`,
@@ -55,7 +55,7 @@ export default async function HighlightPage({
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://amrabutalleb.com" },
-      { "@type": "ListItem", position: 2, name: "Work", item: "https://amrabutalleb.com/#work" },
+      { "@type": "ListItem", position: 2, name: "Projects", item: "https://amrabutalleb.com/projects" },
       { "@type": "ListItem", position: 3, name: project.title, item: `https://amrabutalleb.com/highlights/${slug}` },
     ],
   }

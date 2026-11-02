@@ -1,12 +1,12 @@
 import Link from "next/link"
 import type { Metadata } from "next"
+import { pageMeta } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Terms of service",
+export const metadata: Metadata = pageMeta({
+  title: "Terms of service · Amr Abu-Talleb",
   description: "Terms governing use of amrabutalleb.com and purchase of digital products from Amr Abu-Talleb.",
-  alternates: { canonical: "/terms" },
-  robots: { index: true, follow: true },
-}
+  path: "/terms",
+})
 
 export default function TermsPage() {
   return (
