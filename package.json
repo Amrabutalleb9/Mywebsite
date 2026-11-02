@@ -25,7 +25,6 @@
     "last 2 Edge versions"
   ],
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.5",
     "@tailwindcss/postcss": "^4.1.9",
     "@types/node": "^22",
     "@types/react": "^19",
