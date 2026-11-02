@@ -550,6 +550,8 @@ a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
 [data-ink-ready] .ink-turn-drop { display: none; }
 @media (prefers-reduced-motion: reduce) {
   [data-ink-ready] .ink-step > * { transition: none; opacity: 1; translate: none; }
+}
+
 /* ── Homepage motion without the motion library (Nov 2026) ── */
 /* ScrollReveal: fade and rise into place once, on the site's ease-out curve. */
 .reveal {
