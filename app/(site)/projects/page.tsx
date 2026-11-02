@@ -3,13 +3,21 @@ import { publishedCaseStudies, projectHighlights } from "@/lib/projects"
 import { ProjectShowcase } from "@/components/ui/project-showcase"
 import type { ShowcaseProject } from "@/components/ui/project-showcase"
 import FadeIn from "@/components/fade-in"
+import PageIn from "@/components/page-in"
 import { pageMeta } from "@/lib/seo"
+import { projectsLd, ldJson } from "@/lib/structured-data"
 
 export const metadata: Metadata = pageMeta({
-  title: "Work · Amr Abu-Talleb",
+  title: "Projects and case studies · Amr Abu-Talleb",
   description:
     "Case studies in brand identity, product design and campaigns. What I designed, what I built, how the team worked and what changed.",
   path: "/projects",
+  image: {
+    url: "/images/og/projects-v1.jpg",
+    width: 1200,
+    height: 630,
+    alt: "Six case studies: Overpowered, SPLT, Bay Area Trips, Agfin, TapTools and As Within, So Without",
+  },
 })
 
 const caseStudyItems: ShowcaseProject[] = publishedCaseStudies.map((p) => ({
@@ -35,15 +43,16 @@ const highlightItems: ShowcaseProject[] = projectHighlights.map((p) => ({
 export default function ProjectsPage() {
   return (
     <main className="px-8 pt-32 pb-24 lg:px-16 lg:pt-32 lg:pb-32">
+      <script type="application/ld+json" dangerouslySetInnerHTML={ldJson(projectsLd)} />
       <div className="mx-auto max-w-6xl">
-      <FadeIn>
+      <PageIn>
         <h1 className="mb-4 font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
           Projects
         </h1>
         <p className="mb-24 max-w-lg text-muted-foreground">
           {"Case studies first, then shorter projects across brand, product, campaigns and\u00A0print."}
         </p>
-      </FadeIn>
+      </PageIn>
 
       {/* ── Case studies ── */}
       <FadeIn delay={0.08}>

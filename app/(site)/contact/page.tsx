@@ -4,6 +4,7 @@ import React, { useState } from "react"
 import { Linkedin, ArrowUpRight } from "lucide-react"
 import { submitContactForm } from "@/lib/contact"
 import FadeIn from "@/components/fade-in"
+import PageIn from "@/components/page-in"
 
 const LINKEDIN = "https://www.linkedin.com/in/abutalleb/"
 
@@ -41,21 +42,21 @@ export default function ContactPage() {
     <main className="px-8 pt-32 pb-24 lg:px-16 lg:pt-32 lg:pb-32">
       <div className="mx-auto max-w-6xl flex flex-col gap-16 lg:flex-row lg:gap-16">
         <div className="lg:w-1/2">
-          <FadeIn>
+          <PageIn>
             <p className="mb-4 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">{"Contact"}</p>
             <h1 className="mb-8 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
               {"Let\u2019s talk about the\u00A0work."}
             </h1>
-          </FadeIn>
-          <FadeIn delay={0.08}>
+          </PageIn>
+          <PageIn delay={0.08}>
             <p className="max-w-[50ch] text-lg leading-relaxed text-muted-foreground">
               {"I\u2019m open to\u00A0full-time roles, remote or in\u00A0Europe. Tell me what you\u2019re building and where it\u2019s stuck. I\u00A0reply within 24\u00A0hours."}
             </p>
             <p className="mt-4 mb-12 max-w-[50ch] text-sm leading-relaxed text-muted-foreground">
               {"I\u00A0also take on a\u00A0small number of\u00A0contract and\u00A0interim engagements, from repositioning a\u00A0brand to\u00A0leading a\u00A0team through a\u00A0set\u00A0period."}
             </p>
-          </FadeIn>
-          <FadeIn delay={0.16}>
+          </PageIn>
+          <PageIn delay={0.16}>
             <div className="flex flex-col gap-4">
               <a href="mailto:hello@amrabutalleb.com" className="link-inline text-lg">
                 hello@amrabutalleb.com
@@ -68,10 +69,10 @@ export default function ContactPage() {
                 </a>
               </div>
             </div>
-          </FadeIn>
+          </PageIn>
         </div>
 
-        <FadeIn delay={0.16} as="div" className="lg:w-1/2">
+        <PageIn delay={0.16} as="div" className="lg:w-1/2">
           {submitted ? (
             <div className="flex h-full min-h-[400px] items-center justify-center rounded-sm border border-border bg-background p-12 text-center" aria-live="polite">
               <div>
@@ -117,7 +118,7 @@ export default function ContactPage() {
               </p>
             </form>
           )}
-        </FadeIn>
+        </PageIn>
       </div>
     </main>
   )

@@ -1,12 +1,13 @@
 "use client"
 
 import React, { Fragment, useState } from "react"
-import { preload } from "react-dom"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react"
 import { useReducedMotion } from "motion/react"
 import FadeIn from "./fade-in"
+import PageIn from "./page-in"
+import { imageVariant } from "@/lib/image-loader"
 import { Lightbox } from "./ui/lightbox"
 import type { CaseStudy } from "@/lib/projects"
 
@@ -21,8 +22,6 @@ export default function CaseStudyLayout({
 }) {
   const [lightbox, setLightbox] = useState<string | null>(null)
   const reducedMotion = useReducedMotion()
-  // The hero video's poster is the page's largest paint: fetch it first.
-  if (project.featureVideo?.poster) preload(project.featureVideo.poster, { as: "image", fetchPriority: "high" })
 
   const renderFigureRow = (row: NonNullable<CaseStudy["storyFigures"]>[number], key: string) => (
     <FadeIn as="div" key={row.images[0].src}>
@@ -42,7 +41,7 @@ export default function CaseStudyLayout({
                 <video
                   className="h-auto w-full object-cover"
                   style={{ aspectRatio: img.ratio ?? "16 / 9" }}
-                  data-poster={img.src}
+                  data-poster={imageVariant(img.src, 960)}
                   aria-label={img.alt}
                   data-autoplay
                   controls={!!reducedMotion}
@@ -107,7 +106,7 @@ export default function CaseStudyLayout({
 
       {/* Back link */}
       <div className="wrap">
-        <FadeIn>
+        <PageIn>
           <Link
             href="/#work"
             className="mb-12 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -115,31 +114,42 @@ export default function CaseStudyLayout({
             <ArrowLeft size={18} />
             Back to Work
           </Link>
-        </FadeIn>
+        </PageIn>
       </div>
 
       {/* Hero , label + title + subtitle */}
       <div className="wrap">
-        <FadeIn>
+        <PageIn>
           <p className="mb-4 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Case study</p>
-        </FadeIn>
-        <FadeIn as="h1" delay={0.08} className="mb-4 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
+        </PageIn>
+        <PageIn as="h1" delay={0.08} className="mb-4 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
           {project.title}
-        </FadeIn>
-        <FadeIn delay={0.08} className="mb-8 max-w-[50ch]">
+        </PageIn>
+        <PageIn delay={0.08} className="mb-8 max-w-[50ch]">
           <p className="font-serif text-2xl leading-snug tracking-tight text-muted-foreground">
             {project.subtitle}
           </p>
-        </FadeIn>
+        </PageIn>
       </div>
 
       {/* Hero image */}
-      <FadeIn delay={0.16} className="wrap-wide">
+      <PageIn delay={0.16} className="wrap-wide">
         {project.featureVideo ? (
-          <div className="overflow-hidden rounded-2xl">
+          // The poster is the page's largest paint, so it is a responsive, high-priority image under the
+          // video (a poster attribute has no srcset, so phones would fetch the full-size file). The video
+          // has no poster of its own and stays transparent until its first frame is ready.
+          <div className="relative aspect-video overflow-hidden rounded-2xl bg-primary">
+            <Image
+              src={project.featureVideo.poster}
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover"
+              priority
+              fetchPriority="high"
+            />
             <video
-              className="aspect-video w-full object-cover"
-              poster={project.featureVideo.poster}
+              className="absolute inset-0 h-full w-full object-cover"
               aria-label={project.featureVideo.alt}
               data-autoplay
               controls={!!reducedMotion}
@@ -166,8 +176,10 @@ export default function CaseStudyLayout({
               alt={project.featureImageAlt || `${project.title} project showcase`}
               width={1400}
               height={600}
+              sizes="100vw"
               className="project-img w-full object-cover"
               priority
+              fetchPriority="high"
             />
           </div>
         ) : (
@@ -175,10 +187,10 @@ export default function CaseStudyLayout({
             <span className="font-serif text-2xl text-primary-foreground/30">{project.title}</span>
           </div>
         )}
-      </FadeIn>
+      </PageIn>
 
       {/* Project facts: one horizontal band under the hero */}
-      <FadeIn as="div" className="wrap-wide mt-12 lg:mt-16">
+      <PageIn delay={0.16} className="wrap-wide mt-12 lg:mt-16">
         <dl className="grid grid-cols-2 gap-x-8 gap-y-8 border-t border-border pt-8 md:grid-cols-3 lg:flex lg:justify-between lg:gap-x-12">
           {[
             { label: "Client", value: project.client },
@@ -194,7 +206,7 @@ export default function CaseStudyLayout({
             </div>
           ))}
         </dl>
-      </FadeIn>
+      </PageIn>
 
       {/* Overview: the intro, on the same grid as the chapters */}
       <section className="wrap mt-24 mb-32 lg:mt-24">
@@ -272,7 +284,7 @@ export default function CaseStudyLayout({
             <div className="overflow-hidden rounded-2xl bg-primary">
               <video
                 className="aspect-video w-full object-cover"
-                data-poster={project.showcaseVideo.poster}
+                data-poster={imageVariant(project.showcaseVideo.poster, 1280)}
                 aria-label={project.showcaseVideo.alt}
                 data-autoplay
                 controls={!!reducedMotion}
@@ -390,7 +402,7 @@ export default function CaseStudyLayout({
           <div className="overflow-hidden rounded-2xl bg-primary">
             <video
               className="aspect-video w-full object-cover"
-              data-poster={project.showcaseVideo.poster}
+              data-poster={imageVariant(project.showcaseVideo.poster, 1280)}
               aria-label={project.showcaseVideo.alt}
               data-autoplay
               controls={!!reducedMotion}
