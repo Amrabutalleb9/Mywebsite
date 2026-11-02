@@ -77,11 +77,6 @@ const reviewTiers = [
 
 const sprintTiers = [
   {
-    name: "Launch + product",
-    price: "$8,000",
-    detail: "Everything in Launch, plus UI direction for up to about 12 key app or dashboard screens and 30 days of reviews after launch",
-  },
-  {
     name: "Launch",
     price: "$4,800",
     detail: "Identity system and guidelines, an investor or sales deck (story and design, up to 15 slides), and a landing page for desktop and mobile in Figma",
@@ -126,7 +121,7 @@ const pieces = [
   },
 ]
 
-// Proof order: Bay Area Trips, Agfin, Overpowered, SPLT, TapTools, the Hodel book.
+// Proof order: Bay Area Trips, Agfin, Overpowered, SPLT, the Hodel book. TapTools is not used as proof (Amr, 2 Nov).
 // Every line is taken from the case study in lib/projects.ts. Images are the homepage card images.
 const work = [
   {
@@ -160,14 +155,6 @@ const work = [
     result: "One platform for members, trainers, gyms and the team running it.",
     image: "/images/split-card-v2.webp",
     alt: "SPLT trainer dashboard beside the trainer profile and subscription plans in the app",
-  },
-  {
-    slug: "taptools",
-    title: "TapTools",
-    line: "The core flows of a live analytics platform, redesigned so the number people came for reads first.",
-    result: "User-reported issues down 23% within 60 days.",
-    image: "/images/taptools-card-poster-v6.webp",
-    alt: "TapTools market, portfolio and wallet profiler screens, with the swap card in front",
   },
   {
     slug: "steve-hodel",
