@@ -53,7 +53,7 @@ const emptyAnswers: Answers = {
 const who = [
   "You’re raising or launching in the next few months, and the deck, the site and the app were made by different people at different times. It shows.",
   "You have a designer or a few freelancers, but no one decides what’s right before it goes out.",
-  "You run an agency, and a pitch or a big account needs a senior creative director you don’t have the time to hire.",
+  "You run an agency, and a pitch or a big account needs senior design work you don’t have the time to hire.",
 ]
 
 const reviewTiers = [
@@ -127,17 +127,12 @@ const pieces = [
 
 const work = [
   {
-    title: "Overpowered",
-    line: "A London agency. With the CEO we narrowed 6 service areas to 3, and I directed the new identity.",
-    result: "The team grew from 6 to about 25 in 7 months.",
-    href: "/work/overpowered",
-    image: "/images/op-hero-loop-poster-v1.webp",
-    alt: "The OP logomark as a giant glass sculpture floating above a hill",
-  },
-  {
-    title: "The Line Real Estate",
-    line: "A rebrand for high-value buyers with an in-house team of about 11.",
-    result: "Client engagement rose 57%.",
+    title: "Bay Area Trips",
+    line: "Most of the ideas were the same idea, so they became one directory across web, mobile web and app.",
+    result: "A US travel platform, built with a team of about 30.",
+    href: "/work/bay-area-trips",
+    image: "/images/bay-hero-loop-poster-v2.webp",
+    alt: "The Bay Area Trips website and two app screens on a cream studio set in late-afternoon light",
   },
   {
     title: "Agfin",
@@ -148,20 +143,25 @@ const work = [
     alt: "Agfin homepage hero: morning cloud clearing over a Wimmera paddock",
   },
   {
-    title: "Bay Area Trips",
-    line: "A US travel platform built with a team of about 30.",
-    result: "Most of the ideas were the same idea, so they became one directory across web, mobile web and app.",
-    href: "/work/bay-area-trips",
-    image: "/images/bay-hero-loop-poster-v2.webp",
-    alt: "The Bay Area Trips website and two app screens on a cream studio set in late-afternoon light",
-  },
-  {
     title: "As Within, So Without",
     line: "A 212-page book for Steve Hodel, with more than 130 archival images.",
     result: "On sale on Amazon.",
     href: "/work/steve-hodel",
     image: "/images/steve-hodel-feature-v2.webp",
     alt: "Chapter Ten spread of As Within, So Without, with an archival portrait facing the chapter title",
+  },
+  {
+    title: "The Line Real Estate",
+    line: "A rebrand for high-value buyers.",
+    result: "Client engagement rose 57%, with an in-house team of about 11.",
+  },
+  {
+    title: "Overpowered",
+    line: "A London agency. With the CEO we narrowed 6 service areas to 3, and I directed the new identity.",
+    result: "The team grew from 6 to about 25 in 7 months.",
+    href: "/work/overpowered",
+    image: "/images/op-hero-loop-poster-v1.webp",
+    alt: "The OP logomark as a giant glass sculpture floating above a hill",
   },
 ]
 
@@ -183,7 +183,7 @@ const faq = [
   },
   {
     q: "We already have a designer.",
-    a: "Good. The Seat isn’t another designer. It’s the person who decides what’s right before it ships and gives your designer a clear direction to work from.",
+    a: "Good. I still design the work. On a seat I also decide what’s right before it ships, and your designer gets a clear direction to work from.",
   },
   {
     q: "Can you do it cheaper?",
@@ -302,12 +302,12 @@ export default function ServicesPage() {
         <section className="wrap">
           <FadeIn>
             <h1 className="max-w-[16ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
-              {tp("Senior creative direction, without the full-time hire")}
+              {tp("I design the brand, the deck and the product")}
             </h1>
           </FadeIn>
           <FadeIn delay={0.08}>
             <p className="mt-8 max-w-[60ch] text-lg leading-relaxed text-muted-foreground">
-              {tp("I’m Amr Abu-Talleb, a Fractional Creative Director in Cairo. I’ve spent 13 years in brand, campaigns and digital product, leading teams of up to 25 across 8 markets. I work with startups and agencies who need the brand, the deck, the site and the product to look like one company.")}
+              {tp("I’m Amr Abu-Talleb. I design the brand, the deck, the site and the product so they read as one company. I’ve done that for 13 years, and I’ve led teams of up to 25 when the work needed it.")}
             </p>
           </FadeIn>
           <FadeIn delay={0.08}>
@@ -413,14 +413,14 @@ export default function ServicesPage() {
         <section className="wrap mt-32" aria-labelledby="agencies-heading">
           <FadeIn>
             <h2 id="agencies-heading" className="max-w-[18ch] font-serif text-[length:var(--text-section)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground">
-              {tp("A senior creative director behind your agency’s name")}
+              {tp("The work, under your agency’s name")}
             </h2>
             <div className="mt-8 flex max-w-[60ch] flex-col gap-6 leading-relaxed text-muted-foreground">
               <p>
-                {tp("For pitches, a big account, or when your CD is stretched. I work under your agency’s name on a Review seat or a Creative Lead Seat, or take on a Launch sprint as a subcontract. Your client sees your agency. I don’t show the work, post about it or put it in a portfolio without your OK.")}
+                {tp("For a pitch, a big account, or when your CD is stretched. I design under your agency’s name on a Review seat or a Creative Lead seat, or take on a Launch sprint as a subcontract. Your client sees your agency. I don’t show the work, post about it or put it in a portfolio without your OK.")}
               </p>
               <p>
-                {tp("Most recently I was Creative Director at Overpowered, a London agency, where the team grew from 6 to about 25 people in 7 months and I led the identity. I work in English and Arabic, which helps on Gulf accounts.")}
+                {tp("Most recently, at Overpowered in London, I directed the new identity with the CEO. The team grew from 6 to about 25 in 7 months. I work in English and Arabic, which helps on Gulf accounts.")}
               </p>
             </div>
             <div className="mt-12">

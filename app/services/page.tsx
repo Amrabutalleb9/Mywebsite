@@ -6,9 +6,9 @@ import { pageMeta } from "@/lib/seo"
 
 export const metadata: Metadata = {
   ...pageMeta({
-    title: "Senior creative direction · Amr Abu-Talleb",
+    title: "I design the work · Amr Abu-Talleb",
     description:
-      "Fractional creative direction from Cairo for startups and agencies. A written design review, a launch sprint, or a creative director on the team a few hours a week.",
+      "I design brands, campaigns, decks and products for startups and agencies so they read as one company. A written review, a launch sprint, or a few hours a week.",
     path: "/services",
   }),
   robots: {
