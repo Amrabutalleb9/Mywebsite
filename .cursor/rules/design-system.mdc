@@ -315,8 +315,14 @@ The link sits directly under the content, and the divider line **closes** the se
 
 ## Homepage Order
 
-About (Oct 2026, staging: the /about page was folded into the homepage and now opens it, `components/homepage/about-intro.tsx`; the portrait circle with the gold line drawn across it, the page's h1, then the story along a gold spine with brush-and-ink drawings, "What I do", and the closing role line; the spine turns to the centre and ends in an ink drop) → Hero (eyebrow label, two-line headline as an h2, three number stats with hairline dividers) → black client band → Case Studies (+ Project Highlights; the section closes on its divider because /projects is hidden on staging and 301s to /#work) → white services marquee → Testimonials + Stats, which is the last section before the footer and keeps the bottom padding (`pb-24 lg:pb-32`). /about 301s to /#about. The separate homepage CTA was removed in Oct 2026; the footer carries the contact prompt. The skills marquee was retired in Oct 2026. Articles were retired in Oct 2026 (/articles 301s to /). Page metadata goes through `pageMeta()` in `lib/seo.ts`.
+1. Hero: eyebrow label, two-line headline, three number stats with hairline dividers. It uses `min-h-[calc(100svh-4rem)]` with svh-clamped spacing, so the top of the client band always peeks into the first screen.
+2. Black client band.
+3. Case studies, then Project highlights and All projects.
+4. About, ending on its inline "About Amr Abu-Talleb" link.
+5. White services marquee.
+6. Testimonials and stats: the last section before the footer, and the only one that keeps bottom padding (`pb-24 lg:pb-32`).
 
+Page metadata goes through `pageMeta()` in `lib/seo.ts`.
 
 ## Homepage Section Rhythm
 
@@ -359,7 +365,7 @@ Copy is written in Amr's voice, built from his own words. Rules:
 
 ## Footer (Oct 2026)
 
-Option B from the footer lab (`footer-options` branch, /footer-lab): a white form card hanging from the top edge (7 of 12 columns) beside the "Let’s talk" words. Name and email side by side, topic as one-tap pills, focus is a 2px `--accent-text` underline over an `--input-strong` resting underline (never a box or ring), inputs carry `autoComplete`. Messages go through Web3Forms (`lib/contact.ts`) with the topic in the subject and the sender as reply-to. On /contact the card is dropped because the page has its own form, and the homepage uses the same card-free footer (Oct 2026, staging).
+Option B from the footer lab (`footer-options` branch, /footer-lab): a white form card hanging from the top edge (7 of 12 columns) beside the "Let’s talk" words. Name and email side by side, topic as one-tap pills, focus is a 2px `--accent-text` underline over an `--input-strong` resting underline (never a box or ring), inputs carry `autoComplete`. Messages go through Web3Forms (`lib/contact.ts`) with the topic in the subject and the sender as reply-to. On /contact the card is dropped because the page has its own form.
 
 ## Buttons (Oct 2026)
 
