@@ -5,6 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import FadeIn from "./fade-in"
+import PageIn from "./page-in"
 import { Lightbox } from "./ui/lightbox"
 import type { ProjectHighlight } from "@/lib/projects"
 
@@ -29,7 +30,7 @@ export default function HighlightLayout({
       <div className="wrap">
 
         {/* Back link */}
-        <FadeIn>
+        <PageIn>
           <Link
             href="/#work"
             className="mb-12 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -37,24 +38,24 @@ export default function HighlightLayout({
             <ArrowLeft size={18} />
             Back to Work
           </Link>
-        </FadeIn>
+        </PageIn>
 
         {/* Title , smaller than case studies, different label */}
-        <FadeIn>
+        <PageIn>
           <p className="mb-4 text-xs font-medium tracking-[var(--tracking-label)] text-accent uppercase">Project highlight</p>
-        </FadeIn>
-        <FadeIn as="h1" delay={0.08} className="mb-3 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
+        </PageIn>
+        <PageIn as="h1" delay={0.08} className="mb-3 max-w-[20ch] font-serif text-[length:var(--text-page)] font-normal leading-[var(--leading-tight)] tracking-tight text-foreground">
           {project.title}
-        </FadeIn>
-        <FadeIn delay={0.08} className="mb-12 max-w-[50ch]">
+        </PageIn>
+        <PageIn delay={0.08} className="mb-12 max-w-[50ch]">
           <p className="font-serif text-2xl leading-snug tracking-tight text-muted-foreground">
             {project.subtitle}
           </p>
-        </FadeIn>
+        </PageIn>
       </div>
 
       {/* Hero image */}
-      <FadeIn delay={0.16} className="wrap-wide mb-12 lg:mb-16">
+      <PageIn delay={0.16} className="wrap-wide mb-12 lg:mb-16">
         {project.featureImage ? (
           <div
             className="project-img-wrap overflow-hidden rounded-lg"
@@ -69,8 +70,10 @@ export default function HighlightLayout({
               alt={project.featureImageAlt || `${project.title} feature image`}
               width={1200}
               height={514}
+              sizes="100vw"
               className="project-img w-full object-cover"
               priority
+              fetchPriority="high"
             />
           </div>
         ) : (
@@ -78,7 +81,7 @@ export default function HighlightLayout({
             <span className="font-serif text-2xl text-primary-foreground/30">{project.title}</span>
           </div>
         )}
-      </FadeIn>
+      </PageIn>
 
       {/* Project facts: one horizontal band under the hero, stretched like the case studies */}
       {(() => {
