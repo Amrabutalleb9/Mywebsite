@@ -1,6 +1,7 @@
 // Private staging gate (staging branch only).
 // Every host except the live site asks for a username and password,
-// and nothing on staging is indexed. The repo is public, so only a
+// and nothing on staging is indexed. robots.txt is the one file served
+// without a password, and it disallows the whole site. The repo is public, so only a
 // SHA-256 hash of "user:password" is stored here.
 
 const LIVE_HOSTS = new Set(["amrabutalleb.com", "www.amrabutalleb.com", "mywebsite-dqc.pages.dev"])
@@ -14,6 +15,17 @@ async function sha256Hex(text) {
 export const onRequest = async ({ request, next }) => {
   const { hostname } = new URL(request.url)
   if (LIVE_HOSTS.has(hostname)) return next()
+
+  const { pathname } = new URL(request.url)
+  if (pathname === "/robots.txt") {
+    return new Response("User-agent: *\nDisallow: /\n", {
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "X-Robots-Tag": "noindex, nofollow",
+        "Cache-Control": "no-store",
+      },
+    })
+  }
 
   const auth = request.headers.get("Authorization") || ""
   let ok = false
