@@ -1,5 +1,12 @@
 import Link from "next/link"
+import type { Metadata } from "next"
 import SiteChrome from "@/components/site-chrome"
+
+export const metadata: Metadata = {
+  title: { absolute: "Page not found · Amr Abu-Talleb" },
+  robots: { index: false, follow: false },
+  alternates: { canonical: null },
+}
 
 export default function NotFound() {
   return (

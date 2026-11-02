@@ -5,7 +5,7 @@ export const dynamic = "force-static"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://amrabutalleb.com"
-  const siteUpdated = new Date("2026-10-23")
+  const siteUpdated = new Date("2026-11-02")
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: base, lastModified: siteUpdated, changeFrequency: "weekly", priority: 1 },
@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: siteUpdated,
     changeFrequency: "monthly",
     priority: 0.8,
+    images: [`${base}/images/og/${p.slug}-v1.jpg`, ...(p.featureImage ? [`${base}${p.featureImage}`] : [])],
   }))
 
   const highlightPages: MetadataRoute.Sitemap = projectHighlights.map((p) => ({

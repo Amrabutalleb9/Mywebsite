@@ -1,21 +1,17 @@
 {
-  "name": "Amr Abu-Talleb | Creative Director",
+  "name": "Amr Abu-Talleb · Designer and creative director",
   "short_name": "Amr Abu-Talleb",
-  "description": "Portfolio of Amr Abu-Talleb, Creative Director for brand, campaigns and digital products.",
+  "description": "Portfolio of Amr Abu-Talleb, designer and creative director for brand, campaigns and digital products.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#0d0d1a",
   "icons": [
-    {
-      "src": "/favicon.ico",
-      "sizes": "48x48",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "/apple-touch-icon.png",
-      "sizes": "180x180",
-      "type": "image/png"
-    }
+    { "src": "/favicon.ico", "sizes": "48x48", "type": "image/x-icon" },
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }
