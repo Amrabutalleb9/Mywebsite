@@ -1,0 +1,182 @@
+/* OTO / DDS sales pages — pairs with brand-layer inline styles + theme.css + site.css */
+
+.funnel-oto-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.funnel-oto-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: min(85vh, 720px);
+  padding: clamp(0.75rem, 2.5vw, 1.75rem) 1rem clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.funnel-oto-hero .bgVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.funnel-oto-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--brand-grad-hero-overlay);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.funnel-oto-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.funnel-oto-logo {
+  width: min(180px, 40vw);
+  height: auto;
+  display: block;
+}
+
+.funnel-oto-eyebrow {
+  font-family: var(--contentfont, "DM Sans", sans-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brand-gold, #c9a84c);
+  margin: 0;
+}
+
+.funnel-oto-title {
+  font-family: var(--headlinefont, "Barlow Condensed", sans-serif);
+  font-size: clamp(1.85rem, 5vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--brand-text-headline, #fff);
+  margin: 0;
+}
+
+.funnel-oto-title .accent {
+  color: var(--brand-gold, #c9a84c);
+}
+
+.funnel-oto-lead {
+  font-family: var(--contentfont, "DM Sans", sans-serif);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--brand-text-muted, #9ca3af);
+  max-width: 40rem;
+  margin: 0;
+}
+
+.funnel-oto-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+  padding: 0.9rem 1.75rem;
+  border-radius: 4px;
+  background: var(--brand-red, #c0392b) !important;
+  color: #fff !important;
+  font-family: var(--contentfont, "DM Sans", sans-serif) !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.funnel-oto-cta:hover {
+  background: var(--brand-red-hover, #a93226) !important;
+  color: #fff !important;
+}
+
+.funnel-oto-section {
+  padding: clamp(2rem, 5vw, 3.5rem) 1.25rem;
+}
+
+.funnel-oto-section.alt {
+  background-color: var(--brand-navy-secondary, #131a30) !important;
+}
+
+.funnel-oto-section-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.funnel-oto-section h2 {
+  font-family: var(--headlinefont, "Barlow Condensed", sans-serif);
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--brand-text-headline, #fff);
+  margin: 0 0 1rem;
+}
+
+.funnel-oto-section p {
+  font-family: var(--contentfont, "DM Sans", sans-serif);
+  color: var(--brand-text-muted, #9ca3af);
+  line-height: 1.7;
+  margin: 0 0 1rem;
+}
+
+.funnel-oto-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-family: var(--contentfont, "DM Sans", sans-serif);
+  color: var(--brand-text-primary, #f0f0f0);
+  line-height: 1.75;
+}
+
+.funnel-oto-list li {
+  margin-bottom: 0.5rem;
+}
+
+.funnel-oto-guarantee {
+  border: 1px solid var(--brand-border, #2d3a55);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  background: var(--brand-navy-card, #232e4a);
+}
+
+.funnel-oto-footer {
+  margin-top: auto;
+  padding: 1.5rem 1rem 2rem;
+  text-align: center;
+  font-family: var(--contentfont, "DM Sans", sans-serif);
+  font-size: 0.875rem;
+  color: var(--brand-text-muted, #9ca3af);
+}
+
+.funnel-oto-footer a {
+  color: var(--brand-gold, #c9a84c);
+}
+
+@media (max-width: 768px) {
+  .funnel-oto-hero-inner {
+    align-items: stretch;
+    text-align: left;
+  }
+
+  .funnel-oto-title {
+    text-align: left;
+  }
+}
