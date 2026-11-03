@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="280" viewBox="0 0 280 280" fill="none" role="img" aria-labelledby="guaranteeSealTitle">
+  <title id="guaranteeSealTitle">Amr's Blueprint Guarantee, lifetime satisfaction</title>
+  <circle cx="140" cy="140" r="130" fill="#131a30" stroke="#c9a84c" stroke-width="6"/>
+  <circle cx="140" cy="140" r="116" fill="none" stroke="#c9a84c" stroke-width="2" opacity="0.45"/>
+  <text x="140" y="104" text-anchor="middle" fill="#c9a84c" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" font-weight="700" letter-spacing="0.16em">AMR'S BLUEPRINT</text>
+  <text x="140" y="154" text-anchor="middle" fill="#f8fafc" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="32" font-weight="800" letter-spacing="0.08em">GUARANTEE</text>
+  <text x="140" y="188" text-anchor="middle" fill="#e2e8f0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" font-weight="600" letter-spacing="0.12em">LIFETIME SATISFACTION</text>
+</svg>

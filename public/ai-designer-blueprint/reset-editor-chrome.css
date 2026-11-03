@@ -1,0 +1,38 @@
+/* GoHighLevel save-as: strip editor preview chrome + preview tint (see plan) */
+#preview-container.hl_page-preview--content .c-section.c-wrapper,
+#preview-container.hl_page-preview--content .c-row.c-wrapper,
+#preview-container.hl_page-preview--content .c-column.c-wrapper {
+  border: 0 none transparent !important;
+  border-width: 0 !important;
+  border-style: none !important;
+  border-color: transparent !important;
+}
+
+#preview-container.preview-container {
+  background-image: none !important;
+}
+
+#preview-container.preview-container::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* Hero shell details live in site.css (load order). Video layer only here. */
+#section-0BnD6agQ3.hero-background {
+  position: relative !important;
+}
+
+#section-0BnD6agQ3.hero-background > div:first-of-type {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
+}
+
+#section-0BnD6agQ3.hero-background > div:first-of-type video.bgVideo {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
