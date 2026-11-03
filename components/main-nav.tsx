@@ -5,8 +5,8 @@ import Link from "next/link"
 import { Menu, X, ArrowUpRight } from "lucide-react"
 
 const navItems = [
-  { label: "Projects", href: "/projects" },
-  { label: "About", href: "/about" },
+  { label: "Projects", href: "/#work" },
+  { label: "About", href: "/#about" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/abutalleb/", external: true },
 ] as { label: string; href: string; external?: boolean }[]
 
