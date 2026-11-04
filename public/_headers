@@ -23,3 +23,9 @@
   X-Robots-Tag: noindex, nofollow
 /services.html
   X-Robots-Tag: noindex, nofollow
+
+# Storefront email previews and the click report are private links. They stay out of search results.
+/s/*
+  X-Robots-Tag: noindex, nofollow
+/api/*
+  X-Robots-Tag: noindex, nofollow

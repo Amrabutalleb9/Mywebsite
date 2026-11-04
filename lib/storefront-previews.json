@@ -1,0 +1,23 @@
+{
+  "_readme": "Storefront email previews served at /s/<slug> (noindex, not in the sitemap). Each sales email gets its own slug, so a visit to /s/<slug> is logged against that business by functions/s/[[path]].js. Entries are written by the Storefront tool (amr-storefront track). Images live in public/images/s/ and are never overwritten: a new image gets a new filename. Entries with \"example\": true are test data, not real businesses.",
+  "previews": [
+    {
+      "slug": "example-clinic",
+      "business": "Example Clinic",
+      "example": true,
+      "added": "2026-11-04",
+      "before": {
+        "src": "/images/agfin-process-1-w1.webp",
+        "width": 1400,
+        "height": 1050,
+        "alt": "Example image standing in for a current website"
+      },
+      "after": {
+        "src": "/images/agfin-result-w1.webp",
+        "width": 1400,
+        "height": 1050,
+        "alt": "Example image standing in for a redesign concept"
+      }
+    }
+  ]
+}
