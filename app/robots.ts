@@ -11,6 +11,9 @@ export default function robots(): MetadataRoute.Robots {
     // /services is disallowed for every user agent, including the AI crawlers below.
     // The page stays noindex as well: the meta robots tag, and X-Robots-Tag in public/_headers.
     "/services",
+    // Storefront email previews (one private link per business) and the click report.
+    "/s/",
+    "/api/",
   ]
 
   const disallow = hiddenWorkPaths.length > 0 ? { disallow: hiddenWorkPaths } : {}
