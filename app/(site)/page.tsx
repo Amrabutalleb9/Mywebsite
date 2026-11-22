@@ -62,7 +62,7 @@ function SubHeader({ label }: { label: string }) {
 
 function WorkSection() {
   return (
-    <section id="work" className="overflow-hidden px-8 pt-32 lg:px-16 lg:pt-48">
+    <section id="work" className="overflow-x-clip px-8 pt-32 lg:px-16 lg:pt-48">
 
       <ScrollReveal>
         <SubHeader label="Work" />
@@ -77,7 +77,9 @@ function WorkSection() {
 
           return (
             <ScrollReveal key={project.slug} delay={0.08}>
-              <Link href={`/work/${project.slug}`} className="work-card group block" data-cursor-label={`Explore ${project.title}`}>
+              {/* The card is an article; only the title is the link, and its hit area stretches over the whole
+                  card (.card-link::after), so screen readers hear a short link name instead of the whole card. */}
+              <article className="work-card group relative block" data-cursor-label={`Explore ${project.title}`}>
                 <div className={`flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-12 ${!isRight ? "lg:flex-row-reverse" : ""}`}>
                   <div className="lg:w-[30%] lg:flex-shrink-0">
                     <div className="flex gap-4">
@@ -86,7 +88,7 @@ function WorkSection() {
                         <span className="text-[length:var(--text-micro)] tracking-[var(--tracking-sublabel)] text-muted-foreground uppercase">{project.category}</span>
                         <p className="mt-1 text-xs text-muted-foreground">{project.year}</p>
                         <h3 className="mt-1 font-serif text-[length:var(--text-sub)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground transition-colors duration-300 group-hover:text-accent">
-                          {project.title}
+                          <Link href={`/work/${project.slug}`} className="card-link">{project.title}</Link>
                         </h3>
                         <p className="mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
                           {project.subtitle}
@@ -122,7 +124,7 @@ function WorkSection() {
                             alt={project.featureImageAlt || project.title}
                             width={900}
                             height={562}
-                            sizes="(max-width: 768px) 100vw, 50vw"
+                            sizes="(min-width: 1024px) 60vw, 100vw"
                             className="card-img hidden aspect-[16/10] w-full object-cover motion-reduce:block"
                           />
                         </>
@@ -132,7 +134,7 @@ function WorkSection() {
                           alt={project.featureImageAlt || project.title}
                           width={900}
                           height={562}
-                          sizes="(max-width: 768px) 100vw, 50vw"
+                          sizes="(min-width: 1024px) 60vw, 100vw"
                           className="card-img aspect-[16/10] w-full object-cover"
                         />
                       ) : (
@@ -142,13 +144,13 @@ function WorkSection() {
                       )}
                       <div className="absolute right-6 bottom-6">
                         <div className={`card-arrow flex h-10 w-10 items-center justify-center rounded-full border ${"motion" in project && project.motion === "hodel-proof" ? "border-foreground/30 bg-background/70 text-foreground/70" : "border-primary-foreground/30 text-primary-foreground/50"}`}>
-                          <ArrowUpRight size={18} />
+                          <ArrowUpRight size={18} aria-hidden="true" />
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </Link>
+              </article>
             </ScrollReveal>
           )
         })}
@@ -163,7 +165,7 @@ function WorkSection() {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {highlightCards.map((project, i) => (
             <ScrollReveal key={project.slug} delay={i * 0.08}>
-              <Link href={`/highlights/${project.slug}`} className="highlight-card group block" data-cursor-label={`View ${project.title}`}>
+              <article className="highlight-card group relative block" data-cursor-label={`View ${project.title}`}>
                 <div className="relative overflow-hidden rounded-lg bg-primary">
                   {project.featureImage ? (
                     <Image
@@ -171,7 +173,7 @@ function WorkSection() {
                       alt={project.featureImageAlt || project.title}
                       width={600}
                       height={375}
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      sizes="(min-width: 768px) 50vw, 100vw"
                       className="card-img aspect-[16/10] w-full object-cover"
                     />
                   ) : (
@@ -180,9 +182,9 @@ function WorkSection() {
                     </div>
                   )}
                   <div className="highlight-shine pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" aria-hidden="true" />
-                  <div className="card-arrow absolute right-4 bottom-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <div className="card-arrow absolute right-4 bottom-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-has-[:focus-visible]:opacity-100 [@media(hover:none)]:opacity-100">
                     <div className="flex h-8 w-8 items-center justify-center rounded-full border border-primary-foreground/30 text-primary-foreground/70">
-                      <ArrowUpRight size={14} />
+                      <ArrowUpRight size={14} aria-hidden="true" />
                     </div>
                   </div>
                 </div>
@@ -197,7 +199,7 @@ function WorkSection() {
                     )}
                   </div>
                   <h3 className="text-base font-semibold leading-snug text-foreground transition-colors duration-300 group-hover:text-accent">
-                    {project.title}
+                    <Link href={`/highlights/${project.slug}`} className="card-link">{project.title}</Link>
                   </h3>
                   <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
                     {project.subtitle}
@@ -206,7 +208,7 @@ function WorkSection() {
                     <p className="mt-2 text-xs text-accent/70">{project.result}</p>
                   )}
                 </div>
-              </Link>
+              </article>
             </ScrollReveal>
           ))}
         </div>
@@ -217,7 +219,7 @@ function WorkSection() {
         <div className="mt-12 flex justify-center border-b border-border pb-8">
           <Link href="/projects" className="text-link inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground uppercase">
             All&nbsp;projects
-            <ArrowUpRight size={14} />
+            <ArrowUpRight size={14} aria-hidden="true" />
           </Link>
         </div>
       </ScrollReveal>
@@ -262,7 +264,7 @@ function About() {
               </p>
               <Link href="/about" className="text-link inline-flex items-center gap-2 text-sm font-medium text-foreground">
                 About Amr Abu-Talleb
-                <ArrowRight size={14} />
+                <ArrowRight size={14} aria-hidden="true" />
               </Link>
             </ScrollReveal>
 

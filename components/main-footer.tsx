@@ -1,9 +1,10 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { usePathname } from "next/navigation"
 import { ArrowUpRight } from "lucide-react"
 import { submitContactForm } from "@/lib/contact"
+import MotionToggle from "@/components/motion-toggle"
 
 const EMAIL = "hello@amrabutalleb.com"
 const LINKEDIN = "https://www.linkedin.com/in/abutalleb/"
@@ -28,6 +29,12 @@ export default function MainFooter() {
   const onContact = pathname === "/contact"
   const [form, setForm] = useState({ name: "", email: "", topic: "", message: "", botcheck: false })
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle")
+  const sentRef = useRef<HTMLParagraphElement>(null)
+
+  // After a successful send the form (and its focused button) is replaced, so move focus to the confirmation.
+  useEffect(() => {
+    if (status === "sent") sentRef.current?.focus()
+  }, [status])
 
   const set = (k: "name" | "email" | "message") => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }))
@@ -41,6 +48,7 @@ export default function MainFooter() {
       email: form.email,
       message: form.topic ? `${form.message}\n\nTopic: ${form.topic}` : form.message,
       subject: form.topic ? `${form.topic}: message from ${form.name}` : undefined,
+      botcheck: form.botcheck,
     })
     setStatus(result.success ? "sent" : "error")
   }
@@ -68,12 +76,16 @@ export default function MainFooter() {
         <div className="px-8 py-24 lg:px-16 lg:py-32">{words}</div>
       ) : (
         <div className="grid gap-12 px-8 lg:grid-cols-12 lg:gap-16 lg:px-16">
+          {/* Words come first in the DOM, so the heading introduces the form for keyboard and screen-reader
+              users; on desktop the grid places the card on the left. */}
+          <div className="flex flex-col justify-center pt-24 lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:pt-0 lg:pb-24">{words}</div>
+
           {/* Card */}
-          <div className="order-2 pb-16 lg:order-1 lg:col-span-7 lg:pb-24">
+          <div className="pb-16 lg:col-span-7 lg:col-start-1 lg:row-start-1 lg:pb-24">
             <div className="rounded-b-[var(--radius)] bg-background p-8 text-foreground sm:p-12 lg:p-16">
               {status === "sent" ? (
-                <div className="flex min-h-[420px] flex-col justify-center" aria-live="polite">
-                  <p className="font-serif text-[length:var(--text-sub)] tracking-tight">Message&nbsp;sent.</p>
+                <div className="flex min-h-[420px] flex-col justify-center">
+                  <p ref={sentRef} tabIndex={-1} className="font-serif text-[length:var(--text-sub)] tracking-tight outline-none">Message&nbsp;sent.</p>
                   <p className="mt-3 text-muted-foreground">{"Thank you. I’ll reply within 24 hours."}</p>
                 </div>
               ) : (
@@ -95,47 +107,51 @@ export default function MainFooter() {
                     </label>
                     <label className="block">
                       <span className="text-sm text-muted-foreground">Email</span>
-                      <input name="email" type="email" autoComplete="email" required value={form.email} onChange={set("email")} className={field} />
+                      <input name="email" type="email" autoComplete="email" spellCheck={false} required value={form.email} onChange={set("email")} className={field} />
                     </label>
                   </div>
                   <fieldset>
-                    <legend className="text-sm text-muted-foreground">{"Topic"}</legend>
+                    <legend className="text-sm text-muted-foreground">{"Topic (optional)"}</legend>
+                    {/* One choice from four: real radio buttons, styled as pills. */}
                     <div className="mt-3 flex flex-wrap gap-2">
                       {topics.map((t) => (
-                        <button
-                          type="button"
+                        <label
                           key={t.value}
-                          aria-pressed={form.topic === t.value}
-                          onClick={() => setForm((f) => ({ ...f, topic: f.topic === t.value ? "" : t.value }))}
-                          className={`rounded-full border px-4 py-2 text-sm transition-colors ${
-                            form.topic === t.value
-                              ? "border-foreground bg-foreground text-background"
-                              : "border-border text-foreground hover:border-foreground"
-                          }`}
+                          className="choice-pill inline-flex cursor-pointer items-center rounded-full border border-input-strong px-4 py-2 text-sm text-foreground transition-colors hover:border-foreground has-[:checked]:border-foreground has-[:checked]:bg-foreground has-[:checked]:text-background has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-3 has-[:focus-visible]:outline-accent-text [@media(pointer:coarse)]:min-h-11"
                         >
+                          <input
+                            type="radio"
+                            name="topic"
+                            value={t.value}
+                            checked={form.topic === t.value}
+                            onChange={() => setForm((f) => ({ ...f, topic: t.value }))}
+                            className="sr-only"
+                          />
                           {t.label}
-                        </button>
+                        </label>
                       ))}
                     </div>
                   </fieldset>
                   <label className="block">
                     <span className="text-sm text-muted-foreground">Message</span>
-                    <textarea name="message" rows={4} required value={form.message} onChange={set("message")} className={`${field} resize-none`} />
+                    <textarea name="message" rows={4} required value={form.message} onChange={set("message")} className={`${field} min-h-[6lh] resize-y [field-sizing:content]`} />
                   </label>
+                  {/* Always in the page, so the error is announced when it appears. */}
+                  <p className="sr-only" role="status">{status === "error" ? "That didn’t go through. Please email me directly." : ""}</p>
                   {status === "error" && (
-                    <p className="text-sm text-destructive" aria-live="polite">
+                    <p className="text-sm text-destructive">
                       {"That didn’t go through. Please email me at"}{" "}
                       <a href={`mailto:${EMAIL}`} className="link-inline">{EMAIL}</a>.
                     </p>
                   )}
                   <div className="flex flex-col-reverse items-start justify-between gap-4 sm:flex-row sm:items-center">
-                    <p className="text-xs text-muted-foreground">I&nbsp;reply within 24&nbsp;hours.</p>
+                    <p className="max-w-[34ch] text-xs text-muted-foreground">{"I\u00A0reply within 24\u00A0hours. Sent to\u00A0my inbox through Web3Forms and used only to\u00A0reply."}</p>
                     <button
                       type="submit"
                       disabled={status === "sending"}
                       className="btn btn-primary"
                     >
-                      {status === "sending" ? "Sending…" : "Send message"} <ArrowUpRight size={14} />
+                      {status === "sending" ? "Sending…" : "Send message"} <ArrowUpRight size={14} aria-hidden="true" />
                     </button>
                   </div>
                 </form>
@@ -143,14 +159,13 @@ export default function MainFooter() {
             </div>
           </div>
 
-          {/* Words */}
-          <div className="order-1 flex flex-col justify-center pt-24 lg:order-2 lg:col-span-5 lg:pt-0 lg:pb-24">{words}</div>
         </div>
       )}
 
       <div className="border-t border-primary-foreground/10 px-8 py-6 lg:px-16">
         <div className="flex flex-col items-start justify-between gap-3 text-xs text-primary-foreground/50 sm:flex-row sm:items-center">
           <p>&copy; 2026 Amr Abu-Talleb &middot; Designed and built by&nbsp;me</p>
+          <MotionToggle />
         </div>
       </div>
     </footer>

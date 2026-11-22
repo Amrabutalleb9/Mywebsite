@@ -1,13 +1,16 @@
 // Storefront click report: clicks (and unreliable opens) by business.
 //
-//   GET /api/s-report                  JSON, with  Authorization: Bearer <S_REPORT_TOKEN>
-//   GET /api/s-report?token=<token>    the same, for a browser
-//   add &format=csv for CSV, &events=1 to include every event (JSON only)
+//   GET /api/s-report    JSON, with  Authorization: Bearer <S_REPORT_TOKEN>
+//                        (or X-Report-Token: <S_REPORT_TOKEN>, used behind the staging password,
+//                        where the Authorization header is taken by Basic auth)
+//   add ?format=csv for CSV, &events=1 to include every event (JSON only)
+// The token is never accepted in the URL, so it can't end up in browser history or request logs.
+// Use scripts/s-report.mjs to pull the report.
 //
 // Needs the S_REPORT_TOKEN secret. Reads the CLICKS KV namespace; without it the report
 // still answers, with zero counts and "logging": "off".
 
-import { PREVIEWS } from "../_shared/storefront-tracking.js"
+import { PREVIEWS, SECURITY_HEADERS } from "../_shared/storefront-tracking.js"
 
 const OPENS_NOTE = "unreliable (Apple Mail privacy prefetch, image blocking)"
 const MAX_PAGES = 50 // 50,000 events per kind is far beyond what the email volume needs
@@ -27,6 +30,8 @@ function json(body, status = 200) {
   return new Response(JSON.stringify(body, null, 2), {
     status,
     headers: {
+      ...SECURITY_HEADERS,
+      "Cross-Origin-Resource-Policy": "same-origin",
       "Content-Type": "application/json; charset=utf-8",
       "Cache-Control": "no-store",
       "X-Robots-Tag": "noindex, nofollow",
@@ -73,7 +78,7 @@ export const onRequestGet = async ({ request, env }) => {
   if (!expected) return json({ error: "Report is not set up: add the S_REPORT_TOKEN secret." }, 503)
 
   const auth = request.headers.get("Authorization") || ""
-  const given = auth.startsWith("Bearer ") ? auth.slice(7).trim() : url.searchParams.get("token") || ""
+  const given = auth.startsWith("Bearer ") ? auth.slice(7).trim() : (request.headers.get("X-Report-Token") || "").trim()
   if (!given || !(await tokenMatches(given, expected))) return json({ error: "Unauthorised." }, 401)
 
   const kv = env.CLICKS
@@ -114,6 +119,8 @@ export const onRequestGet = async ({ request, env }) => {
     const lines = [cols.join(","), ...businesses.map((r) => cols.map((c) => csvCell(r[c])).join(","))]
     return new Response(lines.join("\n") + "\n", {
       headers: {
+        ...SECURITY_HEADERS,
+        "Cross-Origin-Resource-Policy": "same-origin",
         "Content-Type": "text/csv; charset=utf-8",
         "Content-Disposition": 'inline; filename="storefront-clicks.csv"',
         "Cache-Control": "no-store",

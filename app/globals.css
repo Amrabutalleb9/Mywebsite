@@ -3,6 +3,8 @@
 
 :root {
   --background: #ffffff;
+  /* Primary button hover ink (one token, used by .btn-primary and the testimonial next button). */
+  --primary-hover: color-mix(in srgb, #0d0d1a 84%, #ffffff);
   --foreground: #0d0d1a;
   --card: #ffffff;
   --card-foreground: #0d0d1a;
@@ -112,14 +114,21 @@
   }
   html {
     scroll-behavior: smooth;
+    /* Keeps focused links and #anchors clear of the fixed header (about 4.5rem tall). */
+    scroll-padding-top: 5rem;
   }
 }
+
+/* The site is light only, by choice: tell the browser, so native controls and auto-dark modes match. */
+:root { color-scheme: light; }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  *,
+  /* Safety net for anything without its own reduced-motion rule. The testimonial crossfade is left out
+     because it is designed to stay (opacity only, no movement). */
+  *:not(.swap-in-quote, .swap-out-quote, .swap-in-byline, .swap-out-byline),
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
@@ -130,8 +139,9 @@
 }
 
 /* ── Typography baseline ── */
+/* text-wrap: pretty applies to running text only (below), not every element, so the typesetting rules
+   in lib/typeset.ts stay in charge of headings and labels. */
 body {
-  text-wrap: pretty;
   font-kerning: normal;
   font-feature-settings: 'liga' 1, 'calt' 1;
 }
@@ -142,6 +152,8 @@ h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
   overflow-wrap: break-word;
 }
+/* Serif italics (quotes) use the separately loaded italic file. */
+.font-serif.italic, .font-serif .italic { font-family: var(--font-playfair-italic), "Playfair Display", Georgia, serif; }
 /* Hyphenation stays off: line breaks come from the typesetting rules, never from split words. */
 body { hyphens: manual; }
 
@@ -197,16 +209,24 @@ body { hyphens: manual; }
   font-weight: 500;
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
-  white-space: nowrap;
+  /* Long labels may wrap on narrow phones instead of overflowing; one line from 640px up. */
+  max-width: 100%;
+  white-space: normal;
+  text-align: center;
+  text-wrap: balance;
   cursor: pointer;
   transition:
     background-color var(--duration-normal) var(--ease-out-expo),
     border-color var(--duration-normal) var(--ease-out-expo),
     color var(--duration-normal) var(--ease-out-expo),
     box-shadow var(--duration-normal) var(--ease-out-expo),
-    transform var(--duration-normal) var(--ease-out-expo);
+    translate var(--duration-normal) var(--ease-out-expo),
+    scale var(--duration-normal) var(--ease-out-expo);
+  translate: 0;
+  scale: 1;
 }
 .btn:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 3px; }
+@media (min-width: 640px) { .btn { white-space: nowrap; } }
 :is(.bg-primary, .bg-foreground, footer, .on-dark) .btn:focus-visible { outline-color: var(--accent); }
 /* Compact size for the nav. Same type, smaller box. */
 .btn-sm { min-height: 2.5rem; padding: 0.5rem 1.5rem; }
@@ -217,18 +237,18 @@ body { hyphens: manual; }
 /* Hover stays filled, so it never reads as the secondary button: the ink lifts a step,
    a gold hairline appears and the arrow turns gold. */
 .btn-primary:hover:not(:disabled) {
-  background-color: color-mix(in srgb, var(--primary) 84%, #ffffff);
+  background-color: var(--primary-hover);
   border-color: var(--accent);
   color: var(--primary-foreground);
-  transform: translateY(-2px);
+  translate: 0 -2px;
   box-shadow: var(--shadow-md);
 }
 .btn-primary:hover:not(:disabled) svg { color: var(--accent); }
-.btn-primary:active:not(:disabled) { background-color: var(--primary); transform: translateY(0) scale(0.98); box-shadow: none; }
+.btn-primary:active:not(:disabled) { background-color: var(--primary); translate: 0; scale: 0.98; box-shadow: none; }
 
 .btn-secondary { background-color: transparent; border-color: var(--foreground); color: var(--foreground); }
-.btn-secondary:hover:not(:disabled) { background-color: rgba(13, 13, 26, 0.06); transform: translateY(-2px); }
-.btn-secondary:active:not(:disabled) { background-color: rgba(13, 13, 26, 0.12); transform: translateY(0) scale(0.98); }
+.btn-secondary:hover:not(:disabled) { background-color: rgba(13, 13, 26, 0.06); translate: 0 -2px; }
+.btn-secondary:active:not(:disabled) { background-color: rgba(13, 13, 26, 0.12); translate: 0; scale: 0.98; }
 
 .btn:hover:not(:disabled) .cta-arrow { transform: translate(2px, -2px); }
 /* Text links with the same arrow (nav, footer) nudge it the same way. */
@@ -238,7 +258,8 @@ a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
 
 @media (prefers-reduced-motion: reduce) {
   .btn, .btn .cta-arrow, .btn svg { transition: background-color 0s, border-color 0s, color 0s; }
-  .btn:hover:not(:disabled), .btn:active:not(:disabled), .btn:hover .cta-arrow { transform: none !important; }
+  .btn:hover:not(:disabled), .btn:active:not(:disabled) { translate: none !important; scale: none !important; }
+  .btn:hover .cta-arrow { transform: none !important; }
 }
 
 /* Clickable elements show pointer cursor */
@@ -317,12 +338,13 @@ a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
   filter: grayscale(0.4);
 }
 .capability-card {
+  translate: 0;
   transition:
-    transform var(--duration-normal) var(--ease-out-expo),
+    translate var(--duration-normal) var(--ease-out-expo),
     box-shadow var(--duration-normal) var(--ease-out-expo);
 }
 .capability-card:hover {
-  transform: translateY(-3px);
+  translate: 0 -3px;
   box-shadow: var(--shadow-sm);
 }
 
@@ -350,7 +372,7 @@ a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
 
 @media (prefers-reduced-motion: reduce) {
   .capability-card:hover {
-    transform: none;
+    translate: none;
   }
   .card-img,
   .portrait-wrap img {
@@ -459,18 +481,21 @@ a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
 
 /* ── Homepage motion without the motion library (Nov 2026) ── */
 /* ScrollReveal: fade and rise into place once, on the site's ease-out curve. */
-.reveal {
+/* Hidden start state only once JavaScript is running (html.js is set by an inline script in the
+   layout), so content never stays invisible if scripts fail. */
+.js .reveal {
   opacity: 0;
   transform: translateY(var(--reveal-y, 24px));
   transition:
     opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0s),
     transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0s);
 }
-.reveal.is-in { opacity: 1; transform: none; }
+.js .reveal.is-in { opacity: 1; transform: none; }
 
 /* Testimonials: the gold timer bar, and the quote and byline swapping out, then in. */
 .testimonial-fill { animation: testimonial-fill linear both; }
-@keyframes testimonial-fill { from { height: 0%; } to { height: 100%; } }
+.testimonial-fill { transform-origin: top; }
+@keyframes testimonial-fill { from { scale: 1 0; } to { scale: 1 1; } }
 .swap-in-quote { animation: swap-in-quote 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
 .swap-out-quote { animation: swap-out 0.2s ease-out both; }
 .swap-in-byline { animation: swap-in 0.4s ease-out 0.1s both; }
@@ -480,7 +505,53 @@ a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
 @keyframes swap-out { to { opacity: 0; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .reveal, .js .reveal { opacity: 1; transform: none; transition: none; }
   /* The quote still crossfades (no movement), as before. */
   .swap-in-quote { animation-name: swap-in; }
 }
+
+/* ── Pause motion (WCAG 2.2.2) ──
+   The footer's "Pause motion" button sets data-motion="paused" on <html> (remembered per visitor).
+   Looping CSS animations stop here; marquees and videos read the same attribute in JS. Cards that
+   scroll off screen pause too (data-offscreen, set by CardMotion). */
+:root[data-motion="paused"] :is(.reel-row, .proof-sheet, .grid-drift),
+[data-offscreen] :is(.reel-row, .proof-sheet) {
+  animation-play-state: paused;
+}
+
+/* ── Native dialogs: keep scrolling inside the dialog, never the page behind it ── */
+dialog:modal { overscroll-behavior: contain; }
+dialog::backdrop { overflow: hidden; overscroll-behavior: contain; }
+
+/* ── Windows High Contrast / forced colours: selected states rely on fills, which the browser
+   replaces, so give them a system colour that survives. ── */
+@media (forced-colors: active) {
+  .choice-pill:has(input:checked), .testimonial-pill[aria-current="true"], nav a[aria-current="page"] {
+    forced-color-adjust: none;
+    background-color: Highlight;
+    color: HighlightText;
+    border-color: Highlight;
+  }
+  .testimonial-indicator { forced-color-adjust: none; background-color: CanvasText; }
+}
+
+/* Marquee edge fades: a mask on the band, so the fade never has to match the band colour. */
+.marquee-fade {
+  --fade: 3rem;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--fade), #000 calc(100% - var(--fade)), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 var(--fade), #000 calc(100% - var(--fade)), transparent);
+}
+@media (min-width: 640px) { .marquee-fade { --fade: 5rem; } }
+@media (min-width: 1024px) { .marquee-fade { --fade: 7rem; } }
+
+/* Hero spotlight (InfiniteGrid): the bright grid shows through a circle that follows the pointer. */
+[data-spot] {
+  -webkit-mask-image: radial-gradient(350px circle at var(--mx) var(--my), black, transparent);
+  mask-image: radial-gradient(350px circle at var(--mx) var(--my), black, transparent);
+}
+
+/* Card with a stretched title link (homepage work and highlight cards): the title's link covers the
+   whole card, and the focus ring is drawn around the card. */
+.card-link::after { content: ""; position: absolute; inset: 0; z-index: 10; }
+.card-link:focus-visible { outline: none; }
+:is(.work-card, .highlight-card):has(.card-link:focus-visible) { outline: 2px solid var(--accent-text); outline-offset: 6px; border-radius: 1.5rem; }

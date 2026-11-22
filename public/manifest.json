@@ -2,6 +2,7 @@
   "name": "Amr Abu-Talleb · Designer and creative director",
   "short_name": "Amr Abu-Talleb",
   "description": "Portfolio of Amr Abu-Talleb, designer and creative director for brand, campaigns and digital products.",
+  "id": "/",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

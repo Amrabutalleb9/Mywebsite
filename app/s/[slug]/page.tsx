@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const EMAIL = "hello@amrabutalleb.com"
 
-function Shot({ label, image, alt, priority }: { label: string; image: PreviewImage; alt: string; priority?: boolean }) {
+function Shot({ label, image, alt, priority, eager }: { label: string; image: PreviewImage; alt: string; priority?: boolean; eager?: boolean }) {
   return (
     <figure>
       <figcaption className="mb-4 text-xs font-semibold tracking-[var(--tracking-sublabel)] text-foreground/70 uppercase">
@@ -54,6 +54,8 @@ function Shot({ label, image, alt, priority }: { label: string; image: PreviewIm
           height={image.height}
           sizes="(min-width: 1024px) 50vw, 100vw"
           priority={priority}
+          // The first screenshot is above the fold too (first on phones), so it loads straight away.
+          loading={priority ? undefined : eager ? "eager" : undefined}
           className="h-auto w-full"
         />
       </div>
@@ -98,7 +100,7 @@ export default async function StorefrontPreviewPage({ params }: Props) {
         </div>
 
         <div className="mt-12 grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <Shot label="Current site" image={preview.before} alt={`Current website of ${business}`} />
+          <Shot label="Current site" image={preview.before} alt={`Current website of ${business}`} eager />
           <Shot label="Redesign concept" image={preview.after} alt={`Redesign concept for the ${business} website`} priority />
         </div>
 

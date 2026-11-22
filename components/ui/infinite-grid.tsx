@@ -16,13 +16,23 @@ interface InfiniteGridProps {
 export function InfiniteGrid({ children, className = "" }: InfiniteGridProps) {
   const fgLayerRef = useRef<HTMLDivElement>(null)
 
+  // Only two custom properties change per move; the mask itself lives in CSS (.grid-spot). The hero's
+  // position is read once per move from a cached rect (refreshed on resize and scroll), not forced
+  // from layout each time. Until the first move (and on touch) the bright layer shows in full, as before.
+  const rectRef = useRef<DOMRect | null>(null)
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const fg = fgLayerRef.current
     if (!fg) return
-    const { left, top } = e.currentTarget.getBoundingClientRect()
-    const mask = `radial-gradient(350px circle at ${e.clientX - left}px ${e.clientY - top}px, black, transparent)`
-    fg.style.maskImage = mask
-    fg.style.webkitMaskImage = mask
+    if (!rectRef.current) {
+      rectRef.current = e.currentTarget.getBoundingClientRect()
+      const reset = () => { rectRef.current = null }
+      window.addEventListener("scroll", reset, { passive: true, once: true })
+      window.addEventListener("resize", reset, { passive: true, once: true })
+    }
+    const { left, top } = rectRef.current
+    fg.style.setProperty("--mx", `${e.clientX - left}px`)
+    fg.style.setProperty("--my", `${e.clientY - top}px`)
+    fg.dataset.spot = ""
   }, [])
 
   return (

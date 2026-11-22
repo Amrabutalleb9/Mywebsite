@@ -284,6 +284,8 @@ export default function ServicesPage() {
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
+    // Honeypot: real people never see or tick this box.
+    if ((e.currentTarget as HTMLFormElement).querySelector<HTMLInputElement>('input[name="botcheck"]')?.checked) return
     setStatus("sending")
     setError("")
     const message = [
@@ -296,6 +298,7 @@ export default function ServicesPage() {
       email: form.email,
       message,
       subject: `Design review from ${form.name}`,
+      botcheck: false,
     })
     if (result.success) {
       setStatus("sent")
@@ -492,7 +495,7 @@ export default function ServicesPage() {
           <ul className="mt-12 grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-x-12">
             {work.map((item, i) => (
               <FadeIn key={item.slug} as="li" delay={i % 2 ? 0.08 : 0}>
-                <Link href={`/work/${item.slug}`} className="work-card group block" data-cursor-label={`Explore ${item.title}`}>
+                <article className="work-card group relative block" data-cursor-label={`Explore ${item.title}`}>
                   <div className="work-media relative overflow-hidden rounded-2xl bg-primary">
                     <Image
                       src={item.image}
@@ -504,11 +507,11 @@ export default function ServicesPage() {
                     />
                   </div>
                   <h3 className="mt-6 font-serif text-[length:var(--text-sub)] font-normal leading-[var(--leading-heading)] tracking-tight text-foreground transition-colors duration-300 group-hover:text-accent">
-                    {tp(item.title)}
+                    <Link href={`/work/${item.slug}`} className="card-link">{tp(item.title)}</Link>
                   </h3>
                   <p className="mt-2 max-w-[48ch] text-sm leading-relaxed text-muted-foreground">{tp(item.line)}</p>
                   <p className="mt-4 max-w-[48ch] text-xs leading-relaxed text-accent">{tp(item.result)}</p>
-                </Link>
+                </article>
               </FadeIn>
             ))}
           </ul>
@@ -594,7 +597,7 @@ export default function ServicesPage() {
       <dialog
         ref={dialogRef}
         aria-labelledby={titleId}
-        className="m-auto w-[min(100%-2rem,40rem)] max-h-[min(100%-2rem,44rem)] overflow-y-auto rounded-2xl border border-border bg-background p-8 text-foreground backdrop:bg-primary/90 sm:p-12"
+        className="m-auto w-[min(100%-2rem,40rem)] max-h-[min(100%-2rem,44rem)] overflow-y-auto overscroll-contain rounded-2xl border border-border bg-background p-8 text-foreground backdrop:bg-primary/90 sm:p-12"
         onClose={() => setStatus("idle")}
       >
         <div className="mb-8 flex items-start justify-between gap-6">
@@ -617,6 +620,7 @@ export default function ServicesPage() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+            <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
             <p className="max-w-[52ch] text-sm leading-relaxed text-muted-foreground">
               {tp("Five questions. No call. Or email me at")}{" "}
               <a href={`mailto:${EMAIL}`} className="link-inline">{EMAIL}</a>.
@@ -624,19 +628,29 @@ export default function ServicesPage() {
             <div className="flex flex-col gap-6 sm:flex-row sm:gap-8">
               <label className="block sm:flex-1">
                 <span className="text-sm font-medium text-foreground">Your name</span>
-                <input name="name" autoComplete="name" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className={field} />
+                <input name="name" autoComplete="name" autoFocus required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className={field} />
               </label>
               <label className="block sm:flex-1">
                 <span className="text-sm font-medium text-foreground">Email</span>
-                <input name="email" type="email" autoComplete="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className={field} />
+                <input name="email" type="email" autoComplete="email" spellCheck={false} required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className={field} />
               </label>
             </div>
             {questions.map((q) => (
-              <label key={q.name} className="block">
-                <span className="text-sm font-medium text-foreground">{tp(q.label)}</span>
-                {"hint" in q && q.hint ? <span className="mt-1 block text-sm text-muted-foreground">{tp(q.hint)}</span> : null}
-                <textarea name={q.name} required rows={3} value={form[q.name]} onChange={(e) => setForm({ ...form, [q.name]: e.target.value })} className={`${field} resize-y`} />
-              </label>
+              <div key={q.name}>
+                <label htmlFor={`${titleId}-${q.name}`} className="block text-sm font-medium text-foreground">{tp(q.label)}</label>
+                {/* The hint describes the field rather than naming it. */}
+                {"hint" in q && q.hint ? <p id={`${titleId}-${q.name}-hint`} className="mt-1 text-sm text-muted-foreground">{tp(q.hint)}</p> : null}
+                <textarea
+                  id={`${titleId}-${q.name}`}
+                  name={q.name}
+                  required
+                  rows={3}
+                  aria-describedby={"hint" in q && q.hint ? `${titleId}-${q.name}-hint` : undefined}
+                  value={form[q.name]}
+                  onChange={(e) => setForm({ ...form, [q.name]: e.target.value })}
+                  className={`${field} min-h-[3lh] max-h-[12lh] resize-y [field-sizing:content]`}
+                />
+              </div>
             ))}
             {status === "error" && (
               <p className="text-sm text-destructive" role="alert">

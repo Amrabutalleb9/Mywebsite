@@ -5,7 +5,8 @@ import { useEffect } from "react"
 /* Speed: looping videos are marked data-autoplay and ship with preload="none" and no autoPlay
    attribute, so nothing downloads until a video is near the screen. This plays each one as it comes
    into view and pauses it when it leaves. With reduced motion turned on, nothing plays on its own
-   (the case-study videos show their controls instead).
+   (the case-study videos show their controls instead), and the footer's "Pause motion" switch
+   (components/motion-toggle.tsx) stops them all and keeps them stopped.
    Below-the-fold videos carry their poster as data-poster: a poster attribute downloads at once,
    whatever preload says, so it is only set once the video is within about a screen of view.
    Decorative card images below the fold (the SPLT reel, the Hodel proof sheet) carry data-src the
@@ -45,14 +46,36 @@ export default function VideoAutoplay() {
       pmo.disconnect()
     }
 
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    if (reduced || typeof IntersectionObserver === "undefined") return stopPosters
+    // The looping card animations (SPLT reel, Hodel proof) pause while their card is off screen.
+    const cards = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          const el = e.target as HTMLElement
+          if (e.isIntersecting) delete el.dataset.offscreen
+          else el.dataset.offscreen = ""
+        }
+      },
+      { rootMargin: "100px 0px" },
+    )
+    document.querySelectorAll(".card-img.reel, .card-img.proof").forEach((el) => cards.observe(el))
+    const stopAll = stopPosters
+    const stopCards = () => {
+      cards.disconnect()
+      stopAll()
+    }
 
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    if (reduced || typeof IntersectionObserver === "undefined") return stopCards
+
+    const userPaused = () => document.documentElement.dataset.motion === "paused"
+    const inView = new WeakSet<Element>()
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
           const v = e.target as HTMLVideoElement
-          if (e.isIntersecting) {
+          if (e.isIntersecting) inView.add(v)
+          else inView.delete(v)
+          if (e.isIntersecting && !userPaused()) {
             v.muted = true
             v.play().catch(() => {})
           } else if (!v.paused) {
@@ -74,10 +97,21 @@ export default function VideoAutoplay() {
     scan()
     const mo = new MutationObserver(scan)
     mo.observe(document.body, { childList: true, subtree: true })
+    const onMotion = () => {
+      document.querySelectorAll<HTMLVideoElement>("video[data-autoplay]").forEach((v) => {
+        if (userPaused()) v.pause()
+        else if (inView.has(v)) {
+          v.muted = true
+          v.play().catch(() => {})
+        }
+      })
+    }
+    window.addEventListener("motionchange", onMotion)
     return () => {
+      window.removeEventListener("motionchange", onMotion)
       io.disconnect()
       mo.disconnect()
-      stopPosters()
+      stopCards()
     }
   }, [])
   return null

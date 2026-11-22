@@ -6,7 +6,7 @@ import Image from "next/image"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import FadeIn from "./fade-in"
 import PageIn from "./page-in"
-import { Lightbox } from "./ui/lightbox"
+import { Lightbox, ZoomFrame } from "./ui/lightbox"
 import type { ProjectHighlight } from "@/lib/projects"
 
 export default function HighlightLayout({
@@ -18,12 +18,12 @@ export default function HighlightLayout({
   prev: ProjectHighlight | null
   next: ProjectHighlight | null
 }) {
-  const [lightbox, setLightbox] = useState<string | null>(null)
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null)
 
   return (
     <>
     {/* Lightbox overlay */}
-    {lightbox && <Lightbox src={lightbox} onClose={() => setLightbox(null)} />}
+    <Lightbox image={lightbox} onClose={() => setLightbox(null)} />
 
     <main>
     <article className="pb-24 lg:pb-32 pt-32 lg:pt-32">
@@ -35,7 +35,7 @@ export default function HighlightLayout({
             href="/#work"
             className="mb-12 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
-            <ArrowLeft size={18} />
+            <ArrowLeft size={18} aria-hidden="true" />
             Back to Work
           </Link>
         </PageIn>
@@ -57,13 +57,10 @@ export default function HighlightLayout({
       {/* Hero image */}
       <PageIn delay={0.16} className="wrap-wide mb-12 lg:mb-16">
         {project.featureImage ? (
-          <div
-            className="project-img-wrap overflow-hidden rounded-lg"
-            onClick={() => setLightbox(project.featureImage!)}
-            role="button"
-            tabIndex={0}
-            aria-label={`View ${project.title} image full size`}
-            onKeyDown={(e) => { if (e.key === "Enter") setLightbox(project.featureImage!) }}
+          <ZoomFrame
+            className="overflow-hidden rounded-lg"
+            label={`View full size: ${project.featureImageAlt || `${project.title} feature image`}`}
+            onZoom={() => setLightbox({ src: project.featureImage!, alt: project.featureImageAlt || `${project.title} feature image` })}
           >
             <Image
               src={project.featureImage}
@@ -75,7 +72,7 @@ export default function HighlightLayout({
               priority
               fetchPriority="high"
             />
-          </div>
+          </ZoomFrame>
         ) : (
           <div className="flex aspect-[21/9] w-full items-center justify-center rounded-lg bg-primary">
             <span className="font-serif text-2xl text-primary-foreground/30">{project.title}</span>
@@ -130,22 +127,19 @@ export default function HighlightLayout({
       {/* Brand figures first, then the product visuals */}
       {project.figures && project.figures.length > 0 && (
         <div className="wrap-wide mb-16 flex flex-col gap-12">
-          {project.figures.map((row, r) => (
+          {project.figures.map((row) => (
             <FadeIn as="div" key={row.images[0].src}>
               <figure className="m-0">
                 <div className={`grid grid-cols-1 gap-4 ${row.images.length === 2 ? "md:grid-cols-2" : row.images.length >= 3 ? "md:grid-cols-3" : ""}`}>
-                  {row.images.map((img, i) => (
-                    <div
+                  {row.images.map((img) => (
+                    <ZoomFrame
                       key={img.src}
-                      className="project-img-wrap overflow-hidden rounded-2xl"
-                      onClick={() => setLightbox(img.src)}
-                      role="button"
-                      tabIndex={0}
-                      aria-label={`View figure ${r + 1}${row.images.length > 1 ? `, image ${i + 1}` : ""} full size`}
-                      onKeyDown={(e) => { if (e.key === "Enter") setLightbox(img.src) }}
+                      className="overflow-hidden rounded-2xl"
+                      label={`View full size: ${img.alt}`}
+                      onZoom={() => setLightbox({ src: img.src, alt: img.alt })}
                     >
-                      <Image src={img.src} alt={img.alt} width={1600} height={900} sizes={row.images.length > 1 ? "(max-width: 768px) 100vw, 33vw" : "100vw"} className="project-img h-auto w-full object-cover" style={{ aspectRatio: img.ratio ?? "16 / 9" }} />
-                    </div>
+                      <Image src={img.src} alt={img.alt} width={1600} height={900} sizes={row.images.length === 2 ? "(min-width: 768px) 50vw, 100vw" : row.images.length > 2 ? "(min-width: 768px) 33vw, 100vw" : "100vw"} className="project-img h-auto w-full object-cover" style={{ aspectRatio: img.ratio ?? "16 / 9" }} />
+                    </ZoomFrame>
                   ))}
                 </div>
                 {row.caption && <figcaption className="mt-3 max-w-[70ch] text-sm leading-relaxed text-muted-foreground">{row.caption}</figcaption>}
@@ -160,14 +154,11 @@ export default function HighlightLayout({
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {project.keyVisuals && project.keyVisuals.length > 0 ? (
             project.keyVisuals.map((visual, i) => (
-              <div
+              <ZoomFrame
                 key={i}
-                className="project-img-wrap overflow-hidden rounded-lg"
-                onClick={() => setLightbox(visual.src)}
-                role="button"
-                tabIndex={0}
-                aria-label={`View image ${i + 1} full size`}
-                onKeyDown={(e) => { if (e.key === "Enter") setLightbox(visual.src) }}
+                className="overflow-hidden rounded-lg"
+                label={`View full size: ${visual.alt}`}
+                onZoom={() => setLightbox({ src: visual.src, alt: visual.alt })}
               >
                 <Image
                   src={visual.src}
@@ -176,7 +167,7 @@ export default function HighlightLayout({
                   height={450}
                   className="project-img aspect-[4/3] w-full object-cover"
                 />
-              </div>
+              </ZoomFrame>
             ))
           ) : (
             <>
@@ -227,7 +218,7 @@ export default function HighlightLayout({
                   className="btn btn-secondary"
                 >
                   See the book on&nbsp;Amazon
-                  <ArrowRight size={14} />
+                  <ArrowRight size={14} aria-hidden="true" />
                 </a>
               </FadeIn>
             )}
@@ -241,7 +232,7 @@ export default function HighlightLayout({
           {prev ? (
             <Link href={`/highlights/${prev.slug}`} className="group flex flex-col gap-1 text-left">
               <span className="flex items-center gap-2 text-xs text-muted-foreground transition-colors group-hover:text-accent">
-                <ArrowLeft size={14} /> Previous
+                <ArrowLeft size={14} aria-hidden="true" /> Previous
               </span>
               <span className="font-serif text-2xl leading-snug tracking-tight text-foreground transition-colors group-hover:text-accent">{prev.title}</span>
             </Link>
@@ -249,7 +240,7 @@ export default function HighlightLayout({
           {next ? (
             <Link href={`/highlights/${next.slug}`} className="group flex flex-col items-end gap-1 text-right">
               <span className="flex items-center gap-2 text-xs text-muted-foreground transition-colors group-hover:text-accent">
-                Next <ArrowRight size={14} />
+                Next <ArrowRight size={14} aria-hidden="true" />
               </span>
               <span className="font-serif text-2xl leading-snug tracking-tight text-foreground transition-colors group-hover:text-accent">{next.title}</span>
             </Link>

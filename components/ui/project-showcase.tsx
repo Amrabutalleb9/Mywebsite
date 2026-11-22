@@ -5,6 +5,7 @@ import { useState, useRef, useEffect, useCallback } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
+import { useReducedMotion } from "@/hooks/use-in-view"
 
 export interface ShowcaseProject {
   title: string
@@ -31,6 +32,10 @@ export function ProjectShowcase({
   const mouseRef = useRef({ x: 0, y: 0 })
   const smoothRef = useRef({ x: 0, y: 0 })
   const isOnScreenRef = useRef(false)
+  const reduced = useReducedMotion()
+  // Each project's preview image is only mounted after its row is first hovered, so the previews no
+  // longer all download when the page opens.
+  const [seen, setSeen] = useState<Set<number>>(() => new Set())
 
   const hasAnyImage = projects.some((p) => p.featureImage)
 
@@ -45,37 +50,41 @@ export function ProjectShowcase({
     return () => observer.disconnect()
   }, [])
 
-  useEffect(() => {
-    if (!hasAnyImage) return
-
-    const LERP_FACTOR = 0.15
+  // The preview trails the pointer with a gentle lerp. The loop only runs while a preview is showing and
+  // stops once it has caught up; with reduced motion the preview simply sits at the pointer.
+  const startLoop = useCallback(() => {
+    if (animationRef.current != null) return
+    const LERP_FACTOR = reduced ? 1 : 0.15
     const lerp = (a: number, b: number, t: number) => a + (b - a) * t
-
     const animate = () => {
-      if (isOnScreenRef.current && previewRef.current) {
-        smoothRef.current.x = lerp(smoothRef.current.x, mouseRef.current.x, LERP_FACTOR)
-        smoothRef.current.y = lerp(smoothRef.current.y, mouseRef.current.y, LERP_FACTOR)
-        previewRef.current.style.transform =
-          `translate3d(${smoothRef.current.x + 24}px, ${smoothRef.current.y - 110}px, 0)`
-      }
-      animationRef.current = requestAnimationFrame(animate)
+      animationRef.current = null
+      if (!isOnScreenRef.current || !previewRef.current) return
+      smoothRef.current.x = lerp(smoothRef.current.x, mouseRef.current.x, LERP_FACTOR)
+      smoothRef.current.y = lerp(smoothRef.current.y, mouseRef.current.y, LERP_FACTOR)
+      previewRef.current.style.transform =
+        `translate3d(${smoothRef.current.x + 24}px, ${smoothRef.current.y - 110}px, 0)`
+      const settled =
+        Math.abs(smoothRef.current.x - mouseRef.current.x) < 0.5 && Math.abs(smoothRef.current.y - mouseRef.current.y) < 0.5
+      if (!settled) animationRef.current = requestAnimationFrame(animate)
     }
-
     animationRef.current = requestAnimationFrame(animate)
-    return () => {
-      if (animationRef.current) cancelAnimationFrame(animationRef.current)
-    }
-  }, [hasAnyImage])
+  }, [reduced])
+
+  useEffect(() => () => {
+    if (animationRef.current != null) cancelAnimationFrame(animationRef.current)
+  }, [])
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     mouseRef.current.x = e.clientX
     mouseRef.current.y = e.clientY
-  }, [])
+    if (hasAnyImage) startLoop()
+  }, [hasAnyImage, startLoop])
 
   const handleMouseEnter = useCallback((index: number) => {
     if (projects[index].featureImage) {
       setHoveredIndex(index)
       setIsImageVisible(true)
+      setSeen((prev) => (prev.has(index) ? prev : new Set(prev).add(index)))
     }
   }, [projects])
 
@@ -89,28 +98,30 @@ export function ProjectShowcase({
       {hasAnyImage && (
         <div
           ref={previewRef}
+          aria-hidden="true"
           className="pointer-events-none fixed top-0 left-0 z-50 hidden overflow-hidden rounded-lg shadow-[var(--shadow-lg)] lg:block"
           style={{
             opacity: isImageVisible ? 1 : 0,
-            scale: isImageVisible ? 1 : 0.85,
+            scale: isImageVisible || reduced ? 1 : 0.85,
             transition:
               "opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), scale 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
           }}
         >
           <div className="relative h-[180px] w-[288px] overflow-hidden rounded-lg bg-primary">
             {projects.map((project, index) =>
-              project.featureImage ? (
+              project.featureImage && seen.has(index) ? (
                 <Image
                   key={project.href}
                   src={project.featureImage}
-                  alt={project.featureImageAlt || project.title}
+                  alt=""
                   width={576}
                   height={360}
-                  className="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out"
+                  fetchPriority="low"
+                  className="absolute inset-0 h-full w-full object-cover transition-[opacity,scale,filter] duration-500 ease-out motion-reduce:transition-opacity"
                   style={{
                     opacity: hoveredIndex === index ? 1 : 0,
-                    scale: hoveredIndex === index ? 1 : 1.1,
-                    filter: hoveredIndex === index ? "none" : "blur(10px)",
+                    scale: hoveredIndex === index || reduced ? 1 : 1.1,
+                    filter: hoveredIndex === index || reduced ? "none" : "blur(10px)",
                   }}
                 />
               ) : null,
@@ -148,7 +159,7 @@ export function ProjectShowcase({
                 {project.year}
               </span>
               <span className="inline-flex items-center gap-2 text-xs font-medium tracking-wide text-muted-foreground uppercase transition-colors group-hover:text-accent">
-                Read <ArrowRight size={14} />
+                Read <ArrowRight size={14} aria-hidden="true" />
               </span>
             </div>
           </Link>

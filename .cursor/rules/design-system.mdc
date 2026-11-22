@@ -202,7 +202,9 @@ Tailwind defaults: `sm` 640, `md` 768, `lg` 1024, `xl` 1280.
 | Marquees | 70px per second, all bands. Ease to a stop on hover |
 | Count-ups | Start 160ms after entering view, 80ms between numbers |
 
-No bounce or elastic. Every animation has a `prefers-reduced-motion` path: movement off, colour changes kept, count-ups show the final value.
+No bounce or elastic. Every animation has a `prefers-reduced-motion` path: movement off, colour changes kept, count-ups show the final value. The reduced-motion reset in globals.css skips the testimonial quote swap, which has its own reduced path (a fade).
+
+The footer has a "Pause motion" button (`components/motion-toggle.tsx`). It sets `html[data-motion="paused"]`, is remembered in localStorage and fires a `motionchange` event. Anything that moves for more than 5 seconds (marquees, the hero grid, card reels, autoplay videos, testimonial autoplay) must stop when it is set, and offscreen card loops pause through `data-offscreen`.
 
 ## Icons
 
@@ -333,7 +335,7 @@ Each homepage section owns its **top** spacing only: `pt-32 lg:pt-48`, and the s
 These apply globally and must not be overridden:
 - `font-kerning: normal`: optical pair kerning.
 - `font-feature-settings: 'liga' 1, 'calt' 1`: ligatures and contextual alternates.
-- `text-wrap: pretty` on body, p, li, blockquote, td, th, figcaption.
+- `text-wrap: pretty` on p, li, blockquote, td, th, figcaption (not on body: it is costly on long pages and buttons, labels and nav don't need it).
 - `text-wrap: balance` and `overflow-wrap: break-word` on h1–h6.
 - `hyphens: manual` on body: words are never split. Line breaks come from the typesetting rules.
 
@@ -365,7 +367,7 @@ Copy is written in Amr's voice, built from his own words. Rules:
 
 ## Footer (Oct 2026)
 
-Option B from the footer lab (`footer-options` branch, /footer-lab): a white form card hanging from the top edge (7 of 12 columns) beside the "Let’s talk" words. Name and email side by side, topic as one-tap pills, focus is a 2px `--accent-text` underline over an `--input-strong` resting underline (never a box or ring), inputs carry `autoComplete`. Messages go through Web3Forms (`lib/contact.ts`) with the topic in the subject and the sender as reply-to. On /contact the card is dropped because the page has its own form.
+Option B from the footer lab (`footer-options` branch, /footer-lab): a white form card hanging from the top edge (7 of 12 columns) beside the "Let’s talk" words. Name and email side by side, topic as one-tap pills, focus is a 2px `--accent-text` underline over an `--input-strong` resting underline, plus the site's 2px `--accent-text` focus ring so keyboard focus is visible in forced-colours mode and against the white card (changed 22 Nov 2026), inputs carry `autoComplete`. Messages go through Web3Forms (`lib/contact.ts`) with the topic in the subject and the sender as reply-to. On /contact the card is dropped because the page has its own form.
 
 ## Buttons (Oct 2026)
 
@@ -400,3 +402,10 @@ The portrait and the text are centred as a group (`lg:items-center lg:justify-ce
 ## Detail-page facts strip and highlight overview (Oct 2026)
 
 The facts strip under a hero spans the hero width (hairline edge to edge) with its items grouped and centred (`lg:flex lg:justify-center`), so the content has equal margins left and right, with the items spread edge to edge (equal columns, one per fact), hairline above, on case studies and highlights alike. Highlights open with a two-column Overview: label and the first paragraph as a serif lead on the left, the remaining paragraphs on the right, so no column is left empty.
+
+## Cards and modals (22 Nov 2026)
+
+- Whole-card links use the stretched-link pattern: the card is an `<article className="... relative">`, the title is the only `<Link className="card-link">`, and `.card-link::after` covers the card. The focus ring is drawn on the card via `:has(.card-link:focus-visible)`. Never wrap a whole card, with its headings and images, in one link.
+- Image zoom buttons use `ZoomFrame` from `components/ui/lightbox.tsx` (a real `<button>`, labelled "View full size: <alt>"). Never `div role="button"`.
+- Modals (mobile menu, lightbox, review form) are native `<dialog>` opened with `showModal()`, so Escape, the focus trap, the inert page and focus return come from the browser. No hand-written Tab traps or body scroll locks.
+- Status and error messages live in a `role="status"` element that is always in the DOM; only its text changes. After a form sends, focus moves to the "Message sent." heading.

@@ -13,10 +13,24 @@ const inter = Inter({
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
-  style: ["normal", "italic"],
+  style: ["normal"],
   display: "swap",
   variable: "--font-playfair",
 })
+
+// The italic is only used for quotes far down the page, so it loads on demand instead of being
+// preloaded on every page alongside the hero fonts.
+const playfairItalic = Playfair_Display({
+  subsets: ["latin"],
+  style: ["italic"],
+  display: "swap",
+  preload: false,
+  variable: "--font-playfair-italic",
+})
+
+// Runs before first paint: marks that JavaScript is on (so reveal animations may start hidden) and
+// restores the visitor's "Pause motion" choice.
+const bootScript = `(function(){var d=document.documentElement;d.classList.add("js");try{if(localStorage.getItem("motion")==="paused")d.dataset.motion="paused"}catch(e){}})()`
 
 export const metadata: Metadata = {
   title: {
@@ -84,6 +98,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: "#0D0D1A",
+  colorScheme: "light",
   width: "device-width",
   initialScale: 1,
 }
@@ -94,7 +109,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en-GB" className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
+    <html lang="en-GB" className={`${inter.variable} ${playfair.variable} ${playfairItalic.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: bootScript }} />
+      </head>
       <body className="font-sans antialiased" suppressHydrationWarning>
         {children}
       </body>
