@@ -67,7 +67,7 @@ export default function HeroSection() {
               className="btn btn-primary"
             >
               See the&nbsp;work
-              <ArrowUpRight size={14} className="cta-arrow" />
+              <ArrowUpRight size={14} className="cta-arrow" aria-hidden="true" />
             </a>
             <a
               href="/cv/Amr_AbuTalleb_CV_Designer_Creative_Director_2026-10-30.pdf"
@@ -75,7 +75,7 @@ export default function HeroSection() {
               className="btn btn-secondary"
             >
               Download&nbsp;CV
-              <ArrowDown size={14} className="cta-arrow" />
+              <ArrowDown size={14} className="cta-arrow" aria-hidden="true" />
             </a>
           </div>
           <p className="mt-[clamp(1.25rem,5svh,4rem)] text-xs tracking-wide text-muted-foreground lg:text-sm">

@@ -5,6 +5,8 @@ export async function submitContactForm(data: {
   email: string
   message: string
   subject?: string
+  /** Honeypot: Web3Forms drops the submission server-side when this is true. */
+  botcheck?: boolean
 }): Promise<{ success: boolean; error?: string }> {
   try {
     const res = await fetch("https://api.web3forms.com/submit", {
@@ -18,14 +20,20 @@ export async function submitContactForm(data: {
         subject: data.subject || `Portfolio inquiry from ${data.name}`,
         from_name: "amrabutalleb.com",
         replyto: data.email,
+        botcheck: data.botcheck ?? false,
       }),
+      // Never leave the form stuck on "Sending…": give up after 15 seconds and show the email fallback.
+      signal: AbortSignal.timeout(15_000),
     })
     if (!res.ok) return { success: false, error: "Something went wrong. Please try emailing me directly." }
     const result = await res.json()
     return result.success
       ? { success: true }
       : { success: false, error: "Something went wrong. Please try emailing me directly." }
-  } catch {
+  } catch (err) {
+    if (err instanceof DOMException && err.name === "TimeoutError") {
+      return { success: false, error: "That took too long to send. Please try emailing me directly." }
+    }
     return { success: false, error: "Network error. Please try emailing me directly." }
   }
 }

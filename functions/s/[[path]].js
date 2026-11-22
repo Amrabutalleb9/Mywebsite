@@ -6,7 +6,7 @@
 // Unknown slugs fall through to the normal 404 and nothing is logged.
 // Runs after functions/_middleware.js, so the staging password gate still applies off the live hosts.
 
-import { PIXEL_GIF, SLUGS, recordEvent } from "../_shared/storefront-tracking.js"
+import { PIXEL_GIF, SECURITY_HEADERS, SLUGS, recordEvent } from "../_shared/storefront-tracking.js"
 
 const NOINDEX = "noindex, nofollow"
 
@@ -26,6 +26,9 @@ export const onRequest = async (context) => {
     recordEvent(context, "open", slug)
     return new Response(request.method === "HEAD" ? null : PIXEL_GIF, {
       headers: {
+        ...SECURITY_HEADERS,
+        // Mail clients load the pixel from other sites, so it may be embedded cross-origin.
+        "Cross-Origin-Resource-Policy": "cross-origin",
         "Content-Type": "image/gif",
         "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0, private",
         "X-Robots-Tag": NOINDEX,

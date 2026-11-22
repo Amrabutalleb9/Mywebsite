@@ -1,9 +1,7 @@
 "use client"
 
-import { useMemo, type ReactNode } from "react"
-import { motion, useReducedMotion } from "motion/react"
-
-const EASE_OUT = [0.16, 1, 0.3, 1] as const
+import { useRef, type CSSProperties, type ReactNode } from "react"
+import { useInView } from "@/hooks/use-in-view"
 
 type FadeInTag = "div" | "h1" | "h2" | "p" | "li" | "article" | "section" | "nav"
 
@@ -17,28 +15,25 @@ interface FadeInProps {
   "aria-label"?: string
 }
 
+/* Fades and rises into place once, the first time it is scrolled into view: a 24px rise over 0.6s on
+   the site's ease-out curve, as before. It is the same CSS reveal as the homepage's ScrollReveal
+   (.reveal in globals.css), so inner pages no longer load the motion library just for this.
+   The hidden start state only applies once JavaScript is running (html.js), so content can never stay
+   invisible if scripts fail, and reduced motion shows everything at once. */
 export default function FadeIn({ children, className = "", delay = 0, as = "div", y = 24, id, "aria-label": ariaLabel }: FadeInProps) {
-  const reduced = useReducedMotion()
-  const MotionTag = useMemo(() => motion.create(as), [as])
+  const ref = useRef<HTMLElement>(null)
+  const inView = useInView(ref, { once: true, margin: "-6% 0px -4% 0px", amount: 0.1 })
 
+  const Tag = as as "div"
   return (
-    <MotionTag
-      className={className}
+    <Tag
+      ref={ref as React.RefObject<HTMLDivElement>}
       id={id}
       aria-label={ariaLabel}
-      initial={{ opacity: 0, y }}
-      // Reduced motion: the server HTML still carries the hidden start state,
-      // so animate straight to visible instead of swapping the element
-      // (a swapped element keeps the server's opacity:0 after hydration).
-      {...(reduced
-        ? { animate: { opacity: 1, y: 0 }, transition: { duration: 0 } }
-        : {
-            whileInView: { opacity: 1, y: 0 },
-            viewport: { once: true, margin: "-6% 0px -4% 0px", amount: 0.1 },
-            transition: { duration: 0.6, delay, ease: EASE_OUT },
-          })}
+      className={`reveal ${inView ? "is-in" : ""} ${className}`}
+      style={{ "--reveal-y": `${y}px`, "--reveal-delay": `${delay}s` } as CSSProperties}
     >
       {children}
-    </MotionTag>
+    </Tag>
   )
 }

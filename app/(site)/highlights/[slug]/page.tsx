@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation"
+import { ldJson } from "@/lib/structured-data"
 import type { Metadata } from "next"
 import { getHighlightBySlug, getAdjacentHighlights, projectHighlights, getHiddenHighlightSlugs } from "@/lib/projects"
 import HighlightLayout from "@/components/highlight-layout"
@@ -62,8 +63,8 @@ export default async function HighlightPage({
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={ldJson(jsonLd)} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={ldJson(breadcrumbLd)} />
       <HighlightLayout project={project} prev={prev} next={next} />
     </>
   )

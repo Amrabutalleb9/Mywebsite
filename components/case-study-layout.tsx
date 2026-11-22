@@ -4,11 +4,11 @@ import React, { Fragment, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react"
-import { useReducedMotion } from "motion/react"
+import { useReducedMotion } from "@/hooks/use-in-view"
 import FadeIn from "./fade-in"
 import PageIn from "./page-in"
 import { imageVariant } from "@/lib/image-loader"
-import { Lightbox } from "./ui/lightbox"
+import { Lightbox, ZoomFrame } from "./ui/lightbox"
 import type { CaseStudy } from "@/lib/projects"
 
 export default function CaseStudyLayout({
@@ -20,22 +20,20 @@ export default function CaseStudyLayout({
   prev: CaseStudy | null
   next: CaseStudy | null
 }) {
-  const [lightbox, setLightbox] = useState<string | null>(null)
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null)
   const reducedMotion = useReducedMotion()
 
-  const renderFigureRow = (row: NonNullable<CaseStudy["storyFigures"]>[number], key: string) => (
+  const renderFigureRow = (row: NonNullable<CaseStudy["storyFigures"]>[number]) => (
     <FadeIn as="div" key={row.images[0].src}>
       <figure className="m-0">
         <div className={`grid grid-cols-1 gap-4 ${row.images.length === 2 ? "md:grid-cols-2" : row.images.length >= 3 ? "md:grid-cols-3" : ""}`}>
-          {row.images.map((img, i) => (
-            <div
+          {row.images.map((img) => (
+            <ZoomFrame
               key={img.src}
-              className="project-img-wrap overflow-hidden rounded-2xl bg-primary"
-              onClick={() => setLightbox(img.src)}
-              role="button"
-              tabIndex={0}
-              aria-label={`View figure ${key}${row.images.length > 1 ? `, image ${i + 1}` : ""} full size`}
-              onKeyDown={(e) => { if (e.key === "Enter") setLightbox(img.src) }}
+              className="overflow-hidden rounded-2xl bg-primary"
+              zoomable={!img.video}
+              label={`View full size: ${img.alt}`}
+              onZoom={() => setLightbox({ src: img.src, alt: img.alt })}
             >
               {img.video ? (
                 <video
@@ -49,7 +47,6 @@ export default function CaseStudyLayout({
                   loop
                   playsInline
                   preload="none"
-                  onClick={(e) => e.stopPropagation()}
                 >
                   <source src={img.video} type="video/mp4" />
                 </video>
@@ -64,7 +61,7 @@ export default function CaseStudyLayout({
                 style={{ aspectRatio: img.ratio ?? "16 / 9" }}
               />
               )}
-            </div>
+            </ZoomFrame>
           ))}
         </div>
         {row.caption && (
@@ -99,7 +96,7 @@ export default function CaseStudyLayout({
   return (
     <>
     {/* Lightbox overlay */}
-    {lightbox && <Lightbox src={lightbox} onClose={() => setLightbox(null)} />}
+    <Lightbox image={lightbox} onClose={() => setLightbox(null)} />
 
     <main>
     <article className="pb-24 lg:pb-32 pt-32 lg:pt-32">
@@ -111,7 +108,7 @@ export default function CaseStudyLayout({
             href="/#work"
             className="mb-12 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
-            <ArrowLeft size={18} />
+            <ArrowLeft size={18} aria-hidden="true" />
             Back to Work
           </Link>
         </PageIn>
@@ -163,13 +160,10 @@ export default function CaseStudyLayout({
             </video>
           </div>
         ) : project.featureImage ? (
-          <div
-            className="project-img-wrap overflow-hidden rounded-2xl"
-            onClick={() => setLightbox(project.featureImage!)}
-            role="button"
-            tabIndex={0}
-            aria-label={`View ${project.title} image full size`}
-            onKeyDown={(e) => { if (e.key === "Enter") setLightbox(project.featureImage!) }}
+          <ZoomFrame
+            className="overflow-hidden rounded-2xl"
+            label={`View full size: ${project.featureImageAlt || `${project.title} project showcase`}`}
+            onZoom={() => setLightbox({ src: project.featureImage!, alt: project.featureImageAlt || `${project.title} project showcase` })}
           >
             <Image
               src={project.featureImage}
@@ -181,7 +175,7 @@ export default function CaseStudyLayout({
               priority
               fetchPriority="high"
             />
-          </div>
+          </ZoomFrame>
         ) : (
           <div className="flex aspect-[21/9] w-full items-center justify-center rounded-2xl bg-primary">
             <span className="font-serif text-2xl text-primary-foreground/30">{project.title}</span>
@@ -238,12 +232,12 @@ export default function CaseStudyLayout({
       {project.chapters && project.chapters.length > 0 ? (
         /* Chapters: each part of the story followed by its own figures */
         <>
-        {project.chapters.map((chapter, c) => (
+        {project.chapters.map((chapter) => (
           <Fragment key={chapter.label}>
           <section className="mb-32">
             {chapter.figuresFirst && chapter.figures && chapter.figures.length > 0 && (
               <div className="wrap-wide mb-16 flex flex-col gap-6">
-                {chapter.figures.map((row, r) => renderFigureRow(row, `${c + 1}.${r + 1}`))}
+                {chapter.figures.map((row) => renderFigureRow(row))}
               </div>
             )}
             <div className="wrap">
@@ -272,7 +266,7 @@ export default function CaseStudyLayout({
             </div>
             {!chapter.figuresFirst && chapter.figures && chapter.figures.length > 0 && (
               <div className="wrap-wide mt-16 flex flex-col gap-6">
-                {chapter.figures.map((row, r) => renderFigureRow(row, `${c + 1}.${r + 1}`))}
+                {chapter.figures.map((row) => renderFigureRow(row))}
               </div>
             )}
           </section>
@@ -336,15 +330,12 @@ export default function CaseStudyLayout({
       <FadeIn className="wrap-wide mb-32">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {project.processImages && project.processImages.length > 0
-            ? project.processImages.slice(0, 2).map((img, i) => (
-                <div
+            ? project.processImages.slice(0, 2).map((img) => (
+                <ZoomFrame
                   key={img.src}
-                  className="project-img-wrap overflow-hidden rounded-lg"
-                  onClick={() => setLightbox(img.src)}
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`View process image ${i + 1} full size`}
-                  onKeyDown={(e) => { if (e.key === "Enter") setLightbox(img.src) }}
+                  className="overflow-hidden rounded-lg"
+                  label={`View full size: ${img.alt}`}
+                  onZoom={() => setLightbox({ src: img.src, alt: img.alt })}
                 >
                   <Image
                     src={img.src}
@@ -353,7 +344,7 @@ export default function CaseStudyLayout({
                     height={525}
                     className="project-img aspect-[4/3] w-full object-cover"
                   />
-                </div>
+                </ZoomFrame>
               ))
             : null}
         </div>
@@ -422,7 +413,7 @@ export default function CaseStudyLayout({
       {/* Story figures: rows of diagrams and work shown between the strategy and the process */}
       {project.storyFigures && project.storyFigures.length > 0 && (
         <div className="wrap-wide mb-32 flex flex-col gap-16">
-          {project.storyFigures.map((row, r) => renderFigureRow(row, String(r + 1)))}
+          {project.storyFigures.map((row) => renderFigureRow(row))}
         </div>
       )}
 
@@ -461,14 +452,11 @@ export default function CaseStudyLayout({
         {project.galleryImages && project.galleryImages.length > 0 ? (
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {project.galleryImages.map((img, i) => (
-              <div
+              <ZoomFrame
                 key={i}
-                className="project-img-wrap overflow-hidden rounded-lg"
-                onClick={() => setLightbox(img.src)}
-                role="button"
-                tabIndex={0}
-                aria-label={`View image ${i + 1} full size`}
-                onKeyDown={(e) => { if (e.key === "Enter") setLightbox(img.src) }}
+                className="overflow-hidden rounded-lg"
+                label={`View full size: ${img.alt}`}
+                onZoom={() => setLightbox({ src: img.src, alt: img.alt })}
               >
                 <Image
                   src={img.src}
@@ -477,7 +465,7 @@ export default function CaseStudyLayout({
                   height={450}
                   className="project-img aspect-[4/3] w-full object-cover"
                 />
-              </div>
+              </ZoomFrame>
             ))}
           </div>
         ) : null}
@@ -533,7 +521,7 @@ export default function CaseStudyLayout({
                   className="text-link inline-flex items-center gap-2 text-sm font-medium text-foreground"
                 >
                   {project.buyLink.label}
-                  <ArrowUpRight size={14} />
+                  <ArrowUpRight size={14} aria-hidden="true" />
                 </a>
               </FadeIn>
             )}
@@ -568,7 +556,7 @@ export default function CaseStudyLayout({
           {prev ? (
             <Link href={`/work/${prev.slug}`} className="group flex flex-col gap-1 text-left">
               <span className="flex items-center gap-2 text-xs text-muted-foreground transition-colors group-hover:text-accent">
-                <ArrowLeft size={14} /> Previous Case study
+                <ArrowLeft size={14} aria-hidden="true" /> Previous Case study
               </span>
               <span className="font-serif text-2xl leading-snug tracking-tight text-foreground transition-colors group-hover:text-accent">{prev.title}</span>
             </Link>
@@ -576,7 +564,7 @@ export default function CaseStudyLayout({
           {next ? (
             <Link href={`/work/${next.slug}`} className="group flex flex-col items-end gap-1 text-right">
               <span className="flex items-center gap-2 text-xs text-muted-foreground transition-colors group-hover:text-accent">
-                Next Case study <ArrowRight size={14} />
+                Next Case study <ArrowRight size={14} aria-hidden="true" />
               </span>
               <span className="font-serif text-2xl leading-snug tracking-tight text-foreground transition-colors group-hover:text-accent">{next.title}</span>
             </Link>

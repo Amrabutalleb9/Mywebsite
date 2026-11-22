@@ -7,7 +7,8 @@ import { useRef, useEffect, useCallback } from "react"
  * The scroll is a Web Animations transform, so it runs on the compositor and costs the main thread
  * nothing between frames. Hovering eases it to a stop and back (the same 0.03-per-frame easing as
  * before); only that easing uses requestAnimationFrame, and only while it runs.
- * It pauses while off screen, and does not move at all under prefers-reduced-motion.
+ * It pauses while off screen, while the visitor has "Pause motion" on (components/motion-toggle.tsx),
+ * and does not move at all under prefers-reduced-motion.
  */
 export function useMarquee(speed: number) {
   const trackRef = useRef<HTMLDivElement>(null)
@@ -24,6 +25,12 @@ export function useMarquee(speed: number) {
     let anim: Animation | null = null
     let visible = false
     let width = 0
+    const userPaused = () => document.documentElement.dataset.motion === "paused"
+    const sync = () => {
+      if (!anim) return
+      if (visible && !userPaused()) anim.play()
+      else anim.pause()
+    }
 
     // (Re)build the loop for the current width, keeping the position (fonts can change the width).
     const build = () => {
@@ -38,16 +45,14 @@ export function useMarquee(speed: number) {
       )
       anim.currentTime = ((progress % 1) * half * 1000) / speed
       anim.playbackRate = rateRef.current
-      if (!visible) anim.pause()
       animRef.current = anim
+      sync()
     }
 
     const io = new IntersectionObserver(
       ([entry]) => {
         visible = entry.isIntersecting
-        if (!anim) return
-        if (visible) anim.play()
-        else anim.pause()
+        sync()
       },
       { rootMargin: "100px" },
     )
@@ -55,9 +60,11 @@ export function useMarquee(speed: number) {
     build()
     ro.observe(track)
     if (track.parentElement) io.observe(track.parentElement)
+    window.addEventListener("motionchange", sync)
 
     return () => {
       cancelAnimationFrame(rafRef.current)
+      window.removeEventListener("motionchange", sync)
       io.disconnect()
       ro.disconnect()
       anim?.cancel()

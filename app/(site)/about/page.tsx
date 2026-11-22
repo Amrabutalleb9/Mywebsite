@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { ldJson } from "@/lib/structured-data"
 import Link from "next/link"
 import type { Metadata } from "next"
 import { Download, ArrowRight, Linkedin } from "lucide-react"
@@ -26,7 +27,7 @@ const profileLd = {
 export default function AboutPage() {
   return (
     <main className="px-8 pt-32 pb-24 lg:px-16 lg:pt-32 lg:pb-32">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(profileLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={ldJson(profileLd)} />
       <div className="flex flex-col gap-16 lg:flex-row lg:gap-16">
 
         {/* ── Left column: ALL content ── */}
@@ -93,7 +94,7 @@ export default function AboutPage() {
                 download
                 className="btn btn-primary"
               >
-                <Download size={14} />
+                <Download size={14} aria-hidden="true" />
                 Download&nbsp;CV
               </a>
               <Link
@@ -101,7 +102,7 @@ export default function AboutPage() {
                 className="btn btn-secondary"
               >
                 View my&nbsp;work
-                <ArrowRight size={14} />
+                <ArrowRight size={14} aria-hidden="true" />
               </Link>
             </div>
 
@@ -113,7 +114,7 @@ export default function AboutPage() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
-                <Linkedin size={18} />
+                <Linkedin size={18} aria-hidden="true" />
                 LinkedIn
               </a>
               <a

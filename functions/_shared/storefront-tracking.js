@@ -76,11 +76,23 @@ export function recordEvent(context, kind, slug) {
   if (!kv) return
 
   const rand = Math.random().toString(36).slice(2, 8)
-  const write = kv.put(`${kind}:${slug}:${ts}:${rand}`, "1", { metadata: record }).catch((err) => {
+  const write = kv.put(`${kind}:${slug}:${ts}:${rand}`, "1", { metadata: record, expirationTtl: RETENTION_SECONDS }).catch((err) => {
     console.log(`[storefront] KV write failed: ${err && err.message}`)
   })
   if (typeof context.waitUntil === "function") context.waitUntil(write)
 }
+
+// Cloudflare Pages does not apply public/_headers to responses a Function builds itself (the pixel
+// and the report), so these carry the site's security headers directly.
+export const SECURITY_HEADERS = {
+  "X-Content-Type-Options": "nosniff",
+  "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+  "Referrer-Policy": "strict-origin-when-cross-origin",
+  "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
+}
+
+// Tracking records are kept for 180 days, then Workers KV deletes them (stated in the privacy policy).
+export const RETENTION_SECONDS = 60 * 60 * 24 * 180
 
 // 1x1 transparent GIF.
 export const PIXEL_GIF = Uint8Array.from(

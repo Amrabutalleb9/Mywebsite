@@ -104,6 +104,27 @@ export default function TestimonialsWithStats({
 
   const go = useCallback((i: number) => setActive(((i % count) + count) % count), [count])
 
+  // Screen-reader announcement for changes the visitor makes (not for autoplay): one persistent status
+  // region, so the update is reliably read out.
+  const [announcement, setAnnouncement] = useState("")
+  const choose = useCallback(
+    (i: number) => {
+      const next = ((i % count) + count) % count
+      setActive(next)
+      setAnnouncement(`Testimonial ${next + 1} of ${count}: ${testimonials[next].author}`)
+    },
+    [count, testimonials],
+  )
+
+  // The site-wide "Pause motion" switch (footer) also stops the autoplay.
+  const [motionOff, setMotionOff] = useState(false)
+  useEffect(() => {
+    const sync = () => setMotionOff(document.documentElement.dataset.motion === "paused")
+    sync()
+    window.addEventListener("motionchange", sync)
+    return () => window.removeEventListener("motionchange", sync)
+  }, [])
+
   // Autoplay, paced for reading: about 4 words a second, never under 8 s. It pauses on hover or
   // keyboard focus, while the section is off screen, when the visitor presses pause, and never runs
   // for people who turn motion off.
@@ -112,7 +133,7 @@ export default function TestimonialsWithStats({
   const [hovered, setHovered] = useState(false)
   const [focused, setFocused] = useState(false)
   const [paused, setPaused] = useState(false)
-  const playing = !reduced && !paused && !hovered && !focused && regionInView && count > 1
+  const playing = !reduced && !motionOff && !paused && !hovered && !focused && regionInView && count > 1
   const words = count ? testimonials[active].text.split(/\s+/).length : 0
   const dwell = Math.max(8000, words * 250 + 3000)
 
@@ -130,7 +151,7 @@ export default function TestimonialsWithStats({
   const credit = testimonials[byline.shown]
 
   return (
-    <section className="px-8 pt-32 pb-24 lg:px-16 lg:pt-48 lg:pb-32" aria-labelledby="testimonials-heading">
+    <section className="px-8 pt-32 pb-24 lg:px-16 lg:pt-48 lg:pb-32">
       <div
         ref={regionRef}
         className="grid gap-12 lg:grid-cols-[4fr_7fr] lg:gap-24"
@@ -144,8 +165,11 @@ export default function TestimonialsWithStats({
           if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setFocused(false)
         }}
         onKeyDown={(e) => {
-          if (e.key === "ArrowRight" || e.key === "ArrowDown") { e.preventDefault(); go(active + 1) }
-          if (e.key === "ArrowLeft" || e.key === "ArrowUp") { e.preventDefault(); go(active - 1) }
+          // Left and Right step through the quotes. Up and Down keep scrolling the page, and browser
+          // shortcuts (Alt+Left for Back and so on) are left alone.
+          if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || e.defaultPrevented) return
+          if (e.key === "ArrowRight") { e.preventDefault(); choose(active + 1) }
+          if (e.key === "ArrowLeft") { e.preventDefault(); choose(active - 1) }
         }}
       >
         {/* Left: heading, then every name as the navigation, so people choose without scrolling. */}
@@ -160,28 +184,28 @@ export default function TestimonialsWithStats({
             </h2>
           </ScrollReveal>
 
-          <div className="-mx-8 mt-12 overflow-x-auto px-8 lg:mx-0 lg:mt-16 lg:overflow-visible lg:px-0">
+          <div className="-mx-8 mt-12 snap-x snap-mandatory scroll-px-8 overflow-x-auto overscroll-x-contain px-8 py-2 lg:mx-0 lg:mt-16 lg:snap-none lg:overflow-visible lg:px-0 lg:py-0">
             <ol className="flex min-w-max gap-2 lg:block lg:min-w-0 lg:border-b lg:border-border">
               {testimonials.map((t, i) => {
                 const on = i === active
                 return (
-                  <li key={i} className="relative lg:border-t lg:border-border">
+                  <li key={i} className="relative snap-start lg:border-t lg:border-border">
                     {/* The gold bar marks the open quote. While playing it fills as a timer. */}
                     {on && playing ? (
                       <span
                         key={`fill-${active}`}
                         aria-hidden="true"
-                        className="testimonial-fill absolute top-0 left-0 hidden w-[2px] bg-accent lg:block"
+                        className="testimonial-fill testimonial-indicator absolute top-0 left-0 hidden h-full w-[2px] bg-accent lg:block"
                         style={{ animationDuration: `${dwell}ms` }}
                       />
                     ) : (
-                      <span aria-hidden="true" className={`absolute top-0 left-0 hidden w-[2px] bg-accent lg:block ${on ? "h-full" : "h-0"}`} />
+                      <span aria-hidden="true" className={`testimonial-indicator absolute top-0 left-0 hidden w-[2px] bg-accent lg:block ${on ? "h-full" : "h-0"}`} />
                     )}
                     <button
                       type="button"
-                      onClick={() => go(i)}
+                      onClick={() => choose(i)}
                       aria-current={on ? "true" : undefined}
-                      className={`flex w-full items-baseline gap-4 rounded-full border px-4 py-2 text-left text-sm whitespace-nowrap transition-colors duration-300 lg:rounded-none lg:border-0 lg:py-4 lg:pr-0 lg:pl-4 lg:text-sm ${on ? "border-foreground text-foreground lg:font-medium" : "border-border text-muted-foreground hover:text-foreground"}`}
+                      className={`testimonial-pill flex w-full items-baseline gap-4 rounded-full border px-4 py-2 text-left text-sm whitespace-nowrap transition-colors duration-300 [@media(pointer:coarse)]:min-h-11 lg:rounded-none lg:border-0 lg:py-4 lg:pr-0 lg:pl-4 lg:text-sm ${on ? "border-foreground bg-foreground text-background lg:bg-transparent lg:font-medium lg:text-foreground" : "border-input-strong text-muted-foreground hover:text-foreground"}`}
                     >
                       <span className={`hidden w-5 shrink-0 text-[length:var(--text-micro)] font-semibold tracking-[var(--tracking-sublabel)] lg:inline ${on ? "text-accent-text" : "text-muted-foreground"}`}>{String(i + 1).padStart(2, "0")}</span>
                       {t.author}
@@ -210,14 +234,15 @@ export default function TestimonialsWithStats({
             <blockquote
               key={quote.shown}
               className={`col-start-1 row-start-1 font-serif text-[length:var(--text-quote)] italic leading-[var(--leading-quote)] tracking-tight text-foreground ${quote.leaving ? "swap-out-quote" : quote.entered ? "swap-in-quote" : ""}`}
-              aria-live={playing ? "off" : "polite"}
             >
               {current.text}
             </blockquote>
           </div>
 
+          <p className="sr-only" role="status">{announcement}</p>
+
           <div className="mt-12 flex items-end justify-between gap-6 border-t border-border pt-6 lg:mt-12">
-            <div key={byline.shown} className={byline.leaving ? "swap-out-byline" : byline.entered ? "swap-in-byline" : ""}>
+            <div key={byline.shown} className={`min-w-0 break-words ${byline.leaving ? "swap-out-byline" : byline.entered ? "swap-in-byline" : ""}`}>
               <p className="text-base font-medium text-foreground">{credit.author}</p>
               <p className="mt-2 text-xs tracking-[var(--tracking-sublabel)] text-muted-foreground uppercase">
                 {credit.role}
@@ -235,24 +260,24 @@ export default function TestimonialsWithStats({
                   aria-label={paused ? "Play testimonials" : "Pause testimonials"}
                   className="flex h-12 w-12 items-center justify-center rounded-full text-muted-foreground transition-colors duration-300 hover:text-foreground"
                 >
-                  {paused ? <Play size={18} /> : <Pause size={18} />}
+                  {paused ? <Play size={18} aria-hidden="true" /> : <Pause size={18} aria-hidden="true" />}
                 </button>
               )}
               <button
                 type="button"
-                onClick={() => go(active - 1)}
+                onClick={() => choose(active - 1)}
                 aria-label="Previous testimonial"
                 className="flex h-12 w-12 items-center justify-center rounded-full border border-foreground text-foreground transition-colors duration-300 hover:bg-foreground/10"
               >
-                <ArrowLeft size={18} />
+                <ArrowLeft size={18} aria-hidden="true" />
               </button>
               <button
                 type="button"
-                onClick={() => go(active + 1)}
+                onClick={() => choose(active + 1)}
                 aria-label="Next testimonial"
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-foreground bg-foreground text-background transition-colors duration-300 hover:border-accent hover:bg-[color-mix(in_srgb,var(--primary)_84%,#ffffff)]"
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-foreground bg-foreground text-background transition-colors duration-300 hover:border-accent hover:bg-[var(--primary-hover)]"
               >
-                <ArrowRight size={18} />
+                <ArrowRight size={18} aria-hidden="true" />
               </button>
             </div>
           </div>

@@ -1,10 +1,11 @@
 // Private staging gate (staging branch only).
 // Every host except the live site asks for a username and password,
 // and nothing on staging is indexed. The repo is public, so only a
-// SHA-256 hash of "user:password" is stored here.
+// SHA-256 hash of "user:password" is stored here. The password is long and random (changed 22 Nov 2026),
+// so the public hash cannot be guessed offline.
 
 const LIVE_HOSTS = new Set(["amrabutalleb.com", "www.amrabutalleb.com", "mywebsite-dqc.pages.dev"])
-const CREDENTIAL_HASH = "c903b36e34248649d334b7905fcd8e77293cd76d8829ec77eb19fb61f8ab1956"
+const CREDENTIAL_HASH = "63ef58c69bf6e5f80a7d1839c508f28a707f85c15b639532a14d06843f6540e5"
 
 async function sha256Hex(text) {
   const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text))

@@ -17,13 +17,13 @@ if (!token) {
   process.exit(2)
 }
 
-// The staging gate uses Basic auth, so the token goes in the query string there.
+// The staging gate uses Basic auth, so there the token goes in the X-Report-Token header instead.
 const headers = {}
 const target = new URL(url)
 if (csv) target.searchParams.set("format", "csv")
 if (process.env.S_REPORT_BASIC_AUTH) {
   headers.Authorization = `Basic ${Buffer.from(process.env.S_REPORT_BASIC_AUTH).toString("base64")}`
-  target.searchParams.set("token", token)
+  headers["X-Report-Token"] = token
 } else {
   headers.Authorization = `Bearer ${token}`
 }

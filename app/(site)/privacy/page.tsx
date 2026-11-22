@@ -19,7 +19,7 @@ export default function PrivacyPage() {
           Privacy policy
         </h1>
         <p className="mb-12 text-sm text-muted-foreground">
-          Last updated: 31 March 2026. This policy describes how{" "}
+          Last updated: 22 November 2026. This policy describes how{" "}
           <strong className="text-foreground">Amr Abu-Talleb</strong> (&quot;we&quot;, &quot;us&quot;) handles
           information when you use <strong className="text-foreground">amrabutalleb.com</strong> (the
           &quot;Site&quot;).
@@ -51,6 +51,13 @@ export default function PrivacyPage() {
                 infrastructure when you load the Site.
               </li>
               <li>
+                <strong className="text-foreground">Email link and open data</strong>: if I send you an email with a
+                link to a preview page on the Site, or a small image that shows the email was opened, the Site records
+                which page or image was loaded, when, the country and the type of device (for example phone or
+                desktop), and whether the request looked like an automated one. It does not store your IP address or
+                full browser details. Mail apps that load images automatically can record an open you never made.
+              </li>
+              <li>
                 <strong className="text-foreground">Cookies and similar technologies</strong> — if we or embedded
                 third-party services set cookies or use local storage, they are used to operate the Site, remember
                 preferences, or analyse traffic as described by those services.
@@ -63,6 +70,7 @@ export default function PrivacyPage() {
             <p className="mb-3">We use the information above to:</p>
             <ul className="list-disc space-y-2 pl-6">
               <li>Respond to inquiries and provide services you request;</li>
+              <li>See whether emails I sent were opened and whether their links were used;</li>
               <li>Process or fulfill digital product purchases where applicable;</li>
               <li>Operate, secure, and improve the Site;</li>
               <li>Comply with legal obligations.</li>
@@ -72,8 +80,10 @@ export default function PrivacyPage() {
           <section>
             <h2 className="mb-3 font-serif text-2xl text-foreground">4. Third-party services</h2>
             <p>
-              The Site may use third-party processors (for example, form delivery, scheduling embeds, payment or checkout
-              providers, or hosting). Those services have their own privacy policies. We encourage you to read them.
+              The Site is hosted on Cloudflare, which also stores the email link and open data described above.
+              Messages sent through the contact form and the footer form are delivered to my inbox by Web3Forms.
+              The Site may use other third-party processors (for example, scheduling embeds, payment or checkout
+              providers). Those services have their own privacy policies. We encourage you to read them.
               We only share information with them as needed to provide the relevant feature.
             </p>
           </section>
@@ -83,6 +93,7 @@ export default function PrivacyPage() {
             <p>
               We retain personal information only as long as needed for the purposes above, unless a longer period is
               required by law. Email inquiries may be kept for a reasonable period to manage ongoing communication.
+              Email link and open data is deleted automatically after 180 days.
             </p>
           </section>
 
