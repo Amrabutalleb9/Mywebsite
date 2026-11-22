@@ -344,7 +344,7 @@ These apply globally and must not be overridden:
 - Text is at least 4.5:1 on its ground (3:1 at 24px and up).
 - Control boundaries and focus indicators are at least 3:1.
 - The focus ring is 2px in `--accent-text`, offset 3px, on light grounds (including the white footer card), and `--accent` on ink.
-- Form fields: an `--input-strong` underline at rest, and a 2px `--accent-text` underline on focus.
+- Form fields (footer, /contact, /services): an `--input-strong` underline at rest, and a 2px `--accent-text` underline on focus. No boxes, no focus ring.
 
 ## Positioning (Oct 2026)
 
@@ -367,7 +367,7 @@ Copy is written in Amr's voice, built from his own words. Rules:
 
 ## Footer (Oct 2026)
 
-Option B from the footer lab (`footer-options` branch, /footer-lab): a white form card hanging from the top edge (7 of 12 columns) beside the "Let’s talk" words. Name and email side by side, topic as one-tap pills, focus is a 2px `--accent-text` underline over an `--input-strong` resting underline, plus the site's 2px `--accent-text` focus ring so keyboard focus is visible in forced-colours mode and against the white card (changed 22 Nov 2026), inputs carry `autoComplete`. Messages go through Web3Forms (`lib/contact.ts`) with the topic in the subject and the sender as reply-to. On /contact the card is dropped because the page has its own form.
+Option B from the footer lab (`footer-options` branch, /footer-lab): a white form card hanging from the top edge (7 of 12 columns) beside the "Let’s talk" words. Name and email side by side, topic as one-tap pills, focus is a 2px `--accent-text` underline over an `--input-strong` resting underline (never a box or ring; text fields are excluded from the global focus ring, and only forced-colours mode gives them an outline), inputs carry `autoComplete`. Messages go through Web3Forms (`lib/contact.ts`) with the topic in the subject and the sender as reply-to. On /contact the card is dropped because the page has its own form.
 
 ## Buttons (Oct 2026)
 

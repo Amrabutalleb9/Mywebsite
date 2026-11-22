@@ -470,8 +470,10 @@ a:not(.btn):hover .cta-arrow { transform: translate(2px, -2px); }
 .text-accent.hover\:text-foreground:hover { color: var(--foreground); }
 .text-accent.hover\:text-primary-foreground:hover { color: var(--primary-foreground); }
 
-/* Keyboard focus: one clear, visible ring on every link, button and form control. */
-:where(a, button, [role="button"], select, input, textarea, summary, [tabindex]):focus-visible {
+/* Keyboard focus: one clear, visible ring on every link, button and control. Text fields are left out:
+   they show focus with their own 2px gold underline, and a ring on top reads as a heavy double box. */
+:where(a, button, [role="button"], summary, [tabindex]):focus-visible,
+:where(input[type="checkbox"], input[type="radio"]):focus-visible {
   outline: 2px solid var(--accent-text);
   outline-offset: 3px;
   border-radius: 4px;
@@ -555,3 +557,8 @@ dialog::backdrop { overflow: hidden; overscroll-behavior: contain; }
 .card-link::after { content: ""; position: absolute; inset: 0; z-index: 10; }
 .card-link:focus-visible { outline: none; }
 :is(.work-card, .highlight-card):has(.card-link:focus-visible) { outline: 2px solid var(--accent-text); outline-offset: 6px; border-radius: 1.5rem; }
+
+/* High-contrast mode drops box-shadows and recolours borders, so text fields get a plain outline there. */
+@media (forced-colors: active) {
+  :where(input, textarea, select):focus-visible { outline: 2px solid CanvasText; outline-offset: 2px; }
+}

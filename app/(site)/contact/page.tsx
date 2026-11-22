@@ -10,7 +10,7 @@ const LINKEDIN = "https://www.linkedin.com/in/abutalleb/"
 
 // Field boundary uses --input-strong (3.4:1), the design system's colour for form controls.
 const fieldCls =
-  "w-full rounded-sm border border-input-strong bg-background px-4 py-3 text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-accent-text focus:ring-1 focus:ring-accent user-invalid:border-destructive"
+  "w-full border-0 border-b border-input-strong bg-transparent py-3 text-base text-foreground outline-none transition-[border-color,box-shadow] duration-300 placeholder:text-muted-foreground focus:border-accent-text focus:shadow-[0_1px_0_var(--accent-text)] user-invalid:border-destructive"
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", budget: "", message: "", botcheck: false })
