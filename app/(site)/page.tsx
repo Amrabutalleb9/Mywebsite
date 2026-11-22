@@ -95,6 +95,12 @@ function WorkSection() {
                         </p>
                         <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{project.role}</p>
                         <p className="mt-4 max-w-sm text-xs leading-relaxed text-accent">{project.impact}</p>
+                        {/* Visible cue that the card opens. The title is already the link (it covers the card),
+                            so this is hidden from screen readers to avoid reading the same link twice. */}
+                        <span aria-hidden="true" className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors duration-300 group-hover:text-accent-text group-has-[:focus-visible]:text-accent-text">
+                          {"Read the case\u00A0study"}
+                          <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0" />
+                        </span>
                       </div>
                     </div>
                   </div>
